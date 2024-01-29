@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbageuvvodame"
-path="res://.godot/imported/main-character-with-staff-gem-red.png-c7be03c265e0c4cd9b9974c179efc5b3.ctex"
+uid="uid://cxhdhu32jxyt4"
+path="res://.godot/imported/main-character-with-nothing.png-7931a979ae796270c72567d7f7bb4a79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game_assets/main_character/main-character-with-staff-gem-red.png"
-dest_files=["res://.godot/imported/main-character-with-staff-gem-red.png-c7be03c265e0c4cd9b9974c179efc5b3.ctex"]
+source_file="res://game_assets/main_character/with_shield/main-character-with-nothing.png"
+dest_files=["res://.godot/imported/main-character-with-nothing.png-7931a979ae796270c72567d7f7bb4a79.ctex"]
 
 [params]
 

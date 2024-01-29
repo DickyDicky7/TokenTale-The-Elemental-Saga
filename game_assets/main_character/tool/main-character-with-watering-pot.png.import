@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://y36kc7pl0dsn"
-path="res://.godot/imported/main-character-with-staff-gem-yellow.png-881ee49921263714aa53202c75a2812f.ctex"
+uid="uid://vw3y0y580jms"
+path="res://.godot/imported/main-character-with-watering-pot.png-a084d37986e685ed2f6fb9a793d9bb11.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game_assets/main_character/main-character-with-staff-gem-yellow.png"
-dest_files=["res://.godot/imported/main-character-with-staff-gem-yellow.png-881ee49921263714aa53202c75a2812f.ctex"]
+source_file="res://game_assets/main_character/tool/main-character-with-watering-pot.png"
+dest_files=["res://.godot/imported/main-character-with-watering-pot.png-a084d37986e685ed2f6fb9a793d9bb11.ctex"]
 
 [params]
 

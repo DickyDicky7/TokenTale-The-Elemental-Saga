@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwuwkmjls4qut"
-path="res://.godot/imported/main-character-with-long-spear.png-051ec7d8643709a76ecf23b93dfcd247.ctex"
+uid="uid://bno02y5o8s0n8"
+path="res://.godot/imported/main-character-with-scythe.png-e15923b72aaa1fb1855366b8dc399497.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game_assets/main_character/main-character-with-long-spear.png"
-dest_files=["res://.godot/imported/main-character-with-long-spear.png-051ec7d8643709a76ecf23b93dfcd247.ctex"]
+source_file="res://game_assets/main_character/none_shield/main-character-with-scythe.png"
+dest_files=["res://.godot/imported/main-character-with-scythe.png-e15923b72aaa1fb1855366b8dc399497.ctex"]
 
 [params]
 

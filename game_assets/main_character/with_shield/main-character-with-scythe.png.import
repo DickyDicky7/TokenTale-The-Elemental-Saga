@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnyyikll55bhw"
-path="res://.godot/imported/main-character-with-frail.png-61b3055fcf42303422d8cffd5411bd22.ctex"
+uid="uid://bbplgi7xnlnp"
+path="res://.godot/imported/main-character-with-scythe.png-81c09b618ff6d7596969c24a54cc3817.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game_assets/main_character/main-character-with-frail.png"
-dest_files=["res://.godot/imported/main-character-with-frail.png-61b3055fcf42303422d8cffd5411bd22.ctex"]
+source_file="res://game_assets/main_character/with_shield/main-character-with-scythe.png"
+dest_files=["res://.godot/imported/main-character-with-scythe.png-81c09b618ff6d7596969c24a54cc3817.ctex"]
 
 [params]
 

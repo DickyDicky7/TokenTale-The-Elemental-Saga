@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7tv8lkftiwe6"
-path="res://.godot/imported/main-character-with-bow.png-aafcb5c0be0cbe845334d0891cd22aac.ctex"
+uid="uid://bedb8qfw3wq6n"
+path="res://.godot/imported/main-character-with-staff-gem-orange.png-20bf69b9aa743dd6cafbd71fcc370453.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game_assets/main_character/main-character-with-bow.png"
-dest_files=["res://.godot/imported/main-character-with-bow.png-aafcb5c0be0cbe845334d0891cd22aac.ctex"]
+source_file="res://game_assets/main_character/with_shield/main-character-with-staff-gem-orange.png"
+dest_files=["res://.godot/imported/main-character-with-staff-gem-orange.png-20bf69b9aa743dd6cafbd71fcc370453.ctex"]
 
 [params]
 

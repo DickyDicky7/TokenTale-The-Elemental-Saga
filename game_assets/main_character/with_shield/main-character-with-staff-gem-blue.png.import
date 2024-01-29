@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5n8bjqpemxbs"
-path="res://.godot/imported/main-character-with-long-sword.png-c59282d62674facdfc27f7adba6ee96d.ctex"
+uid="uid://supudacs5j01"
+path="res://.godot/imported/main-character-with-staff-gem-blue.png-3438c5b46b9c96a1a23fd8f5e3ef1beb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game_assets/main_character/main-character-with-long-sword.png"
-dest_files=["res://.godot/imported/main-character-with-long-sword.png-c59282d62674facdfc27f7adba6ee96d.ctex"]
+source_file="res://game_assets/main_character/with_shield/main-character-with-staff-gem-blue.png"
+dest_files=["res://.godot/imported/main-character-with-staff-gem-blue.png-3438c5b46b9c96a1a23fd8f5e3ef1beb.ctex"]
 
 [params]
 

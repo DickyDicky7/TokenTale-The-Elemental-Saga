@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbplgi7xnlnp"
-path="res://.godot/imported/main-character-with-scythe.png-9056dc7176c52337455e589ae9e30c1b.ctex"
+uid="uid://1ue5kxq0vpsh"
+path="res://.godot/imported/main-character-with-staff-gem-purple.png-a02e76373040a688f1d4ed6798da3ed8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game_assets/main_character/main-character-with-scythe.png"
-dest_files=["res://.godot/imported/main-character-with-scythe.png-9056dc7176c52337455e589ae9e30c1b.ctex"]
+source_file="res://game_assets/main_character/with_shield/main-character-with-staff-gem-purple.png"
+dest_files=["res://.godot/imported/main-character-with-staff-gem-purple.png-a02e76373040a688f1d4ed6798da3ed8.ctex"]
 
 [params]
 

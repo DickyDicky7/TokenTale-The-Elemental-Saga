@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhg10mwur6ctq"
-path="res://.godot/imported/main-character-with-halberd.png-848f718e3493e679bc6821dddb1fc5ad.ctex"
+uid="uid://dn6kenotqesyv"
+path="res://.godot/imported/main-character-with-staff-gem-yellow.png-a889ba8193092d27cacde6c02cbdaf12.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game_assets/main_character/main-character-with-halberd.png"
-dest_files=["res://.godot/imported/main-character-with-halberd.png-848f718e3493e679bc6821dddb1fc5ad.ctex"]
+source_file="res://game_assets/main_character/none_shield/main-character-with-staff-gem-yellow.png"
+dest_files=["res://.godot/imported/main-character-with-staff-gem-yellow.png-a889ba8193092d27cacde6c02cbdaf12.ctex"]
 
 [params]
 

@@ -1,25 +1,25 @@
 # TOKENTALE-THE-ELEMENTAL-SAGA
 
-1. Youtube:
+## Youtube:
 - Enemy AI with Behavior Trees - with Demo in Godot Engine
 - Behavior Trees - Godot Game Dev (BETTER AUDIO)
 - Godot 4.1: Behavior Trees with Beehave: rant and how to start using them..
 - State machines and state charts in Godot
 
-2. Plugins:
+## Plugins:
 - https://bitbra.in/beehave/#/ (https://github.com/bitbrain/beehave)
 - https://github.com/derkork/godot-statecharts
 - https://phantom-camera.dev/
 - https://github.com/arkology/ShaderV
 - https://github.com/DigvijaysinhGohil/Godot-Shader-Lib/
 
-3. Patterns:
+## Patterns:
 - Behavior Tree
 - State Machine
 - Component
 - Command
 
-4. Coding Convention:
+## Coding Convention:
 - Private Fields' name, e.g:
 ```c#
 private int _walkingSpeed = 100;
@@ -53,3 +53,4 @@ public partial class Adventurer
     /* ... */
 }
 ```
+

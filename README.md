@@ -12,3 +12,44 @@ Plugins:
 - https://phantom-camera.dev/
 - https://github.com/arkology/ShaderV
 - https://github.com/DigvijaysinhGohil/Godot-Shader-Lib/
+
+Patterns:
+- Behavior Tree
+- State Machine
+- Component
+- Command
+
+Coding Convention:
+- Private fields' name, e.g:
+```
+private int _walkingSpeed = 100;
+```
+- Public properties' name, e.g:
+```
+public int WalkingSpeed { get; set; } = 100;
+```
+- Classes' & Functions' name, e.g:
+```
+public partial class Adventurer
+{
+    public void Attack()
+    {
+        /* ... */
+    }
+
+    /* ... */
+}
+```
+- Parameters' & Local Variables' name, e.g:
+```
+public partial class Adventurer
+{
+    public void Attack(Enemy _enemy_)
+    {
+        Enemy enemy = _enemy_;
+        /* ... */
+    }
+
+    /* ... */
+}
+```

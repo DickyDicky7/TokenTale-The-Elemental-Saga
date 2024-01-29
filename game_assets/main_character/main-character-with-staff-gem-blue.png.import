@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cudelf00gtf34"
-path="res://.godot/imported/main-character-03.png-d91c137045f53d6db509dd7d809dedd8.ctex"
+uid="uid://supudacs5j01"
+path="res://.godot/imported/main-character-with-staff-gem-blue.png-e2047f3a30e244d3fde01cbf6404abdc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game_assets/main_character/main-character-03.png"
-dest_files=["res://.godot/imported/main-character-03.png-d91c137045f53d6db509dd7d809dedd8.ctex"]
+source_file="res://game_assets/main_character/main-character-with-staff-gem-blue.png"
+dest_files=["res://.godot/imported/main-character-with-staff-gem-blue.png-e2047f3a30e244d3fde01cbf6404abdc.ctex"]
 
 [params]
 

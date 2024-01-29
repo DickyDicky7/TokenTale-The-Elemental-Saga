@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://0xfead02py0u"]
+
+[resource]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"FRAIL_ATTACK_D",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"FRAIL_ATTACK_L",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"FRAIL_ATTACK_R",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"FRAIL_ATTACK_U",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"FRAIL_MOVE_D",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"FRAIL_MOVE_L",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"FRAIL_MOVE_R",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"FRAIL_MOVE_U",
+"speed": 5.0
+}]

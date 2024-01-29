@@ -37,4 +37,5 @@ enabled=PackedStringArray("res://addons/beehave/plugin.cfg", "res://addons/godot
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+anti_aliasing/screen_space_roughness_limiter/limit=0.2
 anti_aliasing/quality/screen_space_aa=1

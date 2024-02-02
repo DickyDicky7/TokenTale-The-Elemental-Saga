@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://blpsavl23cbqg"]
+
+[ext_resource type="Shader" path="res://game_characters/main_character/MainCharacter_ShaderMaterial_Body_Dead.gdshader" id="1_nh76r"]
+
+[resource]
+shader = ExtResource("1_nh76r")

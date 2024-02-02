@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dpk6ju0rlvigy"]
+
+[ext_resource type="Shader" path="res://game_characters/main_character/MainCharacter_ShaderMaterial_Body_Move.gdshader" id="1_i1iei"]
+
+[resource]
+shader = ExtResource("1_i1iei")

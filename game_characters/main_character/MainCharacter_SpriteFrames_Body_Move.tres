@@ -1,0 +1,53 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://0xfead02py0u"]
+
+[ext_resource type="Texture2D" uid="uid://3p446myi4q1m" path="res://game_assets/characters/hunter/move.png" id="1_6sk1d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_osccs"]
+atlas = ExtResource("1_6sk1d")
+region = Rect2(0, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1nf7"]
+atlas = ExtResource("1_6sk1d")
+region = Rect2(64, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1cfj"]
+atlas = ExtResource("1_6sk1d")
+region = Rect2(128, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vw84i"]
+atlas = ExtResource("1_6sk1d")
+region = Rect2(192, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jcl1"]
+atlas = ExtResource("1_6sk1d")
+region = Rect2(256, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xydfx"]
+atlas = ExtResource("1_6sk1d")
+region = Rect2(320, 32, 64, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_osccs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1nf7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1cfj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vw84i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jcl1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xydfx")
+}],
+"loop": true,
+"name": &"MOVE",
+"speed": 10.0
+}]

@@ -1,0 +1,53 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://c2tew6oww52r"]
+
+[ext_resource type="Texture2D" uid="uid://tltowkst07n" path="res://game_assets/characters/hunter/dead.png" id="1_x3v32"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_doxgg"]
+atlas = ExtResource("1_x3v32")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1cqh"]
+atlas = ExtResource("1_x3v32")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42hdx"]
+atlas = ExtResource("1_x3v32")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syaw6"]
+atlas = ExtResource("1_x3v32")
+region = Rect2(192, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pngo"]
+atlas = ExtResource("1_x3v32")
+region = Rect2(256, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kuvp"]
+atlas = ExtResource("1_x3v32")
+region = Rect2(320, 0, 64, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_doxgg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1cqh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42hdx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syaw6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7pngo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kuvp")
+}],
+"loop": true,
+"name": &"DEAD",
+"speed": 10.0
+}]

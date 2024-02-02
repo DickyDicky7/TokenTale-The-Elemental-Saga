@@ -1,6 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dehaeylon6ldp"]
-
-[ext_resource type="Shader" path="res://game_characters/main_character/MainCharacter_ShaderMaterial_Body_Idle.gdshader" id="1_dsa3a"]
-
-[resource]
-shader = ExtResource("1_dsa3a")

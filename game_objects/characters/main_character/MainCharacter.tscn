@@ -1,0 +1,642 @@
+[gd_scene load_steps=27 format=3 uid="uid://kph28vq633cw"]
+
+[ext_resource type="Material" uid="uid://blpsavl23cbqg" path="res://game_objects/characters/main_character/MainCharacter_ShaderMaterial_AnimatedSprite2D_Body_Dead.tres" id="1_1dkve"]
+[ext_resource type="SpriteFrames" uid="uid://c2tew6oww52r" path="res://game_objects/characters/main_character/MainCharacter_SpriteFrames_AnimatedSprite2D_Body_Dead.tres" id="2_6eo03"]
+[ext_resource type="Shape2D" uid="uid://citgnft8eb1d8" path="res://game_objects/characters/main_character/MainCharacter_CapsuleShape2D_CollisionShape2D_Body.tres" id="2_e1tw7"]
+[ext_resource type="Material" uid="uid://dehaeylon6ldp" path="res://game_objects/characters/main_character/MainCharacter_ShaderMaterial_AnimatedSprite2D_Body_Idle.tres" id="3_3xpab"]
+[ext_resource type="SpriteFrames" uid="uid://d02xg7io6gfiy" path="res://game_objects/characters/main_character/MainCharacter_SpriteFrames_AnimatedSprite2D_Body_Idle.tres" id="4_7ahlw"]
+[ext_resource type="Material" uid="uid://dpk6ju0rlvigy" path="res://game_objects/characters/main_character/MainCharacter_ShaderMaterial_AnimatedSprite2D_Body_Move.tres" id="5_8kjh5"]
+[ext_resource type="SpriteFrames" uid="uid://0xfead02py0u" path="res://game_objects/characters/main_character/MainCharacter_SpriteFrames_AnimatedSprite2D_Body_Move.tres" id="6_gp7y6"]
+[ext_resource type="PackedScene" uid="uid://dx1yyel70jhi5" path="res://game_objects/items/hand/l_hand/LHand.tscn" id="8_a6bxd"]
+[ext_resource type="PackedScene" uid="uid://cm5gjh4amr5bt" path="res://game_objects/items/hand/r_hand/RHand.tscn" id="9_lu8uc"]
+[ext_resource type="Material" uid="uid://djeuo8ufmtnsu" path="res://game_objects/characters/main_character/MainCharacter_ShaderMaterial_AnimatedSprite2D_Weapon_Bow.tres" id="12_fbb7o"]
+[ext_resource type="SpriteFrames" uid="uid://bvu7c67np3hx6" path="res://game_objects/characters/main_character/MainCharacter_SpriteFrames_AnimatedSprite2D_Weapon_Bow.tres" id="13_uwnai"]
+
+[sub_resource type="Animation" id="Animation_d8scn"]
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_Body_Dead:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_Body_Dead:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["BODY_DEAD"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D_Body_Dead:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D_Body_Idle:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite2D_Body_Move:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_0vssp"]
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_Body_Idle:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_Body_Idle:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["BODY_IDLE"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D_Body_Idle:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D_Body_Dead:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite2D_Body_Move:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_u8ddo"]
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_Body_Move:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_Body_Move:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["BODY_MOVE"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D_Body_Dead:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D_Body_Idle:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite2D_Body_Move:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_60c8v"]
+resource_name = "HAND_DEAD"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LHand:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-15, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LHand:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RHand:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(15, 2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RHand:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LHand:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("RHand:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_55avp"]
+resource_name = "HAND_IDLE"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LHand:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-15, 0), Vector2(-15, 4), Vector2(-15, 0), Vector2(-15, 4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LHand:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RHand:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(15, 0), Vector2(15, 4), Vector2(15, 0), Vector2(15, 4)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RHand:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LHand:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("RHand:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_wlhqi"]
+resource_name = "HAND_MOVE"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LHand:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-15, 2), Vector2(-12, 2), Vector2(-15, 2), Vector2(-12, 2), Vector2(-15, 2), Vector2(-12, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LHand:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RHand:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(15, 2), Vector2(12, 2), Vector2(15, 2), Vector2(12, 2), Vector2(15, 2), Vector2(12, 2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RHand:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LHand:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("RHand:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_eh5ru"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LHand:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RHand:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LHand:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-15, 2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RHand:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(15, 2)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite2D_Body_Dead:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite2D_Body_Idle:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AnimatedSprite2D_Body_Move:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("LHand:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("RHand:frame")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pmcwq"]
+_data = {
+"BODY_DEAD": SubResource("Animation_d8scn"),
+"BODY_IDLE": SubResource("Animation_0vssp"),
+"BODY_MOVE": SubResource("Animation_u8ddo"),
+"HAND_DEAD": SubResource("Animation_60c8v"),
+"HAND_IDLE": SubResource("Animation_55avp"),
+"HAND_MOVE": SubResource("Animation_wlhqi"),
+"RESET": SubResource("Animation_eh5ru")
+}
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_4c7ms"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wh5cj"]
+animation = &"BODY_IDLE"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vyfpp"]
+animation = &"HAND_IDLE"
+
+[sub_resource type="AnimationNodeAdd3" id="AnimationNodeAdd3_ujwsx"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_vnbk7"]
+graph_offset = Vector2(-275.64, -187.413)
+nodes/BODY_IDLE/node = SubResource("AnimationNodeAnimation_wh5cj")
+nodes/BODY_IDLE/position = Vector2(-160, 106.667)
+nodes/HAND_IDLE/node = SubResource("AnimationNodeAnimation_vyfpp")
+nodes/HAND_IDLE/position = Vector2(-160, 266.667)
+nodes/IDLE/node = SubResource("AnimationNodeAdd3_ujwsx")
+nodes/IDLE/position = Vector2(160, 213.333)
+nodes/output/position = Vector2(400, 186.667)
+node_connections = [&"IDLE", 0, &"BODY_IDLE", &"IDLE", 1, &"HAND_IDLE", &"output", 0, &"IDLE"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_s80jw"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_do0jl"]
+states/DEAD/node = SubResource("AnimationNodeBlendTree_4c7ms")
+states/DEAD/position = Vector2(580, 104.667)
+states/IDLE/node = SubResource("AnimationNodeBlendTree_vnbk7")
+states/IDLE/position = Vector2(409.333, 103.333)
+states/MOVE/node = SubResource("AnimationNodeBlendTree_s80jw")
+states/MOVE/position = Vector2(504, 90)
+
+[node name="MainCharacter" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D_Body_Dead" type="AnimatedSprite2D" parent="CharacterBody2D"]
+visible = false
+material = ExtResource("1_1dkve")
+sprite_frames = ExtResource("2_6eo03")
+animation = &"BODY_DEAD"
+frame = 5
+
+[node name="AnimatedSprite2D_Body_Idle" type="AnimatedSprite2D" parent="CharacterBody2D"]
+material = ExtResource("3_3xpab")
+sprite_frames = ExtResource("4_7ahlw")
+animation = &"BODY_IDLE"
+frame = 3
+
+[node name="AnimatedSprite2D_Body_Move" type="AnimatedSprite2D" parent="CharacterBody2D"]
+visible = false
+material = ExtResource("5_8kjh5")
+sprite_frames = ExtResource("6_gp7y6")
+animation = &"BODY_MOVE"
+frame = 5
+
+[node name="CollisionShape2D_Body" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = ExtResource("2_e1tw7")
+
+[node name="LHand" parent="CharacterBody2D" instance=ExtResource("8_a6bxd")]
+position = Vector2(-15, 2)
+frame = 2
+
+[node name="RHand" parent="CharacterBody2D" instance=ExtResource("9_lu8uc")]
+position = Vector2(15, 2)
+frame = 3
+
+[node name="BowBundle" type="Node2D" parent="CharacterBody2D"]
+
+[node name="AnimatedSprite2D_Weapon_Bow_Shot" type="AnimatedSprite2D" parent="CharacterBody2D"]
+material = ExtResource("12_fbb7o")
+sprite_frames = ExtResource("13_uwnai")
+animation = &"WEAPON_BOW_SHOT"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D"]
+libraries = {
+"": SubResource("AnimationLibrary_pmcwq")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="CharacterBody2D"]
+active = false
+tree_root = SubResource("AnimationNodeStateMachine_do0jl")
+anim_player = NodePath("../AnimationPlayer")
+parameters/IDLE/IDLE/add_amount = 1.0

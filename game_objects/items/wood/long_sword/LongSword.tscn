@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://e7mf01r4x1a5"]
+
+[ext_resource type="Texture2D" uid="uid://ccr4sjhegjjni" path="res://game_objects/items/wood/shared/CanvasTexture.tres" id="1_7x8gr"]
+[ext_resource type="Shape2D" uid="uid://bl6rakvusr51g" path="res://game_objects/items/wood/long_sword/LongSword_CapsuleShape2D_CollisionShape2D_Hitbox.tres" id="2_d7ka5"]
+
+[node name="LongSword" type="Node2D"]
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+texture = ExtResource("1_7x8gr")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 48)
+
+[node name="CollisionShape2D_Hitbox" type="CollisionShape2D" parent="AnimatableBody2D"]
+position = Vector2(0, 2)
+shape = ExtResource("2_d7ka5")

@@ -1,6 +1,0 @@
-[gd_resource type="CanvasTexture" load_steps=2 format=3 uid="uid://c24symq8afhwi"]
-
-[ext_resource type="Texture2D" uid="uid://cqf1ffkxyh4vx" path="res://game_assets/equipments/hand.png" id="1_sa05s"]
-
-[resource]
-diffuse_texture = ExtResource("1_sa05s")

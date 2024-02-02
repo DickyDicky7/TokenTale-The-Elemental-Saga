@@ -31,7 +31,7 @@ project/assembly_name="TokenTale-The-Elemental-Saga"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/beehave/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/AS2P/plugin.cfg", "res://addons/beehave/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [rendering]
 

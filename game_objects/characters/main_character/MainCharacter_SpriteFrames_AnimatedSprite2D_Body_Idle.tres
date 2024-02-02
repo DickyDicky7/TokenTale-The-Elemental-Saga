@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://d02xg7io6gfiy"]
+
+[ext_resource type="Texture2D" uid="uid://d26pit1s1k6yi" path="res://game_assets/characters/hunter/idle.png" id="1_2wgol"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rmil"]
+atlas = ExtResource("1_2wgol")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0df4"]
+atlas = ExtResource("1_2wgol")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hiq57"]
+atlas = ExtResource("1_2wgol")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rammj"]
+atlas = ExtResource("1_2wgol")
+region = Rect2(96, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1rmil")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0df4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hiq57")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rammj")
+}],
+"loop": true,
+"name": &"BODY_IDLE",
+"speed": 10.0
+}]

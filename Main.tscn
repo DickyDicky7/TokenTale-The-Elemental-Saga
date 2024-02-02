@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://7vquh0pu8wtd" path="res://game_assets/icon.svg" id="3_q7ibp"]
 [ext_resource type="PackedScene" uid="uid://e7mf01r4x1a5" path="res://game_objects/items/wood/long_sword/LongSword.tscn" id="4_nev88"]
 [ext_resource type="Texture2D" uid="uid://diq4coi4q0wu2" path="res://game_assets/maps/1/tiles.png" id="5_p8nap"]
-[ext_resource type="Texture2D" uid="uid://bafh5kpttq7p4" path="res://game_assets/maps/1/tiles-normal-map-height-4000-soft-40-pixelated-invert-y.png" id="6_tvdum"]
+[ext_resource type="Texture2D" uid="uid://bafh5kpttq7p4" path="res://game_assets/maps/1/tiles-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="6_tvdum"]
 
 [sub_resource type="Gradient" id="Gradient_2lik8"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)

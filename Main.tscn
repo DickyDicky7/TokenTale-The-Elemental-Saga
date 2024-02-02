@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cnes8lrs7ph26"]
+[gd_scene load_steps=10 format=3 uid="uid://cnes8lrs7ph26"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_px6f3"]
 [ext_resource type="PackedScene" uid="uid://kph28vq633cw" path="res://game_objects/characters/main_character/MainCharacter.tscn" id="2_acwdm"]
 [ext_resource type="Texture2D" uid="uid://7vquh0pu8wtd" path="res://game_assets/icon.svg" id="3_q7ibp"]
 [ext_resource type="PackedScene" uid="uid://e7mf01r4x1a5" path="res://game_objects/items/wood/long_sword/LongSword.tscn" id="4_nev88"]
+[ext_resource type="Texture2D" uid="uid://diq4coi4q0wu2" path="res://game_assets/maps/1/tiles.png" id="5_p8nap"]
+[ext_resource type="Texture2D" uid="uid://bafh5kpttq7p4" path="res://game_assets/maps/1/tiles-normal-map-height-4000-soft-40-pixelated-invert-y.png" id="6_tvdum"]
 
 [sub_resource type="Gradient" id="Gradient_2lik8"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -15,6 +17,10 @@ height = 200
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.840491, 0.131902)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_jqtay"]
+diffuse_texture = ExtResource("5_p8nap")
+normal_texture = ExtResource("6_tvdum")
 
 [node name="Main" type="Node"]
 script = ExtResource("1_px6f3")
@@ -34,10 +40,17 @@ zoom = Vector2(3, 3)
 color = Color(0.0737223, 0.15268, 0.185773, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(399, 250)
+position = Vector2(430, 265)
 color = Color(0.323274, 0.533074, 0.293621, 1)
 energy = 3.0
 texture = SubResource("GradientTexture2D_hpl7p")
+height = 10.0
 
 [node name="LongSword" parent="." instance=ExtResource("4_nev88")]
 position = Vector2(384, 283)
+rotation = 0.523599
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(473, 195)
+texture = SubResource("CanvasTexture_jqtay")

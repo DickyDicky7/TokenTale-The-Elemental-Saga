@@ -54,3 +54,5 @@ public partial class Adventurer
 }
 ```
 
+## Others:
+- https://github.com/godotengine/awesome-godot

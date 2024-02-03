@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://kph28vq633cw"]
+[gd_scene load_steps=29 format=3 uid="uid://kph28vq633cw"]
 
 [ext_resource type="Material" uid="uid://blpsavl23cbqg" path="res://game_objects/characters/main_character/MainCharacter_ShaderMaterial_AnimatedSprite2D_Body_Dead.tres" id="1_1dkve"]
 [ext_resource type="SpriteFrames" uid="uid://c2tew6oww52r" path="res://game_objects/characters/main_character/MainCharacter_SpriteFrames_AnimatedSprite2D_Body_Dead.tres" id="2_6eo03"]
@@ -9,8 +9,10 @@
 [ext_resource type="SpriteFrames" uid="uid://0xfead02py0u" path="res://game_objects/characters/main_character/MainCharacter_SpriteFrames_AnimatedSprite2D_Body_Move.tres" id="6_gp7y6"]
 [ext_resource type="PackedScene" uid="uid://dx1yyel70jhi5" path="res://game_objects/items/hand/l_hand/LHand.tscn" id="8_a6bxd"]
 [ext_resource type="PackedScene" uid="uid://cm5gjh4amr5bt" path="res://game_objects/items/hand/r_hand/RHand.tscn" id="9_lu8uc"]
-[ext_resource type="Material" uid="uid://djeuo8ufmtnsu" path="res://game_objects/characters/main_character/MainCharacter_ShaderMaterial_AnimatedSprite2D_Weapon_Bow.tres" id="12_fbb7o"]
-[ext_resource type="SpriteFrames" uid="uid://bvu7c67np3hx6" path="res://game_objects/characters/main_character/MainCharacter_SpriteFrames_AnimatedSprite2D_Weapon_Bow.tres" id="13_uwnai"]
+[ext_resource type="PackedScene" uid="uid://e7mf01r4x1a5" path="res://game_objects/items/wood/long_sword/LongSword.tscn" id="10_xc3mw"]
+[ext_resource type="PackedScene" uid="uid://nipsg8fh7fer" path="res://game_objects/items/wood/shield_1/Shield1.tscn" id="11_ub2q8"]
+[ext_resource type="PackedScene" uid="uid://dj633pv8yipjf" path="res://game_objects/items/wood/arrow/Arrow.tscn" id="12_vvr56"]
+[ext_resource type="PackedScene" uid="uid://ct2trwtxho213" path="res://game_objects/items/wood/bow/Bow.tscn" id="13_gofh1"]
 
 [sub_resource type="Animation" id="Animation_d8scn"]
 length = 0.6
@@ -588,55 +590,63 @@ states/IDLE/position = Vector2(409.333, 103.333)
 states/MOVE/node = SubResource("AnimationNodeBlendTree_s80jw")
 states/MOVE/position = Vector2(504, 90)
 
-[node name="MainCharacter" type="Node2D"]
+[node name="MainCharacter" type="CharacterBody2D"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-
-[node name="AnimatedSprite2D_Body_Dead" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="AnimatedSprite2D_Body_Dead" type="AnimatedSprite2D" parent="."]
 visible = false
 material = ExtResource("1_1dkve")
 sprite_frames = ExtResource("2_6eo03")
 animation = &"BODY_DEAD"
-frame = 5
 
-[node name="AnimatedSprite2D_Body_Idle" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="AnimatedSprite2D_Body_Idle" type="AnimatedSprite2D" parent="."]
 material = ExtResource("3_3xpab")
 sprite_frames = ExtResource("4_7ahlw")
 animation = &"BODY_IDLE"
-frame = 3
 
-[node name="AnimatedSprite2D_Body_Move" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="AnimatedSprite2D_Body_Move" type="AnimatedSprite2D" parent="."]
 visible = false
 material = ExtResource("5_8kjh5")
 sprite_frames = ExtResource("6_gp7y6")
 animation = &"BODY_MOVE"
-frame = 5
 
-[node name="CollisionShape2D_Body" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D_Body" type="CollisionShape2D" parent="."]
 shape = ExtResource("2_e1tw7")
 
-[node name="LHand" parent="CharacterBody2D" instance=ExtResource("8_a6bxd")]
+[node name="LHand" parent="." instance=ExtResource("8_a6bxd")]
 position = Vector2(-15, 2)
 frame = 2
 
-[node name="RHand" parent="CharacterBody2D" instance=ExtResource("9_lu8uc")]
+[node name="RHand" parent="." instance=ExtResource("9_lu8uc")]
 position = Vector2(15, 2)
 frame = 3
 
-[node name="BowBundle" type="Node2D" parent="CharacterBody2D"]
+[node name="LongSword" parent="." instance=ExtResource("10_xc3mw")]
+visible = false
+z_index = -1
+position = Vector2(15, -13)
 
-[node name="AnimatedSprite2D_Weapon_Bow_Shot" type="AnimatedSprite2D" parent="CharacterBody2D"]
-material = ExtResource("12_fbb7o")
-sprite_frames = ExtResource("13_uwnai")
-animation = &"WEAPON_BOW_SHOT"
+[node name="Shield1" parent="." instance=ExtResource("11_ub2q8")]
+visible = false
+z_index = 1
+position = Vector2(15, 2)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_pmcwq")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="CharacterBody2D"]
+[node name="AnimationTree" type="AnimationTree" parent="."]
 active = false
 tree_root = SubResource("AnimationNodeStateMachine_do0jl")
 anim_player = NodePath("../AnimationPlayer")
 parameters/IDLE/IDLE/add_amount = 1.0
+
+[node name="Arrow" parent="." instance=ExtResource("12_vvr56")]
+visible = false
+z_index = -1
+position = Vector2(-15, 2)
+
+[node name="Bow" parent="." instance=ExtResource("13_gofh1")]
+visible = false
+z_index = -1
+position = Vector2(12, 0)

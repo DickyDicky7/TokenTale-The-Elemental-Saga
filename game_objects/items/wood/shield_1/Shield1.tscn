@@ -3,14 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://ccr4sjhegjjni" path="res://game_objects/items/wood/shared/CanvasTexture.tres" id="1_qeqw4"]
 [ext_resource type="Shape2D" uid="uid://c0iw53u5k4tvu" path="res://game_objects/items/wood/shield_1/Shield1_RectangleShape2D_CollisionShape2D_Hitbox.tres" id="2_0blk5"]
 
-[node name="Shield1" type="Node2D"]
+[node name="Shield1" type="Area2D"]
 
-[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_qeqw4")
 region_enabled = true
 region_rect = Rect2(112, 0, 16, 16)
 
-[node name="CollisionShape2D_Hitbox" type="CollisionShape2D" parent="AnimatableBody2D"]
+[node name="CollisionShape2D_Hitbox" type="CollisionShape2D" parent="."]
 shape = ExtResource("2_0blk5")
+debug_color = Color(0.784314, 0.294118, 0.588235, 0.392157)

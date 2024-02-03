@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cnes8lrs7ph26"]
+[gd_scene load_steps=11 format=3 uid="uid://cnes8lrs7ph26"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_px6f3"]
 [ext_resource type="PackedScene" uid="uid://kph28vq633cw" path="res://game_objects/characters/main_character/MainCharacter.tscn" id="2_acwdm"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://e7mf01r4x1a5" path="res://game_objects/items/wood/long_sword/LongSword.tscn" id="4_nev88"]
 [ext_resource type="Texture2D" uid="uid://diq4coi4q0wu2" path="res://game_assets/maps/1/tiles.png" id="5_p8nap"]
 [ext_resource type="Texture2D" uid="uid://bafh5kpttq7p4" path="res://game_assets/maps/1/tiles-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="6_tvdum"]
+[ext_resource type="PackedScene" uid="uid://b5syn81w5x20n" path="res://game_objects/items/wood/quiver/Quiver.tscn" id="7_rlilp"]
 
 [sub_resource type="Gradient" id="Gradient_2lik8"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -26,6 +27,7 @@ normal_texture = ExtResource("6_tvdum")
 script = ExtResource("1_px6f3")
 
 [node name="Background" type="Sprite2D" parent="."]
+z_index = -10
 position = Vector2(399.5, 288)
 scale = Vector2(7.24219, 5.5)
 texture = ExtResource("3_q7ibp")
@@ -40,13 +42,14 @@ zoom = Vector2(3, 3)
 color = Color(0.0737223, 0.15268, 0.185773, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(430, 265)
+position = Vector2(469, 252)
 color = Color(0.323274, 0.533074, 0.293621, 1)
 energy = 3.0
 texture = SubResource("GradientTexture2D_hpl7p")
-height = 10.0
+height = 50.0
 
 [node name="LongSword" parent="." instance=ExtResource("4_nev88")]
+visible = false
 position = Vector2(384, 283)
 rotation = 0.523599
 
@@ -54,3 +57,11 @@ rotation = 0.523599
 visible = false
 position = Vector2(473, 195)
 texture = SubResource("CanvasTexture_jqtay")
+
+[node name="Quiver" parent="." instance=ExtResource("7_rlilp")]
+position = Vector2(442, 267)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true

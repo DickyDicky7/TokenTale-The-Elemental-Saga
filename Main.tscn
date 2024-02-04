@@ -33,6 +33,7 @@ scale = Vector2(7.24219, 5.5)
 texture = ExtResource("3_q7ibp")
 
 [node name="MainCharacter" parent="." instance=ExtResource("2_acwdm")]
+visible = false
 position = Vector2(400, 300)
 
 [node name="Camera2D" type="Camera2D" parent="MainCharacter"]
@@ -42,7 +43,7 @@ zoom = Vector2(3, 3)
 color = Color(0.0737223, 0.15268, 0.185773, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(469, 252)
+position = Vector2(368, 273)
 color = Color(0.323274, 0.533074, 0.293621, 1)
 energy = 3.0
 texture = SubResource("GradientTexture2D_hpl7p")
@@ -54,11 +55,11 @@ position = Vector2(384, 283)
 rotation = 0.523599
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(473, 195)
 texture = SubResource("CanvasTexture_jqtay")
 
 [node name="Quiver" parent="." instance=ExtResource("7_rlilp")]
+visible = false
 position = Vector2(442, 267)
 
 [node name="Timer" type="Timer" parent="."]

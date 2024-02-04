@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://kph28vq633cw"]
+[gd_scene load_steps=30 format=3 uid="uid://kph28vq633cw"]
 
 [ext_resource type="Material" uid="uid://blpsavl23cbqg" path="res://game_objects/characters/main_character/MainCharacter_ShaderMaterial_AnimatedSprite2D_Body_Dead.tres" id="1_1dkve"]
 [ext_resource type="SpriteFrames" uid="uid://c2tew6oww52r" path="res://game_objects/characters/main_character/MainCharacter_SpriteFrames_AnimatedSprite2D_Body_Dead.tres" id="2_6eo03"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://nipsg8fh7fer" path="res://game_objects/items/wood/shield_1/Shield1.tscn" id="11_ub2q8"]
 [ext_resource type="PackedScene" uid="uid://dj633pv8yipjf" path="res://game_objects/items/wood/arrow/Arrow.tscn" id="12_vvr56"]
 [ext_resource type="PackedScene" uid="uid://ct2trwtxho213" path="res://game_objects/items/wood/bow/Bow.tscn" id="13_gofh1"]
+[ext_resource type="PackedScene" uid="uid://b5syn81w5x20n" path="res://game_objects/items/wood/quiver/Quiver.tscn" id="14_1k42e"]
 
 [sub_resource type="Animation" id="Animation_d8scn"]
 length = 0.6
@@ -616,19 +617,33 @@ shape = ExtResource("2_e1tw7")
 position = Vector2(-15, 2)
 frame = 2
 
+[node name="Arrow" parent="LHand" instance=ExtResource("12_vvr56")]
+visible = false
+z_index = -1
+position = Vector2(-0.5, 0)
+collision_layer = 0
+collision_mask = 0
+
 [node name="RHand" parent="." instance=ExtResource("9_lu8uc")]
 position = Vector2(15, 2)
 frame = 3
 
-[node name="LongSword" parent="." instance=ExtResource("10_xc3mw")]
+[node name="LongSword" parent="RHand" instance=ExtResource("10_xc3mw")]
 visible = false
 z_index = -1
-position = Vector2(15, -13)
+position = Vector2(0.5, -15)
 
-[node name="Shield1" parent="." instance=ExtResource("11_ub2q8")]
+[node name="Shield1" parent="RHand" instance=ExtResource("11_ub2q8")]
 visible = false
 z_index = 1
-position = Vector2(15, 2)
+
+[node name="Bow" parent="RHand" instance=ExtResource("13_gofh1")]
+z_index = -1
+position = Vector2(-3, -2)
+
+[node name="Quiver" parent="." instance=ExtResource("14_1k42e")]
+z_index = -1
+position = Vector2(-8, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -640,13 +655,3 @@ active = false
 tree_root = SubResource("AnimationNodeStateMachine_do0jl")
 anim_player = NodePath("../AnimationPlayer")
 parameters/IDLE/IDLE/add_amount = 1.0
-
-[node name="Arrow" parent="." instance=ExtResource("12_vvr56")]
-visible = false
-z_index = -1
-position = Vector2(-15, 2)
-
-[node name="Bow" parent="." instance=ExtResource("13_gofh1")]
-visible = false
-z_index = -1
-position = Vector2(12, 0)

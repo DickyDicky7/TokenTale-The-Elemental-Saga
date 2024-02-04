@@ -12,6 +12,7 @@
 - https://phantom-camera.dev/
 - https://github.com/arkology/ShaderV
 - https://github.com/DigvijaysinhGohil/Godot-Shader-Lib/
+- https://github.com/spheras/godot-sprite-shader-mixer
 
 ## Patterns:
 - Behavior Tree

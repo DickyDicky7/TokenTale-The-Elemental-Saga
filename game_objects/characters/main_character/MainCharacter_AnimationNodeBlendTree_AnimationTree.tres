@@ -1,0 +1,89 @@
+[gd_resource type="AnimationNodeBlendTree" load_steps=14 format=3 uid="uid://c5eb1faioea2w"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hh28e"]
+animation = &"BODY_DEAD"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xnaq4"]
+animation = &"BODY_IDLE"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aib3n"]
+animation = &"BODY_MOVE"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sg4tg"]
+animation = &"HAND_DEAD"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5o70w"]
+animation = &"HAND_IDLE"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3wxeb"]
+animation = &"HAND_MOVE"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kqmqk"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_3ch3m"]
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_acc6i"]
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_5m4qa"]
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_myo5e"]
+input_0/name = "BODY_DEAD"
+input_0/auto_advance = false
+input_0/reset = true
+input_1/name = "BODY_IDLE"
+input_1/auto_advance = false
+input_1/reset = true
+input_2/name = "BODY_MOVE"
+input_2/auto_advance = false
+input_2/reset = true
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_a7gi3"]
+input_0/name = "RESET"
+input_0/auto_advance = false
+input_0/reset = true
+input_1/name = "ACT"
+input_1/auto_advance = false
+input_1/reset = true
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_xrcuo"]
+input_0/name = "HAND_DEAD"
+input_0/auto_advance = false
+input_0/reset = true
+input_1/name = "HAND_IDLE"
+input_1/auto_advance = false
+input_1/reset = true
+input_2/name = "HAND_MOVE"
+input_2/auto_advance = false
+input_2/reset = true
+
+[resource]
+graph_offset = Vector2(-642.725, -191.141)
+nodes/A_BODY_DEAD/node = SubResource("AnimationNodeAnimation_hh28e")
+nodes/A_BODY_DEAD/position = Vector2(-160, -160)
+nodes/A_BODY_IDLE/node = SubResource("AnimationNodeAnimation_xnaq4")
+nodes/A_BODY_IDLE/position = Vector2(-160, 0)
+nodes/A_BODY_MOVE/node = SubResource("AnimationNodeAnimation_aib3n")
+nodes/A_BODY_MOVE/position = Vector2(-160, 160)
+nodes/A_HAND_DEAD/node = SubResource("AnimationNodeAnimation_sg4tg")
+nodes/A_HAND_DEAD/position = Vector2(-133.333, 533.333)
+nodes/A_HAND_IDLE/node = SubResource("AnimationNodeAnimation_5o70w")
+nodes/A_HAND_IDLE/position = Vector2(-133.333, 693.333)
+nodes/A_HAND_MOVE/node = SubResource("AnimationNodeAnimation_3wxeb")
+nodes/A_HAND_MOVE/position = Vector2(-133.333, 853.333)
+nodes/A_RESET/node = SubResource("AnimationNodeAnimation_kqmqk")
+nodes/A_RESET/position = Vector2(533.333, -160)
+nodes/B2_BODY_AND_HAND/node = SubResource("AnimationNodeBlend2_3ch3m")
+nodes/B2_BODY_AND_HAND/position = Vector2(533.333, 266.667)
+nodes/TS_BODY/node = SubResource("AnimationNodeTimeScale_acc6i")
+nodes/TS_BODY/position = Vector2(320, -160)
+nodes/TS_HAND/node = SubResource("AnimationNodeTimeScale_5m4qa")
+nodes/TS_HAND/position = Vector2(346.667, 533.333)
+nodes/T_BODY/node = SubResource("AnimationNodeTransition_myo5e")
+nodes/T_BODY/position = Vector2(80, -160)
+nodes/T_BODY_AND_HAND/node = SubResource("AnimationNodeTransition_a7gi3")
+nodes/T_BODY_AND_HAND/position = Vector2(533.333, 0)
+nodes/T_HAND/node = SubResource("AnimationNodeTransition_xrcuo")
+nodes/T_HAND/position = Vector2(106.667, 533.333)
+nodes/output/position = Vector2(800, 0)
+node_connections = [&"B2_BODY_AND_HAND", 0, &"TS_BODY", &"B2_BODY_AND_HAND", 1, &"TS_HAND", &"TS_BODY", 0, &"T_BODY", &"TS_HAND", 0, &"T_HAND", &"T_BODY", 0, &"A_BODY_DEAD", &"T_BODY", 1, &"A_BODY_IDLE", &"T_BODY", 2, &"A_BODY_MOVE", &"T_BODY_AND_HAND", 0, &"A_RESET", &"T_BODY_AND_HAND", 1, &"B2_BODY_AND_HAND", &"T_HAND", 0, &"A_HAND_DEAD", &"T_HAND", 1, &"A_HAND_IDLE", &"T_HAND", 2, &"A_HAND_MOVE", &"output", 0, &"T_BODY_AND_HAND"]

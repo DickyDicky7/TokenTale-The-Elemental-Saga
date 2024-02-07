@@ -37,6 +37,10 @@ position = Vector2(400, 300)
 
 [node name="Camera2D" type="Camera2D" parent="MainCharacter"]
 zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false

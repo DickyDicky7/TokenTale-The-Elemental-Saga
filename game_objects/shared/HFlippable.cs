@@ -1,18 +1,18 @@
-﻿using Godot;
+using Godot;
 
-namespace TokenTaleTheElementalSaga.GameObjects;
+namespace TokenTaleTheElementalSaga.GameObjects.Shared;
 
-public partial class HFlippable
+public partial class HFlippable : Node
 {
-    private bool _isFlipped = false;
+    private bool _isHFlipped = false;
 
     public Transform2D Flip(Transform2D _transform2D_, Vector2 _direction_)
     {
-        if ((_direction_.X == -1 && !_isFlipped)
-        ||  (_direction_.X == +1 &&  _isFlipped))
+        if ((_direction_.X < 0 && !_isHFlipped)
+        ||  (_direction_.X > 0 &&  _isHFlipped))
         {
             _transform2D_.X *= -1;
-            _isFlipped = !_isFlipped;
+            _isHFlipped = !_isHFlipped;
         }
 
         if (_transform2D_.X.X.ToString() == "-0") _transform2D_.X.X = 0;

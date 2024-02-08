@@ -57,3 +57,5 @@ public partial class Adventurer
 
 ## Others:
 - https://github.com/godotengine/awesome-godot
+- https://statecharts.dev/
+- https://statecharts.dev/state-machine-state-explosion.html

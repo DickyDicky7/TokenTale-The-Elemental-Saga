@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://kph28vq633cw"]
+[gd_scene load_steps=33 format=3 uid="uid://kph28vq633cw"]
 
 [ext_resource type="Material" uid="uid://blpsavl23cbqg" path="res://game_objects/characters/main_character/MainCharacter_ShaderMaterial_AnimatedSprite2D_Body_Dead.tres" id="1_1dkve"]
 [ext_resource type="Script" path="res://game_objects/characters/main_character/MainCharacter.cs" id="1_mkh5o"]
@@ -23,6 +23,7 @@
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="21_hn8bf"]
 [ext_resource type="PackedScene" uid="uid://v0syf8dfxj7h" path="res://game_objects/shared/HFlippable.tscn" id="22_euyh1"]
 [ext_resource type="PackedScene" uid="uid://bcwkugn6v3oy7" path="res://addons/godot_state_charts/utilities/state_chart_debugger.tscn" id="23_1gvay"]
+[ext_resource type="PackedScene" uid="uid://dklk814gsey6g" path="res://game_objects/shared/EyeSight.tscn" id="24_jxr2o"]
 
 [sub_resource type="Animation" id="Animation_wonvp"]
 length = 0.6
@@ -826,7 +827,7 @@ frame = 3
 
 [node name="LongSword" parent="RHand" instance=ExtResource("10_xc3mw")]
 z_index = -1
-position = Vector2(0.5, -15)
+position = Vector2(0.5, 8)
 
 [node name="Shield1" parent="RHand" instance=ExtResource("11_ub2q8")]
 visible = false
@@ -931,7 +932,7 @@ script = ExtResource("19_k7e6j")
 script = ExtResource("21_hn8bf")
 to = NodePath("../../NoCombat")
 event = &"ToAliveHandMotionNoCombatState"
-delay_seconds = 3.0
+delay_seconds = 0.8
 
 [node name="ToDead" type="Node" parent="StateChart/Root/Alive"]
 script = ExtResource("21_hn8bf")
@@ -951,14 +952,19 @@ offset_bottom = 320.0
 enabled = false
 initial_node_to_watch = NodePath("../StateChart")
 
+[node name="EyeSight" parent="." instance=ExtResource("24_jxr2o")]
+
 [connection signal="state_entered" from="StateChart/Root" to="." method="OnRootStateEntered"]
 [connection signal="state_entered" from="StateChart/Root/Alive/BodyMotion/Idle" to="." method="OnAliveBodyMotionIdleStateEntered"]
 [connection signal="state_input" from="StateChart/Root/Alive/BodyMotion/Idle" to="." method="OnAliveBodyMotionIdleStateInput"]
 [connection signal="state_entered" from="StateChart/Root/Alive/BodyMotion/Move" to="." method="OnAliveBodyMotionMoveStateEntered"]
 [connection signal="state_physics_processing" from="StateChart/Root/Alive/BodyMotion/Move" to="." method="OnAliveBodyMotionMoveStatePhysicsProcessing"]
+[connection signal="state_entered" from="StateChart/Root/Alive/HandMotion/NoCombat" to="." method="OnAliveHandMotionNoCombatStateEntered"]
 [connection signal="state_input" from="StateChart/Root/Alive/HandMotion/NoCombat" to="." method="OnAliveHandMotionNoCombatStateInput"]
+[connection signal="state_physics_processing" from="StateChart/Root/Alive/HandMotion/NoCombat" to="." method="OnAliveHandMotionNoCombatStatePhysicsProcessing"]
 [connection signal="state_entered" from="StateChart/Root/Alive/HandMotion/NoCombat/Idle" to="." method="OnAliveHandMotionNoCombatIdleStateEntered"]
 [connection signal="state_physics_processing" from="StateChart/Root/Alive/HandMotion/NoCombat/Idle" to="." method="OnAliveHandMotionNoCombatIdleStatePhysicsProcessing"]
 [connection signal="state_entered" from="StateChart/Root/Alive/HandMotion/NoCombat/Move" to="." method="OnAliveHandMotionNoCombatMoveStateEntered"]
 [connection signal="state_physics_processing" from="StateChart/Root/Alive/HandMotion/NoCombat/Move" to="." method="OnAliveHandMotionNoCombatMoveStatePhysicsProcessing"]
 [connection signal="state_entered" from="StateChart/Root/Alive/HandMotion/DoCombat" to="." method="OnAliveHandMotionDoCombatStateEntered"]
+[connection signal="state_entered" from="StateChart/Root/Dead" to="." method="OnDeadStateEntered"]

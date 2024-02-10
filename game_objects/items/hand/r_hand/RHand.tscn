@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cm5gjh4amr5bt"]
+[gd_scene load_steps=3 format=3 uid="uid://cm5gjh4amr5bt"]
 
 [ext_resource type="Texture2D" uid="uid://c24symq8afhwi" path="res://game_objects/items/hand/shared/CanvasTexture.tres" id="1_n78q8"]
+[ext_resource type="Script" path="res://game_objects/items/hand/r_hand/RHand.cs" id="2_qlr7e"]
 
 [node name="RHand" type="Sprite2D"]
 editor_description = "frame in [1,3,5,7]"
@@ -8,3 +9,4 @@ texture = ExtResource("1_n78q8")
 hframes = 2
 vframes = 4
 frame = 1
+script = ExtResource("2_qlr7e")

@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ct2trwtxho213"]
+[gd_scene load_steps=8 format=3 uid="uid://ct2trwtxho213"]
 
+[ext_resource type="Script" path="res://game_objects/items/wood/bow/Bow.cs" id="1_7c3ti"]
 [ext_resource type="Material" uid="uid://djeuo8ufmtnsu" path="res://game_objects/items/wood/bow/Bow_ShaderMaterial_AnimatedSprite2D.tres" id="1_ryy66"]
 [ext_resource type="SpriteFrames" uid="uid://bvu7c67np3hx6" path="res://game_objects/items/wood/bow/Bow_SpriteFrames_AnimatedSprite2D.tres" id="2_bc3eq"]
+[ext_resource type="Shape2D" uid="uid://cghx2lgrp2nhj" path="res://game_objects/items/wood/bow/Bow_CapsuleShape2D_CollisionShape2D_Hitbox.tres" id="3_5qx44"]
 
 [sub_resource type="Animation" id="Animation_mq1yt"]
 length = 0.2
@@ -65,7 +67,9 @@ _data = {
 "SHOT": SubResource("Animation_6dmb2")
 }
 
-[node name="Bow" type="Node2D"]
+[node name="Bow" type="Area2D" node_paths=PackedStringArray("CollisionShape2DHitbox")]
+script = ExtResource("1_7c3ti")
+CollisionShape2DHitbox = NodePath("CollisionShape2D_Hitbox")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = ExtResource("1_ryy66")
@@ -76,3 +80,8 @@ animation = &"IDLE"
 libraries = {
 "": SubResource("AnimationLibrary_hqbwj")
 }
+
+[node name="CollisionShape2D_Hitbox" type="CollisionShape2D" parent="."]
+shape = ExtResource("3_5qx44")
+disabled = true
+debug_color = Color(1, 0, 0, 0.2)

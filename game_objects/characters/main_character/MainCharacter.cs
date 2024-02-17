@@ -8,38 +8,26 @@ namespace TokenTaleTheElementalSaga.GameObjects.Characters;
 
 public partial class MainCharacter : CharacterBody2D
 {
-    [Export]
-    public int Speed { get; set; }
+    [Export] public int Speed { get; set; }
+    [Export] public AnimationTree AnimationTree { get; set; }
+    [Export] public Node NodeStateChart { get => null; set => _stateChart = StateChart.Of(value); }
+    [Export] public HFlippable HFlippable { get; set; }
+    [Export] public EyeSight   EyeSight   { get; set; }
+    [Export] public LHand LHand { get; set; }
+    [Export] public RHand RHand { get; set; }
+    [Export] public Arrow Arrow { get; set; }
+    [Export] public Shield1   Shield1   { get; set; }
+    [Export] public LongSword LongSword { get; set; }
+    [Export] public WeaponManager WeaponManager { get; set; }
 
-    private StringName _lastHandAnimation = null;
     private StateChart _stateChart;
-    private HFlippable _hFlippable;
-    private AnimationTree _animationTree;
-    private EyeSight _eyeSight;
-    private LHand _lHand;
-    private RHand _rHand;
-    private Shield1 _shield1;
-    private LongSword _longSword;
-
-    public override void _Ready()
-    {
-        _lHand = GetNode<LHand>(nameof(LHand));
-        _rHand = GetNode<RHand>(nameof(RHand));
-        _eyeSight   = GetNode<EyeSight  >(nameof(EyeSight  ));
-        _hFlippable = GetNode<HFlippable>(nameof(HFlippable));
-        _stateChart = StateChart.Of(GetNode<Node>(nameof(StateChart  )));
-        _animationTree =   GetNode<AnimationTree>(nameof(AnimationTree));
-
-        _shield1   = _rHand.GetNode<Shield1  >(nameof(Shield1  ));
-        _longSword = _rHand.GetNode<LongSword>(nameof(LongSword));
-    }
 
 
     #region Root State
     private void OnRootStateEntered()
     {
-        _animationTree.Active = true;
-        _animationTree.Set("parameters/T_BODY_AND_HAND/transition_request", "ACT");
+        AnimationTree.Active = true;
+        AnimationTree.Set("parameters/T_BODY_AND_HAND/transition_request", "ACT");
     }
     #endregion
 
@@ -55,12 +43,12 @@ public partial class MainCharacter : CharacterBody2D
     #region Root -> Alive -> BodyMotion -> Idle State
     private void OnAliveBodyMotionIdleStateEntered()
     {
-        _animationTree.Set("parameters/T_BODY/transition_request", "BODY_IDLE");
+        AnimationTree.Set("parameters/T_BODY/transition_request", "BODY_IDLE");
     }
 
-    private void OnAliveBodyMotionIdleStateInput(InputEvent _inputEvent_)
+    private void OnAliveBodyMotionIdleStateInput(InputEvent @inputEvent)
     {
-        if (_inputEvent_ is InputEventKey inputEventKey)
+        if (@inputEvent is InputEventKey inputEventKey)
         {
             if (inputEventKey.Pressed
             &&  inputEventKey.Keycode is Key.Up or Key.Down or Key.Left or Key.Right)
@@ -75,10 +63,10 @@ public partial class MainCharacter : CharacterBody2D
     #region Root -> Alive -> BodyMotion -> Move State
     private void OnAliveBodyMotionMoveStateEntered()
     {
-        _animationTree.Set("parameters/T_BODY/transition_request", "BODY_MOVE");
+        AnimationTree.Set("parameters/T_BODY/transition_request", "BODY_MOVE");
     }
 
-    private void OnAliveBodyMotionMoveStatePhysicsProcessing(float _delta_)
+    private void OnAliveBodyMotionMoveStatePhysicsProcessing(float @delta)
     {
         Vector2 velocity  = Velocity;
         Vector2 direction = Input.GetVector("L", "R", "U", "D");
@@ -95,7 +83,7 @@ public partial class MainCharacter : CharacterBody2D
             _stateChart.SendEvent("ToAliveBodyMotionIdleState");
         }
 
-        Transform = _hFlippable.Flip(Transform, direction);
+        Transform = HFlippable.Flip(Transform, direction);
         Velocity  = velocity;
 
         MoveAndSlide();
@@ -106,14 +94,14 @@ public partial class MainCharacter : CharacterBody2D
     #region Root -> Alive -> HandMotion -> NoCombat State
     private void OnAliveHandMotionNoCombatStateEntered()
     {
-        _longSword.Reset();
-        _longSword.Reparent(_rHand);
-        _longSword.Position = new Vector2(0.5f, 8.0f);
+        LongSword.Reset();
+        LongSword.Reparent(RHand);
+        LongSword.Position = new Vector2(0.5f, 8.0f);
     }
 
-    private void OnAliveHandMotionNoCombatStateInput(InputEvent _inputEvent_)
+    private void OnAliveHandMotionNoCombatStateInput(InputEvent @inputEvent)
     {
-        if (_inputEvent_ is InputEventKey inputEventKey)
+        if (@inputEvent is InputEventKey inputEventKey)
         {
             if (inputEventKey.Pressed
             &&  inputEventKey.Keycode is Key.Space)
@@ -121,11 +109,13 @@ public partial class MainCharacter : CharacterBody2D
                 _stateChart.SendEvent("ToAliveHandMotionDoCombatState");
             }
         }
+
+        WeaponManager.GetInput(@inputEvent);
     }
 
-    private void OnAliveHandMotionNoCombatStatePhysicsProcessing(float _delta_)
+    private void OnAliveHandMotionNoCombatStatePhysicsProcessing(float @delta)
     {
-        _eyeSight.FollowPosition(GetLocalMousePosition());
+        EyeSight.FollowPosition(GetLocalMousePosition());
     }
     #endregion
 
@@ -133,9 +123,9 @@ public partial class MainCharacter : CharacterBody2D
     #region Root -> Alive -> HandMotion -> DoCombat State
     private void OnAliveHandMotionDoCombatStateEntered()
     {
-        _animationTree.Set("parameters/T_HAND/transition_request", "HAND_DEAD");
-        _longSword.Reparent(this);
-        _longSword.Slash();
+        AnimationTree.Set("parameters/T_HAND/transition_request", "HAND_DEAD");
+        LongSword.Reparent(this);
+        LongSword.Wield();
         _stateChart.SendEvent("ToAliveHandMotionNoCombatState");
     }
     #endregion
@@ -144,10 +134,10 @@ public partial class MainCharacter : CharacterBody2D
     #region Root -> Alive -> HandMotion -> NoCombat -> Idle State
     private void OnAliveHandMotionNoCombatIdleStateEntered()
     {
-        _animationTree.Set("parameters/T_HAND/transition_request", "HAND_IDLE");
+        AnimationTree.Set("parameters/T_HAND/transition_request", "HAND_IDLE");
     }
 
-    private void OnAliveHandMotionNoCombatIdleStatePhysicsProcessing(float _delta_)
+    private void OnAliveHandMotionNoCombatIdleStatePhysicsProcessing(float @delta)
     {
         Vector2 direction = Input.GetVector("L", "R", "U", "D");
         if (direction  != Vector2.Zero)
@@ -161,10 +151,10 @@ public partial class MainCharacter : CharacterBody2D
     #region Root -> Alive -> HandMotion -> NoCombat -> Move State
     private void OnAliveHandMotionNoCombatMoveStateEntered()
     {
-        _animationTree.Set("parameters/T_HAND/transition_request", "HAND_MOVE");
+        AnimationTree.Set("parameters/T_HAND/transition_request", "HAND_MOVE");
     }
 
-    private void OnAliveHandMotionNoCombatMoveStatePhysicsProcessing(float _delta_)
+    private void OnAliveHandMotionNoCombatMoveStatePhysicsProcessing(float @delta)
     {
         Vector2 direction = Input.GetVector("L", "R", "U", "D");
         if (direction  == Vector2.Zero)

@@ -3,7 +3,7 @@ using Godot;
 using     TokenTaleTheElementalSaga.GameObjects.Items.Shared;
 namespace TokenTaleTheElementalSaga.GameObjects.Items.Wood  ;
 
-public partial class Arrow : BaseWeapon
+public partial class Bow : BaseWeapon
 {
     public override void Wield()
     {

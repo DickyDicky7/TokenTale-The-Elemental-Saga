@@ -1,8 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://e7mf01r4x1a5"]
+[gd_scene load_steps=11 format=3 uid="uid://e7mf01r4x1a5"]
 
 [ext_resource type="Texture2D" uid="uid://ccr4sjhegjjni" path="res://game_objects/items/wood/shared/CanvasTexture.tres" id="1_7x8gr"]
 [ext_resource type="Script" path="res://game_objects/items/wood/long_sword/LongSword.cs" id="1_oy1g0"]
 [ext_resource type="Shape2D" uid="uid://bl6rakvusr51g" path="res://game_objects/items/wood/long_sword/LongSword_CapsuleShape2D_CollisionShape2D_Hitbox.tres" id="2_d7ka5"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="4_m2gnf"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="5_al3pb"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="6_q36cd"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="7_r8vgt"]
 
 [sub_resource type="Animation" id="Animation_gmicu"]
 length = 0.001
@@ -41,8 +45,11 @@ _data = {
 "SLASH": SubResource("Animation_u1lmi")
 }
 
-[node name="LongSword" type="Area2D"]
+[node name="LongSword" type="Area2D" node_paths=PackedStringArray("CollisionShape2DHitbox", "AnimationPlayer", "NodeStateChart")]
 script = ExtResource("1_oy1g0")
+CollisionShape2DHitbox = NodePath("CollisionShape2D_Hitbox")
+AnimationPlayer = NodePath("AnimationPlayer")
+NodeStateChart = NodePath("StateChart")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_7x8gr")
@@ -53,9 +60,36 @@ region_rect = Rect2(0, 0, 16, 48)
 [node name="CollisionShape2D_Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(0, -20.5)
 shape = ExtResource("2_d7ka5")
-debug_color = Color(0.784314, 0.294118, 0.588235, 0.392157)
+debug_color = Color(1, 0, 0, 0.2)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_7pgb2")
 }
+
+[node name="StateChart" type="Node" parent="."]
+script = ExtResource("4_m2gnf")
+
+[node name="Root" type="Node" parent="StateChart"]
+script = ExtResource("5_al3pb")
+initial_state = NodePath("Reset")
+
+[node name="Reset" type="Node" parent="StateChart/Root"]
+script = ExtResource("6_q36cd")
+
+[node name="ToSlash" type="Node" parent="StateChart/Root/Reset"]
+script = ExtResource("7_r8vgt")
+to = NodePath("../../Slash")
+event = &"ToSlashState"
+
+[node name="Slash" type="Node" parent="StateChart/Root"]
+script = ExtResource("6_q36cd")
+
+[node name="ToReset" type="Node" parent="StateChart/Root/Slash"]
+script = ExtResource("7_r8vgt")
+to = NodePath("../../Reset")
+event = &"ToResetState"
+
+[connection signal="visibility_changed" from="." to="." method="OnVisibilityChanged"]
+[connection signal="state_entered" from="StateChart/Root/Reset" to="." method="OnResetStateEntered"]
+[connection signal="state_entered" from="StateChart/Root/Slash" to="." method="OnSlashStateEntered"]

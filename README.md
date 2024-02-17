@@ -45,9 +45,9 @@ public partial class Adventurer
 ```c#
 public partial class Adventurer
 {
-    public void Attack(Enemy _enemy_)
+    public void Attack(Enemy @enemy)
     {
-        Enemy enemy = _enemy_;
+        Enemy currentEnemy = @enemy;
         /* ... */
     }
 

@@ -4,8 +4,9 @@
 [ext_resource type="Script" path="res://game_objects/items/wood/arrow/Arrow.cs" id="2_y6gyj"]
 [ext_resource type="Shape2D" uid="uid://cip2bmp1a0r3v" path="res://game_objects/items/wood/arrow/Arrow_CapsuleShape2D_CollisionShape2D_Hitbox.tres" id="3_h0g4q"]
 
-[node name="Arrow" type="Area2D"]
+[node name="Arrow" type="Area2D" node_paths=PackedStringArray("CollisionShape2DHitbox")]
 script = ExtResource("2_y6gyj")
+CollisionShape2DHitbox = NodePath("CollisionShape2D_Hitbox")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0.5, 0)
@@ -15,4 +16,4 @@ region_rect = Rect2(16, 0, 16, 16)
 
 [node name="CollisionShape2D_Hitbox" type="CollisionShape2D" parent="."]
 shape = ExtResource("3_h0g4q")
-debug_color = Color(0.784314, 0.294118, 0.588235, 0.392157)
+debug_color = Color(1, 0, 0, 0.2)

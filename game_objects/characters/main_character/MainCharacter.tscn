@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://kph28vq633cw"]
+[gd_scene load_steps=34 format=3 uid="uid://kph28vq633cw"]
 
 [ext_resource type="Material" uid="uid://blpsavl23cbqg" path="res://game_objects/characters/main_character/MainCharacter_ShaderMaterial_AnimatedSprite2D_Body_Dead.tres" id="1_1dkve"]
 [ext_resource type="Script" path="res://game_objects/characters/main_character/MainCharacter.cs" id="1_mkh5o"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://v0syf8dfxj7h" path="res://game_objects/shared/HFlippable.tscn" id="22_euyh1"]
 [ext_resource type="PackedScene" uid="uid://bcwkugn6v3oy7" path="res://addons/godot_state_charts/utilities/state_chart_debugger.tscn" id="23_1gvay"]
 [ext_resource type="PackedScene" uid="uid://dklk814gsey6g" path="res://game_objects/shared/EyeSight.tscn" id="24_jxr2o"]
+[ext_resource type="PackedScene" uid="uid://cffii6yodvl45" path="res://game_objects/shared/WeaponManager.tscn" id="25_ae3n1"]
 
 [sub_resource type="Animation" id="Animation_wonvp"]
 length = 0.6
@@ -786,9 +787,19 @@ _data = {
 "RESET": SubResource("Animation_eh5ru")
 }
 
-[node name="MainCharacter" type="CharacterBody2D"]
+[node name="MainCharacter" type="CharacterBody2D" node_paths=PackedStringArray("AnimationTree", "NodeStateChart", "HFlippable", "EyeSight", "LHand", "RHand", "Arrow", "Shield1", "LongSword", "WeaponManager")]
 script = ExtResource("1_mkh5o")
 Speed = 100
+AnimationTree = NodePath("AnimationTree")
+NodeStateChart = NodePath("StateChart")
+HFlippable = NodePath("HFlippable")
+EyeSight = NodePath("EyeSight")
+LHand = NodePath("LHand")
+RHand = NodePath("RHand")
+Arrow = NodePath("LHand/Arrow")
+Shield1 = NodePath("RHand/Shield1")
+LongSword = NodePath("RHand/LongSword")
+WeaponManager = NodePath("WeaponManager")
 
 [node name="AnimatedSprite2D_Body_Dead" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -809,39 +820,52 @@ animation = &"BODY_MOVE"
 
 [node name="CollisionShape2D_Body" type="CollisionShape2D" parent="."]
 shape = ExtResource("2_e1tw7")
+debug_color = Color(0, 1, 0, 0.2)
 
 [node name="LHand" parent="." instance=ExtResource("8_a6bxd")]
 position = Vector2(-15, 2)
 frame = 2
 
-[node name="Arrow" parent="LHand" instance=ExtResource("12_vvr56")]
+[node name="Arrow" parent="LHand" node_paths=PackedStringArray("CollisionShape2DHitbox") instance=ExtResource("12_vvr56")]
 visible = false
 z_index = -1
 position = Vector2(-0.5, 0)
 collision_layer = 0
 collision_mask = 0
+CollisionShape2DHitbox = NodePath("CollisionShape2D_Hitbox")
 
 [node name="RHand" parent="." instance=ExtResource("9_lu8uc")]
 position = Vector2(15, 2)
 frame = 3
 
-[node name="LongSword" parent="RHand" instance=ExtResource("10_xc3mw")]
+[node name="LongSword" parent="RHand" node_paths=PackedStringArray("CollisionShape2DHitbox", "AnimationPlayer", "NodeStateChart") instance=ExtResource("10_xc3mw")]
 z_index = -1
 position = Vector2(0.5, 8)
+CollisionShape2DHitbox = NodePath("CollisionShape2D_Hitbox")
+AnimationPlayer = NodePath("AnimationPlayer")
+NodeStateChart = NodePath("StateChart")
 
-[node name="Shield1" parent="RHand" instance=ExtResource("11_ub2q8")]
+[node name="Shield1" parent="RHand" node_paths=PackedStringArray("CollisionShape2DHitbox") instance=ExtResource("11_ub2q8")]
 visible = false
 z_index = 1
+CollisionShape2DHitbox = NodePath("CollisionShape2D_Hitbox")
 
-[node name="Bow" parent="RHand" instance=ExtResource("13_gofh1")]
+[node name="Bow" parent="RHand" node_paths=PackedStringArray("CollisionShape2DHitbox") instance=ExtResource("13_gofh1")]
 visible = false
 z_index = -1
 position = Vector2(-3, -2)
+CollisionShape2DHitbox = NodePath("CollisionShape2D_Hitbox")
 
-[node name="Quiver" parent="." instance=ExtResource("14_1k42e")]
+[node name="Quiver" parent="." node_paths=PackedStringArray("Arrow1", "Arrow2", "Arrow3", "CollisionShape2DHitbox", "AnimationPlayer", "NodeStateChart") instance=ExtResource("14_1k42e")]
 visible = false
 z_index = -1
 position = Vector2(-8, 0)
+Arrow1 = NodePath("Sprite2D_Quiver/Arrow1")
+Arrow2 = NodePath("Sprite2D_Quiver/Arrow2")
+Arrow3 = NodePath("Sprite2D_Quiver/Arrow3")
+CollisionShape2DHitbox = NodePath("CollisionShape2D_Hitbox")
+AnimationPlayer = NodePath("AnimationPlayer")
+NodeStateChart = NodePath("StateChart")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -919,6 +943,7 @@ script = ExtResource("19_k7e6j")
 script = ExtResource("21_hn8bf")
 to = NodePath("../../Idle")
 event = &"ToAliveHandMotionNoCombatIdleState"
+delay_seconds = 0.1
 
 [node name="ToDoCombat" type="Node" parent="StateChart/Root/Alive/HandMotion/NoCombat"]
 script = ExtResource("21_hn8bf")
@@ -953,6 +978,12 @@ enabled = false
 initial_node_to_watch = NodePath("../StateChart")
 
 [node name="EyeSight" parent="." instance=ExtResource("24_jxr2o")]
+
+[node name="WeaponManager" parent="." node_paths=PackedStringArray("Weapons", "ParentNodes") instance=ExtResource("25_ae3n1")]
+Keycodes = Array[int]([4194332, 4194333])
+Weapons = [NodePath("../RHand/LongSword"), NodePath("../RHand/Shield1")]
+ParentNodes = [NodePath("../RHand"), NodePath("../RHand")]
+DefaultPositions = Array[Vector2]([Vector2(0.5, 8), Vector2(0, 0)])
 
 [connection signal="state_entered" from="StateChart/Root" to="." method="OnRootStateEntered"]
 [connection signal="state_entered" from="StateChart/Root/Alive/BodyMotion/Idle" to="." method="OnAliveBodyMotionIdleStateEntered"]

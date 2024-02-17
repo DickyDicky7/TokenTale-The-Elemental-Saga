@@ -1,13 +1,11 @@
 using Godot;
-using GodotStateCharts;
 
-namespace TokenTaleTheElementalSaga.GameObjects.Items.Wood;
+using     TokenTaleTheElementalSaga.GameObjects.Items.Shared;
+namespace TokenTaleTheElementalSaga.GameObjects.Items.Wood  ;
 
-public partial class Quiver : Sprite2D
+public partial class Quiver : BaseItem
 {
-    private AnimationPlayer _animationPlayer;
-    private StateChart _stateChart;
-    private bool  _isEmpty = false;
+    private bool _isEmpty = false;
 
     [Export]
     public bool IsEmpty
@@ -19,18 +17,22 @@ public partial class Quiver : Sprite2D
             EmitSignal(SignalName.IsEmptyChanged, value);
         }
     }
+    [Export] Arrow Arrow1 { get; set; }
+    [Export] Arrow Arrow2 { get; set; }
+    [Export] Arrow Arrow3 { get; set; }
 
     [Signal]
-    public delegate void IsEmptyChangedEventHandler(bool _isEmpty_);
+    public delegate void IsEmptyChangedEventHandler(bool @isEmpty);
 
     public override void _Ready()
     {
-        _animationPlayer =               GetNode<AnimationPlayer>(nameof(AnimationPlayer ));
-        _stateChart      = StateChart.Of(GetNode<Node           >(nameof(StateChart     )));
+        Arrow1.CollisionShape2DHitbox.SetDeferred("disabled", true);
+        Arrow2.CollisionShape2DHitbox.SetDeferred("disabled", true);
+        Arrow3.CollisionShape2DHitbox.SetDeferred("disabled", true);
         ChangeState();
     }
 
-    private void OnIsEmptyChanged(bool _)
+    private void OnIsEmptyChanged(bool @isEmpty)
     {
         ChangeState();
     }
@@ -44,17 +46,21 @@ public partial class Quiver : Sprite2D
         else
         {
             _stateChart.SendEvent("Event_IsEmptyF");
-
         }
+    }
+
+    public override void Wield()
+    {
+        throw new System.NotImplementedException();
     }
 
     private void OnNewOfArrowsStateEntered()
     {
-        _animationPlayer.Play("NEW_OF_ARROWS");
+        AnimationPlayer.Play("NEW_OF_ARROWS");
     }
 
     private void OnOutOfArrowsStateEntered()
     {
-        _animationPlayer.Play("OUT_OF_ARROWS");
+        AnimationPlayer.Play("OUT_OF_ARROWS");
     }
 }

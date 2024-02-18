@@ -18,5 +18,8 @@ public abstract partial class BaseItem : Area2D
     protected StateChart
              _stateChart;
 
+    [Signal] public delegate void OnWieldStartEventHandler();
+    [Signal] public delegate void OnWieldCeaseEventHandler();
+
     public abstract void Wield();
 }

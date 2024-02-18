@@ -9,16 +9,16 @@ namespace TokenTaleTheElementalSaga.GameObjects.Characters;
 public partial class MainCharacter : CharacterBody2D
 {
     [Export] public int Speed { get; set; }
+    [Export] public EyeSight     EyeSight { get; set; }
+    [Export] public HFlippable HFlippable { get; set; }
     [Export] public AnimationTree AnimationTree { get; set; }
     [Export] public Node NodeStateChart { get => null; set => _stateChart = StateChart.Of(value); }
-    [Export] public HFlippable HFlippable { get; set; }
-    [Export] public EyeSight   EyeSight   { get; set; }
-    [Export] public LHand LHand { get; set; }
-    [Export] public RHand RHand { get; set; }
-    [Export] public Arrow Arrow { get; set; }
-    [Export] public Shield1   Shield1   { get; set; }
-    [Export] public LongSword LongSword { get; set; }
-    [Export] public WeaponManager WeaponManager { get; set; }
+    //[Export] public LHand LHand { get; set; }
+    //[Export] public RHand RHand { get; set; }
+    //[Export] public Arrow Arrow { get; set; }
+    //[Export] public Shield1   Shield1   { get; set; }
+    //[Export] public LongSword LongSword { get; set; }
+    [Export] public WeaponManagerMainCharacter WeaponManagerMainCharacter { get; set; }
 
     private StateChart _stateChart;
 
@@ -90,13 +90,17 @@ public partial class MainCharacter : CharacterBody2D
     }
     #endregion
 
+    private void OnWeaponManagerMainCharacterWieldCurrentWeaponCease()
+    {
+        _stateChart.SendEvent("ToAliveHandMotionNoCombatState");
+        WeaponManagerMainCharacter
+       .ResetCurrentWeapon();
+    }
 
     #region Root -> Alive -> HandMotion -> NoCombat State
     private void OnAliveHandMotionNoCombatStateEntered()
     {
-        LongSword.Reset();
-        LongSword.Reparent(RHand);
-        LongSword.Position = new Vector2(0.5f, 8.0f);
+
     }
 
     private void OnAliveHandMotionNoCombatStateInput(InputEvent @inputEvent)
@@ -107,10 +111,12 @@ public partial class MainCharacter : CharacterBody2D
             &&  inputEventKey.Keycode is Key.Space)
             {
                 _stateChart.SendEvent("ToAliveHandMotionDoCombatState");
+                return;
             }
         }
 
-        WeaponManager.GetInput(@inputEvent);
+        WeaponManagerMainCharacter
+       .HandleInputSwitchCurrentWeapon(@inputEvent);
     }
 
     private void OnAliveHandMotionNoCombatStatePhysicsProcessing(float @delta)
@@ -123,10 +129,8 @@ public partial class MainCharacter : CharacterBody2D
     #region Root -> Alive -> HandMotion -> DoCombat State
     private void OnAliveHandMotionDoCombatStateEntered()
     {
+        WeaponManagerMainCharacter .WieldCurrentWeapon();
         AnimationTree.Set("parameters/T_HAND/transition_request", "HAND_DEAD");
-        LongSword.Reparent(this);
-        LongSword.Wield();
-        _stateChart.SendEvent("ToAliveHandMotionNoCombatState");
     }
     #endregion
 

@@ -91,5 +91,6 @@ to = NodePath("../../Reset")
 event = &"ToResetState"
 
 [connection signal="visibility_changed" from="." to="." method="OnVisibilityChanged"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="OnAnimationPlayerAnimationCease"]
 [connection signal="state_entered" from="StateChart/Root/Reset" to="." method="OnResetStateEntered"]
 [connection signal="state_entered" from="StateChart/Root/Slash" to="." method="OnSlashStateEntered"]

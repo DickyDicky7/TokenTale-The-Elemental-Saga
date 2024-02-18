@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://v0syf8dfxj7h" path="res://game_objects/shared/HFlippable.tscn" id="22_euyh1"]
 [ext_resource type="PackedScene" uid="uid://bcwkugn6v3oy7" path="res://addons/godot_state_charts/utilities/state_chart_debugger.tscn" id="23_1gvay"]
 [ext_resource type="PackedScene" uid="uid://dklk814gsey6g" path="res://game_objects/shared/EyeSight.tscn" id="24_jxr2o"]
-[ext_resource type="PackedScene" uid="uid://cffii6yodvl45" path="res://game_objects/shared/WeaponManager.tscn" id="25_ae3n1"]
+[ext_resource type="PackedScene" uid="uid://cffii6yodvl45" path="res://game_objects/shared/WeaponManagerMainCharacter.tscn" id="25_ae3n1"]
 
 [sub_resource type="Animation" id="Animation_wonvp"]
 length = 0.6
@@ -787,19 +787,14 @@ _data = {
 "RESET": SubResource("Animation_eh5ru")
 }
 
-[node name="MainCharacter" type="CharacterBody2D" node_paths=PackedStringArray("AnimationTree", "NodeStateChart", "HFlippable", "EyeSight", "LHand", "RHand", "Arrow", "Shield1", "LongSword", "WeaponManager")]
+[node name="MainCharacter" type="CharacterBody2D" node_paths=PackedStringArray("EyeSight", "HFlippable", "AnimationTree", "NodeStateChart", "WeaponManagerMainCharacter")]
 script = ExtResource("1_mkh5o")
 Speed = 100
+EyeSight = NodePath("EyeSight")
+HFlippable = NodePath("HFlippable")
 AnimationTree = NodePath("AnimationTree")
 NodeStateChart = NodePath("StateChart")
-HFlippable = NodePath("HFlippable")
-EyeSight = NodePath("EyeSight")
-LHand = NodePath("LHand")
-RHand = NodePath("RHand")
-Arrow = NodePath("LHand/Arrow")
-Shield1 = NodePath("RHand/Shield1")
-LongSword = NodePath("RHand/LongSword")
-WeaponManager = NodePath("WeaponManager")
+WeaponManagerMainCharacter = NodePath("WeaponManagerMainCharacter")
 
 [node name="AnimatedSprite2D_Body_Dead" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -957,7 +952,6 @@ script = ExtResource("19_k7e6j")
 script = ExtResource("21_hn8bf")
 to = NodePath("../../NoCombat")
 event = &"ToAliveHandMotionNoCombatState"
-delay_seconds = 0.8
 
 [node name="ToDead" type="Node" parent="StateChart/Root/Alive"]
 script = ExtResource("21_hn8bf")
@@ -979,11 +973,12 @@ initial_node_to_watch = NodePath("../StateChart")
 
 [node name="EyeSight" parent="." instance=ExtResource("24_jxr2o")]
 
-[node name="WeaponManager" parent="." node_paths=PackedStringArray("Weapons", "ParentNodes") instance=ExtResource("25_ae3n1")]
-Keycodes = Array[int]([4194332, 4194333])
+[node name="WeaponManagerMainCharacter" parent="." node_paths=PackedStringArray("MainCharacterNode", "CorrespondingParent_HandNodes", "Weapons") instance=ExtResource("25_ae3n1")]
+MainCharacterNode = NodePath("..")
+CorrespondingKeycodes = Array[int]([4194332, 4194333])
+CorrespondingParent_HandNodes = [NodePath("../RHand"), NodePath("../RHand")]
+CorrespondingDefaultPositions = Array[Vector2]([Vector2(0.5, 8), Vector2(0, 0)])
 Weapons = [NodePath("../RHand/LongSword"), NodePath("../RHand/Shield1")]
-ParentNodes = [NodePath("../RHand"), NodePath("../RHand")]
-DefaultPositions = Array[Vector2]([Vector2(0.5, 8), Vector2(0, 0)])
 
 [connection signal="state_entered" from="StateChart/Root" to="." method="OnRootStateEntered"]
 [connection signal="state_entered" from="StateChart/Root/Alive/BodyMotion/Idle" to="." method="OnAliveBodyMotionIdleStateEntered"]
@@ -999,3 +994,4 @@ DefaultPositions = Array[Vector2]([Vector2(0.5, 8), Vector2(0, 0)])
 [connection signal="state_physics_processing" from="StateChart/Root/Alive/HandMotion/NoCombat/Move" to="." method="OnAliveHandMotionNoCombatMoveStatePhysicsProcessing"]
 [connection signal="state_entered" from="StateChart/Root/Alive/HandMotion/DoCombat" to="." method="OnAliveHandMotionDoCombatStateEntered"]
 [connection signal="state_entered" from="StateChart/Root/Dead" to="." method="OnDeadStateEntered"]
+[connection signal="OnWieldCurrentWeaponCease" from="WeaponManagerMainCharacter" to="." method="OnWeaponManagerMainCharacterWieldCurrentWeaponCease"]

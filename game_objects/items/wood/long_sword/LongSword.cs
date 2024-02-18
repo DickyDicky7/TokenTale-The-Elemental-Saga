@@ -28,6 +28,14 @@ public partial class LongSword : BaseWeapon
         }
     }
 
+    private void OnAnimationPlayerAnimationCease(StringName @animationName)
+    {
+        if (@animationName == "SLASH")
+        {
+            EmitSignal(SignalName.OnWieldCease);
+        }
+    }
+
 
     #region Root -> Reset State
     private void OnResetStateEntered()

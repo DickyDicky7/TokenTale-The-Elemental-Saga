@@ -32,17 +32,13 @@ position = Vector2(399.5, 288)
 scale = Vector2(7.24219, 5.5)
 texture = ExtResource("3_q7ibp")
 
-[node name="MainCharacter" parent="." node_paths=PackedStringArray("AnimationTree", "NodeStateChart", "HFlippable", "EyeSight", "LHand", "RHand", "Arrow", "Shield1", "LongSword") instance=ExtResource("2_acwdm")]
+[node name="MainCharacter" parent="." node_paths=PackedStringArray("EyeSight", "HFlippable", "AnimationTree", "NodeStateChart", "WeaponManagerMainCharacter") instance=ExtResource("2_acwdm")]
 position = Vector2(400, 300)
+EyeSight = NodePath("EyeSight")
+HFlippable = NodePath("HFlippable")
 AnimationTree = NodePath("AnimationTree")
 NodeStateChart = NodePath("StateChart")
-HFlippable = NodePath("HFlippable")
-EyeSight = NodePath("EyeSight")
-LHand = NodePath("LHand")
-RHand = NodePath("RHand")
-Arrow = NodePath("LHand/Arrow")
-Shield1 = NodePath("RHand/Shield1")
-LongSword = NodePath("RHand/LongSword")
+WeaponManagerMainCharacter = NodePath("WeaponManagerMainCharacter")
 
 [node name="Camera2D" type="Camera2D" parent="MainCharacter"]
 zoom = Vector2(3, 3)
@@ -75,8 +71,12 @@ visible = false
 position = Vector2(473, 195)
 texture = SubResource("CanvasTexture_jqtay")
 
-[node name="Quiver" parent="." node_paths=PackedStringArray("AnimationPlayer", "NodeStateChart") instance=ExtResource("7_rlilp")]
+[node name="Quiver" parent="." node_paths=PackedStringArray("Arrow1", "Arrow2", "Arrow3", "CollisionShape2DHitbox", "AnimationPlayer", "NodeStateChart") instance=ExtResource("7_rlilp")]
 position = Vector2(442, 267)
+Arrow1 = NodePath("Sprite2D_Quiver/Arrow1")
+Arrow2 = NodePath("Sprite2D_Quiver/Arrow2")
+Arrow3 = NodePath("Sprite2D_Quiver/Arrow3")
+CollisionShape2DHitbox = NodePath("CollisionShape2D_Hitbox")
 AnimationPlayer = NodePath("AnimationPlayer")
 NodeStateChart = NodePath("StateChart")
 

@@ -83,5 +83,4 @@ libraries = {
 
 [node name="CollisionShape2D_Hitbox" type="CollisionShape2D" parent="."]
 shape = ExtResource("3_5qx44")
-disabled = true
 debug_color = Color(1, 0, 0, 0.2)

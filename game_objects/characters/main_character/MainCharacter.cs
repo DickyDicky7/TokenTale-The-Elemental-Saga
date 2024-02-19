@@ -93,8 +93,7 @@ public partial class MainCharacter : CharacterBody2D
     private void OnWeaponManagerMainCharacterWieldCurrentWeaponCease()
     {
         _stateChart.SendEvent("ToAliveHandMotionNoCombatState");
-        WeaponManagerMainCharacter
-       .ResetCurrentWeapon();
+        WeaponManagerMainCharacter .ResetCurrentWeapon();
     }
 
     #region Root -> Alive -> HandMotion -> NoCombat State

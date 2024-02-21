@@ -104,10 +104,10 @@ public partial class MainCharacter : CharacterBody2D
 
     private void OnAliveHandMotionNoCombatStateInput(InputEvent @inputEvent)
     {
-        if (@inputEvent is InputEventKey inputEventKey)
+        if (@inputEvent is InputEventMouseButton inputEventMouseButton)
         {
-            if (inputEventKey.Pressed
-            &&  inputEventKey.Keycode is Key.Space)
+            if (inputEventMouseButton.Pressed
+            &&  inputEventMouseButton.ButtonIndex is MouseButton.Left )
             {
                 _stateChart.SendEvent("ToAliveHandMotionDoCombatState");
                 return;

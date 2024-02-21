@@ -459,13 +459,13 @@ _data = {
 "RESET": SubResource("Animation_5behk")
 }
 
-[node name="Quiver" type="Area2D" node_paths=PackedStringArray("Arrow1", "Arrow2", "Arrow3", "CollisionShape2DHitbox", "AnimationPlayer", "NodeStateChart")]
+[node name="Quiver" type="Area2D" node_paths=PackedStringArray("Arrow1", "Arrow2", "Arrow3", "AnimationPlayer", "CollisionShape2DHitbox", "NodeStateChart")]
 script = ExtResource("2_1drk5")
 Arrow1 = NodePath("Sprite2D_Quiver/Arrow1")
 Arrow2 = NodePath("Sprite2D_Quiver/Arrow2")
 Arrow3 = NodePath("Sprite2D_Quiver/Arrow3")
-CollisionShape2DHitbox = NodePath("CollisionShape2D_Hitbox")
 AnimationPlayer = NodePath("AnimationPlayer")
+CollisionShape2DHitbox = NodePath("CollisionShape2D_Hitbox")
 NodeStateChart = NodePath("StateChart")
 
 [node name="Sprite2D_Quiver" type="Sprite2D" parent="."]

@@ -822,6 +822,7 @@ position = Vector2(-15, 2)
 frame = 2
 
 [node name="Arrow" parent="LHand" node_paths=PackedStringArray("CollisionShape2DHitbox") instance=ExtResource("12_vvr56")]
+visible = false
 z_index = -1
 position = Vector2(-0.5, 0)
 collision_layer = 0
@@ -832,12 +833,11 @@ CollisionShape2DHitbox = NodePath("CollisionShape2D_Hitbox")
 position = Vector2(15, 2)
 frame = 3
 
-[node name="LongSword" parent="RHand" node_paths=PackedStringArray("CollisionShape2DHitbox", "AnimationPlayer", "NodeStateChart") instance=ExtResource("10_xc3mw")]
-visible = false
+[node name="LongSword" parent="RHand" node_paths=PackedStringArray("AnimationPlayer", "CollisionShape2DHitbox", "NodeStateChart") instance=ExtResource("10_xc3mw")]
 z_index = -1
-position = Vector2(0.5, 8)
-CollisionShape2DHitbox = NodePath("CollisionShape2D_Hitbox")
+position = Vector2(0.5, 23)
 AnimationPlayer = NodePath("AnimationPlayer")
+CollisionShape2DHitbox = NodePath("CollisionShape2D_Hitbox")
 NodeStateChart = NodePath("StateChart")
 
 [node name="Shield1" parent="RHand" node_paths=PackedStringArray("CollisionShape2DHitbox") instance=ExtResource("11_ub2q8")]
@@ -846,19 +846,20 @@ z_index = 1
 CollisionShape2DHitbox = NodePath("CollisionShape2D_Hitbox")
 
 [node name="Bow" parent="RHand" node_paths=PackedStringArray("CollisionShape2DHitbox") instance=ExtResource("13_gofh1")]
+visible = false
 z_index = -1
 position = Vector2(-3, -0.5)
 CollisionShape2DHitbox = NodePath("CollisionShape2D_Hitbox")
 
-[node name="Quiver" parent="." node_paths=PackedStringArray("Arrow1", "Arrow2", "Arrow3", "CollisionShape2DHitbox", "AnimationPlayer", "NodeStateChart") instance=ExtResource("14_1k42e")]
+[node name="Quiver" parent="." node_paths=PackedStringArray("Arrow1", "Arrow2", "Arrow3", "AnimationPlayer", "CollisionShape2DHitbox", "NodeStateChart") instance=ExtResource("14_1k42e")]
 visible = false
 z_index = -1
 position = Vector2(-8, 0)
 Arrow1 = NodePath("Sprite2D_Quiver/Arrow1")
 Arrow2 = NodePath("Sprite2D_Quiver/Arrow2")
 Arrow3 = NodePath("Sprite2D_Quiver/Arrow3")
-CollisionShape2DHitbox = NodePath("CollisionShape2D_Hitbox")
 AnimationPlayer = NodePath("AnimationPlayer")
+CollisionShape2DHitbox = NodePath("CollisionShape2D_Hitbox")
 NodeStateChart = NodePath("StateChart")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -970,14 +971,17 @@ offset_bottom = 320.0
 enabled = false
 initial_node_to_watch = NodePath("../StateChart")
 
-[node name="EyeSight" parent="." node_paths=PackedStringArray("Pivot1") instance=ExtResource("24_jxr2o")]
-Pivot1 = NodePath("Pivot1")
+[node name="EyeSight" parent="." instance=ExtResource("24_jxr2o")]
 
-[node name="WeaponManagerMainCharacter" parent="." node_paths=PackedStringArray("MainCharacterNode", "CorrespondingParent_HandNodes", "Weapons") instance=ExtResource("25_ae3n1")]
-MainCharacterNode = NodePath("..")
+[node name="Pivot" type="Node2D" parent="EyeSight"]
+rotation = 1.5708
+
+[node name="WeaponManagerMainCharacter" parent="." node_paths=PackedStringArray("CorrespondingOldParentNodes", "CorrespondingNewParentNodes", "Weapons") instance=ExtResource("25_ae3n1")]
 CorrespondingKeycodes = Array[int]([4194332, 4194333, 4194334])
-CorrespondingParent_HandNodes = [NodePath("../RHand"), NodePath("../RHand"), NodePath("../RHand")]
-CorrespondingDefaultPositions = Array[Vector2]([Vector2(0.5, 8), Vector2(0, 0), Vector2(-3, -0.5)])
+CorrespondingOldParentNodes = [NodePath("../RHand"), NodePath("../RHand"), NodePath("../RHand")]
+CorrespondingNewParentNodes = [NodePath("../EyeSight/Pivot"), NodePath("../EyeSight/Pivot"), NodePath("../EyeSight/Pivot")]
+CorrespondingOldPositions = Array[Vector2]([Vector2(0.5, 23), Vector2(0, 0), Vector2(-3, -0.5)])
+CorrespondingNewPositions = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
 Weapons = [NodePath("../RHand/LongSword"), NodePath("../RHand/Shield1"), NodePath("../RHand/Bow")]
 
 [connection signal="state_entered" from="StateChart/Root" to="." method="OnRootStateEntered"]

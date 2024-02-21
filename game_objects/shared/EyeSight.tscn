@@ -3,13 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://by8knhsasceto" path="res://game_objects/shared/GradientTexture2D_PointLight2D_EyeSight.tres" id="1_accdw"]
 [ext_resource type="Script" path="res://game_objects/shared/EyeSight.cs" id="2_umrbi"]
 
-[node name="EyeSight" type="PointLight2D" node_paths=PackedStringArray("Pivot1")]
+[node name="EyeSight" type="PointLight2D"]
 rotation = -0.785398
 energy = 2.0
 texture = ExtResource("1_accdw")
 offset = Vector2(32, 32)
 script = ExtResource("2_umrbi")
-Pivot1 = NodePath("Pivot1")
-
-[node name="Pivot1" type="Node2D" parent="."]
-rotation = 1.5708

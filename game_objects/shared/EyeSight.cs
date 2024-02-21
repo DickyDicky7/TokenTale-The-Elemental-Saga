@@ -8,8 +8,6 @@ public partial class EyeSight : PointLight2D
     public float MinRotation { get; set; } = -90;
     [Export]
     public float MaxRotation { get; set; } = +90;
-    [Export]
-    public Node2D Pivot1 { get; set; }
 
     public virtual void FollowPosition(Vector2 @position)
     {

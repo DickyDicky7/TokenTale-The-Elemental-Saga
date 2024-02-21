@@ -10,10 +10,11 @@ public partial class WeaponManagerMainCharacter : BaseWeaponManager
     private int _currIndex = -1;
     private int _lastIndex = -1;
 
-    [Export] public MainCharacter  MainCharacterNode { get; set; }
     [Export] public Array<Key> CorrespondingKeycodes { get; set; }
-    [Export] public Array<BaseHand> CorrespondingParent_HandNodes { get; set; }
-    [Export] public Array<Vector2 > CorrespondingDefaultPositions { get; set; }
+    [Export] public Array<Node2D > CorrespondingOldParentNodes { get; set; }
+    [Export] public Array<Node2D > CorrespondingNewParentNodes { get; set; }
+    [Export] public Array<Vector2> CorrespondingOldPositions   { get; set; }
+    [Export] public Array<Vector2> CorrespondingNewPositions   { get; set; }
 
     public override void _Ready()
     {
@@ -56,7 +57,8 @@ public partial class WeaponManagerMainCharacter : BaseWeaponManager
     {
         if (_currIndex >= 0)
         {
-            Weapons[_currIndex].Reparent(newParent: MainCharacterNode.EyeSight.Pivot1, keepGlobalTransform: false);
+            Weapons[_currIndex].Reparent ( CorrespondingNewParentNodes[_currIndex], keepGlobalTransform: false);
+            Weapons[_currIndex].Position = CorrespondingNewPositions  [_currIndex];
             Weapons[_currIndex].Wield();
         }
     }
@@ -66,8 +68,8 @@ public partial class WeaponManagerMainCharacter : BaseWeaponManager
         if (_currIndex >= 0)
         {
             Weapons[_currIndex].Reset();
-            Weapons[_currIndex].Reparent ( CorrespondingParent_HandNodes[_currIndex] , keepGlobalTransform: false);
-            Weapons[_currIndex].Position = CorrespondingDefaultPositions[_currIndex] ;
+            Weapons[_currIndex].Reparent ( CorrespondingOldParentNodes[_currIndex], keepGlobalTransform: false);
+            Weapons[_currIndex].Position = CorrespondingOldPositions  [_currIndex];
         }
     }
 }

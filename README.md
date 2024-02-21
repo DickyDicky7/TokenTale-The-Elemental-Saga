@@ -59,3 +59,7 @@ public partial class Adventurer
 - https://github.com/godotengine/awesome-godot
 - https://statecharts.dev/
 - https://statecharts.dev/state-machine-state-explosion.html
+
+## Algorithms:
+- Minimax
+- Alpha Beta Pruning (optimization for Minimax)

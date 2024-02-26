@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ccr4sjhegjjni" path="res://game_objects/items/wood/shared/CanvasTexture.tres" id="1_pq1wu"]
 [ext_resource type="Script" path="res://game_objects/items/wood/arrow/Arrow.cs" id="2_y6gyj"]
-[ext_resource type="Shape2D" uid="uid://cip2bmp1a0r3v" path="res://game_objects/items/wood/arrow/Arrow_CapsuleShape2D_CollisionShape2D_Hitbox.tres" id="3_h0g4q"]
+[ext_resource type="Shape2D" uid="uid://dn3okfjes2o83" path="res://game_objects/items/wood/arrow/Arrow_RectangleShape2D_CollisionShape2D_Hitbox.tres" id="3_t8rt1"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="4_do14e"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="5_7a3fy"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="5_bn4yw"]
@@ -20,7 +20,8 @@ region_enabled = true
 region_rect = Rect2(16, 0, 16, 16)
 
 [node name="CollisionShape2D_Hitbox" type="CollisionShape2D" parent="."]
-shape = ExtResource("3_h0g4q")
+position = Vector2(0, -5.5)
+shape = ExtResource("3_t8rt1")
 debug_color = Color(1, 0, 0, 0.2)
 
 [node name="StateChart" type="Node" parent="."]

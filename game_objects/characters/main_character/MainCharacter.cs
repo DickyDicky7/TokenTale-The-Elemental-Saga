@@ -8,7 +8,8 @@ namespace TokenTaleTheElementalSaga.GameObjects.Characters;
 
 public partial class MainCharacter : CharacterBody2D
 {
-    [Export] public int Speed { get; set; }
+    [Export] public float JumpV { get; set; }
+    [Export] public float Speed { get; set; }
     [Export] public EyeSight     EyeSight { get; set; }
     [Export] public HFlippable HFlippable { get; set; }
     [Export] public AnimationTree AnimationTree { get; set; }
@@ -31,6 +32,26 @@ public partial class MainCharacter : CharacterBody2D
     private void OnAliveStateEntered()
     {
 
+    }
+
+    private void OnAliveStateInput(InputEvent @inputEvent)
+    {
+        if (@inputEvent is
+             InputEventKey
+             inputEventKey)
+        {
+            if (inputEventKey.Pressed
+            &&  inputEventKey.Keycode is Key.Space)
+            {
+                Tween tween = CreateTween();
+                tween.TweenProperty(this, "position:y", Position.Y + JumpV, 0.5f)
+                     .SetEase (Tween.EaseType.Out)
+                     .SetTrans(Tween.TransitionType.Expo);
+                tween.TweenProperty(this, "position:y", Position.Y        , 0.5f)
+                     .SetEase (Tween.EaseType.In )
+                     .SetTrans(Tween.TransitionType.Expo);
+            }
+        }
     }
     #endregion
 
@@ -79,7 +100,8 @@ public partial class MainCharacter : CharacterBody2D
         }
 
         Transform = HFlippable.Flip(Transform, direction);
-        Velocity  = velocity;
+        Velocity
+      = velocity;
 
         MoveAndSlide();
     }
@@ -90,6 +112,7 @@ public partial class MainCharacter : CharacterBody2D
         _stateChart.SendEvent("ToAliveHandMotionNoCombatState");
         WeaponManagerMainCharacter .ResetCurrentWeapon();
     }
+
 
     #region Root -> Alive -> HandMotion -> NoCombat State
     private void OnAliveHandMotionNoCombatStateEntered()

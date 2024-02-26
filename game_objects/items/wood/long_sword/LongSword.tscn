@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ccr4sjhegjjni" path="res://game_objects/items/wood/shared/CanvasTexture.tres" id="1_7x8gr"]
 [ext_resource type="Script" path="res://game_objects/items/wood/long_sword/LongSword.cs" id="1_oy1g0"]
-[ext_resource type="Shape2D" uid="uid://bl6rakvusr51g" path="res://game_objects/items/wood/long_sword/LongSword_CapsuleShape2D_CollisionShape2D_Hitbox.tres" id="2_d7ka5"]
+[ext_resource type="Shape2D" uid="uid://j4wwwg7yuewq" path="res://game_objects/items/wood/long_sword/LongSword_RectangleShape2D_CollisionShape2D_Hitbox.tres" id="3_nr4gk"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="4_m2gnf"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="5_al3pb"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="6_q36cd"]
@@ -59,7 +59,7 @@ region_rect = Rect2(0, 0, 16, 48)
 
 [node name="CollisionShape2D_Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(0, -35.5)
-shape = ExtResource("2_d7ka5")
+shape = ExtResource("3_nr4gk")
 debug_color = Color(1, 0, 0, 0.2)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://game_objects/items/wood/bow/Bow.cs" id="1_7c3ti"]
 [ext_resource type="Material" uid="uid://djeuo8ufmtnsu" path="res://game_objects/items/wood/bow/Bow_ShaderMaterial_AnimatedSprite2D.tres" id="1_ryy66"]
 [ext_resource type="SpriteFrames" uid="uid://bvu7c67np3hx6" path="res://game_objects/items/wood/bow/Bow_SpriteFrames_AnimatedSprite2D.tres" id="2_bc3eq"]
-[ext_resource type="Shape2D" uid="uid://cghx2lgrp2nhj" path="res://game_objects/items/wood/bow/Bow_CapsuleShape2D_CollisionShape2D_Hitbox.tres" id="3_5qx44"]
+[ext_resource type="Shape2D" uid="uid://b87yo8rgpbh1" path="res://game_objects/items/wood/bow/Bow_RectangleShape2D_CollisionShape2D_Hitbox.tres" id="4_gjmb7"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="5_bblnv"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="6_0ae7o"]
 [ext_resource type="PackedScene" uid="uid://dj633pv8yipjf" path="res://game_objects/items/wood/arrow/Arrow.tscn" id="7_5lo6j"]
@@ -155,7 +155,8 @@ sprite_frames = ExtResource("2_bc3eq")
 animation = &"SHOOT"
 
 [node name="CollisionShape2D_Hitbox" type="CollisionShape2D" parent="."]
-shape = ExtResource("3_5qx44")
+position = Vector2(1, 0)
+shape = ExtResource("4_gjmb7")
 debug_color = Color(1, 0, 0, 0.2)
 
 [node name="Arrow" parent="." node_paths=PackedStringArray("CollisionShape2DHitbox", "NodeStateChart") instance=ExtResource("7_5lo6j")]

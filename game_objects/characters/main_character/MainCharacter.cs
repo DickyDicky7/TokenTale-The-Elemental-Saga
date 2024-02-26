@@ -13,11 +13,6 @@ public partial class MainCharacter : CharacterBody2D
     [Export] public HFlippable HFlippable { get; set; }
     [Export] public AnimationTree AnimationTree { get; set; }
     [Export] public Node NodeStateChart { get => null; set => _stateChart = StateChart.Of(value); }
-    //[Export] public LHand LHand { get; set; }
-    //[Export] public RHand RHand { get; set; }
-    //[Export] public Arrow Arrow { get; set; }
-    //[Export] public Shield1   Shield1   { get; set; }
-    //[Export] public LongSword LongSword { get; set; }
     [Export] public WeaponManagerMainCharacter WeaponManagerMainCharacter { get; set; }
 
     private StateChart _stateChart;

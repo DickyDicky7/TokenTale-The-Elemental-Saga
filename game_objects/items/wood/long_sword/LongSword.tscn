@@ -45,10 +45,10 @@ _data = {
 "SLASH": SubResource("Animation_u1lmi")
 }
 
-[node name="LongSword" type="Area2D" node_paths=PackedStringArray("AnimationPlayer", "CollisionShape2DHitbox", "NodeStateChart")]
+[node name="LongSword" type="Area2D" node_paths=PackedStringArray("CollisionShape2DHitbox", "AnimationPlayer", "NodeStateChart")]
 script = ExtResource("1_oy1g0")
-AnimationPlayer = NodePath("AnimationPlayer")
 CollisionShape2DHitbox = NodePath("CollisionShape2D_Hitbox")
+AnimationPlayer = NodePath("AnimationPlayer")
 NodeStateChart = NodePath("StateChart")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -90,7 +90,6 @@ script = ExtResource("7_r8vgt")
 to = NodePath("../../Reset")
 event = &"ToResetState"
 
-[connection signal="visibility_changed" from="." to="." method="OnVisibilityChanged"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="OnAnimationPlayerAnimationCease"]
 [connection signal="state_entered" from="StateChart/Root/Reset" to="." method="OnResetStateEntered"]
 [connection signal="state_entered" from="StateChart/Root/Slash" to="." method="OnSlashStateEntered"]

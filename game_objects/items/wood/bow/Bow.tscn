@@ -1,13 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://ct2trwtxho213"]
+[gd_scene load_steps=13 format=3 uid="uid://ct2trwtxho213"]
 
 [ext_resource type="Script" path="res://game_objects/items/wood/bow/Bow.cs" id="1_7c3ti"]
 [ext_resource type="Material" uid="uid://djeuo8ufmtnsu" path="res://game_objects/items/wood/bow/Bow_ShaderMaterial_AnimatedSprite2D.tres" id="1_ryy66"]
 [ext_resource type="SpriteFrames" uid="uid://bvu7c67np3hx6" path="res://game_objects/items/wood/bow/Bow_SpriteFrames_AnimatedSprite2D.tres" id="2_bc3eq"]
 [ext_resource type="Shape2D" uid="uid://cghx2lgrp2nhj" path="res://game_objects/items/wood/bow/Bow_CapsuleShape2D_CollisionShape2D_Hitbox.tres" id="3_5qx44"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="5_bblnv"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="6_0ae7o"]
+[ext_resource type="PackedScene" uid="uid://dj633pv8yipjf" path="res://game_objects/items/wood/arrow/Arrow.tscn" id="7_5lo6j"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="7_qram1"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="9_f6i3l"]
 
-[sub_resource type="Animation" id="Animation_mq1yt"]
-length = 0.2
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_l6rrn"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -30,12 +34,48 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["IDLE"]
+"values": [&"SHOOT"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Arrow:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Arrow:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Arrow:rotation")
+tracks/4/interp = 3
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.785398]
 }
 
 [sub_resource type="Animation" id="Animation_6dmb2"]
-length = 0.6
-loop_mode = 1
+resource_name = "SHOOT"
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -43,10 +83,10 @@ tracks/0/path = NodePath("AnimatedSprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2]
+"values": [0, 1, 2, 3]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -58,29 +98,100 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["SHOT"]
+"values": ["SHOOT"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Arrow:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Arrow:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.35, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(5, 0), Vector2(2, 0), Vector2(0, 0), Vector2(5, 0), Vector2(10, 0), Vector2(20, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Arrow:rotation")
+tracks/4/interp = 3
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hqbwj"]
 _data = {
-"IDLE": SubResource("Animation_mq1yt"),
-"SHOT": SubResource("Animation_6dmb2")
+"RESET": SubResource("Animation_l6rrn"),
+"SHOOT": SubResource("Animation_6dmb2")
 }
 
-[node name="Bow" type="Area2D" node_paths=PackedStringArray("CollisionShape2DHitbox")]
+[node name="Bow" type="Area2D" node_paths=PackedStringArray("CollisionShape2DHitbox", "AnimationPlayer", "NodeStateChart")]
 script = ExtResource("1_7c3ti")
 CollisionShape2DHitbox = NodePath("CollisionShape2D_Hitbox")
+AnimationPlayer = NodePath("AnimationPlayer")
+NodeStateChart = NodePath("StateChart")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = ExtResource("1_ryy66")
 sprite_frames = ExtResource("2_bc3eq")
-animation = &"IDLE"
+animation = &"SHOOT"
+
+[node name="CollisionShape2D_Hitbox" type="CollisionShape2D" parent="."]
+shape = ExtResource("3_5qx44")
+debug_color = Color(1, 0, 0, 0.2)
+
+[node name="Arrow" parent="." node_paths=PackedStringArray("CollisionShape2DHitbox", "NodeStateChart") instance=ExtResource("7_5lo6j")]
+position = Vector2(5, 0)
+rotation = 0.785398
+CollisionShape2DHitbox = NodePath("CollisionShape2D_Hitbox")
+NodeStateChart = NodePath("StateChart")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_hqbwj")
 }
 
-[node name="CollisionShape2D_Hitbox" type="CollisionShape2D" parent="."]
-shape = ExtResource("3_5qx44")
-debug_color = Color(1, 0, 0, 0.2)
+[node name="StateChart" type="Node" parent="."]
+script = ExtResource("5_bblnv")
+
+[node name="Root" type="Node" parent="StateChart"]
+script = ExtResource("7_qram1")
+initial_state = NodePath("Reset")
+
+[node name="Reset" type="Node" parent="StateChart/Root"]
+script = ExtResource("6_0ae7o")
+
+[node name="ToShoot" type="Node" parent="StateChart/Root/Reset"]
+script = ExtResource("9_f6i3l")
+to = NodePath("../../Shoot")
+event = &"ToShootState"
+
+[node name="Shoot" type="Node" parent="StateChart/Root"]
+script = ExtResource("6_0ae7o")
+
+[node name="ToReset" type="Node" parent="StateChart/Root/Shoot"]
+script = ExtResource("9_f6i3l")
+to = NodePath("../../Reset")
+event = &"ToResetState"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="OnAnimationPlayerAnimationCease"]
+[connection signal="state_entered" from="StateChart/Root/Reset" to="." method="OnResetStateEntered"]
+[connection signal="state_entered" from="StateChart/Root/Shoot" to="." method="OnShootStateEntered"]

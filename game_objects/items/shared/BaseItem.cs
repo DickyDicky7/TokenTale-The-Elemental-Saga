@@ -6,8 +6,10 @@ namespace TokenTaleTheElementalSaga.GameObjects.Items.Shared;
 public abstract partial class BaseItem : Area2D
 {
     [Export] public CollisionShape2D CollisionShape2DHitbox { get; set; }
-    [Export] public AnimationTree   AnimationTree   { get; set; }
-    [Export] public AnimationPlayer AnimationPlayer { get; set; }
+    [Export] public AnimationTree
+                    AnimationTree   { get; set; }
+    [Export] public AnimationPlayer
+                    AnimationPlayer { get; set; }
     [Export]
     public Node NodeStateChart
     {

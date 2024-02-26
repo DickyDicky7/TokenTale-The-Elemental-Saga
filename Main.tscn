@@ -59,11 +59,11 @@ energy = 3.0
 texture = SubResource("GradientTexture2D_hpl7p")
 height = 50.0
 
-[node name="LongSword" parent="." node_paths=PackedStringArray("AnimationPlayer", "CollisionShape2DHitbox", "NodeStateChart") instance=ExtResource("4_nev88")]
+[node name="LongSword" parent="." node_paths=PackedStringArray("CollisionShape2DHitbox", "AnimationPlayer", "NodeStateChart") instance=ExtResource("4_nev88")]
 visible = false
 position = Vector2(384, 283)
-AnimationPlayer = NodePath("AnimationPlayer")
 CollisionShape2DHitbox = NodePath("CollisionShape2D_Hitbox")
+AnimationPlayer = NodePath("AnimationPlayer")
 NodeStateChart = NodePath("StateChart")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -71,13 +71,13 @@ visible = false
 position = Vector2(473, 195)
 texture = SubResource("CanvasTexture_jqtay")
 
-[node name="Quiver" parent="." node_paths=PackedStringArray("Arrow1", "Arrow2", "Arrow3", "AnimationPlayer", "CollisionShape2DHitbox", "NodeStateChart") instance=ExtResource("7_rlilp")]
+[node name="Quiver" parent="." node_paths=PackedStringArray("Arrow1", "Arrow2", "Arrow3", "CollisionShape2DHitbox", "AnimationPlayer", "NodeStateChart") instance=ExtResource("7_rlilp")]
 position = Vector2(442, 267)
 Arrow1 = NodePath("Sprite2D_Quiver/Arrow1")
 Arrow2 = NodePath("Sprite2D_Quiver/Arrow2")
 Arrow3 = NodePath("Sprite2D_Quiver/Arrow3")
-AnimationPlayer = NodePath("AnimationPlayer")
 CollisionShape2DHitbox = NodePath("CollisionShape2D_Hitbox")
+AnimationPlayer = NodePath("AnimationPlayer")
 NodeStateChart = NodePath("StateChart")
 
 [node name="Timer" type="Timer" parent="."]

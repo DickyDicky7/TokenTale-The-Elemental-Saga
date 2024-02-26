@@ -14,4 +14,12 @@ public partial class Arrow : BaseWeapon
     {
         throw new System.NotImplementedException();
     }
+
+
+    #region Root -> Reset State
+    private void OnResetStateEntered()
+    {
+        CollisionShape2DHitbox.SetDeferred("disabled", !false);
+    }
+    #endregion
 }

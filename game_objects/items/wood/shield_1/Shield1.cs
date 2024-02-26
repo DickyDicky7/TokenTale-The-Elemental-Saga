@@ -7,11 +7,37 @@ public partial class Shield1 : BaseWeapon
 {
     public override void Wield()
     {
-        throw new System.NotImplementedException();
+        _stateChart.SendEvent("ToGuardState");
     }
 
     public override void Reset()
     {
-        throw new System.NotImplementedException();
+        _stateChart.SendEvent("ToResetState");
     }
+
+    private void OnAnimationPlayerAnimationCease(StringName @animationName)
+    {
+        if (@animationName == "GUARD")
+        {
+            EmitSignal(SignalName.OnWieldCease);
+        }
+    }
+
+
+    #region Root -> Reset State
+    private void OnResetStateEntered()
+    {
+        AnimationPlayer.Play("RESET");
+        CollisionShape2DHitbox.SetDeferred("disabled", !false);
+    }
+    #endregion
+
+
+    #region Root -> Guard State
+    private void OnGuardStateEntered()
+    {
+        AnimationPlayer.Play("GUARD");
+        CollisionShape2DHitbox.SetDeferred("disabled",  false);
+    }
+    #endregion
 }

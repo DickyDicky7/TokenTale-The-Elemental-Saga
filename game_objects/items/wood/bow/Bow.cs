@@ -7,11 +7,37 @@ public partial class Bow : BaseWeapon
 {
     public override void Wield()
     {
-        throw new System.NotImplementedException();
+        _stateChart.SendEvent("ToShootState");
     }
 
     public override void Reset()
     {
-        throw new System.NotImplementedException();
+        _stateChart.SendEvent("ToResetState");
     }
+
+    private void OnAnimationPlayerAnimationCease(StringName @animationName)
+    {
+        if (@animationName == "SHOOT")
+        {
+            EmitSignal(SignalName.OnWieldCease);
+        }
+    }
+
+
+    #region Root -> Reset State
+    private void OnResetStateEntered()
+    {
+        AnimationPlayer.Play("RESET");
+        CollisionShape2DHitbox.SetDeferred("disabled", !false);
+    }
+    #endregion
+
+
+    #region Root -> Shoot State
+    private void OnShootStateEntered()
+    {
+        AnimationPlayer.Play("SHOOT");
+        CollisionShape2DHitbox.SetDeferred("disabled", !false);
+    }
+    #endregion
 }

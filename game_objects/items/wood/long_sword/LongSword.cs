@@ -5,10 +5,10 @@ namespace TokenTaleTheElementalSaga.GameObjects.Items.Wood  ;
 
 public partial class LongSword : BaseWeapon
 {
-    public override void _Ready()
-    {
-        CollisionShape2DHitbox.SetDeferred("disabled", true);
-    }
+    //public override void _Ready()
+    //{
+    //    CollisionShape2DHitbox.SetDeferred("disabled", true);
+    //}
 
     public override void Wield()
     {
@@ -20,13 +20,13 @@ public partial class LongSword : BaseWeapon
         _stateChart.SendEvent("ToResetState");
     }
 
-    private void OnVisibilityChanged()
-    {
-        if (_stateChart != null)
-        {
-            _stateChart.SendEvent("ToResetState");
-        }
-    }
+    //private void OnVisibilityChanged()
+    //{
+    //    if (_stateChart != null)
+    //    {
+    //        _stateChart.SendEvent("ToResetState");
+    //    }
+    //}
 
     private void OnAnimationPlayerAnimationCease(StringName @animationName)
     {

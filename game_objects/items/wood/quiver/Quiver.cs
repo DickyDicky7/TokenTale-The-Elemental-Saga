@@ -29,7 +29,7 @@ public partial class Quiver : BaseItem
         Arrow1.CollisionShape2DHitbox.SetDeferred("disabled", true);
         Arrow2.CollisionShape2DHitbox.SetDeferred("disabled", true);
         Arrow3.CollisionShape2DHitbox.SetDeferred("disabled", true);
-        ChangeState();
+        //ChangeState();
     }
 
     private void OnIsEmptyChanged(bool @isEmpty)

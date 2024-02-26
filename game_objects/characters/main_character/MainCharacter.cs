@@ -46,7 +46,7 @@ public partial class MainCharacter : CharacterBody2D
         if (@inputEvent is InputEventKey inputEventKey)
         {
             if (inputEventKey.Pressed
-            &&  inputEventKey.Keycode is Key.Up or Key.Down or Key.Left or Key.Right)
+            &&  inputEventKey.Keycode is Key.W or Key.S or Key.A or Key.D)
             {
                 _stateChart.SendEvent("ToAliveBodyMotionMoveState");
             }

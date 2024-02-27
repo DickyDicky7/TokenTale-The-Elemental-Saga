@@ -36,6 +36,7 @@ enabled=PackedStringArray("res://addons/AS2P/plugin.cfg", "res://addons/beehave/
 [file_customization]
 
 folder_colors={
+"res://addons/": "green",
 "res://game_assets/": "teal",
 "res://game_objects/": "pink"
 }

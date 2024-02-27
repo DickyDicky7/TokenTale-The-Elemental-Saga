@@ -794,7 +794,7 @@ JumpV = -50.0
 Speed = 100.0
 EyeSight = NodePath("EyeSight")
 HFlippable = NodePath("HFlippable")
-AnimationTree = NodePath("AnimationTree")
+AnimationTree = NodePath("AnimationTree$$")
 NodeStateChart = NodePath("StateChart")
 WeaponManagerMainCharacter = NodePath("WeaponManagerMainCharacter")
 
@@ -820,7 +820,7 @@ position = Vector2(2, 0)
 shape = ExtResource("8_iachd")
 debug_color = Color(0, 1, 0, 0.2)
 
-[node name="CollisionShape2D_Bot" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D_Bot$" type="CollisionShape2D" parent="."]
 shape = ExtResource("26_5a24m")
 debug_color = Color(0, 0, 1, 0.2)
 
@@ -847,22 +847,21 @@ position = Vector2(15, 2)
 frame = 3
 
 [node name="LongSword" parent="RHand" node_paths=PackedStringArray("CollisionShape2DHitbox", "AnimationPlayer", "NodeStateChart") instance=ExtResource("10_xc3mw")]
-visible = false
 z_index = -1
 position = Vector2(0.5, 23)
 CollisionShape2DHitbox = NodePath("CollisionShape2D_Hitbox")
 AnimationPlayer = NodePath("AnimationPlayer")
 NodeStateChart = NodePath("StateChart")
 
-[node name="Shield1" parent="RHand" node_paths=PackedStringArray("CollisionShape2DHitbox", "AnimationPlayer", "NodeStateChart") instance=ExtResource("11_ub2q8")]
+[node name="Shield1$$" parent="RHand" node_paths=PackedStringArray("CollisionShape2DHitbox", "AnimationPlayer", "NodeStateChart") instance=ExtResource("11_ub2q8")]
 visible = false
 z_index = 1
-position = Vector2(0.5, 30)
 CollisionShape2DHitbox = NodePath("CollisionShape2D_Hitbox")
 AnimationPlayer = NodePath("AnimationPlayer")
 NodeStateChart = NodePath("StateChart")
 
-[node name="Bow" parent="RHand" node_paths=PackedStringArray("CollisionShape2DHitbox", "AnimationPlayer", "NodeStateChart") instance=ExtResource("13_gofh1")]
+[node name="Bow$$$$$$" parent="RHand" node_paths=PackedStringArray("CollisionShape2DHitbox", "AnimationPlayer", "NodeStateChart") instance=ExtResource("13_gofh1")]
+visible = false
 z_index = -1
 position = Vector2(-3, -0.5)
 CollisionShape2DHitbox = NodePath("CollisionShape2D_Hitbox")
@@ -885,7 +884,7 @@ libraries = {
 "": SubResource("AnimationLibrary_pmcwq")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree$$" type="AnimationTree" parent="."]
 tree_root = ExtResource("15_1hkl3")
 advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
@@ -991,23 +990,23 @@ initial_node_to_watch = NodePath("../StateChart")
 
 [node name="EyeSight" parent="." instance=ExtResource("24_jxr2o")]
 
-[node name="Pivot1" type="Node2D" parent="EyeSight"]
+[node name="PivotLongSword" type="Node2D" parent="EyeSight"]
 rotation = 1.5708
 
-[node name="Pivot2" type="Node2D" parent="EyeSight"]
-rotation = 1.5708
+[node name="PivotShield1$$" type="Node2D" parent="EyeSight"]
+rotation = 0.785398
 
-[node name="Pivot3" type="Node2D" parent="EyeSight"]
+[node name="PivotBow$$$$$$" type="Node2D" parent="EyeSight"]
 position = Vector2(15, 15)
 rotation = 0.785398
 
 [node name="WeaponManagerMainCharacter" parent="." node_paths=PackedStringArray("CorrespondingOldParentNodes", "CorrespondingNewParentNodes", "Weapons") instance=ExtResource("25_ae3n1")]
 CorrespondingKeycodes = Array[int]([4194332, 4194333, 4194334])
 CorrespondingOldParentNodes = [NodePath("../RHand"), NodePath("../RHand"), NodePath("../RHand")]
-CorrespondingNewParentNodes = [NodePath("../EyeSight/Pivot1"), NodePath("../EyeSight/Pivot2"), NodePath("../EyeSight/Pivot3")]
-CorrespondingOldPositions = Array[Vector2]([Vector2(0.5, 23), Vector2(0.5, 30), Vector2(-3, -0.5)])
-CorrespondingNewPositions = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
-Weapons = [NodePath("../RHand/LongSword"), NodePath("../RHand/Shield1"), NodePath("../RHand/Bow")]
+CorrespondingNewParentNodes = [NodePath("../EyeSight/PivotLongSword"), NodePath(".."), NodePath("../EyeSight/PivotBow$$$$$$")]
+CorrespondingOldPositions = Array[Vector2]([Vector2(0.5, 23), Vector2(0.5, 0), Vector2(-3, -0.5)])
+CorrespondingNewPositions = Array[Vector2]([Vector2(0, 0), Vector2(0.5, 0.5), Vector2(0, 0)])
+Weapons = [NodePath("../RHand/LongSword"), NodePath("../RHand/Shield1$$"), NodePath("../RHand/Bow$$$$$$")]
 
 [connection signal="state_entered" from="StateChart/Root" to="." method="OnRootStateEntered"]
 [connection signal="state_entered" from="StateChart/Root/Alive" to="." method="OnAliveStateEntered"]

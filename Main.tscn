@@ -32,10 +32,11 @@ position = Vector2(399.5, 288)
 scale = Vector2(7.24219, 5.5)
 texture = ExtResource("3_q7ibp")
 
-[node name="MainCharacter" parent="." node_paths=PackedStringArray("EyeSight", "HFlippable", "NodeStateChart", "WeaponManagerMainCharacter") instance=ExtResource("2_acwdm")]
+[node name="MainCharacter" parent="." node_paths=PackedStringArray("EyeSight", "HFlippable", "AnimationTree", "NodeStateChart", "WeaponManagerMainCharacter") instance=ExtResource("2_acwdm")]
 position = Vector2(400, 300)
 EyeSight = NodePath("EyeSight")
 HFlippable = NodePath("HFlippable")
+AnimationTree = NodePath("AnimationTree$$")
 NodeStateChart = NodePath("StateChart")
 WeaponManagerMainCharacter = NodePath("WeaponManagerMainCharacter")
 

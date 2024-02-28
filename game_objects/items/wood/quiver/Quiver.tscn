@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b5syn81w5x20n"]
+[gd_scene load_steps=13 format=3 uid="uid://b5syn81w5x20n"]
 
 [ext_resource type="Texture2D" uid="uid://ccr4sjhegjjni" path="res://game_objects/items/wood/shared/CanvasTexture.tres" id="1_3dfme"]
 [ext_resource type="Script" path="res://game_objects/items/wood/quiver/Quiver.cs" id="2_1drk5"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="5_70qeh"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="6_lpnbd"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="7_6kvgw"]
+[ext_resource type="Shape2D" uid="uid://dnliuaxawvorv" path="res://game_objects/items/wood/quiver/Quiver_RectangleShape2D_CollisionShape2D_Hitbox.tres" id="8_f8gvj"]
 
 [sub_resource type="Animation" id="Animation_ly1bt"]
 resource_name = "NEW_OF_ARROWS"
@@ -458,34 +459,55 @@ _data = {
 "RESET": SubResource("Animation_5behk")
 }
 
-[node name="Quiver" type="Sprite2D"]
+[node name="Quiver" type="Area2D" node_paths=PackedStringArray("Arrow1", "Arrow2", "Arrow3", "CollisionShape2DHitbox", "AnimationPlayer", "NodeStateChart")]
+script = ExtResource("2_1drk5")
+Arrow1 = NodePath("Sprite2D_Quiver/Arrow1")
+Arrow2 = NodePath("Sprite2D_Quiver/Arrow2")
+Arrow3 = NodePath("Sprite2D_Quiver/Arrow3")
+CollisionShape2DHitbox = NodePath("CollisionShape2D_Hitbox")
+AnimationPlayer = NodePath("AnimationPlayer")
+NodeStateChart = NodePath("StateChart")
+
+[node name="Sprite2D_Quiver" type="Sprite2D" parent="."]
 texture = ExtResource("1_3dfme")
 region_enabled = true
 region_rect = Rect2(80, 16, 16, 24)
-script = ExtResource("2_1drk5")
 
-[node name="Arrow1" parent="." instance=ExtResource("3_detxk")]
+[node name="Arrow1" parent="Sprite2D_Quiver" node_paths=PackedStringArray("CollisionShape2DHitbox", "NodeStateChart") instance=ExtResource("3_detxk")]
 z_index = -1
 position = Vector2(2.5, -10)
 scale = Vector2(1, -1)
 collision_layer = 0
 collision_mask = 0
+CollisionShape2DHitbox = NodePath("CollisionShape2D_Hitbox")
+NodeStateChart = NodePath("StateChart")
 
-[node name="Arrow2" parent="." instance=ExtResource("3_detxk")]
+[node name="Arrow2" parent="Sprite2D_Quiver" node_paths=PackedStringArray("CollisionShape2DHitbox", "NodeStateChart") instance=ExtResource("3_detxk")]
 z_index = -2
 position = Vector2(-2.5, -10)
 scale = Vector2(1, -1)
 collision_layer = 0
 collision_mask = 0
+CollisionShape2DHitbox = NodePath("CollisionShape2D_Hitbox")
+NodeStateChart = NodePath("StateChart")
 
-[node name="Arrow3" parent="." instance=ExtResource("3_detxk")]
+[node name="Arrow3" parent="Sprite2D_Quiver" node_paths=PackedStringArray("CollisionShape2DHitbox", "NodeStateChart") instance=ExtResource("3_detxk")]
 z_index = -3
 position = Vector2(0, -13)
 scale = Vector2(1, -1)
 collision_layer = 0
 collision_mask = 0
+CollisionShape2DHitbox = NodePath("CollisionShape2D_Hitbox")
+NodeStateChart = NodePath("StateChart")
+
+[node name="CollisionShape2D_Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.5)
+shape = ExtResource("8_f8gvj")
+disabled = true
+debug_color = Color(1, 0, 0, 0.2)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D_Quiver")
 libraries = {
 "": SubResource("AnimationLibrary_j4ymk")
 }

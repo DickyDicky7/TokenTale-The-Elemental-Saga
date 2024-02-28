@@ -1,14 +1,14 @@
-[gd_scene load_steps=33 format=3 uid="uid://kph28vq633cw"]
+[gd_scene load_steps=35 format=3 uid="uid://kph28vq633cw"]
 
 [ext_resource type="Material" uid="uid://blpsavl23cbqg" path="res://game_objects/characters/main_character/MainCharacter_ShaderMaterial_AnimatedSprite2D_Body_Dead.tres" id="1_1dkve"]
 [ext_resource type="Script" path="res://game_objects/characters/main_character/MainCharacter.cs" id="1_mkh5o"]
 [ext_resource type="SpriteFrames" uid="uid://c2tew6oww52r" path="res://game_objects/characters/main_character/MainCharacter_SpriteFrames_AnimatedSprite2D_Body_Dead.tres" id="2_6eo03"]
-[ext_resource type="Shape2D" uid="uid://citgnft8eb1d8" path="res://game_objects/characters/main_character/MainCharacter_CapsuleShape2D_CollisionShape2D_Body.tres" id="2_e1tw7"]
 [ext_resource type="Material" uid="uid://dehaeylon6ldp" path="res://game_objects/characters/main_character/MainCharacter_ShaderMaterial_AnimatedSprite2D_Body_Idle.tres" id="3_3xpab"]
 [ext_resource type="SpriteFrames" uid="uid://d02xg7io6gfiy" path="res://game_objects/characters/main_character/MainCharacter_SpriteFrames_AnimatedSprite2D_Body_Idle.tres" id="4_7ahlw"]
 [ext_resource type="Material" uid="uid://dpk6ju0rlvigy" path="res://game_objects/characters/main_character/MainCharacter_ShaderMaterial_AnimatedSprite2D_Body_Move.tres" id="5_8kjh5"]
 [ext_resource type="SpriteFrames" uid="uid://0xfead02py0u" path="res://game_objects/characters/main_character/MainCharacter_SpriteFrames_AnimatedSprite2D_Body_Move.tres" id="6_gp7y6"]
 [ext_resource type="PackedScene" uid="uid://dx1yyel70jhi5" path="res://game_objects/items/hand/l_hand/LHand.tscn" id="8_a6bxd"]
+[ext_resource type="Shape2D" uid="uid://dswj4wjdpkl6e" path="res://game_objects/characters/main_character/MainCharacter_RectangleShape2D_CollisionShape2D_Body.tres" id="8_iachd"]
 [ext_resource type="PackedScene" uid="uid://cm5gjh4amr5bt" path="res://game_objects/items/hand/r_hand/RHand.tscn" id="9_lu8uc"]
 [ext_resource type="PackedScene" uid="uid://e7mf01r4x1a5" path="res://game_objects/items/wood/long_sword/LongSword.tscn" id="10_xc3mw"]
 [ext_resource type="PackedScene" uid="uid://nipsg8fh7fer" path="res://game_objects/items/wood/shield_1/Shield1.tscn" id="11_ub2q8"]
@@ -24,6 +24,8 @@
 [ext_resource type="PackedScene" uid="uid://v0syf8dfxj7h" path="res://game_objects/shared/HFlippable.tscn" id="22_euyh1"]
 [ext_resource type="PackedScene" uid="uid://bcwkugn6v3oy7" path="res://addons/godot_state_charts/utilities/state_chart_debugger.tscn" id="23_1gvay"]
 [ext_resource type="PackedScene" uid="uid://dklk814gsey6g" path="res://game_objects/shared/EyeSight.tscn" id="24_jxr2o"]
+[ext_resource type="PackedScene" uid="uid://cffii6yodvl45" path="res://game_objects/shared/WeaponManagerMainCharacter.tscn" id="25_ae3n1"]
+[ext_resource type="Shape2D" uid="uid://d1xbwjrctgfkv" path="res://game_objects/characters/main_character/MainCharacter_SegmentShape2D_CollisionShape2D_Bot.tres" id="26_5a24m"]
 
 [sub_resource type="Animation" id="Animation_wonvp"]
 length = 0.6
@@ -786,9 +788,15 @@ _data = {
 "RESET": SubResource("Animation_eh5ru")
 }
 
-[node name="MainCharacter" type="CharacterBody2D"]
+[node name="MainCharacter" type="CharacterBody2D" node_paths=PackedStringArray("EyeSight", "HFlippable", "AnimationTree", "NodeStateChart", "WeaponManagerMainCharacter")]
 script = ExtResource("1_mkh5o")
-Speed = 100
+JumpV = -50.0
+Speed = 100.0
+EyeSight = NodePath("EyeSight")
+HFlippable = NodePath("HFlippable")
+AnimationTree = NodePath("AnimationTree$$")
+NodeStateChart = NodePath("StateChart")
+WeaponManagerMainCharacter = NodePath("WeaponManagerMainCharacter")
 
 [node name="AnimatedSprite2D_Body_Dead" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -808,47 +816,75 @@ sprite_frames = ExtResource("6_gp7y6")
 animation = &"BODY_MOVE"
 
 [node name="CollisionShape2D_Body" type="CollisionShape2D" parent="."]
-shape = ExtResource("2_e1tw7")
+position = Vector2(2, 0)
+shape = ExtResource("8_iachd")
+debug_color = Color(0, 1, 0, 0.2)
+
+[node name="CollisionShape2D_Bot$" type="CollisionShape2D" parent="."]
+shape = ExtResource("26_5a24m")
+debug_color = Color(0, 0, 1, 0.2)
 
 [node name="LHand" parent="." instance=ExtResource("8_a6bxd")]
 position = Vector2(-15, 2)
 frame = 2
 
-[node name="Arrow" parent="LHand" instance=ExtResource("12_vvr56")]
+[node name="Arrow" parent="LHand" node_paths=PackedStringArray("CollisionShape2DHitbox", "NodeStateChart") instance=ExtResource("12_vvr56")]
 visible = false
 z_index = -1
 position = Vector2(-0.5, 0)
 collision_layer = 0
 collision_mask = 0
+CollisionShape2DHitbox = NodePath("CollisionShape2D_Hitbox")
+NodeStateChart = NodePath("StateChart")
+
+[node name="RemoteTransform2D_Quiver" type="RemoteTransform2D" parent="LHand"]
+visible = false
+position = Vector2(7, -2)
+remote_path = NodePath("../../Quiver")
 
 [node name="RHand" parent="." instance=ExtResource("9_lu8uc")]
 position = Vector2(15, 2)
 frame = 3
 
-[node name="LongSword" parent="RHand" instance=ExtResource("10_xc3mw")]
+[node name="LongSword" parent="RHand" node_paths=PackedStringArray("CollisionShape2DHitbox", "AnimationPlayer", "NodeStateChart") instance=ExtResource("10_xc3mw")]
 z_index = -1
-position = Vector2(0.5, 8)
+position = Vector2(0.5, 23)
+CollisionShape2DHitbox = NodePath("CollisionShape2D_Hitbox")
+AnimationPlayer = NodePath("AnimationPlayer")
+NodeStateChart = NodePath("StateChart")
 
-[node name="Shield1" parent="RHand" instance=ExtResource("11_ub2q8")]
+[node name="Shield1$$" parent="RHand" node_paths=PackedStringArray("CollisionShape2DHitbox", "AnimationPlayer", "NodeStateChart") instance=ExtResource("11_ub2q8")]
 visible = false
 z_index = 1
+CollisionShape2DHitbox = NodePath("CollisionShape2D_Hitbox")
+AnimationPlayer = NodePath("AnimationPlayer")
+NodeStateChart = NodePath("StateChart")
 
-[node name="Bow" parent="RHand" instance=ExtResource("13_gofh1")]
+[node name="Bow$$$$$$" parent="RHand" node_paths=PackedStringArray("CollisionShape2DHitbox", "AnimationPlayer", "NodeStateChart") instance=ExtResource("13_gofh1")]
 visible = false
 z_index = -1
-position = Vector2(-3, -2)
+position = Vector2(-3, -0.5)
+CollisionShape2DHitbox = NodePath("CollisionShape2D_Hitbox")
+AnimationPlayer = NodePath("AnimationPlayer")
+NodeStateChart = NodePath("StateChart")
 
-[node name="Quiver" parent="." instance=ExtResource("14_1k42e")]
+[node name="Quiver" parent="." node_paths=PackedStringArray("Arrow1", "Arrow2", "Arrow3", "CollisionShape2DHitbox", "AnimationPlayer", "NodeStateChart") instance=ExtResource("14_1k42e")]
 visible = false
 z_index = -1
 position = Vector2(-8, 0)
+Arrow1 = NodePath("Sprite2D_Quiver/Arrow1")
+Arrow2 = NodePath("Sprite2D_Quiver/Arrow2")
+Arrow3 = NodePath("Sprite2D_Quiver/Arrow3")
+CollisionShape2DHitbox = NodePath("CollisionShape2D_Hitbox")
+AnimationPlayer = NodePath("AnimationPlayer")
+NodeStateChart = NodePath("StateChart")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_pmcwq")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree$$" type="AnimationTree" parent="."]
 tree_root = ExtResource("15_1hkl3")
 advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
@@ -919,6 +955,7 @@ script = ExtResource("19_k7e6j")
 script = ExtResource("21_hn8bf")
 to = NodePath("../../Idle")
 event = &"ToAliveHandMotionNoCombatIdleState"
+delay_seconds = 0.1
 
 [node name="ToDoCombat" type="Node" parent="StateChart/Root/Alive/HandMotion/NoCombat"]
 script = ExtResource("21_hn8bf")
@@ -932,7 +969,6 @@ script = ExtResource("19_k7e6j")
 script = ExtResource("21_hn8bf")
 to = NodePath("../../NoCombat")
 event = &"ToAliveHandMotionNoCombatState"
-delay_seconds = 0.8
 
 [node name="ToDead" type="Node" parent="StateChart/Root/Alive"]
 script = ExtResource("21_hn8bf")
@@ -954,7 +990,27 @@ initial_node_to_watch = NodePath("../StateChart")
 
 [node name="EyeSight" parent="." instance=ExtResource("24_jxr2o")]
 
+[node name="PivotLongSword" type="Node2D" parent="EyeSight"]
+rotation = 1.5708
+
+[node name="PivotShield1$$" type="Node2D" parent="EyeSight"]
+rotation = 0.785398
+
+[node name="PivotBow$$$$$$" type="Node2D" parent="EyeSight"]
+position = Vector2(15, 15)
+rotation = 0.785398
+
+[node name="WeaponManagerMainCharacter" parent="." node_paths=PackedStringArray("CorrespondingOldParentNodes", "CorrespondingNewParentNodes", "Weapons") instance=ExtResource("25_ae3n1")]
+CorrespondingKeycodes = Array[int]([4194332, 4194333, 4194334])
+CorrespondingOldParentNodes = [NodePath("../RHand"), NodePath("../RHand"), NodePath("../RHand")]
+CorrespondingNewParentNodes = [NodePath("../EyeSight/PivotLongSword"), NodePath(".."), NodePath("../EyeSight/PivotBow$$$$$$")]
+CorrespondingOldPositions = Array[Vector2]([Vector2(0.5, 23), Vector2(0.5, 0), Vector2(-3, -0.5)])
+CorrespondingNewPositions = Array[Vector2]([Vector2(0, 0), Vector2(0.5, 0.5), Vector2(0, 0)])
+Weapons = [NodePath("../RHand/LongSword"), NodePath("../RHand/Shield1$$"), NodePath("../RHand/Bow$$$$$$")]
+
 [connection signal="state_entered" from="StateChart/Root" to="." method="OnRootStateEntered"]
+[connection signal="state_entered" from="StateChart/Root/Alive" to="." method="OnAliveStateEntered"]
+[connection signal="state_input" from="StateChart/Root/Alive" to="." method="OnAliveStateInput"]
 [connection signal="state_entered" from="StateChart/Root/Alive/BodyMotion/Idle" to="." method="OnAliveBodyMotionIdleStateEntered"]
 [connection signal="state_input" from="StateChart/Root/Alive/BodyMotion/Idle" to="." method="OnAliveBodyMotionIdleStateInput"]
 [connection signal="state_entered" from="StateChart/Root/Alive/BodyMotion/Move" to="." method="OnAliveBodyMotionMoveStateEntered"]
@@ -968,3 +1024,4 @@ initial_node_to_watch = NodePath("../StateChart")
 [connection signal="state_physics_processing" from="StateChart/Root/Alive/HandMotion/NoCombat/Move" to="." method="OnAliveHandMotionNoCombatMoveStatePhysicsProcessing"]
 [connection signal="state_entered" from="StateChart/Root/Alive/HandMotion/DoCombat" to="." method="OnAliveHandMotionDoCombatStateEntered"]
 [connection signal="state_entered" from="StateChart/Root/Dead" to="." method="OnDeadStateEntered"]
+[connection signal="OnWieldCurrentWeaponCease" from="WeaponManagerMainCharacter" to="." method="OnWeaponManagerMainCharacterWieldCurrentWeaponCease"]

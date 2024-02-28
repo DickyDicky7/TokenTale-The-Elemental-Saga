@@ -2,43 +2,38 @@
 
 [ext_resource type="Texture2D" uid="uid://btkismrdn7gdd" path="res://game_assets/equipments/wood.png" id="1_hxd28"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eym5v"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_sse4h"]
 atlas = ExtResource("1_hxd28")
 region = Rect2(48, 48, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tua3v"]
-atlas = ExtResource("1_hxd28")
-region = Rect2(48, 48, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8kihw"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcolu"]
 atlas = ExtResource("1_hxd28")
 region = Rect2(64, 48, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bvlxt"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkewn"]
 atlas = ExtResource("1_hxd28")
 region = Rect2(80, 48, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27mx7"]
+atlas = ExtResource("1_hxd28")
+region = Rect2(48, 48, 16, 32)
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_eym5v")
+"texture": SubResource("AtlasTexture_sse4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcolu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkewn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27mx7")
 }],
-"loop": true,
-"name": &"IDLE",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tua3v")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8kihw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bvlxt")
-}],
-"loop": true,
-"name": &"SHOT",
-"speed": 5.0
+"loop": false,
+"name": &"SHOOT",
+"speed": 10.0
 }]

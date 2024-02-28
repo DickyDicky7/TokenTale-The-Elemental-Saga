@@ -1,7 +1,8 @@
 using Godot;
 
-namespace TokenTaleTheElementalSaga.GameObjects.Items.Hand;
+using     TokenTaleTheElementalSaga.GameObjects.Items.Shared;
+namespace TokenTaleTheElementalSaga.GameObjects.Items.Hand  ;
 
-public partial class RHand : Sprite2D
+public partial class RHand : BaseHand
 {
 }

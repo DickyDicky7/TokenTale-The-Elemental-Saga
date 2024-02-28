@@ -1,23 +1,56 @@
 using Godot;
 
-namespace TokenTaleTheElementalSaga.GameObjects.Items.Wood;
+using     TokenTaleTheElementalSaga.GameObjects.Items.Shared;
+namespace TokenTaleTheElementalSaga.GameObjects.Items.Wood  ;
 
-public partial class LongSword : Area2D
+public partial class LongSword : BaseWeapon
 {
-    private AnimationPlayer _animationPlayer;
+    //public override void _Ready()
+    //{
+    //    CollisionShape2DHitbox.SetDeferred("disabled", true);
+    //}
 
-    public override void _Ready()
+    public override void Wield()
     {
-        _animationPlayer = GetNode<AnimationPlayer>(nameof(AnimationPlayer));
+        _stateChart.SendEvent("ToSlashState");
     }
 
-    public virtual void Slash()
+    public override void Reset()
     {
-        _animationPlayer.Play("SLASH");
+        _stateChart.SendEvent("ToResetState");
     }
 
-    public virtual void Reset()
+    //private void OnVisibilityChanged()
+    //{
+    //    if (_stateChart != null)
+    //    {
+    //        _stateChart.SendEvent("ToResetState");
+    //    }
+    //}
+
+    private void OnAnimationPlayerAnimationCease(StringName @animationName)
     {
-        _animationPlayer.Play("RESET");
+        if (@animationName == "SLASH")
+        {
+            EmitSignal(SignalName.OnWieldCease);
+        }
     }
+
+
+    #region Root -> Reset State
+    private void OnResetStateEntered()
+    {
+        AnimationPlayer.Play("RESET");
+        CollisionShape2DHitbox.SetDeferred("disabled", !false);
+    }
+    #endregion
+
+
+    #region Root -> Slash State
+    private void OnSlashStateEntered()
+    {
+        AnimationPlayer.Play("SLASH");
+        CollisionShape2DHitbox.SetDeferred("disabled",  false);
+    }
+    #endregion
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cnes8lrs7ph26"]
+[gd_scene load_steps=12 format=3 uid="uid://cnes8lrs7ph26"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_px6f3"]
 [ext_resource type="PackedScene" uid="uid://kph28vq633cw" path="res://game_objects/characters/main_character/MainCharacter.tscn" id="2_acwdm"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://diq4coi4q0wu2" path="res://game_assets/maps/1/tiles.png" id="5_p8nap"]
 [ext_resource type="Texture2D" uid="uid://bafh5kpttq7p4" path="res://game_assets/maps/1/tiles-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="6_tvdum"]
 [ext_resource type="PackedScene" uid="uid://b5syn81w5x20n" path="res://game_objects/items/wood/quiver/Quiver.tscn" id="7_rlilp"]
+[ext_resource type="PackedScene" uid="uid://bhgmtfcq7hnen" path="res://game_objects/characters/main_character_v2/MainCharacterV2.tscn" id="8_84e6c"]
 
 [sub_resource type="Gradient" id="Gradient_2lik8"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -33,6 +34,7 @@ scale = Vector2(7.24219, 5.5)
 texture = ExtResource("3_q7ibp")
 
 [node name="MainCharacter" parent="." node_paths=PackedStringArray("EyeSight", "HFlippable", "AnimationTree", "NodeStateChart", "WeaponManagerMainCharacter") instance=ExtResource("2_acwdm")]
+visible = false
 position = Vector2(400, 300)
 EyeSight = NodePath("EyeSight")
 HFlippable = NodePath("HFlippable")
@@ -41,6 +43,7 @@ NodeStateChart = NodePath("StateChart")
 WeaponManagerMainCharacter = NodePath("WeaponManagerMainCharacter")
 
 [node name="Camera2D" type="Camera2D" parent="MainCharacter"]
+enabled = false
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
@@ -72,6 +75,7 @@ position = Vector2(473, 195)
 texture = SubResource("CanvasTexture_jqtay")
 
 [node name="Quiver" parent="." node_paths=PackedStringArray("Arrow1", "Arrow2", "Arrow3", "CollisionShape2DHitbox", "AnimationPlayer", "NodeStateChart") instance=ExtResource("7_rlilp")]
+visible = false
 position = Vector2(442, 267)
 Arrow1 = NodePath("Sprite2D_Quiver/Arrow1")
 Arrow2 = NodePath("Sprite2D_Quiver/Arrow2")
@@ -84,3 +88,18 @@ NodeStateChart = NodePath("StateChart")
 wait_time = 5.0
 one_shot = true
 autostart = true
+
+[node name="MainCharacterV2" parent="." node_paths=PackedStringArray("AnimationPlayer", "EyeSight", "HFlippable", "CollisionShape2DBody", "CollisionShape2DFeet", "NodeStateChart") instance=ExtResource("8_84e6c")]
+AnimationPlayer = NodePath("AnimationPlayer")
+EyeSight = NodePath("EyeSight")
+HFlippable = NodePath("HFlippable")
+CollisionShape2DBody = NodePath("CollisionShape2D_Body")
+CollisionShape2DFeet = NodePath("CollisionShape2D_Feet")
+NodeStateChart = NodePath("StateChart")
+
+[node name="Camera2D" type="Camera2D" parent="MainCharacterV2"]
+zoom = Vector2(5, 5)
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true

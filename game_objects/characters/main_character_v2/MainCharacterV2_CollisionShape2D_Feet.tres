@@ -1,5 +1,5 @@
 [gd_resource type="SegmentShape2D" format=3 uid="uid://cab5mk6wi76wa"]
 
 [resource]
-a = Vector2(-8, 0)
-b = Vector2(8, 0)
+a = Vector2(-4.5, 0)
+b = Vector2(4.5, 0)

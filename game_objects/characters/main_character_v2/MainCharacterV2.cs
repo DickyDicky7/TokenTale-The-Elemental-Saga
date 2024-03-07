@@ -49,6 +49,23 @@ public partial class MainCharacterV2 : CharacterBody2D
                 }
             }
         }
+        else
+        if (@inputEvent is
+             InputEventKey
+             inputEventKey)
+        {
+            if (inputEventKey.Pressed
+            &&  inputEventKey.Keycode is Key.Q)
+            {
+                _stateChart.SendEvent("ToDeadState");
+            }
+            else
+            if (inputEventKey.Pressed
+            &&  inputEventKey.Keycode is Key.E)
+            {
+                _stateChart.SendEvent("ToHurtState");
+            }
+        }
     }
 
     private void OnNoCombatStatePhysicsProcessing(float @delta)
@@ -66,7 +83,9 @@ public partial class MainCharacterV2 : CharacterBody2D
 
     private void OnIdleStateInput(InputEvent @inputEvent)
     {
-        if (@inputEvent is InputEventKey inputEventKey)
+        if (@inputEvent is
+             InputEventKey
+             inputEventKey)
         {
             if (inputEventKey.Pressed
             &&  inputEventKey.Keycode is Key.W or Key.S or Key.A or Key.D)
@@ -81,7 +100,7 @@ public partial class MainCharacterV2 : CharacterBody2D
     #region Root -> Live -> NoCombat -> Move State
     private void OnMoveStateEntered()
     {
-        AnimationPlayer.Play("MOVE");
+        AnimationPlayer.Play("MOVE_D");
     }
 
     private void OnMoveStatePhysicsProcessing(float @delta)
@@ -93,6 +112,20 @@ public partial class MainCharacterV2 : CharacterBody2D
         {
             velocity.X = direction.X * Speed;
             velocity.Y = direction.Y * Speed;
+            if (direction.Y < 0)
+            {
+                if (AnimationPlayer.CurrentAnimation is "MOVE_D")
+                {
+                    AnimationPlayer.Play("MOVE_U");
+                }
+            }
+            else
+            {
+                if (AnimationPlayer.CurrentAnimation is "MOVE_U")
+                {
+                    AnimationPlayer.Play("MOVE_D");
+                }
+            }
         }
         else
         {
@@ -144,10 +177,26 @@ public partial class MainCharacterV2 : CharacterBody2D
         ||  @animationName == "SLASH_1"
         ||  @animationName == "SLASH_2"
         ||  @animationName == "SHOOT"
-        ||  @animationName == "GUARD")
+        ||  @animationName == "GUARD"
+        ||  @animationName == "HURT")
         {
             _stateChart.SendEvent("ToMoveState");
         }
     }
 
+
+    #region Root -> Hurt State
+    private void OnHurtStateEntered()
+    {
+        AnimationPlayer.Play("HURT");
+    }
+    #endregion
+
+
+    #region Root -> Dead State
+    private void OnDeadStateEntered()
+    {
+        AnimationPlayer.Play("DEAD");
+    }
+    #endregion
 }

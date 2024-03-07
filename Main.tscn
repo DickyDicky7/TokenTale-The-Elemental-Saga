@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cnes8lrs7ph26"]
+[gd_scene load_steps=13 format=3 uid="uid://cnes8lrs7ph26"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_px6f3"]
 [ext_resource type="PackedScene" uid="uid://kph28vq633cw" path="res://game_objects/characters/main_character/MainCharacter.tscn" id="2_acwdm"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bafh5kpttq7p4" path="res://game_assets/maps/1/tiles-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="6_tvdum"]
 [ext_resource type="PackedScene" uid="uid://b5syn81w5x20n" path="res://game_objects/items/wood/quiver/Quiver.tscn" id="7_rlilp"]
 [ext_resource type="PackedScene" uid="uid://bhgmtfcq7hnen" path="res://game_objects/characters/main_character_v2/MainCharacterV2.tscn" id="8_84e6c"]
+[ext_resource type="PackedScene" uid="uid://c47tcwkeiq0h2" path="res://game_objects/characters/main_character_v3/MainCharacterV3.tscn" id="9_seby3"]
 
 [sub_resource type="Gradient" id="Gradient_2lik8"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -89,17 +90,29 @@ wait_time = 5.0
 one_shot = true
 autostart = true
 
-[node name="MainCharacterV2" parent="." node_paths=PackedStringArray("AnimationPlayer", "EyeSight", "HFlippable", "CollisionShape2DBody", "CollisionShape2DFeet", "NodeStateChart") instance=ExtResource("8_84e6c")]
+[node name="MainCharacterV2" parent="." node_paths=PackedStringArray("AnimationPlayer", "EyeSight", "HFlippable", "CollisionShape2DBody", "CollisionShape2DFeet", "CollisionPolygon2DHurtbox", "NodeStateChart") instance=ExtResource("8_84e6c")]
+visible = false
 AnimationPlayer = NodePath("AnimationPlayer")
 EyeSight = NodePath("EyeSight")
 HFlippable = NodePath("HFlippable")
 CollisionShape2DBody = NodePath("CollisionShape2D_Body")
 CollisionShape2DFeet = NodePath("CollisionShape2D_Feet")
+CollisionPolygon2DHurtbox = NodePath("EyeSight/Hurtbox/CollisionPolygon2D_Hurtbox")
 NodeStateChart = NodePath("StateChart")
 
 [node name="Camera2D" type="Camera2D" parent="MainCharacterV2"]
-zoom = Vector2(5, 5)
+enabled = false
+zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="MainCharacterV3" parent="." node_paths=PackedStringArray("AnimationTree") instance=ExtResource("9_seby3")]
+AnimationTree = NodePath("AnimationTree$$")
+
+[node name="Camera2D" type="Camera2D" parent="MainCharacterV3"]
+zoom = Vector2(4, 4)
+limit_smoothed = true
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true

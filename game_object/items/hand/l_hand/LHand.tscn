@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx1yyel70jhi5"]
+
+[ext_resource type="Texture2D" uid="uid://c24symq8afhwi" path="res://game_object/items/hand/shared/CanvasTexture.tres" id="1_yi3uq"]
+[ext_resource type="Script" path="res://game_object/items/hand/l_hand/LHand.cs" id="2_url8x"]
+
+[node name="LHand" type="Sprite2D"]
+editor_description = "frame in [0,2,4,6]"
+texture = ExtResource("1_yi3uq")
+hframes = 2
+vframes = 4
+script = ExtResource("2_url8x")

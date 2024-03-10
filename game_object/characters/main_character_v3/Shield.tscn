@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://cq6top78vgh27"]
+
+[ext_resource type="Script" path="res://game_object/characters/main_character_v3/Shield.cs" id="1_e7ajw"]
+[ext_resource type="Texture2D" uid="uid://dmlyakquddcho" path="res://game_object/characters/main_character_v3/MainCharacterV3_CanvasTexture_Shield.tres" id="2_g82f0"]
+[ext_resource type="Shape2D" uid="uid://bdjfx3jtun5v5" path="res://game_object/characters/main_character_v3/Shield_CollisionShape2D.tres" id="3_k6pv7"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="4_qcm0s"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="5_b5x4d"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="6_g3ob8"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="7_aapm1"]
+
+[node name="Shield" type="Area2D" node_paths=PackedStringArray("CollisionShape2D", "NodeStateChart")]
+script = ExtResource("1_e7ajw")
+CollisionShape2D = NodePath("CollisionShape2D")
+NodeStateChart = NodePath("StateChart")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 0
+texture = ExtResource("2_g82f0")
+region_enabled = true
+region_rect = Rect2(128, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = ExtResource("3_k6pv7")
+debug_color = Color(0, 0, 0, 0.5)
+
+[node name="StateChart" type="Node" parent="."]
+script = ExtResource("4_qcm0s")
+
+[node name="Root" type="Node" parent="StateChart"]
+script = ExtResource("5_b5x4d")
+initial_state = NodePath("Reset")
+
+[node name="Reset" type="Node" parent="StateChart/Root"]
+script = ExtResource("6_g3ob8")
+
+[node name="ToGuard" type="Node" parent="StateChart/Root/Reset"]
+script = ExtResource("7_aapm1")
+to = NodePath("../../Guard")
+event = &"ToGuardState"
+
+[node name="Guard" type="Node" parent="StateChart/Root"]
+script = ExtResource("6_g3ob8")
+
+[node name="ToReset" type="Node" parent="StateChart/Root/Guard"]
+script = ExtResource("7_aapm1")
+to = NodePath("../../Reset")
+event = &"ToResetState"
+
+[connection signal="state_entered" from="StateChart/Root/Reset" to="." method="OnResetStateEntered"]
+[connection signal="state_exited" from="StateChart/Root/Reset" to="." method="OnResetStateExited_"]
+[connection signal="state_input" from="StateChart/Root/Reset" to="." method="OnResetState_Input_"]
+[connection signal="state_entered" from="StateChart/Root/Guard" to="." method="OnGuardStateEntered"]
+[connection signal="state_exited" from="StateChart/Root/Guard" to="." method="OnGuardStateExited_"]

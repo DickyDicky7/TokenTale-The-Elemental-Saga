@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dvbrod8wrmkyg"]
+
+[ext_resource type="Shader" path="res://game_object/characters/elemental_monsters/normal/electric/metal_monster/MetalMonster_ShaderMaterial.gdshader" id="1_3epu6"]
+[ext_resource type="Texture2D" uid="uid://bfvk6idvar578" path="res://game_assets/characters/elemental_monsters/electric/metal_monster/sprite-sheet-metal-monster-lila-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="2_xslir"]
+
+[resource]
+shader = ExtResource("1_3epu6")
+shader_parameter/normal_map = ExtResource("2_xslir")

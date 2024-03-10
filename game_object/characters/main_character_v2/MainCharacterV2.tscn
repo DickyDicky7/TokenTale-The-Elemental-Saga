@@ -1,0 +1,893 @@
+[gd_scene load_steps=30 format=3 uid="uid://bhgmtfcq7hnen"]
+
+[ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="1_8rgd3"]
+[ext_resource type="Script" path="res://game_object/characters/main_character_v2/MainCharacterV2.cs" id="1_fdinf"]
+[ext_resource type="Material" uid="uid://dolmam0bff7by" path="res://game_object/characters/main_character_v2/MainCharacterV2_ShaderMaterial.tres" id="2_7qvw4"]
+[ext_resource type="SpriteFrames" uid="uid://c2ahpni0tl4as" path="res://game_object/characters/main_character_v2/MainCharacterV2_SpriteFrames_$Main$.tres" id="3_11ur4"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="3_csss0"]
+[ext_resource type="Shape2D" uid="uid://cfvv7kbwlgsev" path="res://game_object/characters/main_character_v2/MainCharacterV2_CollisionShape2D_Body.tres" id="4_i4txt"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="5_0o7gj"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="5_54jhv"]
+[ext_resource type="Shape2D" uid="uid://cab5mk6wi76wa" path="res://game_object/characters/main_character_v2/MainCharacterV2_CollisionShape2D_Feet.tres" id="5_al74n"]
+[ext_resource type="PackedScene" uid="uid://dklk814gsey6g" path="res://game_object/shared/EyeSight.tscn" id="7_tsfrn"]
+[ext_resource type="SpriteFrames" uid="uid://bnxrd7xpysvsw" path="res://game_object/characters/main_character_v2/MainCharacterV2_SpriteFrames_Effect.tres" id="11_e338u"]
+[ext_resource type="Environment" uid="uid://b3032y8b3ikm8" path="res://game_object/characters/main_character_v2/MainCharacterV2_Environment.tres" id="13_3f31b"]
+[ext_resource type="Script" path="res://game_object/shared/HFlippableComponent.cs" id="13_6no7f"]
+
+[sub_resource type="Animation" id="Animation_nx4pb"]
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["CLIMB"]
+}
+
+[sub_resource type="Animation" id="Animation_n1v1t"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.111111, 0.222222, 0.333333, 0.444444, 0.555556, 0.666667, 0.777778, 0.888889),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["DEAD"]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_s4kmr"]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["DODGE"]
+}
+
+[sub_resource type="Animation" id="Animation_87f4b"]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0714286, 0.142857, 0.214286, 0.285714, 0.357143, 0.428571),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["FALL"]
+}
+
+[sub_resource type="Animation" id="Animation_2tjic"]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["GUARD"]
+}
+
+[sub_resource type="Animation" id="Animation_42t7u"]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["HURT"]
+}
+
+[sub_resource type="Animation" id="Animation_vmo2c"]
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0769231, 0.153846, 0.230769, 0.307692, 0.384615, 0.461538, 0.538462, 0.615385, 0.692308, 0.769231, 0.846154, 0.923077),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["IDLE"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EyeSight/AnimatedSprite2D_Effect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_vyfbp"]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["JUMP"]
+}
+
+[sub_resource type="Animation" id="Animation_6hry7"]
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0625, 0.125, 0.1875, 0.25, 0.3125, 0.375, 0.4375),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["MOVE_D"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EyeSight/AnimatedSprite2D_Effect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_63tky"]
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0625, 0.125, 0.1875, 0.25, 0.3125, 0.375, 0.4375),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["MOVE_U"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EyeSight/AnimatedSprite2D_Effect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_kjaqn"]
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["PUSH"]
+}
+
+[sub_resource type="Animation" id="Animation_dxvlx"]
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0625, 0.125, 0.1875, 0.25, 0.3125, 0.375, 0.4375, 0.5, 0.5625, 0.625, 0.6875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["SHOOT"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EyeSight/AnimatedSprite2D_Effect:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0625, 0.125, 0.1875, 0.25, 0.3125, 0.375, 0.4375, 0.5, 0.5625, 0.625, 0.6875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EyeSight/AnimatedSprite2D_Effect:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["SHOOT"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("EyeSight/AnimatedSprite2D_Effect:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("EyeSight/AnimatedSprite2D_Effect:rotation")
+tracks/5/interp = 3
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.92699]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("EyeSight/AnimatedSprite2D_Effect:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5, 5)]
+}
+
+[sub_resource type="Animation" id="Animation_ii46g"]
+resource_name = "SLASH_0"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["SLASH_0"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EyeSight/AnimatedSprite2D_Effect:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EyeSight/AnimatedSprite2D_Effect:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["SLASH_0"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("EyeSight/AnimatedSprite2D_Effect:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("EyeSight/AnimatedSprite2D_Effect:rotation")
+tracks/5/interp = 3
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.35619]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("EyeSight/AnimatedSprite2D_Effect:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(15, 15)]
+}
+
+[sub_resource type="Animation" id="Animation_7abil"]
+resource_name = "SLASH_1"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["SLASH_1"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EyeSight/AnimatedSprite2D_Effect:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EyeSight/AnimatedSprite2D_Effect:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["SLASH_1"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("EyeSight/AnimatedSprite2D_Effect:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("EyeSight/AnimatedSprite2D_Effect:rotation")
+tracks/5/interp = 3
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.35619]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("EyeSight/AnimatedSprite2D_Effect:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(15, 15)]
+}
+
+[sub_resource type="Animation" id="Animation_u1i6j"]
+resource_name = "SLASH_2"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["SLASH_2"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EyeSight/AnimatedSprite2D_Effect:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EyeSight/AnimatedSprite2D_Effect:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["SLASH_2"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("EyeSight/AnimatedSprite2D_Effect:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("EyeSight/AnimatedSprite2D_Effect:rotation")
+tracks/5/interp = 3
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.35619]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("EyeSight/AnimatedSprite2D_Effect:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(15, 15)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pqjxe"]
+_data = {
+"CLIMB": SubResource("Animation_nx4pb"),
+"DEAD": SubResource("Animation_n1v1t"),
+"DODGE": SubResource("Animation_s4kmr"),
+"FALL": SubResource("Animation_87f4b"),
+"GUARD": SubResource("Animation_2tjic"),
+"HURT": SubResource("Animation_42t7u"),
+"IDLE": SubResource("Animation_vmo2c"),
+"JUMP": SubResource("Animation_vyfbp"),
+"MOVE_D": SubResource("Animation_6hry7"),
+"MOVE_U": SubResource("Animation_63tky"),
+"PUSH": SubResource("Animation_kjaqn"),
+"SHOOT": SubResource("Animation_dxvlx"),
+"SLASH_0": SubResource("Animation_ii46g"),
+"SLASH_1": SubResource("Animation_7abil"),
+"SLASH_2": SubResource("Animation_u1i6j")
+}
+
+[node name="MainCharacterV2" type="CharacterBody2D" node_paths=PackedStringArray("AnimationPlayer", "EyeSight", "HFlippableComponent", "CollisionShape2DBody", "CollisionShape2DFeet", "CollisionPolygon2DHurtbox", "NodeStateChart")]
+script = ExtResource("1_fdinf")
+Speed = 100.0
+AnimationPlayer = NodePath("AnimationPlayer")
+EyeSight = NodePath("EyeSight")
+HFlippableComponent = NodePath("HFlippableComponent")
+CollisionShape2DBody = NodePath("CollisionShape2D_Body")
+CollisionShape2DFeet = NodePath("CollisionShape2D_Feet")
+CollisionPolygon2DHurtbox = NodePath("EyeSight/Hurtbox/CollisionPolygon2D_Hurtbox")
+NodeStateChart = NodePath("StateChart")
+
+[node name="Environment" type="WorldEnvironment" parent="."]
+environment = ExtResource("13_3f31b")
+
+[node name="AnimatedSprite2D_$Main$" type="AnimatedSprite2D" parent="."]
+light_mask = 0
+material = ExtResource("2_7qvw4")
+sprite_frames = ExtResource("3_11ur4")
+animation = &"SLASH_0"
+offset = Vector2(1.5, -15)
+
+[node name="CollisionShape2D_Body" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -10)
+shape = ExtResource("4_i4txt")
+debug_color = Color(0, 1, 0, 0.2)
+
+[node name="CollisionShape2D_Feet" type="CollisionShape2D" parent="."]
+shape = ExtResource("5_al74n")
+debug_color = Color(0, 0, 1, 0.2)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pqjxe")
+}
+
+[node name="StateChart" type="Node" parent="."]
+script = ExtResource("1_8rgd3")
+
+[node name="Root" type="Node" parent="StateChart"]
+script = ExtResource("3_csss0")
+initial_state = NodePath("Live")
+
+[node name="Live" type="Node" parent="StateChart/Root"]
+script = ExtResource("3_csss0")
+initial_state = NodePath("NoCombat")
+
+[node name="NoCombat" type="Node" parent="StateChart/Root/Live"]
+script = ExtResource("3_csss0")
+initial_state = NodePath("Safe")
+
+[node name="Safe" type="Node" parent="StateChart/Root/Live/NoCombat"]
+script = ExtResource("3_csss0")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateChart/Root/Live/NoCombat/Safe"]
+script = ExtResource("5_0o7gj")
+
+[node name="ToMove" type="Node" parent="StateChart/Root/Live/NoCombat/Safe/Idle"]
+script = ExtResource("5_54jhv")
+to = NodePath("../../Move")
+event = &"ToMoveState"
+
+[node name="Move" type="Node" parent="StateChart/Root/Live/NoCombat/Safe"]
+script = ExtResource("5_0o7gj")
+
+[node name="ToIdle" type="Node" parent="StateChart/Root/Live/NoCombat/Safe/Move"]
+script = ExtResource("5_54jhv")
+to = NodePath("../../Idle")
+event = &"ToIdleState"
+
+[node name="ToHurt" type="Node" parent="StateChart/Root/Live/NoCombat/Safe"]
+script = ExtResource("5_54jhv")
+to = NodePath("../../Hurt")
+event = &"ToHurtState"
+
+[node name="Hurt" type="Node" parent="StateChart/Root/Live/NoCombat"]
+script = ExtResource("5_0o7gj")
+
+[node name="ToMove" type="Node" parent="StateChart/Root/Live/NoCombat/Hurt"]
+script = ExtResource("5_54jhv")
+to = NodePath("../../Safe/Move")
+event = &"ToMoveState"
+
+[node name="ToSlash" type="Node" parent="StateChart/Root/Live/NoCombat"]
+script = ExtResource("5_54jhv")
+to = NodePath("../../InCombat/Slash")
+event = &"ToSlashState"
+
+[node name="ToShoot" type="Node" parent="StateChart/Root/Live/NoCombat"]
+script = ExtResource("5_54jhv")
+to = NodePath("../../InCombat/Shoot")
+event = &"ToShootState"
+
+[node name="ToGuard" type="Node" parent="StateChart/Root/Live/NoCombat"]
+script = ExtResource("5_54jhv")
+to = NodePath("../../InCombat/Guard")
+event = &"ToGuardState"
+
+[node name="InCombat" type="Node" parent="StateChart/Root/Live"]
+script = ExtResource("3_csss0")
+initial_state = NodePath("Slash")
+
+[node name="Slash" type="Node" parent="StateChart/Root/Live/InCombat"]
+script = ExtResource("5_0o7gj")
+
+[node name="Shoot" type="Node" parent="StateChart/Root/Live/InCombat"]
+script = ExtResource("5_0o7gj")
+
+[node name="Guard" type="Node" parent="StateChart/Root/Live/InCombat"]
+script = ExtResource("5_0o7gj")
+
+[node name="ToMove" type="Node" parent="StateChart/Root/Live/InCombat"]
+script = ExtResource("5_54jhv")
+to = NodePath("../../NoCombat/Safe/Move")
+event = &"ToMoveState"
+
+[node name="ToDead" type="Node" parent="StateChart/Root/Live"]
+script = ExtResource("5_54jhv")
+to = NodePath("../../Dead")
+event = &"ToDeadState"
+
+[node name="Dead" type="Node" parent="StateChart/Root"]
+script = ExtResource("5_0o7gj")
+
+[node name="EyeSight" parent="." instance=ExtResource("7_tsfrn")]
+position = Vector2(0, -10)
+energy = 0.1
+MinRotation = 0.0
+MaxRotation = 0.0
+
+[node name="Hurtbox" type="Area2D" parent="EyeSight"]
+
+[node name="CollisionPolygon2D_Hurtbox" type="CollisionPolygon2D" parent="EyeSight/Hurtbox"]
+polygon = PackedVector2Array(0, 0, 30, 0, 0, 30)
+
+[node name="AnimatedSprite2D_Effect" type="AnimatedSprite2D" parent="EyeSight"]
+modulate = Color(1.5, 1.5, 1.5, 1)
+light_mask = 0
+position = Vector2(5, 5)
+rotation = 3.92699
+sprite_frames = ExtResource("11_e338u")
+animation = &"SHOOT"
+
+[node name="HFlippableComponent" type="Node" parent="."]
+script = ExtResource("13_6no7f")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="OnAnimationPlayerAnimationCease"]
+[connection signal="state_input" from="StateChart/Root/Live/NoCombat" to="." method="OnNoCombatStateInput"]
+[connection signal="state_physics_processing" from="StateChart/Root/Live/NoCombat" to="." method="OnNoCombatStatePhysicsProcessing"]
+[connection signal="state_entered" from="StateChart/Root/Live/NoCombat/Safe/Idle" to="." method="OnIdleStateEntered"]
+[connection signal="state_input" from="StateChart/Root/Live/NoCombat/Safe/Idle" to="." method="OnIdleStateInput"]
+[connection signal="state_entered" from="StateChart/Root/Live/NoCombat/Safe/Move" to="." method="OnMoveStateEntered"]
+[connection signal="state_physics_processing" from="StateChart/Root/Live/NoCombat/Safe/Move" to="." method="OnMoveStatePhysicsProcessing"]
+[connection signal="state_entered" from="StateChart/Root/Live/NoCombat/Hurt" to="." method="OnHurtStateEntered"]
+[connection signal="state_entered" from="StateChart/Root/Live/InCombat/Slash" to="." method="OnSlashStateEntered"]
+[connection signal="state_entered" from="StateChart/Root/Live/InCombat/Shoot" to="." method="OnShootStateEntered"]
+[connection signal="state_entered" from="StateChart/Root/Live/InCombat/Guard" to="." method="OnGuardStateEntered"]
+[connection signal="state_entered" from="StateChart/Root/Dead" to="." method="OnDeadStateEntered"]

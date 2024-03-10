@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://b7cey8rb583i7"]
+
+[ext_resource type="Script" path="res://game_object/characters/main_character_v3/BigBow.cs" id="1_phjm6"]
+[ext_resource type="SpriteFrames" uid="uid://cluh2qnw6rggx" path="res://game_object/characters/main_character_v3/MainCharacterV3_SpriteFrames_$Bow$$.tres" id="2_82x8i"]
+[ext_resource type="Shape2D" uid="uid://dhaeumdfk8n70" path="res://game_object/characters/main_character_v3/BigBow_CollisionShape2D.tres" id="3_weimp"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="4_ayxdt"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="5_06c8u"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="6_1cxm0"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="7_51hqb"]
+
+[node name="BigBow" type="Area2D" node_paths=PackedStringArray("AnimatedSprite2D", "CollisionShape2D", "NodeStateChart")]
+script = ExtResource("1_phjm6")
+AnimatedSprite2D = NodePath("AnimatedSprite2D")
+CollisionShape2D = NodePath("CollisionShape2D")
+NodeStateChart = NodePath("StateChart")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_82x8i")
+animation = &"RESET"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = ExtResource("3_weimp")
+debug_color = Color(0, 0, 0, 0.5)
+
+[node name="StateChart" type="Node" parent="."]
+script = ExtResource("4_ayxdt")
+
+[node name="Root" type="Node" parent="StateChart"]
+script = ExtResource("5_06c8u")
+initial_state = NodePath("Reset")
+
+[node name="Reset" type="Node" parent="StateChart/Root"]
+script = ExtResource("6_1cxm0")
+
+[node name="ToShoot" type="Node" parent="StateChart/Root/Reset"]
+script = ExtResource("7_51hqb")
+to = NodePath("../../Shoot")
+event = &"ToShootState"
+
+[node name="Shoot" type="Node" parent="StateChart/Root"]
+script = ExtResource("6_1cxm0")
+
+[node name="ToReset" type="Node" parent="StateChart/Root/Shoot"]
+script = ExtResource("7_51hqb")
+to = NodePath("../../Reset")
+event = &"ToResetState"
+
+[connection signal="state_entered" from="StateChart/Root/Reset" to="." method="OnResetStateEntered"]
+[connection signal="state_exited" from="StateChart/Root/Reset" to="." method="OnResetStateExited_"]
+[connection signal="state_input" from="StateChart/Root/Reset" to="." method="OnResetState_Input_"]
+[connection signal="state_entered" from="StateChart/Root/Shoot" to="." method="OnShootStateEntered"]
+[connection signal="state_exited" from="StateChart/Root/Shoot" to="." method="OnShootStateExited_"]

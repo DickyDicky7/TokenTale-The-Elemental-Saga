@@ -11,10 +11,7 @@ script = ExtResource("1_px6f3")
 z_index = -10
 texture = ExtResource("2_0h05d")
 
-[node name="MainCharacterV3" parent="." node_paths=PackedStringArray("BSword", "BigBow", "Shield", "EyeSight", "AnimationTree", "NodeStateChart") instance=ExtResource("9_seby3")]
-BSword = NodePath("BSword")
-BigBow = NodePath("BigBow")
-Shield = NodePath("Shield")
+[node name="MainCharacterV3" parent="." node_paths=PackedStringArray("EyeSight", "AnimationTree", "NodeStateChart") instance=ExtResource("9_seby3")]
 EyeSight = NodePath("EyeSight")
 AnimationTree = NodePath("AnimationT")
 NodeStateChart = NodePath("StateChart")
@@ -24,3 +21,5 @@ zoom = Vector2(4, 4)
 limit_smoothed = true
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true

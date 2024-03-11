@@ -1,0 +1,6 @@
+[gd_resource type="CanvasTexture" load_steps=2 format=3 uid="uid://dj6uk76yxngg5"]
+
+[ext_resource type="Texture2D" uid="uid://7ltowuxnege6" path="res://game_assets/32x32pixelmeleeweapon.png" id="1_obc1k"]
+
+[resource]
+diffuse_texture = ExtResource("1_obc1k")

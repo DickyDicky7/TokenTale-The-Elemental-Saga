@@ -8,24 +8,21 @@ public partial class MainCharacterV3 : CharacterBody2D
 {
     [Export] public float JumpV   { get; set; }
     [Export] public float Speed   { get; set; }
-    [Export] public BSword BSword { get; set; }
-    [Export] public BigBow BigBow { get; set; }
-    [Export] public Shield Shield { get; set; }
-    [Export] public EyeSight           EyeSight { get; set; }
+    [Export] public EyeSight
+                    EyeSight                    { get; set; }
     [Export] public AnimationTree AnimationTree { get; set; }
     [Export] public Node NodeStateChart { get => null; set => _stateChart = StateChart.Of(value); }
 
     private
     Vector2 _blendPosition;
-    private Tween      _tween     ; private Area2D _chosenWeapon;
+    private Tween      _tween     ;
     private StateChart _stateChart;
 
 
     #region SAFE STATE
     private void OnSafeStatePhysicsProcessing(float @delta)
     {
-        EyeSight.FollowPosition(
-          GetLocalMousePosition());
+        EyeSight.FollowPosition(GetLocalMousePosition());
     }
     #endregion
 
@@ -36,7 +33,7 @@ public partial class MainCharacterV3 : CharacterBody2D
         AnimationTree.Set("parameters/STATE/transition_request", "IDLE");
     }
 
-    private void OnIdleStateInput(InputEvent @inputEvent)
+    private void OnIdleState_Input_(InputEvent @inputEvent)
     {
         if (@inputEvent is
              InputEventKey
@@ -67,7 +64,7 @@ public partial class MainCharacterV3 : CharacterBody2D
         AnimationTree.Set("parameters/STATE/transition_request", "MOVE");
     }
 
-    private void OnMoveStateInput(InputEvent @inputEvent)
+    private void OnMoveState_Input_(InputEvent @inputEvent)
     {
         if (@inputEvent is
              InputEventKey
@@ -96,11 +93,13 @@ public partial class MainCharacterV3 : CharacterBody2D
         {
             velocity.X = direction.X * Speed;
             velocity.Y = direction.Y * Speed;
+            //velocity = velocity.Lerp(direction * Speed, 0.5f);
         }
         else
         {
             velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
             velocity.Y = Mathf.MoveToward(Velocity.Y, 0, Speed);
+            //velocity = velocity.Lerp(direction * Speed, 0.1f);
             _stateChart.SendEvent("ToIdleState");
         }
 
@@ -131,114 +130,4 @@ public partial class MainCharacterV3 : CharacterBody2D
     #endregion
 
 
-    #region NO COMBAT STATE
-    private void OnNoCombatStateEntered()
-    {
-        _chosenWeapon = BSword;
-        _chosenWeapon.ProcessMode = ProcessModeEnum.Inherit;
-        _chosenWeapon.Show();
-        BigBow.ProcessMode = ProcessModeEnum.Disabled;
-        BigBow.Hide();
-        Shield.ProcessMode = ProcessModeEnum.Disabled;
-        Shield.Hide();
-    }
-
-    private void OnNoCombatStateInput(InputEvent @inputEvent)
-    {
-        if (@inputEvent is
-             InputEventKey
-             inputEventKey)
-        {
-            if (inputEventKey.Pressed)
-            {
-                if (_chosenWeapon != null)
-                {
-                    _chosenWeapon.ProcessMode = ProcessModeEnum.Disabled;
-                    _chosenWeapon.Hide();
-                }
-                (Area2D weapon, StringName nextEvent) choice = inputEventKey.Keycode switch
-                {
-                    Key.F => (BSword, "ToBSwordInHandState"),
-                    Key.G => (BigBow, "ToBigBowInHandState"),
-                    Key.H => (Shield, "ToShieldInHandState"),
-                    _ => (_chosenWeapon, null),
-                };
-                if (choice.weapon    != null)
-                {
-                    _chosenWeapon = choice.weapon;
-                    _chosenWeapon.ProcessMode = ProcessModeEnum.Inherit ;
-                    _chosenWeapon.Show();
-                }
-                if (choice.nextEvent != null)
-                {
-                    _stateChart
-                          .SendEvent(choice.nextEvent);
-                }
-            }
-        }
-    }
-    #endregion
-
-
-    #region BSWORD IN HAND STATE
-    private void OnBSwordInHandStateEntered()
-    {
-        GD.Print(1);
-        //GD.Print(_chosenWeapon is BSword);
-        //GD.Print(_chosenWeapon is BigBow);
-        //GD.Print(_chosenWeapon is Shield);
-        GD.Print(BSword.CanProcess());
-        GD.Print(BigBow.CanProcess());
-        GD.Print(Shield.CanProcess());
-        GD.Print();
-        
-    }
-
-    private void OnBSwordInHandStateExited_()
-    {
-
-    }
-    #endregion
-
-
-    #region BIGBOW IN HAND STATE
-    private void OnBigBowInHandStateEntered()
-    {
-        GD.Print(2);
-        //GD.Print(_chosenWeapon is BSword);
-        //GD.Print(_chosenWeapon is BigBow);
-        //GD.Print(_chosenWeapon is Shield);
-        GD.Print(BSword.CanProcess());
-        GD.Print(BigBow.CanProcess());
-        GD.Print(Shield.CanProcess());
-
-        GD.Print();
-    }
-
-    private void OnBigBowInHandStateExited_()
-    {
-
-    }
-    #endregion
-
-
-    #region SHIELD IN HAND STATE
-    private void OnShieldInHandStateEntered()
-    {
-        GD.Print(3);
-        //GD.Print(_chosenWeapon is BSword);
-        //GD.Print(_chosenWeapon is BigBow);
-        //GD.Print(_chosenWeapon is Shield);
-        GD.Print(BSword.CanProcess());
-        GD.Print(BigBow.CanProcess());
-        GD.Print(Shield.CanProcess());
-
-        GD.Print();
-    }
-
-    private void OnShieldInHandStateExited_()
-    {
-
-    }
-    #endregion
 }

@@ -2,8 +2,11 @@
 
 [resource]
 animations = [{
-"frames": [],
-"loop": true,
-"name": &"new_animation",
-"speed": 5.0
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"EMPTY",
+"speed": 10.0
 }]

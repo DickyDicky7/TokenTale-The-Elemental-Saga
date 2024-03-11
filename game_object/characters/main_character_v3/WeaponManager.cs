@@ -51,7 +51,7 @@ public partial class WeaponManager : Node
                          Inherit;
                     chosenWeapon.Show();
                     ChosenWeapon  = chosenWeapon;
-                    EmitSignal(SignalName.ChosenWeaponChanged);
+                    EmitSignal(SignalName.ChosenWeaponChanged, ChosenWeapon);
                 }
             }
         }

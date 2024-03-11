@@ -10,7 +10,7 @@ public static class Extension
         {
             @tween.Stop();
             @tween.Kill();
-            @tween.Dispose();
+            //@tween.Dispose();
         }
     }
 }

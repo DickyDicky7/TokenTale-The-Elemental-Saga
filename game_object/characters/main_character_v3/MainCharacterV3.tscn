@@ -11,9 +11,9 @@
 [ext_resource type="Script" path="res://addons/godot_state_charts/parallel_state.gd" id="9_uymtm"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="10_qigig"]
 [ext_resource type="PackedScene" uid="uid://dklk814gsey6g" path="res://game_object/shared/EyeSight.tscn" id="11_okl6k"]
-[ext_resource type="PackedScene" uid="uid://bx1yjtvn2pwyh" path="res://game_object/characters/main_character_v3/BSword.tscn" id="12_frf8n"]
-[ext_resource type="PackedScene" uid="uid://b7cey8rb583i7" path="res://game_object/characters/main_character_v3/BigBow.tscn" id="13_y068q"]
-[ext_resource type="PackedScene" uid="uid://cq6top78vgh27" path="res://game_object/characters/main_character_v3/Shield.tscn" id="14_wsuv2"]
+[ext_resource type="PackedScene" uid="uid://bx1yjtvn2pwyh" path="res://game_object/characters/main_character_v3/Sword.tscn" id="12_frf8n"]
+[ext_resource type="PackedScene" uid="uid://b7cey8rb583i7" path="res://game_object/characters/main_character_v3/Bow.tscn" id="13_y068q"]
+[ext_resource type="Script" path="res://game_object/characters/main_character_v3/WeaponManager.cs" id="15_38huo"]
 
 [sub_resource type="Animation" id="Animation_kpxto"]
 length = 0.4
@@ -585,10 +585,9 @@ nodes/TIME_SCALE/position = Vector2(240, -26.6667)
 nodes/output/position = Vector2(400, -26.6667)
 node_connections = [&"STATE", 0, &"BS2D_IDLE", &"STATE", 1, &"BS2D_MOVE", &"STATE", 2, &"DEAD", &"TIME_SCALE", 0, &"STATE", &"output", 0, &"TIME_SCALE"]
 
-[node name="MainCharacterV3" type="CharacterBody2D" node_paths=PackedStringArray("BSword", "EyeSight", "AnimationTree", "NodeStateChart")]
+[node name="MainCharacterV3" type="CharacterBody2D" node_paths=PackedStringArray("EyeSight", "AnimationTree", "NodeStateChart")]
 script = ExtResource("1_gm2bn")
 Speed = 100.0
-BSword = NodePath("BSword")
 EyeSight = NodePath("EyeSight")
 AnimationTree = NodePath("AnimationT")
 NodeStateChart = NodePath("StateChart")
@@ -601,7 +600,7 @@ self_modulate = Color(1.1, 1.1, 1.1, 1)
 light_mask = 0
 sprite_frames = ExtResource("1_q2bc7")
 animation = &"IDLE_D"
-frame = 2
+frame = 3
 offset = Vector2(0, -12)
 
 [node name="CollisionShape2D_Body" type="CollisionShape2D" parent="."]
@@ -693,75 +692,25 @@ script = ExtResource("7_iumiv")
 initial_state = NodePath("NoCombat")
 
 [node name="NoCombat" type="Node" parent="StateChart/Root/Live/Combat"]
-script = ExtResource("7_iumiv")
-initial_state = NodePath("BSwordInHand")
-
-[node name="BSwordInHand" type="Node" parent="StateChart/Root/Live/Combat/NoCombat"]
 script = ExtResource("8_3pq8s")
 
-[node name="ToSlash" type="Node" parent="StateChart/Root/Live/Combat/NoCombat/BSwordInHand"]
+[node name="ToInCombat" type="Node" parent="StateChart/Root/Live/Combat/NoCombat"]
 script = ExtResource("10_qigig")
-to = NodePath("../../../InCombat/Slash")
-event = &"ToSlashState"
-
-[node name="BigBowInHand" type="Node" parent="StateChart/Root/Live/Combat/NoCombat"]
-script = ExtResource("8_3pq8s")
-
-[node name="ToShoot" type="Node" parent="StateChart/Root/Live/Combat/NoCombat/BigBowInHand"]
-script = ExtResource("10_qigig")
-to = NodePath("../../../InCombat/Shoot")
-event = &"ToShootState"
-
-[node name="ShieldInHand" type="Node" parent="StateChart/Root/Live/Combat/NoCombat"]
-script = ExtResource("8_3pq8s")
-
-[node name="ToGuard" type="Node" parent="StateChart/Root/Live/Combat/NoCombat/ShieldInHand"]
-script = ExtResource("10_qigig")
-to = NodePath("../../../InCombat/Guard")
-event = &"ToGuardState"
-
-[node name="ToBSwordInHand" type="Node" parent="StateChart/Root/Live/Combat/NoCombat"]
-script = ExtResource("10_qigig")
-to = NodePath("../BSwordInHand")
-event = &"ToBSwordInHandState"
-
-[node name="ToBigBowInHand" type="Node" parent="StateChart/Root/Live/Combat/NoCombat"]
-script = ExtResource("10_qigig")
-to = NodePath("../BigBowInHand")
-event = &"ToBigBowInHandState"
-
-[node name="ToShieldInHand" type="Node" parent="StateChart/Root/Live/Combat/NoCombat"]
-script = ExtResource("10_qigig")
-to = NodePath("../ShieldInHand")
-event = &"ToShieldInHandState"
+to = NodePath("../../InCombat")
+event = &"ToInCombatState"
 
 [node name="InCombat" type="Node" parent="StateChart/Root/Live/Combat"]
-script = ExtResource("7_iumiv")
-initial_state = NodePath("Slash")
-
-[node name="Slash" type="Node" parent="StateChart/Root/Live/Combat/InCombat"]
 script = ExtResource("8_3pq8s")
 
-[node name="ToBSwordInHand" type="Node" parent="StateChart/Root/Live/Combat/InCombat/Slash"]
+[node name="ToNoCombat" type="Node" parent="StateChart/Root/Live/Combat/InCombat"]
 script = ExtResource("10_qigig")
-to = NodePath("../../../NoCombat/BSwordInHand")
-event = &"ToBSwordInHandState"
+to = NodePath("../../NoCombat")
+event = &"ToNoCombatState"
 
-[node name="Shoot" type="Node" parent="StateChart/Root/Live/Combat/InCombat"]
-script = ExtResource("8_3pq8s")
-
-[node name="ToBigBowInHand" type="Node" parent="StateChart/Root/Live/Combat/InCombat/Shoot"]
+[node name="ToDead" type="Node" parent="StateChart/Root/Live"]
 script = ExtResource("10_qigig")
-to = NodePath("../../../NoCombat/BigBowInHand")
-event = &"ToBigBowInHandState"
-
-[node name="Guard" type="Node" parent="StateChart/Root/Live/Combat/InCombat"]
-script = ExtResource("8_3pq8s")
-
-[node name="ToShieldInHand" type="Node" parent="StateChart/Root/Live/Combat/InCombat/Guard"]
-script = ExtResource("10_qigig")
-to = NodePath("../../../NoCombat/ShieldInHand")
-event = &"ToShieldInHandState"
+to = NodePath("../../Dead")
+event = &"ToDeadState"
 
 [node name="Dead" type="Node" parent="StateChart/Root"]
 script = ExtResource("8_3pq8s")
@@ -771,37 +720,35 @@ position = Vector2(0, -8)
 MinRotation = -180.0
 MaxRotation = 180.0
 
-[node name="BSword" parent="." node_paths=PackedStringArray("Sprite2D", "CollisionShape2D", "NodeStateChart") instance=ExtResource("12_frf8n")]
+[node name="Sword" parent="." node_paths=PackedStringArray("Sprite2D", "CollisionShape2D", "AnimatedSprite2D", "AnimationPlayer_", "NodeStateChart") instance=ExtResource("12_frf8n")]
 z_index = -1
 position = Vector2(0, -8)
 Sprite2D = NodePath("Sprite2D")
 CollisionShape2D = NodePath("CollisionShape2D")
+AnimatedSprite2D = NodePath("AnimatedSprite2D")
+AnimationPlayer_ = NodePath("AnimationPlayer_")
 NodeStateChart = NodePath("StateChart")
 
-[node name="BigBow" parent="." node_paths=PackedStringArray("AnimatedSprite2D", "CollisionShape2D", "NodeStateChart") instance=ExtResource("13_y068q")]
+[node name="_Bow_" parent="." node_paths=PackedStringArray("AnimatedSprite2D", "CollisionShape2D", "AnimatedSprite2DEffect", "NodeStateChart") instance=ExtResource("13_y068q")]
 visible = false
 z_index = 1
+position = Vector2(0, -8)
 AnimatedSprite2D = NodePath("AnimatedSprite2D")
 CollisionShape2D = NodePath("CollisionShape2D")
+AnimatedSprite2DEffect = NodePath("AnimatedSprite2D_Effect")
 NodeStateChart = NodePath("StateChart")
 
-[node name="Shield" parent="." node_paths=PackedStringArray("CollisionShape2D", "NodeStateChart") instance=ExtResource("14_wsuv2")]
-visible = false
-z_index = 1
-CollisionShape2D = NodePath("CollisionShape2D")
-NodeStateChart = NodePath("StateChart")
+[node name="WeaponManager" type="Node" parent="." node_paths=PackedStringArray("Weapons")]
+script = ExtResource("15_38huo")
+Keys = Array[int]([70, 71])
+Weapons = [NodePath("../Sword"), NodePath("../_Bow_")]
 
 [connection signal="state_physics_processing" from="StateChart/Root/Live/Motion/Safe" to="." method="OnSafeStatePhysicsProcessing"]
 [connection signal="state_entered" from="StateChart/Root/Live/Motion/Safe/Idle" to="." method="OnIdleStateEntered"]
-[connection signal="state_input" from="StateChart/Root/Live/Motion/Safe/Idle" to="." method="OnIdleStateInput"]
+[connection signal="state_input" from="StateChart/Root/Live/Motion/Safe/Idle" to="." method="OnIdleState_Input_"]
 [connection signal="state_physics_processing" from="StateChart/Root/Live/Motion/Safe/Idle" to="." method="OnIdleStatePhysicsProcessing"]
 [connection signal="state_entered" from="StateChart/Root/Live/Motion/Safe/Move" to="." method="OnMoveStateEntered"]
-[connection signal="state_input" from="StateChart/Root/Live/Motion/Safe/Move" to="." method="OnMoveStateInput"]
+[connection signal="state_input" from="StateChart/Root/Live/Motion/Safe/Move" to="." method="OnMoveState_Input_"]
 [connection signal="state_physics_processing" from="StateChart/Root/Live/Motion/Safe/Move" to="." method="OnMoveStatePhysicsProcessing"]
 [connection signal="state_entered" from="StateChart/Root/Live/Motion/Safe/Dash" to="." method="OnDashStateEntered"]
 [connection signal="state_exited" from="StateChart/Root/Live/Motion/Safe/Dash" to="." method="OnDashStateExited_"]
-[connection signal="state_entered" from="StateChart/Root/Live/Combat/NoCombat" to="." method="OnNoCombatStateEntered"]
-[connection signal="state_input" from="StateChart/Root/Live/Combat/NoCombat" to="." method="OnNoCombatStateInput"]
-[connection signal="state_entered" from="StateChart/Root/Live/Combat/NoCombat/BSwordInHand" to="." method="OnBSwordInHandStateEntered"]
-[connection signal="state_entered" from="StateChart/Root/Live/Combat/NoCombat/BigBowInHand" to="." method="OnBigBowInHandStateEntered"]
-[connection signal="state_entered" from="StateChart/Root/Live/Combat/NoCombat/ShieldInHand" to="." method="OnShieldInHandStateEntered"]

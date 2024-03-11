@@ -1,9 +1,11 @@
-[gd_scene load_steps=39 format=3 uid="uid://c47tcwkeiq0h2"]
+[gd_scene load_steps=42 format=3 uid="uid://c47tcwkeiq0h2"]
 
 [ext_resource type="Script" path="res://game_object/characters/main_character_v3/MainCharacterV3.cs" id="1_gm2bn"]
 [ext_resource type="SpriteFrames" uid="uid://rt7sar8d0e54" path="res://game_object/characters/main_character_v3/MainCharacterV3_SpriteFrames_$Main$.tres" id="1_q2bc7"]
 [ext_resource type="Environment" uid="uid://dklff1p13x42s" path="res://game_object/characters/main_character_v3/MainCharacterV3_Environment.tres" id="2_jmsfk"]
+[ext_resource type="Shader" path="res://game_object/characters/main_character_v3/MainCharacterV3_ShaderMaterial.gdshader" id="3_3r6pt"]
 [ext_resource type="Shape2D" uid="uid://c5ubyerv0qnd4" path="res://game_object/characters/main_character_v3/MainCharacterV3_CollisionShape2D_Body.tres" id="4_64rx8"]
+[ext_resource type="Texture2D" uid="uid://bmv1bk5q685ir" path="res://game_assets/characters/main_character_v3/03-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="4_b8c1l"]
 [ext_resource type="Shape2D" uid="uid://b3sj5xwmp0fkj" path="res://game_object/characters/main_character_v3/MainCharacterV3_CollisionShape2D_Feet.tres" id="5_jqegu"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="6_cv5lc"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="7_iumiv"]
@@ -14,6 +16,10 @@
 [ext_resource type="PackedScene" uid="uid://bx1yjtvn2pwyh" path="res://game_object/characters/main_character_v3/Sword.tscn" id="12_frf8n"]
 [ext_resource type="PackedScene" uid="uid://b7cey8rb583i7" path="res://game_object/characters/main_character_v3/Bow.tscn" id="13_y068q"]
 [ext_resource type="Script" path="res://game_object/characters/main_character_v3/WeaponManager.cs" id="15_38huo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1mg2u"]
+shader = ExtResource("3_3r6pt")
+shader_parameter/normal_map = ExtResource("4_b8c1l")
 
 [sub_resource type="Animation" id="Animation_kpxto"]
 length = 0.4
@@ -598,9 +604,10 @@ environment = ExtResource("2_jmsfk")
 [node name="AnimatedSprite2D_$Main$" type="AnimatedSprite2D" parent="."]
 self_modulate = Color(1.1, 1.1, 1.1, 1)
 light_mask = 0
+material = SubResource("ShaderMaterial_1mg2u")
 sprite_frames = ExtResource("1_q2bc7")
 animation = &"IDLE_D"
-frame = 3
+frame = 1
 offset = Vector2(0, -12)
 
 [node name="CollisionShape2D_Body" type="CollisionShape2D" parent="."]

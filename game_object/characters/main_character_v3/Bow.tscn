@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://b7cey8rb583i7"]
+[gd_scene load_steps=11 format=3 uid="uid://b7cey8rb583i7"]
 
 [ext_resource type="Script" path="res://game_object/characters/main_character_v3/Bow.cs" id="1_phjm6"]
 [ext_resource type="SpriteFrames" uid="uid://cluh2qnw6rggx" path="res://game_object/characters/main_character_v3/Bow_SpriteFrames_______.tres" id="2_82x8i"]
 [ext_resource type="Environment" uid="uid://7xq4xr6vealg" path="res://game_object/characters/main_character_v3/Bow_Environment.tres" id="2_muc1p"]
+[ext_resource type="Material" uid="uid://bfyr0o5mnydjd" path="res://game_object/characters/main_character_v3/Bow_ShaderMaterial.tres" id="3_81jfe"]
 [ext_resource type="Shape2D" uid="uid://dhaeumdfk8n70" path="res://game_object/characters/main_character_v3/Bow_CollisionShape2D.tres" id="3_weimp"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="4_ayxdt"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="5_06c8u"]
@@ -23,6 +24,7 @@ environment = ExtResource("2_muc1p")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 self_modulate = Color(1.1, 1.1, 1.1, 1)
 light_mask = 0
+material = ExtResource("3_81jfe")
 sprite_frames = ExtResource("2_82x8i")
 animation = &"RESET"
 autoplay = "RESET"

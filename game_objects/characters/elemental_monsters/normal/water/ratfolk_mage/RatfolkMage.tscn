@@ -210,7 +210,7 @@ environment = ExtResource("2_x1bf5")
 [node name="AnimatedSprite2D_$Main$" type="AnimatedSprite2D" parent="."]
 material = ExtResource("1_m2m7p")
 sprite_frames = ExtResource("1_3rhfa")
-animation = &"DEAD"
+animation = &"CAST_1"
 offset = Vector2(0, -16)
 
 [node name="CollisionShape2D_Body" type="CollisionShape2D" parent="."]
@@ -222,7 +222,7 @@ debug_color = Color(0, 1, 0, 0.2)
 shape = ExtResource("3_ft8a0")
 debug_color = Color(0, 0, 1, 0.2)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer_" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_rad5d")
 }

@@ -46,12 +46,9 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.6),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"queue_free"
-}]
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
 }
 
 [sub_resource type="Animation" id="Animation_nk2xw"]
@@ -82,7 +79,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_3i683"]
-length = 0.35
+length = 0.7
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -91,7 +88,7 @@ tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6]
@@ -110,7 +107,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_wht5t"]
-length = 0.4
+length = 0.8
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -119,7 +116,7 @@ tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
@@ -138,7 +135,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_ywbim"]
-length = 0.3
+length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -146,7 +143,7 @@ tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5]
@@ -180,10 +177,12 @@ script = ExtResource("1_41j3n")
 environment = ExtResource("2_p2mts")
 
 [node name="AnimatedSprite2D_$Main$" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(2, 1, 1, 1)
+light_mask = 0
 material = ExtResource("2_smu26")
 sprite_frames = ExtResource("1_n3j5a")
 animation = &"DEAD"
-offset = Vector2(0, -16)
+offset = Vector2(0, -12)
 
 [node name="CollisionShape2D_Body" type="CollisionShape2D" parent="."]
 position = Vector2(1, -6)
@@ -194,7 +193,7 @@ debug_color = Color(0, 1, 0, 0.2)
 shape = ExtResource("4_5oi5y")
 debug_color = Color(0, 0, 1, 0.2)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer_" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_4ue5d")
 }

@@ -59,35 +59,25 @@ public partial class Bow : Weapon
 
     private void OnResetState_Input_(InputEvent @inputEvent)
     {
-        if (   @inputEvent
-        is      InputEventMouseButton
-                inputEventMouseButton)
+        if (@inputEvent.IsLMousePressed())
         {
-            if (inputEventMouseButton
-            .Pressed
-            &&  inputEventMouseButton.ButtonIndex
-            is            MouseButton.Left          )
-            {
-                _stateChart.SendEvent("ToShootState");
-            }
+            _stateChart.SendEvent("ToShootState");
         }
     }
 
     public void OnResetStatePhysicsProcessing(float @delta)
     {
-        Vector2 toPos = GetLocalMousePosition();
-
-        Vector2 direction
-        = Input.GetVector( "L", "R", "U", "D" );
-
-
-        if (direction != Vector2.Zero)
+        Vector2 hover_Position = GetLocalMousePosition();
+        Vector2 inputDirection = Extension.
+             GetInputDirection();
+        if (inputDirection !=
+        Vector2.Zero)
         {
-            toPos =
-            direction;
+            hover_Position  =
+            inputDirection  ;
         }
 
-        _currRotPos = _currRotPos.Lerp(toPos, 0.1f);
+        _currRotPos = _currRotPos.Lerp(hover_Position, 0.1f);
         AnimatedSprite2D.Rotation = _currRotPos.Angle() - Mathf.Pi / 2;
         CollisionShape2D.Rotation = _currRotPos.Angle() - Mathf.Pi / 2;
         AnimatedSprite2DEffect.Rotation = _currRotPos.Angle() - Mathf.Pi;

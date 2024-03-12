@@ -607,7 +607,6 @@ light_mask = 0
 material = SubResource("ShaderMaterial_1mg2u")
 sprite_frames = ExtResource("1_q2bc7")
 animation = &"IDLE_D"
-frame = 1
 offset = Vector2(0, -12)
 
 [node name="CollisionShape2D_Body" type="CollisionShape2D" parent="."]

@@ -1,9 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://cyv12iosddo4f"]
+[gd_scene load_steps=3 format=3 uid="uid://cyv12iosddo4f"]
 
 [ext_resource type="SpriteFrames" uid="uid://b8kirdr3jdxm1" path="res://game_objects/characters/elemental_monsters/normal/wood/totem/heal/HealTotem_SpriteFrames_$Main$.tres" id="1_q6j6a"]
+[ext_resource type="Material" uid="uid://c0iu4xn2vmqcp" path="res://game_objects/characters/elemental_monsters/normal/wood/totem/heal/HealTotem_ShaderMaterial.tres" id="1_rnysy"]
 
 [node name="HealTotem" type="CharacterBody2D"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D_$Main$" type="AnimatedSprite2D" parent="."]
+material = ExtResource("1_rnysy")
+position = Vector2(0.5, -16)
 sprite_frames = ExtResource("1_q6j6a")
-animation = &"4"
+animation = &"DEAD"
+
+[node name="AnimationPlayer_" type="AnimationPlayer" parent="."]
+
+[node name="CollisionShape2D_Body" type="CollisionShape2D" parent="."]
+debug_color = Color(0, 1, 0, 0.2)
+
+[node name="CollisionShape2D_Feet" type="CollisionShape2D" parent="."]
+debug_color = Color(0, 0, 1, 0.2)

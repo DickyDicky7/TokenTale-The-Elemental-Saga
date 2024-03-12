@@ -75,31 +75,24 @@ public partial class Sword : Weapon
 
     private void OnResetState_Input_(InputEvent @inputEvent)
     {
-        if (   @inputEvent
-        is      InputEventMouseButton
-                inputEventMouseButton)
+        if (@inputEvent.IsLMousePressed())
         {
-            if (inputEventMouseButton
-            .Pressed
-            &&  inputEventMouseButton.ButtonIndex
-            is            MouseButton.Left          )
-            {
-                _stateChart.SendEvent("ToSlashState");
-            }
+            _stateChart.SendEvent("ToSlashState");
         }
     }
 
     private void OnResetStatePhysicsProcessing(float @delta)
     {
-        Vector2 toPos = GetLocalMousePosition();
-        Vector2 toDir
-        = Input.GetVector( "L", "R", "U", "D" );
-        if (toDir != Vector2.Zero)
+        Vector2 hover_Position  = GetLocalMousePosition();
+        Vector2 inputDirection  = Extension.GetInputDirection();
+        if    ( inputDirection !=
+        Vector2.Zero)
         {
-            toPos  =
-            toDir  ;
+            hover_Position = inputDirection;
         }
-            Sprite2D.FlipH = Mathf.RadToDeg(toPos.Angle()) switch
+            Sprite2D.FlipH = Mathf.RadToDeg(
+            hover_Position.Angle())
+        switch
         {
             > -135.0f and <= +045.0f => !false,
             _                        =>  false,
@@ -118,7 +111,8 @@ public partial class Sword : Weapon
         _tween2.TweenProperty(Sprite2D, "offset", offset, 0.5d)
                .SetEase (Tween.      EaseType.OutIn)
                .SetTrans(Tween.TransitionType.Quint);
-        ZIndex = Mathf.RadToDeg(toPos.Angle()) switch
+        ZIndex = Mathf.RadToDeg(hover_Position.Angle())
+        switch
         {
             > -135.0f and <= +045.0f => -1,
             _                        => +1,
@@ -130,33 +124,31 @@ public partial class Sword : Weapon
     #region SLASH STATE
     private void OnSlashStateEntered()
     {
-        Vector2 toDir =  Input
-        .GetVector("L", "R", "U", "D");
-        if    ( toDir == Vector2.Zero)
+        Vector2 inputDirection =  Extension.GetInputDirection();
+        if    ( inputDirection ==
+        Vector2.Zero)
         {
-            AnimatedSprite2D.FlipH = GetLocalMousePosition().X switch
+            AnimatedSprite2D.FlipH =
+            GetLocalMousePosition().X switch
             {
                 <= 0 => !false,
-                >  0 =>  false,
                 _    =>  false,
             };
-            LookAt(GetGlobalMousePosition
-                ());
+            LookAt(GetGlobalMousePosition());
         }
         else
         {
             AnimatedSprite2D.FlipH  =
-                       toDir.X switch
+              inputDirection.X switch
             {
                 <= 0 => !false,
-                >  0 =>  false,
                 _    =>  false,
             };
-            Rotation = toDir.Angle();
+            Rotation = inputDirection.Angle();
         }
         CollisionShape2D.SetDeferred("disabled",  false);
         AnimationPlayer_.Play($"SLASH_{_slashCount}"   );
-        _slashCount++;
+        _slashCount ++  ;
         _slashCount %= 4;
     }
 

@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bn3rupmuf8ui5"]
+
+[ext_resource type="Shader" path="res://game_objects/characters/elemental_monsters/normal/wind/bat/Bat_ShaderMaterial_Move.gdshader" id="1_pk84r"]
+[ext_resource type="Texture2D" uid="uid://n0dg6xa7p2ud" path="res://game_asset_s/characters/elemental_monsters/wind/bat/with_outlined/move-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="2_4satp"]
+
+[resource]
+shader = ExtResource("1_pk84r")
+shader_parameter/normal_map = ExtResource("2_4satp")

@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dri8oprw8foqm"]
+
+[ext_resource type="Shader" path="res://game_objects/characters/elemental_monsters/normal/ice/kobold____priest/KoboldPriest_ShaderMaterial.gdshader" id="1_86ck3"]
+
+[resource]
+shader = ExtResource("1_86ck3")
+shader_parameter/old_colors = null
+shader_parameter/new_colors = null

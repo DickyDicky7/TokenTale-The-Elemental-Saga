@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyv12iosddo4f"]
+
+[ext_resource type="SpriteFrames" uid="uid://b8kirdr3jdxm1" path="res://game_objects/characters/elemental_monsters/normal/wood/totem/heal/HealTotem_SpriteFrames_$Main$.tres" id="1_q6j6a"]
+
+[node name="HealTotem" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_q6j6a")
+animation = &"4"

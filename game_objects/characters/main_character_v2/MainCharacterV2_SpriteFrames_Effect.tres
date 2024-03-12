@@ -1,0 +1,127 @@
+[gd_resource type="SpriteFrames" load_steps=22 format=3 uid="uid://bnxrd7xpysvsw"]
+
+[ext_resource type="Texture2D" uid="uid://b5tqirq4ufbev" path="res://game_asset_s/vfx/slash_01/slash-01-01.png" id="1_6ff6l"]
+[ext_resource type="Texture2D" uid="uid://6hksumh43isf" path="res://game_asset_s/vfx/dash_01/dash-01-01.png" id="1_qcryd"]
+[ext_resource type="Texture2D" uid="uid://b7vf4ag7eg0p" path="res://game_asset_s/vfx/dash_01/dash-01-02.png" id="2_gjh2a"]
+[ext_resource type="Texture2D" uid="uid://dny361qpo53u1" path="res://game_asset_s/vfx/slash_01/slash-01-02.png" id="2_ryd7w"]
+[ext_resource type="Texture2D" uid="uid://gd8g6sjlswn2" path="res://game_asset_s/vfx/dash_01/dash-01-03.png" id="3_a6amo"]
+[ext_resource type="Texture2D" uid="uid://bftmwesjlvtq" path="res://game_asset_s/vfx/slash_01/slash-01-03.png" id="3_tyd7w"]
+[ext_resource type="Texture2D" uid="uid://d25vb7lg4vgvm" path="res://game_asset_s/vfx/slash_01/slash-01-04.png" id="4_tf688"]
+[ext_resource type="Texture2D" uid="uid://n6nb8khq2pgi" path="res://game_asset_s/vfx/dash_01/dash-01-04.png" id="4_tgt31"]
+[ext_resource type="Texture2D" uid="uid://cw4kx6g204wej" path="res://game_asset_s/vfx/dash_01/dash-01-05.png" id="5_rv8o6"]
+[ext_resource type="Texture2D" uid="uid://1u3pjr4ceygr" path="res://game_asset_s/vfx/slash_01/slash-01-05.png" id="5_sku6r"]
+[ext_resource type="Texture2D" uid="uid://bccyjbi27133a" path="res://game_asset_s/vfx/dash_01/dash-01-06.png" id="6_ibjkh"]
+[ext_resource type="Texture2D" uid="uid://dirfch8nplags" path="res://game_asset_s/vfx/slash_02/slash-02-01.png" id="6_np75j"]
+[ext_resource type="Texture2D" uid="uid://dmfv7ehktv2u2" path="res://game_asset_s/vfx/slash_02/slash-02-02.png" id="7_rrgr3"]
+[ext_resource type="Texture2D" uid="uid://6eadnfw4e83g" path="res://game_asset_s/vfx/slash_02/slash-02-03.png" id="8_ww00l"]
+[ext_resource type="Texture2D" uid="uid://cxvg2j5daivrb" path="res://game_asset_s/vfx/slash_02/slash-02-04.png" id="9_d20ki"]
+[ext_resource type="Texture2D" uid="uid://bcuuvdetab52g" path="res://game_asset_s/vfx/slash_02/slash-02-05.png" id="10_qb4jb"]
+[ext_resource type="Texture2D" uid="uid://bimk7pekqxf7n" path="res://game_asset_s/vfx/slash_03/slash-03-01.png" id="11_33c62"]
+[ext_resource type="Texture2D" uid="uid://c71x24525ubki" path="res://game_asset_s/vfx/slash_03/slash-03-02.png" id="12_kxl0i"]
+[ext_resource type="Texture2D" uid="uid://dodgirvsk20e5" path="res://game_asset_s/vfx/slash_03/slash-03-03.png" id="13_ra0xh"]
+[ext_resource type="Texture2D" uid="uid://dn2di6fvdi6id" path="res://game_asset_s/vfx/slash_03/slash-03-04.png" id="14_x1bkb"]
+[ext_resource type="Texture2D" uid="uid://e1fb5rqm7qyw" path="res://game_asset_s/vfx/slash_03/slash-03-05.png" id="15_jatoc"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_qcryd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_gjh2a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_a6amo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tgt31")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_rv8o6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ibjkh")
+}],
+"loop": false,
+"name": &"SHOOT",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6ff6l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ryd7w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tyd7w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tf688")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_sku6r")
+}],
+"loop": false,
+"name": &"SLASH_0",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_np75j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rrgr3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ww00l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_d20ki")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_qb4jb")
+}],
+"loop": false,
+"name": &"SLASH_1",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_33c62")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_kxl0i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ra0xh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_x1bkb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_jatoc")
+}],
+"loop": false,
+"name": &"SLASH_2",
+"speed": 10.0
+}]

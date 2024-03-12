@@ -1,9 +1,0 @@
-[gd_resource type="GradientTexture2D" load_steps=2 format=3 uid="uid://by8knhsasceto"]
-
-[ext_resource type="Gradient" uid="uid://dvl1sbeoukadh" path="res://game_object/shared/Gradient--------_PointLight2D_EyeSight.tres" id="1_8tib8"]
-
-[resource]
-gradient = ExtResource("1_8tib8")
-use_hdr = true
-fill = 1
-fill_to = Vector2(0.5, 0.5)

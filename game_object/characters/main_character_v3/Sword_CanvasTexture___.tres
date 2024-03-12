@@ -1,8 +1,0 @@
-[gd_resource type="CanvasTexture" load_steps=3 format=3 uid="uid://dj6uk76yxngg5"]
-
-[ext_resource type="Texture2D" uid="uid://7ltowuxnege6" path="res://game_assets/32x32pixelmeleeweapon.png" id="1_obc1k"]
-[ext_resource type="Texture2D" uid="uid://dn1nq8odgkio1" path="res://game_assets/32x32pixelmeleeweapon-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="2_d8sws"]
-
-[resource]
-diffuse_texture = ExtResource("1_obc1k")
-normal_texture = ExtResource("2_d8sws")

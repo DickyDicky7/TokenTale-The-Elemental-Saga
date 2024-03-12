@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://bvu7c67np3hx6"]
+
+[ext_resource type="Texture2D" uid="uid://btkismrdn7gdd" path="res://game_asset_s/equipments/wood.png" id="1_hxd28"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sse4h"]
+atlas = ExtResource("1_hxd28")
+region = Rect2(48, 48, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcolu"]
+atlas = ExtResource("1_hxd28")
+region = Rect2(64, 48, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkewn"]
+atlas = ExtResource("1_hxd28")
+region = Rect2(80, 48, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27mx7"]
+atlas = ExtResource("1_hxd28")
+region = Rect2(48, 48, 16, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sse4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcolu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkewn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27mx7")
+}],
+"loop": false,
+"name": &"SHOOT",
+"speed": 10.0
+}]

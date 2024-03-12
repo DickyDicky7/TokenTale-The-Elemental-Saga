@@ -13,8 +13,8 @@ config_version=5
 config/name="TokenTale-The-Elemental-Saga"
 run/main_scene="res://Main.tscn"
 config/features=PackedStringArray("4.3", "C#", "GL Compatibility")
-boot_splash/image="res://game_assets/splatter.png"
-config/icon="res://game_assets/icon.svg"
+boot_splash/image="res://game_asset_s/splatter.png"
+config/icon="res://game_asset_s/icon.svg"
 
 [display]
 
@@ -34,8 +34,8 @@ enabled=PackedStringArray("res://addons/AS2P/plugin.cfg", "res://addons/godot_st
 
 folder_colors={
 "res://addons/": "green",
-"res://game_assets/": "teal",
-"res://game_object/": "pink"
+"res://game_asset_s/": "teal",
+"res://game_objects/": "pink"
 }
 
 [input]

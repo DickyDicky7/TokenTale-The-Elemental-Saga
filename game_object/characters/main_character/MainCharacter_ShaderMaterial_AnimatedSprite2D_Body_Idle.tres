@@ -1,8 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dehaeylon6ldp"]
-
-[ext_resource type="Shader" path="res://game_object/characters/main_character/MainCharacter_ShaderMaterial_AnimatedSprite2D_Body_Idle.gdshader" id="1_bg8q3"]
-[ext_resource type="Texture2D" uid="uid://rmlsglixb61e" path="res://game_assets/characters/hunter/idle-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="2_0exe8"]
-
-[resource]
-shader = ExtResource("1_bg8q3")
-shader_parameter/normal_map = ExtResource("2_0exe8")

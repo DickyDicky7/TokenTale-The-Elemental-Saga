@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" load_steps=3 format=3 uid="uid://c24symq8afhwi"]
+
+[ext_resource type="Texture2D" uid="uid://cqf1ffkxyh4vx" path="res://game_asset_s/equipments/hand.png" id="1_34o0s"]
+[ext_resource type="Texture2D" uid="uid://bkbk6fygf4i3x" path="res://game_asset_s/equipments/hand-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="2_jfcft"]
+
+[resource]
+diffuse_texture = ExtResource("1_34o0s")
+normal_texture = ExtResource("2_jfcft")

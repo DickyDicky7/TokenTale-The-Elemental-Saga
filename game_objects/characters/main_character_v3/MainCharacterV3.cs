@@ -4,7 +4,7 @@ using GodotStateCharts;
 using     TokenTaleTheElementalSaga.GameObjects.Shared    ;
 namespace TokenTaleTheElementalSaga.GameObjects.Characters;
 
-public partial class MainCharacterV3 : CharacterBody2D
+public partial class MainCharacterV3 : Character
 {
     [Export] public float JumpV   { get; set; }
     [Export] public float Speed   { get; set; }

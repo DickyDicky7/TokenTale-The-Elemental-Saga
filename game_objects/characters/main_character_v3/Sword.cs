@@ -3,7 +3,7 @@ using GodotStateCharts;
 
 namespace TokenTaleTheElementalSaga.GameObjects.Characters;
 
-[GlobalClass]
+//[GlobalClass]
 public partial class Sword : Weapon
 {
     [Export]

@@ -16,11 +16,6 @@ config/features=PackedStringArray("4.3", "C#", "GL Compatibility")
 boot_splash/image="res://game_asset_s/splatter.png"
 config/icon="res://game_asset_s/icon.svg"
 
-[autoload]
-
-BeehaveGlobalMetrics="*res://addons/beehave/metrics/beehave_global_metrics.gd"
-BeehaveGlobalDebugger="*res://addons/beehave/debug/global_debugger.gd"
-
 [display]
 
 window/size/viewport_width=800
@@ -33,7 +28,7 @@ project/assembly_name="TokenTale-The-Elemental-Saga"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AS2P/plugin.cfg", "res://addons/beehave/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg")
+enabled=PackedStringArray("res://addons/AS2P/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg")
 
 [file_customization]
 

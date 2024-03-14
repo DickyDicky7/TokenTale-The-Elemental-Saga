@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cwhrbtjfm2cpc"]
+[gd_scene load_steps=17 format=3 uid="uid://cwhrbtjfm2cpc"]
 
 [ext_resource type="Script" path="res://game_objects/characters/elemental_monsters/normal/fire/imp/Imp.cs" id="1_41j3n"]
 [ext_resource type="SpriteFrames" uid="uid://bqs28pblt174t" path="res://game_objects/characters/elemental_monsters/normal/fire/imp/Imp_SpriteFrames_$Main$.tres" id="1_n3j5a"]
@@ -6,12 +6,9 @@
 [ext_resource type="Environment" uid="uid://bk5s8laox5sjv" path="res://game_objects/characters/elemental_monsters/normal/fire/imp/Imp_Environment.tres" id="2_p2mts"]
 [ext_resource type="Material" uid="uid://crwxg3wu37lq0" path="res://game_objects/characters/elemental_monsters/normal/fire/imp/Imp_ShaderMaterial.tres" id="2_smu26"]
 [ext_resource type="Shape2D" uid="uid://d0x8cr26ifpx7" path="res://game_objects/characters/elemental_monsters/normal/fire/imp/Imp_CollisionShape2D_Feet.tres" id="4_5oi5y"]
-[ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="5_f3wli"]
-[ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="7_v5ibl"]
-[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="8_vlpx3"]
-[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="9_7o628"]
 [ext_resource type="PackedScene" uid="uid://dklk814gsey6g" path="res://game_objects/shared/EyeSight.tscn" id="10_2wlxm"]
-[ext_resource type="Script" path="res://game_objects/shared/HFlippableComponent.cs" id="12_lr1dt"]
+[ext_resource type="BehaviorTree" uid="uid://diju3wt86axt4" path="res://game_objects/characters/elemental_monsters/normal/fire/imp/Imp_BehaviorTree.tres" id="12_hk2im"]
+[ext_resource type="Script" path="res://game_objects/shared/HFlippable2DLocalLookingDirectionComponent.cs" id="13_upkro"]
 
 [sub_resource type="Animation" id="Animation_wq24f"]
 length = 0.6
@@ -173,6 +170,8 @@ _data = {
 "THROW": SubResource("Animation_ywbim")
 }
 
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_na08o"]
+
 [node name="Imp" type="CharacterBody2D"]
 script = ExtResource("1_41j3n")
 
@@ -201,84 +200,20 @@ libraries = {
 "": SubResource("AnimationLibrary_4ue5d")
 }
 
-[node name="StateChart" type="Node" parent="."]
-script = ExtResource("5_f3wli")
-
-[node name="Root" type="Node" parent="StateChart"]
-script = ExtResource("7_v5ibl")
-initial_state = NodePath("Live")
-
-[node name="Live" type="Node" parent="StateChart/Root"]
-script = ExtResource("7_v5ibl")
-initial_state = NodePath("NoCombat")
-
-[node name="NoCombat" type="Node" parent="StateChart/Root/Live"]
-script = ExtResource("7_v5ibl")
-initial_state = NodePath("Idle")
-
-[node name="Idle" type="Node" parent="StateChart/Root/Live/NoCombat"]
-script = ExtResource("8_vlpx3")
-
-[node name="ToMove" type="Node" parent="StateChart/Root/Live/NoCombat/Idle"]
-script = ExtResource("9_7o628")
-to = NodePath("../../Move")
-event = &"ToMoveState"
-
-[node name="ToHurt" type="Node" parent="StateChart/Root/Live/NoCombat/Idle"]
-script = ExtResource("9_7o628")
-to = NodePath("../../Hurt")
-event = &"ToHurtState"
-
-[node name="Move" type="Node" parent="StateChart/Root/Live/NoCombat"]
-script = ExtResource("8_vlpx3")
-
-[node name="ToIdle" type="Node" parent="StateChart/Root/Live/NoCombat/Move"]
-script = ExtResource("9_7o628")
-to = NodePath("../../Idle")
-event = &"ToIdleState"
-
-[node name="ToHurt" type="Node" parent="StateChart/Root/Live/NoCombat/Move"]
-script = ExtResource("9_7o628")
-to = NodePath("../../Hurt")
-event = &"ToHurtState"
-
-[node name="Hurt" type="Node" parent="StateChart/Root/Live/NoCombat"]
-script = ExtResource("8_vlpx3")
-
-[node name="ToMove" type="Node" parent="StateChart/Root/Live/NoCombat/Hurt"]
-script = ExtResource("9_7o628")
-to = NodePath("../../Move")
-event = &"ToMoveState"
-
-[node name="ToSkill1" type="Node" parent="StateChart/Root/Live/NoCombat"]
-script = ExtResource("9_7o628")
-to = NodePath("../../InCombat/Skill1")
-event = &"ToSkill1State"
-
-[node name="ToSkill2" type="Node" parent="StateChart/Root/Live/NoCombat"]
-script = ExtResource("9_7o628")
-to = NodePath("../../InCombat/Skill2")
-event = &"ToSkill2State"
-
-[node name="InCombat" type="Node" parent="StateChart/Root/Live"]
-script = ExtResource("7_v5ibl")
-initial_state = NodePath("Skill1")
-
-[node name="Skill1" type="Node" parent="StateChart/Root/Live/InCombat"]
-script = ExtResource("8_vlpx3")
-
-[node name="Skill2" type="Node" parent="StateChart/Root/Live/InCombat"]
-script = ExtResource("8_vlpx3")
-
-[node name="ToMove" type="Node" parent="StateChart/Root/Live/InCombat"]
-script = ExtResource("9_7o628")
-to = NodePath("../../NoCombat/Move")
-event = &"ToMoveState"
-
-[node name="Dead" type="Node" parent="StateChart/Root"]
-script = ExtResource("8_vlpx3")
-
 [node name="EyeSight" parent="." instance=ExtResource("10_2wlxm")]
 
-[node name="HFlippableComponent" type="Node" parent="."]
-script = ExtResource("12_lr1dt")
+[node name="BTPlayer" type="BTPlayer" parent="."]
+behavior_tree = ExtResource("12_hk2im")
+blackboard_plan = SubResource("BlackboardPlan_na08o")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+
+[node name="HFlippable2DLocalLookingDirectionComponent" type="Node" parent="." node_paths=PackedStringArray("Node2D")]
+script = ExtResource("13_upkro")
+Node2D = NodePath("..")
+LocalLookingDirection = Vector2(1, 0)
+
+[node name="Timer_ChangeLocalLookingDirection" type="Timer" parent="."]
+process_callback = 0
+wait_time = 5.0
+autostart = true

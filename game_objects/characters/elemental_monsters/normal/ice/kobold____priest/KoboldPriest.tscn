@@ -1,6 +1,5 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqn2g5rr825g4"]
+[gd_scene load_steps=5 format=3 uid="uid://bqn2g5rr825g4"]
 
-[ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="1_jgcbw"]
 [ext_resource type="SpriteFrames" uid="uid://b5w6psdxkqfdx" path="res://game_objects/characters/elemental_monsters/normal/ice/kobold____priest/KoboldPriest_SpriteFrames_$Main$.tres" id="1_plsuf"]
 [ext_resource type="Material" uid="uid://dri8oprw8foqm" path="res://game_objects/characters/elemental_monsters/normal/ice/kobold____priest/KoboldPriest_ShaderMaterial.tres" id="1_q21b1"]
 [ext_resource type="Shape2D" uid="uid://cmjrnsdvae2t2" path="res://game_objects/characters/elemental_monsters/normal/ice/kobold____priest/KoboldPriest_CollisionShape2D_Body.tres" id="2_tymgc"]
@@ -26,6 +25,3 @@ shape = ExtResource("3_okj3l")
 debug_color = Color(0, 0, 1, 0.2)
 
 [node name="AnimationPlayer_" type="AnimationPlayer" parent="."]
-
-[node name="StateChart" type="Node" parent="."]
-script = ExtResource("1_jgcbw")

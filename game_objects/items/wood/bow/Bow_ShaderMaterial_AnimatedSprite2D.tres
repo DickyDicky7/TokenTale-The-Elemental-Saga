@@ -1,8 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://djeuo8ufmtnsu"]
-
-[ext_resource type="Shader" path="res://game_objects/items/wood/bow/Bow_ShaderMaterial_AnimatedSprite2D.gdshader" id="1_3onld"]
-[ext_resource type="Texture2D" uid="uid://chr1sqxe3jnpg" path="res://game_asset_s/equipments/wood-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="2_r7x8h"]
-
-[resource]
-shader = ExtResource("1_3onld")
-shader_parameter/normal_map = ExtResource("2_r7x8h")

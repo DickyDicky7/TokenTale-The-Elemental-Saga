@@ -1,6 +1,6 @@
 using Godot;
 
-namespace TokenTaleTheElementalSaga.GameObjects.Characters;
+namespace TokenTaleTheElementalSaga;
 
 [GlobalClass]
 public abstract partial class Item : Area2D

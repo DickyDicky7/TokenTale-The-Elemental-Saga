@@ -1,5 +1,5 @@
 ﻿using Godot;
-using GodotStateCharts;
+using Godot.Collections;
 
 namespace TokenTaleTheElementalSaga;
 
@@ -28,6 +28,12 @@ public static class Extension
     public static Vector2 GetInputDirection()
     {
         return Input.GetVector("L", "R", "U", "D");
+    }
+
+    public static void Insert(this Array<State>
+        @activeComponentStates, State @newComponentState)
+    {
+        @activeComponentStates.Add(@newComponentState);
     }
 }
 

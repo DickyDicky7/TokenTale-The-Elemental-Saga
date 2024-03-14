@@ -1,5 +1,0 @@
-[gd_resource type="SegmentShape2D" format=3 uid="uid://d1xbwjrctgfkv"]
-
-[resource]
-a = Vector2(-9, 16)
-b = Vector2(10, 16)

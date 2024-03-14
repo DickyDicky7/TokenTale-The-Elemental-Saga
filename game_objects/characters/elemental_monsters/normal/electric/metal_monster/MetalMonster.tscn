@@ -1,15 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://u16qad10a485"]
+[gd_scene load_steps=13 format=3 uid="uid://u16qad10a485"]
 
 [ext_resource type="SpriteFrames" uid="uid://0kbvt2fcohxa" path="res://game_objects/characters/elemental_monsters/normal/electric/metal_monster/MetalMonster_SpriteFrames_$Main$.tres" id="1_1wafb"]
 [ext_resource type="Environment" uid="uid://iy0gaxwlsrr0" path="res://game_objects/characters/elemental_monsters/normal/electric/metal_monster/MetalMonster_Environment.tres" id="1_ang3x"]
 [ext_resource type="Material" uid="uid://dvbrod8wrmkyg" path="res://game_objects/characters/elemental_monsters/normal/electric/metal_monster/MetalMonster_ShaderMaterial.tres" id="1_cg1nw"]
-[ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="1_fbxi4"]
 [ext_resource type="Shape2D" uid="uid://cnerhk61d27x5" path="res://game_objects/characters/elemental_monsters/normal/electric/metal_monster/MetalMonster_CollisionShape2D_Body.tres" id="2_5pidp"]
 [ext_resource type="SpriteFrames" uid="uid://c15llvi8pttnb" path="res://game_objects/characters/elemental_monsters/normal/electric/metal_monster/MetalMonster_SpriteFrames_Shadow.tres" id="3_ktts0"]
 [ext_resource type="Shape2D" uid="uid://bl5o2jvnkp4fx" path="res://game_objects/characters/elemental_monsters/normal/electric/metal_monster/MetalMonster_CollisionShape2D_Feet.tres" id="3_ryg82"]
-[ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="8_qj5yt"]
-[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="9_7abgg"]
-[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="10_spf6a"]
 
 [sub_resource type="Animation" id="Animation_odyw3"]
 length = 0.5
@@ -321,80 +317,3 @@ debug_color = Color(0, 0, 1, 0.2)
 libraries = {
 "": SubResource("AnimationLibrary_tkksa")
 }
-
-[node name="StateChart" type="Node" parent="."]
-script = ExtResource("1_fbxi4")
-
-[node name="Root" type="Node" parent="StateChart"]
-script = ExtResource("8_qj5yt")
-initial_state = NodePath("Live")
-
-[node name="Live" type="Node" parent="StateChart/Root"]
-script = ExtResource("8_qj5yt")
-initial_state = NodePath("NoCombat")
-
-[node name="NoCombat" type="Node" parent="StateChart/Root/Live"]
-script = ExtResource("8_qj5yt")
-initial_state = NodePath("Idle")
-
-[node name="Idle" type="Node" parent="StateChart/Root/Live/NoCombat"]
-script = ExtResource("9_7abgg")
-
-[node name="ToMove" type="Node" parent="StateChart/Root/Live/NoCombat/Idle"]
-script = ExtResource("10_spf6a")
-to = NodePath("../../Move")
-event = &"ToMoveState"
-
-[node name="ToHurt" type="Node" parent="StateChart/Root/Live/NoCombat/Idle"]
-script = ExtResource("10_spf6a")
-to = NodePath("../../Hurt")
-event = &"ToHurtState"
-
-[node name="Move" type="Node" parent="StateChart/Root/Live/NoCombat"]
-script = ExtResource("9_7abgg")
-
-[node name="ToIdle" type="Node" parent="StateChart/Root/Live/NoCombat/Move"]
-script = ExtResource("10_spf6a")
-to = NodePath("../../Idle")
-event = &"ToIdleState"
-
-[node name="ToHurt" type="Node" parent="StateChart/Root/Live/NoCombat/Move"]
-script = ExtResource("10_spf6a")
-to = NodePath("../../Hurt")
-event = &"ToHurtState"
-
-[node name="Hurt" type="Node" parent="StateChart/Root/Live/NoCombat"]
-script = ExtResource("9_7abgg")
-
-[node name="ToMove" type="Node" parent="StateChart/Root/Live/NoCombat/Hurt"]
-script = ExtResource("10_spf6a")
-to = NodePath("../../Move")
-event = &"ToMoveState"
-
-[node name="ToSkill1" type="Node" parent="StateChart/Root/Live/NoCombat"]
-script = ExtResource("10_spf6a")
-to = NodePath("../../InCombat/Skill1")
-event = &"ToSkill1State"
-
-[node name="ToSkill2" type="Node" parent="StateChart/Root/Live/NoCombat"]
-script = ExtResource("10_spf6a")
-to = NodePath("../../InCombat/Skill2")
-event = &"ToSkill2State"
-
-[node name="InCombat" type="Node" parent="StateChart/Root/Live"]
-script = ExtResource("8_qj5yt")
-initial_state = NodePath("Skill1")
-
-[node name="Skill1" type="Node" parent="StateChart/Root/Live/InCombat"]
-script = ExtResource("9_7abgg")
-
-[node name="Skill2" type="Node" parent="StateChart/Root/Live/InCombat"]
-script = ExtResource("9_7abgg")
-
-[node name="ToMove" type="Node" parent="StateChart/Root/Live/InCombat"]
-script = ExtResource("10_spf6a")
-to = NodePath("../../NoCombat/Move")
-event = &"ToMoveState"
-
-[node name="Dead" type="Node" parent="StateChart/Root"]
-script = ExtResource("9_7abgg")

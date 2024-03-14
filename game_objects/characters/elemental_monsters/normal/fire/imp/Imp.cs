@@ -1,8 +1,7 @@
 using Godot;
 
-namespace TokenTaleTheElementalSaga.GameObjects.Characters;
+namespace TokenTaleTheElementalSaga;
 
 public partial class Imp : ElementalMonster
 {
-
 }

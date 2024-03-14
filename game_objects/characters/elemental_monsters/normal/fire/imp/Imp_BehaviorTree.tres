@@ -1,0 +1,39 @@
+[gd_resource type="BehaviorTree" load_steps=12 format=3 uid="uid://diju3wt86axt4"]
+
+[ext_resource type="BBNode" uid="uid://836uj4l1m448" path="res://game_objects/characters/elemental_monsters/normal/fire/imp/Imp_BBNode_AnimationPlayer.tres" id="2_nxwe5"]
+[ext_resource type="Script" path="res://ai/tasks/elemental_monster_idle.gd" id="2_s53uy"]
+[ext_resource type="Script" path="res://ai/tasks/elemental_monster_move.gd" id="3_36an6"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_wkbl4"]
+
+[sub_resource type="BTAction" id="BTAction_y01a0"]
+script = ExtResource("2_s53uy")
+PathRayCast2D = NodePath("RayCast2D")
+PathTimer_ChangeLocalLookingDirection = NodePath("Timer_ChangeLocalLookingDirection")
+PathHFlippable2DLocalLookingDirectionComponent = NodePath("HFlippable2DLocalLookingDirectionComponent")
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_llcto"]
+animation_player = ExtResource("2_nxwe5")
+animation_name = &"IDLE"
+
+[sub_resource type="BTParallel" id="BTParallel_jh3t7"]
+num_successes_required = 2
+children = [SubResource("BTAction_y01a0"), SubResource("BTPlayAnimation_llcto")]
+
+[sub_resource type="BTAction" id="BTAction_as85w"]
+script = ExtResource("3_36an6")
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_1ujvc"]
+animation_player = ExtResource("2_nxwe5")
+animation_name = &"MOVE"
+
+[sub_resource type="BTParallel" id="BTParallel_3owjs"]
+num_successes_required = 2
+children = [SubResource("BTAction_as85w"), SubResource("BTPlayAnimation_1ujvc")]
+
+[sub_resource type="BTSelector" id="BTSelector_irail"]
+children = [SubResource("BTParallel_jh3t7"), SubResource("BTParallel_3owjs")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_wkbl4")
+root_task = SubResource("BTSelector_irail")

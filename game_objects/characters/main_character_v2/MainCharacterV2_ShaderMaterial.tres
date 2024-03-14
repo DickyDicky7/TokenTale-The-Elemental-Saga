@@ -1,8 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dolmam0bff7by"]
-
-[ext_resource type="Shader" path="res://game_objects/characters/main_character_v2/MainCharacterV2_ShaderMaterial.gdshader" id="1_vyi1p"]
-[ext_resource type="Texture2D" uid="uid://caq4imxbu5rgk" path="res://game_asset_s/characters/main_character_v2/sprite-sheet-m-adventurer-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="2_tofpi"]
-
-[resource]
-shader = ExtResource("1_vyi1p")
-shader_parameter/normal_map = ExtResource("2_tofpi")

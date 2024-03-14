@@ -1,8 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dpk6ju0rlvigy"]
-
-[ext_resource type="Shader" path="res://game_objects/characters/main_character/MainCharacter_ShaderMaterial_AnimatedSprite2D_Body_Move.gdshader" id="1_ia6l8"]
-[ext_resource type="Texture2D" uid="uid://dv25fnflumlit" path="res://game_asset_s/characters/hunter/move-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="2_ej10u"]
-
-[resource]
-shader = ExtResource("1_ia6l8")
-shader_parameter/normal_map = ExtResource("2_ej10u")

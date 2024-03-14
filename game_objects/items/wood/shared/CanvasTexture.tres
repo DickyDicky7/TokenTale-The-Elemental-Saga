@@ -1,8 +1,0 @@
-[gd_resource type="CanvasTexture" load_steps=3 format=3 uid="uid://ccr4sjhegjjni"]
-
-[ext_resource type="Texture2D" uid="uid://btkismrdn7gdd" path="res://game_asset_s/equipments/wood.png" id="1_8nsvu"]
-[ext_resource type="Texture2D" uid="uid://chr1sqxe3jnpg" path="res://game_asset_s/equipments/wood-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="2_7rigi"]
-
-[resource]
-diffuse_texture = ExtResource("1_8nsvu")
-normal_texture = ExtResource("2_7rigi")

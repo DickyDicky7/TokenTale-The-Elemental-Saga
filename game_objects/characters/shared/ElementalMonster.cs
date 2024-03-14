@@ -1,9 +1,8 @@
 using Godot;
 
-namespace TokenTaleTheElementalSaga.GameObjects.Characters;
+namespace TokenTaleTheElementalSaga;
 
 [GlobalClass]
-public abstract partial class ElementalMonster : Character
+public abstract partial class ElementalMonster : Character2D
 {
-
 }

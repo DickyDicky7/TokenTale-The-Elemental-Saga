@@ -12,9 +12,10 @@ script = ExtResource("1_px6f3")
 z_index = -10
 texture = ExtResource("2_0h05d")
 
-[node name="MainCharacterV3" parent="." node_paths=PackedStringArray("EyeSight", "AnimationTree") instance=ExtResource("9_seby3")]
+[node name="MainCharacterV3" parent="." node_paths=PackedStringArray("EyeSight", "AnimationTree", "InputController") instance=ExtResource("9_seby3")]
 EyeSight = NodePath("EyeSight")
 AnimationTree = NodePath("AnimationT")
+InputController = NodePath("InputControllerCharacter2DNI")
 
 [node name="Camera2D" type="Camera2D" parent="MainCharacterV3"]
 zoom = Vector2(4, 4)

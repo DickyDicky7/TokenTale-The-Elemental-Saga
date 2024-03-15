@@ -3,7 +3,7 @@ using Godot;
 namespace TokenTaleTheElementalSaga;
 
 [GlobalClass]
-public partial class HFlippable2DComponent : Flippable2DComponent
+public partial class Flippable2DH : Flippable2D
 {
     private bool _isHFlipped2D = false;
 

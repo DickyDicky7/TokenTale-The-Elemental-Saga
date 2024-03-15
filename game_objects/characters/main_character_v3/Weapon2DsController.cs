@@ -4,13 +4,13 @@ using Godot.Collections;
 namespace TokenTaleTheElementalSaga;
 
 [GlobalClass]
-public partial class WeaponsController : Node
+public partial class Weapon2DsController : Node
 {
-    [Export] public Array<Key   > Keys    { get; set; }
-    [Export] public Array<Weapon> Weapons { get; set; }
-    [Signal] public delegate void ChosenWeaponChangedEventHandler(Weapon @chosenWeapon);
+    [Export] public Array<Key     > Keys    { get; set; }
+    [Export] public Array<Weapon2D> Weapons { get; set; }
+    [Signal] public delegate void ChosenWeaponChangedEventHandler(Weapon2D @chosenWeapon);
 
-    public Weapon ChosenWeapon { get; protected  set; }
+    public Weapon2D ChosenWeapon { get; protected  set; }
 
     protected bool _lockSwitching;
 
@@ -18,7 +18,7 @@ public partial class WeaponsController : Node
     {
                     base._Ready();
 
-        foreach (Weapon weapon in Weapons)
+        foreach (Weapon2D weapon in Weapons)
         {
               weapon.Disable();
         }
@@ -38,7 +38,7 @@ public partial class WeaponsController : Node
         {
             if (inputEventKey.Pressed)
             {
-                Weapon chosenWeapon = null;
+                Weapon2D chosenWeapon = null;
                 int index  = Keys.IndexOf(inputEventKey.Keycode);
                 if (index != -1)
                 {

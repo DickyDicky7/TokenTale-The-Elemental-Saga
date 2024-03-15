@@ -21,7 +21,8 @@ public partial class State_Bow_Reset : State_Bow_
     {
                     base._Input(           @inputEvent);
 
-        if ( @inputEvent.IsLMousePressed())
+        if ( @inputEvent.IsMousePressed
+           ( MouseButton.Left))
         {
              ChangeState(ShootState);
         }

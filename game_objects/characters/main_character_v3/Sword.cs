@@ -3,7 +3,7 @@ using AnimationPlayer_ = Godot.AnimationPlayer;
 
 namespace TokenTaleTheElementalSaga;
 
-public partial class Sword : Weapon
+public partial class Sword : Weapon2D
 {
     [Export] public Sprite2D Sprite2D { get; set; }
     [Export] public CollisionShape2D CollisionShape2D { get; set; }

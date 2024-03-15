@@ -7,9 +7,9 @@
 [ext_resource type="Shape2D" uid="uid://c5ubyerv0qnd4" path="res://game_objects/characters/main_character_v3/MainCharacter_CollisionShape2D_Body.tres" id="4_64rx8"]
 [ext_resource type="Texture2D" uid="uid://bmv1bk5q685ir" path="res://game_asset_s/characters/main_character_v3/03-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="4_b8c1l"]
 [ext_resource type="Shape2D" uid="uid://b3sj5xwmp0fkj" path="res://game_objects/characters/main_character_v3/MainCharacter_CollisionShape2D_Feet.tres" id="5_jqegu"]
+[ext_resource type="Script" path="res://game_objects/characters/main_character_v3/Weapon2DsController.cs" id="11_1210c"]
 [ext_resource type="PackedScene" uid="uid://dklk814gsey6g" path="res://game_objects/shared/EyeSight.tscn" id="11_okl6k"]
 [ext_resource type="PackedScene" uid="uid://bx1yjtvn2pwyh" path="res://game_objects/characters/main_character_v3/Sword.tscn" id="12_frf8n"]
-[ext_resource type="Script" path="res://game_objects/characters/main_character_v3/WeaponsController.cs" id="12_sght4"]
 [ext_resource type="Script" path="res://StateMachine.cs" id="12_wpmlx"]
 [ext_resource type="Script" path="res://game_objects/characters/main_character_v3/StateMainCharacterLive.cs" id="13_etnf6"]
 [ext_resource type="PackedScene" uid="uid://b7cey8rb583i7" path="res://game_objects/characters/main_character_v3/_Bow_.tscn" id="13_y068q"]
@@ -19,7 +19,7 @@
 [ext_resource type="Script" path="res://game_objects/characters/main_character_v3/StateMainCharacterIdle.cs" id="17_3nygf"]
 [ext_resource type="Script" path="res://game_objects/characters/main_character_v3/StateMainCharacterMove.cs" id="18_yoft4"]
 [ext_resource type="Script" path="res://game_objects/characters/main_character_v3/StateMainCharacterDash.cs" id="19_bla35"]
-[ext_resource type="Script" path="res://FactoryParametersController2DByNI.cs" id="20_3cljv"]
+[ext_resource type="Script" path="res://InputControllerCharacter2DNI.cs" id="20_y1rpp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1mg2u"]
 shader = ExtResource("3_3r6pt")
@@ -582,6 +582,7 @@ input_2/reset = true
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_q8s8x"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_0khbu"]
+graph_offset = Vector2(-1086.67, -293.333)
 nodes/BS2D_IDLE/node = SubResource("AnimationNodeBlendSpace2D_j8hut")
 nodes/BS2D_IDLE/position = Vector2(80, 213.333)
 nodes/BS2D_MOVE/node = SubResource("AnimationNodeBlendSpace2D_phcph")
@@ -595,12 +596,13 @@ nodes/TIME_SCALE/position = Vector2(240, -26.6667)
 nodes/output/position = Vector2(400, -26.6667)
 node_connections = [&"STATE", 0, &"BS2D_IDLE", &"STATE", 1, &"BS2D_MOVE", &"STATE", 2, &"DEAD", &"TIME_SCALE", 0, &"STATE", &"output", 0, &"TIME_SCALE"]
 
-[node name="MainCharacter" type="CharacterBody2D" node_paths=PackedStringArray("EyeSight", "AnimationTree")]
+[node name="MainCharacter" type="CharacterBody2D" node_paths=PackedStringArray("EyeSight", "AnimationTree", "InputController")]
 script = ExtResource("1_gm2bn")
-Speed = 100.0
 EyeSight = NodePath("EyeSight")
 AnimationTree = NodePath("AnimationT")
-Callables = Array[Callable]([Callable()])
+Speed = 100.0
+JumpV = 100.0
+InputController = NodePath("InputControllerCharacter2DNI")
 
 [node name="Environment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_jmsfk")
@@ -659,11 +661,8 @@ AnimatedSprite2D__Main = NodePath("AnimatedSprite2D___Main")
 CollisionShape2D = NodePath("CollisionShape2D")
 AnimatedSprite2DEffect = NodePath("AnimatedSprite2D_Effect")
 
-[node name="ParametersController2DByNI" type="Node" parent="."]
-script = ExtResource("20_3cljv")
-
-[node name="Weapon___sController" type="Node" parent="." node_paths=PackedStringArray("Weapons")]
-script = ExtResource("12_sght4")
+[node name="Weapon2DsController" type="Node" parent="." node_paths=PackedStringArray("Weapons")]
+script = ExtResource("11_1210c")
 Keys = Array[int]([70, 71])
 Weapons = [NodePath("../Sword"), NodePath("../_Bow_")]
 
@@ -702,3 +701,7 @@ MainCharacter = NodePath("../..")
 script = ExtResource("19_bla35")
 MoveState = NodePath("../Move")
 MainCharacter = NodePath("../..")
+
+[node name="InputControllerCharacter2DNI" type="Node" parent="." node_paths=PackedStringArray("Character2D")]
+script = ExtResource("20_y1rpp")
+Character2D = NodePath("..")

@@ -31,7 +31,8 @@ public partial class StateSwordReset : StateSword
     {
                     base._Input(           @inputEvent);
 
-        if ( @inputEvent.IsLMousePressed())
+        if ( @inputEvent.IsMousePressed
+           ( MouseButton.Left))
         {
              ChangeState(SlashState);
         }

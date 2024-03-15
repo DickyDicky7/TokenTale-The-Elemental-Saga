@@ -9,8 +9,8 @@
 [sub_resource type="BTAction" id="BTAction_y01a0"]
 script = ExtResource("2_s53uy")
 PathRayCast2D = NodePath("RayCast2D")
-PathTimer_ChangeLocalLookingDirection = NodePath("Timer_ChangeLocalLookingDirection")
-PathHFlippable2DLocalLookingDirectionComponent = NodePath("HFlippable2DLocalLookingDirectionComponent")
+PathTimer_ChangeLocalSeeingDirection = NodePath("Timer_ChangeLocalSeeingDirection")
+PathFlippable2DHLocalSeeingDirection = NodePath("Flippable2DHLocalSeeingDirection")
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_llcto"]
 animation_player = ExtResource("2_nxwe5")

@@ -5,7 +5,7 @@ namespace TokenTaleTheElementalSaga;
 public partial class State_Bow_Shoot : State_Bow_
 {
     [Export]
-    [ExportGroup("Transition To")]
+    [ExportGroup("Transition ##")]
     public State ResetState {  get; set; }
 
     public override void _Enter()

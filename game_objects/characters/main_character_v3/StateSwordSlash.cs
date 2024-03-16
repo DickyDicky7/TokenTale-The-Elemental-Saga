@@ -5,7 +5,7 @@ namespace TokenTaleTheElementalSaga;
 public partial class StateSwordSlash : StateSword
 {
     [Export]
-    [ExportGroup("Transition To")]
+    [ExportGroup("Transition ##")]
     public State ResetState { get; set; }
 
     public override void _Enter()

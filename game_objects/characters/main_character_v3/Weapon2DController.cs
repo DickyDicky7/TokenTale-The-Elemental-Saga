@@ -4,7 +4,7 @@ using Godot.Collections;
 namespace TokenTaleTheElementalSaga;
 
 [GlobalClass]
-public partial class Weapon2DsController : Node
+public partial class Weapon2DController : Node
 {
     [Export] public Array<Key     > Keys    { get; set; }
     [Export] public Array<Weapon2D> Weapons { get; set; }
@@ -22,9 +22,9 @@ public partial class Weapon2DsController : Node
         {
               weapon.Disable();
         }
-        ChosenWeapon =            Weapons[0];
+        ChosenWeapon =              Weapons[0];
         ChosenWeapon.IsInUseChanged +=
-        ChosenWeapon_IsInUseChanged         ;
+        ChosenWeapon_IsInUseChanged           ;
         ChosenWeapon.En_able();
     }
 
@@ -42,7 +42,7 @@ public partial class Weapon2DsController : Node
                 int index  = Keys.IndexOf(inputEventKey.Keycode);
                 if (index != -1)
                 {
-                       chosenWeapon = Weapons[index];
+                         chosenWeapon = Weapons[index];
                 }
 
                 if (chosenWeapon != null

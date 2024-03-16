@@ -2,14 +2,37 @@ using Godot;
 
 namespace TokenTaleTheElementalSaga;
 
-public partial class StateMainCharacterSafe : StateMainCharacter
+public partial class StateMainCharacterSafe : State
 {
-    public override void _PhysicsProcess(double @delta)
+    [Export]
+    [ExportGroup("Components @@")]
+    public EyeSight
+           EyeSight
     {
-                    base._PhysicsProcess(       @delta);
+        get;
+        set;
+    }
 
-        MainCharacter
-            .EyeSight
-            .FollowPosition(MainCharacter.GetLocalMousePosition());
+    [Export]
+    [ExportGroup("Components @@")]
+    public MainCharacter
+           MainCharacter
+    {
+        get;
+        set;
+    }
+
+    [Export]
+    [ExportGroup("Parameters !!")]
+    public Vector2 SeeingDirection { get; set; }
+
+    public override void _Process(double @delta)
+    {
+                    base._Process(       @delta);
+
+        SeeingDirection = MainCharacter.GetLocalMousePosition();
+        EyeSight
+        .FollowPosition(
+        SeeingDirection);
     }
 }

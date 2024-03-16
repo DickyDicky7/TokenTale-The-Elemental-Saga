@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://c47tcwkeiq0h2"]
+[gd_scene load_steps=45 format=3 uid="uid://c47tcwkeiq0h2"]
 
 [ext_resource type="Script" path="res://game_objects/characters/main_character_v3/MainCharacter.cs" id="1_gm2bn"]
 [ext_resource type="SpriteFrames" uid="uid://rt7sar8d0e54" path="res://game_objects/characters/main_character_v3/MainCharacter_SpriteFrames_$Main$.tres" id="1_q2bc7"]
@@ -7,7 +7,7 @@
 [ext_resource type="Shape2D" uid="uid://c5ubyerv0qnd4" path="res://game_objects/characters/main_character_v3/MainCharacter_CollisionShape2D_Body.tres" id="4_64rx8"]
 [ext_resource type="Texture2D" uid="uid://bmv1bk5q685ir" path="res://game_asset_s/characters/main_character_v3/03-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="4_b8c1l"]
 [ext_resource type="Shape2D" uid="uid://b3sj5xwmp0fkj" path="res://game_objects/characters/main_character_v3/MainCharacter_CollisionShape2D_Feet.tres" id="5_jqegu"]
-[ext_resource type="Script" path="res://game_objects/characters/main_character_v3/Weapon2DsController.cs" id="11_1210c"]
+[ext_resource type="Script" path="res://game_objects/characters/main_character_v3/Weapon2DController.cs" id="11_h4twi"]
 [ext_resource type="PackedScene" uid="uid://dklk814gsey6g" path="res://game_objects/shared/EyeSight.tscn" id="11_okl6k"]
 [ext_resource type="PackedScene" uid="uid://bx1yjtvn2pwyh" path="res://game_objects/characters/main_character_v3/Sword.tscn" id="12_frf8n"]
 [ext_resource type="Script" path="res://StateMachine.cs" id="12_wpmlx"]
@@ -19,7 +19,6 @@
 [ext_resource type="Script" path="res://game_objects/characters/main_character_v3/StateMainCharacterIdle.cs" id="17_3nygf"]
 [ext_resource type="Script" path="res://game_objects/characters/main_character_v3/StateMainCharacterMove.cs" id="18_yoft4"]
 [ext_resource type="Script" path="res://game_objects/characters/main_character_v3/StateMainCharacterDash.cs" id="19_bla35"]
-[ext_resource type="Script" path="res://InputControllerCharacter2DNI.cs" id="20_y1rpp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1mg2u"]
 shader = ExtResource("3_3r6pt")
@@ -596,13 +595,10 @@ nodes/TIME_SCALE/position = Vector2(240, -26.6667)
 nodes/output/position = Vector2(400, -26.6667)
 node_connections = [&"STATE", 0, &"BS2D_IDLE", &"STATE", 1, &"BS2D_MOVE", &"STATE", 2, &"DEAD", &"TIME_SCALE", 0, &"STATE", &"output", 0, &"TIME_SCALE"]
 
-[node name="MainCharacter" type="CharacterBody2D" node_paths=PackedStringArray("EyeSight", "AnimationTree", "InputController")]
+[node name="MainCharacter" type="CharacterBody2D"]
 script = ExtResource("1_gm2bn")
-EyeSight = NodePath("EyeSight")
-AnimationTree = NodePath("AnimationT")
 Speed = 100.0
-JumpV = 100.0
-InputController = NodePath("InputControllerCharacter2DNI")
+Jumpv = 100.0
 
 [node name="Environment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_jmsfk")
@@ -613,6 +609,7 @@ light_mask = 0
 material = SubResource("ShaderMaterial_1mg2u")
 sprite_frames = ExtResource("1_q2bc7")
 animation = &"IDLE_D"
+frame = 1
 offset = Vector2(0, -12)
 
 [node name="CollisionShape2D_Body" type="CollisionShape2D" parent="."]
@@ -623,6 +620,11 @@ debug_color = Color(0, 1, 0, 0.2)
 [node name="CollisionShape2D_Feet" type="CollisionShape2D" parent="."]
 shape = ExtResource("5_jqegu")
 debug_color = Color(0, 0, 1, 0.2)
+
+[node name="Weapon2D_Controller_)" type="Node" parent="." node_paths=PackedStringArray("Weapons")]
+script = ExtResource("11_h4twi")
+Keys = Array[int]([70, 71])
+Weapons = [NodePath("../Sword"), NodePath("../_Bow_")]
 
 [node name="AnimationP" type="AnimationPlayer" parent="."]
 libraries = {
@@ -660,11 +662,6 @@ AnimatedSprite2D__Main = NodePath("AnimatedSprite2D___Main")
 CollisionShape2D = NodePath("CollisionShape2D")
 AnimatedSprite2DEffect = NodePath("AnimatedSprite2D_Effect")
 
-[node name="Weapon2DsController" type="Node" parent="." node_paths=PackedStringArray("Weapons")]
-script = ExtResource("11_1210c")
-Keys = Array[int]([70, 71])
-Weapons = [NodePath("../Sword"), NodePath("../_Bow_")]
-
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("ActiveStates")]
 script = ExtResource("12_wpmlx")
 ActiveStates = [NodePath("Live"), NodePath("Safe"), NodePath("Idle")]
@@ -677,30 +674,29 @@ MainCharacter = NodePath("../..")
 script = ExtResource("14_md3m3")
 MainCharacter = NodePath("../..")
 
-[node name="Safe" type="Node" parent="StateMachine" node_paths=PackedStringArray("MainCharacter")]
+[node name="Safe" type="Node" parent="StateMachine" node_paths=PackedStringArray("EyeSight", "MainCharacter")]
 script = ExtResource("15_855r3")
+EyeSight = NodePath("../../EyeSight")
 MainCharacter = NodePath("../..")
 
 [node name="Hurt" type="Node" parent="StateMachine" node_paths=PackedStringArray("MainCharacter")]
 script = ExtResource("16_g63ce")
 MainCharacter = NodePath("../..")
 
-[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("MoveState", "MainCharacter")]
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("MoveState", "MainCharacter", "AnimationTree")]
 script = ExtResource("17_3nygf")
 MoveState = NodePath("../Move")
 MainCharacter = NodePath("../..")
+AnimationTree = NodePath("../../AnimationT")
 
-[node name="Move" type="Node" parent="StateMachine" node_paths=PackedStringArray("IdleState", "DashState", "MainCharacter")]
+[node name="Move" type="Node" parent="StateMachine" node_paths=PackedStringArray("IdleState", "DashState", "MainCharacter", "AnimationTree")]
 script = ExtResource("18_yoft4")
 IdleState = NodePath("../Idle")
 DashState = NodePath("../Dash")
 MainCharacter = NodePath("../..")
+AnimationTree = NodePath("../../AnimationT")
 
 [node name="Dash" type="Node" parent="StateMachine" node_paths=PackedStringArray("MoveState", "MainCharacter")]
 script = ExtResource("19_bla35")
 MoveState = NodePath("../Move")
 MainCharacter = NodePath("../..")
-
-[node name="InputControllerCharacter2DNI" type="Node" parent="." node_paths=PackedStringArray("Character2D")]
-script = ExtResource("20_y1rpp")
-Character2D = NodePath("..")

@@ -2,11 +2,20 @@ using Godot;
 
 namespace TokenTaleTheElementalSaga;
 
-public partial class StateMainCharacterDash : StateMainCharacter
+public partial class StateMainCharacterDash : State
 {
     [Export]
-    [ExportGroup("Transition To")]
+    [ExportGroup("Transition ##")]
     public State MoveState { get; set; }
+
+    [Export]
+    [ExportGroup("Components @@")]
+    public MainCharacter
+           MainCharacter
+    {
+        get;
+        set;
+    }
 
     private Tween _tween;
 
@@ -14,10 +23,11 @@ public partial class StateMainCharacterDash : StateMainCharacter
     {
                     base._Enter();
 
+        Vector2 blendPosition =  Extension.GetInputDirection();
         _tween = MainCharacter.CreateTween();
         _tween.TweenProperty(MainCharacter, "position"
                            , MainCharacter.     Position
-                           + MainCharacter.BlendPosition
+                           +               blendPosition
                            * MainCharacter.Speed  ,0.5d)
               .SetEase (Tween.      EaseType. Out)
               .SetTrans(Tween.TransitionType.Circ);

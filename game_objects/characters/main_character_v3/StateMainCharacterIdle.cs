@@ -2,38 +2,50 @@ using Godot;
 
 namespace TokenTaleTheElementalSaga;
 
-public partial class StateMainCharacterIdle : StateMainCharacter
+public partial class StateMainCharacterIdle : State
 {
     [Export]
-    [ExportGroup("Transition To")]
+    [ExportGroup("Transition ##")]
     public State MoveState { get; set; }
+
+    [Export]
+    [ExportGroup("Components @@")]
+    public MainCharacter MainCharacter { get; set; }
+
+    [Export]
+    [ExportGroup("Components @@")]
+    public AnimationTree AnimationTree { get; set; }
+
+    public Vector2 MovingDirection { get; set; }
+    public Vector2 SeeingDirection { get; set; }
 
     public override void _Enter()
     {
                     base._Enter();
 
-        MainCharacter.AnimationTree.Set("parameters/STATE/transition_request", "IDLE");
+        AnimationTree.Set
+("parameters/STATE/transition_request", "IDLE");
     }
 
-    public override void _Input(InputEvent @inputEvent)
+    public override void        _Process(double @delta)
     {
-                    base._Input(           @inputEvent);
+                    base.       _Process(       @delta);
 
-        if (MainCharacter
-                        . InputController.ShouldMove)
-        {
-            ChangeState(MoveState);
-        }
+        SeeingDirection =
+        MainCharacter.GetLocalMousePosition();
+        AnimationTree.Set("parameters/BS2D_IDLE/blend_position", SeeingDirection.Normalized());
     }
 
     public override void _PhysicsProcess(double @delta)
     {
                     base._PhysicsProcess(       @delta);
 
-        MainCharacter.Stop         (  MainCharacter.InputController.MovingDirection2D.Normalized());
-        MainCharacter.BlendPosition = MainCharacter.InputController.SeeingDirection2D.Normalized() ;
-        MainCharacter.AnimationTree.
-        Set("parameters/BS2D_IDLE/blend_position",
-        MainCharacter.BlendPosition);
+        MovingDirection =
+        Input.GetVector("L", "R", "U", "D");
+        if (!
+        MovingDirection .IsZero())
+        {
+            ChangeState(MoveState);
+        }
     }
 }

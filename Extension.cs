@@ -28,7 +28,13 @@ public static class Extension
 
     public static Vector2 GetInputDirection()
     {
-        return Input.GetVector("L", "R", "U", "D");
+        return
+        Input. GetVector ("L", "R", "U", "D");
+    }
+
+    public static bool IsZero(this Vector2 @vector2)
+    {
+        return @vector2 == Vector2.Zero;
     }
 
     public static void Insert(this Array<State>

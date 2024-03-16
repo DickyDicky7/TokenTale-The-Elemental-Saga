@@ -8,9 +8,7 @@ public abstract partial class Character2D : CharacterBody2D
     [Export]
     public float Speed { get; set; }
     [Export]
-    public float JumpV { get; set; }
-    [Export]
-    public InputControllerCharacter2D InputController { get; set; }
+    public float Jumpv { get; set; }
 
     public virtual void Move(Vector2 @direction)
     {

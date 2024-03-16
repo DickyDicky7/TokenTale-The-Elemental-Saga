@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cffii6yodvl45"]
-
-[ext_resource type="Script" path="res://game_objects/shared/WeaponManagerMainCharacter.cs" id="1_cnpls"]
-
-[node name="WeaponManagerMainCharacter" type="Node" node_paths=PackedStringArray("CorrespondingParent_HandNodes", "Weapons")]
-script = ExtResource("1_cnpls")
-CorrespondingParent_HandNodes = []
-Weapons = []

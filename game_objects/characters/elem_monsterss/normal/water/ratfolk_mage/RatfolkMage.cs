@@ -2,8 +2,6 @@ using Godot;
 
 namespace TokenTaleTheElementalSaga;
 
-public partial class MainCharacter : Character2D
+public partial class RatfolkMage : ElementalMonster
 {
-
-
 }

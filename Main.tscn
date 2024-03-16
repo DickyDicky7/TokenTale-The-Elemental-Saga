@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Main.cs" id="1_px6f3"]
 [ext_resource type="Texture2D" uid="uid://c2rstliaftr7t" path="res://game_asset_s/bg.png" id="2_0h05d"]
-[ext_resource type="PackedScene" uid="uid://cwhrbtjfm2cpc" path="res://game_objects/characters/elemental_monsters/normal/fire/imp/Imp.tscn" id="4_hlmyl"]
-[ext_resource type="PackedScene" uid="uid://c47tcwkeiq0h2" path="res://game_objects/characters/main_character_v3/MainCharacterV3.tscn" id="9_seby3"]
+[ext_resource type="PackedScene" uid="uid://cwhrbtjfm2cpc" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp.tscn" id="4_hlmyl"]
+[ext_resource type="PackedScene" uid="uid://c47tcwkeiq0h2" path="res://game_objects/characters/main_character/MainCharacter.tscn" id="9_seby3"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_px6f3")
@@ -12,9 +12,9 @@ script = ExtResource("1_px6f3")
 z_index = -10
 texture = ExtResource("2_0h05d")
 
-[node name="MainCharacterV3" parent="." instance=ExtResource("9_seby3")]
+[node name="MainCharacter" parent="." instance=ExtResource("9_seby3")]
 
-[node name="Camera2D" type="Camera2D" parent="MainCharacterV3"]
+[node name="Camera2D" type="Camera2D" parent="MainCharacter"]
 zoom = Vector2(4, 4)
 limit_smoothed = true
 position_smoothing_enabled = true
@@ -23,3 +23,4 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="Imp" parent="." instance=ExtResource("4_hlmyl")]
+position = Vector2(100, 100)

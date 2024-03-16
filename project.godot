@@ -13,17 +13,13 @@ config_version=5
 config/name="TokenTale-The-Elemental-Saga"
 run/main_scene="res://Main.tscn"
 config/features=PackedStringArray("4.3", "C#", "GL Compatibility")
-config/icon="res://game_assets/icon.svg"
-
-[autoload]
-
-BeehaveGlobalMetrics="*res://addons/beehave/metrics/beehave_global_metrics.gd"
-BeehaveGlobalDebugger="*res://addons/beehave/debug/global_debugger.gd"
+config/icon="res://game_asset_s/icon.svg"
 
 [display]
 
 window/size/viewport_width=800
 window/size/viewport_height=600
+window/size/mode=2
 
 [dotnet]
 
@@ -31,13 +27,13 @@ project/assembly_name="TokenTale-The-Elemental-Saga"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AS2P/plugin.cfg", "res://addons/beehave/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg", "res://addons/goutte.animated_shape_2d/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/AS2P/plugin.cfg")
 
 [file_customization]
 
 folder_colors={
 "res://addons/": "green",
-"res://game_assets/": "teal",
+"res://game_asset_s/": "teal",
 "res://game_objects/": "pink"
 }
 
@@ -60,9 +56,22 @@ L={
 }
 R={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":68,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":68,"physical_keycode":68,"key_label":68,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
+SPACE={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+
+[layer_names]
+
+2d_render/layer_1="EYE_SIGHTS"
+2d_render/layer_2="LIGHTS"
+2d_render/layer_3="MAIN_CHARACTERS"
+2d_render/layer_4="ENEMIES"
+2d_render/layer_5="OBJECTS"
 
 [rendering]
 
@@ -70,4 +79,5 @@ textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 anti_aliasing/screen_space_roughness_limiter/limit=0.2
+viewport/hdr_2d=true
 anti_aliasing/quality/screen_space_aa=1

@@ -1,6 +1,6 @@
 using Godot;
 
-namespace TokenTaleTheElementalSaga.GameObjects.Shared;
+namespace TokenTaleTheElementalSaga;
 
 public partial class EyeSight : PointLight2D
 {
@@ -23,5 +23,12 @@ public partial class EyeSight : PointLight2D
                  , Mathf.DegToRad(MinRotation)
                  , Mathf.DegToRad(MaxRotation))
                  - Mathf.DegToRad(45);
+    }
+
+    public override void _Ready()
+    {
+                    base._Ready();
+
+        ProcessMode = ProcessModeEnum.Disabled;
     }
 }

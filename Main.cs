@@ -1,16 +1,11 @@
 using Godot;
-using TokenTaleTheElementalSaga.GameObjects.Items.Wood;
 
 namespace TokenTaleTheElementalSaga;
 
 public partial class Main : Node
 {
-    public override void _Ready()
+    public override void _Process(double @delta)
     {
-        GetNode<Timer>(nameof(Timer)).Timeout += () =>
-        {
-            Quiver quiver  = GetNode<Quiver>(nameof(Quiver));
-            quiver.IsEmpty = true;
-        };
+                    base._Process(       @delta);
     }
 }

@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cooo1qrde6mxj"]
+
+[ext_resource type="Shader" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat_ShaderMaterial_Hurt.gdshader" id="1_la6j5"]
+[ext_resource type="Texture2D" uid="uid://xcnuh2j0spdh" path="res://game_asset_s/characters/elemental_monsters/wind/bat/with_outlined/hurt-color-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="2_rqrxk"]
+
+[resource]
+shader = ExtResource("1_la6j5")
+shader_parameter/normal_map = ExtResource("2_rqrxk")

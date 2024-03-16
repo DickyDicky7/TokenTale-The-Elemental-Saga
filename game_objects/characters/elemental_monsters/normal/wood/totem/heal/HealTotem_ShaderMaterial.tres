@@ -1,8 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://c0iu4xn2vmqcp"]
-
-[ext_resource type="Shader" path="res://game_objects/characters/elemental_monsters/normal/wood/totem/heal/HealTotem_ShaderMaterial.gdshader" id="1_u4c43"]
-[ext_resource type="Texture2D" uid="uid://dbw2hrdmuu8tj" path="res://game_asset_s/characters/elemental_monsters/wood/totem/sprite-sheet-heal-totem-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="2_0nbkb"]
-
-[resource]
-shader = ExtResource("1_u4c43")
-shader_parameter/normal_map = ExtResource("2_0nbkb")

@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Main.cs" id="1_px6f3"]
 [ext_resource type="Texture2D" uid="uid://c2rstliaftr7t" path="res://game_asset_s/bg.png" id="2_0h05d"]
-[ext_resource type="PackedScene" uid="uid://cwhrbtjfm2cpc" path="res://game_objects/characters/elemental_monsters/normal/fire/imp/Imp.tscn" id="4_hlmyl"]
-[ext_resource type="PackedScene" uid="uid://c47tcwkeiq0h2" path="res://game_objects/characters/main_character_v3/MainCharacter.tscn" id="9_seby3"]
+[ext_resource type="PackedScene" uid="uid://cwhrbtjfm2cpc" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp.tscn" id="4_hlmyl"]
+[ext_resource type="PackedScene" uid="uid://c47tcwkeiq0h2" path="res://game_objects/characters/main_character/MainCharacter.tscn" id="9_seby3"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_px6f3")

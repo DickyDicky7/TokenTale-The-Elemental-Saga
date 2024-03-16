@@ -1,8 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bfyr0o5mnydjd"]
-
-[ext_resource type="Shader" path="res://game_objects/characters/main_character_v3/_Bow__ShaderMaterial.gdshader" id="1_dbc50"]
-[ext_resource type="Texture2D" uid="uid://e8ougei6vm7" path="res://game_asset_s/characters/main_character_v3/02-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="2_uir5o"]
-
-[resource]
-shader = ExtResource("1_dbc50")
-shader_parameter/normal_map = ExtResource("2_uir5o")

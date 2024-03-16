@@ -1,8 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dqxkvwvbkxcyg"]
-
-[ext_resource type="Shader" path="res://game_objects/characters/elemental_monsters/normal/water/ratfolk_mage/RatfolkMage_ShaderMaterial.gdshader" id="1_ifd75"]
-[ext_resource type="Texture2D" uid="uid://dslyxvl5cd34p" path="res://game_asset_s/characters/elemental_monsters/water/ratfolk_mage/sprite-sheet-ratfolk-mage-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="2_pwoqn"]
-
-[resource]
-shader = ExtResource("1_ifd75")
-shader_parameter/normal_map = ExtResource("2_pwoqn")

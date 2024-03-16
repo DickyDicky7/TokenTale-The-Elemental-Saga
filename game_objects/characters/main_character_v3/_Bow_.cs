@@ -3,7 +3,7 @@ using Godot;
 namespace TokenTaleTheElementalSaga;
 
 #pragma warning disable IDE1006 // Naming Styles
-public partial class _Bow_ : Weapon2D
+public partial class _Bow_ : Weapon
 #pragma warning restore IDE1006 // Naming Styles
 {
     [Export] public AnimatedSprite2D AnimatedSprite2D__Main { get; set; }

@@ -4,7 +4,7 @@ using Godot.Collections;
 namespace TokenTaleTheElementalSaga;
 
 [GlobalClass]
-public partial class Weapon2DController : Node
+public partial class WeaponsController : Node
 {
     [Export] public Array<Key   > Keys    { get; set; }
     [Export] public Array<Weapon> Weapons { get; set; }

@@ -7,7 +7,7 @@
 [ext_resource type="Shape2D" uid="uid://c5ubyerv0qnd4" path="res://game_objects/characters/main_character_v3/MainCharacter_CollisionShape2D_Body.tres" id="4_64rx8"]
 [ext_resource type="Texture2D" uid="uid://bmv1bk5q685ir" path="res://game_asset_s/characters/main_character_v3/03-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="4_b8c1l"]
 [ext_resource type="Shape2D" uid="uid://b3sj5xwmp0fkj" path="res://game_objects/characters/main_character_v3/MainCharacter_CollisionShape2D_Feet.tres" id="5_jqegu"]
-[ext_resource type="Script" path="res://game_objects/characters/main_character_v3/Weapon2DController.cs" id="11_h4twi"]
+[ext_resource type="Script" path="res://game_objects/characters/main_character_v3/WeaponsController.cs" id="8_aswq2"]
 [ext_resource type="PackedScene" uid="uid://dklk814gsey6g" path="res://game_objects/shared/EyeSight.tscn" id="11_okl6k"]
 [ext_resource type="PackedScene" uid="uid://bx1yjtvn2pwyh" path="res://game_objects/characters/main_character_v3/Sword.tscn" id="12_frf8n"]
 [ext_resource type="Script" path="res://StateMachine.cs" id="12_wpmlx"]
@@ -609,7 +609,6 @@ light_mask = 0
 material = SubResource("ShaderMaterial_1mg2u")
 sprite_frames = ExtResource("1_q2bc7")
 animation = &"IDLE_D"
-frame = 1
 offset = Vector2(0, -12)
 
 [node name="CollisionShape2D_Body" type="CollisionShape2D" parent="."]
@@ -621,8 +620,8 @@ debug_color = Color(0, 1, 0, 0.2)
 shape = ExtResource("5_jqegu")
 debug_color = Color(0, 0, 1, 0.2)
 
-[node name="Weapon2D_Controller_)" type="Node" parent="." node_paths=PackedStringArray("Weapons")]
-script = ExtResource("11_h4twi")
+[node name="Weapons(_Controller_)" type="Node" parent="." node_paths=PackedStringArray("Weapons")]
+script = ExtResource("8_aswq2")
 Keys = Array[int]([70, 71])
 Weapons = [NodePath("../Sword"), NodePath("../_Bow_")]
 

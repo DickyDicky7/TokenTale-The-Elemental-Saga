@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://c47tcwkeiq0h2"]
+[gd_scene load_steps=47 format=3 uid="uid://c47tcwkeiq0h2"]
 
 [ext_resource type="Script" path="res://game_objects/characters/main_character/MainCharacter.cs" id="1_gm2bn"]
 [ext_resource type="SpriteFrames" uid="uid://rt7sar8d0e54" path="res://game_objects/characters/main_character/MainCharacter_SpriteFrames_$Main$.tres" id="1_q2bc7"]
@@ -19,6 +19,8 @@
 [ext_resource type="Script" path="res://game_objects/characters/main_character/StateMainCharacterIdle.cs" id="17_3nygf"]
 [ext_resource type="Script" path="res://game_objects/characters/main_character/StateMainCharacterMove.cs" id="18_yoft4"]
 [ext_resource type="Script" path="res://game_objects/characters/main_character/StateMainCharacterDash.cs" id="19_bla35"]
+[ext_resource type="Material" uid="uid://bytud730of1y0" path="res://game_objects/characters/main_character/MainCharacter_ParticleProcessMaterial.tres" id="20_olqmh"]
+[ext_resource type="Texture2D" uid="uid://ceephikwyelis" path="res://game_objects/characters/main_character/MainCharacter_AnimatedTexture_02.tres" id="21_mtv4e"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1mg2u"]
 shader = ExtResource("3_3r6pt")
@@ -610,7 +612,7 @@ light_mask = 0
 material = SubResource("ShaderMaterial_1mg2u")
 sprite_frames = ExtResource("1_q2bc7")
 animation = &"IDLE_D"
-frame = 2
+frame = 1
 offset = Vector2(0, -12)
 
 [node name="CollisionShape2D_Body" type="CollisionShape2D" parent="."]
@@ -701,3 +703,11 @@ AnimationTree = NodePath("../../AnimationT")
 script = ExtResource("19_bla35")
 MoveState = NodePath("../Move")
 MainCharacter = NodePath("../..")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+self_modulate = Color(2, 2, 2, 1)
+emitting = false
+amount = 5
+process_material = ExtResource("20_olqmh")
+texture = ExtResource("21_mtv4e")
+fixed_fps = 60

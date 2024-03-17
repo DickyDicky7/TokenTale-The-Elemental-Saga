@@ -1,0 +1,7 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://bytud730of1y0"]
+
+[resource]
+emission_shape_offset = Vector3(0, -16, 0)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 0.5

@@ -42,6 +42,7 @@ num_successes_required = 2
 children = [SubResource("BTAction_sfuwd"), SubResource("BTPlayAnimation_1ujvc")]
 
 [sub_resource type="BTDelay" id="BTDelay_i34sg"]
+seconds = 0.3
 children = [SubResource("BTParallel_3owjs")]
 
 [sub_resource type="BTSequence" id="BTSequence_wuf1r"]

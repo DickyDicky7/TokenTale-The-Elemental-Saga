@@ -1,0 +1,36 @@
+[gd_resource type="AnimatedTexture" load_steps=11 format=3 uid="uid://ceephikwyelis"]
+
+[ext_resource type="Texture2D" uid="uid://2vfk373d1bfx" path="res://game_asset_s/vfx/FX033_nyknck/FX033_01.png" id="1_83lt8"]
+[ext_resource type="Texture2D" uid="uid://dkfe2jf3gqk2x" path="res://game_asset_s/vfx/FX033_nyknck/FX033_02.png" id="2_dh7ca"]
+[ext_resource type="Texture2D" uid="uid://dhf62rcu176j" path="res://game_asset_s/vfx/FX033_nyknck/FX033_03.png" id="3_hkwih"]
+[ext_resource type="Texture2D" uid="uid://djhpi61t4yid1" path="res://game_asset_s/vfx/FX033_nyknck/FX033_04.png" id="4_w72aa"]
+[ext_resource type="Texture2D" uid="uid://bhnjwhsym1tgq" path="res://game_asset_s/vfx/FX033_nyknck/FX033_05.png" id="5_1yuo2"]
+[ext_resource type="Texture2D" uid="uid://b3dulqvsfbm5r" path="res://game_asset_s/vfx/FX033_nyknck/FX033_06.png" id="6_bwcml"]
+[ext_resource type="Texture2D" uid="uid://dba5bfegjoeia" path="res://game_asset_s/vfx/FX033_nyknck/FX033_07.png" id="7_kwf7i"]
+[ext_resource type="Texture2D" uid="uid://cjul3mrskqwoe" path="res://game_asset_s/vfx/FX033_nyknck/FX033_08.png" id="8_43m1n"]
+[ext_resource type="Texture2D" uid="uid://cm0qicuqb1qkg" path="res://game_asset_s/vfx/FX033_nyknck/FX033_09.png" id="9_nlhuy"]
+[ext_resource type="Texture2D" uid="uid://c5kdevuxw2b5w" path="res://game_asset_s/vfx/FX033_nyknck/FX033_10.png" id="10_u0qck"]
+
+[resource]
+frames = 10
+speed_scale = 3.0
+frame_0/texture = ExtResource("1_83lt8")
+frame_0/duration = 0.1
+frame_1/texture = ExtResource("2_dh7ca")
+frame_1/duration = 0.1
+frame_2/texture = ExtResource("3_hkwih")
+frame_2/duration = 0.1
+frame_3/texture = ExtResource("4_w72aa")
+frame_3/duration = 0.1
+frame_4/texture = ExtResource("5_1yuo2")
+frame_4/duration = 0.1
+frame_5/texture = ExtResource("6_bwcml")
+frame_5/duration = 0.1
+frame_6/texture = ExtResource("7_kwf7i")
+frame_6/duration = 0.1
+frame_7/texture = ExtResource("8_43m1n")
+frame_7/duration = 0.1
+frame_8/texture = ExtResource("9_nlhuy")
+frame_8/duration = 0.1
+frame_9/texture = ExtResource("10_u0qck")
+frame_9/duration = 0.1

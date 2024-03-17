@@ -41,9 +41,12 @@ public partial class StateMainCharacterIdle : State
                     base._PhysicsProcess(       @delta);
 
         MovingDirection =
-        Input.GetVector("L", "R", "U", "D");
-        if (!
-        MovingDirection .IsZero())
+                Input.GetVector
+        ( "L", "R", "U", "D" );
+        MainCharacter.Stop(MovingDirection.Normalized(), @delta);
+
+        if (!              MovingDirection.
+        IsZero())
         {
             ChangeState(MoveState);
         }

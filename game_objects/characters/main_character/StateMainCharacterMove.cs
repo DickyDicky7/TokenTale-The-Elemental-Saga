@@ -51,22 +51,22 @@ public partial class StateMainCharacterMove : State
         base         .          _Process(       @delta);
 
         SeeingDirection
-              = Input.GetVector("L", "R", "U", "D");
+              = Input.GetVector
+        ( "L", "R", "U", "D" );
         AnimationTree.Set("parameters/BS2D_MOVE/blend_position", SeeingDirection.Normalized());
     }
 
-    public override void _PhysicsProcess(double @delta )
+    public override void _PhysicsProcess(double @delta)
     {
-        base         .   _PhysicsProcess(       @delta );
+        base         .   _PhysicsProcess(       @delta);
 
         MovingDirection
-              = Input.GetVector("L", "R", "U", "D");
-        MainCharacter.Move(MovingDirection.Normalized());
-        MainCharacter.Stop(MovingDirection.Normalized());
+              = Input.GetVector
+        ( "L", "R", "U", "D" );
+        MainCharacter.Move(MovingDirection.Normalized(), @delta);
 
-        if (
-        MainCharacter.Velocity
-                     .IsZero())
+        if (               MovingDirection
+        .IsZero())
         {
             ChangeState(IdleState);
         }

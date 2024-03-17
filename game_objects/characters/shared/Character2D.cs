@@ -9,45 +9,45 @@ public abstract partial class Character2D : CharacterBody2D
     public float Speed { get; set; }
     [Export]
     public float Jumpv { get; set; }
+    [Export]
+    public float Acceleration { get; set; }
+    [Export]
+    public float Deceleration { get; set; }
 
-    public virtual void Move(Vector2 @direction)
+    public virtual void Move(Vector2 @direction, double @delta)
     {
-        Vector2
-        velocity =
-        Velocity ;
-
-        if (@direction
-        !=
-        Vector2.Zero)
+        if (@direction !=
+            Vector2.Zero)
         {
-            velocity.X = @direction.X * Speed;
-            velocity.Y = @direction.Y * Speed;
+            Vector2
+            velocity = Velocity;
+
+            velocity = velocity. MoveToward  (
+            @direction *  Speed, Acceleration);
+
+            Velocity = velocity;
+
+            MoveAndSlide();
         }
-
-        Velocity =
-        velocity ;
-
-        MoveAndSlide();
     }
 
-    public virtual void Stop(Vector2 @direction)
+    public virtual void Stop(Vector2 @direction, double @delta)
     {
-        Vector2
-        velocity =
-        Velocity ;
-
-        if (@direction
-        ==
-        Vector2.Zero)
+        if (@direction ==
+            Vector2.Zero)
         {
-            velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
-            velocity.Y = Mathf.MoveToward(Velocity.Y, 0, Speed);
+            Vector2
+            velocity =
+            Velocity ;
+
+            velocity = velocity. MoveToward  (
+            @direction *  Speed, Deceleration);
+
+            Velocity =
+            velocity ;
+
+            MoveAndSlide();
         }
-
-        Velocity =
-        velocity ;
-
-        MoveAndSlide();
     }
 
     public virtual void Dash(Vector2 @direction)

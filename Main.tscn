@@ -13,14 +13,16 @@ z_index = -10
 texture = ExtResource("2_0h05d")
 
 [node name="MainCharacter" parent="." instance=ExtResource("9_seby3")]
+position = Vector2(300, 300)
 
 [node name="Camera2D" type="Camera2D" parent="MainCharacter"]
-zoom = Vector2(4, 4)
+zoom = Vector2(2, 2)
 limit_smoothed = true
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
-[node name="Imp" parent="." instance=ExtResource("4_hlmyl")]
+[node name="Imp" parent="." node_paths=PackedStringArray("EyeSight") instance=ExtResource("4_hlmyl")]
 position = Vector2(100, 100)
+EyeSight = NodePath("EyeSight")

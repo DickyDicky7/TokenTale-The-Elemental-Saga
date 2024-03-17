@@ -596,8 +596,10 @@ node_connections = [&"STATE", 0, &"BS2D_IDLE", &"STATE", 1, &"BS2D_MOVE", &"STAT
 
 [node name="MainCharacter" type="CharacterBody2D"]
 script = ExtResource("1_gm2bn")
-Speed = 100.0
-Jumpv = 100.0
+Speed = 200.0
+Jumpv = 200.0
+Acceleration = 20.0
+Deceleration = 20.0
 
 [node name="Environment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_jmsfk")
@@ -608,7 +610,7 @@ light_mask = 0
 material = SubResource("ShaderMaterial_1mg2u")
 sprite_frames = ExtResource("1_q2bc7")
 animation = &"IDLE_D"
-frame = 1
+frame = 2
 offset = Vector2(0, -12)
 
 [node name="CollisionShape2D_Body" type="CollisionShape2D" parent="."]

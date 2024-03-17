@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cwhrbtjfm2cpc"]
+[gd_scene load_steps=18 format=3 uid="uid://cwhrbtjfm2cpc"]
 
 [ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp.cs" id="1_41j3n"]
 [ext_resource type="SpriteFrames" uid="uid://bqs28pblt174t" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_SpriteFrames_$Main$.tres" id="1_n3j5a"]
@@ -6,6 +6,7 @@
 [ext_resource type="Environment" uid="uid://bk5s8laox5sjv" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_Environment.tres" id="2_p2mts"]
 [ext_resource type="Material" uid="uid://crwxg3wu37lq0" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_ShaderMaterial.tres" id="2_smu26"]
 [ext_resource type="Shape2D" uid="uid://d0x8cr26ifpx7" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_CollisionShape2D_Feet.tres" id="4_5oi5y"]
+[ext_resource type="Shape2D" uid="uid://d1ig54gu0ivcj" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_ShapeCast2D.tres" id="9_0vm5e"]
 [ext_resource type="Script" path="res://game_objects/shared/Flippable2DHLocalSeeingDirection.cs" id="9_prr5y"]
 [ext_resource type="PackedScene" uid="uid://dklk814gsey6g" path="res://game_objects/shared/EyeSight.tscn" id="10_2wlxm"]
 [ext_resource type="BehaviorTree" uid="uid://diju3wt86axt4" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_BehaviorTree.tres" id="12_hk2im"]
@@ -50,6 +51,18 @@ tracks/2/keys = {
 "method": &"queue_free"
 }]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D_$Main$:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -12)]
+}
 
 [sub_resource type="Animation" id="Animation_nk2xw"]
 length = 0.4
@@ -76,6 +89,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": ["HURT"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D_$Main$:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -13)]
 }
 
 [sub_resource type="Animation" id="Animation_3i683"]
@@ -105,6 +130,18 @@ tracks/1/keys = {
 "update": 1,
 "values": ["IDLE"]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D_$Main$:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, -16)]
+}
 
 [sub_resource type="Animation" id="Animation_wht5t"]
 length = 0.8
@@ -133,6 +170,18 @@ tracks/1/keys = {
 "update": 1,
 "values": ["MOVE"]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D_$Main$:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, -15)]
+}
 
 [sub_resource type="Animation" id="Animation_ywbim"]
 length = 0.6
@@ -160,6 +209,18 @@ tracks/1/keys = {
 "update": 1,
 "values": ["THROW"]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D_$Main$:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, -14)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4ue5d"]
 _data = {
@@ -170,10 +231,15 @@ _data = {
 "THROW": SubResource("Animation_ywbim")
 }
 
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_na08o"]
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_60tmw"]
 
-[node name="Imp" type="CharacterBody2D"]
+[node name="Imp" type="CharacterBody2D" node_paths=PackedStringArray("EyeSight")]
 script = ExtResource("1_41j3n")
+EyeSight = NodePath("EyeSight")
+Speed = 100.0
+Jumpv = 100.0
+Acceleration = 10.0
+Deceleration = 10.0
 
 [node name="Environment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_p2mts")
@@ -183,8 +249,8 @@ self_modulate = Color(2, 1, 1, 1)
 light_mask = 0
 material = ExtResource("2_smu26")
 sprite_frames = ExtResource("1_n3j5a")
-animation = &"DEAD"
-offset = Vector2(0, -12)
+animation = &"MOVE"
+offset = Vector2(1, -15)
 
 [node name="CollisionShape2D_Body" type="CollisionShape2D" parent="."]
 position = Vector2(1, -6)
@@ -201,12 +267,19 @@ libraries = {
 }
 
 [node name="EyeSight" parent="." instance=ExtResource("10_2wlxm")]
+visible = false
 
 [node name="BTPlayer" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("12_hk2im")
-blackboard_plan = SubResource("BlackboardPlan_na08o")
+blackboard_plan = SubResource("BlackboardPlan_60tmw")
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
+[node name="Ray__Cast2D" type="RayCast2D" parent="."]
+target_position = Vector2(50, 0)
+
+[node name="ShapeCast2D" type="ShapeCast2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.1)
+shape = ExtResource("9_0vm5e")
+target_position = Vector2(0, 0)
 
 [node name="Flippable2DHLocalSeeingDirection" type="Node" parent="." node_paths=PackedStringArray("Node2D")]
 script = ExtResource("9_prr5y")

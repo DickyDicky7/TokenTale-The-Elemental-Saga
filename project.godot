@@ -15,11 +15,9 @@ run/main_scene="res://Main.tscn"
 config/features=PackedStringArray("4.3", "C#", "GL Compatibility")
 config/icon="res://game_asset_s/icon.svg"
 
-[display]
+[autoload]
 
-window/size/viewport_width=800
-window/size/viewport_height=600
-window/size/mode=2
+Global="*res://Global.cs"
 
 [dotnet]
 

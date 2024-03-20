@@ -1,18 +1,162 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqn2g5rr825g4"]
+[gd_scene load_steps=11 format=3 uid="uid://bqn2g5rr825g4"]
 
 [ext_resource type="SpriteFrames" uid="uid://b5w6psdxkqfdx" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest_SpriteFrames_$Main$.tres" id="1_plsuf"]
 [ext_resource type="Material" uid="uid://dri8oprw8foqm" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest_ShaderMaterial.tres" id="1_q21b1"]
 [ext_resource type="Shape2D" uid="uid://cmjrnsdvae2t2" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest_CollisionShape2D_Body.tres" id="2_tymgc"]
 [ext_resource type="Shape2D" uid="uid://bgekq3rrxi0vj" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest_CollisionShape2D_Feet.tres" id="3_okj3l"]
 
+[sub_resource type="Animation" id="Animation_n1ihx"]
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["CAST"]
+}
+
+[sub_resource type="Animation" id="Animation_c103i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["DEAD"]
+}
+
+[sub_resource type="Animation" id="Animation_v2ybf"]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["HURT"]
+}
+
+[sub_resource type="Animation" id="Animation_m8kh0"]
+length = 0.266667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["IDLE"]
+}
+
+[sub_resource type="Animation" id="Animation_t5bor"]
+length = 0.533333
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["MOVE"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vj7jw"]
+_data = {
+"CAST": SubResource("Animation_n1ihx"),
+"DEAD": SubResource("Animation_c103i"),
+"HURT": SubResource("Animation_v2ybf"),
+"IDLE": SubResource("Animation_m8kh0"),
+"MOVE": SubResource("Animation_t5bor")
+}
+
 [node name="KoboldPriest" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D_$Main$" type="AnimatedSprite2D" parent="."]
 material = ExtResource("1_q21b1")
 sprite_frames = ExtResource("1_plsuf")
-animation = &"HURT"
-frame = 3
-frame_progress = 1.0
+animation = &"CAST"
 
 [node name="CollisionShape2D_Body" type="CollisionShape2D" parent="."]
 visible = false
@@ -25,3 +169,6 @@ shape = ExtResource("3_okj3l")
 debug_color = Color(0, 0, 1, 0.2)
 
 [node name="AnimationPlayer_" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vj7jw")
+}

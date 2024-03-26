@@ -32,7 +32,19 @@ enabled=PackedStringArray("res://addons/AS2P/plugin.cfg")
 folder_colors={
 "res://addons/": "green",
 "res://game_asset_s/": "teal",
-"res://game_objects/": "pink"
+"res://game_objects/": "pink",
+"res://game_objects/abilities/air_surge/": "green",
+"res://game_objects/abilities/fire_ball/": "green",
+"res://game_objects/abilities/frostburn/": "green",
+"res://game_objects/abilities/golem_go_go_go/": "green",
+"res://game_objects/abilities/ice_wall/": "green",
+"res://game_objects/abilities/ignite/": "green",
+"res://game_objects/abilities/lightning/": "green",
+"res://game_objects/abilities/overcharge/": "green",
+"res://game_objects/abilities/penetrating_squirt/": "green",
+"res://game_objects/abilities/root_trap/": "green",
+"res://game_objects/abilities/serene_meadow/": "green",
+"res://game_objects/abilities/tornado/": "green"
 }
 
 [input]

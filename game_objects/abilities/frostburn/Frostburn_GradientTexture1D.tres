@@ -1,0 +1,7 @@
+[gd_resource type="GradientTexture1D" load_steps=2 format=3 uid="uid://cqyhom8bx0tqr"]
+
+[ext_resource type="Gradient" uid="uid://dk7ymmub2kvlo" path="res://game_objects/abilities/frostburn/Frostburn_Gradient---------.tres" id="1_6gnt8"]
+
+[resource]
+gradient = ExtResource("1_6gnt8")
+use_hdr = true

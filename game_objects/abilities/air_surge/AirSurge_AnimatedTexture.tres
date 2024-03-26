@@ -1,0 +1,53 @@
+[gd_resource type="AnimatedTexture" load_steps=17 format=3 uid="uid://ysxny8g0qd3u"]
+
+[ext_resource type="Texture2D" uid="uid://c38x8sv5grpbm" path="res://game_asset_s/vfx/wind/W401-1.png" id="1_xufo7"]
+[ext_resource type="Texture2D" uid="uid://blm6stukjtamx" path="res://game_asset_s/vfx/wind/W401-2.png" id="2_hgmbq"]
+[ext_resource type="Texture2D" uid="uid://bm85gkujwbojb" path="res://game_asset_s/vfx/wind/W401-11.png" id="3_ewb4q"]
+[ext_resource type="Texture2D" uid="uid://bcrsrcvbpn77y" path="res://game_asset_s/vfx/wind/W401-12.png" id="4_3b5o3"]
+[ext_resource type="Texture2D" uid="uid://c68ejae6nugf4" path="res://game_asset_s/vfx/wind/W401-13.png" id="5_rnqwp"]
+[ext_resource type="Texture2D" uid="uid://c6v5ymaaobu5x" path="res://game_asset_s/vfx/wind/W401-14.png" id="6_m0wll"]
+[ext_resource type="Texture2D" uid="uid://c3u8tu5e4gib6" path="res://game_asset_s/vfx/wind/W401-15.png" id="7_sf30q"]
+[ext_resource type="Texture2D" uid="uid://dbrhwycxm3dkl" path="res://game_asset_s/vfx/wind/W401-16.png" id="8_kx685"]
+[ext_resource type="Texture2D" uid="uid://c3vnymvqvel8a" path="res://game_asset_s/vfx/wind/W401-3.png" id="9_joymh"]
+[ext_resource type="Texture2D" uid="uid://c55uw86djsf2n" path="res://game_asset_s/vfx/wind/W401-4.png" id="10_6bxiq"]
+[ext_resource type="Texture2D" uid="uid://di8r6dwj4afn2" path="res://game_asset_s/vfx/wind/W401-5.png" id="11_220ko"]
+[ext_resource type="Texture2D" uid="uid://7q2wv32ugutf" path="res://game_asset_s/vfx/wind/W401-6.png" id="12_lhdxv"]
+[ext_resource type="Texture2D" uid="uid://cup0bokyc4j1k" path="res://game_asset_s/vfx/wind/W401-7.png" id="13_f3yv8"]
+[ext_resource type="Texture2D" uid="uid://dkhjrvhpmi5k7" path="res://game_asset_s/vfx/wind/W401-8.png" id="14_jrkdp"]
+[ext_resource type="Texture2D" uid="uid://52aun5uc06dk" path="res://game_asset_s/vfx/wind/W401-9.png" id="15_nfnpf"]
+[ext_resource type="Texture2D" uid="uid://dxkfoaqy4atdd" path="res://game_asset_s/vfx/wind/W401-10.png" id="16_d7dny"]
+
+[resource]
+frames = 16
+frame_0/texture = ExtResource("1_xufo7")
+frame_0/duration = 0.1
+frame_1/texture = ExtResource("2_hgmbq")
+frame_1/duration = 0.1
+frame_2/texture = ExtResource("9_joymh")
+frame_2/duration = 0.1
+frame_3/texture = ExtResource("10_6bxiq")
+frame_3/duration = 0.1
+frame_4/texture = ExtResource("11_220ko")
+frame_4/duration = 0.1
+frame_5/texture = ExtResource("12_lhdxv")
+frame_5/duration = 0.1
+frame_6/texture = ExtResource("13_f3yv8")
+frame_6/duration = 0.1
+frame_7/texture = ExtResource("14_jrkdp")
+frame_7/duration = 0.1
+frame_8/texture = ExtResource("15_nfnpf")
+frame_8/duration = 0.1
+frame_9/texture = ExtResource("16_d7dny")
+frame_9/duration = 0.1
+frame_10/texture = ExtResource("3_ewb4q")
+frame_10/duration = 0.1
+frame_11/texture = ExtResource("4_3b5o3")
+frame_11/duration = 0.1
+frame_12/texture = ExtResource("5_rnqwp")
+frame_12/duration = 0.1
+frame_13/texture = ExtResource("6_m0wll")
+frame_13/duration = 0.1
+frame_14/texture = ExtResource("7_sf30q")
+frame_14/duration = 0.1
+frame_15/texture = ExtResource("8_kx685")
+frame_15/duration = 0.1

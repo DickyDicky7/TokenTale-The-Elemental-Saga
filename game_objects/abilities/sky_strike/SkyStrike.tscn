@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=3 uid="uid://s4c8ixjtg1uy"]
+
+[ext_resource type="Environment" uid="uid://bl1hafxbwvrcc" path="res://game_objects/abilities/sky_strike/SkyStrike_Environment.tres" id="1_jlt0u"]
+[ext_resource type="SpriteFrames" uid="uid://cq2jie543sctx" path="res://game_objects/abilities/sky_strike/SkyStrike_SpriteFrames.tres" id="2_6dxen"]
+[ext_resource type="Texture2D" uid="uid://bg43o8i7wyxhv" path="res://game_asset_s/pixel_art_top_down_rocks_pack/rocks/rocks.png" id="3_t5ci7"]
+
+[sub_resource type="Animation" id="Animation_3nirl"]
+resource_name = "new_animation"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Vector2(0, -50), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Color(1.5, 1.5, 1.5, 0), Color(1.5, 1.5, 1.5, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r63uy"]
+_data = {
+"new_animation": SubResource("Animation_3nirl")
+}
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_8mb5p"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_6ex2o"]
+diffuse_texture = ExtResource("3_t5ci7")
+
+[node name="SkyStrike" type="Area2D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_jlt0u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+debug_color = Color(1, 0, 0, 0.5)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+self_modulate = Color(1.1, 1.1, 1.1, 1)
+light_mask = 0
+sprite_frames = ExtResource("2_6dxen")
+animation = &"OUT"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_r63uy")
+}
+
+[node name="BTPlayer" type="BTPlayer" parent="."]
+blackboard_plan = SubResource("BlackboardPlan_8mb5p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1.5, 1.5, 1.5, 0)
+light_mask = 0
+position = Vector2(0, -50)
+texture = SubResource("CanvasTexture_6ex2o")
+offset = Vector2(0, -8)
+region_enabled = true
+region_rect = Rect2(24, 24, 24, 24)

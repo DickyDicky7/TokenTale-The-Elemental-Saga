@@ -1,0 +1,99 @@
+[gd_scene load_steps=8 format=3 uid="uid://d1jlh0uaim28w"]
+
+[ext_resource type="Environment" uid="uid://bi3vyytkg3g5o" path="res://game_objects/abilities/tornado/Tornado_Environment.tres" id="1_itixg"]
+[ext_resource type="SpriteFrames" uid="uid://cqhgruumd1cmw" path="res://game_objects/abilities/tornado/Tornado_SpriteFrames_Main$.tres" id="2_ck7qw"]
+[ext_resource type="SpriteFrames" uid="uid://qmvnxplebuhs" path="res://game_objects/abilities/tornado/Tornado_SpriteFrames_Smoke.tres" id="2_gya6r"]
+[ext_resource type="BehaviorTree" uid="uid://5k1yf5dkv3fm" path="res://game_objects/abilities/tornado/Tornado_Behavior--Tree.tres" id="4_8dbdo"]
+[ext_resource type="BlackboardPlan" uid="uid://ddj8j6mdeq3sa" path="res://game_objects/abilities/tornado/Tornado_BlackboardPlan.tres" id="5_jnjq1"]
+
+[sub_resource type="Animation" id="Animation_f5joo"]
+resource_name = "TWIST"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["TWIST"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D_Smoke:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D_Smoke:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["TWIST"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8ynva"]
+_data = {
+"TWIST": SubResource("Animation_f5joo")
+}
+
+[node name="Tornado" type="Area2D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_itixg")
+
+[node name="AnimatedSprite2D_Smoke" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(1, 1.5, 1, 1)
+light_mask = 0
+scale = Vector2(0.5, 0.5)
+sprite_frames = ExtResource("2_gya6r")
+animation = &"TWIST"
+offset = Vector2(-57, 3.5)
+
+[node name="AnimatedSprite2D_Main$" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(1, 1.5, 1, 1)
+light_mask = 0
+sprite_frames = ExtResource("2_ck7qw")
+animation = &"TWIST"
+offset = Vector2(0, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+debug_color = Color(1, 0, 0, 0.5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8ynva")
+}
+autoplay = "TWIST"
+speed_scale = 3.0
+
+[node name="BTPlayer" type="BTPlayer" parent="."]
+behavior_tree = ExtResource("4_8dbdo")
+blackboard_plan = ExtResource("5_jnjq1")

@@ -8,7 +8,7 @@ void swap_color(in sampler2D sampler, in vec2 coords, out vec4 color)
 	{
 		if (current_color == old_colors[i])
 		{
-			color = new_colors[i];
+			color *= new_colors[i];
 		}
 	}
 }

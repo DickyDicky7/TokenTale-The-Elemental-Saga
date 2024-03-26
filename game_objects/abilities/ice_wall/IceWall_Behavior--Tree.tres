@@ -1,0 +1,22 @@
+[gd_resource type="BehaviorTree" load_steps=6 format=3 uid="uid://nn2qdvt6kpw5"]
+
+[ext_resource type="BBNode" uid="uid://dh3aka5ro5ep7" path="res://game_objects/abilities/ice_wall/IceWall_BBNode_AnimationPlayer.tres" id="1_wrerp"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_2is3b"]
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_1n1dm"]
+await_completion = 10.0
+animation_player = ExtResource("1_wrerp")
+animation_name = &"HIDE"
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_xphd8"]
+await_completion = 10.0
+animation_player = ExtResource("1_wrerp")
+animation_name = &"SHOW"
+
+[sub_resource type="BTSequence" id="BTSequence_smnt1"]
+children = [SubResource("BTPlayAnimation_1n1dm"), SubResource("BTPlayAnimation_xphd8")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_2is3b")
+root_task = SubResource("BTSequence_smnt1")

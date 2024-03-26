@@ -1,0 +1,7 @@
+[gd_resource type="GradientTexture1D" load_steps=2 format=3 uid="uid://b7y78c0w6j0w7"]
+
+[ext_resource type="Gradient" uid="uid://ljdol7xwovtb" path="res://game_objects/abilities/air_surge/AirSurge_Gradient---------.tres" id="1_dhfip"]
+
+[resource]
+gradient = ExtResource("1_dhfip")
+use_hdr = true

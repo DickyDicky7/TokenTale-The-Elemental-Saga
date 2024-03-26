@@ -1,0 +1,128 @@
+[gd_scene load_steps=11 format=3 uid="uid://dtm1w4b8kbx8t"]
+
+[ext_resource type="SpriteFrames" uid="uid://b30e66pvrhgxt" path="res://game_objects/abilities/air_surge/AirSurge_SpriteFrames.tres" id="1_t8oyk"]
+[ext_resource type="Environment" uid="uid://budridhq13dap" path="res://game_objects/abilities/air_surge/AirSurge_Environment.tres" id="1_xu7h8"]
+[ext_resource type="Material" uid="uid://t71ofl8t7tll" path="res://game_objects/abilities/air_surge/AirSurge_ParticleProcessMaterial.tres" id="2_e1dvs"]
+[ext_resource type="Texture2D" uid="uid://ysxny8g0qd3u" path="res://game_objects/abilities/air_surge/AirSurge_AnimatedTexture.tres" id="3_ni1xq"]
+[ext_resource type="BehaviorTree" uid="uid://byjbb1t3ra7av" path="res://game_objects/abilities/air_surge/AirSurge_Behavior--Tree.tres" id="3_qbw3m"]
+[ext_resource type="BlackboardPlan" uid="uid://dpdx4v6g2gyy6" path="res://game_objects/abilities/air_surge/AirSurge_BlackboardPlan.tres" id="6_u1pv5"]
+
+[sub_resource type="Animation" id="Animation_hwfks"]
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["FLY"]
+}
+
+[sub_resource type="Animation" id="Animation_vsakr"]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["HIT"]
+}
+
+[sub_resource type="Animation" id="Animation_3fs85"]
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["OUT"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v16oi"]
+_data = {
+"FLY": SubResource("Animation_hwfks"),
+"HIT": SubResource("Animation_vsakr"),
+"OUT": SubResource("Animation_3fs85")
+}
+
+[node name="AirSurge" type="Area2D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_xu7h8")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+self_modulate = Color(1, 1.5, 1, 1)
+light_mask = 0
+amount = 3
+process_material = ExtResource("2_e1dvs")
+texture = ExtResource("3_ni1xq")
+randomness = 1.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(1, 1.5, 1, 1)
+light_mask = 0
+sprite_frames = ExtResource("1_t8oyk")
+animation = &"FLY"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+debug_color = Color(1, 0, 0, 0.5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_v16oi")
+}
+
+[node name="BTPlayer" type="BTPlayer" parent="."]
+behavior_tree = ExtResource("3_qbw3m")
+blackboard_plan = ExtResource("6_u1pv5")

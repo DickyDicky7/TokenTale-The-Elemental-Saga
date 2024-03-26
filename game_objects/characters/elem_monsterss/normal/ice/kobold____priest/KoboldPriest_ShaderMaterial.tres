@@ -4,5 +4,5 @@
 
 [resource]
 shader = ExtResource("1_86ck3")
-shader_parameter/old_colors = null
-shader_parameter/new_colors = null
+shader_parameter/old_colors = PackedColorArray()
+shader_parameter/new_colors = PackedColorArray()

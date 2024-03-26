@@ -1,0 +1,15 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=2 format=3 uid="uid://c4o8c6253515o"]
+
+[ext_resource type="Texture2D" uid="uid://cqyhom8bx0tqr" path="res://game_objects/abilities/frostburn/Frostburn_GradientTexture1D.tres" id="1_nas07"]
+
+[resource]
+particle_flag_disable_z = true
+angular_velocity_min = -50.0
+angular_velocity_max = 50.0
+orbit_velocity_min = -0.5
+orbit_velocity_max = 0.5
+gravity = Vector3(0, 0, 0)
+scale_max = 2.0
+color_ramp = ExtResource("1_nas07")
+anim_speed_min = 1.0
+anim_speed_max = 1.0

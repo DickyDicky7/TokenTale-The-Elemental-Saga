@@ -1,0 +1,39 @@
+[gd_scene load_steps=9 format=3 uid="uid://v8blbc8smsjd"]
+
+[ext_resource type="Material" uid="uid://u1kjij568nae" path="res://game_objects/abilities/tidal_wave/TidalWave_CanvasItemMaterial_1.tres" id="1_1tlw2"]
+[ext_resource type="Material" uid="uid://bd2y0pqsg7jxv" path="res://game_objects/abilities/tidal_wave/TidalWave_ParticleProcessMaterial_1.tres" id="1_4inud"]
+[ext_resource type="Environment" uid="uid://b6jkmlgn4vl8j" path="res://game_objects/abilities/tidal_wave/TidalWave_Environment.tres" id="1_dlrs8"]
+[ext_resource type="Texture2D" uid="uid://c857yy3wq7wn7" path="res://game_objects/abilities/tidal_wave/TidalWave_CanvasTexture_1.tres" id="2_uxbye"]
+[ext_resource type="Material" uid="uid://4qhuxtpd58aw" path="res://game_objects/abilities/tidal_wave/TidalWave_ParticleProcessMaterial_2.tres" id="3_axyva"]
+[ext_resource type="Material" uid="uid://cwql2k2ib740c" path="res://game_objects/abilities/tidal_wave/TidalWave_CanvasItemMaterial_2.tres" id="4_3jmbq"]
+[ext_resource type="Texture2D" uid="uid://727fow6metsh" path="res://game_objects/abilities/tidal_wave/TidalWave_CanvasTexture_2.tres" id="4_546sf"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_w3qim"]
+
+[node name="TidalWave" type="Area2D"]
+
+[node name="Environment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_dlrs8")
+
+[node name="GPUParticles2D_1" type="GPUParticles2D" parent="."]
+self_modulate = Color(1, 1, 1.5, 1)
+z_index = 1
+material = ExtResource("1_1tlw2")
+position = Vector2(0, -41)
+amount = 50
+process_material = ExtResource("1_4inud")
+texture = ExtResource("2_uxbye")
+explosiveness = 1.0
+
+[node name="GPUParticles2D_2" type="GPUParticles2D" parent="."]
+self_modulate = Color(1, 1, 1.5, 1)
+material = ExtResource("4_3jmbq")
+amount = 50
+process_material = ExtResource("3_axyva")
+texture = ExtResource("4_546sf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+debug_color = Color(1, 0, 0, 0.5)
+
+[node name="BTPlayer" type="BTPlayer" parent="."]
+blackboard_plan = SubResource("BlackboardPlan_w3qim")

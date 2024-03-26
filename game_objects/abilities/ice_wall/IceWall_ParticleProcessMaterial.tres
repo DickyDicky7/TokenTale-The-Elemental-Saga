@@ -1,0 +1,11 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=2 format=3 uid="uid://cqe82k0bohca3"]
+
+[ext_resource type="Texture2D" uid="uid://mekqcwmob15d" path="res://game_objects/abilities/ice_wall/IceWall_GradientTexture1D.tres" id="1_hujuh"]
+
+[resource]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -25, 0)
+emission_shape = 1
+emission_sphere_radius = 30.0
+gravity = Vector3(0, 100, 0)
+color_ramp = ExtResource("1_hujuh")

@@ -5,9 +5,9 @@ namespace TokenTaleTheElementalSaga;
 
 public partial class Global : Node
 {
-    public Array<Vector2>       GetMainCharacterTraces()
-    {
-    return new 
-           Array<Vector2>(SingletonMainCharacterTracesManager.Instance);
-    }
+    //public Array<Vector2>       GetMainCharacterTraces()
+    //{
+    //return new 
+    //       Array<Vector2>(SingletonMainCharacterTracesManager.Instance);
+    //}
 }

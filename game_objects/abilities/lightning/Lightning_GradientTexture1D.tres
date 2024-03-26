@@ -1,0 +1,7 @@
+[gd_resource type="GradientTexture1D" load_steps=2 format=3 uid="uid://gfox7jvuqmqw"]
+
+[ext_resource type="Gradient" uid="uid://bgvhp2dd3yg16" path="res://game_objects/abilities/lightning/Lightning_Gradient---------.tres" id="1_kswgt"]
+
+[resource]
+gradient = ExtResource("1_kswgt")
+use_hdr = true

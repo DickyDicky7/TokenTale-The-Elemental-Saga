@@ -1,0 +1,7 @@
+[gd_resource type="GradientTexture1D" load_steps=2 format=3 uid="uid://c2gqt0cbwdgp3"]
+
+[ext_resource type="Gradient" uid="uid://d10bws23ua4gr" path="res://game_objects/abilities/serene_meadow/SereneMeadow_Gradient---------.tres" id="1_cc207"]
+
+[resource]
+gradient = ExtResource("1_cc207")
+use_hdr = true

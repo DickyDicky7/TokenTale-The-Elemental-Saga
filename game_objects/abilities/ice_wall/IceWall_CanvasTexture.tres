@@ -1,0 +1,6 @@
+[gd_resource type="CanvasTexture" load_steps=2 format=3 uid="uid://biby50spfaeeh"]
+
+[ext_resource type="Texture2D" uid="uid://cj3jwnakuio25" path="res://game_asset_s/ice-.png" id="1_u8trs"]
+
+[resource]
+diffuse_texture = ExtResource("1_u8trs")

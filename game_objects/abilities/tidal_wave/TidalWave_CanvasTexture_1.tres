@@ -1,0 +1,6 @@
+[gd_resource type="CanvasTexture" load_steps=2 format=3 uid="uid://c857yy3wq7wn7"]
+
+[ext_resource type="Texture2D" uid="uid://dk3eksj8vg4h0" path="res://game_asset_s/vfx/water_effect_01_(pimen)/water_effect/water-spikes.png" id="1_3id20"]
+
+[resource]
+diffuse_texture = ExtResource("1_3id20")

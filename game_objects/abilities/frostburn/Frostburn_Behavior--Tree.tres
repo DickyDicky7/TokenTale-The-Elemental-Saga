@@ -1,0 +1,32 @@
+[gd_resource type="BehaviorTree" load_steps=10 format=3 uid="uid://8cuolfcbawdq"]
+
+[ext_resource type="BBNode" uid="uid://dteny8aihk00m" path="res://game_objects/abilities/frostburn/Frostburn_BBNode_AnimationPlayer.tres" id="1_yqxyc"]
+[ext_resource type="BBNode" uid="uid://bp4j2f3busoyx" path="res://game_objects/abilities/frostburn/FrostBurn_BBNode_GPUParticles2D.tres" id="2_3dwy8"]
+[ext_resource type="BBNode" uid="uid://bx6fi3bwhr0m7" path="res://game_objects/abilities/frostburn/Frostburn_BBNode_This-----------.tres" id="3_xbfgg"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_7fb3h"]
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_htdwr"]
+await_completion = 10.0
+animation_player = ExtResource("1_yqxyc")
+animation_name = &"HIT"
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_xdux7"]
+node = ExtResource("2_3dwy8")
+method = &"restart"
+custom_name = "CallMethod restart___() node: ^\"GPUParticles2D\""
+
+[sub_resource type="BTWait" id="BTWait_k02h1"]
+duration = 10.0
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_f328x"]
+node = ExtResource("3_xbfgg")
+method = &"queue_free"
+custom_name = "CallMethod queue_free() node: ^\"This__________\""
+
+[sub_resource type="BTSequence" id="BTSequence_p3ti5"]
+children = [SubResource("BTPlayAnimation_htdwr"), SubResource("BTCallMethod_xdux7"), SubResource("BTWait_k02h1"), SubResource("BTCallMethod_f328x")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_7fb3h")
+root_task = SubResource("BTSequence_p3ti5")

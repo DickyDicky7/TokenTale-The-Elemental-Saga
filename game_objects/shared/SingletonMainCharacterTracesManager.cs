@@ -3,17 +3,18 @@ using System.Collections.Generic;
 
 namespace TokenTaleTheElementalSaga;
 
-public sealed partial class SingletonMainCharacterTracesManager   : List<Vector2>
+[GlobalClass]
+public sealed partial class SingletonMainCharacterTracesManager   : GodotObject
 {
               private       SingletonMainCharacterTracesManager() : base()
     {
 
     }
 
-    private static SingletonMainCharacterTracesManager _instance;
-    public  static SingletonMainCharacterTracesManager  Instance
+    private static SingletonMainCharacterTracesManager   _instance;
+    public  static SingletonMainCharacterTracesManager GetInstance()
     {
-        get => _instance ??= new();
+        return _instance ??= new();
     }
 
 

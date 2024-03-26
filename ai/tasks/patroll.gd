@@ -37,9 +37,10 @@ func _exit () -> void:
 func _tick(_delta: float) -> Status:
 	if (shapeCast2D.is_colliding()):
 		for i in range(shapeCast2D.collision_result.size()):
-			var  targetCharacter2D:Character2D = shapeCast2D.get_collider(i);
+			var  targetCharacter2D:Object=        shapeCast2D.get_collider(i);
 			if  (targetCharacter2D      !=  null
-			&&   targetCharacter2D.name ==  TargetCharacter2DName):
+			&&   targetCharacter2D      is        Character2D
+			&&	 targetCharacter2D.name ==  TargetCharacter2DName):
 				var angle:float = clamp(
 				currentCharacter2D.to_local
 				(targetCharacter2D.global_position).angle()

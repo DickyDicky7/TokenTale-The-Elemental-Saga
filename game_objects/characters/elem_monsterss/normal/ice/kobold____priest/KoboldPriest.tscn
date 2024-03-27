@@ -1,9 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://bqn2g5rr825g4"]
+[gd_scene load_steps=16 format=3 uid="uid://bqn2g5rr825g4"]
 
 [ext_resource type="SpriteFrames" uid="uid://b5w6psdxkqfdx" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest_SpriteFrames_$Main$.tres" id="1_plsuf"]
 [ext_resource type="Material" uid="uid://dri8oprw8foqm" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest_ShaderMaterial.tres" id="1_q21b1"]
+[ext_resource type="Environment" uid="uid://qvs624hdxqfd" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest_Environment.tres" id="1_rr272"]
 [ext_resource type="Shape2D" uid="uid://cmjrnsdvae2t2" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest_CollisionShape2D_Body.tres" id="2_tymgc"]
-[ext_resource type="Shape2D" uid="uid://bgekq3rrxi0vj" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest_CollisionShape2D_Feet.tres" id="3_okj3l"]
+[ext_resource type="Shape2D" uid="uid://cacp50fyaf4dh" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest_CollisionShape2D_Feet.tres" id="3_okj3l"]
+[ext_resource type="PackedScene" uid="uid://dklk814gsey6g" path="res://game_objects/shared/EyeSight.tscn" id="5_k0alp"]
+[ext_resource type="Script" path="res://game_objects/shared/Flippable2DHLocalSeeingDirection.cs" id="6_du01l"]
+[ext_resource type="BehaviorTree" uid="uid://dwwfq1c3bej11" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest_Behavior--Tree.tres" id="6_mxaxa"]
+[ext_resource type="BlackboardPlan" uid="uid://chmvbvjd8qti3" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest_BlackboardPlan.tres" id="7_03ug1"]
 
 [sub_resource type="Animation" id="Animation_n1ihx"]
 length = 0.8
@@ -33,7 +38,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_c103i"]
-length = 0.001
+length = 0.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -41,10 +46,10 @@ tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": []
+"values": [0, 1, 2, 3, 4, 5, 6]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -60,7 +65,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_v2ybf"]
-length = 0.5
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -68,7 +73,7 @@ tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
@@ -87,7 +92,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_m8kh0"]
-length = 0.266667
+length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -96,7 +101,7 @@ tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
@@ -115,7 +120,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_t5bor"]
-length = 0.533333
+length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -124,7 +129,7 @@ tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667),
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
@@ -153,22 +158,37 @@ _data = {
 
 [node name="KoboldPriest" type="CharacterBody2D"]
 
+[node name="Environment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_rr272")
+
 [node name="AnimatedSprite2D_$Main$" type="AnimatedSprite2D" parent="."]
+light_mask = 0
 material = ExtResource("1_q21b1")
 sprite_frames = ExtResource("1_plsuf")
-animation = &"CAST"
+animation = &"IDLE"
+offset = Vector2(0, -16)
 
 [node name="CollisionShape2D_Body" type="CollisionShape2D" parent="."]
-visible = false
+position = Vector2(1, -8)
 shape = ExtResource("2_tymgc")
 debug_color = Color(0, 1, 0, 0.2)
 
 [node name="CollisionShape2D_Feet" type="CollisionShape2D" parent="."]
-visible = false
+position = Vector2(0, -0.5)
 shape = ExtResource("3_okj3l")
 debug_color = Color(0, 0, 1, 0.2)
 
-[node name="AnimationPlayer_" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_vj7jw")
 }
+
+[node name="BTPlayer" type="BTPlayer" parent="."]
+behavior_tree = ExtResource("6_mxaxa")
+blackboard_plan = ExtResource("7_03ug1")
+
+[node name="EyeSight" parent="." instance=ExtResource("5_k0alp")]
+
+[node name="Flippable2DHLocalSeeingDirection" type="Node" parent="." node_paths=PackedStringArray("Node2D")]
+script = ExtResource("6_du01l")
+Node2D = NodePath("..")

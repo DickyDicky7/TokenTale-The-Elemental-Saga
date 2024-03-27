@@ -1,9 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://yfbwbxquk1v"]
+[gd_scene load_steps=20 format=3 uid="uid://yfbwbxquk1v"]
 
 [ext_resource type="SpriteFrames" uid="uid://c8gw1rkf7dxbk" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops_SpriteFrames_$Main$.tres" id="1_1rf3k"]
+[ext_resource type="Environment" uid="uid://dwqkwir8i2bnt" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops_Environment.tres" id="1_amp6i"]
 [ext_resource type="Material" uid="uid://be50wkalp1phd" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops_ShaderMaterial.tres" id="1_p305t"]
 [ext_resource type="Shape2D" uid="uid://bbfqvsii7tdw8" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops_CollisionShape2D_Body.tres" id="2_253o8"]
-[ext_resource type="Shape2D" uid="uid://bir84c4sxrm60" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops_CollisionShape2D_Feet.tres" id="3_v2wx1"]
+[ext_resource type="Shape2D" uid="uid://ccfwxdqvi1cdi" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops_CollisionShape2D_Feet.tres" id="3_v2wx1"]
+[ext_resource type="BehaviorTree" uid="uid://bubi75u730bbr" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops_Behavior--Tree.tres" id="6_v0w02"]
+[ext_resource type="BlackboardPlan" uid="uid://baow5ml47vxk7" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops_BlackboardPlan.tres" id="7_lpbe6"]
+[ext_resource type="PackedScene" uid="uid://dklk814gsey6g" path="res://game_objects/shared/EyeSight.tscn" id="8_7n34q"]
+[ext_resource type="Script" path="res://game_objects/shared/Flippable2DHLocalSeeingDirection.cs" id="9_3yuna"]
 
 [sub_resource type="Animation" id="Animation_kk1d2"]
 length = 0.9
@@ -266,20 +271,37 @@ _data = {
 
 [node name="Cyclops" type="CharacterBody2D"]
 
+[node name="Environment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_amp6i")
+
 [node name="AnimatedSprite2D_$Main$" type="AnimatedSprite2D" parent="."]
+light_mask = 0
 material = ExtResource("1_p305t")
 sprite_frames = ExtResource("1_1rf3k")
-animation = &"DEAD"
+animation = &"IDLE"
+offset = Vector2(1.5, -32)
 
 [node name="CollisionShape2D_Body" type="CollisionShape2D" parent="."]
+position = Vector2(2, -20)
 shape = ExtResource("2_253o8")
 debug_color = Color(0, 1, 0, 0.2)
 
 [node name="CollisionShape2D_Feet" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
 shape = ExtResource("3_v2wx1")
 debug_color = Color(0, 0, 1, 0.2)
 
-[node name="AnimationPlayer_" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_4kaly")
 }
+
+[node name="BTPlayer" type="BTPlayer" parent="."]
+behavior_tree = ExtResource("6_v0w02")
+blackboard_plan = ExtResource("7_lpbe6")
+
+[node name="EyeSight" parent="." instance=ExtResource("8_7n34q")]
+
+[node name="Flippable2DHLocalSeeingDirection" type="Node" parent="." node_paths=PackedStringArray("Node2D")]
+script = ExtResource("9_3yuna")
+Node2D = NodePath("..")

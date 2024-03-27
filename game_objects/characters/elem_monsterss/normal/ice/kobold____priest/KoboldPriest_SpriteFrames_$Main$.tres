@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=26 format=3 uid="uid://b5w6psdxkqfdx"]
+[gd_resource type="SpriteFrames" load_steps=33 format=3 uid="uid://b5w6psdxkqfdx"]
 
 [ext_resource type="Texture2D" uid="uid://ctomn3ycgehr5" path="res://game_asset_s/characters/elemental_monsters/ice/kobold____priest/sprite-sheet-kobold-priest.png" id="1_ihch2"]
 
@@ -33,6 +33,34 @@ region = Rect2(192, 64, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_8qh3n"]
 atlas = ExtResource("1_ihch2")
 region = Rect2(224, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efgmp"]
+atlas = ExtResource("1_ihch2")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h70qg"]
+atlas = ExtResource("1_ihch2")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_871ox"]
+atlas = ExtResource("1_ihch2")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jx0w8"]
+atlas = ExtResource("1_ihch2")
+region = Rect2(96, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qli3e"]
+atlas = ExtResource("1_ihch2")
+region = Rect2(128, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8rsc"]
+atlas = ExtResource("1_ihch2")
+region = Rect2(160, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsts2"]
+atlas = ExtResource("1_ihch2")
+region = Rect2(192, 128, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0bbw3"]
 atlas = ExtResource("1_ihch2")
@@ -129,7 +157,28 @@ animations = [{
 "name": &"CAST",
 "speed": 10.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efgmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h70qg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_871ox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jx0w8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qli3e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8rsc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wsts2")
+}],
 "loop": false,
 "name": &"DEAD",
 "speed": 10.0
@@ -149,7 +198,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"HURT",
-"speed": 8.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -166,7 +215,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"IDLE",
-"speed": 15.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -195,5 +244,5 @@ animations = [{
 }],
 "loop": true,
 "name": &"MOVE",
-"speed": 15.0
+"speed": 20.0
 }]

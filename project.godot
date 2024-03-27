@@ -38,13 +38,19 @@ folder_colors={
 "res://game_objects/abilities/frostburn/": "green",
 "res://game_objects/abilities/golem_go_go_go/": "green",
 "res://game_objects/abilities/ice_wall/": "green",
-"res://game_objects/abilities/ignite/": "green",
+"res://game_objects/abilities/ignite/": "blue",
 "res://game_objects/abilities/lightning/": "green",
 "res://game_objects/abilities/overcharge/": "green",
 "res://game_objects/abilities/penetrating_squirt/": "green",
 "res://game_objects/abilities/root_trap/": "green",
 "res://game_objects/abilities/serene_meadow/": "green",
-"res://game_objects/abilities/tornado/": "green"
+"res://game_objects/abilities/tornado/": "green",
+"res://game_objects/characters/elem_monsterss/normal/electric/": "blue",
+"res://game_objects/characters/elem_monsterss/normal/ice/": "blue",
+"res://game_objects/characters/elem_monsterss/normal/rock/": "blue",
+"res://game_objects/characters/elem_monsterss/normal/water/": "blue",
+"res://game_objects/characters/elem_monsterss/normal/wind/": "blue",
+"res://game_objects/characters/elem_monsterss/normal/wood/": "blue"
 }
 
 [input]

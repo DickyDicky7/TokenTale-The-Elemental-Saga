@@ -1,10 +1,18 @@
-[gd_scene load_steps=11 format=3 uid="uid://dks14llooa7jv"]
+[gd_scene load_steps=19 format=3 uid="uid://dks14llooa7jv"]
 
-[ext_resource type="SpriteFrames" uid="uid://dkd552vapywc0" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat_SpriteFrame_$Main$.tres" id="1_k4jlk"]
+[ext_resource type="Environment" uid="uid://c7e5rcn6qtfu5" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat_Environment.tres" id="1_4vu8g"]
+[ext_resource type="SpriteFrames" uid="uid://dkd552vapywc0" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat_SpriteFrames_$Main$.tres" id="1_k4jlk"]
 [ext_resource type="Material" uid="uid://bjpra2c4kjrkd" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat_ShaderMaterial_Dead.tres" id="2_ecrnb"]
 [ext_resource type="Material" uid="uid://ywlq81cofdnl" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat_ShaderMaterial_Echo.tres" id="3_xbtdn"]
 [ext_resource type="Material" uid="uid://cooo1qrde6mxj" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat_ShaderMaterial_Hurt.tres" id="4_dgb1x"]
+[ext_resource type="SpriteFrames" uid="uid://dqe75yalcj1h8" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat_SpriteFrames_Shadow.tres" id="4_o2gq3"]
+[ext_resource type="Shape2D" uid="uid://bqkq4x8t02gg5" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat_CollisionShape2D_Body.tres" id="5_c38k6"]
 [ext_resource type="Material" uid="uid://bn3rupmuf8ui5" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat_ShaderMaterial_Move.tres" id="5_m0iji"]
+[ext_resource type="Shape2D" uid="uid://bc56u46q4yby5" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat_CollisionShape2D_Feet.tres" id="5_twb1k"]
+[ext_resource type="BehaviorTree" uid="uid://cpuark47byu1g" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat_Behavior--Tree.tres" id="7_3esvi"]
+[ext_resource type="PackedScene" uid="uid://dklk814gsey6g" path="res://game_objects/shared/EyeSight.tscn" id="7_eqjks"]
+[ext_resource type="BlackboardPlan" uid="uid://b4y8rq8m0x8k3" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat_BlackboardPlan.tres" id="8_3bsio"]
+[ext_resource type="Script" path="res://game_objects/shared/Flippable2DHLocalSeeingDirection.cs" id="8_p2ohk"]
 
 [sub_resource type="Animation" id="Animation_wegu5"]
 length = 0.7
@@ -36,10 +44,34 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite2D_$Main$:material")
+tracks/2/path = NodePath("AnimatedSprite2D_Shadow:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D_Shadow:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["DEAD"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite2D_$Main$:material")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -76,10 +108,34 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite2D_$Main$:material")
+tracks/2/path = NodePath("AnimatedSprite2D_Shadow:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D_Shadow:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["ECHO"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite2D_$Main$:material")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -116,10 +172,34 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite2D_$Main$:material")
+tracks/2/path = NodePath("AnimatedSprite2D_Shadow:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D_Shadow:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["HURT"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite2D_$Main$:material")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -156,10 +236,34 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite2D_$Main$:material")
+tracks/2/path = NodePath("AnimatedSprite2D_Shadow:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D_Shadow:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["MOVE"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite2D_$Main$:material")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -176,18 +280,47 @@ _data = {
 
 [node name="Bat" type="CharacterBody2D"]
 
+[node name="Environment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_4vu8g")
+
 [node name="AnimatedSprite2D_$Main$" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1.5, 1, 1)
+self_modulate = Color(0.5, 1, 0.5, 1)
+light_mask = 0
 material = ExtResource("2_ecrnb")
 sprite_frames = ExtResource("1_k4jlk")
 animation = &"DEAD"
+offset = Vector2(0, -19)
 
-[node name="AnimationPlayer_" type="AnimationPlayer" parent="."]
+[node name="AnimatedSprite2D_Shadow" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1.5, 1, 1)
+self_modulate = Color(0.5, 1, 0.5, 1)
+light_mask = 0
+sprite_frames = ExtResource("4_o2gq3")
+animation = &"DEAD"
+offset = Vector2(-1.5, -19)
+
+[node name="CollisionShape2D_Body" type="CollisionShape2D" parent="."]
+position = Vector2(0, -19)
+shape = ExtResource("5_c38k6")
+debug_color = Color(0, 1, 0, 0.2)
+
+[node name="CollisionShape2D_Feet" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = ExtResource("5_twb1k")
+debug_color = Color(0, 0, 1, 0.2)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_lcrum")
 }
 
-[node name="CollisionShape2D_Body" type="CollisionShape2D" parent="."]
-debug_color = Color(0, 1, 0, 0.2)
+[node name="BTPlayer" type="BTPlayer" parent="."]
+behavior_tree = ExtResource("7_3esvi")
+blackboard_plan = ExtResource("8_3bsio")
 
-[node name="CollisionShape2D_Feet" type="CollisionShape2D" parent="."]
-debug_color = Color(0, 0, 1, 0.2)
+[node name="EyeSight" parent="." instance=ExtResource("7_eqjks")]
+
+[node name="Flippable2DHLocalSeeingDirection" type="Node" parent="." node_paths=PackedStringArray("Node2D")]
+script = ExtResource("8_p2ohk")
+Node2D = NodePath("..")

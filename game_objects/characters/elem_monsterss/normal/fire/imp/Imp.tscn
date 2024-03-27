@@ -5,7 +5,7 @@
 [ext_resource type="Shape2D" uid="uid://brwrk7cwgm3sc" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_CollisionShape2D_Body.tres" id="2_ircqt"]
 [ext_resource type="Environment" uid="uid://bk5s8laox5sjv" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_Environment.tres" id="2_p2mts"]
 [ext_resource type="Material" uid="uid://crwxg3wu37lq0" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_ShaderMaterial.tres" id="2_smu26"]
-[ext_resource type="Shape2D" uid="uid://d0x8cr26ifpx7" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_CollisionShape2D_Feet.tres" id="4_5oi5y"]
+[ext_resource type="Shape2D" uid="uid://dirggids1u1no" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_CollisionShape2D_Feet.tres" id="4_5oi5y"]
 [ext_resource type="Shape2D" uid="uid://d1ig54gu0ivcj" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_ShapeCast2D.tres" id="9_0vm5e"]
 [ext_resource type="Script" path="res://game_objects/shared/Flippable2DHLocalSeeingDirection.cs" id="9_prr5y"]
 [ext_resource type="PackedScene" uid="uid://dklk814gsey6g" path="res://game_objects/shared/EyeSight.tscn" id="10_2wlxm"]
@@ -258,6 +258,7 @@ shape = ExtResource("2_ircqt")
 debug_color = Color(0, 1, 0, 0.2)
 
 [node name="CollisionShape2D_Feet" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
 shape = ExtResource("4_5oi5y")
 debug_color = Color(0, 0, 1, 0.2)
 

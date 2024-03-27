@@ -1,5 +1,4 @@
-[gd_resource type="SegmentShape2D" format=3 uid="uid://d0x8cr26ifpx7"]
+[gd_resource type="RectangleShape2D" format=3 uid="uid://dirggids1u1no"]
 
 [resource]
-a = Vector2(-3, 0)
-b = Vector2(3, 0)
+size = Vector2(6, 1)

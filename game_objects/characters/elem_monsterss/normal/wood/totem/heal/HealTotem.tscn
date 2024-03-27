@@ -1,7 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://cyv12iosddo4f"]
+[gd_scene load_steps=15 format=3 uid="uid://cyv12iosddo4f"]
 
+[ext_resource type="Environment" uid="uid://cl0votwarm2rd" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_Environment.tres" id="1_btha3"]
 [ext_resource type="SpriteFrames" uid="uid://b8kirdr3jdxm1" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_SpriteFrames_$Main$.tres" id="1_q6j6a"]
 [ext_resource type="Material" uid="uid://c0iu4xn2vmqcp" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_ShaderMaterial.tres" id="1_rnysy"]
+[ext_resource type="BehaviorTree" uid="uid://qjvfmmgwhd5t" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_Behavior--Tree.tres" id="3_j0och"]
+[ext_resource type="Script" path="res://game_objects/shared/Flippable2DHLocalSeeingDirection.cs" id="3_sbkeo"]
+[ext_resource type="BlackboardPlan" uid="uid://7vtmmi0iyamw" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_BlackboardPlan.tres" id="4_7r017"]
+[ext_resource type="Shape2D" uid="uid://hii4li5tyixv" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_CollisionShape2D_Feet.tres" id="4_g44ul"]
+[ext_resource type="Shape2D" uid="uid://b08hiu7k5t7s8" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_CollisionShape2D_Body.tres" id="4_lqg0k"]
+[ext_resource type="PackedScene" uid="uid://dklk814gsey6g" path="res://game_objects/shared/EyeSight.tscn" id="7_vl8qa"]
 
 [sub_resource type="Animation" id="Animation_xouuu"]
 length = 0.6
@@ -125,19 +132,38 @@ _data = {
 
 [node name="HealTotem" type="CharacterBody2D"]
 
+[node name="Environment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_btha3")
+
 [node name="AnimatedSprite2D_$Main$" type="AnimatedSprite2D" parent="."]
+light_mask = 0
 material = ExtResource("1_rnysy")
 sprite_frames = ExtResource("1_q6j6a")
 animation = &"DAMAGE"
+frame = 5
 offset = Vector2(0.5, -16)
 
-[node name="AnimationPlayer_" type="AnimationPlayer" parent="."]
+[node name="CollisionShape2D_Body" type="CollisionShape2D" parent="."]
+position = Vector2(1, -8)
+shape = ExtResource("4_lqg0k")
+debug_color = Color(0, 1, 0, 0.2)
+
+[node name="CollisionShape2D_Feet" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = ExtResource("4_g44ul")
+debug_color = Color(0, 0, 1, 0.2)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_8xbje")
 }
 
-[node name="CollisionShape2D_Body" type="CollisionShape2D" parent="."]
-debug_color = Color(0, 1, 0, 0.2)
+[node name="BTPlayer" type="BTPlayer" parent="."]
+behavior_tree = ExtResource("3_j0och")
+blackboard_plan = ExtResource("4_7r017")
 
-[node name="CollisionShape2D_Feet" type="CollisionShape2D" parent="."]
-debug_color = Color(0, 0, 1, 0.2)
+[node name="EyeSight" parent="." instance=ExtResource("7_vl8qa")]
+
+[node name="Flippable2DHLocalSeeingDirection" type="Node" parent="." node_paths=PackedStringArray("Node2D")]
+script = ExtResource("3_sbkeo")
+Node2D = NodePath("..")

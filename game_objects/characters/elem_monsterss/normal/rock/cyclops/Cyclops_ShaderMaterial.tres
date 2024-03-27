@@ -5,4 +5,14 @@
 
 [resource]
 shader = ExtResource("1_5afvb")
+shader_parameter/original_0 = Color(1, 0.819608, 0.611765, 1)
+shader_parameter/original_1 = Color(0.898039, 0.576471, 0.388235, 1)
+shader_parameter/original_2 = Color(0, 0, 0, 0)
+shader_parameter/original_3 = Color(0, 0, 0, 0)
+shader_parameter/original_4 = Color(0, 0, 0, 0)
+shader_parameter/replaced_0 = Color(0.862745, 0.862745, 0.862745, 1)
+shader_parameter/replaced_1 = Color(0.501961, 0.501961, 0.501961, 1)
+shader_parameter/replaced_2 = Color(0, 0, 0, 0)
+shader_parameter/replaced_3 = Color(0, 0, 0, 0)
+shader_parameter/replaced_4 = Color(0, 0, 0, 0)
 shader_parameter/normal_map = ExtResource("2_dpg47")

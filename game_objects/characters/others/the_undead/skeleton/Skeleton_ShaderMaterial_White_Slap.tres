@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://brx2627y6o2qv"]
+
+[ext_resource type="Shader" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_ShaderMaterial_White_Slap.gdshader" id="1_7fpvs"]
+[ext_resource type="Texture2D" uid="uid://cn2yljgygynpu" path="res://game_asset_s/characters/others/skeleton_generic/white_slap/slap-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="2_q8rd0"]
+
+[resource]
+shader = ExtResource("1_7fpvs")
+shader_parameter/normal_map = ExtResource("2_q8rd0")

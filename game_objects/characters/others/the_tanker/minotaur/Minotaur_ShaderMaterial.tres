@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bx8mcrjyaj4wa"]
+
+[ext_resource type="Shader" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_ShaderMaterial.gdshader" id="1_h02ri"]
+[ext_resource type="Texture2D" uid="uid://c7r28alepe66" path="res://game_asset_s/characters/others/minotaur/sprite-sheet-minotaur-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="2_f4qug"]
+
+[resource]
+shader = ExtResource("1_h02ri")
+shader_parameter/normal_map = ExtResource("2_f4qug")

@@ -65,6 +65,20 @@ tracks/1/keys = {
 "update": 1,
 "values": ["DEAD"]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_qqp3e"]
 length = 0.5
@@ -139,8 +153,7 @@ environment = ExtResource("1_btha3")
 light_mask = 0
 material = ExtResource("1_rnysy")
 sprite_frames = ExtResource("1_q6j6a")
-animation = &"DAMAGE"
-frame = 5
+animation = &"DEAD"
 offset = Vector2(0.5, -16)
 
 [node name="CollisionShape2D_Body" type="CollisionShape2D" parent="."]

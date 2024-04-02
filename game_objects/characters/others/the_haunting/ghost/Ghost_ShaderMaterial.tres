@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://hlldlnvxxc1k"]
+
+[ext_resource type="Shader" path="res://game_objects/characters/others/the_haunting/ghost/Ghost_ShaderMaterial.gdshader" id="1_w540f"]
+[ext_resource type="Texture2D" uid="uid://dwnlkmtg6ajph" path="res://game_asset_s/characters/others/ghost/000-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="2_h2f3m"]
+
+[resource]
+shader = ExtResource("1_w540f")
+shader_parameter/normal_map = ExtResource("2_h2f3m")

@@ -1,0 +1,577 @@
+[gd_scene load_steps=34 format=3 uid="uid://da0vo8ll2gr8e"]
+
+[ext_resource type="Environment" uid="uid://cb642yssesbq0" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_Environment.tres" id="1_ixtr5"]
+[ext_resource type="PackedScene" uid="uid://dklk814gsey6g" path="res://game_objects/shared/EyeSight.tscn" id="1_j7pbh"]
+[ext_resource type="SpriteFrames" uid="uid://bxpnnnp6gu54r" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_SpriteFrames_$Main$.tres" id="2_hqwn4"]
+[ext_resource type="Script" path="res://game_objects/shared/Flippable2DHLocalSeeingDirection.cs" id="2_yblbq"]
+[ext_resource type="Shape2D" uid="uid://dhlsdtnsqqb66" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_CollisionShape2D_Body.tres" id="3_o6h8g"]
+[ext_resource type="Shape2D" uid="uid://das7fhife5bg" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_CollisionShape2D_Feet.tres" id="4_8ooau"]
+[ext_resource type="BehaviorTree" uid="uid://2lnhjeereqn0" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_Behavior--Tree.tres" id="5_c05nu"]
+[ext_resource type="Material" uid="uid://bfn7cuonedpgi" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_ShaderMaterial_Black_Dead.tres" id="5_ms580"]
+[ext_resource type="BlackboardPlan" uid="uid://crbfqq33m1hw1" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_BlackboardPlan.tres" id="6_52j2c"]
+[ext_resource type="Material" uid="uid://okluoyj00uwm" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_ShaderMaterial_White_Dead.tres" id="6_kmxl1"]
+[ext_resource type="Material" uid="uid://cxj7io4hhlfbg" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_ShaderMaterial_Black_Hurt.tres" id="7_aocds"]
+[ext_resource type="Material" uid="uid://ctf4qcrufjmvv" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_ShaderMaterial_White_Hurt.tres" id="8_fv5p3"]
+[ext_resource type="Material" uid="uid://0ecfqks1642o" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_ShaderMaterial_Black_Idle.tres" id="9_f4da8"]
+[ext_resource type="Material" uid="uid://mwfyb23bitid" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_ShaderMaterial_White_Idle.tres" id="10_m4gph"]
+[ext_resource type="Material" uid="uid://7m88fc11xffv" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_ShaderMaterial_Black_Move.tres" id="11_vdn1r"]
+[ext_resource type="Material" uid="uid://h4bnwd4spfho" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_ShaderMaterial_Black_Move_Fast.tres" id="12_8dx1w"]
+[ext_resource type="Material" uid="uid://bxqw0krjmmomw" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_ShaderMaterial_White_Move_Fast.tres" id="13_2ydyv"]
+[ext_resource type="Material" uid="uid://bemooqbhqgj83" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_ShaderMaterial_White_Move.tres" id="14_jt456"]
+[ext_resource type="Material" uid="uid://tngki3lsaqwo" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_ShaderMaterial_Black_Slap.tres" id="15_hlkae"]
+[ext_resource type="Material" uid="uid://brx2627y6o2qv" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_ShaderMaterial_White_Slap.tres" id="16_1m2ml"]
+
+[sub_resource type="Animation" id="Animation_oe52o"]
+length = 0.65
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["DEAD_B"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D_$Main$:material")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_ms580")]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.65),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_f2xqb"]
+length = 0.65
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["DEAD_W"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D_$Main$:material")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_kmxl1")]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.65),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_d0a0o"]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["HURT_B"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D_$Main$:material")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_aocds")]
+}
+
+[sub_resource type="Animation" id="Animation_5klus"]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["HURT_W"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D_$Main$:material")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_fv5p3")]
+}
+
+[sub_resource type="Animation" id="Animation_5324e"]
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["IDLE_B"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D_$Main$:material")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_f4da8")]
+}
+
+[sub_resource type="Animation" id="Animation_t7gxp"]
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["IDLE_W"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D_$Main$:material")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_m4gph")]
+}
+
+[sub_resource type="Animation" id="Animation_vspkx"]
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["MOVE_B"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D_$Main$:material")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("11_vdn1r")]
+}
+
+[sub_resource type="Animation" id="Animation_fkk0x"]
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["MOVE_FAST_B"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D_$Main$:material")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_8dx1w")]
+}
+
+[sub_resource type="Animation" id="Animation_y0yys"]
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["MOVE_FAST_W"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D_$Main$:material")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("13_2ydyv")]
+}
+
+[sub_resource type="Animation" id="Animation_myr1d"]
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["MOVE_W"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D_$Main$:material")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("14_jt456")]
+}
+
+[sub_resource type="Animation" id="Animation_2x2j5"]
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["SLAP_B"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D_$Main$:material")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("15_hlkae")]
+}
+
+[sub_resource type="Animation" id="Animation_kywab"]
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["SLAP_W"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D_$Main$:material")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("16_1m2ml")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wo7vt"]
+_data = {
+"DEAD_B": SubResource("Animation_oe52o"),
+"DEAD_W": SubResource("Animation_f2xqb"),
+"HURT_B": SubResource("Animation_d0a0o"),
+"HURT_W": SubResource("Animation_5klus"),
+"IDLE_B": SubResource("Animation_5324e"),
+"IDLE_W": SubResource("Animation_t7gxp"),
+"MOVE_B": SubResource("Animation_vspkx"),
+"MOVE_FAST_B": SubResource("Animation_fkk0x"),
+"MOVE_FAST_W": SubResource("Animation_y0yys"),
+"MOVE_W": SubResource("Animation_myr1d"),
+"SLAP_B": SubResource("Animation_2x2j5"),
+"SLAP_W": SubResource("Animation_kywab")
+}
+
+[node name="Skeleton" type="CharacterBody2D"]
+
+[node name="Environment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_ixtr5")
+
+[node name="AnimatedSprite2D_$Main$" type="AnimatedSprite2D" parent="."]
+light_mask = 0
+material = ExtResource("6_kmxl1")
+sprite_frames = ExtResource("2_hqwn4")
+animation = &"DEAD_W"
+offset = Vector2(0, -12)
+
+[node name="CollisionShape2D_Body" type="CollisionShape2D" parent="."]
+position = Vector2(0, -12)
+shape = ExtResource("3_o6h8g")
+debug_color = Color(0, 1, 0, 0.2)
+
+[node name="CollisionShape2D_Feet" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = ExtResource("4_8ooau")
+debug_color = Color(0, 0, 1, 0.2)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wo7vt")
+}
+
+[node name="BTPlayer" type="BTPlayer" parent="."]
+behavior_tree = ExtResource("5_c05nu")
+blackboard_plan = ExtResource("6_52j2c")
+
+[node name="EyeSight" parent="." instance=ExtResource("1_j7pbh")]
+
+[node name="Flippable2DHLocalSeeingDirection" type="Node" parent="." node_paths=PackedStringArray("Node2D")]
+script = ExtResource("2_yblbq")
+Node2D = NodePath("..")

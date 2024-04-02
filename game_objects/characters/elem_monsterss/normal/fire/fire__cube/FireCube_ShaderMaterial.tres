@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://b07vokq6e1vwo"]
+
+[ext_resource type="Shader" path="res://game_objects/characters/elem_monsterss/normal/fire/fire__cube/FireCube_ShaderMaterial.gdshader" id="1_hrt2i"]
+[ext_resource type="Texture2D" uid="uid://ro0t8siutpgq" path="res://game_asset_s/characters/elemental_monsters/fire/fire__cube/sprite-sheet-fire-cube-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="2_bc3qj"]
+
+[resource]
+shader = ExtResource("1_hrt2i")
+shader_parameter/normal_map = ExtResource("2_bc3qj")

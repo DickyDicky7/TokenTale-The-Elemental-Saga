@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://c431kmat5pf5n"]
+
+[ext_resource type="Shader" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat_ShaderMaterial_Sleep.gdshader" id="1_0nyxd"]
+[ext_resource type="Texture2D" uid="uid://clpvi5fd6mj8l" path="res://game_asset_s/characters/elemental_monsters/wind/bat_new/Zombie/BatZombie_Sleeping-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="2_q5iaw"]
+
+[resource]
+shader = ExtResource("1_0nyxd")
+shader_parameter/normal_map = ExtResource("2_q5iaw")

@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cxj7io4hhlfbg"]
+
+[ext_resource type="Shader" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_ShaderMaterial_Black_Hurt.gdshader" id="1_8v5u2"]
+[ext_resource type="Texture2D" uid="uid://ccux7iwr3eqtu" path="res://game_asset_s/characters/others/skeleton_generic/black_hurt/hurt-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="2_mvvxx"]
+
+[resource]
+shader = ExtResource("1_8v5u2")
+shader_parameter/normal_map = ExtResource("2_mvvxx")

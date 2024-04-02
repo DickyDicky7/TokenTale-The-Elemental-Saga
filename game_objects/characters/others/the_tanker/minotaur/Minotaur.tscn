@@ -1,0 +1,348 @@
+[gd_scene load_steps=21 format=3 uid="uid://dsw38xnjyq7yu"]
+
+[ext_resource type="PackedScene" uid="uid://dklk814gsey6g" path="res://game_objects/shared/EyeSight.tscn" id="1_ax4in"]
+[ext_resource type="Material" uid="uid://bx8mcrjyaj4wa" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_ShaderMaterial.tres" id="1_kxie1"]
+[ext_resource type="SpriteFrames" uid="uid://b6px143pmxsue" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_SpriteFrames_$Main$.tres" id="1_nfvla"]
+[ext_resource type="Environment" uid="uid://eruq3fx3f53u" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_Environment.tres" id="1_xuv8u"]
+[ext_resource type="Script" path="res://game_objects/shared/Flippable2DHLocalSeeingDirection.cs" id="2_gnfus"]
+[ext_resource type="Shape2D" uid="uid://c5tcovhhjk72h" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_CollisionShape2D_Feet.tres" id="4_bjrqi"]
+[ext_resource type="BehaviorTree" uid="uid://bihtmxeebjisn" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_Behavior--Tree.tres" id="4_gnurt"]
+[ext_resource type="Shape2D" uid="uid://dxx33ker64c0k" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_CollisionShape2D_Body.tres" id="4_vhvw3"]
+[ext_resource type="BlackboardPlan" uid="uid://b0gfwik77x7ms" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_BlackboardPlan.tres" id="5_708q0"]
+
+[sub_resource type="Animation" id="Animation_f2p7a"]
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["ATTACK_0"]
+}
+
+[sub_resource type="Animation" id="Animation_828ho"]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["ATTACK_1"]
+}
+
+[sub_resource type="Animation" id="Animation_knet3"]
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["ATTACK_2"]
+}
+
+[sub_resource type="Animation" id="Animation_sd7e2"]
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["ATTACK_3"]
+}
+
+[sub_resource type="Animation" id="Animation_fneku"]
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["DEAD"]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_rcpfy"]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["HURT_0"]
+}
+
+[sub_resource type="Animation" id="Animation_i6myk"]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["HURT_1"]
+}
+
+[sub_resource type="Animation" id="Animation_eldqj"]
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["IDLE"]
+}
+
+[sub_resource type="Animation" id="Animation_sce1p"]
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["MOVE"]
+}
+
+[sub_resource type="Animation" id="Animation_7ctsd"]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["TAUNT"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_swxwo"]
+_data = {
+"ATTACK_0": SubResource("Animation_f2p7a"),
+"ATTACK_1": SubResource("Animation_828ho"),
+"ATTACK_2": SubResource("Animation_knet3"),
+"ATTACK_3": SubResource("Animation_sd7e2"),
+"DEAD": SubResource("Animation_fneku"),
+"HURT_0": SubResource("Animation_rcpfy"),
+"HURT_1": SubResource("Animation_i6myk"),
+"IDLE": SubResource("Animation_eldqj"),
+"MOVE": SubResource("Animation_sce1p"),
+"TAUNT": SubResource("Animation_7ctsd")
+}
+
+[node name="Minotaur" type="CharacterBody2D"]
+
+[node name="Environment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_xuv8u")
+
+[node name="AnimatedSprite2D_$Main$" type="AnimatedSprite2D" parent="."]
+light_mask = 0
+material = ExtResource("1_kxie1")
+sprite_frames = ExtResource("1_nfvla")
+animation = &"DEAD"
+offset = Vector2(3, -16)
+
+[node name="CollisionShape2D_Body" type="CollisionShape2D" parent="."]
+position = Vector2(2, -20)
+shape = ExtResource("4_vhvw3")
+debug_color = Color(0, 1, 0, 0.2)
+
+[node name="CollisionShape2D_Feet" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = ExtResource("4_bjrqi")
+debug_color = Color(0, 0, 1, 0.2)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_swxwo")
+}
+
+[node name="BTPlayer" type="BTPlayer" parent="."]
+behavior_tree = ExtResource("4_gnurt")
+blackboard_plan = ExtResource("5_708q0")
+
+[node name="EyeSight" parent="." instance=ExtResource("1_ax4in")]
+
+[node name="Flippable2DHLocalSeeingDirection" type="Node" parent="." node_paths=PackedStringArray("Node2D")]
+script = ExtResource("2_gnfus")
+Node2D = NodePath("..")

@@ -1,18 +1,8 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bjpra2c4kjrkd"]
 
 [ext_resource type="Shader" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat_ShaderMaterial_Dead.gdshader" id="1_glmjq"]
-[ext_resource type="Texture2D" uid="uid://bp40sk4okv4x3" path="res://game_asset_s/characters/elemental_monsters/wind/bat/with_outlined/dead-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="2_kvonq"]
+[ext_resource type="Texture2D" uid="uid://7uu5mftnre8c" path="res://game_asset_s/characters/elemental_monsters/wind/bat_new/Zombie/BatZombie_Death-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="2_k5w4b"]
 
 [resource]
 shader = ExtResource("1_glmjq")
-shader_parameter/original_0 = Color(0.160784, 0.160784, 0.160784, 1)
-shader_parameter/original_1 = Color(0.0705882, 0.0705882, 0.0705882, 1)
-shader_parameter/original_2 = Color(1, 1, 1, 1)
-shader_parameter/original_3 = Color(0, 0, 0, 0)
-shader_parameter/original_4 = Color(0, 0, 0, 0)
-shader_parameter/replaced_0 = Color(0.254902, 0.392157, 0.196078, 1)
-shader_parameter/replaced_1 = Color(0, 0.196078, 0, 1)
-shader_parameter/replaced_2 = Color(0, 0, 0, 1)
-shader_parameter/replaced_3 = Color(0, 0, 0, 0)
-shader_parameter/replaced_4 = Color(0, 0, 0, 0)
-shader_parameter/normal_map = ExtResource("2_kvonq")
+shader_parameter/normal_map = ExtResource("2_k5w4b")

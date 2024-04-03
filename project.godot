@@ -45,6 +45,7 @@ folder_colors={
 "res://game_objects/abilities/root_trap/": "orange",
 "res://game_objects/abilities/serene_meadow/": "orange",
 "res://game_objects/abilities/sky_strike/": "orange",
+"res://game_objects/abilities/tidal_wave/": "orange",
 "res://game_objects/abilities/tornado/": "orange",
 "res://game_objects/characters/elem_monsterss/normal/electric/": "blue",
 "res://game_objects/characters/elem_monsterss/normal/ice/": "blue",

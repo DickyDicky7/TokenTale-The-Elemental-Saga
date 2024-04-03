@@ -210,7 +210,7 @@ _data = {
 
 [node name="Golem" type="CharacterBody2D"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="Environment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_bpjno")
 
 [node name="AnimatedSprite2D_$Main$" type="AnimatedSprite2D" parent="."]

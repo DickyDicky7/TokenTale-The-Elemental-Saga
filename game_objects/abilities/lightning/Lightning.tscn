@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cn6e4b8ejcnru"]
+[gd_scene load_steps=10 format=3 uid="uid://cn6e4b8ejcnru"]
 
 [ext_resource type="Environment" uid="uid://bfn5o6qb5mmwr" path="res://game_objects/abilities/lightning/Lightning_Environment.tres" id="1_kfp4f"]
 [ext_resource type="SpriteFrames" uid="uid://bb28sh36aknoq" path="res://game_objects/abilities/lightning/Lightning_SpriteFrames.tres" id="1_weg7p"]
 [ext_resource type="BehaviorTree" uid="uid://byb8e56lmjy0f" path="res://game_objects/abilities/lightning/Lightning_Behavior--Tree.tres" id="3_2kufa"]
 [ext_resource type="Material" uid="uid://c510q7ihagujb" path="res://game_objects/abilities/lightning/Lightning_ParticleProcessMaterial.tres" id="3_02l3o"]
 [ext_resource type="BlackboardPlan" uid="uid://dnyby4rtlfj80" path="res://game_objects/abilities/lightning/Lightning_BlackboardPlan.tres" id="4_c815j"]
+[ext_resource type="Shape2D" uid="uid://by72ii1622a46" path="res://game_objects/abilities/lightning/Lightning_CollisionShape2D_Hitbox.tres" id="4_sswnf"]
 
 [sub_resource type="Animation" id="Animation_3bl1f"]
 length = 0.65
@@ -35,7 +36,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("GPUParticles2D:emitting")
+tracks/2/path = NodePath("_GPU_Particles2D:emitting")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -47,7 +48,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("GPUParticles2D:one_shot")
+tracks/3/path = NodePath("_GPU_Particles2D:one_shot")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -86,7 +87,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("GPUParticles2D:emitting")
+tracks/2/path = NodePath("_GPU_Particles2D:emitting")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -98,7 +99,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("GPUParticles2D:one_shot")
+tracks/3/path = NodePath("_GPU_Particles2D:one_shot")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -116,7 +117,7 @@ _data = {
 
 [node name="Lightning" type="Area2D"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="Environment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_kfp4f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -126,7 +127,7 @@ sprite_frames = ExtResource("1_weg7p")
 animation = &"STRIKE_1"
 offset = Vector2(0, -28)
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+[node name="_GPU_Particles2D" type="GPUParticles2D" parent="."]
 self_modulate = Color(1.502, 0, 1.502, 1)
 light_mask = 0
 emitting = false
@@ -135,7 +136,9 @@ process_material = ExtResource("3_02l3o")
 one_shot = true
 explosiveness = 0.75
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D_Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = ExtResource("4_sswnf")
 debug_color = Color(1, 0, 0, 0.5)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

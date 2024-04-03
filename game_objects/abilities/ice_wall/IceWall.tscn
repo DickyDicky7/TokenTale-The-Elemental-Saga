@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://c5cd1cni7lng6"]
+[gd_scene load_steps=12 format=3 uid="uid://c5cd1cni7lng6"]
 
 [ext_resource type="Environment" uid="uid://bw0r14gbvmxe" path="res://game_objects/abilities/ice_wall/IceWall_Environment--.tres" id="1_4vf6p"]
 [ext_resource type="Script" path="res://game_objects/abilities/ice_wall/IceWall.cs" id="1_qnmtq"]
 [ext_resource type="Texture2D" uid="uid://biby50spfaeeh" path="res://game_objects/abilities/ice_wall/IceWall_CanvasTexture.tres" id="2_88oe7"]
 [ext_resource type="SpriteFrames" uid="uid://ofp0tk1wq763" path="res://game_objects/abilities/ice_wall/IceWall_SpriteFrames.tres" id="4_hhthl"]
 [ext_resource type="BehaviorTree" uid="uid://nn2qdvt6kpw5" path="res://game_objects/abilities/ice_wall/IceWall_Behavior--Tree.tres" id="5_j60wh"]
+[ext_resource type="Shape2D" uid="uid://bis0mri4l5blk" path="res://game_objects/abilities/ice_wall/IceWall_CollisionShape2D_Hitbox.tres" id="6_45exp"]
 [ext_resource type="Material" uid="uid://cqe82k0bohca3" path="res://game_objects/abilities/ice_wall/IceWall_ParticleProcessMaterial.tres" id="6_agghg"]
 [ext_resource type="BlackboardPlan" uid="uid://b3mulpkovmqc7" path="res://game_objects/abilities/ice_wall/IceWall_BlackboardPlan.tres" id="7_df5dt"]
 
@@ -695,29 +696,22 @@ _data = {
 "SHOW": SubResource("Animation_8mfpu")
 }
 
-[node name="IceWall" type="Area2D" node_paths=PackedStringArray("GpuParticles", "Sprites", "AnimatedSprites")]
+[node name="IceWall" type="Area2D" node_paths=PackedStringArray("GpuParticles", "Sprites", "AnimatedSprites", "CollisionShape")]
 script = ExtResource("1_qnmtq")
 GpuParticles = [NodePath("GPUParticles2D_1"), NodePath("GPUParticles2D_2"), NodePath("GPUParticles2D_3"), NodePath("GPUParticles2D_4"), NodePath("GPUParticles2D_5"), NodePath("GPUParticles2D_6"), NodePath("GPUParticles2D_7")]
 Sprites = [NodePath("Sprite2D_1"), NodePath("Sprite2D_2"), NodePath("Sprite2D_3"), NodePath("Sprite2D_4"), NodePath("Sprite2D_5"), NodePath("Sprite2D_6"), NodePath("Sprite2D_7")]
 AnimatedSprites = [NodePath("AnimatedSprite2D_1"), NodePath("AnimatedSprite2D_2"), NodePath("AnimatedSprite2D_3"), NodePath("AnimatedSprite2D_4"), NodePath("AnimatedSprite2D_5"), NodePath("AnimatedSprite2D_6"), NodePath("AnimatedSprite2D_7")]
+CollisionShape = NodePath("CollisionShape2D_Hitbox")
 Space = 35.0
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="Environment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_4vf6p")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-debug_color = Color(1, 0, 0, 0.5)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_j23u4")
-}
 
 [node name="Sprite2D_1" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1.5, 1)
 self_modulate = Color(0.678431, 0.847059, 0.901961, 1)
 light_mask = 0
-scale = Vector2(0.1, 1e-05)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_88oe7")
 offset = Vector2(0, -350)
 
@@ -725,7 +719,7 @@ offset = Vector2(0, -350)
 modulate = Color(1, 1, 1.5, 1)
 self_modulate = Color(0.678431, 0.847059, 0.901961, 1)
 light_mask = 0
-scale = Vector2(0.1, 1e-05)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_88oe7")
 offset = Vector2(0, -350)
 
@@ -733,7 +727,7 @@ offset = Vector2(0, -350)
 modulate = Color(1, 1, 1.5, 1)
 self_modulate = Color(0.678431, 0.847059, 0.901961, 1)
 light_mask = 0
-scale = Vector2(0.1, 1e-05)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_88oe7")
 offset = Vector2(0, -350)
 
@@ -741,7 +735,7 @@ offset = Vector2(0, -350)
 modulate = Color(1, 1, 1.5, 1)
 self_modulate = Color(0.678431, 0.847059, 0.901961, 1)
 light_mask = 0
-scale = Vector2(0.1, 1e-05)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_88oe7")
 offset = Vector2(0, -350)
 
@@ -749,7 +743,7 @@ offset = Vector2(0, -350)
 modulate = Color(1, 1, 1.5, 1)
 self_modulate = Color(0.678431, 0.847059, 0.901961, 1)
 light_mask = 0
-scale = Vector2(0.1, 1e-05)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_88oe7")
 offset = Vector2(0, -350)
 
@@ -757,7 +751,7 @@ offset = Vector2(0, -350)
 modulate = Color(1, 1, 1.5, 1)
 self_modulate = Color(0.678431, 0.847059, 0.901961, 1)
 light_mask = 0
-scale = Vector2(0.1, 1e-05)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_88oe7")
 offset = Vector2(0, -350)
 
@@ -765,7 +759,7 @@ offset = Vector2(0, -350)
 modulate = Color(1, 1, 1.5, 1)
 self_modulate = Color(0.678431, 0.847059, 0.901961, 1)
 light_mask = 0
-scale = Vector2(0.1, 1e-05)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_88oe7")
 offset = Vector2(0, -350)
 
@@ -814,51 +808,54 @@ animation = &"HIDE"
 [node name="GPUParticles2D_1" type="GPUParticles2D" parent="."]
 self_modulate = Color(1.5, 1.5, 1.5, 1)
 light_mask = 0
-emitting = false
 amount = 2
 process_material = ExtResource("6_agghg")
 
 [node name="GPUParticles2D_2" type="GPUParticles2D" parent="."]
 self_modulate = Color(1.5, 1.5, 1.5, 1)
 light_mask = 0
-emitting = false
 amount = 2
 process_material = ExtResource("6_agghg")
 
 [node name="GPUParticles2D_3" type="GPUParticles2D" parent="."]
 self_modulate = Color(1.5, 1.5, 1.5, 1)
 light_mask = 0
-emitting = false
 amount = 2
 process_material = ExtResource("6_agghg")
 
 [node name="GPUParticles2D_4" type="GPUParticles2D" parent="."]
 self_modulate = Color(1.5, 1.5, 1.5, 1)
 light_mask = 0
-emitting = false
 amount = 2
 process_material = ExtResource("6_agghg")
 
 [node name="GPUParticles2D_5" type="GPUParticles2D" parent="."]
 self_modulate = Color(1.5, 1.5, 1.5, 1)
 light_mask = 0
-emitting = false
 amount = 2
 process_material = ExtResource("6_agghg")
 
 [node name="GPUParticles2D_6" type="GPUParticles2D" parent="."]
 self_modulate = Color(1.5, 1.5, 1.5, 1)
 light_mask = 0
-emitting = false
 amount = 2
 process_material = ExtResource("6_agghg")
 
 [node name="GPUParticles2D_7" type="GPUParticles2D" parent="."]
 self_modulate = Color(1.5, 1.5, 1.5, 1)
 light_mask = 0
-emitting = false
 amount = 2
 process_material = ExtResource("6_agghg")
+
+[node name="CollisionShape2D_Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(0, -25)
+shape = ExtResource("6_45exp")
+debug_color = Color(1, 0, 0, 0.5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_j23u4")
+}
 
 [node name="BTPlayer" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("5_j60wh")

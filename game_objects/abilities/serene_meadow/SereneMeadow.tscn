@@ -3,14 +3,11 @@
 [ext_resource type="Environment" uid="uid://c0vq1cnrbctub" path="res://game_objects/abilities/serene_meadow/SereneMeadow_Environment.tres" id="1_iqcvn"]
 [ext_resource type="SpriteFrames" uid="uid://74mw55r73mxw" path="res://game_objects/abilities/serene_meadow/SereneMeadow_SpriteFrames.tres" id="2_1l66i"]
 [ext_resource type="Material" uid="uid://hguily8dqjxq" path="res://game_objects/abilities/serene_meadow/SereneMeadow_CanvasItemMaterial.tres" id="3_lyj7j"]
-[ext_resource type="Texture2D" uid="uid://lf41k63wlo6k" path="res://game_objects/abilities/serene_meadow/SereneMeadow_CanvasTexture.tres" id="3_nyuvd"]
 [ext_resource type="Material" uid="uid://gvfxbn6bmmfh" path="res://game_objects/abilities/serene_meadow/SereneMeadow_ParticleProcessMaterial.tres" id="4_m58mn"]
+[ext_resource type="Texture2D" uid="uid://cg2gvogfbke66" path="res://game_objects/abilities/serene_meadow/SereneMeadow_Atlas-Texture.tres" id="5_y1h1v"]
+[ext_resource type="Shape2D" uid="uid://daj7gefk4ltnw" path="res://game_objects/abilities/serene_meadow/SereneMeadow_CollisionShape2D_Hitbox.tres" id="6_0l03q"]
 [ext_resource type="BehaviorTree" uid="uid://d0v28a7onhhlt" path="res://game_objects/abilities/serene_meadow/SereneMeadow_Behavior--Tree.tres" id="6_6obnq"]
 [ext_resource type="BlackboardPlan" uid="uid://0pw0xgfmhyg3" path="res://game_objects/abilities/serene_meadow/SereneMeadow_BlackboardPlan.tres" id="7_wkwh2"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xyhpm"]
-atlas = ExtResource("3_nyuvd")
-region = Rect2(0, 192, 256, 32)
 
 [sub_resource type="Animation" id="Animation_kq1p0"]
 length = 1.82
@@ -47,7 +44,7 @@ _data = {
 
 [node name="SereneMeadow" type="Area2D"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="Environment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_iqcvn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -55,18 +52,20 @@ self_modulate = Color(1, 1.5, 1, 1)
 light_mask = 0
 sprite_frames = ExtResource("2_1l66i")
 animation = &"HEAL"
+offset = Vector2(-0.5, -2)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-debug_color = Color(1, 0, 0, 0.5)
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+[node name="_GPU_Particles2D" type="GPUParticles2D" parent="."]
 self_modulate = Color(1, 1.5, 1, 1)
 light_mask = 0
 material = ExtResource("3_lyj7j")
 amount = 10
 process_material = ExtResource("4_m58mn")
-texture = SubResource("AtlasTexture_xyhpm")
+texture = ExtResource("5_y1h1v")
 randomness = 1.0
+
+[node name="CollisionShape2D_Hitbox" type="CollisionShape2D" parent="."]
+shape = ExtResource("6_0l03q")
+debug_color = Color(1, 0, 0, 0.5)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

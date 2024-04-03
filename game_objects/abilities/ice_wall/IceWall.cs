@@ -12,8 +12,9 @@ public partial class IceWall : Area2D
     [Export]
     public Array<AnimatedSprite2D> AnimatedSprites { get; set; }
     [Export]
-    public float Space { get; set; }
-
+    public       CollisionShape2D  CollisionShape  { get; set; }
+    [Export]
+    public float  Space  { get; set; }
     [Export]
     public Node2D Caster { get; set; }
 
@@ -64,7 +65,7 @@ public partial class IceWall : Area2D
             AnimatedSprites[index].Position = Sprites[index].Position;
                GpuParticles[index].Position = Sprites[index].Position;
         }
-
+        CollisionShape.Rotation = Sprites[0].Position.Angle();
     }
 
     

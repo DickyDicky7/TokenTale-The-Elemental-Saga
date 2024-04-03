@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bj14wt31rsok8"]
+[gd_scene load_steps=11 format=3 uid="uid://bj14wt31rsok8"]
 
 [ext_resource type="SpriteFrames" uid="uid://1pmwtiv8namm" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_SpriteFrames.tres" id="1_84jd6"]
 [ext_resource type="Environment" uid="uid://dwifqdh3kpbj7" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_Environment.tres" id="1_uiwra"]
 [ext_resource type="Material" uid="uid://d316r33a4mctm" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_ParticleProcessMaterial.tres" id="2_w0jog"]
 [ext_resource type="BehaviorTree" uid="uid://dskwhh44c40yw" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_Behavior--Tree.tres" id="3_cxc0c"]
 [ext_resource type="BlackboardPlan" uid="uid://bbhvcmoobn466" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_BlackboardPlan.tres" id="4_n17je"]
+[ext_resource type="Shape2D" uid="uid://bbcv0fxfyqoqo" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_CollisionShape2D_Hitbox.tres" id="4_u4tra"]
 
 [sub_resource type="Animation" id="Animation_hqgdx"]
 length = 0.6
@@ -97,10 +98,10 @@ _data = {
 
 [node name="PenetratingSquirt" type="Area2D"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="Environment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_uiwra")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+[node name="_GPU_Particles2D" type="GPUParticles2D" parent="."]
 self_modulate = Color(1, 1, 1.5, 1)
 light_mask = 0
 position = Vector2(0, -160)
@@ -115,7 +116,9 @@ sprite_frames = ExtResource("1_84jd6")
 animation = &"FLY"
 offset = Vector2(0, -48)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D_Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(0, -80)
+shape = ExtResource("4_u4tra")
 debug_color = Color(1, 0, 0, 0.5)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bocc0hkunia3p"]
+[gd_scene load_steps=9 format=3 uid="uid://bocc0hkunia3p"]
 
 [ext_resource type="SpriteFrames" uid="uid://dkm52u4g8thxs" path="res://game_objects/abilities/overcharge/Overcharge_SpriteFrames.tres" id="1_30fki"]
 [ext_resource type="Environment" uid="uid://87il5cq0l1ru" path="res://game_objects/abilities/overcharge/Overcharge_Environment$.tres" id="1_84k4o"]
+[ext_resource type="Shape2D" uid="uid://bqq25ochiw227" path="res://game_objects/abilities/overcharge/Overcharge_CollisionShape2D_Hitbox.tres" id="3_pn3vw"]
 [ext_resource type="BehaviorTree" uid="uid://b87bd7nr35dho" path="res://game_objects/abilities/overcharge/Overcharge_Behavior--Tree.tres" id="3_uoa5s"]
 [ext_resource type="BlackboardPlan" uid="uid://cr5dngmy2iuq1" path="res://game_objects/abilities/overcharge/Overcharge_BlackboardPlan.tres" id="4_0boa7"]
 
@@ -69,7 +70,7 @@ _data = {
 
 [node name="Overcharge" type="Area2D"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="Environment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_84k4o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -78,7 +79,8 @@ light_mask = 0
 sprite_frames = ExtResource("1_30fki")
 animation = &"HIT_0"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D_Hitbox" type="CollisionShape2D" parent="."]
+shape = ExtResource("3_pn3vw")
 debug_color = Color(1, 0, 0, 0.5)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

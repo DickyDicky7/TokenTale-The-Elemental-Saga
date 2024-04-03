@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dixv731fuc6gj"]
+[gd_scene load_steps=11 format=3 uid="uid://dixv731fuc6gj"]
 
 [ext_resource type="Environment" uid="uid://bwfmym0dt7a6a" path="res://game_objects/abilities/fire_ball/FireBall_Environment.tres" id="1_hmiia"]
 [ext_resource type="SpriteFrames" uid="uid://cg6il1iahrcxh" path="res://game_objects/abilities/fire_ball/FireBall_SpriteFrames.tres" id="1_ndwmx"]
 [ext_resource type="Material" uid="uid://bhpsa03ortrg2" path="res://game_objects/abilities/fire_ball/FireBall_ParticleProcessMaterial.tres" id="2_f64g0"]
 [ext_resource type="BehaviorTree" uid="uid://b0fwx3pd1yexw" path="res://game_objects/abilities/fire_ball/FireBall_Behavior--Tree.tres" id="3_xm2p1"]
 [ext_resource type="BlackboardPlan" uid="uid://bpjbwqpw0pbsr" path="res://game_objects/abilities/fire_ball/FireBall_BlackboardPlan.tres" id="4_fbkqr"]
+[ext_resource type="Shape2D" uid="uid://cy3p8kfgqsn31" path="res://game_objects/abilities/fire_ball/FireBall_CollisionShape2D_Hitbox.tres" id="4_yerru"]
 
 [sub_resource type="Animation" id="Animation_22eah"]
 length = 0.25
@@ -120,10 +121,10 @@ _data = {
 
 [node name="FireBall" type="Area2D"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="Environment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_hmiia")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+[node name="_GPU_Particles2D" type="GPUParticles2D" parent="."]
 self_modulate = Color(1.5, 1, 1, 1)
 light_mask = 0
 amount = 50
@@ -135,7 +136,8 @@ light_mask = 0
 sprite_frames = ExtResource("1_ndwmx")
 animation = &"FLY"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D_Hitbox" type="CollisionShape2D" parent="."]
+shape = ExtResource("4_yerru")
 debug_color = Color(1, 0, 0, 0.5)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

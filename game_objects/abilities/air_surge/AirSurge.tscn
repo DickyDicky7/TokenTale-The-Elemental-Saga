@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://dtm1w4b8kbx8t"]
+[gd_scene load_steps=12 format=3 uid="uid://dtm1w4b8kbx8t"]
 
 [ext_resource type="SpriteFrames" uid="uid://b30e66pvrhgxt" path="res://game_objects/abilities/air_surge/AirSurge_SpriteFrames.tres" id="1_t8oyk"]
 [ext_resource type="Environment" uid="uid://budridhq13dap" path="res://game_objects/abilities/air_surge/AirSurge_Environment.tres" id="1_xu7h8"]
 [ext_resource type="Material" uid="uid://t71ofl8t7tll" path="res://game_objects/abilities/air_surge/AirSurge_ParticleProcessMaterial.tres" id="2_e1dvs"]
 [ext_resource type="Texture2D" uid="uid://ysxny8g0qd3u" path="res://game_objects/abilities/air_surge/AirSurge_AnimatedTexture.tres" id="3_ni1xq"]
 [ext_resource type="BehaviorTree" uid="uid://byjbb1t3ra7av" path="res://game_objects/abilities/air_surge/AirSurge_Behavior--Tree.tres" id="3_qbw3m"]
+[ext_resource type="Shape2D" uid="uid://uurhto8fhfgs" path="res://game_objects/abilities/air_surge/AirSurge_CollisionShape2D_Hitbox.tres" id="5_epa4i"]
 [ext_resource type="BlackboardPlan" uid="uid://dpdx4v6g2gyy6" path="res://game_objects/abilities/air_surge/AirSurge_BlackboardPlan.tres" id="6_u1pv5"]
 
 [sub_resource type="Animation" id="Animation_hwfks"]
@@ -98,7 +99,7 @@ _data = {
 
 [node name="AirSurge" type="Area2D"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="Environment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_xu7h8")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
@@ -113,12 +114,13 @@ randomness = 1.0
 self_modulate = Color(1, 1.5, 1, 1)
 light_mask = 0
 sprite_frames = ExtResource("1_t8oyk")
-animation = &"FLY"
+animation = &"OUT"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D_Hitbox" type="CollisionShape2D" parent="."]
+shape = ExtResource("5_epa4i")
 debug_color = Color(1, 0, 0, 0.5)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="A$Player" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_v16oi")
 }

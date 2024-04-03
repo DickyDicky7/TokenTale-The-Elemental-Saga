@@ -3,7 +3,7 @@
 [ext_resource type="Environment" uid="uid://tiy14vcadk1h" path="res://game_objects/abilities/ignite/Ignite_Environment-.tres" id="1_owvx6"]
 [ext_resource type="SpriteFrames" uid="uid://cujb3xpnlt8n" path="res://game_objects/abilities/ignite/Ignite_SpriteFrames.tres" id="2_g6bq7"]
 [ext_resource type="BehaviorTree" uid="uid://x5uxg6xnw76l" path="res://game_objects/abilities/ignite/Ignite_Behavior--Tree.tres" id="3_ifj0d"]
-[ext_resource type="Shape2D" uid="uid://br3l4sb6lt6eh" path="res://game_objects/abilities/ignite/Ignite_CollisionShape2D.tres" id="3_uvvx6"]
+[ext_resource type="Shape2D" uid="uid://br3l4sb6lt6eh" path="res://game_objects/abilities/ignite/Ignite_CollisionShape2D_Hitbox.tres" id="3_uvvx6"]
 [ext_resource type="BlackboardPlan" uid="uid://del5c4mapvpp1" path="res://game_objects/abilities/ignite/Ignite_BlackboardPlan.tres" id="4_v6jln"]
 
 [sub_resource type="Animation" id="Animation_u7yod"]
@@ -197,7 +197,7 @@ animation = &"HIT_LOOPS"
 frame = 15
 offset = Vector2(0, -48)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D_Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
 shape = ExtResource("3_uvvx6")
 debug_color = Color(1, 0, 0, 0.5)

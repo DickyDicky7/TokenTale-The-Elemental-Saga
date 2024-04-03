@@ -37,6 +37,11 @@ public static class Extension
         return @vector2 == Vector2.Zero;
     }
 
+    public static bool IsZero(this Vector3 @vector3)
+    {
+        return @vector3 == Vector3.Zero;
+    }
+
     public static void Insert(this Array<State>
         @activeComponentStates, State @newComponentState)
     {
@@ -52,6 +57,34 @@ public static class Extension
             &&  inputEventKey.Pressed
             &&  inputEventKey.Keycode
             ==               @keycode;
+    }
+
+    public static Vector3 ConvertToTopDown(this Vector2 @vector2)
+    {
+    return new(  @vector2.X, 0.0f, @vector2.Y  );
+    }
+
+    public static Vector2 ConvertToTopDown(this Vector3 @vector3)
+    {
+    return new(  @vector3.X,       @vector3.Z  );
+    }
+
+    public static Vector3 GetGlobalMousePosition(this Node3D @node_3D, float zDepth)
+    {
+        Viewport viewport = @node_3D.GetViewport();
+        Camera3D camera3D = viewport.GetCamera3D();
+        Vector3 globalMousePosition
+                          = camera3D. ProjectPosition(
+                            viewport.GetMousePosition(
+                         ), zDepth);
+        return  globalMousePosition;
+    }
+
+    public static Vector3 Get_LocalMousePosition(this Node3D @node_3D, float zDepth)
+    {
+        Vector3 globalMousePosition = @node_3D.GetGlobalMousePosition(zDepth);
+        Vector3 @localMousePosition = @node_3D.  ToLocal(globalMousePosition);
+        return  @localMousePosition;
     }
 }
 

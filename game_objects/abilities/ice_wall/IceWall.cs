@@ -53,10 +53,10 @@ public partial class IceWall : Area2D
 
         t = Caster.GetLocalMousePosition().Rotated(r).Normalized();
 
-        float _ = -Sprites.Count / 2.0f;
+        int _   = -Sprites.Count / 2;
         for (int
           index = 0;
-          index <  Sprites.Count       ;
+          index <  Sprites.Count    ;
         ++index)
         {
             Sprites[index].Position =

@@ -86,5 +86,14 @@ public static class Extension
         Vector3 @localMousePosition = @node_3D.  ToLocal(globalMousePosition);
         return  @localMousePosition;
     }
+
+    public static Vector2 GetScreenMousePosition(this Node @node)
+    {
+        Viewport viewport = @node.GetViewport();
+        return
+        viewport.GetMousePosition() -
+        viewport.       GetWindow() .
+        Size / 2;
+    }
 }
 

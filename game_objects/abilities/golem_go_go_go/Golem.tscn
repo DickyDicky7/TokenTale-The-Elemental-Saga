@@ -1,10 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://gxsyf4p7kvui"]
+[gd_scene load_steps=15 format=3 uid="uid://gxsyf4p7kvui"]
 
 [ext_resource type="Environment" uid="uid://cj12gg1167w1" path="res://game_objects/abilities/golem_go_go_go/Golem_Environment.tres" id="1_bpjno"]
 [ext_resource type="SpriteFrames" uid="uid://cxi3r8was5xdg" path="res://game_objects/abilities/golem_go_go_go/Golem_SpriteFrames_$Main$.tres" id="2_3dckx"]
 [ext_resource type="SpriteFrames" uid="uid://8wj63jggiiu6" path="res://game_objects/abilities/golem_go_go_go/Golem_SpriteFrames_Summon.tres" id="3_6dbhu"]
 [ext_resource type="BehaviorTree" uid="uid://cvws5kehwlert" path="res://game_objects/abilities/golem_go_go_go/Golem_Behavior--Tree.tres" id="3_ds04f"]
 [ext_resource type="BlackboardPlan" uid="uid://c5mmht5nhf8xa" path="res://game_objects/abilities/golem_go_go_go/Golem_BlackboardPlan.tres" id="4_kmc5g"]
+[ext_resource type="PackedScene" uid="uid://dklk814gsey6g" path="res://game_objects/shared/EyeSight.tscn" id="6_l4b4t"]
+[ext_resource type="Script" path="res://game_objects/shared/Flippable2DHLocalSeeingDirection.cs" id="7_o43fc"]
 
 [sub_resource type="Animation" id="Animation_st5ox"]
 length = 0.5
@@ -227,8 +229,14 @@ sprite_frames = ExtResource("3_6dbhu")
 animation = &"SUMMON"
 offset = Vector2(0, -8)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D_Hitbox" type="CollisionShape2D" parent="."]
 debug_color = Color(1, 0, 0, 0.5)
+
+[node name="CollisionShape2D_Body" type="CollisionShape2D" parent="."]
+debug_color = Color(0, 1, 0, 0.2)
+
+[node name="CollisionShape2D_Feet" type="CollisionShape2D" parent="."]
+debug_color = Color(0, 0, 1, 0.2)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -238,3 +246,9 @@ libraries = {
 [node name="BTPlayer" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("3_ds04f")
 blackboard_plan = ExtResource("4_kmc5g")
+
+[node name="EyeSight" parent="." instance=ExtResource("6_l4b4t")]
+
+[node name="Flippable2DHLocalSeeingDirection" type="Node" parent="." node_paths=PackedStringArray("Node2D")]
+script = ExtResource("7_o43fc")
+Node2D = NodePath("..")

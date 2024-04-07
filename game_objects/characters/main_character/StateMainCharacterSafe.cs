@@ -6,8 +6,8 @@ public partial class StateMainCharacterSafe : State
 {
     [Export]
     [ExportGroup("Components @@")]
-    public EyeSight
-           EyeSight
+    public EyeSight3D
+           EyeSight3D
     {
         get;
         set;
@@ -30,8 +30,8 @@ public partial class StateMainCharacterSafe : State
     {
                     base._Process(       @delta);
 
-        SeeingDirection = MainCharacter.GetLocalMousePosition();
-        EyeSight
+        SeeingDirection = MainCharacter.GetScreenMousePosition();
+        EyeSight3D
         .FollowPosition(
         SeeingDirection);
     }

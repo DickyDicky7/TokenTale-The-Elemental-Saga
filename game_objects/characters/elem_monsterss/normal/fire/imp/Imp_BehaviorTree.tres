@@ -1,18 +1,20 @@
-[gd_resource type="BehaviorTree" load_steps=12 format=3 uid="uid://diju3wt86axt4"]
+[gd_resource type="BehaviorTree" load_steps=13 format=3 uid="uid://diju3wt86axt4"]
 
 [ext_resource type="BBNode" uid="uid://836uj4l1m448" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_BBNode_AnimationPlayer.tres" id="2_nxwe5"]
 [ext_resource type="Script" path="res://ai/tasks/patroll.gd" id="2_yn8n1"]
 [ext_resource type="Script" path="res://ai/tasks/runaway.gd" id="3_fww78"]
 
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_lmptm"]
+
 [sub_resource type="BTAction" id="BTAction_238a8"]
 script = ExtResource("2_yn8n1")
-TargetCharacter2DName = &"MainCharacter"
+TargetCharacter3DName = &"MainCharacter"
 MinSeeableAngle = -90.0
 MaxSeeableAngle = 90.0
-PathShapeCast2D = NodePath("ShapeCast2D")
-PathRay__Cast2D = NodePath("Ray__Cast2D")
-PathTimer_ChangeLocalSeeingDirection = NodePath("Timer_ChangeLocalSeeingDirection")
-PathFlippable2DHLocalSeeingDirection = NodePath("Flippable2DHLocalSeeingDirection")
+PathShapeCast3D = NodePath("ShapeCast3D")
+PathRay__Cast3D = NodePath("Ray__Cast3D")
+PathTimerChangeFlipH____________________ = NodePath("TimerChangeFlipH____________________")
+PathFlippable3DSpriteBase3DConsolidation = NodePath("Flippable3DSpriteBase3DConsolidation")
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_llcto"]
 animation_player = ExtResource("2_nxwe5")
@@ -24,14 +26,14 @@ children = [SubResource("BTAction_238a8"), SubResource("BTPlayAnimation_llcto")]
 
 [sub_resource type="BTAction" id="BTAction_sfuwd"]
 script = ExtResource("3_fww78")
-TargetCharacter2DName = &"MainCharacter"
+TargetCharacter3DName = &"MainCharacter"
 MinSeeableAngle = 0.0
 MaxSeeableAngle = 0.0
-PathShapeCast2D = NodePath("ShapeCast2D")
-PathRay__Cast2D = NodePath("Ray__Cast2D")
-PathTimer_ChangeLocalSeeingDirection = NodePath("Timer_ChangeLocalSeeingDirection")
-PathFlippable2DHLocalSeeingDirection = NodePath("Flippable2DHLocalSeeingDirection")
-maxDistance = 200.0
+PathShapeCast3D = NodePath("ShapeCast3D")
+PathRay__Cast3D = NodePath("Ray__Cast3D")
+PathTimerChangeFlipH____________________ = NodePath("TimerChangeFlipH____________________")
+PathFlippable3DSpriteBase3DConsolidation = NodePath("Flippable3DSpriteBase3DConsolidation")
+maxDistance = 2.0
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_1ujvc"]
 animation_player = ExtResource("2_nxwe5")
@@ -49,4 +51,5 @@ children = [SubResource("BTParallel_3owjs")]
 children = [SubResource("BTParallel_jh3t7"), SubResource("BTDelay_i34sg")]
 
 [resource]
+blackboard_plan = SubResource("BlackboardPlan_lmptm")
 root_task = SubResource("BTSequence_wuf1r")

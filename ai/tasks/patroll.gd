@@ -4,59 +4,72 @@ extends BTAction
 func _generate_name() -> String:
 	return "PATROLL";
 
-@export var TargetCharacter2DName: StringName
-@export var MinSeeableAngle: float
-@export var MaxSeeableAngle: float
-@export var PathShapeCast2D: NodePath
-@export var PathRay__Cast2D: NodePath
-@export var PathTimer_ChangeLocalSeeingDirection: NodePath
-@export var PathFlippable2DHLocalSeeingDirection: NodePath
+@export var TargetCharacter3DName: StringName;
+@export var MinSeeableAngle: float;
+@export var MaxSeeableAngle: float;
+@export var PathShapeCast3D: NodePath;
+@export var PathRay__Cast3D: NodePath;
+@export var PathTimerChangeFlipH____________________: NodePath;
+@export var PathFlippable3DSpriteBase3DConsolidation: NodePath;
 
-var currentCharacter2D: Character2D
-var shapeCast2D: ShapeCast2D
-var ray__Cast2D:   RayCast2D
-var timer_ChangeLocalSeeingDirection: Timer
-var flippable2DHLocalSeeingDirection: Flippable2DHLocalSeeingDirection
+var currentCharacter3D: Character3D;
+var shapeCast3D: ShapeCast3D;
+var ray__Cast3D:   RayCast3D;
+var timerChangeFlipH____________________:                                Timer;
+var flippable3DSpriteBase3DConsolidation: Flippable3DSpriteBase3DConsolidation;
 
 func _setup() -> void:
-	currentCharacter2D = agent;
-	shapeCast2D = agent.get_node(PathShapeCast2D);
-	ray__Cast2D = agent.get_node(PathRay__Cast2D);
-	timer_ChangeLocalSeeingDirection = agent.get_node(PathTimer_ChangeLocalSeeingDirection);
-	flippable2DHLocalSeeingDirection = agent.get_node(PathFlippable2DHLocalSeeingDirection);
+	currentCharacter3D = agent;
+	shapeCast3D = agent.get_node(PathShapeCast3D);
+	ray__Cast3D = agent.get_node(PathRay__Cast3D);
+	timerChangeFlipH____________________ = agent.get_node(PathTimerChangeFlipH____________________);
+	flippable3DSpriteBase3DConsolidation = agent.get_node(PathFlippable3DSpriteBase3DConsolidation);
+	defaultTargetPosition = ray__Cast3D .target_position ;
 	pass
 
+var defaultTargetPosition : Vector3                      ;
 func _enter() -> void:
-	timer_ChangeLocalSeeingDirection.timeout.   connect(OnTimer_ChangeLocalSeeingDirectionTimeout);
+	var mvDirectionX :float = blackboard.top(   ).  get_var("mvDirectionX", 0, false);
+	if((mvDirectionX < 0 && defaultTargetPosition.x > 0)
+	|| (mvDirectionX > 0 && defaultTargetPosition.x < 0)):
+		defaultTargetPosition.x *= -1;
+	timerChangeFlipH____________________.timeout.   connect(OnTimerChangeFlipH____________________Timeout);
 	pass
 
 func _exit () -> void:
-	timer_ChangeLocalSeeingDirection.timeout.disconnect(OnTimer_ChangeLocalSeeingDirectionTimeout);
+	timerChangeFlipH____________________.timeout.disconnect(OnTimerChangeFlipH____________________Timeout);
 	pass
 
 func _tick(_delta: float) -> Status:
-	if (shapeCast2D.is_colliding()):
-		for i in range(shapeCast2D.collision_result.size()):
-			var  targetCharacter2D:Object=        shapeCast2D.get_collider(i);
-			if  (targetCharacter2D      !=  null
-			&&   targetCharacter2D      is        Character2D
-			&&	 targetCharacter2D.name ==  TargetCharacter2DName):
+	ray__Cast3D.target_position = defaultTargetPosition;
+	ray__Cast3D. force_raycast_update                   () ;
+	if (shapeCast3D.is_colliding()):
+		for i in range(shapeCast3D.collision_result.size()):
+			var  targetCharacter3D:Object=        shapeCast3D.get_collider(i);
+			if  (targetCharacter3D      !=  null
+			&&   targetCharacter3D      is        Character3D
+			&&	 targetCharacter3D.name ==  TargetCharacter3DName):
 				var angle:float = clamp(
-				currentCharacter2D.to_local
-				(targetCharacter2D.global_position).angle()
+				currentCharacter3D.to_local
+				(targetCharacter3D.global_position).signed_angle_to
+				(                             defaultTargetPosition , Vector3.DOWN)
 				, deg_to_rad(MinSeeableAngle)
 				, deg_to_rad(MaxSeeableAngle)
 				);
-				ray__Cast2D.rotation  =  angle;
+				# print(rad_to_deg(angle))
+				ray__Cast3D.target_position = defaultTargetPosition . rotated(
+					Vector3.UP,        angle);
+				ray__Cast3D.       force_raycast_update ()  ;
 				if (
-				ray__Cast2D.get_collider_rid()
-										==  targetCharacter2D
+				ray__Cast3D.get_collider_rid()
+										==  targetCharacter3D
 									.get_rid()):
 					return SUCCESS;
 	return RUNNING;
 
-func OnTimer_ChangeLocalSeeingDirectionTimeout() -> void:
-	flippable2DHLocalSeeingDirection.LocalSeeingDirection *= - 1.0;
+func OnTimerChangeFlipH____________________Timeout() -> void:
+	flippable3DSpriteBase3DConsolidation.FlipH = not flippable3DSpriteBase3DConsolidation.FlipH;
+	defaultTargetPosition.x *= -1 ;
 	pass
 
 func _get_configuration_warnings() -> PackedStringArray:

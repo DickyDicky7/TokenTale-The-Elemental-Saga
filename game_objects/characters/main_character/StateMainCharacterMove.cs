@@ -22,7 +22,7 @@ public partial class StateMainCharacterMove : State
 
     [Export]
     [ExportGroup("Parameters @@")]
-    public Vector2 MovingDirection { get; set; }
+    public Vector3 MovingDirection { get; set; }
 
     [Export]
     [ExportGroup("Parameters @@")]
@@ -50,9 +50,8 @@ public partial class StateMainCharacterMove : State
     {
         base         .          _Process(       @delta);
 
-        SeeingDirection
-              = Input.GetVector
-        ( "L", "R", "U", "D" );
+        SeeingDirection =
+            Extension.GetInputDirection();
         AnimationTree.Set("parameters/BS2D_MOVE/blend_position", SeeingDirection.Normalized());
     }
 
@@ -60,9 +59,8 @@ public partial class StateMainCharacterMove : State
     {
         base         .   _PhysicsProcess(       @delta);
 
-        MovingDirection
-              = Input.GetVector
-        ( "L", "R", "U", "D" );
+        MovingDirection =
+            Extension.GetInputDirection() .ConvertToTopDown   ();
         MainCharacter.Move(MovingDirection.Normalized(), @delta);
 
         if (               MovingDirection

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://it3ql3aqnlxk"]
+
+[ext_resource type="Texture2D" uid="uid://7vquh0pu8wtd" path="res://game_asset_s/icon.svg" id="1_oml07"]
+
+[sub_resource type="Environment" id="Environment_aqphi"]
+glow_enabled = true
+glow_intensity = 1.0
+glow_hdr_threshold = 0.1
+
+[node name="Node3D" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_aqphi")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = ExtResource("1_oml07")

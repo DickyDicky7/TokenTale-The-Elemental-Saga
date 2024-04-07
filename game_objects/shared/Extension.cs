@@ -95,5 +95,17 @@ public static class Extension
         viewport.       GetWindow() .
         Size / 2;
     }
+
+    public static void LookAt______Camera(this Node3D @node3D, Camera3D @camera3D)
+    {
+        @node3D.Rotation = @node3D.Rotation with { X = camera3D.Rotation.X, };
+    }
+
+    public static void LookAtActiveCamera(this Node3D @node3D                    )
+    {
+        @node3D.       LookAt______Camera(
+        @node3D.GetViewport()
+               .GetCamera3D()            );
+    }
 }
 

@@ -13,38 +13,38 @@ public partial class State_Bow_Shoot : State_Bow_
                     base._Enter();
 
         _Bow_.IsInUse = true;
-        _Bow_.AnimatedSprite2D__Main.Play("SHOOT");
-        _Bow_.CollisionShape2D      .SetDeferred("disabled", true);
-        _Bow_.AnimatedSprite2D__Main.AnimationFinished += AnimatedSprite2D__Main_AnimationFinished; ;
-        _Bow_.AnimatedSprite2DEffect.AnimationFinished += AnimatedSprite2DEffect_AnimationFinished;
+        _Bow_.AnimatedSprite3DMmainn.Play("SHOOT");
+        _Bow_.CollisionShape3D      .SetDeferred("disabled", true);
+        _Bow_.AnimatedSprite3DMmainn.AnimationFinished += AnimatedSprite3DMmainn_AnimationFinished; ;
+        _Bow_.AnimatedSprite3DEffect.AnimationFinished += AnimatedSprite3DEffect_AnimationFinished;
     }
 
     public override void _Leave()
     {
                     base._Leave();
 
-        _Bow_.AnimatedSprite2D__Main.AnimationFinished -= AnimatedSprite2D__Main_AnimationFinished; ;
-        _Bow_.AnimatedSprite2DEffect.AnimationFinished -= AnimatedSprite2DEffect_AnimationFinished;
+        _Bow_.AnimatedSprite3DMmainn.AnimationFinished -= AnimatedSprite3DMmainn_AnimationFinished; ;
+        _Bow_.AnimatedSprite3DEffect.AnimationFinished -= AnimatedSprite3DEffect_AnimationFinished;
     }
 
-    private void AnimatedSprite2D__Main_AnimationFinished()
+    private void AnimatedSprite3DMmainn_AnimationFinished()
     {
         if (_Bow_
-                .AnimatedSprite2D__Main.Animation == "SHOOT")
+                .AnimatedSprite3DMmainn.Animation == "SHOOT")
         {
             _Bow_
-                .AnimatedSprite2DEffect
+                .AnimatedSprite3DEffect
                 .Play("SHOOT");
         }
     }
 
-    private void AnimatedSprite2DEffect_AnimationFinished()
+    private void AnimatedSprite3DEffect_AnimationFinished()
     {
         if (_Bow_
-                .AnimatedSprite2DEffect.Animation == "SHOOT")
+                .AnimatedSprite3DEffect.Animation == "SHOOT")
         {
             _Bow_
-                .AnimatedSprite2DEffect
+                .AnimatedSprite3DEffect
                 .Play("RESET");
 
             ChangeState(ResetState);

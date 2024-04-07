@@ -17,27 +17,43 @@ public partial class StateSwordSlash : StateSword
         if    ( inputDirection ==
         Vector2.Zero)
         {
-            Sword.AnimatedSprite2D.FlipH =
-            Sword.GetLocalMousePosition().X switch
+            Vector2  screenMousePosition =
+            Sword.GetScreenMousePosition();
+            Sword.AnimatedSprite3D.FlipH =
+                     screenMousePosition.X switch
             {
                 <= 0 => !false,
                 _    =>  false,
             };
-            Sword.LookAt(Sword.GetGlobalMousePosition());
+            Sword.AnimatedSprite3D.Rotation =
+            Sword.AnimatedSprite3D.Rotation
+            with { Z = - Mathf.Pi / 2.0f-
+                     screenMousePosition.Angle(), };
+            Sword.Aareaa3D.Rotation = 
+            Sword.Aareaa3D.Rotation
+            with { Y = -
+                     screenMousePosition.Angle(), };
         }
         else
         {
-            Sword.AnimatedSprite2D.FlipH  =
-                             inputDirection.X switch
+            Sword.AnimatedSprite3D.FlipH =
+                          inputDirection.X switch
             {
                 <= 0 => !false,
                 _    =>  false,
             };
-            Sword.Rotation = inputDirection.Angle();
+            Sword.AnimatedSprite3D.Rotation = 
+            Sword.AnimatedSprite3D.Rotation
+            with { Z = - Mathf.Pi / 2.0f-
+                          inputDirection.Angle(), };
+            Sword.Aareaa3D.Rotation =
+            Sword.Aareaa3D.Rotation
+            with { Y = -
+                          inputDirection.Angle(), };
         }
-        Sword.CollisionShape2D.SetDeferred  ("disabled" , false);
-        Sword.AnimationPlayer_.AnimationFinished += AnimationPlayer__AnimationFinished;
-        Sword.AnimationPlayer_.Play($"SLASH_{Sword.SlashCount}");
+        Sword.CollisionShape3D.SetDeferred  ("disabled" , false);
+        Sword.AnimationPlayerr.AnimationFinished += AnimationPlayer__AnimationFinished;
+        Sword.AnimationPlayerr.Play($"SLASH_{Sword.SlashCount}");
         Sword.SlashCount ++  ;
         Sword.SlashCount %= 4;
     }
@@ -46,7 +62,7 @@ public partial class StateSwordSlash : StateSword
     public override void _Leave()
     {
                     base._Leave();
-        Sword.AnimationPlayer_.AnimationFinished -= AnimationPlayer__AnimationFinished;
+        Sword.AnimationPlayerr.AnimationFinished -= AnimationPlayer__AnimationFinished;
     }
 
     private void AnimationPlayer__AnimationFinished(StringName @animationName)

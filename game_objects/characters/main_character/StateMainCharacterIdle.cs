@@ -16,7 +16,7 @@ public partial class StateMainCharacterIdle : State
     [ExportGroup("Components @@")]
     public AnimationTree AnimationTree { get; set; }
 
-    public Vector2 MovingDirection { get; set; }
+    public Vector3 MovingDirection { get; set; }
     public Vector2 SeeingDirection { get; set; }
 
     public override void _Enter()
@@ -32,7 +32,7 @@ public partial class StateMainCharacterIdle : State
                     base.       _Process(       @delta);
 
         SeeingDirection =
-        MainCharacter.GetLocalMousePosition();
+        MainCharacter.GetScreenMousePosition();
         AnimationTree.Set("parameters/BS2D_IDLE/blend_position", SeeingDirection.Normalized());
     }
 
@@ -41,8 +41,7 @@ public partial class StateMainCharacterIdle : State
                     base._PhysicsProcess(       @delta);
 
         MovingDirection =
-                Input.GetVector
-        ( "L", "R", "U", "D" );
+            Extension.GetInputDirection() .ConvertToTopDown   ();
         MainCharacter.Stop(MovingDirection.Normalized(), @delta);
 
         if (!              MovingDirection.

@@ -3,7 +3,7 @@ using Godot;
 namespace TokenTaleTheElementalSaga;
 
 [GlobalClass]
-public abstract partial class Weapon : Item2D
+public abstract partial class Weapon : Item3D
 {
     protected      bool _isInUse     ;
     public virtual bool  IsInUse

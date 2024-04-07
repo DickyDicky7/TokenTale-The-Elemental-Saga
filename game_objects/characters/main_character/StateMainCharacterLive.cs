@@ -7,7 +7,7 @@ public partial class StateMainCharacterLive : State
     [Export]
     [ExportGroup("Components @@")]
     public MainCharacter
-       MainCharacter
+           MainCharacter
     {
         get;
         set;

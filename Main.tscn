@@ -1,36 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnes8lrs7ph26"]
+[gd_scene load_steps=5 format=3 uid="uid://cnes8lrs7ph26"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_px6f3"]
-[ext_resource type="Texture2D" uid="uid://c2rstliaftr7t" path="res://game_asset_s/bg.png" id="2_0h05d"]
+[ext_resource type="PlaneMesh" uid="uid://dmf8lh15l3415" path="res://BackgroundPlatform_Mesh.tres" id="2_rk0yh"]
 [ext_resource type="PackedScene" uid="uid://cwhrbtjfm2cpc" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp.tscn" id="4_hlmyl"]
-[ext_resource type="PackedScene" uid="uid://c5cd1cni7lng6" path="res://game_objects/abilities/ice_wall/IceWall.tscn" id="5_dx0o0"]
 [ext_resource type="PackedScene" uid="uid://c47tcwkeiq0h2" path="res://game_objects/characters/main_character/MainCharacter.tscn" id="9_seby3"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_px6f3")
 
-[node name="Background" type="Sprite2D" parent="."]
-z_index = -10
-texture = ExtResource("2_0h05d")
+[node name="BackgroundPlatform" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh = ExtResource("2_rk0yh")
 
 [node name="MainCharacter" parent="." instance=ExtResource("9_seby3")]
-position = Vector2(300, 300)
 
-[node name="Camera2D" type="Camera2D" parent="MainCharacter"]
-zoom = Vector2(2, 2)
-limit_smoothed = true
-position_smoothing_enabled = true
-rotation_smoothing_enabled = true
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
+[node name="Camera3D" type="Camera3D" parent="MainCharacter"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 1, 1)
 
-[node name="Imp" parent="." node_paths=PackedStringArray("EyeSight") instance=ExtResource("4_hlmyl")]
-position = Vector2(100, 100)
-EyeSight = NodePath("EyeSight")
-
-[node name="IceWall" parent="." node_paths=PackedStringArray("GpuParticles", "Sprites", "AnimatedSprites", "CollisionShape", "Caster") instance=ExtResource("5_dx0o0")]
-GpuParticles = [NodePath("GPUParticles2D_1"), NodePath("GPUParticles2D_2"), NodePath("GPUParticles2D_3"), NodePath("GPUParticles2D_4"), NodePath("GPUParticles2D_5"), NodePath("GPUParticles2D_6"), NodePath("GPUParticles2D_7")]
-Sprites = [NodePath("Sprite2D_1"), NodePath("Sprite2D_2"), NodePath("Sprite2D_3"), NodePath("Sprite2D_4"), NodePath("Sprite2D_5"), NodePath("Sprite2D_6"), NodePath("Sprite2D_7")]
-AnimatedSprites = [NodePath("AnimatedSprite2D_1"), NodePath("AnimatedSprite2D_2"), NodePath("AnimatedSprite2D_3"), NodePath("AnimatedSprite2D_4"), NodePath("AnimatedSprite2D_5"), NodePath("AnimatedSprite2D_6"), NodePath("AnimatedSprite2D_7")]
-CollisionShape = NodePath("CollisionShape2D_Hitbox")
-Caster = NodePath("../MainCharacter")
+[node name="Imp" parent="." instance=ExtResource("4_hlmyl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)

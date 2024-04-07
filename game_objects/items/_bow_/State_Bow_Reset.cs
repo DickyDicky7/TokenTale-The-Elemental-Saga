@@ -13,8 +13,9 @@ public partial class State_Bow_Reset : State_Bow_
                     base._Enter();
 
         _Bow_.IsInUse = false;
-        _Bow_.AnimatedSprite2D__Main.Play("RESET");
-        _Bow_.CollisionShape2D.SetDeferred("disabled", true);
+        _Bow_.AnimatedSprite3DMmainn.Play("RESET");
+        _Bow_.CollisionShape3D
+             .SetDeferred("disabled",true)        ;
     }
 
     public override void _Input(InputEvent @inputEvent)
@@ -32,7 +33,7 @@ public partial class State_Bow_Reset : State_Bow_
     {
                     base._Process(       @delta);
 
-        Vector2 hover_Position =     _Bow_.GetLocalMousePosition();
+        Vector2 hover_Position =     _Bow_.GetScreenMousePosition();
         Vector2 inputDirection = Extension.
              GetInputDirection();
         if (inputDirection !=
@@ -43,27 +44,37 @@ public partial class State_Bow_Reset : State_Bow_
         }
 
         _Bow_.CurrentRotationPosition = _Bow_.CurrentRotationPosition.Lerp(hover_Position, 0.1f);
-        _Bow_.AnimatedSprite2D__Main.Rotation = _Bow_.CurrentRotationPosition.Angle() - Mathf.Pi / 2;
-        _Bow_.CollisionShape2D.Rotation       = _Bow_.CurrentRotationPosition.Angle() - Mathf.Pi / 2;
-        _Bow_.AnimatedSprite2DEffect.Rotation = _Bow_.CurrentRotationPosition.Angle() - Mathf.Pi;
+        _Bow_.AnimatedSprite3DMmainn.Rotation =
+        _Bow_.AnimatedSprite3DMmainn.Rotation with { Z = -
+        _Bow_.CurrentRotationPosition.Angle() + Mathf.Pi / 2.0f, };
+        _Bow_.CollisionShape3D      .Rotation       =
+        _Bow_.CollisionShape3D      .Rotation with { Z = -
+        _Bow_.CurrentRotationPosition.Angle() + Mathf.Pi / 2.0f, };
+        _Bow_.AnimatedSprite3DEffect.Rotation =
+        _Bow_.AnimatedSprite3DEffect.Rotation with { Z = -
+        _Bow_.CurrentRotationPosition.Angle() + Mathf.Pi       , };
 
-        if (_Bow_.CurrentRotationPosition.Angle() <= -Mathf.Pi * 1 / 4
-        &&  _Bow_.CurrentRotationPosition.Angle() >= -Mathf.Pi * 3 / 4)
+        if (_Bow_.CurrentRotationPosition.Angle() <= -Mathf.Pi * 1.0f / 4.0f
+        &&  _Bow_.CurrentRotationPosition.Angle() >= -Mathf.Pi * 3.0f / 4.0f)
         {
-            _Bow_.ZIndex = -1;
+            int renderPriority = -1;
+            _Bow_.AnimatedSprite3DMmainn.RenderPriority = renderPriority;
+            _Bow_.AnimatedSprite3DEffect.RenderPriority = renderPriority;
         }
         else
         {
-            _Bow_.ZIndex = +1;
+            int renderPriority = +1;
+            _Bow_.AnimatedSprite3DMmainn.RenderPriority = renderPriority;
+            _Bow_.AnimatedSprite3DEffect.RenderPriority = renderPriority;
         }
 
         if (_Bow_.CurrentRotationPosition.X < 0)
         {
-            _Bow_.AnimatedSprite2D__Main.FlipH = !false;
+            _Bow_.AnimatedSprite3DMmainn.FlipH = !false;
         }
         else
         {
-            _Bow_.AnimatedSprite2D__Main.FlipH =  false;
+            _Bow_.AnimatedSprite3DMmainn.FlipH =  false;
         }
     }
 }

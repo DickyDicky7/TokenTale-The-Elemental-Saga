@@ -3,7 +3,7 @@ using Godot;
 namespace TokenTaleTheElementalSaga;
 
 [GlobalClass]
-public abstract partial class Character2D : CharacterBody2D
+public abstract partial class Character3D : CharacterBody3D
 {
     [Export]
     public float Speed { get; set; }
@@ -14,12 +14,12 @@ public abstract partial class Character2D : CharacterBody2D
     [Export]
     public float Deceleration { get; set; }
 
-    public virtual void Move(Vector2 @direction, double @delta)
+    public virtual void Move(Vector3 @direction, double @delta)
     {
         if (@direction !=
-            Vector2.Zero)
+            Vector3.Zero)
         {
-            Vector2
+            Vector3
             velocity = Velocity;
 
             velocity = velocity. MoveToward  (
@@ -27,16 +27,16 @@ public abstract partial class Character2D : CharacterBody2D
 
             Velocity = velocity;
 
-            MoveAndSlide();
+            MoveAndSlide();            
         }
     }
 
-    public virtual void Stop(Vector2 @direction, double @delta)
+    public virtual void Stop(Vector3 @direction, double @delta)
     {
         if (@direction ==
-            Vector2.Zero)
+            Vector3.Zero)
         {
-            Vector2
+            Vector3
             velocity =
             Velocity ;
 
@@ -50,7 +50,7 @@ public abstract partial class Character2D : CharacterBody2D
         }
     }
 
-    public virtual void Dash(Vector2 @direction)
+    public virtual void Dash(Vector3 @direction)
     {
 
     }

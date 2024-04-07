@@ -1,13 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://bx1yjtvn2pwyh"]
+[gd_scene load_steps=16 format=3 uid="uid://bx1yjtvn2pwyh"]
 
 [ext_resource type="Script" path="res://game_objects/items/sword/Sword.cs" id="1_pcobt"]
 [ext_resource type="Environment" uid="uid://pfk1i57fl8ti" path="res://game_objects/items/sword/Sword_Environment_.tres" id="2_vr4cb"]
-[ext_resource type="Texture2D" uid="uid://dj6uk76yxngg5" path="res://game_objects/items/sword/Sword_CanvasTexture___.tres" id="2_xk7m3"]
-[ext_resource type="Shape2D" uid="uid://bsde18gfdqten" path="res://game_objects/items/sword/Sword_CollisionShape2D.tres" id="3_833y5"]
+[ext_resource type="Texture2D" uid="uid://7ltowuxnege6" path="res://game_asset_s/32x32pixelmeleeweapon.png" id="3_8ivbm"]
+[ext_resource type="Shape3D" uid="uid://djeb1w4437hhy" path="res://game_objects/items/sword/Sword_CollisionShape3D.tres" id="4_5bwhb"]
 [ext_resource type="SpriteFrames" uid="uid://cgqt1fh8w4vqh" path="res://game_objects/items/sword/Sword_SpriteFrames.tres" id="5_ugswj"]
 [ext_resource type="Script" path="res://game_objects/shared/StateMachine.cs" id="6_n03hb"]
 [ext_resource type="Script" path="res://game_objects/items/sword/StateSwordReset.cs" id="7_34dt2"]
 [ext_resource type="Script" path="res://game_objects/items/sword/StateSwordSlash.cs" id="8_3v5rq"]
+[ext_resource type="Script" path="res://LookinAtCamSpriteBase3DConsolidation.cs" id="9_831tv"]
 
 [sub_resource type="Animation" id="Animation_e6q8w"]
 resource_name = "RESET"
@@ -15,7 +16,7 @@ length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/path = NodePath("_AnimatedSprite3D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -27,7 +28,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/path = NodePath("_AnimatedSprite3D:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -39,7 +40,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:visible")
+tracks/2/path = NodePath("Sprite3D:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -55,7 +56,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/path = NodePath("_AnimatedSprite3D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -67,7 +68,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/path = NodePath("_AnimatedSprite3D:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -79,7 +80,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:visible")
+tracks/2/path = NodePath("Sprite3D:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -94,7 +95,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/path = NodePath("_AnimatedSprite3D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -106,7 +107,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/path = NodePath("_AnimatedSprite3D:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -118,7 +119,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:visible")
+tracks/2/path = NodePath("Sprite3D:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -133,7 +134,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/path = NodePath("_AnimatedSprite3D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -145,7 +146,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/path = NodePath("_AnimatedSprite3D:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -157,7 +158,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:visible")
+tracks/2/path = NodePath("Sprite3D:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -172,7 +173,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/path = NodePath("_AnimatedSprite3D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -184,7 +185,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/path = NodePath("_AnimatedSprite3D:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -196,7 +197,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:visible")
+tracks/2/path = NodePath("Sprite3D:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -215,38 +216,37 @@ _data = {
 "SLASH_3": SubResource("Animation_vqueb")
 }
 
-[node name="Sword" type="Area2D" node_paths=PackedStringArray("Sprite2D", "CollisionShape2D", "AnimatedSprite2D", "AnimationPlayer_")]
+[node name="Sword" type="Node3D" node_paths=PackedStringArray("Sprite3D", "Aareaa3D", "CollisionShape3D", "AnimatedSprite3D", "AnimationPlayerr")]
 script = ExtResource("1_pcobt")
-Sprite2D = NodePath("Sprite2D")
-CollisionShape2D = NodePath("CollisionShape2D")
-AnimatedSprite2D = NodePath("AnimatedSprite2D")
-AnimationPlayer_ = NodePath("AnimationPlayer_")
+Sprite3D = NodePath("Sprite3D")
+Aareaa3D = NodePath("Aareaa3D")
+CollisionShape3D = NodePath("Aareaa3D/CollisionShape3D")
+AnimatedSprite3D = NodePath("_AnimatedSprite3D")
+AnimationPlayerr = NodePath("_AnimationPlayerr")
 
 [node name="Environment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_vr4cb")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(1.1, 1.1, 1.1, 1)
-light_mask = 0
-texture = ExtResource("2_xk7m3")
-offset = Vector2(10.5, -10.5)
+[node name="Sprite3D" type="Sprite3D" parent="."]
+offset = Vector2(10.5, 10.5)
+texture_filter = 0
+texture = ExtResource("3_8ivbm")
 region_enabled = true
 region_rect = Rect2(96, 96, 32, 32)
-region_filter_clip_enabled = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = ExtResource("3_833y5")
-debug_color = Color(0, 0, 0, 0.5)
+[node name="Aareaa3D" type="Area3D" parent="."]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-self_modulate = Color(1.5, 1.5, 1.5, 1)
-light_mask = 0
-rotation = 1.5708
-scale = Vector2(2, 2)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Aareaa3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)
+shape = ExtResource("4_5bwhb")
+
+[node name="_AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(-8.74228e-08, 2, 0, -2, -8.74228e-08, 0, 0, 0, 2, 0, 0, 0)
+texture_filter = 0
 sprite_frames = ExtResource("5_ugswj")
 animation = &"RESET"
 
-[node name="AnimationPlayer_" type="AnimationPlayer" parent="."]
+[node name="_AnimationPlayerr" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_gmgfx")
 }
@@ -265,3 +265,7 @@ Sword = NodePath("../..")
 script = ExtResource("8_3v5rq")
 ResetState = NodePath("../Reset")
 Sword = NodePath("../..")
+
+[node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
+script = ExtResource("9_831tv")
+Sprites = [NodePath("../Sprite3D"), NodePath("../_AnimatedSprite3D")]

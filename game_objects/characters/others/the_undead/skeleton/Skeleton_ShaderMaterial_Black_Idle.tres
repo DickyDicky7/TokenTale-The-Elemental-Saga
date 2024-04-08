@@ -1,8 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://0ecfqks1642o"]
-
-[ext_resource type="Shader" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_ShaderMaterial_Black_Idle.gdshader" id="1_3xnw6"]
-[ext_resource type="Texture2D" uid="uid://bo1iphka0s60u" path="res://game_asset_s/characters/others/skeleton_generic/black_idle/idle-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="2_p43mr"]
-
-[resource]
-shader = ExtResource("1_3xnw6")
-shader_parameter/normal_map = ExtResource("2_p43mr")

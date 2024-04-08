@@ -48,11 +48,16 @@ folder_colors={
 "res://game_objects/abilities/tidal_wave/": "orange",
 "res://game_objects/abilities/tornado/": "orange",
 "res://game_objects/characters/elem_monsterss/normal/electric/": "blue",
+"res://game_objects/characters/elem_monsterss/normal/fire/": "blue",
 "res://game_objects/characters/elem_monsterss/normal/ice/": "blue",
 "res://game_objects/characters/elem_monsterss/normal/rock/": "blue",
 "res://game_objects/characters/elem_monsterss/normal/water/": "blue",
 "res://game_objects/characters/elem_monsterss/normal/wind/": "blue",
-"res://game_objects/characters/elem_monsterss/normal/wood/": "blue"
+"res://game_objects/characters/elem_monsterss/normal/wood/": "blue",
+"res://game_objects/characters/others/the_haunting/": "blue",
+"res://game_objects/characters/others/the_tanker/": "blue",
+"res://game_objects/characters/others/the_thief/": "blue",
+"res://game_objects/characters/others/the_undead/": "blue"
 }
 
 [input]

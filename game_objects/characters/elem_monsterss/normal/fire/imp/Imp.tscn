@@ -410,7 +410,7 @@ _data = {
 "THROW": SubResource("Animation_ywbim")
 }
 
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_uwae2"]
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_7nshk"]
 
 [node name="Imp" type="CharacterBody3D"]
 script = ExtResource("1_41j3n")
@@ -424,20 +424,21 @@ environment = ExtResource("2_p2mts")
 
 [node name="AnimatedSprite3D_$Main$" type="AnimatedSprite3D" parent="."]
 cast_shadow = 0
-offset = Vector2(1, 14)
+offset = Vector2(0, 12)
 texture_filter = 0
 sprite_frames = ExtResource("1_n3j5a")
-animation = &"THROW"
+animation = &"DEAD"
 
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 cast_shadow = 3
+offset = Vector2(0, 12)
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_n3j5a")
-animation = &"THROW"
+animation = &"DEAD"
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)
 shape = ExtResource("4_l0j8u")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -447,7 +448,7 @@ libraries = {
 
 [node name="BT_______Player" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("12_hk2im")
-blackboard_plan = SubResource("BlackboardPlan_uwae2")
+blackboard_plan = SubResource("BlackboardPlan_7nshk")
 
 [node name="EyeSight$3D" parent="." instance=ExtResource("8_d1obs")]
 
@@ -456,7 +457,7 @@ target_position = Vector3(0.5, 0.1, 0)
 debug_shape_custom_color = Color(0, 0, 1, 0.5)
 
 [node name="ShapeCast3D" type="ShapeCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 shape = ExtResource("7_4pwu0")
 target_position = Vector3(0, 0, 0)
 debug_shape_custom_color = Color(0, 0, 1, 1)
@@ -468,7 +469,7 @@ autostart = true
 
 [node name="Flippable3DSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
 script = ExtResource("10_mu3ir")
-Sprites = [NodePath("../AnimatedSprite3D_$Main$")]
+Sprites = [NodePath("../AnimatedSprite3D_$Main$"), NodePath("../AnimatedSprite3D_Shadow")]
 
 [node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
 script = ExtResource("9_ts5ll")

@@ -1,5 +1,6 @@
 [gd_resource type="CapsuleShape3D" format=3 uid="uid://bucn4fsdotdh5"]
 
 [resource]
-radius = 0.08
-height = 0.16
+margin = 0.05
+radius = 0.06
+height = 0.12

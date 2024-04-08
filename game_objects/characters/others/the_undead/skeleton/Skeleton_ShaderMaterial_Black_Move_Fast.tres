@@ -1,8 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://h4bnwd4spfho"]
-
-[ext_resource type="Shader" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_ShaderMaterial_Black_Move_Fast.gdshader" id="1_ikfnt"]
-[ext_resource type="Texture2D" uid="uid://dm3j8p8m5em8w" path="res://game_asset_s/characters/others/skeleton_generic/black_move_fast/move-fast-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="2_hro51"]
-
-[resource]
-shader = ExtResource("1_ikfnt")
-shader_parameter/normal_map = ExtResource("2_hro51")

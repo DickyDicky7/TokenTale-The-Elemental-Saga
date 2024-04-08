@@ -1,8 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://ywlq81cofdnl"]
-
-[ext_resource type="Shader" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat_ShaderMaterial_Echo.gdshader" id="1_bgj3j"]
-[ext_resource type="Texture2D" uid="uid://5u5jydelkstf" path="res://game_asset_s/characters/elemental_monsters/wind/bat_new/Zombie/BatZombie_Attack-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="2_yd5kr"]
-
-[resource]
-shader = ExtResource("1_bgj3j")
-shader_parameter/normal_map = ExtResource("2_yd5kr")

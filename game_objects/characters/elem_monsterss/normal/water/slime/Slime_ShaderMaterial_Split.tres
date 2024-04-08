@@ -1,8 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://b80qy0fky3gtc"]
-
-[ext_resource type="Shader" path="res://game_objects/characters/elem_monsterss/normal/water/slime/Slime_ShaderMaterial_Split.gdshader" id="1_8vg3c"]
-[ext_resource type="Texture2D" uid="uid://dd6w2gesl8r51" path="res://game_asset_s/characters/elemental_monsters/water/slime/sprite-sheet-slime-medium-split-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="2_3kx5k"]
-
-[resource]
-shader = ExtResource("1_8vg3c")
-shader_parameter/normal_map = ExtResource("2_3kx5k")

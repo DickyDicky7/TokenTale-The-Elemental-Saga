@@ -5,10 +5,11 @@
 [resource]
 particle_flag_disable_z = true
 emission_shape = 1
-emission_sphere_radius = 30.0
-gravity = Vector3(0, -100, 0)
-linear_accel_min = 100.0
-linear_accel_max = 100.0
+emission_sphere_radius = 0.3
+gravity = Vector3(0, 1, 0)
+linear_accel_min = 0.999998
+linear_accel_max = 0.999998
+color = Color(1, 1.5, 1, 1)
 color_ramp = ExtResource("1_5yq37")
 anim_speed_min = 1.0
 anim_speed_max = 1.0

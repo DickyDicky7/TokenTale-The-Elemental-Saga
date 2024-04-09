@@ -1,6 +1,0 @@
-[gd_resource type="CanvasTexture" load_steps=2 format=3 uid="uid://lf41k63wlo6k"]
-
-[ext_resource type="Texture2D" uid="uid://br65u6dd4uf4j" path="res://game_asset_s/pixel_holy_spell_effect_32x32_pack_1(bdragon1727)/Pixel Holy Spell Effect 02.png" id="1_htmqt"]
-
-[resource]
-diffuse_texture = ExtResource("1_htmqt")

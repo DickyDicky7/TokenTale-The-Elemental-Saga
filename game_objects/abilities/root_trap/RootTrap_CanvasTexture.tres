@@ -1,6 +1,0 @@
-[gd_resource type="CanvasTexture" load_steps=2 format=3 uid="uid://b0i5hdu0gxi4f"]
-
-[ext_resource type="Texture2D" uid="uid://bbbvtpqo4lvho" path="res://game_asset_s/free_pixel_effects_magic_sprite_pack/1_magic/1.png" id="1_r5kka"]
-
-[resource]
-diffuse_texture = ExtResource("1_r5kka")

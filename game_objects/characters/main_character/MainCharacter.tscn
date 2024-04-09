@@ -714,6 +714,7 @@ offset = Vector2(0, 12)
 texture_filter = 0
 sprite_frames = ExtResource("1_q2bc7")
 animation = &"IDLE_D"
+frame = 3
 
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 cast_shadow = 3
@@ -722,6 +723,7 @@ alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_q2bc7")
 animation = &"IDLE_D"
+frame = 3
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12, 0)
@@ -751,12 +753,14 @@ parameters/TIME_SCALE/scale = 1.0
 MinRotationY = -180.0
 MaxRotationY = 180.0
 
-[node name="Sword" parent="." node_paths=PackedStringArray("Sprite3D", "Aareaa3D", "CollisionShape3D", "AnimatedSprite3D", "AnimationPlayerr") instance=ExtResource("12_frf8n")]
+[node name="Sword" parent="." node_paths=PackedStringArray("Sprite3D", "Shadow3D", "Aareaa3D", "CollisionShape3D", "AnimatedSprite3D", "AnimatedShadow3D", "AnimationPlayerr") instance=ExtResource("12_frf8n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
 Sprite3D = NodePath("Sprite3D")
+Shadow3D = NodePath("Shadow3D")
 Aareaa3D = NodePath("Aareaa3D")
 CollisionShape3D = NodePath("Aareaa3D/CollisionShape3D")
 AnimatedSprite3D = NodePath("_AnimatedSprite3D")
+AnimatedShadow3D = NodePath("_AnimatedShadow3D")
 AnimationPlayerr = NodePath("_AnimationPlayerr")
 
 [node name="_Bow_" parent="." node_paths=PackedStringArray("AnimatedSprite3DMmainn", "CollisionShape3D", "AnimatedSprite3DEffect") instance=ExtResource("13_y068q")]

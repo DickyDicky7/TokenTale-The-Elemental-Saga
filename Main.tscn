@@ -1,16 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnes8lrs7ph26"]
+[gd_scene load_steps=8 format=3 uid="uid://cnes8lrs7ph26"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_px6f3"]
 [ext_resource type="PlaneMesh" uid="uid://dmf8lh15l3415" path="res://BackgroundPlatform_Mesh.tres" id="2_rk0yh"]
+[ext_resource type="Shape3D" uid="uid://ckjylylwcue88" path="res://BackgroundPlatform_CollisionShape3D.tres" id="3_vrktx"]
 [ext_resource type="PackedScene" uid="uid://cwhrbtjfm2cpc" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp.tscn" id="4_hlmyl"]
+[ext_resource type="PackedScene" uid="uid://d1jlh0uaim28w" path="res://game_objects/abilities/tornado/Tornado.tscn" id="5_rpfgl"]
+[ext_resource type="PackedScene" uid="uid://dmymcmqewv5c4" path="res://game_objects/abilities/serene_meadow/SereneMeadow.tscn" id="7_tyaa3"]
 [ext_resource type="PackedScene" uid="uid://c47tcwkeiq0h2" path="res://game_objects/characters/main_character/MainCharacter.tscn" id="9_seby3"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_px6f3")
 
-[node name="BackgroundPlatform" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0)
+[node name="BackgroundPlatform" type="StaticBody3D" parent="."]
+
+[node name="Mesh" type="MeshInstance3D" parent="BackgroundPlatform"]
 mesh = ExtResource("2_rk0yh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BackgroundPlatform"]
+shape = ExtResource("3_vrktx")
 
 [node name="MainCharacter" parent="." instance=ExtResource("9_seby3")]
 
@@ -23,3 +30,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 1, 0)
 shadow_enabled = true
+
+[node name="Tornado" parent="." instance=ExtResource("5_rpfgl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 5, -1)
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="SereneMeadow" parent="." instance=ExtResource("7_tyaa3")]

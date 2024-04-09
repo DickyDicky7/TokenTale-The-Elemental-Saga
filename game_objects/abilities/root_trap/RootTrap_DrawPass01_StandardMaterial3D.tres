@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://l6i6nxppye5x"]
+
+[ext_resource type="Texture2D" uid="uid://bbbvtpqo4lvho" path="res://game_asset_s/free_pixel_effects_magic_sprite_pack/1_magic/1.png" id="1_4p4ty"]
+
+[resource]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_4p4ty")
+texture_filter = 0
+texture_repeat = false
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 8
+particles_anim_v_frames = 1
+particles_anim_loop = false

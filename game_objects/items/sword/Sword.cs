@@ -8,10 +8,12 @@ namespace TokenTaleTheElementalSaga;
 public partial class Sword : Weapon
 {
     [Export] public Sprite3D Sprite3D { get; set; }
+    [Export] public Sprite3D Shadow3D { get; set; }
     [Export] public Aareaa3D Aareaa3D { get; set; }
     [Export] public CollisionShape3D CollisionShape3D { get; set; }
 
     [Export] public AnimatedSprite3D AnimatedSprite3D { get; set; }
+    [Export] public AnimatedSprite3D AnimatedShadow3D { get; set; }
 
     [Export] public AnimationPlayerr AnimationPlayerr { get; set; }
 

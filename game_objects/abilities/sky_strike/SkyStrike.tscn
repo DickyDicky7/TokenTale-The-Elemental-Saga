@@ -1,11 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://s4c8ixjtg1uy"]
+[gd_scene load_steps=12 format=3 uid="uid://s4c8ixjtg1uy"]
 
-[ext_resource type="Environment" path="res://game_objects/abilities/sky_strike/SkyStrike_Environment$.tres" id="1_jlt0u"]
+[ext_resource type="Environment" uid="uid://bl1hafxbwvrcc" path="res://game_objects/abilities/sky_strike/SkyStrike_Environment$.tres" id="1_jlt0u"]
 [ext_resource type="SpriteFrames" uid="uid://cq2jie543sctx" path="res://game_objects/abilities/sky_strike/SkyStrike_SpriteFrames.tres" id="2_6dxen"]
 [ext_resource type="Texture2D" uid="uid://bg43o8i7wyxhv" path="res://game_asset_s/pixel_art_top_down_rocks_pack/rocks/rocks.png" id="3_t5ci7"]
 [ext_resource type="SpriteFrames" uid="uid://brrcvjnenn4gw" path="res://game_objects/abilities/sky_strike/SkyStrike_SpriteFrames_Effect1.tres" id="3_t6766"]
 [ext_resource type="SpriteFrames" uid="uid://cduf1f3sho35p" path="res://game_objects/abilities/sky_strike/SkyStrike_SpriteFrames_Effect2.tres" id="4_rd1g6"]
-[ext_resource type="Shape3D" uid="uid://bkvosauacb43d" path="res://game_objects/abilities/sky_strike/SkyStrike_CollisionShape3D.tres" id="6_1al21"]
+[ext_resource type="Shape3D" uid="uid://bkvosauacb43d" path="res://game_objects/abilities/sky_strike/SkyStrike_CollisionShape3D_Hitbox.tres" id="6_1al21"]
+[ext_resource type="BehaviorTree" uid="uid://db04qtvf251h7" path="res://game_objects/abilities/sky_strike/SkyStrike_BehaviorTree.tres" id="7_g8df4"]
+[ext_resource type="BlackboardPlan" uid="uid://bpi0s0eb4wjxo" path="res://game_objects/abilities/sky_strike/SkyStrike_BlackboardPlanBase.tres" id="7_u4n2a"]
 [ext_resource type="Script" path="res://LookinAtCamSpriteBase3DConsolidation.cs" id="8_q6hfs"]
 
 [sub_resource type="Animation" id="Animation_3nirl"]
@@ -301,6 +303,10 @@ shape = ExtResource("6_1al21")
 libraries = {
 "": SubResource("AnimationLibrary_r63uy")
 }
+
+[node name="BT_______Player" type="BTPlayer" parent="."]
+behavior_tree = ExtResource("7_g8df4")
+blackboard_plan = ExtResource("7_u4n2a")
 
 [node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
 script = ExtResource("8_q6hfs")

@@ -1,0 +1,6 @@
+[gd_resource type="BehaviorTree" load_steps=2 format=3 uid="uid://bndh04gk1atcc"]
+
+[ext_resource type="BlackboardPlan" uid="uid://b4o1clikv0qgj" path="res://game_objects/abilities/lightning/Lightning_BlackboardPlan----.tres" id="1_v1ia7"]
+
+[resource]
+blackboard_plan = ExtResource("1_v1ia7")

@@ -1,0 +1,6 @@
+[gd_resource type="BehaviorTree" load_steps=2 format=3 uid="uid://dpauitkd1lajv"]
+
+[ext_resource type="BlackboardPlan" uid="uid://dtp0lqy5rqh3d" path="res://game_objects/abilities/golem_go_go_go/Golem_BlackboardPlan----.tres" id="1_k0p75"]
+
+[resource]
+blackboard_plan = ExtResource("1_k0p75")

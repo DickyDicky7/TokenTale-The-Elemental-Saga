@@ -1,18 +1,20 @@
-[gd_scene load_steps=10 format=3 uid="uid://cn6e4b8ejcnru"]
+[gd_scene load_steps=12 format=3 uid="uid://cn6e4b8ejcnru"]
 
-[ext_resource type="Environment" uid="uid://bfn5o6qb5mmwr" path="res://game_objects/abilities/lightning/Lightning_Environment.tres" id="1_kfp4f"]
+[ext_resource type="Environment" uid="uid://bfn5o6qb5mmwr" path="res://game_objects/abilities/lightning/Lightning_Environment$.tres" id="1_kfp4f"]
 [ext_resource type="SpriteFrames" uid="uid://bb28sh36aknoq" path="res://game_objects/abilities/lightning/Lightning_SpriteFrames.tres" id="1_weg7p"]
-[ext_resource type="BehaviorTree" uid="uid://byb8e56lmjy0f" path="res://game_objects/abilities/lightning/Lightning_Behavior--Tree.tres" id="3_2kufa"]
 [ext_resource type="Material" uid="uid://c510q7ihagujb" path="res://game_objects/abilities/lightning/Lightning_ParticleProcessMaterial.tres" id="3_02l3o"]
-[ext_resource type="BlackboardPlan" uid="uid://dnyby4rtlfj80" path="res://game_objects/abilities/lightning/Lightning_BlackboardPlan.tres" id="4_c815j"]
-[ext_resource type="Shape2D" uid="uid://by72ii1622a46" path="res://game_objects/abilities/lightning/Lightning_CollisionShape2D_Hitbox.tres" id="4_sswnf"]
+[ext_resource type="QuadMesh" uid="uid://ble15l0osx128" path="res://game_objects/abilities/lightning/Lightning_DrawPass01_Mesh.tres" id="4_fgd0e"]
+[ext_resource type="Shape3D" uid="uid://rd72j5r35v7y" path="res://game_objects/abilities/lightning/Lightning_CollisionShape3D_Hitbox.tres" id="4_o25au"]
+[ext_resource type="Script" path="res://LookinAtCamSpriteBase3DConsolidation.cs" id="5_cwiri"]
+[ext_resource type="BehaviorTree" uid="uid://bndh04gk1atcc" path="res://game_objects/abilities/lightning/Lightning_BehaviorTree.tres" id="6_0shj6"]
+[ext_resource type="BlackboardPlan" uid="uid://cv2ahqwcv6xwd" path="res://game_objects/abilities/lightning/Lightning_BlackboardPlanBase.tres" id="6_yx8y4"]
 
 [sub_resource type="Animation" id="Animation_3bl1f"]
 length = 0.65
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/path = NodePath("AnimatedSprite3D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -24,7 +26,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/path = NodePath("AnimatedSprite3D:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -36,22 +38,46 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("_GPU_Particles2D:emitting")
+tracks/2/path = NodePath("AnimatedShadow3D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedShadow3D:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["STRIKE_0"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("_GPU_Particles3D:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("_GPU_Particles2D:one_shot")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("_GPU_Particles3D:one_shot")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -63,7 +89,7 @@ length = 0.65
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/path = NodePath("AnimatedSprite3D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -75,7 +101,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/path = NodePath("AnimatedSprite3D:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -87,22 +113,46 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("_GPU_Particles2D:emitting")
+tracks/2/path = NodePath("AnimatedShadow3D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedShadow3D:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["STRIKE_1"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("_GPU_Particles3D:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("_GPU_Particles2D:one_shot")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("_GPU_Particles3D:one_shot")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -115,37 +165,50 @@ _data = {
 "STRIKE_1": SubResource("Animation_wiqs7")
 }
 
-[node name="Lightning" type="Area2D"]
+[node name="Lightning" type="Area3D"]
 
 [node name="Environment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_kfp4f")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-self_modulate = Color(1.502, 0, 1.502, 1)
-light_mask = 0
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+cast_shadow = 0
+offset = Vector2(0, 28)
+modulate = Color(1, 0, 1, 1)
+texture_filter = 0
 sprite_frames = ExtResource("1_weg7p")
-animation = &"STRIKE_1"
-offset = Vector2(0, -28)
+animation = &"STRIKE_0"
 
-[node name="_GPU_Particles2D" type="GPUParticles2D" parent="."]
-self_modulate = Color(1.502, 0, 1.502, 1)
-light_mask = 0
+[node name="AnimatedShadow3D" type="AnimatedSprite3D" parent="."]
+cast_shadow = 3
+offset = Vector2(0, 28)
+modulate = Color(1, 0, 1, 1)
+alpha_cut = 2
+texture_filter = 0
+sprite_frames = ExtResource("1_weg7p")
+animation = &"STRIKE_0"
+
+[node name="_GPU_Particles3D" type="GPUParticles3D" parent="."]
 emitting = false
 amount = 50
-process_material = ExtResource("3_02l3o")
 one_shot = true
 explosiveness = 0.75
+process_material = ExtResource("3_02l3o")
+draw_pass_1 = ExtResource("4_fgd0e")
 
-[node name="CollisionShape2D_Hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
-shape = ExtResource("4_sswnf")
-debug_color = Color(1, 0, 0, 0.5)
+[node name="CollisionShape3D_Hitbox" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+shape = ExtResource("4_o25au")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_gxi4r")
 }
+autoplay = "STRIKE_0"
 
-[node name="BTPlayer" type="BTPlayer" parent="."]
-behavior_tree = ExtResource("3_2kufa")
-blackboard_plan = ExtResource("4_c815j")
+[node name="BT_______Player" type="BTPlayer" parent="."]
+behavior_tree = ExtResource("6_0shj6")
+blackboard_plan = ExtResource("6_yx8y4")
+
+[node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
+script = ExtResource("5_cwiri")
+Sprites = [NodePath("../AnimatedSprite3D")]

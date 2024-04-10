@@ -1,18 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://bj14wt31rsok8"]
+[gd_scene load_steps=10 format=3 uid="uid://bj14wt31rsok8"]
 
 [ext_resource type="SpriteFrames" uid="uid://1pmwtiv8namm" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_SpriteFrames.tres" id="1_84jd6"]
-[ext_resource type="Environment" uid="uid://dwifqdh3kpbj7" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_Environment.tres" id="1_uiwra"]
-[ext_resource type="Material" uid="uid://d316r33a4mctm" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_ParticleProcessMaterial.tres" id="2_w0jog"]
-[ext_resource type="BehaviorTree" uid="uid://dskwhh44c40yw" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_Behavior--Tree.tres" id="3_cxc0c"]
-[ext_resource type="BlackboardPlan" uid="uid://bbhvcmoobn466" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_BlackboardPlan.tres" id="4_n17je"]
-[ext_resource type="Shape2D" uid="uid://bbcv0fxfyqoqo" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_CollisionShape2D_Hitbox.tres" id="4_u4tra"]
+[ext_resource type="Environment" uid="uid://dwifqdh3kpbj7" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_Environment$.tres" id="1_uiwra"]
+[ext_resource type="BlackboardPlan" uid="uid://bcg3ryduafma5" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_BlackboardPlanBase.tres" id="4_cqd5s"]
+[ext_resource type="Shape3D" uid="uid://uj6irmg35oj1" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_CollisionShape3D_Hitbox.tres" id="4_mmqwq"]
+[ext_resource type="BehaviorTree" uid="uid://t6yhjbbcq7hq" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_BehaviorTree.tres" id="4_wt3nm"]
 
 [sub_resource type="Animation" id="Animation_hqgdx"]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/path = NodePath("AnimatedSprite3D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -24,7 +23,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/path = NodePath("AnimatedSprite3D:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -40,7 +39,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/path = NodePath("AnimatedSprite3D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -52,7 +51,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/path = NodePath("AnimatedSprite3D:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -67,7 +66,7 @@ length = 0.45
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/path = NodePath("AnimatedSprite3D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -79,7 +78,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/path = NodePath("AnimatedSprite3D:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -96,36 +95,30 @@ _data = {
 "OUT": SubResource("Animation_3teqd")
 }
 
-[node name="PenetratingSquirt" type="Area2D"]
+[node name="PenetratingSquirt" type="Area3D"]
 
 [node name="Environment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_uiwra")
 
-[node name="_GPU_Particles2D" type="GPUParticles2D" parent="."]
-self_modulate = Color(1, 1, 1.5, 1)
-light_mask = 0
-position = Vector2(0, -160)
-amount = 50
-process_material = ExtResource("2_w0jog")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-self_modulate = Color(1, 1, 1.5, 1)
-light_mask = 0
-scale = Vector2(0.1, 2)
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(-1.31134e-08, 3, -4.37114e-08, 0, -1.31134e-07, -1, -0.3, -1.31134e-07, 1.91069e-15, 0, 0, 0)
+offset = Vector2(0, 48)
+alpha_cut = 2
+texture_filter = 0
 sprite_frames = ExtResource("1_84jd6")
 animation = &"FLY"
-offset = Vector2(0, -48)
 
-[node name="CollisionShape2D_Hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(0, -80)
-shape = ExtResource("4_u4tra")
-debug_color = Color(1, 0, 0, 0.5)
+[node name="CollisionShape3D_Hitbox" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 1.2, 0, 0)
+shape = ExtResource("4_mmqwq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_x5rhq")
 }
+autoplay = "HIT"
+speed_scale = 2.0
 
-[node name="BTPlayer" type="BTPlayer" parent="."]
-behavior_tree = ExtResource("3_cxc0c")
-blackboard_plan = ExtResource("4_n17je")
+[node name="BT_______Player" type="BTPlayer" parent="."]
+behavior_tree = ExtResource("4_wt3nm")
+blackboard_plan = ExtResource("4_cqd5s")

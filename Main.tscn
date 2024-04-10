@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cnes8lrs7ph26"]
+[gd_scene load_steps=12 format=3 uid="uid://cnes8lrs7ph26"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_px6f3"]
 [ext_resource type="PlaneMesh" uid="uid://dmf8lh15l3415" path="res://BackgroundPlatform_Mesh.tres" id="2_rk0yh"]
@@ -6,7 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://cwhrbtjfm2cpc" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp.tscn" id="4_hlmyl"]
 [ext_resource type="PackedScene" uid="uid://d1jlh0uaim28w" path="res://game_objects/abilities/tornado/Tornado.tscn" id="5_rpfgl"]
 [ext_resource type="PackedScene" uid="uid://dmymcmqewv5c4" path="res://game_objects/abilities/serene_meadow/SereneMeadow.tscn" id="7_tyaa3"]
+[ext_resource type="PackedScene" uid="uid://bj14wt31rsok8" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt.tscn" id="8_nid88"]
+[ext_resource type="PackedScene" uid="uid://bocc0hkunia3p" path="res://game_objects/abilities/overcharge/Overcharge.tscn" id="9_5jat6"]
 [ext_resource type="PackedScene" uid="uid://c47tcwkeiq0h2" path="res://game_objects/characters/main_character/MainCharacter.tscn" id="9_seby3"]
+[ext_resource type="PackedScene" uid="uid://cn6e4b8ejcnru" path="res://game_objects/abilities/lightning/Lightning.tscn" id="10_myf47"]
+[ext_resource type="PackedScene" uid="uid://d3gqr2or1jr42" path="res://game_objects/abilities/ignite/Ignite.tscn" id="11_3fjus"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_px6f3")
@@ -32,9 +36,18 @@ transform = Transform3D(1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107
 shadow_enabled = true
 
 [node name="Tornado" parent="." instance=ExtResource("5_rpfgl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 5, -1)
-axis_lock_angular_x = true
-axis_lock_angular_y = true
-axis_lock_angular_z = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -1)
 
 [node name="SereneMeadow" parent="." instance=ExtResource("7_tyaa3")]
+
+[node name="PenetratingSquirt" parent="." instance=ExtResource("8_nid88")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+
+[node name="Overcharge" parent="." instance=ExtResource("9_5jat6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.5, 0)
+
+[node name="Lightning" parent="." instance=ExtResource("10_myf47")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="Ignite" parent="." instance=ExtResource("11_3fjus")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)

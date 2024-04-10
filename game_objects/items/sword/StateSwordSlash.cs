@@ -56,7 +56,7 @@ public partial class StateSwordSlash : StateSword
                           inputDirection.Angle(), };
             Sword.AnimatedShadow3D.Rotation =
             Sword.AnimatedShadow3D.Rotation
-            with { Y = -
+            with { Y = - Mathf.Pi / 2.0f-
                           inputDirection.Angle(), };
             Sword.Aareaa3D.Rotation =
             Sword.Aareaa3D.Rotation

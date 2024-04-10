@@ -1,10 +1,9 @@
 [gd_resource type="BehaviorTree" load_steps=13 format=3 uid="uid://diju3wt86axt4"]
 
+[ext_resource type="BlackboardPlan" uid="uid://ck52qb0xbne5x" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_BlackboardPlan----.tres" id="1_wdy8e"]
 [ext_resource type="BBNode" uid="uid://836uj4l1m448" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_BBNode_AnimationPlayer.tres" id="2_nxwe5"]
 [ext_resource type="Script" path="res://ai/tasks/patroll.gd" id="2_yn8n1"]
 [ext_resource type="Script" path="res://ai/tasks/runaway.gd" id="3_fww78"]
-
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_lmptm"]
 
 [sub_resource type="BTAction" id="BTAction_238a8"]
 script = ExtResource("2_yn8n1")
@@ -51,5 +50,5 @@ children = [SubResource("BTParallel_3owjs")]
 children = [SubResource("BTParallel_jh3t7"), SubResource("BTDelay_i34sg")]
 
 [resource]
-blackboard_plan = SubResource("BlackboardPlan_lmptm")
+blackboard_plan = ExtResource("1_wdy8e")
 root_task = SubResource("BTSequence_wuf1r")

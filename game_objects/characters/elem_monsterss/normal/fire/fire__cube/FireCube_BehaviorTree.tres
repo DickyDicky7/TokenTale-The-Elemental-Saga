@@ -1,6 +1,6 @@
 [gd_resource type="BehaviorTree" load_steps=2 format=3 uid="uid://dt8nrbaouq8n0"]
 
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_l4a2p"]
+[ext_resource type="BlackboardPlan" uid="uid://b6mcifdswerm3" path="res://game_objects/characters/elem_monsterss/normal/fire/fire__cube/FireCube_BlackboardPlan----.tres" id="1_n0pe3"]
 
 [resource]
-blackboard_plan = SubResource("BlackboardPlan_l4a2p")
+blackboard_plan = ExtResource("1_n0pe3")

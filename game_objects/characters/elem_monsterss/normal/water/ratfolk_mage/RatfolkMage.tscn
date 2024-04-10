@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/water/ratfolk_mage/RatfolkMage.cs" id="1_pu3gl"]
 [ext_resource type="Environment" uid="uid://cmbfk6qqjjxxt" path="res://game_objects/characters/elem_monsterss/normal/water/ratfolk_mage/RatfolkMage_Environment.tres" id="2_x1bf5"]
 [ext_resource type="Shape3D" uid="uid://chrq4uqni4ts8" path="res://game_objects/characters/elem_monsterss/normal/water/ratfolk_mage/RatfolkMage_CollisionShape3D_Body.tres" id="4_ml0vs"]
+[ext_resource type="BlackboardPlan" uid="uid://cug48lbgyna66" path="res://game_objects/characters/elem_monsterss/normal/water/ratfolk_mage/RatfolkMage_BlackboardPlanBase.tres" id="6_dfou7"]
 [ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://EyeSight3D.tscn" id="7_evo1x"]
 [ext_resource type="Shape3D" uid="uid://btjafb1mkr1o3" path="res://game_objects/characters/elem_monsterss/normal/water/ratfolk_mage/RatfolkMage_ShapeCast3D.tres" id="7_l3eds"]
 [ext_resource type="Script" path="res://Flippable3DSpriteBase3DConsolidation.cs" id="7_lhct5"]
@@ -342,8 +343,6 @@ _data = {
 "MOVE": SubResource("Animation_bhpn0")
 }
 
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_kaf68"]
-
 [node name="RatfolkMage" type="CharacterBody3D"]
 script = ExtResource("1_pu3gl")
 
@@ -376,7 +375,7 @@ libraries = {
 
 [node name="BT_______Player" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("7_sdvtf")
-blackboard_plan = SubResource("BlackboardPlan_kaf68")
+blackboard_plan = ExtResource("6_dfou7")
 
 [node name="EyeSight$3D" parent="." instance=ExtResource("7_evo1x")]
 

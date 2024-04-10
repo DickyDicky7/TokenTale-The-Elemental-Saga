@@ -4,6 +4,7 @@
 [ext_resource type="Environment" uid="uid://iy0gaxwlsrr0" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster_Environment.tres" id="1_ang3x"]
 [ext_resource type="Shape3D" uid="uid://dnlsnu8nqbmc1" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster_CollisionShape3D_Body.tres" id="3_dqny3"]
 [ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://EyeSight3D.tscn" id="5_jnxj8"]
+[ext_resource type="BlackboardPlan" uid="uid://fsqsabqsafqi" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster_BlackboardPlanBase.tres" id="5_wy6lx"]
 [ext_resource type="Shape3D" uid="uid://dutdm8qf5mh4b" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster_ShapeCast3D.tres" id="6_1cglj"]
 [ext_resource type="Script" path="res://Flippable3DSpriteBase3DConsolidation.cs" id="7_b48je"]
 [ext_resource type="BehaviorTree" uid="uid://b2bpmha480eof" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster_BehaviorTree.tres" id="7_l33ya"]
@@ -289,8 +290,6 @@ _data = {
 "MOVE": SubResource("Animation_kf5ob")
 }
 
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_bwxvx"]
-
 [node name="MetalMonster" type="CharacterBody3D"]
 
 [node name="Environment" type="WorldEnvironment" parent="."]
@@ -322,7 +321,7 @@ libraries = {
 
 [node name="BT_______Player" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("7_l33ya")
-blackboard_plan = SubResource("BlackboardPlan_bwxvx")
+blackboard_plan = ExtResource("5_wy6lx")
 
 [node name="EyeSight$3D" parent="." instance=ExtResource("5_jnxj8")]
 

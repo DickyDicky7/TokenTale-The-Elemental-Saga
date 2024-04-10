@@ -1,6 +1,6 @@
 [gd_resource type="BehaviorTree" load_steps=2 format=3 uid="uid://cnmc3ecev6cls"]
 
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_ls0sb"]
+[ext_resource type="BlackboardPlan" uid="uid://dnm8jghqyiky" path="res://game_objects/characters/others/the_haunting/ghost/Ghost_BlackboardPlan----.tres" id="1_ej1e8"]
 
 [resource]
-blackboard_plan = SubResource("BlackboardPlan_ls0sb")
+blackboard_plan = ExtResource("1_ej1e8")

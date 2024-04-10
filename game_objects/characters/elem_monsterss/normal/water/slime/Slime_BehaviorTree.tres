@@ -1,6 +1,6 @@
 [gd_resource type="BehaviorTree" load_steps=2 format=3 uid="uid://cdmi8dg3vtw7g"]
 
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_jujc6"]
+[ext_resource type="BlackboardPlan" uid="uid://546rs2p5gork" path="res://game_objects/characters/elem_monsterss/normal/water/slime/Slime_BlackboardPlan----.tres" id="1_1qwxc"]
 
 [resource]
-blackboard_plan = SubResource("BlackboardPlan_jujc6")
+blackboard_plan = ExtResource("1_1qwxc")

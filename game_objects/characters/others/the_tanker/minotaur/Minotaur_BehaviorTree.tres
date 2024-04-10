@@ -1,6 +1,6 @@
-[gd_resource type="BehaviorTree" load_steps=2 format=3 uid="uid://bihtmxeebjisn"]
+[gd_resource type="BehaviorTree" load_steps=2 format=3 uid="uid://do56smytaorys"]
 
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_j17jq"]
+[ext_resource type="BlackboardPlan" uid="uid://15j118xma3cw" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_BlackboardPlan----.tres" id="1_o2fpt"]
 
 [resource]
-blackboard_plan = SubResource("BlackboardPlan_j17jq")
+blackboard_plan = ExtResource("1_o2fpt")

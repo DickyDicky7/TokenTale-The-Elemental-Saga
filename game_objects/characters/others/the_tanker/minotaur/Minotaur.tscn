@@ -3,7 +3,8 @@
 [ext_resource type="SpriteFrames" uid="uid://b6px143pmxsue" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_SpriteFrames_$Main$.tres" id="1_nfvla"]
 [ext_resource type="Environment" uid="uid://eruq3fx3f53u" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_Environment.tres" id="1_xuv8u"]
 [ext_resource type="Shape3D" uid="uid://c6rxg7lixnpfr" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_CollisionShape3D_Body.tres" id="3_75wp1"]
-[ext_resource type="BehaviorTree" uid="uid://bihtmxeebjisn" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_BehaviorTree.tres" id="4_gnurt"]
+[ext_resource type="BehaviorTree" uid="uid://do56smytaorys" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_BehaviorTree.tres" id="4_ejkyx"]
+[ext_resource type="BlackboardPlan" uid="uid://bfif4achauhkn" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_BlackboardPlanBase.tres" id="5_3b3my"]
 [ext_resource type="Shape3D" uid="uid://huqvodapiiy6" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_ShapeCast3D.tres" id="6_2h21h"]
 [ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://EyeSight3D.tscn" id="6_k7weo"]
 [ext_resource type="Script" path="res://Flippable3DSpriteBase3DConsolidation.cs" id="7_a3fb2"]
@@ -549,8 +550,6 @@ _data = {
 "TAUNT": SubResource("Animation_7ctsd")
 }
 
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_6pljy"]
-
 [node name="Minotaur" type="CharacterBody3D"]
 
 [node name="Environment" type="WorldEnvironment" parent="."]
@@ -581,8 +580,8 @@ libraries = {
 }
 
 [node name="BT_______Player" type="BTPlayer" parent="."]
-behavior_tree = ExtResource("4_gnurt")
-blackboard_plan = SubResource("BlackboardPlan_6pljy")
+behavior_tree = ExtResource("4_ejkyx")
+blackboard_plan = ExtResource("5_3b3my")
 
 [node name="EyeSight$3D" parent="." instance=ExtResource("6_k7weo")]
 

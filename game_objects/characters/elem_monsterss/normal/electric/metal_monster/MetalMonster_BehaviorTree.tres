@@ -1,6 +1,6 @@
 [gd_resource type="BehaviorTree" load_steps=2 format=3 uid="uid://b2bpmha480eof"]
 
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_qk20t"]
+[ext_resource type="BlackboardPlan" uid="uid://pvay473srm5a" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster_BlackboardPlan----.tres" id="1_qh5j8"]
 
 [resource]
-blackboard_plan = SubResource("BlackboardPlan_qk20t")
+blackboard_plan = ExtResource("1_qh5j8")

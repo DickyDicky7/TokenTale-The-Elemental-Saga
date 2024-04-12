@@ -19,10 +19,10 @@ tracks/0/path = NodePath("AnimatedSprite3D_$Main$:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.5, 1.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5]
+"values": [0, 2, 3, 4, 5, 1]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -424,17 +424,18 @@ environment = ExtResource("2_p2mts")
 
 [node name="AnimatedSprite3D_$Main$" type="AnimatedSprite3D" parent="."]
 cast_shadow = 0
-offset = Vector2(1, 14)
+offset = Vector2(0, 12)
 texture_filter = 0
 sprite_frames = ExtResource("1_n3j5a")
 animation = &"THROW"
 
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 cast_shadow = 3
+offset = Vector2(0, 12)
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_n3j5a")
-animation = &"THROW"
+animation = &"DEAD"
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
@@ -450,13 +451,20 @@ behavior_tree = ExtResource("12_hk2im")
 blackboard_plan = SubResource("BlackboardPlan_uwae2")
 
 [node name="EyeSight$3D" parent="." instance=ExtResource("8_d1obs")]
+transform = Transform3D(2.82843, 0, 2.82843, 0, 4, 0, -2.82843, 0, 2.82843, 0, 0, 0)
 
 [node name="Ray__Cast3D" type="RayCast3D" parent="."]
-target_position = Vector3(0.5, 0.1, 0)
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+visible = false
+target_position = Vector3(0.5, 0.025, 0)
 debug_shape_custom_color = Color(0, 0, 1, 0.5)
 
+[node name="RayCast3DMove" type="RayCast3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+target_position = Vector3(0.5, 0.025, 0)
+
 [node name="ShapeCast3D" type="ShapeCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0.08, 0)
 shape = ExtResource("7_4pwu0")
 target_position = Vector3(0, 0, 0)
 debug_shape_custom_color = Color(0, 0, 1, 1)

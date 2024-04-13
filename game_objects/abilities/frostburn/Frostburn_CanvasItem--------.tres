@@ -1,6 +1,0 @@
-[gd_resource type="CanvasTexture" load_steps=2 format=3 uid="uid://c2nnaxeqa5hdx"]
-
-[ext_resource type="Texture2D" uid="uid://knmcgwrfgiby" path="res://game_asset_s/GameFXexport/SPRITESHEET_Files/IceShatter_1_096x096.png" id="1_cq3xn"]
-
-[resource]
-diffuse_texture = ExtResource("1_cq3xn")

@@ -16,6 +16,9 @@ public abstract partial class Character3D : CharacterBody3D
 
     public virtual void Move(Vector3 @direction, double @delta)
     {
+            @direction  =   (         Transform.         Basis
+        *   @direction).Normalized();
+
         if (@direction !=
             Vector3.Zero)
         {
@@ -25,6 +28,11 @@ public abstract partial class Character3D : CharacterBody3D
             velocity = velocity. MoveToward  (
             @direction *  Speed, Acceleration);
 
+            if (!IsOnFloor())
+            {
+            velocity+= GetGravity() * (float)delta * Speed;
+            }
+
             Velocity = velocity;
 
             MoveAndSlide();            
@@ -33,6 +41,9 @@ public abstract partial class Character3D : CharacterBody3D
 
     public virtual void Stop(Vector3 @direction, double @delta)
     {
+            @direction  =   (         Transform.         Basis
+        *   @direction).Normalized();
+
         if (@direction ==
             Vector3.Zero)
         {
@@ -42,6 +53,11 @@ public abstract partial class Character3D : CharacterBody3D
 
             velocity = velocity. MoveToward  (
             @direction *  Speed, Deceleration);
+
+            if (!IsOnFloor())
+            {
+            velocity+= GetGravity() * (float)delta * Speed;
+            }
 
             Velocity =
             velocity ;

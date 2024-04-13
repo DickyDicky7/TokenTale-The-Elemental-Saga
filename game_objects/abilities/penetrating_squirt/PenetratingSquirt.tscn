@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://bj14wt31rsok8"]
+[gd_scene load_steps=12 format=3 uid="uid://bj14wt31rsok8"]
 
 [ext_resource type="SpriteFrames" uid="uid://1pmwtiv8namm" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_SpriteFrames.tres" id="1_84jd6"]
 [ext_resource type="Environment" uid="uid://dwifqdh3kpbj7" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_Environment$.tres" id="1_uiwra"]
 [ext_resource type="BlackboardPlan" uid="uid://bcg3ryduafma5" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_BlackboardPlanBase.tres" id="4_cqd5s"]
 [ext_resource type="Shape3D" uid="uid://uj6irmg35oj1" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_CollisionShape3D_Hitbox.tres" id="4_mmqwq"]
 [ext_resource type="BehaviorTree" uid="uid://t6yhjbbcq7hq" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_BehaviorTree.tres" id="4_wt3nm"]
+[ext_resource type="Material" uid="uid://ceiqd3fl34sb0" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_ParticleProcessMaterial_Test.tres" id="6_7sgmm"]
+[ext_resource type="QuadMesh" uid="uid://b4ql1ljd52px5" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_DrawPass01_Mesh.tres" id="6_scnkn"]
 
 [sub_resource type="Animation" id="Animation_hqgdx"]
 length = 0.6
@@ -102,11 +104,17 @@ environment = ExtResource("1_uiwra")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(-1.31134e-08, 3, -4.37114e-08, 0, -1.31134e-07, -1, -0.3, -1.31134e-07, 1.91069e-15, 0, 0, 0)
+visible = false
 offset = Vector2(0, 48)
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_84jd6")
 animation = &"FLY"
+
+[node name="_GPU_Particles3D" type="GPUParticles3D" parent="."]
+amount = 1000
+process_material = ExtResource("6_7sgmm")
+draw_pass_1 = ExtResource("6_scnkn")
 
 [node name="CollisionShape3D_Hitbox" type="CollisionShape3D" parent="."]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 1.2, 0, 0)

@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://2kdumjpj6r7e"]
+
+[ext_resource type="Shader" path="res://game_objects/abilities/tidal_wave/TidalWave_ShaderMaterial_01_Mesh.gdshader" id="1_i4pfv"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_i4pfv")
+shader_parameter/TimeScale = 10.0
+shader_parameter/StepScale = 10.0
+shader_parameter/AmplitudeScale = 0.1

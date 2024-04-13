@@ -33,11 +33,11 @@ folder_colors={
 "res://addons/": "green",
 "res://game_asset_s/": "teal",
 "res://game_objects/": "pink",
-"res://game_objects/abilities/air_surge/": "orange",
-"res://game_objects/abilities/fire_ball/": "orange",
-"res://game_objects/abilities/frostburn/": "orange",
+"res://game_objects/abilities/air_surge/": "blue",
+"res://game_objects/abilities/fire_ball/": "blue",
+"res://game_objects/abilities/frostburn/": "blue",
 "res://game_objects/abilities/golem_go_go_go/": "blue",
-"res://game_objects/abilities/ice_wall/": "orange",
+"res://game_objects/abilities/ice_wall/": "blue",
 "res://game_objects/abilities/ignite/": "blue",
 "res://game_objects/abilities/lightning/": "blue",
 "res://game_objects/abilities/overcharge/": "blue",
@@ -59,6 +59,10 @@ folder_colors={
 "res://game_objects/characters/others/the_thief/": "blue",
 "res://game_objects/characters/others/the_undead/": "blue"
 }
+
+[filesystem]
+
+import/blender/enabled=false
 
 [input]
 

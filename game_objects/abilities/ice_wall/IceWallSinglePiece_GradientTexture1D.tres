@@ -1,0 +1,7 @@
+[gd_resource type="GradientTexture1D" load_steps=2 format=3 uid="uid://mekqcwmob15d"]
+
+[ext_resource type="Gradient" uid="uid://dsw4pnunytvic" path="res://game_objects/abilities/ice_wall/IceWallSinglePiece_Gradient---------.tres" id="1_st2u8"]
+
+[resource]
+gradient = ExtResource("1_st2u8")
+use_hdr = true

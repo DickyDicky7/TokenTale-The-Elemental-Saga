@@ -1,5 +1,0 @@
-[gd_resource type="BBNode" format=3 uid="uid://bp4j2f3busoyx"]
-
-[resource]
-saved_value = NodePath("GPUParticles2D")
-resource_name = "GPUParticles2D"

@@ -1,20 +1,120 @@
-[gd_scene load_steps=11 format=3 uid="uid://bflyuqbbpqmkp"]
+[gd_scene load_steps=12 format=3 uid="uid://bflyuqbbpqmkp"]
 
-[ext_resource type="Environment" uid="uid://c7ikp830o07ap" path="res://game_objects/abilities/frostburn/Frostburn_Environment.tres" id="1_x0148"]
+[ext_resource type="Environment" uid="uid://c7ikp830o07ap" path="res://game_objects/abilities/frostburn/Frostburn_Environment$.tres" id="1_x0148"]
 [ext_resource type="SpriteFrames" uid="uid://ccvpdipgc4wqy" path="res://game_objects/abilities/frostburn/Frostburn_SpriteFrames.tres" id="2_pqyg2"]
-[ext_resource type="Texture2D" uid="uid://c2nnaxeqa5hdx" path="res://game_objects/abilities/frostburn/Frostburn_CanvasItem--------.tres" id="3_eypyi"]
-[ext_resource type="Material" uid="uid://htrcy8fniewn" path="res://game_objects/abilities/frostburn/Frostburn_CanvasItemMaterial.tres" id="3_j8jcy"]
-[ext_resource type="BehaviorTree" uid="uid://8cuolfcbawdq" path="res://game_objects/abilities/frostburn/Frostburn_Behavior--Tree.tres" id="3_nqikv"]
-[ext_resource type="Material" uid="uid://c4o8c6253515o" path="res://game_objects/abilities/frostburn/Frostburn_ParticleProcessMaterial.tres" id="4_fb5s3"]
-[ext_resource type="Shape2D" uid="uid://dmudmc73nkbe4" path="res://game_objects/abilities/frostburn/Frostburn_CollisionShape2D_Hitbox.tres" id="6_x5l7o"]
-[ext_resource type="BlackboardPlan" uid="uid://bohqe83tjw5tw" path="res://game_objects/abilities/frostburn/Frostburn_BlackboardPlan.tres" id="7_lbovs"]
+[ext_resource type="SpriteFrames" uid="uid://cdcebiy3fffvh" path="res://game_objects/abilities/frostburn/Frostburn_SpriteFrames_Effect01.tres" id="3_48cvs"]
+[ext_resource type="BehaviorTree" uid="uid://8cuolfcbawdq" path="res://game_objects/abilities/frostburn/Frostburn_BehaviorTree.tres" id="3_nqikv"]
+[ext_resource type="SpriteFrames" uid="uid://c7tliiflx177" path="res://game_objects/abilities/frostburn/Frostburn_SpriteFrames_Effect02.tres" id="4_243kp"]
+[ext_resource type="Shape3D" uid="uid://dhfv2barpkiad" path="res://game_objects/abilities/frostburn/Frostburn_CollisionShape3D_Hitbox.tres" id="7_5jygr"]
+[ext_resource type="BlackboardPlan" uid="uid://bohqe83tjw5tw" path="res://game_objects/abilities/frostburn/Frostburn_BlackboardPlanBase.tres" id="7_lbovs"]
+[ext_resource type="Script" path="res://LookinAtCamSpriteBase3DConsolidation.cs" id="8_vg3oq"]
+
+[sub_resource type="Animation" id="Animation_0m18r"]
+resource_name = "EFF"
+length = 0.95
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite3D_Effect01:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite3D_Effect01:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["EFF"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite3D_Effect02:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite3D_Effect02:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["EFF"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite3D_Effect01:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite3D:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AnimatedShadow3D:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AnimatedSprite3D_Effect02:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_i68bp"]
 length = 1.75
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/path = NodePath("AnimatedSprite3D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -26,7 +126,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/path = NodePath("AnimatedSprite3D:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -35,43 +135,136 @@ tracks/1/keys = {
 "update": 1,
 "values": ["HIT"]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedShadow3D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3, 1.35, 1.4, 1.45, 1.5, 1.55, 1.6, 1.65, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedShadow3D:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["HIT"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite3D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedShadow3D:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AnimatedSprite3D_Effect01:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AnimatedSprite3D_Effect02:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_trf8h"]
 _data = {
+"EFF": SubResource("Animation_0m18r"),
 "HIT": SubResource("Animation_i68bp")
 }
 
-[node name="Frostburn" type="Area2D"]
+[node name="Frostburn" type="Area3D"]
 
 [node name="Environment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_x0148")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-self_modulate = Color(1, 1, 1.5, 1)
-light_mask = 0
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+visible = false
+cast_shadow = 0
+offset = Vector2(0, 16)
+texture_filter = 0
 sprite_frames = ExtResource("2_pqyg2")
 animation = &"HIT"
-offset = Vector2(0, -16)
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-self_modulate = Color(1, 1, 1.5, 1)
-light_mask = 0
-material = ExtResource("3_j8jcy")
-emitting = false
-amount = 10
-process_material = ExtResource("4_fb5s3")
-texture = ExtResource("3_eypyi")
-one_shot = true
+[node name="AnimatedShadow3D" type="AnimatedSprite3D" parent="."]
+visible = false
+cast_shadow = 3
+offset = Vector2(0, 16)
+alpha_cut = 2
+texture_filter = 0
+sprite_frames = ExtResource("2_pqyg2")
+animation = &"HIT"
 
-[node name="CollisionShape2D_Hitbox" type="CollisionShape2D" parent="."]
-shape = ExtResource("6_x5l7o")
-debug_color = Color(1, 0, 0, 0.5)
+[node name="AnimatedSprite3D_Effect01" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+cast_shadow = 0
+texture_filter = 0
+render_priority = -1
+sprite_frames = ExtResource("3_48cvs")
+animation = &"EFF"
+
+[node name="AnimatedSprite3D_Effect02" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+cast_shadow = 0
+texture_filter = 0
+render_priority = -1
+sprite_frames = ExtResource("4_243kp")
+animation = &"EFF"
+
+[node name="CollisionShape3D_Hitbox" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+shape = ExtResource("7_5jygr")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_trf8h")
 }
 
-[node name="BTPlayer" type="BTPlayer" parent="."]
+[node name="BT_______Player" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("3_nqikv")
 blackboard_plan = ExtResource("7_lbovs")
+
+[node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
+script = ExtResource("8_vg3oq")
+Sprites = [NodePath("../AnimatedSprite3D")]

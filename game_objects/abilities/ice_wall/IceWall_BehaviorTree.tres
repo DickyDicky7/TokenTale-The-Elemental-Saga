@@ -1,0 +1,6 @@
+[gd_resource type="BehaviorTree" load_steps=2 format=3 uid="uid://nn2qdvt6kpw5"]
+
+[ext_resource type="BlackboardPlan" uid="uid://b4gftkagyvy1p" path="res://game_objects/abilities/ice_wall/IceWall_BlackboardPlan----.tres" id="1_wo7so"]
+
+[resource]
+blackboard_plan = ExtResource("1_wo7so")

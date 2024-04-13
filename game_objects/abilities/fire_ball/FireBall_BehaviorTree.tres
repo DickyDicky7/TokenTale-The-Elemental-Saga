@@ -1,0 +1,6 @@
+[gd_resource type="BehaviorTree" load_steps=2 format=3 uid="uid://b0fwx3pd1yexw"]
+
+[ext_resource type="BlackboardPlan" uid="uid://dqqp4rjen6elg" path="res://game_objects/abilities/fire_ball/FireBall_BlackboardPlan----.tres" id="1_5nekw"]
+
+[resource]
+blackboard_plan = ExtResource("1_5nekw")

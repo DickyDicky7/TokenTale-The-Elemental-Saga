@@ -40,16 +40,10 @@ func _exit() -> void:
 	pass;
 
 func _tick(_delta: float) ->Status:
-	if (AlreadyDetect == false):
-		return PatrollDetection()
-	else:
-		return ActionDetection()
-
-func PatrollDetection() -> Status:
 	if (shapeCast3D.is_colliding()):
 		for i in range(shapeCast3D.collision_result.size()):
 			var  targetCharacter:Object = shapeCast3D.get_collider(i);
-			if  (targetCharacter != null 
+			if  (targetCharacter != null
 			&& targetCharacter is Character3D
 			&& targetCharacter.name == TargetCharacter3DName):
 				#projected Vector on XZ of CurrentChar To TargetChar
@@ -57,50 +51,42 @@ func PatrollDetection() -> Status:
 					currentCharacter.position.direction_to(targetCharacter.position)
 					, Vector3.UP
 				).normalized()
-				var targetCharactedAngle: float = helper.StandardizeDegree(
+				var targetCharacterAngle: float = helper.StandardizeDegree(
 					rad_to_deg(
 						targetCharacterVector
 						.signed_angle_to(Vector3(1, 0, 0), Vector3.DOWN))
 				)
-				var realAngle: float = helper.Clamp_StandardAngle(
-					targetCharactedAngle
-					, MinSeeableAngle
-					, MaxSeeableAngle
-				)
-				rayCast3D.rotation_degrees.y = realAngle
-				#var rayCastLength: float = rayCast3D.position.distance_to(rayCast3D.target_position)
-				#rayCast3D.target_position = Vector3(
-					#cos(realAngle) * rayCastLength
-					#, rayCast3D.target_position.y
-					#, sin(realAngle) * rayCastLength)
-				rayCast3D.force_raycast_update()
-				if (rayCast3D.get_collider_rid() == targetCharacter.get_rid()):
-					blackboard.set_var(BBTargetCharacter, targetCharacter)
-					blackboard.set_var(BBSeeingAngle, helper.StandardizeDegree(realAngle))
-					blackboard.set_var(BBAlreadyDetect, true)
-					return SUCCESS;
+				if (AlreadyDetect == false):
+					return PatrollDetection(targetCharacterAngle, targetCharacter)
+				else:
+					return ActionDetection(targetCharacterAngle, targetCharacter)
+	if (AlreadyDetect == true):
+		blackboard.set_var(BBAlreadyDetect, false)
+	return FAILURE
+
+func PatrollDetection(targetCharacterAngle: float, targetCharacter: Object) -> Status:
+	var realAngle: float = helper.Clamp_StandardAngle(
+		targetCharacterAngle
+		, MinSeeableAngle
+		, MaxSeeableAngle
+	)
+	rayCast3D.rotation_degrees.y = realAngle
+	#var rayCastLength: float = rayCast3D.position.distance_to(rayCast3D.target_position)
+	#rayCast3D.target_position = Vector3(
+		#cos(realAngle) * rayCastLength
+		#, rayCast3D.target_position.y
+		#, sin(realAngle) * rayCastLength)	
+	rayCast3D.force_raycast_update()
+	if (rayCast3D.get_collider_rid() == targetCharacter.get_rid()):
+		blackboard.set_var(BBTargetCharacter, targetCharacter)
+		blackboard.set_var(BBSeeingAngle, helper.StandardizeDegree(realAngle))
+		blackboard.set_var(BBAlreadyDetect, true)
+		return SUCCESS;
 	return FAILURE;
 
-func ActionDetection() -> Status:
-	if (shapeCast3D.is_colliding()):
-		for i in range(shapeCast3D.collision_result.size()):
-			var  targetCharacter:Object = shapeCast3D.get_collider(i);
-			if  (targetCharacter != null 
-			&& targetCharacter is Character3D
-			&& targetCharacter.name == TargetCharacter3DName):
-				var targetCharacterVector: Vector3 = helper.ProjectVector3ToPlane(
-					currentCharacter.position.direction_to(targetCharacter.position)
-					, Vector3.UP
-				).normalized()
-				var targetCharactedAngle: float = helper.StandardizeDegree(
-					rad_to_deg(
-						targetCharacterVector
-						.signed_angle_to(Vector3(1, 0, 0), Vector3.DOWN))
-				)
-				rayCast3D.rotation_degrees.y = targetCharactedAngle
-				rayCast3D.force_raycast_update()
-				blackboard.set_var(BBTargetCharacter, targetCharacter)
-				blackboard.set_var(BBSeeingAngle, helper.StandardizeDegree(targetCharactedAngle))
-				return SUCCESS
-	blackboard.set_var(BBAlreadyDetect, false)
-	return FAILURE
+func ActionDetection(targetCharactedAngle: float, targetCharacter: Object) -> Status:
+	rayCast3D.rotation_degrees.y = targetCharactedAngle
+	rayCast3D.force_raycast_update()
+	blackboard.set_var(BBTargetCharacter, targetCharacter)
+	blackboard.set_var(BBSeeingAngle, helper.StandardizeDegree(targetCharactedAngle))
+	return SUCCESS

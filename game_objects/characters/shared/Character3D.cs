@@ -5,7 +5,9 @@ namespace TokenTaleTheElementalSaga;
 [GlobalClass]
 public abstract partial class Character3D : CharacterBody3D
 {
-    [Export]
+	[Export]
+	public int Health { get; set; }
+	[Export]
     public float Speed { get; set; }
     [Export]
     public float Jumpv { get; set; }

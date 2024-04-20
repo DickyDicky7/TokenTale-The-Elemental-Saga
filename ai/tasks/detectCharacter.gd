@@ -7,10 +7,12 @@ func _generate_name() -> String:
 @export var TargetCharacter3DName: StringName
 @export var PathShapeCast3D: NodePath
 @export var PathRayCast3D: NodePath
+@export var PathEyeSight: NodePath
 
 var currentCharacter: Character3D
 var shapeCast3D: ShapeCast3D
 var rayCast3D: RayCast3D
+var eyeSight: Node3D
 var SeeingAngle: float
 var MinSeeableAngle: float
 var MaxSeeableAngle: float
@@ -25,6 +27,7 @@ func _setup() -> void:
 	currentCharacter = agent
 	shapeCast3D = agent.get_node(PathShapeCast3D);
 	rayCast3D = agent.get_node(PathRayCast3D);
+	eyeSight = agent.get_node(PathEyeSight)
 	blackboard.set_var(BBSeeingAngle, 0)
 	blackboard.set_var(BBAlreadyDetect, false)
 	pass;
@@ -34,6 +37,14 @@ func _enter() -> void:
 	MinSeeableAngle = helper.StandardizeDegree(SeeingAngle - 45)
 	MaxSeeableAngle = helper.StandardizeDegree(SeeingAngle + 45)
 	AlreadyDetect = blackboard.get_var(BBAlreadyDetect)
+	if (AlreadyDetect == false):
+		shapeCast3D.scale = Vector3(2, 2, 2)
+		rayCast3D.scale = Vector3(2, 2, 2)
+		eyeSight.scale = Vector3(2, 2, 2)
+	else:
+		shapeCast3D.scale = Vector3(4, 4, 4)
+		rayCast3D.scale = Vector3(4, 4, 4)
+		eyeSight.scale = Vector3(4, 4, 4)
 	pass;
 
 func _exit() -> void:

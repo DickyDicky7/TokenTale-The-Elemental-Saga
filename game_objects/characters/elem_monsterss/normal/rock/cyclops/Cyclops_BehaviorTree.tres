@@ -1,0 +1,6 @@
+[gd_resource type="BehaviorTree" load_steps=2 format=3 uid="uid://bubi75u730bbr"]
+
+[ext_resource type="BlackboardPlan" uid="uid://c4kwf8hr8m8an" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops_BlackboardPlan----.tres" id="1_rq2se"]
+
+[resource]
+blackboard_plan = ExtResource("1_rq2se")

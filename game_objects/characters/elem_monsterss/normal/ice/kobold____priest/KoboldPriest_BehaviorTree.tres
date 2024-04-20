@@ -1,0 +1,6 @@
+[gd_resource type="BehaviorTree" load_steps=2 format=3 uid="uid://dwwfq1c3bej11"]
+
+[ext_resource type="BlackboardPlan" uid="uid://dpjljhp6vpagf" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest_BlackboardPlan----.tres" id="1_amhj0"]
+
+[resource]
+blackboard_plan = ExtResource("1_amhj0")

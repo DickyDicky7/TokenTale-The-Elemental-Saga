@@ -480,7 +480,7 @@ autostart = true
 
 [node name="Flippable3DSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
 script = ExtResource("10_mu3ir")
-Sprites = [NodePath("../AnimatedSprite3D_$Main$")]
+Sprites = [NodePath("../AnimatedSprite3D_$Main$"), NodePath("../AnimatedSprite3D_Shadow")]
 
 [node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
 script = ExtResource("9_ts5ll")

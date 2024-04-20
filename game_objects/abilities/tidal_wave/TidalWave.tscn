@@ -1,43 +1,31 @@
-[gd_scene load_steps=11 format=3 uid="uid://v8blbc8smsjd"]
+[gd_scene load_steps=8 format=3 uid="uid://v8blbc8smsjd"]
 
-[ext_resource type="Material" uid="uid://u1kjij568nae" path="res://game_objects/abilities/tidal_wave/TidalWave_CanvasItemMaterial_1.tres" id="1_1tlw2"]
-[ext_resource type="Material" uid="uid://bd2y0pqsg7jxv" path="res://game_objects/abilities/tidal_wave/TidalWave_ParticleProcessMaterial_1.tres" id="1_4inud"]
-[ext_resource type="Environment" uid="uid://b6jkmlgn4vl8j" path="res://game_objects/abilities/tidal_wave/TidalWave_Environment.tres" id="1_dlrs8"]
-[ext_resource type="Texture2D" uid="uid://c857yy3wq7wn7" path="res://game_objects/abilities/tidal_wave/TidalWave_CanvasTexture_1.tres" id="2_uxbye"]
-[ext_resource type="Material" uid="uid://4qhuxtpd58aw" path="res://game_objects/abilities/tidal_wave/TidalWave_ParticleProcessMaterial_2.tres" id="3_axyva"]
-[ext_resource type="Material" uid="uid://cwql2k2ib740c" path="res://game_objects/abilities/tidal_wave/TidalWave_CanvasItemMaterial_2.tres" id="4_3jmbq"]
-[ext_resource type="Texture2D" uid="uid://727fow6metsh" path="res://game_objects/abilities/tidal_wave/TidalWave_CanvasTexture_2.tres" id="4_546sf"]
-[ext_resource type="BehaviorTree" uid="uid://klwcfha84g3g" path="res://game_objects/abilities/tidal_wave/TidalWave_Behavior--Tree.tres" id="8_hqtjd"]
-[ext_resource type="Shape2D" uid="uid://js34k8ki4eo7" path="res://game_objects/abilities/tidal_wave/TidalWave_CollisionShape2D_Hitbox.tres" id="8_ivlr0"]
-[ext_resource type="BlackboardPlan" uid="uid://dn2lui3i7b26e" path="res://game_objects/abilities/tidal_wave/TidalWave_BlackboardPlan.tres" id="9_tdpwh"]
+[ext_resource type="Environment" uid="uid://b6jkmlgn4vl8j" path="res://game_objects/abilities/tidal_wave/TidalWave_Environment$.tres" id="1_dlrs8"]
+[ext_resource type="BehaviorTree" uid="uid://dgfltm5vq2fjm" path="res://game_objects/abilities/tidal_wave/TidalWave_BehaviorTree.tres" id="2_42ast"]
+[ext_resource type="ArrayMesh" uid="uid://edya7xm672g4" path="res://game_objects/abilities/tidal_wave/TidalWave_Mesh.tres" id="2_lxtce"]
+[ext_resource type="Shape3D" uid="uid://cidlwatdfjhid" path="res://game_objects/abilities/tidal_wave/TidalWave_CollisionShape3D_Hitbox.tres" id="3_eojro"]
+[ext_resource type="BlackboardPlan" uid="uid://8tb05tc6r0ig" path="res://game_objects/abilities/tidal_wave/TidalWave_BlackboardPlanBase.tres" id="3_mduik"]
+[ext_resource type="Material" uid="uid://caulq6uxt6qm8" path="res://game_objects/abilities/tidal_wave/TidalWave_ParticleProcessMaterial.tres" id="6_5ftrw"]
+[ext_resource type="QuadMesh" uid="uid://c42q5i7rp2x1t" path="res://game_objects/abilities/tidal_wave/TidalWave_DrawPass01_Mesh.tres" id="7_22a1e"]
 
-[node name="TidalWave" type="Area2D"]
+[node name="TidalWave" type="Area3D"]
 
 [node name="Environment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_dlrs8")
 
-[node name="GPUParticles2D_1" type="GPUParticles2D" parent="."]
-self_modulate = Color(1, 1, 1.5, 1)
-z_index = 1
-material = ExtResource("1_1tlw2")
-position = Vector2(0, -41)
+[node name="$Mesh$Instance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_lxtce")
+
+[node name="CollisionShape3D_Hitbox" type="CollisionShape3D" parent="."]
+shape = ExtResource("3_eojro")
+
+[node name="BT_______Player" type="BTPlayer" parent="."]
+behavior_tree = ExtResource("2_42ast")
+blackboard_plan = ExtResource("3_mduik")
+
+[node name="_GPU_Particles3D" type="GPUParticles3D" parent="."]
 amount = 50
-process_material = ExtResource("1_4inud")
-texture = ExtResource("2_uxbye")
-explosiveness = 1.0
-
-[node name="GPUParticles2D_2" type="GPUParticles2D" parent="."]
-self_modulate = Color(1, 1, 1.5, 1)
-material = ExtResource("4_3jmbq")
-amount = 50
-process_material = ExtResource("3_axyva")
-texture = ExtResource("4_546sf")
-
-[node name="CollisionShape2D_Hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(0, -3)
-shape = ExtResource("8_ivlr0")
-debug_color = Color(1, 0, 0, 0.5)
-
-[node name="BTPlayer" type="BTPlayer" parent="."]
-behavior_tree = ExtResource("8_hqtjd")
-blackboard_plan = ExtResource("9_tdpwh")
+lifetime = 0.5
+randomness = 1.0
+process_material = ExtResource("6_5ftrw")
+draw_pass_1 = ExtResource("7_22a1e")

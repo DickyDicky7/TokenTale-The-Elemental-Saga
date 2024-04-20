@@ -1,0 +1,6 @@
+[gd_resource type="BehaviorTree" load_steps=2 format=3 uid="uid://bxfl32sewhcdt"]
+
+[ext_resource type="BlackboardPlan" uid="uid://vogbfg527nlo" path="res://game_objects/abilities/serene_meadow/SereneMeadow_BlackboardPlan----.tres" id="1_25nb2"]
+
+[resource]
+blackboard_plan = ExtResource("1_25nb2")

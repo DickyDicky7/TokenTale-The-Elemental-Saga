@@ -1,8 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://crwxg3wu37lq0"]
-
-[ext_resource type="Shader" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_ShaderMaterial.gdshader" id="1_x7ddd"]
-[ext_resource type="Texture2D" uid="uid://bfto0gjlxlos" path="res://game_asset_s/characters/elemental_monsters/fire/imp/sprite-sheet-imp-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="2_hept6"]
-
-[resource]
-shader = ExtResource("1_x7ddd")
-shader_parameter/normal_map = ExtResource("2_hept6")

@@ -1,0 +1,6 @@
+[gd_resource type="BehaviorTree" load_steps=2 format=3 uid="uid://t6yhjbbcq7hq"]
+
+[ext_resource type="BlackboardPlan" uid="uid://6afyhrto2vay" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_BlackboardPlan----.tres" id="1_8tl4g"]
+
+[resource]
+blackboard_plan = ExtResource("1_8tl4g")

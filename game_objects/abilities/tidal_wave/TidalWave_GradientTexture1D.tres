@@ -1,0 +1,7 @@
+[gd_resource type="GradientTexture1D" load_steps=2 format=3 uid="uid://cwapkf03x6t27"]
+
+[ext_resource type="Gradient" uid="uid://kv5qfn7lqyyl" path="res://game_objects/abilities/tidal_wave/TidalWave_Gradient---------.tres" id="1_q3faq"]
+
+[resource]
+gradient = ExtResource("1_q3faq")
+use_hdr = true

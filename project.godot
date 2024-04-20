@@ -33,27 +33,36 @@ folder_colors={
 "res://addons/": "green",
 "res://game_asset_s/": "teal",
 "res://game_objects/": "pink",
-"res://game_objects/abilities/air_surge/": "orange",
-"res://game_objects/abilities/fire_ball/": "orange",
-"res://game_objects/abilities/frostburn/": "orange",
+"res://game_objects/abilities/air_surge/": "blue",
+"res://game_objects/abilities/fire_ball/": "blue",
+"res://game_objects/abilities/frostburn/": "blue",
 "res://game_objects/abilities/golem_go_go_go/": "blue",
-"res://game_objects/abilities/ice_wall/": "orange",
-"res://game_objects/abilities/ignite/": "orange",
-"res://game_objects/abilities/lightning/": "orange",
-"res://game_objects/abilities/overcharge/": "orange",
-"res://game_objects/abilities/penetrating_squirt/": "orange",
-"res://game_objects/abilities/root_trap/": "orange",
-"res://game_objects/abilities/serene_meadow/": "orange",
-"res://game_objects/abilities/sky_strike/": "orange",
+"res://game_objects/abilities/ice_wall/": "blue",
+"res://game_objects/abilities/ignite/": "blue",
+"res://game_objects/abilities/lightning/": "blue",
+"res://game_objects/abilities/overcharge/": "blue",
+"res://game_objects/abilities/penetrating_squirt/": "blue",
+"res://game_objects/abilities/root_trap/": "blue",
+"res://game_objects/abilities/serene_meadow/": "blue",
+"res://game_objects/abilities/sky_strike/": "blue",
 "res://game_objects/abilities/tidal_wave/": "orange",
-"res://game_objects/abilities/tornado/": "orange",
+"res://game_objects/abilities/tornado/": "blue",
 "res://game_objects/characters/elem_monsterss/normal/electric/": "blue",
+"res://game_objects/characters/elem_monsterss/normal/fire/": "blue",
 "res://game_objects/characters/elem_monsterss/normal/ice/": "blue",
 "res://game_objects/characters/elem_monsterss/normal/rock/": "blue",
 "res://game_objects/characters/elem_monsterss/normal/water/": "blue",
 "res://game_objects/characters/elem_monsterss/normal/wind/": "blue",
-"res://game_objects/characters/elem_monsterss/normal/wood/": "blue"
+"res://game_objects/characters/elem_monsterss/normal/wood/": "blue",
+"res://game_objects/characters/others/the_haunting/": "blue",
+"res://game_objects/characters/others/the_tanker/": "blue",
+"res://game_objects/characters/others/the_thief/": "blue",
+"res://game_objects/characters/others/the_undead/": "blue"
 }
+
+[filesystem]
+
+import/blender/enabled=false
 
 [input]
 

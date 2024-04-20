@@ -1,0 +1,6 @@
+[gd_resource type="BehaviorTree" load_steps=2 format=3 uid="uid://c0qgsne1gmjmr"]
+
+[ext_resource type="BlackboardPlan" uid="uid://dfkm2xh6u1swd" path="res://game_objects/characters/others/the_thief/cat/Cat_BlackboardPlan----.tres" id="1_pj3pd"]
+
+[resource]
+blackboard_plan = ExtResource("1_pj3pd")

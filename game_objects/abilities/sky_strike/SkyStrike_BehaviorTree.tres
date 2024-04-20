@@ -1,0 +1,6 @@
+[gd_resource type="BehaviorTree" load_steps=2 format=3 uid="uid://db04qtvf251h7"]
+
+[ext_resource type="BlackboardPlan" uid="uid://bh483bxmrfxg7" path="res://game_objects/abilities/sky_strike/SkyStrike_BlackboardPlan----.tres" id="1_5tq3y"]
+
+[resource]
+blackboard_plan = ExtResource("1_5tq3y")

@@ -1,0 +1,6 @@
+[gd_resource type="BehaviorTree" load_steps=2 format=3 uid="uid://byjbb1t3ra7av"]
+
+[ext_resource type="BlackboardPlan" uid="uid://d2jvwf54doq6d" path="res://game_objects/abilities/air_surge/AirSurge_BlackboardPlan----.tres" id="1_scffu"]
+
+[resource]
+blackboard_plan = ExtResource("1_scffu")

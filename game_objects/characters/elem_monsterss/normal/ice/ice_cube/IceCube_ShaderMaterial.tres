@@ -1,8 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://ccj8dvsvjdhou"]
-
-[ext_resource type="Shader" path="res://game_objects/characters/elem_monsterss/normal/ice/ice_cube/IceCube_ShaderMaterial.gdshader" id="1_exe8y"]
-[ext_resource type="Texture2D" uid="uid://d03sqbewcptiq" path="res://game_asset_s/characters/elemental_monsters/ice/ice_cube/sprite-sheet-ice-cube-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="2_utn1n"]
-
-[resource]
-shader = ExtResource("1_exe8y")
-shader_parameter/normal_map = ExtResource("2_utn1n")

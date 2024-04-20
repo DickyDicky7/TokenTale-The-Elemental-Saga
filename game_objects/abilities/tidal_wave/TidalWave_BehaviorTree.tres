@@ -1,0 +1,6 @@
+[gd_resource type="BehaviorTree" load_steps=2 format=3 uid="uid://dgfltm5vq2fjm"]
+
+[ext_resource type="BlackboardPlan" uid="uid://blcrp3qi8a04d" path="res://game_objects/abilities/tidal_wave/TidalWave_BlackboardPlan----.tres" id="1_55d2k"]
+
+[resource]
+blackboard_plan = ExtResource("1_55d2k")

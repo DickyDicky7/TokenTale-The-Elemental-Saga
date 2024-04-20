@@ -1,8 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bd6sd8mun1q0x"]
-
-[ext_resource type="Shader" path="res://game_objects/characters/others/the_thief/cat/Cat_ShaderMaterial.gdshader" id="1_esli7"]
-[ext_resource type="Texture2D" uid="uid://cm6deyqclk173" path="res://game_asset_s/characters/others/cat/sprite-sheet-cat-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="2_y42sh"]
-
-[resource]
-shader = ExtResource("1_esli7")
-shader_parameter/normal_map = ExtResource("2_y42sh")

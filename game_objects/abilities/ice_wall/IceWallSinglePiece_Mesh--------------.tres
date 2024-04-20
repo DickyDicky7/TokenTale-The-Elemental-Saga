@@ -1,0 +1,7 @@
+[gd_resource type="BoxMesh" load_steps=2 format=3 uid="uid://gbvmnrdj18sd"]
+
+[ext_resource type="Material" uid="uid://dwghv5t64irsf" path="res://game_objects/abilities/ice_wall/IceWallSinglePiece_StandardMaterial3D.tres" id="1_o7hoj"]
+
+[resource]
+material = ExtResource("1_o7hoj")
+size = Vector3(0.5, 1, 0.2)

@@ -1,0 +1,7 @@
+[gd_resource type="QuadMesh" load_steps=2 format=3 uid="uid://c42q5i7rp2x1t"]
+
+[ext_resource type="Material" uid="uid://b8xc1ihcpp80g" path="res://game_objects/abilities/tidal_wave/TidalWave_DrawPass01_StandardMaterial3D.tres" id="1_3iad6"]
+
+[resource]
+material = ExtResource("1_3iad6")
+size = Vector2(0.01, 0.01)

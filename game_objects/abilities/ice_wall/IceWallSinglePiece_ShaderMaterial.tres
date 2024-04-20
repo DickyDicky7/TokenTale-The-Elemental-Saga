@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cfrb2h47cdkcb"]
+
+[ext_resource type="Shader" path="res://game_objects/abilities/ice_wall/IceWallSinglePiece_ShaderMaterial.gdshader" id="1_4hkjs"]
+
+[resource]
+render_priority = -20
+shader = ExtResource("1_4hkjs")

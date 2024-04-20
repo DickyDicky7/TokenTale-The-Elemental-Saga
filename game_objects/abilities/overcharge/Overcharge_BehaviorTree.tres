@@ -1,0 +1,6 @@
+[gd_resource type="BehaviorTree" load_steps=2 format=3 uid="uid://bg3bvxuo7py57"]
+
+[ext_resource type="BlackboardPlan" uid="uid://cb3wr6l14r6qs" path="res://game_objects/abilities/overcharge/Overcharge_BlackboardPlan----.tres" id="1_a22sl"]
+
+[resource]
+blackboard_plan = ExtResource("1_a22sl")

@@ -753,12 +753,14 @@ parameters/TIME_SCALE/scale = 1.0
 MinRotationY = -180.0
 MaxRotationY = 180.0
 
-[node name="Sword" parent="." node_paths=PackedStringArray("Sprite3D", "Aareaa3D", "CollisionShape3D", "AnimatedSprite3D", "AnimationPlayerr") instance=ExtResource("12_frf8n")]
+[node name="Sword" parent="." node_paths=PackedStringArray("Sprite3D", "Shadow3D", "Aareaa3D", "CollisionShape3D", "AnimatedSprite3D", "AnimatedShadow3D", "AnimationPlayerr") instance=ExtResource("12_frf8n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
 Sprite3D = NodePath("Sprite3D")
+Shadow3D = NodePath("Shadow3D")
 Aareaa3D = NodePath("Aareaa3D")
 CollisionShape3D = NodePath("Aareaa3D/CollisionShape3D")
 AnimatedSprite3D = NodePath("_AnimatedSprite3D")
+AnimatedShadow3D = NodePath("_AnimatedShadow3D")
 AnimationPlayerr = NodePath("_AnimationPlayerr")
 
 [node name="_Bow_" parent="." node_paths=PackedStringArray("AnimatedSprite3DMmainn", "CollisionShape3D", "AnimatedSprite3DEffect") instance=ExtResource("13_y068q")]
@@ -812,6 +814,7 @@ script = ExtResource("17_qfxt6")
 Sprites = [NodePath("../AnimatedSprite3D_$Main$")]
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
 self_modulate = Color(2, 2, 2, 1)
 emitting = false
 amount = 5

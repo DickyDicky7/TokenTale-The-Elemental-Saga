@@ -1,0 +1,77 @@
+[gd_resource type="AnimationNodeBlendTree" load_steps=14 format=3 uid="uid://clj0p6wu6rbws"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c3f6a"]
+animation = &"IDLE_D"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g2wvk"]
+animation = &"IDLE_L"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e5shq"]
+animation = &"IDLE_U"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_40w5r"]
+animation = &"IDLE_R"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_j8hut"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_c3f6a")
+blend_point_0/pos = Vector2(  0 ,  1 )
+blend_point_1/node = SubResource("AnimationNodeAnimation_g2wvk")
+blend_point_1/pos = Vector2( -1 ,  0 )
+blend_point_2/node = SubResource("AnimationNodeAnimation_e5shq")
+blend_point_2/pos = Vector2(  0 , -1 )
+blend_point_3/node = SubResource("AnimationNodeAnimation_40w5r")
+blend_point_3/pos = Vector2(  1 ,  0 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fhrcm"]
+animation = &"MOVE_D"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5xiqt"]
+animation = &"MOVE_U"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a77tp"]
+animation = &"MOVE_L"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qso4y"]
+animation = &"MOVE_R"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_phcph"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_fhrcm")
+blend_point_0/pos = Vector2(  0 ,  1.1 )
+blend_point_1/node = SubResource("AnimationNodeAnimation_5xiqt")
+blend_point_1/pos = Vector2(  0 , -1.1 )
+blend_point_2/node = SubResource("AnimationNodeAnimation_a77tp")
+blend_point_2/pos = Vector2( -1 ,  0   )
+blend_point_3/node = SubResource("AnimationNodeAnimation_qso4y")
+blend_point_3/pos = Vector2(  1 ,  0   )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6fvet"]
+animation = &"DEAD"
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_gsyfd"]
+input_0/name = "IDLE"
+input_0/auto_advance = false
+input_0/reset = true
+input_1/name = "MOVE"
+input_1/auto_advance = false
+input_1/reset = true
+input_2/name = "DEAD"
+input_2/auto_advance = false
+input_2/reset = true
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_q8s8x"]
+
+[resource]
+nodes/BS2D_IDLE/node     = SubResource("AnimationNodeBlendSpace2D_j8hut")
+nodes/BS2D_IDLE/position = Vector2(80, 210)
+nodes/BS2D_MOVE/node     = SubResource("AnimationNodeBlendSpace2D_phcph")
+nodes/BS2D_MOVE/position = Vector2(80, 400)
+nodes/DEAD/node = SubResource("AnimationNodeAnimation_6fvet")
+nodes/DEAD/position  = Vector2(80, 590)
+nodes/STATE/node     =                                                 SubResource("AnimationNodeTransition_gsyfd")
+nodes/STATE/position = Vector2(80, -30)
+nodes/TIME_SCALE/node     = SubResource("AnimationNodeTimeScale_q8s8x")
+nodes/TIME_SCALE/position = Vector2(240, -30)
+nodes/output/position     = Vector2(400, -30)
+node_connections = [&"STATE", 0, &"BS2D_IDLE", &"STATE", 1, &"BS2D_MOVE", &"STATE", 2, &"DEAD", &"TIME_SCALE", 0, &"STATE", &"output", 0, &"TIME_SCALE"]

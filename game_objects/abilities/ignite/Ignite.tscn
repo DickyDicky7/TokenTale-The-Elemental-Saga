@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://d3gqr2or1jr42"]
+[gd_scene load_steps=11 format=3 uid="uid://d3gqr2or1jr42"]
 
-[ext_resource type="Environment" uid="uid://tiy14vcadk1h" path="res://game_objects/abilities/ignite/Ignite_Environment-.tres" id="1_owvx6"]
+[ext_resource type="Environment" uid="uid://tiy14vcadk1h" path="res://game_objects/abilities/ignite/Ignite_Environment$.tres" id="1_owvx6"]
 [ext_resource type="SpriteFrames" uid="uid://cujb3xpnlt8n" path="res://game_objects/abilities/ignite/Ignite_SpriteFrames.tres" id="2_g6bq7"]
-[ext_resource type="BehaviorTree" uid="uid://x5uxg6xnw76l" path="res://game_objects/abilities/ignite/Ignite_Behavior--Tree.tres" id="3_ifj0d"]
-[ext_resource type="Shape2D" uid="uid://br3l4sb6lt6eh" path="res://game_objects/abilities/ignite/Ignite_CollisionShape2D_Hitbox.tres" id="3_uvvx6"]
-[ext_resource type="BlackboardPlan" uid="uid://del5c4mapvpp1" path="res://game_objects/abilities/ignite/Ignite_BlackboardPlan.tres" id="4_v6jln"]
+[ext_resource type="Shape3D" uid="uid://dmks4qpwmxibl" path="res://game_objects/abilities/ignite/Ignite_CollisionShape3D_Hitbox.tres" id="3_ta5ks"]
+[ext_resource type="Script" path="res://LookinAtCamSpriteBase3DConsolidation.cs" id="4_f6oov"]
+[ext_resource type="BehaviorTree" uid="uid://ctfcfyswfbnr1" path="res://game_objects/abilities/ignite/Ignite_BehaviorTree.tres" id="4_f16hr"]
+[ext_resource type="BlackboardPlan" uid="uid://cvm0nxenwn10" path="res://game_objects/abilities/ignite/Ignite_BlackboardPlanBase.tres" id="4_ksr1t"]
 
 [sub_resource type="Animation" id="Animation_u7yod"]
 resource_name = "HIT_CEASE"
@@ -12,7 +13,7 @@ length = 0.38
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/path = NodePath("AnimatedSprite3D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -24,7 +25,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/path = NodePath("AnimatedSprite3D:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -36,40 +37,88 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite2D:offset")
+tracks/2/path = NodePath("AnimatedShadow3D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -48)]
+"times": PackedFloat32Array(0, 0.02, 0.04, 0.06, 0.08, 0.1, 0.12, 0.14, 0.16, 0.18, 0.2, 0.22, 0.24, 0.26, 0.28, 0.3, 0.32, 0.34, 0.36),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("AnimatedSprite2D:self_modulate")
+tracks/3/path = NodePath("AnimatedShadow3D:animation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["HIT_CEASE"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite3D:offset")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 48)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite3D:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.38),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1.5, 1, 1, 1), Color(1.5, 1, 1, 0)]
 }
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0.38),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"queue_free"
 }]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AnimatedShadow3D:offset")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 48)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AnimatedShadow3D:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.38),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1.5, 1, 1, 1), Color(1.5, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_tlxnm"]
@@ -79,7 +128,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/path = NodePath("AnimatedSprite3D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -91,7 +140,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/path = NodePath("AnimatedSprite3D:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -103,22 +152,70 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite2D:offset")
+tracks/2/path = NodePath("AnimatedShadow3D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -48)]
+"times": PackedFloat32Array(0, 0.02, 0.04, 0.06, 0.08, 0.1, 0.12, 0.14, 0.16, 0.18, 0.2, 0.22, 0.24, 0.26, 0.28, 0.3, 0.32, 0.34, 0.36),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("AnimatedSprite2D:self_modulate")
+tracks/3/path = NodePath("AnimatedShadow3D:animation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["HIT_LOOPS"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite3D:offset")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 48)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite3D:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.38),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1.5, 1, 1, 1), Color(1.5, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AnimatedShadow3D:offset")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 48)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AnimatedShadow3D:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
 "times": PackedFloat32Array(0, 0.38),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -131,7 +228,7 @@ length = 0.38
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/path = NodePath("AnimatedSprite3D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -143,7 +240,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/path = NodePath("AnimatedSprite3D:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -155,22 +252,70 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite2D:offset")
+tracks/2/path = NodePath("AnimatedShadow3D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -48)]
+"times": PackedFloat32Array(0, 0.02, 0.04, 0.06, 0.08, 0.1, 0.12, 0.14, 0.16, 0.18, 0.2, 0.22, 0.24, 0.26, 0.28, 0.3, 0.32, 0.34, 0.36),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("AnimatedSprite2D:self_modulate")
+tracks/3/path = NodePath("AnimatedShadow3D:animation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["HIT_START"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite3D:offset")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 48)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite3D:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.38),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1.5, 1, 1, 0), Color(1.5, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AnimatedShadow3D:offset")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 48)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AnimatedShadow3D:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
 "times": PackedFloat32Array(0, 0.38),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -184,29 +329,41 @@ _data = {
 "HIT_START": SubResource("Animation_dj0ap")
 }
 
-[node name="Ignite" type="Area2D"]
+[node name="Ignite" type="Area3D"]
 
 [node name="Environment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_owvx6")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-self_modulate = Color(1.5, 1, 1, 1)
-light_mask = 0
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+cast_shadow = 0
+offset = Vector2(0, 48)
+modulate = Color(1.5, 1, 1, 1)
+texture_filter = 0
 sprite_frames = ExtResource("2_g6bq7")
-animation = &"HIT_LOOPS"
-frame = 15
-offset = Vector2(0, -48)
+animation = &"HIT_CEASE"
 
-[node name="CollisionShape2D_Hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
-shape = ExtResource("3_uvvx6")
-debug_color = Color(1, 0, 0, 0.5)
+[node name="AnimatedShadow3D" type="AnimatedSprite3D" parent="."]
+cast_shadow = 3
+offset = Vector2(0, 48)
+modulate = Color(1.5, 1, 1, 1)
+alpha_cut = 2
+texture_filter = 0
+sprite_frames = ExtResource("2_g6bq7")
+animation = &"HIT_CEASE"
+
+[node name="CollisionShape3D_Hitbox" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+shape = ExtResource("3_ta5ks")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_rorhu")
 }
 
-[node name="BTPlayer" type="BTPlayer" parent="."]
-behavior_tree = ExtResource("3_ifj0d")
-blackboard_plan = ExtResource("4_v6jln")
+[node name="BT_______Player" type="BTPlayer" parent="."]
+behavior_tree = ExtResource("4_f16hr")
+blackboard_plan = ExtResource("4_ksr1t")
+
+[node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
+script = ExtResource("4_f6oov")
+Sprites = [NodePath("../AnimatedSprite3D")]

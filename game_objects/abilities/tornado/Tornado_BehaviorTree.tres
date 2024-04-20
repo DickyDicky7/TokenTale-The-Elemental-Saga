@@ -1,0 +1,6 @@
+[gd_resource type="BehaviorTree" load_steps=2 format=3 uid="uid://ccjvq47e2bo2p"]
+
+[ext_resource type="BlackboardPlan" uid="uid://b4nd767ya6na8" path="res://game_objects/abilities/tornado/Tornado_BlackboardPlan----.tres" id="1_maeu0"]
+
+[resource]
+blackboard_plan = ExtResource("1_maeu0")

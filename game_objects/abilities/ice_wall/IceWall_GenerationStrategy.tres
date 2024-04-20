@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="GenerationStrategyIceWallHorizontal" load_steps=3 format=3 uid="uid://6s1d5wgx7ymj"]
+
+[ext_resource type="Script" path="res://game_objects/abilities/ice_wall/GenerationStrategyIceWallHorizontal.cs" id="1_2gt70"]
+[ext_resource type="PackedScene" uid="uid://ccyldblvdeogw" path="res://game_objects/abilities/ice_wall/IceWallSinglePiece.tscn" id="1_dyjd5"]
+
+[resource]
+script = ExtResource("1_2gt70")
+IceWallSinglePiecesCount = 8
+IceWallSinglePiecePackedScene = ExtResource("1_dyjd5")
+MinGenerationPositionX = -1.5
+MaxGenerationPositionX = 1.5
+MinGenerationPositionY = 0.0
+MaxGenerationPositionY = 0.0
+MinGenerationPositionZ = -0.2
+MaxGenerationPositionZ = 0.2
+MinGenerationRotationDegreesX = -45.0
+MaxGenerationRotationDegreesX = 45.0
+MinGenerationRotationDegreesY = 0.0
+MaxGenerationRotationDegreesY = 0.0
+MinGenerationRotationDegreesZ = -45.0
+MaxGenerationRotationDegreesZ = 45.0

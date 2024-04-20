@@ -25,9 +25,15 @@ public partial class StateSwordSlash : StateSword
                 <= 0 => !false,
                 _    =>  false,
             };
+            Sword.AnimatedShadow3D.FlipH =
+            Sword.AnimatedSprite3D.FlipH ;
             Sword.AnimatedSprite3D.Rotation =
             Sword.AnimatedSprite3D.Rotation
             with { Z = - Mathf.Pi / 2.0f-
+                     screenMousePosition.Angle(), };
+            Sword.AnimatedShadow3D.Rotation =
+            Sword.AnimatedShadow3D.Rotation
+            with { Y = - Mathf.Pi / 2.0f-
                      screenMousePosition.Angle(), };
             Sword.Aareaa3D.Rotation = 
             Sword.Aareaa3D.Rotation
@@ -42,9 +48,15 @@ public partial class StateSwordSlash : StateSword
                 <= 0 => !false,
                 _    =>  false,
             };
+            Sword.AnimatedShadow3D.FlipH =
+            Sword.AnimatedSprite3D.FlipH ;
             Sword.AnimatedSprite3D.Rotation = 
             Sword.AnimatedSprite3D.Rotation
             with { Z = - Mathf.Pi / 2.0f-
+                          inputDirection.Angle(), };
+            Sword.AnimatedShadow3D.Rotation =
+            Sword.AnimatedShadow3D.Rotation
+            with { Y = - Mathf.Pi / 2.0f-
                           inputDirection.Angle(), };
             Sword.Aareaa3D.Rotation =
             Sword.Aareaa3D.Rotation

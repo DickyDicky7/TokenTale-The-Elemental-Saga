@@ -1,8 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bfn7cuonedpgi"]
-
-[ext_resource type="Shader" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_ShaderMaterial_Black_Dead.gdshader" id="1_dd0aj"]
-[ext_resource type="Texture2D" uid="uid://dmfer078eoy1o" path="res://game_asset_s/characters/others/skeleton_generic/black_dead/dead-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="2_1duqf"]
-
-[resource]
-shader = ExtResource("1_dd0aj")
-shader_parameter/normal_map = ExtResource("2_1duqf")

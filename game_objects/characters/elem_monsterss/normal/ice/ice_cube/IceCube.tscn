@@ -1,14 +1,14 @@
 [gd_scene load_steps=18 format=3 uid="uid://c0rvsktoasue5"]
 
-[ext_resource type="PackedScene" uid="uid://dklk814gsey6g" path="res://game_objects/shared/EyeSight.tscn" id="1_3873c"]
 [ext_resource type="Environment" uid="uid://cucdquli537l2" path="res://game_objects/characters/elem_monsterss/normal/ice/ice_cube/IceCube_Environment.tres" id="1_e4fys"]
-[ext_resource type="Material" uid="uid://ccj8dvsvjdhou" path="res://game_objects/characters/elem_monsterss/normal/ice/ice_cube/IceCube_ShaderMaterial.tres" id="2_g1r23"]
 [ext_resource type="SpriteFrames" uid="uid://d1p4dji8rib5x" path="res://game_objects/characters/elem_monsterss/normal/ice/ice_cube/IceCube_SpriteFrames_$Main$.tres" id="2_kts5v"]
-[ext_resource type="Script" path="res://game_objects/shared/Flippable2DHLocalSeeingDirection.cs" id="2_u5ke7"]
-[ext_resource type="Shape2D" uid="uid://cb1u3mjqy27ip" path="res://game_objects/characters/elem_monsterss/normal/ice/ice_cube/IceCube_CollisionShape2D_Body.tres" id="4_2u0m4"]
-[ext_resource type="Shape2D" uid="uid://clmmj5nvqvqy3" path="res://game_objects/characters/elem_monsterss/normal/ice/ice_cube/IceCube_CollisionShape2D_Feet.tres" id="4_itsof"]
-[ext_resource type="BehaviorTree" uid="uid://bb3qs1fsp5t2i" path="res://game_objects/characters/elem_monsterss/normal/ice/ice_cube/IceCube_Behavior--Tree.tres" id="4_tbuex"]
-[ext_resource type="BlackboardPlan" uid="uid://c1kewy6k4hcg" path="res://game_objects/characters/elem_monsterss/normal/ice/ice_cube/IceCube_BlackboardPlan.tres" id="5_roikb"]
+[ext_resource type="Shape3D" uid="uid://djcovv5oq4wx1" path="res://game_objects/characters/elem_monsterss/normal/ice/ice_cube/IceCube_CollisionShape3D_Body.tres" id="3_75s0v"]
+[ext_resource type="BehaviorTree" uid="uid://bb3qs1fsp5t2i" path="res://game_objects/characters/elem_monsterss/normal/ice/ice_cube/IceCube_BehaviorTree.tres" id="4_tbuex"]
+[ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://EyeSight3D.tscn" id="5_32iss"]
+[ext_resource type="BlackboardPlan" uid="uid://buhrgwdtr8fyd" path="res://game_objects/characters/elem_monsterss/normal/ice/ice_cube/IceCube_BlackboardPlanBase.tres" id="5_fnojv"]
+[ext_resource type="Script" path="res://Flippable3DSpriteBase3DConsolidation.cs" id="6_eqlny"]
+[ext_resource type="Shape3D" uid="uid://i2bm8bdrelj2" path="res://game_objects/characters/elem_monsterss/normal/ice/ice_cube/IceCube_ShapeCast3D.tres" id="6_sdh7p"]
+[ext_resource type="Script" path="res://LookinAtCamSpriteBase3DConsolidation.cs" id="7_ysfrk"]
 
 [sub_resource type="Animation" id="Animation_vp6hs"]
 length = 0.8
@@ -16,7 +16,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/path = NodePath("AnimatedSprite3D_$Main$:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -28,7 +28,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/path = NodePath("AnimatedSprite3D_$Main$:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -37,13 +37,37 @@ tracks/1/keys = {
 "update": 1,
 "values": ["DEAD"]
 }
-tracks/2/type = "method"
+tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath(".")
+tracks/2/path = NodePath("AnimatedSprite3D_Shadow:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite3D_Shadow:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["DEAD"]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0.8),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -58,7 +82,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/path = NodePath("AnimatedSprite3D_$Main$:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -70,10 +94,34 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/path = NodePath("AnimatedSprite3D_$Main$:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["HURT"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite3D_Shadow:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite3D_Shadow:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -86,7 +134,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/path = NodePath("AnimatedSprite3D_$Main$:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -98,10 +146,34 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/path = NodePath("AnimatedSprite3D_$Main$:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["IDLE"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite3D_Shadow:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite3D_Shadow:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -114,7 +186,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/path = NodePath("AnimatedSprite3D_$Main$:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -126,10 +198,34 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/path = NodePath("AnimatedSprite3D_$Main$:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["JUMP"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite3D_Shadow:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite3D_Shadow:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -142,7 +238,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/path = NodePath("AnimatedSprite3D_$Main$:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -154,10 +250,34 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/path = NodePath("AnimatedSprite3D_$Main$:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["MOVE"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite3D_Shadow:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite3D_Shadow:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -170,7 +290,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/path = NodePath("AnimatedSprite3D_$Main$:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -182,10 +302,34 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/path = NodePath("AnimatedSprite3D_$Main$:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["SLEEP"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite3D_Shadow:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite3D_Shadow:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -198,7 +342,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D_$Main$:frame")
+tracks/0/path = NodePath("AnimatedSprite3D_$Main$:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -210,10 +354,34 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D_$Main$:animation")
+tracks/1/path = NodePath("AnimatedSprite3D_$Main$:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["SPIT"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite3D_Shadow:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite3D_Shadow:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -231,39 +399,55 @@ _data = {
 "SPIT": SubResource("Animation_robgp")
 }
 
-[node name="IceCube" type="CharacterBody2D"]
+[node name="IceCube" type="CharacterBody3D"]
 
 [node name="Environment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_e4fys")
 
-[node name="AnimatedSprite2D_$Main$" type="AnimatedSprite2D" parent="."]
-light_mask = 0
-material = ExtResource("2_g1r23")
+[node name="AnimatedSprite3D_$Main$" type="AnimatedSprite3D" parent="."]
+cast_shadow = 0
+offset = Vector2(0.5, 15)
+texture_filter = 0
 sprite_frames = ExtResource("2_kts5v")
 animation = &"DEAD"
-offset = Vector2(0.5, -15)
 
-[node name="CollisionShape2D_Body" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4)
-shape = ExtResource("4_2u0m4")
-debug_color = Color(0, 1, 0, 0.2)
+[node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
+cast_shadow = 3
+offset = Vector2(0.5, 15)
+alpha_cut = 2
+texture_filter = 0
+sprite_frames = ExtResource("2_kts5v")
+animation = &"DEAD"
 
-[node name="CollisionShape2D_Feet" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
-shape = ExtResource("4_itsof")
-debug_color = Color(0, 0, 1, 0.2)
+[node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+shape = ExtResource("3_75s0v")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_go3bn")
 }
 
-[node name="BTPlayer" type="BTPlayer" parent="."]
+[node name="BT_______Player" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("4_tbuex")
-blackboard_plan = ExtResource("5_roikb")
+blackboard_plan = ExtResource("5_fnojv")
 
-[node name="EyeSight" parent="." instance=ExtResource("1_3873c")]
+[node name="EyeSight$3D" parent="." instance=ExtResource("5_32iss")]
 
-[node name="Flippable2DHLocalSeeingDirection" type="Node" parent="." node_paths=PackedStringArray("Node2D")]
-script = ExtResource("2_u5ke7")
-Node2D = NodePath("..")
+[node name="Ray__Cast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0.5, 0.1, 0)
+debug_shape_custom_color = Color(0, 0, 1, 1)
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+shape = ExtResource("6_sdh7p")
+target_position = Vector3(0, 0, 0)
+debug_shape_custom_color = Color(0, 0, 1, 1)
+
+[node name="Flippable3DSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
+script = ExtResource("6_eqlny")
+Sprites = [NodePath("../AnimatedSprite3D_$Main$"), NodePath("../AnimatedSprite3D_Shadow")]
+
+[node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
+script = ExtResource("7_ysfrk")
+Sprites = [NodePath("../AnimatedSprite3D_$Main$")]

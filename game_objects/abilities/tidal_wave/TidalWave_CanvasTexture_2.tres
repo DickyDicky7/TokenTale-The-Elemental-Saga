@@ -1,6 +1,0 @@
-[gd_resource type="CanvasTexture" load_steps=2 format=3 uid="uid://727fow6metsh"]
-
-[ext_resource type="Texture2D" uid="uid://cf6xsyrgb8yy6" path="res://game_asset_s/vfx/water_effect_01_(pimen)/start_up/water-startup-01.png" id="1_aw8cf"]
-
-[resource]
-diffuse_texture = ExtResource("1_aw8cf")

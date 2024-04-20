@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://b7y78c0w6j0w7" path="res://game_objects/abilities/air_surge/AirSurge_GradientTexture1D.tres" id="1_bw6aj"]
 
 [resource]
-particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(50, 50, 0)
 gravity = Vector3(50, 0, 0)

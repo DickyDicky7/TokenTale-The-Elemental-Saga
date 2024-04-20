@@ -1,0 +1,21 @@
+[gd_resource type="BehaviorTree" load_steps=6 format=3 uid="uid://8cuolfcbawdq"]
+
+[ext_resource type="BlackboardPlan" uid="uid://be1ossttctf28" path="res://game_objects/abilities/frostburn/Frostburn_BlackboardPlan----.tres" id="1_f7ugt"]
+[ext_resource type="BBNode" uid="uid://dteny8aihk00m" path="res://game_objects/abilities/frostburn/Frostburn_BBNode_AnimationPlayer$.tres" id="2_kdjpp"]
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_htdwr"]
+await_completion = 10.0
+animation_player = ExtResource("2_kdjpp")
+animation_name = &"HIT"
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_fgi1n"]
+await_completion = 10.0
+animation_player = ExtResource("2_kdjpp")
+animation_name = &"EFF"
+
+[sub_resource type="BTSequence" id="BTSequence_p3ti5"]
+children = [SubResource("BTPlayAnimation_htdwr"), SubResource("BTPlayAnimation_fgi1n")]
+
+[resource]
+blackboard_plan = ExtResource("1_f7ugt")
+root_task = SubResource("BTSequence_p3ti5")

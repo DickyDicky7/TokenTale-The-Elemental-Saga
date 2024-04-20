@@ -1,0 +1,6 @@
+[gd_resource type="BehaviorTree" load_steps=2 format=3 uid="uid://b58tol6ty0ood"]
+
+[ext_resource type="BlackboardPlan" uid="uid://5s0kxfus7bh" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_BlackboardPlan----.tres" id="1_jpusp"]
+
+[resource]
+blackboard_plan = ExtResource("1_jpusp")

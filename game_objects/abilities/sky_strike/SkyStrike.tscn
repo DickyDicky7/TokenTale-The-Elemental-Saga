@@ -1,18 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://s4c8ixjtg1uy"]
+[gd_scene load_steps=12 format=3 uid="uid://s4c8ixjtg1uy"]
 
-[ext_resource type="Environment" uid="uid://bl1hafxbwvrcc" path="res://game_objects/abilities/sky_strike/SkyStrike_Environment.tres" id="1_jlt0u"]
+[ext_resource type="Environment" uid="uid://bl1hafxbwvrcc" path="res://game_objects/abilities/sky_strike/SkyStrike_Environment$.tres" id="1_jlt0u"]
 [ext_resource type="SpriteFrames" uid="uid://cq2jie543sctx" path="res://game_objects/abilities/sky_strike/SkyStrike_SpriteFrames.tres" id="2_6dxen"]
 [ext_resource type="Texture2D" uid="uid://bg43o8i7wyxhv" path="res://game_asset_s/pixel_art_top_down_rocks_pack/rocks/rocks.png" id="3_t5ci7"]
 [ext_resource type="SpriteFrames" uid="uid://brrcvjnenn4gw" path="res://game_objects/abilities/sky_strike/SkyStrike_SpriteFrames_Effect1.tres" id="3_t6766"]
-[ext_resource type="BehaviorTree" uid="uid://uedjhddh7cjf" path="res://game_objects/abilities/sky_strike/SkyStrike_Behavior--Tree.tres" id="4_au4ay"]
 [ext_resource type="SpriteFrames" uid="uid://cduf1f3sho35p" path="res://game_objects/abilities/sky_strike/SkyStrike_SpriteFrames_Effect2.tres" id="4_rd1g6"]
-[ext_resource type="BlackboardPlan" uid="uid://ug7e20yd3c4x" path="res://game_objects/abilities/sky_strike/SkyStrike_BlackboardPlan.tres" id="5_65r36"]
-[ext_resource type="Texture2D" uid="uid://o4w0bysydqbh" path="res://game_asset_s/pixel_art_top_down_rocks_pack/rocks/rocks-normal-map-height-250-soft-6-pixelated-toon-invert-y.png" id="7_0vhk2"]
-[ext_resource type="Shape2D" uid="uid://j4xtym4dfjys" path="res://game_objects/abilities/sky_strike/SkyStrike_CollisionShape2D_Hitbox.tres" id="7_387vf"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_6ex2o"]
-diffuse_texture = ExtResource("3_t5ci7")
-normal_texture = ExtResource("7_0vhk2")
+[ext_resource type="Shape3D" uid="uid://bkvosauacb43d" path="res://game_objects/abilities/sky_strike/SkyStrike_CollisionShape3D_Hitbox.tres" id="6_1al21"]
+[ext_resource type="BehaviorTree" uid="uid://db04qtvf251h7" path="res://game_objects/abilities/sky_strike/SkyStrike_BehaviorTree.tres" id="7_g8df4"]
+[ext_resource type="BlackboardPlan" uid="uid://bpi0s0eb4wjxo" path="res://game_objects/abilities/sky_strike/SkyStrike_BlackboardPlanBase.tres" id="7_u4n2a"]
+[ext_resource type="Script" path="res://LookinAtCamSpriteBase3DConsolidation.cs" id="8_q6hfs"]
 
 [sub_resource type="Animation" id="Animation_3nirl"]
 resource_name = "OUT"
@@ -20,7 +16,7 @@ length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D_Portal:frame")
+tracks/0/path = NodePath("AnimatedSprite3D_Portal:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -32,7 +28,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D_Portal:animation")
+tracks/1/path = NodePath("AnimatedSprite3D_Portal:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -44,7 +40,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite2D_Effect1:frame")
+tracks/2/path = NodePath("AnimatedShadow3D_Portal:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -56,7 +52,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("AnimatedSprite2D_Effect1:animation")
+tracks/3/path = NodePath("AnimatedShadow3D_Portal:animation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -68,7 +64,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AnimatedSprite2D_Effect2:frame")
+tracks/4/path = NodePath("AnimatedSprite3D_Effect1:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -80,7 +76,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("AnimatedSprite2D_Effect2:animation")
+tracks/5/path = NodePath("AnimatedSprite3D_Effect1:animation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -92,55 +88,55 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Sprite2D:position")
+tracks/6/path = NodePath("AnimatedSprite3D_Effect2:frame")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(0.5, 0.5),
-"update": 0,
-"values": [Vector2(0, -50), Vector2(0, 0)]
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Sprite2D:self_modulate")
+tracks/7/path = NodePath("AnimatedSprite3D_Effect2:animation")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["OUT"]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sprite3D:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Vector3(0, 1, 0), Vector3(0, 0, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Sprite3D:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(0.5, 0.5),
 "update": 0,
 "values": [Color(1.5, 1.5, 1.5, 0), Color(1.5, 1.5, 1.5, 1)]
 }
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("AnimatedSprite2D_Portal:self_modulate")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1.1, 1.1, 1.1, 0), Color(1.1, 1.1, 1.1, 1), Color(1.1, 1.1, 1.1, 0)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("AnimatedSprite2D_Effect1:self_modulate")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1.1, 1.1, 1.1, 0), Color(1.1, 1.1, 1.1, 1), Color(1.1, 1.1, 1.1, 0)]
-}
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("AnimatedSprite2D_Effect2:self_modulate")
+tracks/10/path = NodePath("AnimatedSprite3D_Portal:modulate")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -152,14 +148,86 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("Sprite2D:rotation")
-tracks/11/interp = 3
+tracks/11/path = NodePath("AnimatedSprite3D_Effect1:modulate")
+tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1.1, 1.1, 1.1, 0), Color(1.1, 1.1, 1.1, 1), Color(1.1, 1.1, 1.1, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("AnimatedSprite3D_Effect2:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1.1, 1.1, 1.1, 0), Color(1.1, 1.1, 1.1, 1), Color(1.1, 1.1, 1.1, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Sprite3D:rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0, 1.0472, 0.0]
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -1.0472), Vector3(0, 0, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("AnimatedShadow3D_Portal:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1.1, 1.1, 1.1, 0), Color(1.1, 1.1, 1.1, 1), Color(1.1, 1.1, 1.1, 0)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Shadow3D:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Vector3(0, 1, 0), Vector3(0, 0, 0)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Shadow3D:modulate")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Color(1.5, 1.5, 1.5, 0), Color(1.5, 1.5, 1.5, 1)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Shadow3D:rotation")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -1.0472), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r63uy"]
@@ -167,54 +235,79 @@ _data = {
 "OUT": SubResource("Animation_3nirl")
 }
 
-[node name="SkyStrike" type="Area2D"]
+[node name="SkyStrike" type="Area3D"]
 
 [node name="Environment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_jlt0u")
 
-[node name="AnimatedSprite2D_Portal" type="AnimatedSprite2D" parent="."]
-self_modulate = Color(1.1, 1.1, 1.1, 0)
-light_mask = 0
-position = Vector2(0, -50)
+[node name="AnimatedSprite3D_Portal" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+cast_shadow = 0
+modulate = Color(1.1, 1.1, 1.1, 0)
+texture_filter = 0
 sprite_frames = ExtResource("2_6dxen")
 animation = &"OUT"
-frame = 11
 
-[node name="AnimatedSprite2D_Effect1" type="AnimatedSprite2D" parent="."]
-self_modulate = Color(1.1, 1.1, 1.1, 0)
-light_mask = 0
+[node name="AnimatedShadow3D_Portal" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+cast_shadow = 3
+modulate = Color(1.1, 1.1, 1.1, 0)
+alpha_cut = 2
+texture_filter = 0
+sprite_frames = ExtResource("2_6dxen")
+animation = &"OUT"
+
+[node name="AnimatedSprite3D_Effect1" type="AnimatedSprite3D" parent="."]
+cast_shadow = 0
+offset = Vector2(0, 16)
+modulate = Color(1.1, 1.1, 1.1, 0)
+texture_filter = 0
 sprite_frames = ExtResource("3_t6766")
 animation = &"OUT"
-frame = 11
-offset = Vector2(0, -16)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(1.5, 1.5, 1.5, 1)
-light_mask = 0
-texture = SubResource("CanvasTexture_6ex2o")
-offset = Vector2(0, -8)
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+cast_shadow = 0
+offset = Vector2(0, 8)
+modulate = Color(1.5, 1.5, 1.5, 0)
+texture_filter = 0
+texture = ExtResource("3_t5ci7")
 region_enabled = true
 region_rect = Rect2(24, 24, 24, 24)
 
-[node name="AnimatedSprite2D_Effect2" type="AnimatedSprite2D" parent="."]
-self_modulate = Color(1.1, 1.1, 1.1, 0)
-light_mask = 0
-position = Vector2(4, 0)
+[node name="Shadow3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+cast_shadow = 3
+offset = Vector2(0, 8)
+modulate = Color(1.5, 1.5, 1.5, 0)
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("3_t5ci7")
+region_enabled = true
+region_rect = Rect2(24, 24, 24, 24)
+
+[node name="AnimatedSprite3D_Effect2" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04, 0, 0)
+cast_shadow = 0
+offset = Vector2(0, 16)
+modulate = Color(1.1, 1.1, 1.1, 0)
+texture_filter = 0
 sprite_frames = ExtResource("4_rd1g6")
 animation = &"OUT"
-frame = 11
-offset = Vector2(0, -16)
 
-[node name="CollisionShape2D_Hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(0, -7.5)
-shape = ExtResource("7_387vf")
-debug_color = Color(1, 0, 0, 0.5)
+[node name="CollisionShape3D_Hitbox" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)
+shape = ExtResource("6_1al21")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_r63uy")
 }
 
-[node name="BTPlayer" type="BTPlayer" parent="."]
-behavior_tree = ExtResource("4_au4ay")
-blackboard_plan = ExtResource("5_65r36")
+[node name="BT_______Player" type="BTPlayer" parent="."]
+behavior_tree = ExtResource("7_g8df4")
+blackboard_plan = ExtResource("7_u4n2a")
+
+[node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
+script = ExtResource("8_q6hfs")
+Sprites = [NodePath("../AnimatedSprite3D_Portal"), NodePath("../AnimatedSprite3D_Effect1"), NodePath("../Sprite3D"), NodePath("../AnimatedSprite3D_Effect2")]

@@ -1,0 +1,6 @@
+[gd_resource type="BehaviorTree" load_steps=2 format=3 uid="uid://qjvfmmgwhd5t"]
+
+[ext_resource type="BlackboardPlan" uid="uid://c72xpnxtx075g" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_BlackboardPlan----.tres" id="1_rryj2"]
+
+[resource]
+blackboard_plan = ExtResource("1_rryj2")

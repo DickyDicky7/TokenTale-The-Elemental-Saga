@@ -1,13 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://dmymcmqewv5c4"]
+[gd_scene load_steps=10 format=3 uid="uid://dmymcmqewv5c4"]
 
-[ext_resource type="Environment" uid="uid://c0vq1cnrbctub" path="res://game_objects/abilities/serene_meadow/SereneMeadow_Environment.tres" id="1_iqcvn"]
+[ext_resource type="Environment" uid="uid://c0vq1cnrbctub" path="res://game_objects/abilities/serene_meadow/SereneMeadow_Environment$.tres" id="1_iqcvn"]
 [ext_resource type="SpriteFrames" uid="uid://74mw55r73mxw" path="res://game_objects/abilities/serene_meadow/SereneMeadow_SpriteFrames.tres" id="2_1l66i"]
-[ext_resource type="Material" uid="uid://hguily8dqjxq" path="res://game_objects/abilities/serene_meadow/SereneMeadow_CanvasItemMaterial.tres" id="3_lyj7j"]
+[ext_resource type="QuadMesh" uid="uid://bugbd6pifcd67" path="res://game_objects/abilities/serene_meadow/SereneMeadow_DrawPass01_Mesh.tres" id="4_lgmqr"]
 [ext_resource type="Material" uid="uid://gvfxbn6bmmfh" path="res://game_objects/abilities/serene_meadow/SereneMeadow_ParticleProcessMaterial.tres" id="4_m58mn"]
-[ext_resource type="Texture2D" uid="uid://cg2gvogfbke66" path="res://game_objects/abilities/serene_meadow/SereneMeadow_Atlas-Texture.tres" id="5_y1h1v"]
-[ext_resource type="Shape2D" uid="uid://daj7gefk4ltnw" path="res://game_objects/abilities/serene_meadow/SereneMeadow_CollisionShape2D_Hitbox.tres" id="6_0l03q"]
-[ext_resource type="BehaviorTree" uid="uid://d0v28a7onhhlt" path="res://game_objects/abilities/serene_meadow/SereneMeadow_Behavior--Tree.tres" id="6_6obnq"]
-[ext_resource type="BlackboardPlan" uid="uid://0pw0xgfmhyg3" path="res://game_objects/abilities/serene_meadow/SereneMeadow_BlackboardPlan.tres" id="7_wkwh2"]
+[ext_resource type="BlackboardPlan" uid="uid://bxxop2ylakl8u" path="res://game_objects/abilities/serene_meadow/SereneMeadow_BlackboardPlanBase.tres" id="6_fbkjn"]
+[ext_resource type="Shape3D" uid="uid://pwovciwaxyw3" path="res://game_objects/abilities/serene_meadow/SereneMeadow_CollisionShape3D_Hitbox.tres" id="6_pgv85"]
+[ext_resource type="BehaviorTree" uid="uid://bxfl32sewhcdt" path="res://game_objects/abilities/serene_meadow/SereneMeadow_BehaviorTree.tres" id="6_vp146"]
 
 [sub_resource type="Animation" id="Animation_kq1p0"]
 length = 1.82
@@ -15,7 +14,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/path = NodePath("AnimatedSprite3D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -27,7 +26,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/path = NodePath("AnimatedSprite3D:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -36,42 +35,57 @@ tracks/1/keys = {
 "update": 1,
 "values": ["HEAL"]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("_GPU_Particles3D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bcnum"]
 _data = {
 "HEAL": SubResource("Animation_kq1p0")
 }
 
-[node name="SereneMeadow" type="Area2D"]
+[node name="SereneMeadow" type="Area3D"]
 
 [node name="Environment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_iqcvn")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-self_modulate = Color(1, 1.5, 1, 1)
-light_mask = 0
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
+aabb = AABB(-0.5, 0, -0.5, 1, 0.2, 1)
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+cast_shadow = 0
+offset = Vector2(-0.5, 2)
+texture_filter = 0
+render_priority = -1
 sprite_frames = ExtResource("2_1l66i")
 animation = &"HEAL"
-offset = Vector2(-0.5, -2)
 
-[node name="_GPU_Particles2D" type="GPUParticles2D" parent="."]
-self_modulate = Color(1, 1.5, 1, 1)
-light_mask = 0
-material = ExtResource("3_lyj7j")
+[node name="_GPU_Particles3D" type="GPUParticles3D" parent="."]
 amount = 10
-process_material = ExtResource("4_m58mn")
-texture = ExtResource("5_y1h1v")
 randomness = 1.0
+process_material = ExtResource("4_m58mn")
+draw_pass_1 = ExtResource("4_lgmqr")
 
-[node name="CollisionShape2D_Hitbox" type="CollisionShape2D" parent="."]
-shape = ExtResource("6_0l03q")
-debug_color = Color(1, 0, 0, 0.5)
+[node name="CollisionShape3D_Hitbox" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+shape = ExtResource("6_pgv85")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_bcnum")
 }
+autoplay = "HEAL"
 
-[node name="BTPlayer" type="BTPlayer" parent="."]
-behavior_tree = ExtResource("6_6obnq")
-blackboard_plan = ExtResource("7_wkwh2")
+[node name="BT_______Player" type="BTPlayer" parent="."]
+behavior_tree = ExtResource("6_vp146")
+blackboard_plan = ExtResource("6_fbkjn")

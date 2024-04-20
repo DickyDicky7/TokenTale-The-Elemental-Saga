@@ -1,6 +1,7 @@
 [gd_resource type="BehaviorTree" load_steps=62 format=3 uid="uid://diju3wt86axt4"]
 
 [ext_resource type="Script" path="res://ai/tasks/beingHit.gd" id="1_2ls6r"]
+[ext_resource type="BlackboardPlan" uid="uid://ckrgsqjrqaovs" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_BlackboardPlan----.tres" id="1_3sooa"]
 [ext_resource type="Script" path="res://ai/tasks/depleteHealth.gd" id="1_ecjrg"]
 [ext_resource type="Script" path="res://ai/tasks/detectCharacter.gd" id="1_orrkx"]
 [ext_resource type="Script" path="res://ai/tasks/watchingAround.gd" id="2_4diqm"]
@@ -9,8 +10,6 @@
 [ext_resource type="Script" path="res://ai/tasks/distancerMoveSetup.gd" id="7_d3hbx"]
 [ext_resource type="Script" path="res://ai/tasks/move.gd" id="7_mmqsn"]
 [ext_resource type="Script" path="res://ai/tasks/throw.gd" id="11_0yfhh"]
-
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_lmptm"]
 
 [sub_resource type="BTAction" id="BTAction_6t6tx"]
 script = ExtResource("1_2ls6r")
@@ -233,5 +232,5 @@ custom_name = "Root"
 children = [SubResource("BTSequence_0gie0"), SubResource("BTSequence_t4upe"), SubResource("BTSequence_lja8q"), SubResource("BTSequence_aebub"), SubResource("BTPlayAnimation_goqlh")]
 
 [resource]
-blackboard_plan = SubResource("BlackboardPlan_lmptm")
+blackboard_plan = ExtResource("1_3sooa")
 root_task = SubResource("BTSelector_lfg3o")

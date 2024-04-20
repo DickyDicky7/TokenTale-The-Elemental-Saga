@@ -4,6 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://bqs28pblt174t" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_SpriteFrames_$Main$.tres" id="1_n3j5a"]
 [ext_resource type="Environment" uid="uid://bk5s8laox5sjv" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_Environment.tres" id="2_p2mts"]
 [ext_resource type="Shape3D" uid="uid://bucn4fsdotdh5" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_CollisionShape3D_Body.tres" id="4_l0j8u"]
+[ext_resource type="BlackboardPlan" uid="uid://hoyi5k3pm20n" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_BlackboardPlanBase.tres" id="6_yc0yk"]
 [ext_resource type="Shape3D" uid="uid://bjvftjqwg5aqy" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_ShapeCast3D.tres" id="7_4pwu0"]
 [ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://EyeSight3D.tscn" id="8_d1obs"]
 [ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/HurtBox3d.cs" id="9_8173t"]
@@ -20,10 +21,10 @@ tracks/0/path = NodePath("AnimatedSprite3D_$Main$:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.5, 1.2),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 2, 3, 4, 5, 1]
+"values": [0, 1, 2, 3, 4, 5]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -411,8 +412,6 @@ _data = {
 "THROW": SubResource("Animation_ywbim")
 }
 
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_uwae2"]
-
 [node name="Imp" type="CharacterBody3D"]
 script = ExtResource("1_41j3n")
 Health = 10
@@ -429,7 +428,7 @@ cast_shadow = 0
 offset = Vector2(0, 12)
 texture_filter = 0
 sprite_frames = ExtResource("1_n3j5a")
-animation = &"HURT"
+animation = &"DEAD"
 
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 visible = false
@@ -452,7 +451,7 @@ libraries = {
 
 [node name="BT_______Player" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("12_hk2im")
-blackboard_plan = SubResource("BlackboardPlan_uwae2")
+blackboard_plan = ExtResource("6_yc0yk")
 
 [node name="EyeSight$3D" parent="." instance=ExtResource("8_d1obs")]
 transform = Transform3D(2.82843, 0, 2.82843, 0, 4, 0, -2.82843, 0, 2.82843, 0, 0, 0)

@@ -234,5 +234,3 @@ children = [SubResource("BTSequence_0gie0"), SubResource("BTSequence_t4upe"), Su
 [resource]
 blackboard_plan = ExtResource("1_3sooa")
 root_task = SubResource("BTSelector_lfg3o")
-
-

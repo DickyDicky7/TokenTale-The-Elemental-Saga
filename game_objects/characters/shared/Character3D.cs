@@ -30,10 +30,10 @@ public abstract partial class Character3D : CharacterBody3D
             velocity = velocity. MoveToward  (
             @direction *  Speed, Acceleration);
 
-            if (!IsOnFloor())
-            {
-            velocity+= GetGravity() * (float)delta * Speed;
-            }
+            //if (!IsOnFloor())
+            //{
+            //velocity+= GetGravity() * (float)delta * Speed;
+            //}
 
             Velocity = velocity;
 
@@ -56,10 +56,10 @@ public abstract partial class Character3D : CharacterBody3D
             velocity = velocity. MoveToward  (
             @direction *  Speed, Deceleration);
 
-            if (!IsOnFloor())
-            {
-            velocity+= GetGravity() * (float)delta * Speed;
-            }
+            //if (!IsOnFloor())
+            //{
+            //velocity+= GetGravity() * (float)delta * Speed;
+            //}
 
             Velocity =
             velocity ;

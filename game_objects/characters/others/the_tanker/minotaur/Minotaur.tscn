@@ -1,14 +1,13 @@
-[gd_scene load_steps=21 format=3 uid="uid://dsw38xnjyq7yu"]
+[gd_scene load_steps=20 format=3 uid="uid://dsw38xnjyq7yu"]
 
 [ext_resource type="SpriteFrames" uid="uid://b6px143pmxsue" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_SpriteFrames_$Main$.tres" id="1_nfvla"]
-[ext_resource type="Environment" uid="uid://eruq3fx3f53u" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_Environment.tres" id="1_xuv8u"]
 [ext_resource type="Shape3D" uid="uid://c6rxg7lixnpfr" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_CollisionShape3D_Body.tres" id="3_75wp1"]
 [ext_resource type="BehaviorTree" uid="uid://do56smytaorys" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_BehaviorTree.tres" id="4_ejkyx"]
 [ext_resource type="BlackboardPlan" uid="uid://bfif4achauhkn" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_BlackboardPlanBase.tres" id="5_3b3my"]
 [ext_resource type="Shape3D" uid="uid://huqvodapiiy6" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_ShapeCast3D.tres" id="6_2h21h"]
-[ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://EyeSight3D.tscn" id="6_k7weo"]
-[ext_resource type="Script" path="res://Flippable3DSpriteBase3DConsolidation.cs" id="7_a3fb2"]
-[ext_resource type="Script" path="res://LookinAtCamSpriteBase3DConsolidation.cs" id="8_o3sdr"]
+[ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.tscn" id="6_k7weo"]
+[ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="7_a3fb2"]
+[ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="8_o3sdr"]
 
 [sub_resource type="Animation" id="Animation_f2p7a"]
 length = 0.9
@@ -551,9 +550,6 @@ _data = {
 }
 
 [node name="Minotaur" type="CharacterBody3D"]
-
-[node name="Environment" type="WorldEnvironment" parent="."]
-environment = ExtResource("1_xuv8u")
 
 [node name="AnimatedSprite3D_$Main$" type="AnimatedSprite3D" parent="."]
 cast_shadow = 0

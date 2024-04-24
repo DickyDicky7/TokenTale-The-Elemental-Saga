@@ -1,0 +1,9 @@
+[gd_resource type="GradientTexture2D" load_steps=2 format=3 uid="uid://c25qa0rhbkmdy"]
+
+[ext_resource type="Gradient" uid="uid://b56q3cy3lq33q" path="res://game_objects/shared/eye_sight_3D/EyeSight3D_Gradient---------.tres" id="1_6y2ga"]
+
+[resource]
+gradient = ExtResource("1_6y2ga")
+use_hdr = true
+fill = 1
+fill_to = Vector2(0.5, 0.5)

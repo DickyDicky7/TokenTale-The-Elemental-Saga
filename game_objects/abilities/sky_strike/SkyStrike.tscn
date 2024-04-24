@@ -1,6 +1,5 @@
-[gd_scene load_steps=12 format=3 uid="uid://s4c8ixjtg1uy"]
+[gd_scene load_steps=11 format=3 uid="uid://s4c8ixjtg1uy"]
 
-[ext_resource type="Environment" uid="uid://bl1hafxbwvrcc" path="res://game_objects/abilities/sky_strike/SkyStrike_Environment$.tres" id="1_jlt0u"]
 [ext_resource type="SpriteFrames" uid="uid://cq2jie543sctx" path="res://game_objects/abilities/sky_strike/SkyStrike_SpriteFrames.tres" id="2_6dxen"]
 [ext_resource type="Texture2D" uid="uid://bg43o8i7wyxhv" path="res://game_asset_s/pixel_art_top_down_rocks_pack/rocks/rocks.png" id="3_t5ci7"]
 [ext_resource type="SpriteFrames" uid="uid://brrcvjnenn4gw" path="res://game_objects/abilities/sky_strike/SkyStrike_SpriteFrames_Effect1.tres" id="3_t6766"]
@@ -8,7 +7,7 @@
 [ext_resource type="Shape3D" uid="uid://bkvosauacb43d" path="res://game_objects/abilities/sky_strike/SkyStrike_CollisionShape3D_Hitbox.tres" id="6_1al21"]
 [ext_resource type="BehaviorTree" uid="uid://db04qtvf251h7" path="res://game_objects/abilities/sky_strike/SkyStrike_BehaviorTree.tres" id="7_g8df4"]
 [ext_resource type="BlackboardPlan" uid="uid://bpi0s0eb4wjxo" path="res://game_objects/abilities/sky_strike/SkyStrike_BlackboardPlanBase.tres" id="7_u4n2a"]
-[ext_resource type="Script" path="res://LookinAtCamSpriteBase3DConsolidation.cs" id="8_q6hfs"]
+[ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="8_q6hfs"]
 
 [sub_resource type="Animation" id="Animation_3nirl"]
 resource_name = "OUT"
@@ -236,9 +235,6 @@ _data = {
 }
 
 [node name="SkyStrike" type="Area3D"]
-
-[node name="Environment" type="WorldEnvironment" parent="."]
-environment = ExtResource("1_jlt0u")
 
 [node name="AnimatedSprite3D_Portal" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

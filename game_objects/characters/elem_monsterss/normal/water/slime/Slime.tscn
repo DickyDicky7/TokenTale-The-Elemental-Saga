@@ -1,14 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://c6am1i2gl4i1c"]
+[gd_scene load_steps=16 format=3 uid="uid://c6am1i2gl4i1c"]
 
-[ext_resource type="Environment" uid="uid://djwk0q7qpj7ny" path="res://game_objects/characters/elem_monsterss/normal/water/slime/Slime_Environment.tres" id="1_a601p"]
 [ext_resource type="SpriteFrames" uid="uid://ky1517aj6j22" path="res://game_objects/characters/elem_monsterss/normal/water/slime/Slime_SpriteFrames_$Main$.tres" id="2_u1yss"]
 [ext_resource type="BehaviorTree" uid="uid://cdmi8dg3vtw7g" path="res://game_objects/characters/elem_monsterss/normal/water/slime/Slime_BehaviorTree.tres" id="3_2lfi4"]
 [ext_resource type="Shape3D" uid="uid://co0mhevvtdysu" path="res://game_objects/characters/elem_monsterss/normal/water/slime/Slime_CollisionShape3D_Body.tres" id="3_w04qr"]
 [ext_resource type="BlackboardPlan" uid="uid://bycpe4xxrxph6" path="res://game_objects/characters/elem_monsterss/normal/water/slime/Slime_BlackboardPlanBase.tres" id="5_nvc5y"]
-[ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://EyeSight3D.tscn" id="6_b82w7"]
+[ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.tscn" id="6_b82w7"]
 [ext_resource type="Shape3D" uid="uid://b7a7swjf3i70e" path="res://game_objects/characters/elem_monsterss/normal/water/slime/Slime_ShapeCast3D.tres" id="6_sdtxq"]
-[ext_resource type="Script" path="res://Flippable3DSpriteBase3DConsolidation.cs" id="7_bsj1j"]
-[ext_resource type="Script" path="res://LookinAtCamSpriteBase3DConsolidation.cs" id="8_cvlim"]
+[ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="7_bsj1j"]
+[ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="8_cvlim"]
 
 [sub_resource type="Animation" id="Animation_k4y2d"]
 length = 0.6
@@ -490,9 +489,6 @@ _data = {
 }
 
 [node name="Slime" type="CharacterBody3D"]
-
-[node name="Environment" type="WorldEnvironment" parent="."]
-environment = ExtResource("1_a601p")
 
 [node name="AnimatedSprite3D_$Main$" type="AnimatedSprite3D" parent="."]
 cast_shadow = 0

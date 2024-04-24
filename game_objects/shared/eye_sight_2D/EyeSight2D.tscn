@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dklk814gsey6g"]
+
+[ext_resource type="Texture2D" uid="uid://by8knhsasceto" path="res://game_objects/shared/eye_sight_2D/EyeSight2D_GradientTexture2D.tres" id="1_accdw"]
+[ext_resource type="Script" path="res://game_objects/shared/eye_sight_2D/EyeSight2D.cs" id="2_umrbi"]
+
+[node name="EyeSight2D" type="PointLight2D"]
+rotation = -0.785398
+energy = 2.0
+texture = ExtResource("1_accdw")
+offset = Vector2(32, 32)
+script = ExtResource("2_umrbi")

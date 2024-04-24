@@ -33,25 +33,25 @@ public int WalkingSpeed { get; set; } = 100;
 ```c#
 public partial class Adventurer
 {
-    public void Attack()
-    {
-        /* ... */
-    }
+	public void Attack()
+	{
+		/* ... */
+	}
 
-    /* ... */
+	/* ... */
 }
 ```
 - Parameters' & Local Variables' name, e.g:
 ```c#
 public partial class Adventurer
 {
-    public void Attack(Enemy @enemy)
-    {
-        Enemy currentEnemy = @enemy;
-        /* ... */
-    }
+	public void Attack(Enemy @enemy)
+	{
+		Enemy currentEnemy = @enemy;
+		/* ... */
+	}
 
-    /* ... */
+	/* ... */
 }
 ```
 

@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://ccyldblvdeogw"]
+[gd_scene load_steps=8 format=3 uid="uid://ccyldblvdeogw"]
 
 [ext_resource type="BoxMesh" uid="uid://gbvmnrdj18sd" path="res://game_objects/abilities/ice_wall/IceWallSinglePiece_Mesh--------------.tres" id="1_30w2k"]
 [ext_resource type="Script" path="res://game_objects/abilities/ice_wall/IceWallSinglePiece.cs" id="1_as201"]
 [ext_resource type="Shape3D" uid="uid://771ntawfvjc" path="res://game_objects/abilities/ice_wall/IceWallSinglePiece_CollisionShape3D.tres" id="2_kn5yj"]
-[ext_resource type="Environment" uid="uid://bw0r14gbvmxe" path="res://game_objects/abilities/ice_wall/IceWallSinglePiece_Environment$.tres" id="2_plowu"]
 [ext_resource type="Material" uid="uid://cqe82k0bohca3" path="res://game_objects/abilities/ice_wall/IceWallSinglePiece_ParticleProcessMaterial.tres" id="4_xcm45"]
 [ext_resource type="QuadMesh" uid="uid://fnixvirtault" path="res://game_objects/abilities/ice_wall/IceWallSinglePiece_DrawPass01_Mesh--------------.tres" id="5_dtdna"]
 [ext_resource type="BehaviorTree" uid="uid://dttuqje17co3e" path="res://game_objects/abilities/ice_wall/IceWallSinglePiece_BehaviorTree.tres" id="5_jxinw"]
@@ -12,9 +11,6 @@
 [node name="IceWallSinglePiece" type="StaticBody3D" node_paths=PackedStringArray("Mesh")]
 script = ExtResource("1_as201")
 Mesh = NodePath("$Mesh$Instance3D")
-
-[node name="Environment" type="WorldEnvironment" parent="."]
-environment = ExtResource("2_plowu")
 
 [node name="$Mesh$Instance3D" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_30w2k")

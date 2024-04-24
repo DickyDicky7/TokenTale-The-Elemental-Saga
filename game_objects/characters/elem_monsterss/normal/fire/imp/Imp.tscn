@@ -1,14 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://cwhrbtjfm2cpc"]
+[gd_scene load_steps=16 format=3 uid="uid://cwhrbtjfm2cpc"]
 
 [ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp.cs" id="1_41j3n"]
 [ext_resource type="SpriteFrames" uid="uid://bqs28pblt174t" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_SpriteFrames_$Main$.tres" id="1_n3j5a"]
-[ext_resource type="Environment" uid="uid://bk5s8laox5sjv" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_Environment.tres" id="2_p2mts"]
 [ext_resource type="Shape3D" uid="uid://bucn4fsdotdh5" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_CollisionShape3D_Body.tres" id="4_l0j8u"]
 [ext_resource type="BlackboardPlan" uid="uid://cypvttjpkpm8s" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_BlackboardPlanBase.tres" id="6_bl6jm"]
 [ext_resource type="Shape3D" uid="uid://bjvftjqwg5aqy" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_ShapeCast3D.tres" id="7_4pwu0"]
-[ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://EyeSight3D.tscn" id="8_d1obs"]
-[ext_resource type="Script" path="res://LookinAtCamSpriteBase3DConsolidation.cs" id="9_ts5ll"]
-[ext_resource type="Script" path="res://Flippable3DSpriteBase3DConsolidation.cs" id="10_mu3ir"]
+[ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.tscn" id="8_d1obs"]
+[ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="9_ts5ll"]
+[ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="10_mu3ir"]
 [ext_resource type="BehaviorTree" uid="uid://diju3wt86axt4" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_BehaviorTree.tres" id="12_hk2im"]
 
 [sub_resource type="Animation" id="Animation_wq24f"]
@@ -417,9 +416,6 @@ Speed = 1.0
 Jumpv = 1.0
 Acceleration = 0.1
 Deceleration = 0.1
-
-[node name="Environment" type="WorldEnvironment" parent="."]
-environment = ExtResource("2_p2mts")
 
 [node name="AnimatedSprite3D_$Main$" type="AnimatedSprite3D" parent="."]
 cast_shadow = 0

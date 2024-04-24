@@ -1,14 +1,13 @@
-[gd_scene load_steps=20 format=3 uid="uid://yfbwbxquk1v"]
+[gd_scene load_steps=19 format=3 uid="uid://yfbwbxquk1v"]
 
 [ext_resource type="SpriteFrames" uid="uid://c8gw1rkf7dxbk" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops_SpriteFrames_$Main$.tres" id="1_1rf3k"]
-[ext_resource type="Environment" uid="uid://dwqkwir8i2bnt" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops_Environment.tres" id="1_amp6i"]
 [ext_resource type="Shape3D" uid="uid://bcks15sxia73f" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops_CollisionShape3D_Body.tres" id="3_n5lrr"]
 [ext_resource type="BlackboardPlan" uid="uid://dtlc6qyr0idvj" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops_BlackboardPlanBase.tres" id="5_sg5x2"]
-[ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://EyeSight3D.tscn" id="5_tvi3d"]
+[ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.tscn" id="5_tvi3d"]
 [ext_resource type="Shape3D" uid="uid://dlud21l7y0vgr" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops_ShapeCast3D.tres" id="6_fm2yy"]
 [ext_resource type="BehaviorTree" uid="uid://bubi75u730bbr" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops_BehaviorTree.tres" id="6_v0w02"]
-[ext_resource type="Script" path="res://Flippable3DSpriteBase3DConsolidation.cs" id="7_0akb0"]
-[ext_resource type="Script" path="res://LookinAtCamSpriteBase3DConsolidation.cs" id="8_2pmn5"]
+[ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="7_0akb0"]
+[ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="8_2pmn5"]
 
 [sub_resource type="Animation" id="Animation_kk1d2"]
 length = 0.9
@@ -500,9 +499,6 @@ _data = {
 }
 
 [node name="Cyclops" type="CharacterBody3D"]
-
-[node name="Environment" type="WorldEnvironment" parent="."]
-environment = ExtResource("1_amp6i")
 
 [node name="AnimatedSprite3D_$Main$" type="AnimatedSprite3D" parent="."]
 cast_shadow = 0

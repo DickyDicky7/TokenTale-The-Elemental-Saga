@@ -1,14 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://bqn2g5rr825g4"]
+[gd_scene load_steps=15 format=3 uid="uid://bqn2g5rr825g4"]
 
 [ext_resource type="SpriteFrames" uid="uid://b5w6psdxkqfdx" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest_SpriteFrames_$Main$.tres" id="1_plsuf"]
-[ext_resource type="Environment" uid="uid://qvs624hdxqfd" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest_Environment.tres" id="1_rr272"]
 [ext_resource type="Shape3D" uid="uid://cyhidcdjpi64j" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest_CollisionShape3D_Body.tres" id="3_6xqyd"]
 [ext_resource type="BlackboardPlan" uid="uid://bvyrderb61tqr" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest_BlackboardPlanBase.tres" id="5_5t8jw"]
-[ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://EyeSight3D.tscn" id="5_rh2dw"]
+[ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.tscn" id="5_rh2dw"]
 [ext_resource type="BehaviorTree" uid="uid://dwwfq1c3bej11" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest_BehaviorTree.tres" id="6_mxaxa"]
 [ext_resource type="Shape3D" uid="uid://b4gxv6drdc4i4" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest_ShapeCast3D.tres" id="6_ymbsv"]
-[ext_resource type="Script" path="res://Flippable3DSpriteBase3DConsolidation.cs" id="7_s1s6w"]
-[ext_resource type="Script" path="res://LookinAtCamSpriteBase3DConsolidation.cs" id="8_lmvd7"]
+[ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="7_s1s6w"]
+[ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="8_lmvd7"]
 
 [sub_resource type="Animation" id="Animation_n1ihx"]
 length = 0.8
@@ -291,9 +290,6 @@ _data = {
 }
 
 [node name="KoboldPriest" type="CharacterBody3D"]
-
-[node name="Environment" type="WorldEnvironment" parent="."]
-environment = ExtResource("1_rr272")
 
 [node name="AnimatedSprite3D_$Main$" type="AnimatedSprite3D" parent="."]
 cast_shadow = 0

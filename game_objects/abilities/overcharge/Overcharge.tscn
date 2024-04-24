@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bocc0hkunia3p"]
+[gd_scene load_steps=9 format=3 uid="uid://bocc0hkunia3p"]
 
 [ext_resource type="SpriteFrames" uid="uid://dkm52u4g8thxs" path="res://game_objects/abilities/overcharge/Overcharge_SpriteFrames.tres" id="1_30fki"]
-[ext_resource type="Environment" uid="uid://87il5cq0l1ru" path="res://game_objects/abilities/overcharge/Overcharge_Environment$.tres" id="1_84k4o"]
 [ext_resource type="Shape3D" uid="uid://bbaxr8qb3v7sx" path="res://game_objects/abilities/overcharge/Overcharge_CollisionShape3D_Hitbox.tres" id="3_5v2c0"]
 [ext_resource type="BlackboardPlan" uid="uid://dq7dctt1ourr6" path="res://game_objects/abilities/overcharge/Overcharge_BlackboardPlanBase.tres" id="4_c10wi"]
-[ext_resource type="Script" path="res://LookinAtCamSpriteBase3DConsolidation.cs" id="4_hg2x4"]
+[ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="4_hg2x4"]
 [ext_resource type="BehaviorTree" uid="uid://bg3bvxuo7py57" path="res://game_objects/abilities/overcharge/Overcharge_BehaviorTree.tres" id="4_rog0d"]
 
 [sub_resource type="Animation" id="Animation_2tk8o"]
@@ -118,9 +117,6 @@ _data = {
 }
 
 [node name="Overcharge" type="Area3D"]
-
-[node name="Environment" type="WorldEnvironment" parent="."]
-environment = ExtResource("1_84k4o")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 cast_shadow = 0

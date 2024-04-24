@@ -1,13 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://bflyuqbbpqmkp"]
+[gd_scene load_steps=11 format=3 uid="uid://bflyuqbbpqmkp"]
 
-[ext_resource type="Environment" uid="uid://c7ikp830o07ap" path="res://game_objects/abilities/frostburn/Frostburn_Environment$.tres" id="1_x0148"]
 [ext_resource type="SpriteFrames" uid="uid://ccvpdipgc4wqy" path="res://game_objects/abilities/frostburn/Frostburn_SpriteFrames.tres" id="2_pqyg2"]
 [ext_resource type="SpriteFrames" uid="uid://cdcebiy3fffvh" path="res://game_objects/abilities/frostburn/Frostburn_SpriteFrames_Effect01.tres" id="3_48cvs"]
 [ext_resource type="BehaviorTree" uid="uid://8cuolfcbawdq" path="res://game_objects/abilities/frostburn/Frostburn_BehaviorTree.tres" id="3_nqikv"]
 [ext_resource type="SpriteFrames" uid="uid://c7tliiflx177" path="res://game_objects/abilities/frostburn/Frostburn_SpriteFrames_Effect02.tres" id="4_243kp"]
 [ext_resource type="Shape3D" uid="uid://dhfv2barpkiad" path="res://game_objects/abilities/frostburn/Frostburn_CollisionShape3D_Hitbox.tres" id="7_5jygr"]
 [ext_resource type="BlackboardPlan" uid="uid://bohqe83tjw5tw" path="res://game_objects/abilities/frostburn/Frostburn_BlackboardPlanBase.tres" id="7_lbovs"]
-[ext_resource type="Script" path="res://LookinAtCamSpriteBase3DConsolidation.cs" id="8_vg3oq"]
+[ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="8_vg3oq"]
 
 [sub_resource type="Animation" id="Animation_0m18r"]
 resource_name = "EFF"
@@ -215,9 +214,6 @@ _data = {
 }
 
 [node name="Frostburn" type="Area3D"]
-
-[node name="Environment" type="WorldEnvironment" parent="."]
-environment = ExtResource("1_x0148")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 visible = false

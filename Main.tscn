@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://cnes8lrs7ph26"]
+[gd_scene load_steps=20 format=3 uid="uid://cnes8lrs7ph26"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_px6f3"]
 [ext_resource type="PlaneMesh" uid="uid://dmf8lh15l3415" path="res://BackgroundPlatform_Mesh.tres" id="2_rk0yh"]
+[ext_resource type="Environment" uid="uid://jjpsnd6sbvf2" path="res://Main_Environment.tres" id="2_vpqwg"]
 [ext_resource type="Shape3D" uid="uid://ckjylylwcue88" path="res://BackgroundPlatform_CollisionShape3D.tres" id="3_vrktx"]
 [ext_resource type="PackedScene" uid="uid://cwhrbtjfm2cpc" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp.tscn" id="4_hlmyl"]
-[ext_resource type="QuadMesh" uid="uid://b18ltm5xt45do" path="res://Len_Mesh.tres" id="5_kmewh"]
+[ext_resource type="QuadMesh" uid="uid://b18ltm5xt45do" path="res://game_objects/shared/len/Len_Mesh.tres" id="5_kmewh"]
 [ext_resource type="PackedScene" uid="uid://d1jlh0uaim28w" path="res://game_objects/abilities/tornado/Tornado.tscn" id="5_rpfgl"]
 [ext_resource type="PackedScene" uid="uid://dmymcmqewv5c4" path="res://game_objects/abilities/serene_meadow/SereneMeadow.tscn" id="7_tyaa3"]
 [ext_resource type="PackedScene" uid="uid://bj14wt31rsok8" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt.tscn" id="8_nid88"]
@@ -16,9 +17,14 @@
 [ext_resource type="PackedScene" uid="uid://bflyuqbbpqmkp" path="res://game_objects/abilities/frostburn/Frostburn.tscn" id="13_w4ibj"]
 [ext_resource type="PackedScene" uid="uid://c5cd1cni7lng6" path="res://game_objects/abilities/ice_wall/IceWall.tscn" id="14_4m8xy"]
 [ext_resource type="PackedScene" uid="uid://v8blbc8smsjd" path="res://game_objects/abilities/tidal_wave/TidalWave.tscn" id="15_lavek"]
+[ext_resource type="Script" path="res://addons/post_processing/node/post_process.gd" id="18_mmfla"]
+[ext_resource type="Resource" uid="uid://bnknhyt52lbte" path="res://Main_PostProcessingConfiguration.tres" id="19_wk608"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_px6f3")
+
+[node name="Environment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_vpqwg")
 
 [node name="BackgroundPlatform" type="StaticBody3D" parent="."]
 
@@ -32,23 +38,27 @@ shape = ExtResource("3_vrktx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="Camera3D" type="Camera3D" parent="MainCharacter"]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 1.5, 1.5)
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866026, 0, -0.866026, 0.5, 0, 1.5, 1.5)
+far = 10.0
 
 [node name="Len" type="MeshInstance3D" parent="MainCharacter/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+visible = false
 mesh = ExtResource("5_kmewh")
 
 [node name="Imp" parent="." instance=ExtResource("4_hlmyl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 0, 0)
 shadow_enabled = true
+directional_shadow_mode = 0
 
 [node name="Tornado" parent="." instance=ExtResource("5_rpfgl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -1)
 
 [node name="SereneMeadow" parent="." instance=ExtResource("7_tyaa3")]
+visible = false
 
 [node name="PenetratingSquirt" parent="." instance=ExtResource("8_nid88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.1, -1)
@@ -73,3 +83,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -3)
 
 [node name="TidalWave" parent="." instance=ExtResource("15_lavek")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.1, 2)
+
+[node name="PostProcess" type="CanvasLayer" parent="."]
+script = ExtResource("18_mmfla")
+configuration = ExtResource("19_wk608")

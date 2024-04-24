@@ -1,6 +1,5 @@
-[gd_scene load_steps=7 format=3 uid="uid://dcl1dgwq4y276"]
+[gd_scene load_steps=6 format=3 uid="uid://dcl1dgwq4y276"]
 
-[ext_resource type="Environment" uid="uid://cnbj7qrsjqbx0" path="res://game_objects/abilities/root_trap/RootTrap_Environment$.tres" id="1_k03gv"]
 [ext_resource type="QuadMesh" uid="uid://dod3kxuwtpi5m" path="res://game_objects/abilities/root_trap/RootTrap_DrawPass01_Mesh.tres" id="3_gqnai"]
 [ext_resource type="Shape3D" uid="uid://2lyk10882k82" path="res://game_objects/abilities/root_trap/RootTrap_CollisionShape3D_Hitbox.tres" id="4_ehh7p"]
 [ext_resource type="Material" uid="uid://dh0ny11jtiv4t" path="res://game_objects/abilities/root_trap/RootTrap_ParticleProcessMaterial.tres" id="4_fhnom"]
@@ -8,9 +7,6 @@
 [ext_resource type="BehaviorTree" uid="uid://ywcdy1cb8lv1" path="res://game_objects/abilities/root_trap/RootTrap_BehaviorTree.tres" id="5_lrdjs"]
 
 [node name="RootTrap" type="Area3D"]
-
-[node name="Environment" type="WorldEnvironment" parent="."]
-environment = ExtResource("1_k03gv")
 
 [node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
 aabb = AABB(-0.5, 0, -0.5, 1, 0.2, 1)

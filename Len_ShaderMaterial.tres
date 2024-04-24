@@ -1,9 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dw1egob174r7r"]
-
-[ext_resource type="Shader" path="res://Len_ShaderMaterial.gdshader" id="1_xkfx3"]
-[ext_resource type="Texture2D" uid="uid://dtr4fabqvh8c4" path="res://Len_GradientTexture1D.tres" id="2_iih07"]
-
-[resource]
-render_priority = 0
-shader = ExtResource("1_xkfx3")
-shader_parameter/colorTexture = ExtResource("2_iih07")

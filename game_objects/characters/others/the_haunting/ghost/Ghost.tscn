@@ -1,14 +1,13 @@
-[gd_scene load_steps=25 format=3 uid="uid://y1t0iubx8y1b"]
+[gd_scene load_steps=24 format=3 uid="uid://y1t0iubx8y1b"]
 
-[ext_resource type="Environment" uid="uid://bxbfo6sb36xgv" path="res://game_objects/characters/others/the_haunting/ghost/Ghost_Environment.tres" id="1_oyn48"]
 [ext_resource type="SpriteFrames" uid="uid://b0vb6jgcmi6na" path="res://game_objects/characters/others/the_haunting/ghost/Ghost_SpriteFrames_$Main$.tres" id="2_06es2"]
 [ext_resource type="Shape3D" uid="uid://cy7dym7lga2wt" path="res://game_objects/characters/others/the_haunting/ghost/Ghost_CollisionShape3D_Body.tres" id="3_7w274"]
 [ext_resource type="BehaviorTree" uid="uid://cnmc3ecev6cls" path="res://game_objects/characters/others/the_haunting/ghost/Ghost_BehaviorTree.tres" id="3_wncf4"]
 [ext_resource type="BlackboardPlan" uid="uid://wbnqf68uhbs6" path="res://game_objects/characters/others/the_haunting/ghost/Ghost_BlackboardPlanBase.tres" id="5_ljghu"]
-[ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://EyeSight3D.tscn" id="5_tg2iu"]
+[ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.tscn" id="5_tg2iu"]
 [ext_resource type="Shape3D" uid="uid://b8fyx0j0i3dc3" path="res://game_objects/characters/others/the_haunting/ghost/Ghost_ShapeCast3D.tres" id="6_a6wmm"]
-[ext_resource type="Script" path="res://Flippable3DSpriteBase3DConsolidation.cs" id="7_2bya4"]
-[ext_resource type="Script" path="res://LookinAtCamSpriteBase3DConsolidation.cs" id="8_vxgyj"]
+[ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="7_2bya4"]
+[ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="8_vxgyj"]
 
 [sub_resource type="Animation" id="Animation_hbvmw"]
 length = 1.3
@@ -833,9 +832,6 @@ _data = {
 }
 
 [node name="GhostRound" type="CharacterBody3D"]
-
-[node name="Environment" type="WorldEnvironment" parent="."]
-environment = ExtResource("1_oyn48")
 
 [node name="AnimatedSprite3D_$Main$" type="AnimatedSprite3D" parent="."]
 cast_shadow = 0

@@ -1,14 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://bx1yjtvn2pwyh"]
+[gd_scene load_steps=15 format=3 uid="uid://bx1yjtvn2pwyh"]
 
 [ext_resource type="Script" path="res://game_objects/items/sword/Sword.cs" id="1_pcobt"]
-[ext_resource type="Environment" uid="uid://pfk1i57fl8ti" path="res://game_objects/items/sword/Sword_Environment_.tres" id="2_vr4cb"]
 [ext_resource type="Texture2D" uid="uid://7ltowuxnege6" path="res://game_asset_s/32x32pixelmeleeweapon.png" id="3_8ivbm"]
 [ext_resource type="Shape3D" uid="uid://djeb1w4437hhy" path="res://game_objects/items/sword/Sword_CollisionShape3D.tres" id="4_5bwhb"]
 [ext_resource type="SpriteFrames" uid="uid://cgqt1fh8w4vqh" path="res://game_objects/items/sword/Sword_SpriteFrames.tres" id="5_ugswj"]
-[ext_resource type="Script" path="res://game_objects/shared/StateMachine.cs" id="6_n03hb"]
+[ext_resource type="Script" path="res://game_objects/shared/state_machine/StateMachine.cs" id="6_n03hb"]
 [ext_resource type="Script" path="res://game_objects/items/sword/StateSwordReset.cs" id="7_34dt2"]
 [ext_resource type="Script" path="res://game_objects/items/sword/StateSwordSlash.cs" id="8_3v5rq"]
-[ext_resource type="Script" path="res://LookinAtCamSpriteBase3DConsolidation.cs" id="9_831tv"]
+[ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="9_831tv"]
 
 [sub_resource type="Animation" id="Animation_e6q8w"]
 resource_name = "RESET"
@@ -405,9 +404,6 @@ CollisionShape3D = NodePath("Aareaa3D/CollisionShape3D")
 AnimatedSprite3D = NodePath("_AnimatedSprite3D")
 AnimatedShadow3D = NodePath("_AnimatedShadow3D")
 AnimationPlayerr = NodePath("_AnimationPlayerr")
-
-[node name="Environment" type="WorldEnvironment" parent="."]
-environment = ExtResource("2_vr4cb")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 cast_shadow = 0

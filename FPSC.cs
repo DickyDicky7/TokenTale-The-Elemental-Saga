@@ -2,12 +2,12 @@ using Godot;
 
 namespace TokenTaleTheElementalSaga;
 
-public partial class Main : Node
+public partial class FPSC : RichTextLabel
 {
     public override void _Process(double @delta)
     {
                     base._Process(       @delta);
 
-        GD.Print(Engine.GetFramesPerSecond());
+        Text = $"FPS: {Engine.GetFramesPerSecond()}";
     }
 }

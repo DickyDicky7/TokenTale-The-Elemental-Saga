@@ -3,6 +3,7 @@ using Godot.Collections;
 
 namespace TokenTaleTheElementalSaga;
 
+[Tool       ]
 [GlobalClass]
 public sealed partial class Flippable3DSpriteBase3DConsolidation : Node
 {

@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://dixv731fuc6gj"]
+[gd_scene load_steps=14 format=3 uid="uid://dixv731fuc6gj"]
 
+[ext_resource type="Script" path="res://game_objects/abilities/fire_ball/FireBall.cs" id="1_cdxcp"]
 [ext_resource type="SpriteFrames" uid="uid://cg6il1iahrcxh" path="res://game_objects/abilities/fire_ball/FireBall_SpriteFrames.tres" id="1_ndwmx"]
 [ext_resource type="Material" uid="uid://bhpsa03ortrg2" path="res://game_objects/abilities/fire_ball/FireBall_ParticleProcessMaterial.tres" id="2_f64g0"]
 [ext_resource type="QuadMesh" uid="uid://k3emawcd6n0r" path="res://game_objects/abilities/fire_ball/FireBall_DrawPass01_Mesh.tres" id="3_45rx7"]
@@ -278,6 +279,7 @@ _data = {
 }
 
 [node name="FireBall" type="Area3D"]
+script = ExtResource("1_cdxcp")
 
 [node name="_GPU_Particles3D" type="GPUParticles3D" parent="."]
 amount = 50
@@ -312,9 +314,11 @@ behavior_tree = ExtResource("3_xm2p1")
 blackboard_plan = ExtResource("4_fbkqr")
 
 [node name="Flippable3DSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
+process_mode = 4
 script = ExtResource("7_lu4ls")
 Sprites = [NodePath("../AnimatedSprite3D"), NodePath("../AnimatedShadow3D")]
 
 [node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
+process_mode = 4
 script = ExtResource("8_6uybs")
 Sprites = [NodePath("../AnimatedSprite3D")]

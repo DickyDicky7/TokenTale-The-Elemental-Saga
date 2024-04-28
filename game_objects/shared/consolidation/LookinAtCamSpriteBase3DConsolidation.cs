@@ -3,6 +3,7 @@ using Godot.Collections;
 
 namespace TokenTaleTheElementalSaga;
 
+[Tool       ]
 [GlobalClass]
 public sealed partial class LookinAtCamSpriteBase3DConsolidation : Node
 {

@@ -98,7 +98,13 @@ public static class Extension
 
     public static void LookAt______Camera(this Node3D @node3D, Camera3D @camera3D)
     {
-        @node3D.Rotation = @node3D.Rotation with { X = camera3D.Rotation.X, };
+        @node3D.Rotation =
+        @node3D.Rotation with
+        {
+            X = @camera3D.Rotation.X,
+            Y =   @node3D.Rotation.Y,
+            Z =   @node3D.Rotation.Z, /*!*/
+        };
     }
 
     public static void LookAtActiveCamera(this Node3D @node3D                    )

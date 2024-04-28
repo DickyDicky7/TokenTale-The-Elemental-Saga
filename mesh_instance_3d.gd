@@ -11,4 +11,5 @@ func _ready():
 		var   vertexColor  =  meshDataTool.get_vertex_color(vertex);
 		print(vertexColor);
 
+	
 	pass;

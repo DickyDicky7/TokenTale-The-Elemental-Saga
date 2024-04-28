@@ -115,12 +115,13 @@ SPACE={
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
-renderer/rendering_method="gl_compatibility"
+renderer/rendering_method       ="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-lights_and_shadows/directional_shadow/size=512
+lights_and_shadows/directional_shadow/size       =512
 lights_and_shadows/directional_shadow/size.mobile=512
 anti_aliasing/screen_space_roughness_limiter/limit=0.2
 viewport/hdr_2d=true
 occlusion_culling/use_occlusion_culling=true
-lights_and_shadows/positional_shadow/atlas_size=512
+lights_and_shadows/positional_shadow/atlas_size       =512
 lights_and_shadows/positional_shadow/atlas_size.mobile=512
+

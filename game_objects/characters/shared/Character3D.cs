@@ -5,7 +5,9 @@ namespace TokenTaleTheElementalSaga;
 [GlobalClass]
 public abstract partial class Character3D : CharacterBody3D
 {
-    [Export]
+	[Export]
+	public int Health { get; set; }
+	[Export]
     public float Speed { get; set; }
     [Export]
     public float Jumpv { get; set; }
@@ -28,9 +30,10 @@ public abstract partial class Character3D : CharacterBody3D
             velocity = velocity. MoveToward  (
             @direction *  Speed, Acceleration);
 
+
             if (!IsOnFloor())
             {
-            velocity+= GetGravity() * (float)delta * Speed;
+                velocity += GetGravity() * (float)delta * Speed;
             }
 
             Velocity = velocity;
@@ -56,7 +59,7 @@ public abstract partial class Character3D : CharacterBody3D
 
             if (!IsOnFloor())
             {
-            velocity+= GetGravity() * (float)delta * Speed;
+                velocity += GetGravity() * (float)delta * Speed;
             }
 
             Velocity =

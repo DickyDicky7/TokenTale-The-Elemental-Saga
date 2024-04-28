@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cnes8lrs7ph26"]
+[gd_scene load_steps=22 format=3 uid="uid://cnes8lrs7ph26"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_px6f3"]
 [ext_resource type="PlaneMesh" uid="uid://dmf8lh15l3415" path="res://BackgroundPlatform_Mesh.tres" id="2_rk0yh"]
@@ -8,6 +8,7 @@
 [ext_resource type="QuadMesh" uid="uid://b18ltm5xt45do" path="res://game_objects/shared/len/Len_Mesh.tres" id="5_kmewh"]
 [ext_resource type="PackedScene" uid="uid://d1jlh0uaim28w" path="res://game_objects/abilities/tornado/Tornado.tscn" id="5_rpfgl"]
 [ext_resource type="Script" path="res://_Camera3D_.cs" id="6_1l5gg"]
+[ext_resource type="PackedScene" uid="uid://dsw38xnjyq7yu" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur.tscn" id="7_2coyl"]
 [ext_resource type="PackedScene" uid="uid://dmymcmqewv5c4" path="res://game_objects/abilities/serene_meadow/SereneMeadow.tscn" id="7_tyaa3"]
 [ext_resource type="PackedScene" uid="uid://bj14wt31rsok8" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt.tscn" id="8_nid88"]
 [ext_resource type="PackedScene" uid="uid://bocc0hkunia3p" path="res://game_objects/abilities/overcharge/Overcharge.tscn" id="9_5jat6"]
@@ -36,7 +37,6 @@ mesh = ExtResource("2_rk0yh")
 shape = ExtResource("3_vrktx")
 
 [node name="MainCharacter" parent="." instance=ExtResource("9_seby3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="Camera3D" type="Camera3D" parent="MainCharacter"]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 1.5, 1.5)
@@ -51,6 +51,9 @@ mesh = ExtResource("5_kmewh")
 [node name="Imp" parent="." instance=ExtResource("4_hlmyl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
 
+[node name="Minotaur" parent="." instance=ExtResource("7_2coyl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 3)
+
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 0, 0)
 shadow_enabled = true
@@ -58,34 +61,45 @@ directional_shadow_mode = 0
 
 [node name="Tornado" parent="." instance=ExtResource("5_rpfgl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -1)
+visible = false
 
 [node name="SereneMeadow" parent="." instance=ExtResource("7_tyaa3")]
 visible = false
 
 [node name="PenetratingSquirt" parent="." instance=ExtResource("8_nid88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.1, -1)
+visible = false
 
 [node name="Overcharge" parent="." instance=ExtResource("9_5jat6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.5, 0)
+visible = false
 
 [node name="Lightning" parent="." instance=ExtResource("10_myf47")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+visible = false
 
 [node name="Ignite" parent="." instance=ExtResource("11_3fjus")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+visible = false
 
 [node name="FireBall" parent="." instance=ExtResource("12_qboqi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.5, -1)
+visible = false
 
 [node name="Frostburn" parent="." instance=ExtResource("13_w4ibj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+visible = false
 
 [node name="IceWall" parent="." instance=ExtResource("14_4m8xy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -3)
+visible = false
 
 [node name="TidalWave" parent="." instance=ExtResource("15_lavek")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.1, 2)
+visible = false
 
 [node name="PostProcess" type="CanvasLayer" parent="."]
 script = ExtResource("18_mmfla")
 configuration = ExtResource("19_wk608")
+
+

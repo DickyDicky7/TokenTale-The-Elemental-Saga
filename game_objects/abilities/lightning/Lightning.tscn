@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://cn6e4b8ejcnru"]
+[gd_scene load_steps=11 format=3 uid="uid://cn6e4b8ejcnru"]
 
-[ext_resource type="Environment" uid="uid://bfn5o6qb5mmwr" path="res://game_objects/abilities/lightning/Lightning_Environment$.tres" id="1_kfp4f"]
 [ext_resource type="SpriteFrames" uid="uid://bb28sh36aknoq" path="res://game_objects/abilities/lightning/Lightning_SpriteFrames.tres" id="1_weg7p"]
 [ext_resource type="Material" uid="uid://c510q7ihagujb" path="res://game_objects/abilities/lightning/Lightning_ParticleProcessMaterial.tres" id="3_02l3o"]
 [ext_resource type="QuadMesh" uid="uid://ble15l0osx128" path="res://game_objects/abilities/lightning/Lightning_DrawPass01_Mesh.tres" id="4_fgd0e"]
 [ext_resource type="Shape3D" uid="uid://rd72j5r35v7y" path="res://game_objects/abilities/lightning/Lightning_CollisionShape3D_Hitbox.tres" id="4_o25au"]
-[ext_resource type="Script" path="res://LookinAtCamSpriteBase3DConsolidation.cs" id="5_cwiri"]
+[ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="5_cwiri"]
 [ext_resource type="BehaviorTree" uid="uid://bndh04gk1atcc" path="res://game_objects/abilities/lightning/Lightning_BehaviorTree.tres" id="6_0shj6"]
 [ext_resource type="BlackboardPlan" uid="uid://cv2ahqwcv6xwd" path="res://game_objects/abilities/lightning/Lightning_BlackboardPlanBase.tres" id="6_yx8y4"]
 
@@ -166,9 +165,6 @@ _data = {
 }
 
 [node name="Lightning" type="Area3D"]
-
-[node name="Environment" type="WorldEnvironment" parent="."]
-environment = ExtResource("1_kfp4f")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 cast_shadow = 0

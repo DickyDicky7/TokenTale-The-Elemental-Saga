@@ -1,6 +1,5 @@
-[gd_scene load_steps=10 format=3 uid="uid://dmymcmqewv5c4"]
+[gd_scene load_steps=9 format=3 uid="uid://dmymcmqewv5c4"]
 
-[ext_resource type="Environment" uid="uid://c0vq1cnrbctub" path="res://game_objects/abilities/serene_meadow/SereneMeadow_Environment$.tres" id="1_iqcvn"]
 [ext_resource type="SpriteFrames" uid="uid://74mw55r73mxw" path="res://game_objects/abilities/serene_meadow/SereneMeadow_SpriteFrames.tres" id="2_1l66i"]
 [ext_resource type="QuadMesh" uid="uid://bugbd6pifcd67" path="res://game_objects/abilities/serene_meadow/SereneMeadow_DrawPass01_Mesh.tres" id="4_lgmqr"]
 [ext_resource type="Material" uid="uid://gvfxbn6bmmfh" path="res://game_objects/abilities/serene_meadow/SereneMeadow_ParticleProcessMaterial.tres" id="4_m58mn"]
@@ -54,9 +53,6 @@ _data = {
 }
 
 [node name="SereneMeadow" type="Area3D"]
-
-[node name="Environment" type="WorldEnvironment" parent="."]
-environment = ExtResource("1_iqcvn")
 
 [node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
 aabb = AABB(-0.5, 0, -0.5, 1, 0.2, 1)

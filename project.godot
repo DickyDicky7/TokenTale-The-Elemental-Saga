@@ -23,9 +23,13 @@ Global="*res://Global.cs"
 
 project/assembly_name="TokenTale-The-Elemental-Saga"
 
+[editor]
+
+import/use_multiple_threads=false
+
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AS2P/plugin.cfg")
+enabled=PackedStringArray("res://addons/AS2P/plugin.cfg", "res://addons/MagicaVoxel_Importer_with_Extensions/plugin.cfg", "res://addons/post_processing/plugin.cfg")
 
 [file_customization]
 
@@ -57,12 +61,19 @@ folder_colors={
 "res://game_objects/characters/others/the_haunting/": "blue",
 "res://game_objects/characters/others/the_tanker/": "blue",
 "res://game_objects/characters/others/the_thief/": "blue",
-"res://game_objects/characters/others/the_undead/": "blue"
+"res://game_objects/characters/others/the_undead/": "blue",
+"res://shaders/": "orange"
 }
 
 [filesystem]
 
 import/blender/enabled=false
+
+[importer_defaults]
+
+texture={
+"detect_3d/compress_to": 0
+}
 
 [input]
 
@@ -104,7 +115,13 @@ SPACE={
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
-renderer/rendering_method="gl_compatibility"
+renderer/rendering_method       ="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+lights_and_shadows/directional_shadow/size       =512
+lights_and_shadows/directional_shadow/size.mobile=512
 anti_aliasing/screen_space_roughness_limiter/limit=0.2
 viewport/hdr_2d=true
+occlusion_culling/use_occlusion_culling=true
+lights_and_shadows/positional_shadow/atlas_size       =512
+lights_and_shadows/positional_shadow/atlas_size.mobile=512
+

@@ -1,14 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://dindjudhmyfgo"]
+[gd_scene load_steps=15 format=3 uid="uid://dindjudhmyfgo"]
 
-[ext_resource type="Environment" uid="uid://vttj73bguifk" path="res://game_objects/characters/elem_monsterss/normal/fire/fire__cube/FireCube_Environment.tres" id="1_3pbvs"]
 [ext_resource type="BehaviorTree" uid="uid://dt8nrbaouq8n0" path="res://game_objects/characters/elem_monsterss/normal/fire/fire__cube/FireCube_BehaviorTree.tres" id="2_1lstk"]
 [ext_resource type="SpriteFrames" uid="uid://gijcicubsb5x" path="res://game_objects/characters/elem_monsterss/normal/fire/fire__cube/FireCube_SpriteFrames_$Main$.tres" id="2_tgbn1"]
 [ext_resource type="Shape3D" uid="uid://o7qadvj3xxcn" path="res://game_objects/characters/elem_monsterss/normal/fire/fire__cube/FireCube_CollisionShape3D_Body.tres" id="3_cn3oy"]
 [ext_resource type="BlackboardPlan" uid="uid://g2y7edffdds7" path="res://game_objects/characters/elem_monsterss/normal/fire/fire__cube/FireCube_BlackboardPlanBase.tres" id="5_jwt3j"]
-[ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://EyeSight3D.tscn" id="6_2hykg"]
+[ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.tscn" id="6_2hykg"]
 [ext_resource type="Shape3D" uid="uid://cs6bowv7xllin" path="res://game_objects/characters/elem_monsterss/normal/fire/fire__cube/FireCube_ShapeCast3D.tres" id="6_tc56n"]
-[ext_resource type="Script" path="res://Flippable3DSpriteBase3DConsolidation.cs" id="7_8j4hh"]
-[ext_resource type="Script" path="res://LookinAtCamSpriteBase3DConsolidation.cs" id="8_jm7cr"]
+[ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="7_8j4hh"]
+[ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="8_jm7cr"]
 
 [sub_resource type="Animation" id="Animation_p1jfm"]
 length = 0.8
@@ -294,9 +293,6 @@ _data = {
 }
 
 [node name="FireCube" type="CharacterBody3D"]
-
-[node name="Environment" type="WorldEnvironment" parent="."]
-environment = ExtResource("1_3pbvs")
 
 [node name="AnimatedSprite3D_$Main$" type="AnimatedSprite3D" parent="."]
 cast_shadow = 0

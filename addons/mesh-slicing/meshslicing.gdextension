@@ -1,0 +1,17 @@
+[configuration]
+
+entry_symbol = "mesh_slicing_library_init"
+compatibility_minimum = "4.2"
+
+[libraries]
+
+windows.debug.x86_64 = "libmeshslicing.windows.template_debug.x86_64.dll"
+windows.release.x86_64 = "libmeshslicing.windows.template_release.x86_64.dll"
+linux.debug.x86_64 = "libmeshslicing.linux.template_debug.x86_64.so"
+linux.release.x86_64 = "libmeshslicing.linux.template_release.x86_64.so"
+android.debug.arm64 = "libmeshslicing.android.template_debug.arm64.so"
+android.release.arm64 = "libmeshslicing.android.template_release.arm64.so"
+
+[icons]
+
+SliceableMeshInstance3D = "SliceableMeshInstance3D.svg"

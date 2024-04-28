@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://d3gqr2or1jr42"]
+[gd_scene load_steps=10 format=3 uid="uid://d3gqr2or1jr42"]
 
-[ext_resource type="Environment" uid="uid://tiy14vcadk1h" path="res://game_objects/abilities/ignite/Ignite_Environment$.tres" id="1_owvx6"]
 [ext_resource type="SpriteFrames" uid="uid://cujb3xpnlt8n" path="res://game_objects/abilities/ignite/Ignite_SpriteFrames.tres" id="2_g6bq7"]
 [ext_resource type="Shape3D" uid="uid://dmks4qpwmxibl" path="res://game_objects/abilities/ignite/Ignite_CollisionShape3D_Hitbox.tres" id="3_ta5ks"]
-[ext_resource type="Script" path="res://LookinAtCamSpriteBase3DConsolidation.cs" id="4_f6oov"]
+[ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="4_f6oov"]
 [ext_resource type="BehaviorTree" uid="uid://ctfcfyswfbnr1" path="res://game_objects/abilities/ignite/Ignite_BehaviorTree.tres" id="4_f16hr"]
 [ext_resource type="BlackboardPlan" uid="uid://cvm0nxenwn10" path="res://game_objects/abilities/ignite/Ignite_BlackboardPlanBase.tres" id="4_ksr1t"]
 
@@ -330,9 +329,6 @@ _data = {
 }
 
 [node name="Ignite" type="Area3D"]
-
-[node name="Environment" type="WorldEnvironment" parent="."]
-environment = ExtResource("1_owvx6")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 cast_shadow = 0

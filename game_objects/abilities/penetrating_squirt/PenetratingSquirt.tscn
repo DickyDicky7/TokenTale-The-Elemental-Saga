@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://bj14wt31rsok8"]
+[gd_scene load_steps=11 format=3 uid="uid://bj14wt31rsok8"]
 
 [ext_resource type="SpriteFrames" uid="uid://1pmwtiv8namm" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_SpriteFrames.tres" id="1_84jd6"]
-[ext_resource type="Environment" uid="uid://dwifqdh3kpbj7" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_Environment$.tres" id="1_uiwra"]
 [ext_resource type="BlackboardPlan" uid="uid://bcg3ryduafma5" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_BlackboardPlanBase.tres" id="4_cqd5s"]
 [ext_resource type="Shape3D" uid="uid://uj6irmg35oj1" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_CollisionShape3D_Hitbox.tres" id="4_mmqwq"]
 [ext_resource type="BehaviorTree" uid="uid://t6yhjbbcq7hq" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_BehaviorTree.tres" id="4_wt3nm"]
@@ -98,9 +97,6 @@ _data = {
 }
 
 [node name="PenetratingSquirt" type="Area3D"]
-
-[node name="Environment" type="WorldEnvironment" parent="."]
-environment = ExtResource("1_uiwra")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(-1.31134e-08, 3, -4.37114e-08, 0, -1.31134e-07, -1, -0.3, -1.31134e-07, 1.91069e-15, 0, 0, 0)

@@ -1,0 +1,11 @@
+[gd_resource type="Environment" load_steps=2 format=3 uid="uid://jjpsnd6sbvf2"]
+
+[ext_resource type="Sky" uid="uid://df383dgt74rsm" path="res://Main___________Sky________.tres" id="1_b4nkx"]
+
+[resource]
+background_mode = 2
+sky = ExtResource("1_b4nkx")
+tonemap_mode = 3
+glow_enabled = true
+glow_intensity = 1.0
+glow_hdr_threshold = 0.1

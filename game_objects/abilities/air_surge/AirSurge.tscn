@@ -1,14 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://dtm1w4b8kbx8t"]
+[gd_scene load_steps=13 format=3 uid="uid://dtm1w4b8kbx8t"]
 
 [ext_resource type="SpriteFrames" uid="uid://b30e66pvrhgxt" path="res://game_objects/abilities/air_surge/AirSurge_SpriteFrames.tres" id="1_t8oyk"]
-[ext_resource type="Environment" uid="uid://budridhq13dap" path="res://game_objects/abilities/air_surge/AirSurge_Environment$.tres" id="1_xu7h8"]
 [ext_resource type="Material" uid="uid://t71ofl8t7tll" path="res://game_objects/abilities/air_surge/AirSurge_ParticleProcessMaterial.tres" id="2_e1dvs"]
 [ext_resource type="Texture2D" uid="uid://ysxny8g0qd3u" path="res://game_objects/abilities/air_surge/AirSurge_AnimatedTexture.tres" id="3_ni1xq"]
 [ext_resource type="BehaviorTree" uid="uid://byjbb1t3ra7av" path="res://game_objects/abilities/air_surge/AirSurge_BehaviorTree.tres" id="3_qbw3m"]
 [ext_resource type="Shape3D" uid="uid://dbyebbu0dt05n" path="res://game_objects/abilities/air_surge/AirSurge_CollisionShape3D_Hitbox.tres" id="5_ti113"]
 [ext_resource type="BlackboardPlan" uid="uid://dpdx4v6g2gyy6" path="res://game_objects/abilities/air_surge/AirSurge_BlackboardPlanBase.tres" id="6_u1pv5"]
-[ext_resource type="Script" path="res://Flippable3DSpriteBase3DConsolidation.cs" id="8_attu0"]
-[ext_resource type="Script" path="res://LookinAtCamSpriteBase3DConsolidation.cs" id="9_dhfsf"]
+[ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="8_attu0"]
+[ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="9_dhfsf"]
 
 [sub_resource type="Animation" id="Animation_hwfks"]
 length = 0.3
@@ -100,9 +99,6 @@ _data = {
 }
 
 [node name="AirSurge" type="Area3D"]
-
-[node name="Environment" type="WorldEnvironment" parent="."]
-environment = ExtResource("1_xu7h8")
 
 [node name="_GPU_Particles2D" type="GPUParticles2D" parent="."]
 visible = false

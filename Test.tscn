@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=3 uid="uid://bjot1opefisvp"]
+
+[ext_resource type="Environment" uid="uid://bkpuowx00qvv5" path="res://Test_Environment.tres" id="1_wkcd5"]
+[ext_resource type="PackedScene" uid="uid://c47tcwkeiq0h2" path="res://game_objects/characters/main_character/MainCharacter.tscn" id="2_mcgch"]
+[ext_resource type="Script" path="res://addons/post_processing/node/post_process.gd" id="3_i6bqx"]
+[ext_resource type="Shape3D" uid="uid://3hxmit0agxjl" path="res://Test_CollisionShape3D.tres" id="3_usub1"]
+[ext_resource type="ArrayMesh" uid="uid://bm7oyodswc85r" path="res://Test_Assets_Mesh.tres" id="3_w4qdd"]
+[ext_resource type="Resource" uid="uid://d0csm6veiqg81" path="res://Test_PostProcessingConfiguration.tres" id="4_2n6em"]
+[ext_resource type="ArrayMesh" uid="uid://dfbcnmejv8556" path="res://Test_Tree_Mesh.tres" id="5_k5jof"]
+[ext_resource type="Script" path="res://FPSC.cs" id="8_x1s8w"]
+
+[node name="Test" type="Node3D"]
+
+[node name="Env" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_wkcd5")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 0, 0)
+shadow_enabled = true
+directional_shadow_mode = 0
+
+[node name="MainCharacter" parent="." instance=ExtResource("2_mcgch")]
+
+[node name="Camera3D" type="Camera3D" parent="MainCharacter"]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 1.5, 1.5)
+far = 5.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.16, 0)
+
+[node name="Assets" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = ExtResource("3_w4qdd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = ExtResource("3_usub1")
+
+[node name="PostProcess" type="CanvasLayer" parent="."]
+script = ExtResource("3_i6bqx")
+configuration = ExtResource("4_2n6em")
+
+[node name="Tree" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+mesh = ExtResource("5_k5jof")
+
+[node name="FPSC" type="RichTextLabel" parent="."]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 90.0
+offset_bottom = 50.0
+script = ExtResource("8_x1s8w")

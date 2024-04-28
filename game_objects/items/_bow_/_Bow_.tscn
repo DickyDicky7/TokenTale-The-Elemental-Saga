@@ -1,23 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://b7cey8rb583i7"]
+[gd_scene load_steps=9 format=3 uid="uid://b7cey8rb583i7"]
 
 [ext_resource type="Script" path="res://game_objects/items/_bow_/_Bow_.cs" id="1_tkwil"]
 [ext_resource type="SpriteFrames" uid="uid://cluh2qnw6rggx" path="res://game_objects/items/_bow_/_Bow__SpriteFrames_$Main$.tres" id="2_82x8i"]
-[ext_resource type="Environment" uid="uid://7xq4xr6vealg" path="res://game_objects/items/_bow_/_Bow__Environment.tres" id="2_muc1p"]
 [ext_resource type="Shape3D" uid="uid://bpv0qpjlsjrlj" path="res://game_objects/items/_bow_/_Bow__CollisionShape3D.tres" id="5_nvgv3"]
 [ext_resource type="SpriteFrames" uid="uid://cnjolrmubtmrb" path="res://game_objects/items/_bow_/_Bow__SpriteFrames_Effect.tres" id="5_v1wxv"]
-[ext_resource type="Script" path="res://game_objects/shared/StateMachine.cs" id="7_wimn1"]
+[ext_resource type="Script" path="res://game_objects/shared/state_machine/StateMachine.cs" id="7_wimn1"]
 [ext_resource type="Script" path="res://game_objects/items/_bow_/State_Bow_Reset.cs" id="8_072kb"]
 [ext_resource type="Script" path="res://game_objects/items/_bow_/State_Bow_Shoot.cs" id="9_6bc2u"]
-[ext_resource type="Script" path="res://LookinAtCamSpriteBase3DConsolidation.cs" id="9_ytflg"]
+[ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="9_ytflg"]
 
 [node name="_Bow_" type="Node3D" node_paths=PackedStringArray("AnimatedSprite3DMmainn", "CollisionShape3D", "AnimatedSprite3DEffect")]
 script = ExtResource("1_tkwil")
 AnimatedSprite3DMmainn = NodePath("_AnimatedSprite3D_$Main$")
 CollisionShape3D = NodePath("Aareaa3D/CollisionShape3D")
 AnimatedSprite3DEffect = NodePath("_AnimatedSprite3D_Effect")
-
-[node name="Environment" type="WorldEnvironment" parent="."]
-environment = ExtResource("2_muc1p")
 
 [node name="_AnimatedSprite3D_$Main$" type="AnimatedSprite3D" parent="."]
 texture_filter = 0

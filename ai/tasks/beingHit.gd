@@ -8,11 +8,6 @@ func _generate_name() -> String:
 
 var currentCharacter: Character3D
 var hurtBox3D: HurtBox3d
-var preHealth: int
-
-var helper: Helper = Helper.GetInstance()
-
-signal HealthChanged(newHealth)
 
 func _setup() -> void:
 	currentCharacter = agent
@@ -22,7 +17,6 @@ func _setup() -> void:
 	pass;
 
 func _enter() -> void:
-	preHealth = currentCharacter.Health
 	pass;
 	
 func _exit() -> void:

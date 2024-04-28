@@ -45,6 +45,7 @@ func _enter() -> void:
 			helper.ProjectVector3ToPlane(
 				targetCharacter.position, Vector3.UP))
 	moveDirection = Vector3(0, 0, 0)
+	readyToStrike = blackboard.get_var(BBReadyToStrike)
 	match Type:
 		"APPROACH":
 			if (readyToStrike == true && distanceToTarget > CombatDistance):
@@ -59,12 +60,16 @@ func _enter() -> void:
 	pass;
 	
 func _exit() -> void:
-	
+	rayCast3DCheck.target_position = rayCast3DCheck.target_position
 	pass;
 	
 func _tick(_delta: float) -> Status:
-	
-	return SUCCESS
+	if (moveDirection != Vector3(0, 0, 0) && moveDistance != 0):
+		blackboard.set_var(BBMoveDirection, moveDirection)
+		blackboard.set_var(BBMoveDistance, moveDistance)
+		return SUCCESS
+	else: 
+		return FAILURE
 
 func FindMoveDirection() -> Vector3:
 	rayCast3DCheck.add_exception_rid(targetCharacter.get_rid())

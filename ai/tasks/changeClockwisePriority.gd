@@ -5,6 +5,7 @@ func _generate_name() -> String:
 	return "ChangeClockwisePriority";
 	
 var BBClockwisePriority: StringName = "ClockwisePriority"
+var bbVariable : BBVariable = BBVariable.GetInstance()
 
 func _setup() -> void:
 	pass;

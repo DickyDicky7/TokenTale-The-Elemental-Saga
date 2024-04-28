@@ -14,9 +14,9 @@ var shapeCast3D: ShapeCast3D
 var rayCast3D: RayCast3D
 var eyeSight: Node3D
 var SeeingAngle: float
-var MinSeeableAngle: float
-var MaxSeeableAngle: float
-var AlreadyDetect: bool
+var minSeeableAngle: float
+var maxSeeableAngle: float
+var alreadyDetect: bool
 
 var BBSeeingAngle: StringName = "SeeingAngle"
 var BBTargetCharacter: StringName = "TargetCharacter"
@@ -34,17 +34,17 @@ func _setup() -> void:
 func _enter() -> void:
 	SeeingAngle = blackboard.get_var(BBSeeingAngle)
 	SeeingAngle = helper.StandardizeDegree(SeeingAngle);
-	MinSeeableAngle = helper.StandardizeDegree(SeeingAngle - 45)
-	MaxSeeableAngle = helper.StandardizeDegree(SeeingAngle + 45)
-	AlreadyDetect = blackboard.get_var(BBAlreadyDetect)
-	if (AlreadyDetect == false):
-		shapeCast3D.scale = Vector3(2, 2, 2)
-		rayCast3D.scale = Vector3(2, 2, 2)
-		eyeSight.scale = Vector3(2, 2, 2)
+	minSeeableAngle = helper.StandardizeDegree(SeeingAngle - 45)
+	maxSeeableAngle = helper.StandardizeDegree(SeeingAngle + 45)
+	alreadyDetect = blackboard.get_var(BBAlreadyDetect)
+	if (alreadyDetect == false):
+		shapeCast3D.scale = Vector3(2, 1, 2)
+		rayCast3D.target_position.x = 0.5
+		eyeSight.scale = Vector3(2, 1, 2)
 	else:
-		shapeCast3D.scale = Vector3(4, 4, 4)
-		rayCast3D.scale = Vector3(4, 4, 4)
-		eyeSight.scale = Vector3(4, 4, 4)
+		shapeCast3D.scale = Vector3(4, 1, 4)
+		rayCast3D.target_position.x = 1
+		eyeSight.scale = Vector3(4, 1, 4)
 	pass;
 
 func _exit() -> void:
@@ -67,26 +67,22 @@ func _tick(_delta: float) ->Status:
 						targetCharacterVector
 						.signed_angle_to(Vector3(1, 0, 0), Vector3.DOWN))
 				)
-				if (AlreadyDetect == false):
+				rayCast3D.position = rayCast3D.position
+				if (alreadyDetect == false):
 					return PatrollDetection(targetCharacterAngle, targetCharacter)
 				else:
 					return ActionDetection(targetCharacterAngle, targetCharacter)
-	if (AlreadyDetect == true):
+	if (alreadyDetect == true):
 		blackboard.set_var(BBAlreadyDetect, false)
 	return FAILURE
 
 func PatrollDetection(targetCharacterAngle: float, targetCharacter: Object) -> Status:
 	var realAngle: float = helper.Clamp_StandardAngle(
 		targetCharacterAngle
-		, MinSeeableAngle
-		, MaxSeeableAngle
+		, minSeeableAngle
+		, maxSeeableAngle
 	)
-	rayCast3D.rotation_degrees.y = realAngle
-	#var rayCastLength: float = rayCast3D.position.distance_to(rayCast3D.target_position)
-	#rayCast3D.target_position = Vector3(
-		#cos(realAngle) * rayCastLength
-		#, rayCast3D.target_position.y
-		#, sin(realAngle) * rayCastLength)	
+	rayCast3D.rotation_degrees.y = realAngle	
 	rayCast3D.force_raycast_update()
 	if (rayCast3D.get_collider_rid() == targetCharacter.get_rid()):
 		blackboard.set_var(BBTargetCharacter, targetCharacter)

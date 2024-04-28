@@ -56,6 +56,7 @@ func _enter() -> void:
 	pass;
 
 func _exit() -> void:
+	rayCast3DCheck.target_position = rayCast3DCheck.target_position
 	pass;
 	
 func _tick(_delta:float) -> Status:

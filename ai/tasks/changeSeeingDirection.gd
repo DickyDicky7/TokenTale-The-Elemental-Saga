@@ -4,10 +4,10 @@ extends BTAction
 func _generate_name() -> String:
 	return "ChangeSeeingDirection";
 	
-@export var PathAnimatedSprite3D : NodePath
+@export var PathFlipSprite3D : NodePath
 @export var PathEyeSight : NodePath
 
-var animatedSprite3D: AnimatedSprite3D
+var flipSprite3D: Flippable3DSpriteBase3DConsolidation
 var eyeSight: Node3D
 var SeeingAngle: float
 
@@ -16,8 +16,7 @@ var helper: Helper = Helper.GetInstance()
 
 func _setup() -> void:
 	eyeSight = agent.get_node(PathEyeSight);
-	animatedSprite3D = agent.get_node(PathAnimatedSprite3D);
-	#blackboard.set_var(BBSeeingAngle, 0)
+	flipSprite3D = agent.get_node(PathFlipSprite3D);
 	pass;
 	
 func _enter() -> void:
@@ -30,8 +29,9 @@ func _exit() -> void:
 	
 func _tick(_delta:float) -> Status:
 	eyeSight.rotation_degrees.y = SeeingAngle + 45
-	if (SeeingAngle >= 90 && SeeingAngle < 270):
-		animatedSprite3D.scale.x = -1;
-	else:
-		animatedSprite3D.scale.x = 1;
+	if (flipSprite3D != null):
+		if (SeeingAngle >= 90 && SeeingAngle < 270):
+			flipSprite3D.FlipH = true
+		else:
+			flipSprite3D.FlipH = false
 	return SUCCESS;

@@ -4,10 +4,10 @@ extends BTAction
 func _generate_name() -> String:
 	return "Move";
 
-@export var PathAnimatedSprite3D : NodePath
+@export var PathFlipSprite3D : NodePath
 
 var currentCharacter: Character3D
-var animatedSprite3D: AnimatedSprite3D
+var flipSprite3D: Flippable3DSpriteBase3DConsolidation
 var moveDirection: Vector3
 var lastPosition: Vector3
 var moveDistance: float
@@ -18,14 +18,18 @@ var helper: Helper = Helper.GetInstance()
 
 func _setup() -> void:
 	currentCharacter = agent
-	animatedSprite3D = agent.get_node(PathAnimatedSprite3D)
+	flipSprite3D = agent.get_node(PathFlipSprite3D)
 	pass;
 
 func _enter() -> void:
 	lastPosition = currentCharacter.position
 	moveDirection = blackboard.get_var(BBMoveDirection)
 	moveDistance = blackboard.get_var(BBMoveDistance)
-	animatedSprite3D.scale.x = moveDirection.x / abs(moveDirection.x)
+	if (flipSprite3D != null):
+		if (moveDirection.x / abs(moveDirection.x) > 0):
+			flipSprite3D.FlipH = false
+		else:
+			flipSprite3D.FlipH = true 
 	pass;
 	
 func _exit() -> void:

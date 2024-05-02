@@ -1,0 +1,7 @@
+[gd_resource type="GradientTexture1D" load_steps=2 format=3 uid="uid://23so5mrmji7o"]
+
+[ext_resource type="Gradient" uid="uid://bj5vn0puk5sfc" path="res://game_objects/abilities/tornado/Tornado_Gradient---------.tres" id="1_o0s7a"]
+
+[resource]
+gradient = ExtResource("1_o0s7a")
+use_hdr = true

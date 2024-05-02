@@ -1,0 +1,6 @@
+[gd_resource type="NoiseTexture2D" load_steps=2 format=3 uid="uid://btccojqbw4p11"]
+
+[ext_resource type="FastNoiseLite" uid="uid://p2jil0m6bste" path="res://game_objects/abilities/tornado/Tornado_FastNoiseLite.tres" id="1_f2saf"]
+
+[resource]
+noise = ExtResource("1_f2saf")

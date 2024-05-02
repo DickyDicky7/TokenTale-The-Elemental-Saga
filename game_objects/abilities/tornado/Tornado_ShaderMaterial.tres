@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://dhdwkjrvfjjvd"]
+
+[ext_resource type="Shader" path="res://shaders/Vortex.gdshader" id="1_nhlg8"]
+[ext_resource type="Texture2D" uid="uid://btccojqbw4p11" path="res://game_objects/abilities/tornado/Tornado_NoiseTexture2D.tres" id="2_bs0h6"]
+[ext_resource type="Texture2D" uid="uid://23so5mrmji7o" path="res://game_objects/abilities/tornado/Tornado_GradientTexture1D.tres" id="2_id8gt"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_nhlg8")
+shader_parameter/noise_texture = ExtResource("2_bs0h6")
+shader_parameter/gradient_texture = ExtResource("2_id8gt")

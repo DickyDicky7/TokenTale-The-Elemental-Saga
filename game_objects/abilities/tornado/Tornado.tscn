@@ -135,5 +135,6 @@ behavior_tree = ExtResource("6_yyui4")
 blackboard_plan = ExtResource("6_qb6hm")
 
 [node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
+process_mode = 4
 script = ExtResource("7_wyot5")
 Sprites = [NodePath("../AnimatedSprite3D_Twist")]

@@ -698,6 +698,8 @@ nodes/output/position = Vector2(400, -26.6667)
 node_connections = [&"STATE", 0, &"BS2D_IDLE", &"STATE", 1, &"BS2D_MOVE", &"STATE", 2, &"DEAD", &"TIME_SCALE", 0, &"STATE", &"output", 0, &"TIME_SCALE"]
 
 [node name="MainCharacter" type="CharacterBody3D"]
+collision_layer = 8
+collision_mask = 15
 script = ExtResource("1_gm2bn")
 Speed = 2.0
 Jumpv = 2.0

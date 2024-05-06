@@ -6,9 +6,6 @@ func _generate_name() -> String:
 	
 var angle: float = 0
 
-var BBSeeingAngle: StringName = "SeeingAngle"
-var helper: Helper = Helper.GetInstance()
-
 func _setup() -> void:
 	#blackboard.set_var(BBSeeingAngle, 0)
 	pass;
@@ -20,13 +17,13 @@ func _exit() -> void:
 	pass;
 	
 func _tick(_delta:float) -> Status:
-	angle = blackboard.get_var(BBSeeingAngle)
+	angle = blackboard.get_var(BBVariable.SeeingAngle)
 	if (int(angle) % 90 == 0):
 		angle += 90
 	else:
 		angle = ClosestDefaultSeeingAngle(angle)
-	angle = helper.StandardizeDegree(angle)
-	blackboard.set_var(BBSeeingAngle, angle)
+	angle = Helper.StandardizeDegree(angle)
+	blackboard.set_var(BBVariable.SeeingAngle, angle)
 	return SUCCESS;
 	
 func ClosestDefaultSeeingAngle(currentAngle: float) -> float:

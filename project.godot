@@ -18,6 +18,8 @@ config/icon="res://game_asset_s/icon.svg"
 [autoload]
 
 Global="*res://Global.cs"
+BBVariable="*res://BBVariable.gd"
+Helper="*res://Helper.cs"
 
 [dotnet]
 
@@ -110,6 +112,14 @@ SPACE={
 2d_render/layer_3="MAIN_CHARACTERS"
 2d_render/layer_4="ENEMIES"
 2d_render/layer_5="OBJECTS"
+3d_physics/layer_1="Terrain"
+3d_physics/layer_2="Object"
+3d_physics/layer_3="Enemies"
+3d_physics/layer_4="Allies"
+3d_physics/layer_5="Allies Physics Attack"
+3d_physics/layer_6="Allies Elemental Attack"
+3d_physics/layer_7="Enemies Physics Attack"
+3d_physics/layer_8="Enemies Elemental Attack"
 
 [rendering]
 

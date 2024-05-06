@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cnes8lrs7ph26"]
+[gd_scene load_steps=26 format=3 uid="uid://cnes8lrs7ph26"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_px6f3"]
 [ext_resource type="PlaneMesh" uid="uid://dmf8lh15l3415" path="res://BackgroundPlatform_Mesh.tres" id="2_rk0yh"]
@@ -14,13 +14,17 @@
 [ext_resource type="PackedScene" uid="uid://bocc0hkunia3p" path="res://game_objects/abilities/overcharge/Overcharge.tscn" id="9_5jat6"]
 [ext_resource type="PackedScene" uid="uid://c47tcwkeiq0h2" path="res://game_objects/characters/main_character/MainCharacter.tscn" id="9_seby3"]
 [ext_resource type="PackedScene" uid="uid://cn6e4b8ejcnru" path="res://game_objects/abilities/lightning/Lightning.tscn" id="10_myf47"]
+[ext_resource type="PackedScene" uid="uid://yfbwbxquk1v" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops.tscn" id="10_ogacn"]
 [ext_resource type="PackedScene" uid="uid://d3gqr2or1jr42" path="res://game_objects/abilities/ignite/Ignite.tscn" id="11_3fjus"]
+[ext_resource type="PackedScene" uid="uid://da0vo8ll2gr8e" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton.tscn" id="12_8akbt"]
 [ext_resource type="PackedScene" uid="uid://dixv731fuc6gj" path="res://game_objects/abilities/fire_ball/FireBall.tscn" id="12_qboqi"]
+[ext_resource type="PackedScene" uid="uid://y1t0iubx8y1b" path="res://game_objects/characters/others/the_haunting/ghost/Ghost.tscn" id="13_e31qg"]
 [ext_resource type="PackedScene" uid="uid://bflyuqbbpqmkp" path="res://game_objects/abilities/frostburn/Frostburn.tscn" id="13_w4ibj"]
 [ext_resource type="PackedScene" uid="uid://c5cd1cni7lng6" path="res://game_objects/abilities/ice_wall/IceWall.tscn" id="14_4m8xy"]
 [ext_resource type="PackedScene" uid="uid://v8blbc8smsjd" path="res://game_objects/abilities/tidal_wave/TidalWave.tscn" id="15_lavek"]
 [ext_resource type="Script" path="res://addons/post_processing/node/post_process.gd" id="18_mmfla"]
 [ext_resource type="Resource" uid="uid://bnknhyt52lbte" path="res://Main_PostProcessingConfiguration.tres" id="19_wk608"]
+[ext_resource type="PackedScene" uid="uid://bbv4dpufmesgb" path="res://game_objects/characters/others/the_thief/cat/Cat.tscn" id="23_saaco"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_px6f3")
@@ -36,7 +40,17 @@ mesh = ExtResource("2_rk0yh")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BackgroundPlatform"]
 shape = ExtResource("3_vrktx")
 
+[node name="BackgroundPlatform2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="BackgroundPlatform2"]
+mesh = ExtResource("2_rk0yh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BackgroundPlatform2"]
+shape = ExtResource("3_vrktx")
+
 [node name="MainCharacter" parent="." instance=ExtResource("9_seby3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="MainCharacter"]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 1.5, 1.5)
@@ -49,10 +63,27 @@ visible = false
 mesh = ExtResource("5_kmewh")
 
 [node name="Imp" parent="." instance=ExtResource("4_hlmyl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -4)
 
 [node name="Minotaur" parent="." instance=ExtResource("7_2coyl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -4)
+
+[node name="Cyclops" parent="." instance=ExtResource("10_ogacn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -4)
+
+[node name="Cat" parent="." instance=ExtResource("23_saaco")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -4)
+
+[node name="Skeleton" parent="." instance=ExtResource("12_8akbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 4)
+
+[node name="GhostRound" parent="." instance=ExtResource("13_e31qg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+Health = 1
+Speed = 1.0
+Jumpv = 1.0
+Acceleration = 0.1
+Deceleration = 0.1
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 0, 0)
@@ -89,5 +120,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -3)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.1, 2)
 
 [node name="PostProcess" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("18_mmfla")
 configuration = ExtResource("19_wk608")

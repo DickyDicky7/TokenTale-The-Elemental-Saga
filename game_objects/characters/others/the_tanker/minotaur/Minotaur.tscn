@@ -552,6 +552,8 @@ _data = {
 }
 
 [node name="Minotaur" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 15
 script = ExtResource("1_scwcr")
 Health = 30
 Speed = 1.0
@@ -564,7 +566,7 @@ cast_shadow = 0
 offset = Vector2(3, 16)
 texture_filter = 0
 sprite_frames = ExtResource("1_nfvla")
-animation = &"HURT_1"
+animation = &"IDLE"
 
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 cast_shadow = 3
@@ -572,7 +574,7 @@ offset = Vector2(3, 16)
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_nfvla")
-animation = &"ATTACK_0"
+animation = &"IDLE"
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
@@ -591,18 +593,22 @@ blackboard_plan = ExtResource("5_3b3my")
 transform = Transform3D(1.41421, 0, 1.41421, 0, 1, 0, -1.41421, 0, 1.41421, 0, 0, 0)
 
 [node name="Ray__Cast3D" type="RayCast3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0)
-target_position = Vector3(0.5, 0.1, 0)
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0.1, 0)
+target_position = Vector3(0.5, 0, 0)
+collision_mask = 15
 debug_shape_custom_color = Color(0, 0, 1, 1)
 
 [node name="RayCast3DMove" type="RayCast3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0)
-target_position = Vector3(0.5, 0.1, 0)
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0.1, 0)
+visible = false
+target_position = Vector3(0.5, 0, 0)
+collision_mask = 7
 
 [node name="ShapeCast3D" type="ShapeCast3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0.1, 0)
 shape = ExtResource("6_2h21h")
 target_position = Vector3(0, 0, 0)
+collision_mask = 15
 debug_shape_custom_color = Color(0, 0, 1, 1)
 
 [node name="Flippable3DSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
@@ -621,3 +627,8 @@ script = ExtResource("10_0cknq")
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="HurtBox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 shape = ExtResource("3_75wp1")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 4.0
+autostart = true

@@ -12,10 +12,6 @@ var moveDirection: Vector3
 var lastPosition: Vector3
 var moveDistance: float
 
-var BBMoveDirection: StringName = "MoveDirection"
-var BBMoveDistance: StringName = "MoveDistance"
-var helper: Helper = Helper.GetInstance()
-
 func _setup() -> void:
 	currentCharacter = agent
 	flipSprite3D = agent.get_node(PathFlipSprite3D)
@@ -23,8 +19,8 @@ func _setup() -> void:
 
 func _enter() -> void:
 	lastPosition = currentCharacter.position
-	moveDirection = blackboard.get_var(BBMoveDirection)
-	moveDistance = blackboard.get_var(BBMoveDistance)
+	moveDirection = blackboard.get_var(BBVariable.MoveDirection)
+	moveDistance = blackboard.get_var(BBVariable.MoveDistance)
 	if (flipSprite3D != null):
 		if (moveDirection.x / abs(moveDirection.x) > 0):
 			flipSprite3D.FlipH = false

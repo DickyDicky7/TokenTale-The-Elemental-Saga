@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://yfbwbxquk1v"]
+[gd_scene load_steps=21 format=3 uid="uid://yfbwbxquk1v"]
 
 [ext_resource type="SpriteFrames" uid="uid://c8gw1rkf7dxbk" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops_SpriteFrames_$Main$.tres" id="1_1rf3k"]
+[ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops.cs" id="1_qkaly"]
 [ext_resource type="Shape3D" uid="uid://bcks15sxia73f" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops_CollisionShape3D_Body.tres" id="3_n5lrr"]
 [ext_resource type="BlackboardPlan" uid="uid://dtlc6qyr0idvj" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops_BlackboardPlanBase.tres" id="5_sg5x2"]
 [ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.tscn" id="5_tvi3d"]
@@ -8,6 +9,7 @@
 [ext_resource type="BehaviorTree" uid="uid://bubi75u730bbr" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops_BehaviorTree.tres" id="6_v0w02"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="7_0akb0"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="8_2pmn5"]
+[ext_resource type="Script" path="res://game_objects/shared/HurtBox3d.cs" id="10_fyf3p"]
 
 [sub_resource type="Animation" id="Animation_kk1d2"]
 length = 0.9
@@ -499,6 +501,14 @@ _data = {
 }
 
 [node name="Cyclops" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 15
+script = ExtResource("1_qkaly")
+Health = 10
+Speed = 1.0
+Jumpv = 1.0
+Acceleration = 0.1
+Deceleration = 0.1
 
 [node name="AnimatedSprite3D_$Main$" type="AnimatedSprite3D" parent="."]
 cast_shadow = 0
@@ -529,21 +539,39 @@ behavior_tree = ExtResource("6_v0w02")
 blackboard_plan = ExtResource("5_sg5x2")
 
 [node name="EyeSight$3D" parent="." instance=ExtResource("5_tvi3d")]
+transform = Transform3D(1.41421, 0, 1.41421, 0, 1, 0, -1.41421, 0, 1.41421, 0, 0, 0)
 
 [node name="Ray__Cast3D" type="RayCast3D" parent="."]
-target_position = Vector3(0.5, 0.1, 0)
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0.1, 0)
+target_position = Vector3(0.5, 0, 0)
+collision_mask = 15
 debug_shape_custom_color = Color(0, 0, 1, 1)
 
 [node name="ShapeCast3D" type="ShapeCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0.1, 0)
 shape = ExtResource("6_fm2yy")
 target_position = Vector3(0, 0, 0)
+collision_mask = 15
 debug_shape_custom_color = Color(0, 0, 1, 1)
 
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 3.0
+autostart = true
+
 [node name="Flippable3DSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
+process_mode = 4
 script = ExtResource("7_0akb0")
 Sprites = [NodePath("../AnimatedSprite3D_$Main$"), NodePath("../AnimatedSprite3D_Shadow")]
 
 [node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
+process_mode = 4
 script = ExtResource("8_2pmn5")
 Sprites = [NodePath("../AnimatedSprite3D_$Main$")]
+
+[node name="HurtBox3D" type="Area3D" parent="."]
+script = ExtResource("10_fyf3p")
+
+[node name="CollisionShape3D_Body" type="CollisionShape3D" parent="HurtBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+shape = ExtResource("3_n5lrr")

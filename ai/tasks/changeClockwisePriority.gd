@@ -3,11 +3,9 @@ extends BTAction
 
 func _generate_name() -> String:
 	return "ChangeClockwisePriority";
-	
-var BBClockwisePriority: StringName = "ClockwisePriority"
-var bbVariable : BBVariable = BBVariable.GetInstance()
 
 func _setup() -> void:
+	blackboard.set_var(BBVariable.ClockwisePriority, true)
 	pass;
 
 func _enter() -> void:
@@ -17,7 +15,7 @@ func _exit() -> void:
 	pass;
 	
 func _tick(_delta: float) -> Status:
-	var temp: bool = blackboard.get_var(BBClockwisePriority)
+	var temp: bool = blackboard.get_var(BBVariable.ClockwisePriority)
 	temp = !temp
-	blackboard.set_var(BBClockwisePriority, temp)
+	blackboard.set_var(BBVariable.ClockwisePriority, temp)
 	return SUCCESS

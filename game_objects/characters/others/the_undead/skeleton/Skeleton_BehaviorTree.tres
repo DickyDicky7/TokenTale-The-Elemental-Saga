@@ -1,6 +1,173 @@
-[gd_resource type="BehaviorTree" load_steps=2 format=3 uid="uid://b58tol6ty0ood"]
+[gd_resource type="BehaviorTree" load_steps=49 format=3 uid="uid://b58tol6ty0ood"]
 
 [ext_resource type="BlackboardPlan" uid="uid://5s0kxfus7bh" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_BlackboardPlan----.tres" id="1_jpusp"]
+[ext_resource type="Script" path="res://ai/tasks/beingHit.gd" id="2_3jam1"]
+[ext_resource type="Script" path="res://ai/tasks/depleteHealth.gd" id="3_me4a2"]
+[ext_resource type="BBNode" uid="uid://dt4angfj7hd8a" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_BBNode_AnimationPlayer.tres" id="4_e2ybg"]
+[ext_resource type="Script" path="res://ai/tasks/detectCharacter.gd" id="4_rcqhg"]
+[ext_resource type="Script" path="res://ai/tasks/watchingAround.gd" id="5_00kn7"]
+[ext_resource type="Script" path="res://ai/tasks/changeSeeingDirection.gd" id="6_ax6nh"]
+[ext_resource type="Script" path="res://ai/tasks/reload.gd" id="7_7xxa3"]
+[ext_resource type="Script" path="res://ai/tasks/changeClockwisePriority.gd" id="8_yay5y"]
+[ext_resource type="Script" path="res://ai/tasks/chaserMoveSetup.gd" id="9_ywgb2"]
+[ext_resource type="Script" path="res://ai/tasks/move.gd" id="10_8fiqe"]
+[ext_resource type="Script" path="res://ai/tasks/attack.gd" id="11_0jqy1"]
+
+[sub_resource type="BTAction" id="BTAction_g2okg"]
+script = ExtResource("2_3jam1")
+PathHurtBox3D = NodePath("HurtBox3D")
+
+[sub_resource type="BBNode" id="BBNode_edk06"]
+saved_value = NodePath("AnimationPlayer")
+resource_name = "AnimationPlayer"
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_txsu0"]
+await_completion = 1.0
+animation_player = SubResource("BBNode_edk06")
+animation_name = &"HURT_B"
+
+[sub_resource type="BTSequence" id="BTSequence_yh10e"]
+custom_name = "TakeDamage"
+children = [SubResource("BTAction_g2okg"), SubResource("BTPlayAnimation_txsu0")]
+
+[sub_resource type="BTAction" id="BTAction_qlx3n"]
+script = ExtResource("3_me4a2")
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_qgvdr"]
+await_completion = 1.0
+animation_player = ExtResource("4_e2ybg")
+animation_name = &"DEAD_B"
+
+[sub_resource type="BTSequence" id="BTSequence_d6jqv"]
+custom_name = "Dead"
+children = [SubResource("BTAction_qlx3n"), SubResource("BTPlayAnimation_qgvdr")]
+
+[sub_resource type="BTAction" id="BTAction_1aqjo"]
+script = ExtResource("4_rcqhg")
+TargetCharacter3DName = &"MainCharacter"
+PathShapeCast3D = NodePath("ShapeCast3D")
+PathRayCast3D = NodePath("Ray__Cast3D")
+PathEyeSight = NodePath("EyeSight$3D")
+
+[sub_resource type="BTInvert" id="BTInvert_iohg5"]
+custom_name = "NotDectectCharacter"
+children = [SubResource("BTAction_1aqjo")]
+
+[sub_resource type="BTAction" id="BTAction_qd54q"]
+script = ExtResource("5_00kn7")
+
+[sub_resource type="BTCooldown" id="BTCooldown_epmb2"]
+duration = 2.0
+children = [SubResource("BTAction_qd54q")]
+
+[sub_resource type="BTAction" id="BTAction_k4gl0"]
+script = ExtResource("6_ax6nh")
+PathFlipSprite3D = NodePath("Flippable3DSpriteBase3DConsolidation")
+PathEyeSight = NodePath("EyeSight$3D")
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_rr2xc"]
+animation_player = ExtResource("4_e2ybg")
+animation_name = &"IDLE_B"
+
+[sub_resource type="BTSequence" id="BTSequence_5gfa2"]
+custom_name = "Patroll"
+children = [SubResource("BTInvert_iohg5"), SubResource("BTCooldown_epmb2"), SubResource("BTAction_k4gl0"), SubResource("BTPlayAnimation_rr2xc")]
+
+[sub_resource type="BTAction" id="BTAction_tvem3"]
+script = ExtResource("4_rcqhg")
+TargetCharacter3DName = &"MainCharacter"
+PathShapeCast3D = NodePath("ShapeCast3D")
+PathRayCast3D = NodePath("Ray__Cast3D")
+PathEyeSight = NodePath("EyeSight$3D")
+
+[sub_resource type="BTAction" id="BTAction_awurn"]
+script = ExtResource("6_ax6nh")
+PathFlipSprite3D = NodePath("Flippable3DSpriteBase3DConsolidation")
+PathEyeSight = NodePath("EyeSight$3D")
+
+[sub_resource type="BTAction" id="BTAction_jyinn"]
+script = ExtResource("7_7xxa3")
+PathTimer = NodePath("Timer")
+
+[sub_resource type="BTAction" id="BTAction_86kqt"]
+script = ExtResource("8_yay5y")
+
+[sub_resource type="BTCooldown" id="BTCooldown_v61oc"]
+duration = 2.0
+children = [SubResource("BTAction_86kqt")]
+
+[sub_resource type="BTInvert" id="BTInvert_saf55"]
+custom_name = "NotChangeClockwisePriority"
+children = [SubResource("BTCooldown_v61oc")]
+
+[sub_resource type="BTAction" id="BTAction_5pc27"]
+script = ExtResource("9_ywgb2")
+Type = "APPROACH"
+CombatDistance = 0.3
+ProbeDistance = 0.75
+PathRayCast3DCheck = NodePath("RayCast3DMove")
+
+[sub_resource type="BTAction" id="BTAction_iywr0"]
+script = ExtResource("10_8fiqe")
+PathFlipSprite3D = NodePath("Flippable3DSpriteBase3DConsolidation")
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_8b7a1"]
+animation_player = ExtResource("4_e2ybg")
+animation_name = &"MOVE_B"
+
+[sub_resource type="BTParallel" id="BTParallel_nej16"]
+num_successes_required = 2
+children = [SubResource("BTAction_iywr0"), SubResource("BTPlayAnimation_8b7a1")]
+
+[sub_resource type="BTSequence" id="BTSequence_bfq1u"]
+custom_name = "Approach"
+children = [SubResource("BTAction_5pc27"), SubResource("BTParallel_nej16")]
+
+[sub_resource type="BTSelector" id="BTSelector_jefqq"]
+custom_name = "Move"
+children = [SubResource("BTSequence_bfq1u")]
+
+[sub_resource type="BTTimeLimit" id="BTTimeLimit_rtaym"]
+time_limit = 4.0
+children = [SubResource("BTSelector_jefqq")]
+
+[sub_resource type="BTInvert" id="BTInvert_5jbjm"]
+custom_name = "NotMove"
+children = [SubResource("BTTimeLimit_rtaym")]
+
+[sub_resource type="BBVariant" id="BBVariant_0ccrm"]
+type = 1
+saved_value = true
+resource_name = "true"
+
+[sub_resource type="BTCheckVar" id="BTCheckVar_op4vj"]
+variable = &"ReadyToStrike"
+value = SubResource("BBVariant_0ccrm")
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_fkxn6"]
+await_completion = 1.0
+animation_player = ExtResource("4_e2ybg")
+animation_name = &"SLAP_B"
+
+[sub_resource type="BTAction" id="BTAction_r6chy"]
+script = ExtResource("11_0jqy1")
+
+[sub_resource type="BTSequence" id="BTSequence_bl8x7"]
+custom_name = "Attack"
+children = [SubResource("BTCheckVar_op4vj"), SubResource("BTPlayAnimation_fkxn6"), SubResource("BTAction_r6chy")]
+
+[sub_resource type="BTSequence" id="BTSequence_ag5ux"]
+custom_name = "Act"
+children = [SubResource("BTAction_tvem3"), SubResource("BTAction_awurn"), SubResource("BTAction_jyinn"), SubResource("BTInvert_saf55"), SubResource("BTInvert_5jbjm"), SubResource("BTSequence_bl8x7")]
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_2gv7o"]
+animation_player = ExtResource("4_e2ybg")
+animation_name = &"IDLE_B"
+
+[sub_resource type="BTSelector" id="BTSelector_roddx"]
+custom_name = "Root"
+children = [SubResource("BTSequence_yh10e"), SubResource("BTSequence_d6jqv"), SubResource("BTSequence_5gfa2"), SubResource("BTSequence_ag5ux"), SubResource("BTPlayAnimation_2gv7o")]
 
 [resource]
 blackboard_plan = ExtResource("1_jpusp")
+root_task = SubResource("BTSelector_roddx")

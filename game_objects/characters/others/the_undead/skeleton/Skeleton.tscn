@@ -1,5 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://da0vo8ll2gr8e"]
+[gd_scene load_steps=24 format=3 uid="uid://da0vo8ll2gr8e"]
 
+[ext_resource type="Script" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton.cs" id="1_dw4lx"]
 [ext_resource type="SpriteFrames" uid="uid://bxpnnnp6gu54r" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_SpriteFrames_$Main$.tres" id="2_hqwn4"]
 [ext_resource type="Shape3D" uid="uid://72bsjybq8q1y" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_CollisionShape3D_Body.tres" id="3_xhr2f"]
 [ext_resource type="BehaviorTree" uid="uid://b58tol6ty0ood" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_BehaviorTree.tres" id="4_edg5u"]
@@ -8,6 +9,7 @@
 [ext_resource type="Shape3D" uid="uid://l4jik3dqygxc" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_ShapeCast3D.tres" id="6_by3lr"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="7_4xr46"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="8_gbxey"]
+[ext_resource type="Script" path="res://game_objects/shared/HurtBox3d.cs" id="9_win7c"]
 
 [sub_resource type="Animation" id="Animation_oe52o"]
 length = 0.65
@@ -672,13 +674,21 @@ _data = {
 }
 
 [node name="Skeleton" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 15
+script = ExtResource("1_dw4lx")
+Health = 10
+Speed = 1.0
+Jumpv = 1.0
+Acceleration = 0.1
+Deceleration = 0.1
 
 [node name="AnimatedSprite3D_$Main$" type="AnimatedSprite3D" parent="."]
 cast_shadow = 0
 offset = Vector2(0, 12)
 texture_filter = 0
 sprite_frames = ExtResource("2_hqwn4")
-animation = &"DEAD_B"
+animation = &"SLAP_B"
 
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 cast_shadow = 3
@@ -702,21 +712,44 @@ behavior_tree = ExtResource("4_edg5u")
 blackboard_plan = ExtResource("5_q46md")
 
 [node name="EyeSight$3D" parent="." instance=ExtResource("5_8vmv1")]
+transform = Transform3D(1.41421, 0, 1.41421, 0, 1, 0, -1.41421, 0, 1.41421, 0, 0, 0)
 
 [node name="Ray__Cast3D" type="RayCast3D" parent="."]
-target_position = Vector3(0.5, 0.1, 0)
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0.1, 0)
+target_position = Vector3(0.5, 0, 0)
+collision_mask = 15
 debug_shape_custom_color = Color(0, 0, 1, 1)
 
+[node name="RayCast3DMove" type="RayCast3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0.1, 0)
+target_position = Vector3(0.5, 0, 0)
+collision_mask = 7
+
 [node name="ShapeCast3D" type="ShapeCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0.1, 0)
 shape = ExtResource("6_by3lr")
 target_position = Vector3(0, 0, 0)
+collision_mask = 15
 debug_shape_custom_color = Color(0, 0, 1, 1)
 
 [node name="Flippable3DSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
+process_mode = 4
 script = ExtResource("7_4xr46")
 Sprites = [NodePath("../AnimatedSprite3D_$Main$"), NodePath("../AnimatedSprite3D_Shadow")]
 
 [node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
+process_mode = 4
 script = ExtResource("8_gbxey")
 Sprites = [NodePath("../AnimatedSprite3D_$Main$")]
+
+[node name="HurtBox3D" type="Area3D" parent="."]
+script = ExtResource("9_win7c")
+
+[node name="CollisionShape3D_Body" type="CollisionShape3D" parent="HurtBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+shape = ExtResource("3_xhr2f")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.1
+autostart = true

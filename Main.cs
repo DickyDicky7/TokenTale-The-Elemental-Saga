@@ -8,6 +8,6 @@ public partial class Main : Node
     {
                     base._Process(       @delta);
 
-        GD.Print(Engine.GetFramesPerSecond());
+        //GD.Print(Engine.GetFramesPerSecond());
     }
 }

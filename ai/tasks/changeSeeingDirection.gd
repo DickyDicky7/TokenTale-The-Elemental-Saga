@@ -9,10 +9,7 @@ func _generate_name() -> String:
 
 var flipSprite3D: Flippable3DSpriteBase3DConsolidation
 var eyeSight: Node3D
-var SeeingAngle: float
-
-var BBSeeingAngle: StringName = "SeeingAngle"
-var helper: Helper = Helper.GetInstance()
+var seeingAngle: float
 
 func _setup() -> void:
 	eyeSight = agent.get_node(PathEyeSight);
@@ -20,17 +17,17 @@ func _setup() -> void:
 	pass;
 	
 func _enter() -> void:
-	SeeingAngle = blackboard.get_var(BBSeeingAngle)
-	SeeingAngle = helper.StandardizeDegree(SeeingAngle)
+	seeingAngle = blackboard.get_var(BBVariable.SeeingAngle)
+	seeingAngle = Helper.StandardizeDegree(seeingAngle)
 	pass;
 
 func _exit() -> void:
 	pass;
 	
 func _tick(_delta:float) -> Status:
-	eyeSight.rotation_degrees.y = SeeingAngle + 45
+	eyeSight.rotation_degrees.y = seeingAngle + 45
 	if (flipSprite3D != null):
-		if (SeeingAngle >= 90 && SeeingAngle < 270):
+		if (seeingAngle >= 90 && seeingAngle < 270):
 			flipSprite3D.FlipH = true
 		else:
 			flipSprite3D.FlipH = false

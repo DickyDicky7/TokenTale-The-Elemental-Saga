@@ -1,8 +1,8 @@
 using Godot;
+using System;
 
 namespace TokenTaleTheElementalSaga;
-
-public partial class Imp : ElementalMonster
+public partial class Cyclops : ElementalMonster
 {
 	[Export]
 	public float ProjectileSpeed { get; set; }
@@ -12,6 +12,6 @@ public partial class Imp : ElementalMonster
 	public float ProjectileDeceleration { get; set; }
 	public override void Attack(Character3D target)
 	{
-
+		
 	}
 }

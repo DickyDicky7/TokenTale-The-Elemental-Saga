@@ -7,7 +7,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Xml.Schema;
 
 namespace TokenTaleTheElementalSaga;
-[GlobalClass]
+
 public sealed partial class Helper : GodotObject
 {
 	private Helper() : base()
@@ -119,6 +119,45 @@ public sealed partial class Helper : GodotObject
 				vector3List[highestPriorityIndex] = new Vector3(vector3List[i].X, 0,vector3List[i].Z);
 				vector3List[i] = new Vector3(temp.X, temp.Y, temp.Z);
 			}
+		}
+		return vector3List;
+	}
+	public Array<Vector3> PossibleTeleportLocation(Vector3 mainAngle,Vector3 targetPosition)
+	{
+		Array<Vector3> vector3List = new();
+		//define angle
+		float deltaAngle = 0;
+		while (deltaAngle < 2 * Mathf.Pi)
+		{
+			float tempX = Mathf.Cos(deltaAngle) * mainAngle.X - Mathf.Sin(deltaAngle) * mainAngle.Z;
+			float tempZ = Mathf.Sin(deltaAngle) * mainAngle.X + Mathf.Cos(deltaAngle) * mainAngle.Z;
+			vector3List.Add(new Vector3(tempX, 0, tempZ));
+			deltaAngle += Mathf.Pi / 10;
+		}
+		//sort
+		float priorityAngle = Mathf.Pi;
+		for (int i = 0; i < vector3List.Count -1; i++)
+		{
+			int highestPriorityIndex = i;
+			for (int j = i + 1; j < vector3List.Count; j++)
+			{
+				if (Mathf.Abs(mainAngle.Dot(vector3List[j]) - priorityAngle)
+					< Mathf.Abs(mainAngle.Dot(vector3List[highestPriorityIndex]) - priorityAngle))
+				{
+					highestPriorityIndex = j;
+				}
+			}
+			if (highestPriorityIndex != i)
+			{
+				Vector3 temp = new Vector3(vector3List[highestPriorityIndex].X, 0, vector3List[highestPriorityIndex].Z);
+				vector3List[highestPriorityIndex] = new Vector3(vector3List[i].X, 0, vector3List[i].Z);
+				vector3List[i] = new Vector3(temp.X, temp.Y, temp.Z);
+			}
+		}
+		//define location
+		for (int i = 0; i < vector3List.Count; i++)
+		{
+			vector3List[i] += targetPosition;
 		}
 		return vector3List;
 	}

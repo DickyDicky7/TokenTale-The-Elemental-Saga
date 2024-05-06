@@ -1,4 +1,4 @@
-[gd_resource type="BBNode" format=3 uid="uid://bxkxh7iuqvww5"]
+[gd_resource type="BBNode" format=3 uid="uid://b8e1hgeu26y3n"]
 
 [resource]
 saved_value = NodePath("AnimationPlayer")

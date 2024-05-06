@@ -39,13 +39,24 @@ func _enter() -> void:
 		"CHASE":
 			if (distanceToTarget > ChaseDistance):
 				moveDirection = FindMoveDirection()
+				moveDistance = FindMoveDistance(distanceToTarget)
+			else:
+				moveDirection = Vector3(0, 0, 0)
+				moveDistance = 0
 		"FALLBACK":
 			if (distanceToTarget < FallBackDistance):
 				moveDirection = FindMoveDirection()
+				moveDistance = FindMoveDistance(distanceToTarget)
+			else:
+				moveDirection = Vector3(0, 0, 0)
+				moveDistance = 0
 		"PROBE":
 			if (distanceToTarget <= ChaseDistance && distanceToTarget >=FallBackDistance):
 				moveDirection = FindMoveDirection()
-	moveDistance = FindMoveDistance(distanceToTarget)
+				moveDistance = FindMoveDistance(distanceToTarget)
+			else:
+				moveDirection = Vector3(0, 0, 0)
+				moveDistance = 0
 	pass;
 
 func _exit() -> void:
@@ -53,7 +64,8 @@ func _exit() -> void:
 	pass;
 	
 func _tick(_delta:float) -> Status:
-	if (moveDirection != Vector3(0, 0, 0) && moveDistance != 0):
+	if (moveDirection != null && moveDistance != null &&
+		moveDirection != Vector3(0, 0, 0) && moveDistance != 0):
 		blackboard.set_var(BBVariable.MoveDirection, moveDirection)
 		blackboard.set_var(BBVariable.MoveDistance, moveDistance)
 		return SUCCESS

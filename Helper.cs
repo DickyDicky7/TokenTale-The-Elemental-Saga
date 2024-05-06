@@ -5,9 +5,8 @@ using System.Collections.Generic;
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
 using System.Xml.Schema;
-
 namespace TokenTaleTheElementalSaga;
-
+[GlobalClass]
 public sealed partial class Helper : GodotObject
 {
 	private Helper() : base()
@@ -21,7 +20,7 @@ public sealed partial class Helper : GodotObject
 			_instance = new();
 		return _instance;
 	}
-	public float StandardizeDegree(float degree)
+	public static float StandardizeDegree(float degree)
 	{
 		if (degree < 0)
 		{
@@ -34,7 +33,7 @@ public sealed partial class Helper : GodotObject
 		return degree;
 	}
 	
-	public float StandardizeRadian(float radian)
+	public static float StandardizeRadian(float radian)
 	{
 		if (radian < 0)
 		{
@@ -46,7 +45,7 @@ public sealed partial class Helper : GodotObject
 			radian %= (2 * Mathf.Pi);
 		return radian;
 	}
-	public float Clamp_StandardAngle(float angle, float minAngle, float maxAngle)
+	public static float Clamp_StandardAngle(float angle, float minAngle, float maxAngle)
 	{
 		if (maxAngle >= minAngle)
 			return Mathf.Clamp(angle, minAngle, maxAngle);
@@ -65,14 +64,14 @@ public sealed partial class Helper : GodotObject
 			}
 		}
 	}
-	public Vector3 ProjectVector3ToPlane(Vector3 source, Vector3 planeNormal)
+	public static Vector3 ProjectVector3ToPlane(Vector3 source, Vector3 planeNormal)
 	{
 		float dotProduct = source.Dot(planeNormal);
 		Vector3 projectedVector = source - dotProduct * planeNormal;
 		return projectedVector;
 	}
 
-	public Array<Vector3> PossibleAngleToMoveWithPriority(Vector3 mainAngle, float priorityAngle, bool priorityClockwise)
+	public static Array<Vector3> PossibleAngleToMoveWithPriority(Vector3 mainAngle, float priorityAngle, bool priorityClockwise)
 	{
 		mainAngle.Normalized();
 		Array<Vector3> vector3List = new();
@@ -122,7 +121,7 @@ public sealed partial class Helper : GodotObject
 		}
 		return vector3List;
 	}
-	public Array<Vector3> PossibleTeleportLocation(Vector3 mainAngle,Vector3 targetPosition)
+	public static Array<Vector3> PossibleTeleportLocation(Vector3 mainAngle,Vector3 targetPosition)
 	{
 		Array<Vector3> vector3List = new();
 		//define angle

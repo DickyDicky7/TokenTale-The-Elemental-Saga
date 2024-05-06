@@ -19,7 +19,6 @@ config/icon="res://game_asset_s/icon.svg"
 
 Global="*res://Global.cs"
 BBVariable="*res://BBVariable.gd"
-Helper="*res://Helper.cs"
 
 [dotnet]
 

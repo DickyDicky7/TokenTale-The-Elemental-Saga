@@ -1,4 +1,4 @@
-[gd_resource type="BehaviorTree" load_steps=51 format=3 uid="uid://c0qgsne1gmjmr"]
+[gd_resource type="BehaviorTree" load_steps=50 format=3 uid="uid://c0qgsne1gmjmr"]
 
 [ext_resource type="BlackboardPlan" uid="uid://dfkm2xh6u1swd" path="res://game_objects/characters/others/the_thief/cat/Cat_BlackboardPlan----.tres" id="1_pj3pd"]
 [ext_resource type="Script" path="res://ai/tasks/beingHit.gd" id="2_8hwu5"]
@@ -100,44 +100,40 @@ children = [SubResource("BTAction_r2fix")]
 custom_name = "NotChangeClockwisePriority"
 children = [SubResource("BTCooldown_862a0")]
 
-[sub_resource type="BTAction" id="BTAction_ibirp"]
+[sub_resource type="BTAction" id="BTAction_lxhcs"]
 script = ExtResource("9_yicwh")
 Type = "APPROACH"
 CombatDistance = 0.3
 ProbeDistance = 0.75
-PathRayCast3DCheck = NodePath("RayCast3DMove")
+PathRayCast3DMove = NodePath("RayCast3DMove")
 
-[sub_resource type="BTAction" id="BTAction_7x8m7"]
+[sub_resource type="BTAction" id="BTAction_6jb7a"]
 script = ExtResource("10_miwgs")
 PathFlipSprite3D = NodePath("Flippable3DSpriteBase3DConsolidation")
 
-[sub_resource type="BBNode" id="BBNode_x1qrn"]
+[sub_resource type="BBNode" id="BBNode_jtyr2"]
 saved_value = NodePath("AnimationPlayer")
 resource_name = "AnimationPlayer"
 
-[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_pmfd7"]
-animation_player = SubResource("BBNode_x1qrn")
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_jipuq"]
+animation_player = SubResource("BBNode_jtyr2")
 animation_name = &"MOVE_1"
 
-[sub_resource type="BTParallel" id="BTParallel_433mc"]
+[sub_resource type="BTParallel" id="BTParallel_ndbdc"]
 num_successes_required = 2
-children = [SubResource("BTAction_7x8m7"), SubResource("BTPlayAnimation_pmfd7")]
+children = [SubResource("BTAction_6jb7a"), SubResource("BTPlayAnimation_jipuq")]
 
-[sub_resource type="BTSequence" id="BTSequence_pv8vs"]
+[sub_resource type="BTSequence" id="BTSequence_butha"]
 custom_name = "Approach"
-children = [SubResource("BTAction_ibirp"), SubResource("BTParallel_433mc")]
+children = [SubResource("BTAction_lxhcs"), SubResource("BTParallel_ndbdc")]
 
-[sub_resource type="BTSelector" id="BTSelector_00q0r"]
+[sub_resource type="BTSelector" id="BTSelector_iduk1"]
 custom_name = "Move"
-children = [SubResource("BTSequence_pv8vs")]
-
-[sub_resource type="BTTimeLimit" id="BTTimeLimit_l2ovw"]
-time_limit = 4.0
-children = [SubResource("BTSelector_00q0r")]
+children = [SubResource("BTSequence_butha")]
 
 [sub_resource type="BTInvert" id="BTInvert_vt45e"]
 custom_name = "NotMove"
-children = [SubResource("BTTimeLimit_l2ovw")]
+children = [SubResource("BTSelector_iduk1")]
 
 [sub_resource type="BBVariant" id="BBVariant_hvy43"]
 type = 1

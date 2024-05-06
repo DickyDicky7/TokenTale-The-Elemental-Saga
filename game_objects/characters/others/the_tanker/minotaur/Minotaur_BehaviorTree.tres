@@ -96,98 +96,98 @@ children = [SubResource("BTAction_d3eh0")]
 custom_name = "NotChangeClockwisePriority"
 children = [SubResource("BTCooldown_hnugm")]
 
-[sub_resource type="BTAction" id="BTAction_ckqdh"]
+[sub_resource type="BTAction" id="BTAction_dgowh"]
 script = ExtResource("8_fosm8")
 Type = "APPROACH"
 CombatDistance = 0.4
 ProbeDistance = 0.75
-PathRayCast3DCheck = NodePath("RayCast3DMove")
+PathRayCast3DMove = NodePath("RayCast3DMove")
 
-[sub_resource type="BTAction" id="BTAction_1ohv1"]
+[sub_resource type="BTAction" id="BTAction_7upvn"]
 script = ExtResource("9_fr7ba")
 PathFlipSprite3D = NodePath("Flippable3DSpriteBase3DConsolidation")
 
-[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_ftc4x"]
-animation_player = ExtResource("3_m0cec")
+[sub_resource type="BBNode" id="BBNode_deaee"]
+saved_value = NodePath("AnimationPlayer")
+resource_name = "AnimationPlayer"
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_4isxg"]
+animation_player = SubResource("BBNode_deaee")
 animation_name = &"MOVE"
 
-[sub_resource type="BTParallel" id="BTParallel_mjpit"]
+[sub_resource type="BTParallel" id="BTParallel_c25m6"]
 num_successes_required = 2
-children = [SubResource("BTAction_1ohv1"), SubResource("BTPlayAnimation_ftc4x")]
+children = [SubResource("BTAction_7upvn"), SubResource("BTPlayAnimation_4isxg")]
 
-[sub_resource type="BTSequence" id="BTSequence_2aytf"]
+[sub_resource type="BTSequence" id="BTSequence_401aj"]
 custom_name = "Approach"
-children = [SubResource("BTAction_ckqdh"), SubResource("BTParallel_mjpit")]
+children = [SubResource("BTAction_dgowh"), SubResource("BTParallel_c25m6")]
 
-[sub_resource type="BTAction" id="BTAction_0agxs"]
+[sub_resource type="BTAction" id="BTAction_pbchr"]
 script = ExtResource("8_fosm8")
 Type = "RETREAT"
 CombatDistance = 0.4
 ProbeDistance = 0.75
-PathRayCast3DCheck = NodePath("RayCast3DMove")
+PathRayCast3DMove = NodePath("RayCast3DMove")
 
-[sub_resource type="BTAction" id="BTAction_yamdy"]
+[sub_resource type="BTAction" id="BTAction_n00n8"]
 script = ExtResource("9_fr7ba")
 PathFlipSprite3D = NodePath("Flippable3DSpriteBase3DConsolidation")
 
-[sub_resource type="BBNode" id="BBNode_yyfq8"]
+[sub_resource type="BBNode" id="BBNode_5xomr"]
 saved_value = NodePath("AnimationPlayer")
 resource_name = "AnimationPlayer"
 
-[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_ojqms"]
-animation_player = SubResource("BBNode_yyfq8")
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_fw6vk"]
+animation_player = SubResource("BBNode_5xomr")
 animation_name = &"MOVE"
 
-[sub_resource type="BTParallel" id="BTParallel_rxk23"]
+[sub_resource type="BTParallel" id="BTParallel_3vfv8"]
 num_successes_required = 2
-children = [SubResource("BTAction_yamdy"), SubResource("BTPlayAnimation_ojqms")]
+children = [SubResource("BTAction_n00n8"), SubResource("BTPlayAnimation_fw6vk")]
 
-[sub_resource type="BTSequence" id="BTSequence_ltdvc"]
+[sub_resource type="BTSequence" id="BTSequence_sgkao"]
 custom_name = "Retreat"
-children = [SubResource("BTAction_0agxs"), SubResource("BTParallel_rxk23")]
+children = [SubResource("BTAction_pbchr"), SubResource("BTParallel_3vfv8")]
 
-[sub_resource type="BTAction" id="BTAction_njny2"]
+[sub_resource type="BTAction" id="BTAction_vuyjd"]
 script = ExtResource("8_fosm8")
 Type = "PROBE"
 CombatDistance = 0.4
 ProbeDistance = 0.75
-PathRayCast3DCheck = NodePath("RayCast3DMove")
+PathRayCast3DMove = NodePath("RayCast3DMove")
 
-[sub_resource type="BTAction" id="BTAction_xjam7"]
+[sub_resource type="BTAction" id="BTAction_24j88"]
 script = ExtResource("9_fr7ba")
 PathFlipSprite3D = NodePath("Flippable3DSpriteBase3DConsolidation")
 
-[sub_resource type="BBNode" id="BBNode_kbywd"]
+[sub_resource type="BBNode" id="BBNode_3bvqo"]
 saved_value = NodePath("AnimationPlayer")
 resource_name = "AnimationPlayer"
 
-[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_8xm6w"]
-animation_player = SubResource("BBNode_kbywd")
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_13sbo"]
+animation_player = SubResource("BBNode_3bvqo")
 animation_name = &"MOVE"
 
-[sub_resource type="BTParallel" id="BTParallel_o3mip"]
+[sub_resource type="BTParallel" id="BTParallel_b2qee"]
 num_successes_required = 2
-children = [SubResource("BTAction_xjam7"), SubResource("BTPlayAnimation_8xm6w")]
+children = [SubResource("BTAction_24j88"), SubResource("BTPlayAnimation_13sbo")]
 
-[sub_resource type="BTSequence" id="BTSequence_eprqa"]
+[sub_resource type="BTSequence" id="BTSequence_e2y63"]
 custom_name = "Probe"
-children = [SubResource("BTAction_njny2"), SubResource("BTParallel_o3mip")]
+children = [SubResource("BTAction_vuyjd"), SubResource("BTParallel_b2qee")]
 
-[sub_resource type="BTCooldown" id="BTCooldown_qs3x5"]
+[sub_resource type="BTCooldown" id="BTCooldown_8luth"]
 duration = 2.0
-children = [SubResource("BTSequence_eprqa")]
+children = [SubResource("BTSequence_e2y63")]
 
-[sub_resource type="BTSelector" id="BTSelector_7ojuy"]
+[sub_resource type="BTSelector" id="BTSelector_cig6b"]
 custom_name = "Move"
-children = [SubResource("BTSequence_2aytf"), SubResource("BTSequence_ltdvc"), SubResource("BTCooldown_qs3x5")]
-
-[sub_resource type="BTTimeLimit" id="BTTimeLimit_vr26t"]
-time_limit = 4.0
-children = [SubResource("BTSelector_7ojuy")]
+children = [SubResource("BTSequence_401aj"), SubResource("BTSequence_sgkao"), SubResource("BTCooldown_8luth")]
 
 [sub_resource type="BTInvert" id="BTInvert_aofpv"]
 custom_name = "NotMove"
-children = [SubResource("BTTimeLimit_vr26t")]
+children = [SubResource("BTSelector_cig6b")]
 
 [sub_resource type="BBVariant" id="BBVariant_3885i"]
 type = 1

@@ -100,40 +100,40 @@ children = [SubResource("BTAction_86kqt")]
 custom_name = "NotChangeClockwisePriority"
 children = [SubResource("BTCooldown_v61oc")]
 
-[sub_resource type="BTAction" id="BTAction_5pc27"]
+[sub_resource type="BTAction" id="BTAction_2vf2h"]
 script = ExtResource("9_ywgb2")
 Type = "APPROACH"
 CombatDistance = 0.3
 ProbeDistance = 0.75
-PathRayCast3DCheck = NodePath("RayCast3DMove")
+PathRayCast3DMove = NodePath("RayCast3DMove")
 
-[sub_resource type="BTAction" id="BTAction_iywr0"]
+[sub_resource type="BTAction" id="BTAction_4btw7"]
 script = ExtResource("10_8fiqe")
 PathFlipSprite3D = NodePath("Flippable3DSpriteBase3DConsolidation")
 
-[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_8b7a1"]
-animation_player = ExtResource("4_e2ybg")
+[sub_resource type="BBNode" id="BBNode_dp3dl"]
+saved_value = NodePath("AnimationPlayer")
+resource_name = "AnimationPlayer"
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_3hkfv"]
+animation_player = SubResource("BBNode_dp3dl")
 animation_name = &"MOVE_B"
 
-[sub_resource type="BTParallel" id="BTParallel_nej16"]
+[sub_resource type="BTParallel" id="BTParallel_tm00r"]
 num_successes_required = 2
-children = [SubResource("BTAction_iywr0"), SubResource("BTPlayAnimation_8b7a1")]
+children = [SubResource("BTAction_4btw7"), SubResource("BTPlayAnimation_3hkfv")]
 
-[sub_resource type="BTSequence" id="BTSequence_bfq1u"]
+[sub_resource type="BTSequence" id="BTSequence_0dxj3"]
 custom_name = "Approach"
-children = [SubResource("BTAction_5pc27"), SubResource("BTParallel_nej16")]
+children = [SubResource("BTAction_2vf2h"), SubResource("BTParallel_tm00r")]
 
-[sub_resource type="BTSelector" id="BTSelector_jefqq"]
+[sub_resource type="BTSelector" id="BTSelector_1t5xe"]
 custom_name = "Move"
-children = [SubResource("BTSequence_bfq1u")]
-
-[sub_resource type="BTTimeLimit" id="BTTimeLimit_rtaym"]
-time_limit = 4.0
-children = [SubResource("BTSelector_jefqq")]
+children = [SubResource("BTSequence_0dxj3")]
 
 [sub_resource type="BTInvert" id="BTInvert_5jbjm"]
 custom_name = "NotMove"
-children = [SubResource("BTTimeLimit_rtaym")]
+children = [SubResource("BTSelector_1t5xe")]
 
 [sub_resource type="BBVariant" id="BBVariant_0ccrm"]
 type = 1

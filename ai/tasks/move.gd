@@ -9,8 +9,9 @@ func _generate_name() -> String:
 var currentCharacter: Character3D
 var flipSprite3D: Flippable3DSpriteBase3DConsolidation
 var moveDirection: Vector3
-var lastPosition: Vector3
+var startPosition: Vector3
 var moveDistance: float
+var lastPosition: Vector3
 
 func _setup() -> void:
 	currentCharacter = agent
@@ -18,9 +19,10 @@ func _setup() -> void:
 	pass;
 
 func _enter() -> void:
-	lastPosition = currentCharacter.position
+	startPosition = currentCharacter.position
 	moveDirection = blackboard.get_var(BBVariable.MoveDirection)
 	moveDistance = blackboard.get_var(BBVariable.MoveDistance)
+	lastPosition = startPosition
 	if (flipSprite3D != null):
 		if (moveDirection.x / abs(moveDirection.x) > 0):
 			flipSprite3D.FlipH = false
@@ -32,7 +34,11 @@ func _exit() -> void:
 	pass;
 	
 func _tick(_delta: float) -> Status:
-	if (currentCharacter.position.distance_to(lastPosition) <= moveDistance):
+	if (lastPosition != startPosition && 
+	currentCharacter.position.distance_to(lastPosition) == 0):
+		return FAILURE
+	lastPosition = currentCharacter.position
+	if (currentCharacter.position.distance_to(startPosition) <= moveDistance):
 		currentCharacter.Move(moveDirection, _delta)
 		return RUNNING;
 	else:

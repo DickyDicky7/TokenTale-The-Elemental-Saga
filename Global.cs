@@ -5,9 +5,14 @@ namespace TokenTaleTheElementalSaga;
 
 public partial class Global : Node
 {
-    //public Array<Vector2>       GetMainCharacterTraces()
-    //{
-    //return new 
-    //       Array<Vector2>(SingletonMainCharacterTracesManager.Instance);
-    //}
+    public enum Element
+    {
+        Fire,
+        Water,
+        Wind,
+        Ice,
+        Eletric,
+        Rock,
+        Wood
+    }
 }

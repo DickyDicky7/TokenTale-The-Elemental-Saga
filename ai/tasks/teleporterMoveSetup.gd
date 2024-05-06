@@ -32,11 +32,19 @@ func _enter() -> void:
 			Helper.ProjectVector3ToPlane(
 				targetCharacter.position, Vector3.UP))
 	moveDirection = Vector3(0, 0, 0)
-	if (Type.match("APPROACH") && distanceToTarget > TeleportDistance):
-		moveDirection = FindMoveDirection()
-		moveDistance = FindMoveDistance(distanceToTarget)
-	if (Type.match("TELEPORT") && distanceToTarget <= TeleportDistance):
-		teleportLocation = FindTeleportLocation()
+	match Type:
+		"APPROACH":
+			if (distanceToTarget > TeleportDistance):
+				moveDirection = FindMoveDirection()
+				moveDistance = FindMoveDistance(distanceToTarget)
+			else:
+				moveDirection = Vector3(0, 0, 0)
+				moveDistance = 0
+		"TELEPORT":
+			if (distanceToTarget <= TeleportDistance):
+				teleportLocation = FindTeleportLocation()
+			else:
+				teleportLocation = Vector3(0, 0, 0)
 	pass;
 	
 func _exit() -> void:
@@ -44,14 +52,15 @@ func _exit() -> void:
 	
 func _tick(_delta: float) -> Status:
 	if (Type.match("APPROACH")):
-		if (moveDirection != Vector3(0, 0, 0) && moveDistance != 0):
+		if (moveDirection != null && moveDistance != null &&
+			moveDirection != Vector3(0, 0, 0) && moveDistance != 0):
 			blackboard.set_var(BBVariable.MoveDirection, moveDirection)
 			blackboard.set_var(BBVariable.MoveDistance, moveDistance)
 			return SUCCESS
 		else:
 			return FAILURE
 	else:
-		if (teleportLocation != null):
+		if (teleportLocation != null && teleportLocation != Vector3(0, 0, 0)):
 			blackboard.set_var(BBVariable.TeleportLocation, teleportLocation)
 			return SUCCESS
 		else:

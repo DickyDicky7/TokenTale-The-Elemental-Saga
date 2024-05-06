@@ -13,7 +13,7 @@ func _setup() -> void:
 	pass;
 	
 func _enter() -> void:
-	targetCharacter = blackboard.get_var(BBVariable.ReadyToStrike)
+	targetCharacter = blackboard.get_var(BBVariable.TargetCharacter)
 	pass;
 	
 func _exit() -> void:

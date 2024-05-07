@@ -1,13 +1,67 @@
-[gd_scene load_steps=14 format=3 uid="uid://cyv12iosddo4f"]
+[gd_scene load_steps=18 format=3 uid="uid://cyv12iosddo4f"]
 
+[ext_resource type="Material" uid="uid://ce62yhhmbghc" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_MaterialOverride_01.tres" id="1_l2ued"]
 [ext_resource type="SpriteFrames" uid="uid://b8kirdr3jdxm1" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_SpriteFrames_$Main$.tres" id="1_q6j6a"]
 [ext_resource type="BehaviorTree" uid="uid://qjvfmmgwhd5t" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_BehaviorTree.tres" id="3_j0och"]
 [ext_resource type="Shape3D" uid="uid://dhds745t3iuay" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_CollisionShape3D_Body.tres" id="3_uclmn"]
+[ext_resource type="Material" uid="uid://dfg2xmmitmjpb" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_MaterialOverride_02.tres" id="4_ggyis"]
 [ext_resource type="BlackboardPlan" uid="uid://cy0c07262ivud" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_BlackboardPlanBase.tres" id="5_y685y"]
 [ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.tscn" id="6_6jmt3"]
 [ext_resource type="Shape3D" uid="uid://hksbajkeyi3p" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_ShapeCast3D.tres" id="6_uclns"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="7_0sefg"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="8_s5ygj"]
+
+[sub_resource type="Animation" id="Animation_0cw2i"]
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite3D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite3D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["ATTACK"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite3D_Shadow:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite3D_Shadow:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["ATTACK"]
+}
 
 [sub_resource type="Animation" id="Animation_xouuu"]
 length = 0.6
@@ -179,6 +233,70 @@ tracks/3/keys = {
 "values": ["EMERGE"]
 }
 
+[sub_resource type="Animation" id="Animation_fm1xq"]
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite3D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite3D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["HURT"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite3D_Shadow:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite3D_Shadow:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["HURT"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite3D_$Main$:material_override")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_l2ued"), ExtResource("4_ggyis"), ExtResource("1_l2ued"), ExtResource("4_ggyis"), ExtResource("1_l2ued"), ExtResource("4_ggyis"), ExtResource("1_l2ued")]
+}
+
 [sub_resource type="Animation" id="Animation_ukw0m"]
 length = 0.6
 loop_mode = 1
@@ -233,20 +351,23 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8xbje"]
 _data = {
+"ATTACK": SubResource("Animation_0cw2i"),
 "DAMAGE": SubResource("Animation_xouuu"),
 "DEAD": SubResource("Animation_svji7"),
 "EMERGE": SubResource("Animation_qqp3e"),
+"HURT": SubResource("Animation_fm1xq"),
 "IDLE": SubResource("Animation_ukw0m")
 }
 
 [node name="HealTotem" type="CharacterBody3D"]
 
 [node name="AnimatedSprite3D_$Main$" type="AnimatedSprite3D" parent="."]
+material_override = ExtResource("1_l2ued")
 cast_shadow = 0
 offset = Vector2(0.5, 16)
 texture_filter = 0
 sprite_frames = ExtResource("1_q6j6a")
-animation = &"DAMAGE"
+animation = &"HURT"
 
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 cast_shadow = 3
@@ -254,7 +375,7 @@ offset = Vector2(0.5, 16)
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_q6j6a")
-animation = &"DAMAGE"
+animation = &"HURT"
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075, 0)
@@ -282,9 +403,11 @@ target_position = Vector3(0, 0, 0)
 debug_shape_custom_color = Color(0, 0, 1, 1)
 
 [node name="Flippable3DSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
+process_mode = 4
 script = ExtResource("7_0sefg")
 Sprites = [NodePath("../AnimatedSprite3D_$Main$"), NodePath("../AnimatedSprite3D_Shadow")]
 
 [node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
+process_mode = 4
 script = ExtResource("8_s5ygj")
 Sprites = [NodePath("../AnimatedSprite3D_$Main$")]

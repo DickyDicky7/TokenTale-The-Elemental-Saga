@@ -116,6 +116,29 @@ animations = [{
 "texture": SubResource("AtlasTexture_a3sam")
 }],
 "loop": true,
+"name": &"ATTACK",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_461me")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4elm5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31tnw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00d24")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmjgo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3sam")
+}],
+"loop": true,
 "name": &"DAMAGE",
 "speed": 10.0
 }, {
@@ -160,6 +183,29 @@ animations = [{
 }],
 "loop": true,
 "name": &"EMERGE",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_461me")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4elm5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31tnw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00d24")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmjgo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3sam")
+}],
+"loop": true,
+"name": &"HURT",
 "speed": 10.0
 }, {
 "frames": [{

@@ -1,6 +1,18 @@
-[gd_resource type="BehaviorTree" load_steps=2 format=3 uid="uid://nn2qdvt6kpw5"]
+[gd_resource type="BehaviorTree" load_steps=6 format=3 uid="uid://nn2qdvt6kpw5"]
 
 [ext_resource type="BlackboardPlan" uid="uid://b4gftkagyvy1p" path="res://game_objects/abilities/ice_wall/IceWall_BlackboardPlan----.tres" id="1_wo7so"]
+[ext_resource type="BBNode" uid="uid://co16akm5l8t0h" path="res://game_objects/abilities/ice_wall/IceWall_BBNode_RootNode.tres" id="2_3tr3q"]
+
+[sub_resource type="BTWait" id="BTWait_5k11h"]
+duration = 20.0
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_eykdr"]
+node = ExtResource("2_3tr3q")
+method = &"queue_free"
+
+[sub_resource type="BTSequence" id="BTSequence_poeu6"]
+children = [SubResource("BTWait_5k11h"), SubResource("BTCallMethod_eykdr")]
 
 [resource]
 blackboard_plan = ExtResource("1_wo7so")
+root_task = SubResource("BTSequence_poeu6")

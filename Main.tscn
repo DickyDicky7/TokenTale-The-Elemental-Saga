@@ -1,6 +1,7 @@
 [gd_scene load_steps=27 format=3 uid="uid://cnes8lrs7ph26"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_px6f3"]
+[ext_resource type="PackedScene" uid="uid://c7prt2n8f8eo7" path="res://game_objects/abilities/others/mini_speed_boosting/MiniSpeedBoosting.tscn" id="2_cba4w"]
 [ext_resource type="PlaneMesh" uid="uid://dmf8lh15l3415" path="res://BackgroundPlatform_Mesh.tres" id="2_rk0yh"]
 [ext_resource type="Environment" uid="uid://jjpsnd6sbvf2" path="res://Main_Environment.tres" id="2_vpqwg"]
 [ext_resource type="Shape3D" uid="uid://ckjylylwcue88" path="res://BackgroundPlatform_CollisionShape3D.tres" id="3_vrktx"]
@@ -26,9 +27,12 @@
 [ext_resource type="Resource" uid="uid://bnknhyt52lbte" path="res://Main_PostProcessingConfiguration.tres" id="19_wk608"]
 [ext_resource type="PackedScene" uid="uid://bbv4dpufmesgb" path="res://game_objects/characters/others/the_thief/cat/Cat.tscn" id="23_saaco"]
 [ext_resource type="PackedScene" uid="uid://u16qad10a485" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster.tscn" id="26_ynl1c"]
+[ext_resource type="PackedScene" uid="uid://dtm1w4b8kbx8t" path="res://game_objects/abilities/air_surge/AirSurge.tscn" id="22_pbjun"]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node3D" node_paths=PackedStringArray("MainCharacter")]
 script = ExtResource("1_px6f3")
+Scene = ExtResource("2_cba4w")
+MainCharacter = NodePath("MainCharacter")
 
 [node name="Environment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_vpqwg")
@@ -54,7 +58,7 @@ shape = ExtResource("3_vrktx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="MainCharacter"]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 1.5, 1.5)
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 2, 2)
 far = 5.0
 script = ExtResource("6_1l5gg")
 
@@ -94,7 +98,7 @@ shadow_enabled = true
 directional_shadow_mode = 0
 
 [node name="Tornado" parent="." instance=ExtResource("5_rpfgl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
 
 [node name="SereneMeadow" parent="." instance=ExtResource("7_tyaa3")]
 
@@ -102,7 +106,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.1, -1)
 
 [node name="Overcharge" parent="." instance=ExtResource("9_5jat6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
 
 [node name="Lightning" parent="." instance=ExtResource("10_myf47")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
@@ -110,8 +114,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 [node name="Ignite" parent="." instance=ExtResource("11_3fjus")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 
-[node name="FireBall" parent="." instance=ExtResource("12_qboqi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.5, -1)
+[node name="FireBall" parent="." node_paths=PackedStringArray("GpuParticles", "AnimatedSprite", "AnimatedShadow") instance=ExtResource("12_qboqi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+GpuParticles = NodePath("Visual/_GPU_Particles3D")
+AnimatedSprite = NodePath("Visual/AnimatedSprite3D")
+AnimatedShadow = NodePath("Visual/AnimatedShadow3D")
+
+[node name="AirSurge" parent="." node_paths=PackedStringArray("AnimatedSprite", "AnimatedShadow") instance=ExtResource("22_pbjun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+AnimatedSprite = NodePath("Visual/AnimatedSprite3D")
+AnimatedShadow = NodePath("Visual/AnimatedShadow3D")
 
 [node name="Frostburn" parent="." instance=ExtResource("13_w4ibj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
@@ -120,7 +132,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -3)
 
 [node name="TidalWave" parent="." instance=ExtResource("15_lavek")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.1, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
 
 [node name="PostProcess" type="CanvasLayer" parent="."]
 visible = false

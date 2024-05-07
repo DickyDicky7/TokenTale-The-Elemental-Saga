@@ -1,9 +1,12 @@
 [gd_resource type="ParticleProcessMaterial" format=3 uid="uid://dh0ny11jtiv4t"]
 
 [resource]
-emission_shape_offset = Vector3(0, 0.3, 0)
+emission_shape_offset = Vector3(0, 0.2, 0)
+emission_shape_scale = Vector3(1, 0, 1)
 emission_shape = 2
 emission_sphere_radius = 0.3
 gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 0.5
 anim_speed_min = 2.0
 anim_speed_max = 2.0

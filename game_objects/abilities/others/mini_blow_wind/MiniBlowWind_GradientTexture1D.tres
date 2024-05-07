@@ -1,0 +1,7 @@
+[gd_resource type="GradientTexture1D" load_steps=2 format=3 uid="uid://q2monia6405o"]
+
+[ext_resource type="Gradient" uid="uid://xiuhhi5hbkqj" path="res://game_objects/abilities/others/mini_blow_wind/MiniBlowWind_Gradient---------.tres" id="1_2pirg"]
+
+[resource]
+gradient = ExtResource("1_2pirg")
+use_hdr = true

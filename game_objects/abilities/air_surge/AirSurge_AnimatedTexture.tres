@@ -19,6 +19,7 @@
 
 [resource]
 frames = 16
+speed_scale = 1.5
 frame_0/texture = ExtResource("1_xufo7")
 frame_0/duration = 0.1
 frame_1/texture = ExtResource("2_hgmbq")

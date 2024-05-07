@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://bflyuqbbpqmkp"]
+[gd_scene load_steps=12 format=3 uid="uid://bflyuqbbpqmkp"]
 
+[ext_resource type="Script" path="res://game_objects/abilities/frostburn/Frostburn.cs" id="1_rnp3u"]
 [ext_resource type="SpriteFrames" uid="uid://ccvpdipgc4wqy" path="res://game_objects/abilities/frostburn/Frostburn_SpriteFrames.tres" id="2_pqyg2"]
 [ext_resource type="SpriteFrames" uid="uid://cdcebiy3fffvh" path="res://game_objects/abilities/frostburn/Frostburn_SpriteFrames_Effect01.tres" id="3_48cvs"]
 [ext_resource type="BehaviorTree" uid="uid://8cuolfcbawdq" path="res://game_objects/abilities/frostburn/Frostburn_BehaviorTree.tres" id="3_nqikv"]
@@ -14,7 +15,7 @@ length = 0.95
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite3D_Effect01:frame")
+tracks/0/path = NodePath("Visual/AnimatedSprite3D_Effect01:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -26,7 +27,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite3D_Effect01:animation")
+tracks/1/path = NodePath("Visual/AnimatedSprite3D_Effect01:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -38,7 +39,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite3D_Effect02:frame")
+tracks/2/path = NodePath("Visual/AnimatedSprite3D_Effect02:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -50,7 +51,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("AnimatedSprite3D_Effect02:animation")
+tracks/3/path = NodePath("Visual/AnimatedSprite3D_Effect02:animation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -62,7 +63,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AnimatedSprite3D_Effect01:visible")
+tracks/4/path = NodePath("Visual/AnimatedSprite3D_Effect01:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -74,7 +75,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("AnimatedSprite3D:visible")
+tracks/5/path = NodePath("Visual/AnimatedSprite3D:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -86,7 +87,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("AnimatedShadow3D:visible")
+tracks/6/path = NodePath("Visual/AnimatedShadow3D:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -98,7 +99,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("AnimatedSprite3D_Effect02:visible")
+tracks/7/path = NodePath("Visual/AnimatedSprite3D_Effect02:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -113,7 +114,7 @@ length = 1.75
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite3D:frame")
+tracks/0/path = NodePath("Visual/AnimatedSprite3D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -125,7 +126,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite3D:animation")
+tracks/1/path = NodePath("Visual/AnimatedSprite3D:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -137,7 +138,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedShadow3D:frame")
+tracks/2/path = NodePath("Visual/AnimatedShadow3D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -149,7 +150,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("AnimatedShadow3D:animation")
+tracks/3/path = NodePath("Visual/AnimatedShadow3D:animation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -161,7 +162,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AnimatedSprite3D:visible")
+tracks/4/path = NodePath("Visual/AnimatedSprite3D:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -173,7 +174,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("AnimatedShadow3D:visible")
+tracks/5/path = NodePath("Visual/AnimatedShadow3D:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -185,7 +186,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("AnimatedSprite3D_Effect01:visible")
+tracks/6/path = NodePath("Visual/AnimatedSprite3D_Effect01:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -197,7 +198,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("AnimatedSprite3D_Effect02:visible")
+tracks/7/path = NodePath("Visual/AnimatedSprite3D_Effect02:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -213,9 +214,12 @@ _data = {
 "HIT": SubResource("Animation_i68bp")
 }
 
-[node name="Frostburn" type="Area3D"]
+[node name="Frostburn" type="Node3D"]
+script = ExtResource("1_rnp3u")
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+[node name="Visual" type="Node3D" parent="."]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Visual"]
 visible = false
 cast_shadow = 0
 offset = Vector2(0, 16)
@@ -223,7 +227,7 @@ texture_filter = 0
 sprite_frames = ExtResource("2_pqyg2")
 animation = &"HIT"
 
-[node name="AnimatedShadow3D" type="AnimatedSprite3D" parent="."]
+[node name="AnimatedShadow3D" type="AnimatedSprite3D" parent="Visual"]
 visible = false
 cast_shadow = 3
 offset = Vector2(0, 16)
@@ -232,7 +236,7 @@ texture_filter = 0
 sprite_frames = ExtResource("2_pqyg2")
 animation = &"HIT"
 
-[node name="AnimatedSprite3D_Effect01" type="AnimatedSprite3D" parent="."]
+[node name="AnimatedSprite3D_Effect01" type="AnimatedSprite3D" parent="Visual"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 cast_shadow = 0
 texture_filter = 0
@@ -240,7 +244,7 @@ render_priority = -1
 sprite_frames = ExtResource("3_48cvs")
 animation = &"EFF"
 
-[node name="AnimatedSprite3D_Effect02" type="AnimatedSprite3D" parent="."]
+[node name="AnimatedSprite3D_Effect02" type="AnimatedSprite3D" parent="Visual"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 cast_shadow = 0
 texture_filter = 0
@@ -248,7 +252,9 @@ render_priority = -1
 sprite_frames = ExtResource("4_243kp")
 animation = &"EFF"
 
-[node name="CollisionShape3D_Hitbox" type="CollisionShape3D" parent="."]
+[node name="Hitbox" type="Area3D" parent="."]
+
+[node name="CollisionShape3D_Hitbox" type="CollisionShape3D" parent="Hitbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 shape = ExtResource("7_5jygr")
 
@@ -262,5 +268,6 @@ behavior_tree = ExtResource("3_nqikv")
 blackboard_plan = ExtResource("7_lbovs")
 
 [node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
+process_mode = 4
 script = ExtResource("8_vg3oq")
-Sprites = [NodePath("../AnimatedSprite3D")]
+Sprites = [NodePath("../Visual/AnimatedSprite3D")]

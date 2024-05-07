@@ -1,0 +1,7 @@
+[gd_resource type="GradientTexture1D" load_steps=2 format=3 uid="uid://4jlftyaek10"]
+
+[ext_resource type="Gradient" uid="uid://bbv86kau1opv" path="res://game_objects/abilities/others/mini_fire_ball/MiniFireBal_Gradient---------.tres" id="1_e2trd"]
+
+[resource]
+gradient = ExtResource("1_e2trd")
+use_hdr = true

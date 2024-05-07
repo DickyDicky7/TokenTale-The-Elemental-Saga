@@ -1,0 +1,5 @@
+[gd_resource type="SphereShape3D" format=3 uid="uid://b1ilsdt0m7ae1"]
+
+[resource]
+margin = 0.05
+radius = 0.05

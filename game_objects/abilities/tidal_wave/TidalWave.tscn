@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://v8blbc8smsjd"]
+[gd_scene load_steps=12 format=3 uid="uid://v8blbc8smsjd"]
 
+[ext_resource type="Script" path="res://game_objects/abilities/tidal_wave/TidalWave.cs" id="1_4k3dd"]
 [ext_resource type="BehaviorTree" uid="uid://dgfltm5vq2fjm" path="res://game_objects/abilities/tidal_wave/TidalWave_BehaviorTree.tres" id="2_42ast"]
 [ext_resource type="ArrayMesh" uid="uid://edya7xm672g4" path="res://game_objects/abilities/tidal_wave/TidalWave_Mesh.tres" id="2_lxtce"]
 [ext_resource type="Shape3D" uid="uid://cidlwatdfjhid" path="res://game_objects/abilities/tidal_wave/TidalWave_CollisionShape3D_Hitbox.tres" id="3_eojro"]
@@ -7,21 +8,126 @@
 [ext_resource type="Material" uid="uid://caulq6uxt6qm8" path="res://game_objects/abilities/tidal_wave/TidalWave_ParticleProcessMaterial.tres" id="6_5ftrw"]
 [ext_resource type="QuadMesh" uid="uid://c42q5i7rp2x1t" path="res://game_objects/abilities/tidal_wave/TidalWave_DrawPass01_Mesh.tres" id="7_22a1e"]
 
-[node name="TidalWave" type="Area3D"]
+[sub_resource type="Animation" id="Animation_yhwcl"]
+resource_name = "CEASE"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/$Mesh$Instance3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/_GPU_Particles3D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
-[node name="$Mesh$Instance3D" type="MeshInstance3D" parent="."]
+[sub_resource type="Animation" id="Animation_4q8qa"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/$Mesh$Instance3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/_GPU_Particles3D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_vc5hl"]
+resource_name = "START"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/$Mesh$Instance3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/_GPU_Particles3D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d7u1n"]
+_data = {
+"CEASE": SubResource("Animation_yhwcl"),
+"RESET": SubResource("Animation_4q8qa"),
+"START": SubResource("Animation_vc5hl")
+}
+
+[node name="TidalWave" type="Node3D"]
+script = ExtResource("1_4k3dd")
+MovingDuration = 3.0
+EasingfuncType = 2
+TransitionType = 2
+
+[node name="Visual" type="Node3D" parent="."]
+
+[node name="$Mesh$Instance3D" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.1, 0)
 mesh = ExtResource("2_lxtce")
+skeleton = NodePath("../..")
 
-[node name="CollisionShape3D_Hitbox" type="CollisionShape3D" parent="."]
+[node name="_GPU_Particles3D" type="GPUParticles3D" parent="Visual"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.1, 0)
+amount = 50
+lifetime = 0.5
+randomness = 1.0
+process_material = ExtResource("6_5ftrw")
+draw_pass_1 = ExtResource("7_22a1e")
+
+[node name="Hitbox" type="Area3D" parent="."]
+
+[node name="CollisionShape3D_Hitbox" type="CollisionShape3D" parent="Hitbox"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.1, 0)
 shape = ExtResource("3_eojro")
 
 [node name="BT_______Player" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("2_42ast")
 blackboard_plan = ExtResource("3_mduik")
 
-[node name="_GPU_Particles3D" type="GPUParticles3D" parent="."]
-amount = 50
-lifetime = 0.5
-randomness = 1.0
-process_material = ExtResource("6_5ftrw")
-draw_pass_1 = ExtResource("7_22a1e")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_d7u1n")
+}

@@ -32,7 +32,9 @@ public partial class StateMainCharacterIdle : State
                     base.       _Process(       @delta);
 
         SeeingDirection =
-        MainCharacter.GetScreenMousePosition();
+        MainCharacter.Get_LocalMousePosition().ConvertToTopDown();
+//      SeeingDirection =
+//      MainCharacter.GetScreenMousePosition()                   ;
         AnimationTree.Set("parameters/BS2D_IDLE/blend_position", SeeingDirection.Normalized());
     }
 

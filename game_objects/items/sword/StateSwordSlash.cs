@@ -18,7 +18,10 @@ public partial class StateSwordSlash : StateSword
         Vector2.Zero)
         {
             Vector2  screenMousePosition =
-            Sword.GetScreenMousePosition();
+            Sword.Get_LocalMousePosition()
+                 .ConvertToTopDown      ();
+//          Vector2  screenMousePosition =
+//          Sword.GetScreenMousePosition();
             Sword.AnimatedSprite3D.FlipH =
                      screenMousePosition.X switch
             {

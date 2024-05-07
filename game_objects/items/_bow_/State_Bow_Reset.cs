@@ -33,7 +33,8 @@ public partial class State_Bow_Reset : State_Bow_
     {
                     base._Process(       @delta);
 
-        Vector2 hover_Position =     _Bow_.GetScreenMousePosition();
+        Vector2 hover_Position =     _Bow_.Get_LocalMousePosition().ConvertToTopDown();
+//      Vector2 hover_Position =     _Bow_.GetScreenMousePosition()                   ;
         Vector2 inputDirection = Extension.
              GetInputDirection();
         if (inputDirection !=

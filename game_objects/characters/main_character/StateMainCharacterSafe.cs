@@ -30,7 +30,8 @@ public partial class StateMainCharacterSafe : State
     {
                     base._Process(       @delta);
 
-        SeeingDirection = MainCharacter.GetScreenMousePosition();
+        SeeingDirection = MainCharacter.Get_LocalMousePosition().ConvertToTopDown();
+//      SeeingDirection = MainCharacter.GetScreenMousePosition()                   ;
         EyeSight3D
         .FollowPosition(
         SeeingDirection);

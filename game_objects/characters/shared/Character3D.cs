@@ -33,7 +33,7 @@ public abstract partial class Character3D : CharacterBody3D
 
             if (!IsOnFloor())
             {
-                velocity += GetGravity() * (float)delta * Speed;
+                velocity += GetGravity() * (float)delta * Jumpv;
             }
 
             Velocity = velocity;
@@ -59,7 +59,7 @@ public abstract partial class Character3D : CharacterBody3D
 
             if (!IsOnFloor())
             {
-                velocity += GetGravity() * (float)delta * Speed;
+                velocity += GetGravity() * (float)delta * Jumpv;
             }
 
             Velocity =

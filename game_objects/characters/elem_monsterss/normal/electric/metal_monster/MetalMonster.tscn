@@ -292,17 +292,19 @@ _data = {
 }
 
 [node name="MetalMonster" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 15
 script = ExtResource("1_x2fgj")
 Element = 4
 Health = 10
 Speed = 1.0
-Jumpv = 1.0
 Acceleration = 0.1
 Deceleration = 0.1
 
 [node name="AnimatedSprite3D_$Main$" type="AnimatedSprite3D" parent="."]
 cast_shadow = 0
 offset = Vector2(0, 28)
+flip_h = true
 texture_filter = 0
 sprite_frames = ExtResource("1_1wafb")
 animation = &"CHARGE"
@@ -310,6 +312,7 @@ animation = &"CHARGE"
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 cast_shadow = 3
 offset = Vector2(0, 28)
+flip_h = true
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_1wafb")
@@ -329,7 +332,7 @@ behavior_tree = ExtResource("7_l33ya")
 blackboard_plan = ExtResource("5_wy6lx")
 
 [node name="EyeSight$3D" parent="." instance=ExtResource("5_jnxj8")]
-transform = Transform3D(1.41421, 0, 1.41421, 0, 2, 0, -1.41421, 0, 1.41421, 0, 0, 0)
+transform = Transform3D(1.41421, 0, 1.41421, 0, 1, 0, -1.41421, 0, 1.41421, 0, 0, 0)
 
 [node name="Ray__Cast3D" type="RayCast3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0.1, 0)
@@ -353,6 +356,7 @@ debug_shape_custom_color = Color(0, 0, 1, 1)
 process_mode = 4
 script = ExtResource("7_b48je")
 Sprites = [NodePath("../AnimatedSprite3D_$Main$"), NodePath("../AnimatedSprite3D_Shadow")]
+FlipH = true
 
 [node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
 process_mode = 4
@@ -364,6 +368,7 @@ process_callback = 0
 autostart = true
 
 [node name="HurtBox3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 script = ExtResource("9_rsvg4")
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="HurtBox3D"]

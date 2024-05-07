@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cnes8lrs7ph26"]
+[gd_scene load_steps=29 format=3 uid="uid://cnes8lrs7ph26"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_px6f3"]
 [ext_resource type="PlaneMesh" uid="uid://dmf8lh15l3415" path="res://BackgroundPlatform_Mesh.tres" id="2_rk0yh"]
@@ -21,7 +21,9 @@
 [ext_resource type="PackedScene" uid="uid://y1t0iubx8y1b" path="res://game_objects/characters/others/the_haunting/ghost/Ghost.tscn" id="13_e31qg"]
 [ext_resource type="PackedScene" uid="uid://bflyuqbbpqmkp" path="res://game_objects/abilities/frostburn/Frostburn.tscn" id="13_w4ibj"]
 [ext_resource type="PackedScene" uid="uid://c5cd1cni7lng6" path="res://game_objects/abilities/ice_wall/IceWall.tscn" id="14_4m8xy"]
+[ext_resource type="PackedScene" uid="uid://dks14llooa7jv" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat.tscn" id="15_c3vll"]
 [ext_resource type="PackedScene" uid="uid://v8blbc8smsjd" path="res://game_objects/abilities/tidal_wave/TidalWave.tscn" id="15_lavek"]
+[ext_resource type="PackedScene" uid="uid://bqn2g5rr825g4" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest.tscn" id="16_ro6gg"]
 [ext_resource type="Script" path="res://addons/post_processing/node/post_process.gd" id="18_mmfla"]
 [ext_resource type="Resource" uid="uid://bnknhyt52lbte" path="res://Main_PostProcessingConfiguration.tres" id="19_wk608"]
 [ext_resource type="PackedScene" uid="uid://bbv4dpufmesgb" path="res://game_objects/characters/others/the_thief/cat/Cat.tscn" id="23_saaco"]
@@ -87,6 +89,12 @@ Deceleration = 0.1
 
 [node name="MetalMonster" parent="." instance=ExtResource("26_ynl1c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 4)
+
+[node name="Bat" parent="." instance=ExtResource("15_c3vll")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 4)
+
+[node name="KoboldPriest" parent="." instance=ExtResource("16_ro6gg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 4)
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 0, 0)

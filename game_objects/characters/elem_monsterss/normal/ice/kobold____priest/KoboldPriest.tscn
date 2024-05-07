@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://bqn2g5rr825g4"]
+[gd_scene load_steps=17 format=3 uid="uid://bqn2g5rr825g4"]
 
+[ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest.cs" id="1_g4x14"]
 [ext_resource type="SpriteFrames" uid="uid://b5w6psdxkqfdx" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest_SpriteFrames_$Main$.tres" id="1_plsuf"]
 [ext_resource type="Shape3D" uid="uid://cyhidcdjpi64j" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest_CollisionShape3D_Body.tres" id="3_6xqyd"]
 [ext_resource type="BlackboardPlan" uid="uid://bvyrderb61tqr" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest_BlackboardPlanBase.tres" id="5_5t8jw"]
@@ -8,6 +9,7 @@
 [ext_resource type="Shape3D" uid="uid://b4gxv6drdc4i4" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest_ShapeCast3D.tres" id="6_ymbsv"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="7_s1s6w"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="8_lmvd7"]
+[ext_resource type="Script" path="res://game_objects/shared/HurtBox3d.cs" id="9_l7u76"]
 
 [sub_resource type="Animation" id="Animation_n1ihx"]
 length = 0.8
@@ -290,6 +292,13 @@ _data = {
 }
 
 [node name="KoboldPriest" type="CharacterBody3D"]
+script = ExtResource("1_g4x14")
+Element = 3
+Health = 10
+Speed = 1.0
+Jumpv = 1.0
+Acceleration = 0.1
+Deceleration = 0.1
 
 [node name="AnimatedSprite3D_$Main$" type="AnimatedSprite3D" parent="."]
 cast_shadow = 0
@@ -320,21 +329,44 @@ behavior_tree = ExtResource("6_mxaxa")
 blackboard_plan = ExtResource("5_5t8jw")
 
 [node name="EyeSight$3D" parent="." instance=ExtResource("5_rh2dw")]
+transform = Transform3D(1.41421, 0, 1.41421, 0, 1, 0, -1.41421, 0, 1.41421, 0, 0, 0)
 
 [node name="Ray__Cast3D" type="RayCast3D" parent="."]
-target_position = Vector3(0.5, 0.1, 0)
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0.1, 0)
+target_position = Vector3(0.5, 0, 0)
+collision_mask = 15
 debug_shape_custom_color = Color(0, 0, 1, 1)
 
+[node name="RayCast3DMove" type="RayCast3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0.1, 0)
+target_position = Vector3(0.5, 0, 0)
+collision_mask = 7
+
 [node name="ShapeCast3D" type="ShapeCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0.1, 0)
 shape = ExtResource("6_ymbsv")
 target_position = Vector3(0, 0, 0)
+collision_mask = 15
 debug_shape_custom_color = Color(0, 0, 1, 1)
 
 [node name="Flippable3DSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
+process_mode = 4
 script = ExtResource("7_s1s6w")
 Sprites = [NodePath("../AnimatedSprite3D_$Main$"), NodePath("../AnimatedSprite3D_Shadow")]
 
 [node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
+process_mode = 4
 script = ExtResource("8_lmvd7")
 Sprites = [NodePath("../AnimatedSprite3D_$Main$")]
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 4.0
+autostart = true
+
+[node name="HurtBox3D" type="Area3D" parent="."]
+script = ExtResource("9_l7u76")
+
+[node name="CollisionShape3D_Body" type="CollisionShape3D" parent="HurtBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
+shape = ExtResource("3_6xqyd")

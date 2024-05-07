@@ -95,7 +95,6 @@ func PatrollDetection(targetCharacterAngle: float, targetCharacter: Object) -> S
 
 func ActionDetection(targetCharactedAngle: float, targetCharacter: Object) -> Status:
 	rayCast3D.rotation_degrees.y = targetCharactedAngle;
-	rayCast3D.force_raycast_update();
 	blackboard.set_var(BBVariable.TargetCharacter, targetCharacter);
 	blackboard.set_var(BBVariable.SeeingAngle    , Helper.StandardizeDegree(targetCharactedAngle));
 	return SUCCESS;

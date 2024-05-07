@@ -55,7 +55,7 @@ children = [SubResource("BTCooldown_p7tpo")]
 [sub_resource type="BTAction" id="BTAction_aw1v0"]
 script = ExtResource("7_2vhe3")
 Type = &"APPROACH"
-TeleportDistance = 0.5
+ActionDistance = 0.5
 PathRayCast3DMove = NodePath("RayCast3DMove")
 PathRayCast3DTeleport = NodePath("RayCast3DTeleport")
 
@@ -86,7 +86,7 @@ children = [SubResource("BTSequence_emxjl")]
 [sub_resource type="BTAction" id="BTAction_q6p26"]
 script = ExtResource("7_2vhe3")
 Type = &"TELEPORT"
-TeleportDistance = 0.5
+ActionDistance = 0.5
 PathRayCast3DMove = NodePath("RayCast3DMove")
 PathRayCast3DTeleport = NodePath("RayCast3DTeleport")
 

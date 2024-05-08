@@ -424,6 +424,18 @@ tracks/3/keys = {
 "update": 1,
 "values": ["PAW"]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite3D_$Main$/$$OmniLight$$3D:light_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_dxwcj"]
 length = 0.8
@@ -572,6 +584,10 @@ offset = Vector2(0, 16)
 texture_filter = 0
 sprite_frames = ExtResource("2_imwov")
 animation = &"PAW"
+
+[node name="$$OmniLight$$3D" type="OmniLight3D" parent="AnimatedSprite3D_$Main$"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+light_bake_mode = 0
 
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 cast_shadow = 3

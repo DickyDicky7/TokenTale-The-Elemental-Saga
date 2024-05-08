@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://o436c4ahk6md"]
+[gd_scene load_steps=19 format=3 uid="uid://o436c4ahk6md"]
 
 [ext_resource type="SpriteFrames" uid="uid://dpxjqilcp56lg" path="res://game_objects/characters/elem_monsterss/normal/water/ratfolk_mage/RatfolkMage_SpriteFrames_$Main$.tres" id="1_3rhfa"]
 [ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/water/ratfolk_mage/RatfolkMage.cs" id="1_pu3gl"]
@@ -62,6 +62,18 @@ tracks/3/keys = {
 "update": 1,
 "values": ["CAST_1"]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite3D_$Main$/$$OmniLight$$3D:light_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0.5, 1, 1), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_10pqp"]
 length = 0.6
@@ -112,6 +124,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": ["CAST_2"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite3D_$Main$/$$OmniLight$$3D:light_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.5, 1, 0, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_j8yy0"]
@@ -388,6 +412,10 @@ sprite_frames = ExtResource("1_3rhfa")
 animation = &"CAST_1"
 
 [node name="HitsFlashingByModulate" parent="AnimatedSprite3D_$Main$" instance=ExtResource("3_mv546")]
+
+[node name="$$OmniLight$$3D" type="OmniLight3D" parent="AnimatedSprite3D_$Main$"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+light_bake_mode = 0
 
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 cast_shadow = 3

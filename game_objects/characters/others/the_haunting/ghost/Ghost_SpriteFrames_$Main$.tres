@@ -503,7 +503,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mu01y")
 }],
-"loop": true,
+"loop": false,
 "name": &"SPOOK_F",
 "speed": 10.0
 }, {
@@ -532,7 +532,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ija21")
 }],
-"loop": true,
+"loop": false,
 "name": &"SPOOK_M",
 "speed": 10.0
 }]

@@ -69,22 +69,35 @@ public static class Extension
     return new(  @vector3.X,       @vector3.Z  );
     }
 
-    public static Vector3 GetGlobalMousePosition(this Node3D @node_3D, float zDepth)
+    public static Vector3 GetGlobalMousePosition(this Node3D @node_3D)
     {
         Viewport viewport = @node_3D.GetViewport();
         Camera3D camera3D = viewport.GetCamera3D();
-        Vector3 globalMousePosition
-                          = camera3D. ProjectPosition(
-                            viewport.GetMousePosition(
-                         ), zDepth);
-        return  globalMousePosition;
+
+        Vector2 mousePosition = viewport.GetMousePosition();
+        float   rayyyLengthhh = 1000;
+        Vector3 from =        camera3D.ProjectRayOrigin(screenPoint: mousePosition)                ;
+        Vector3 tooo = from + camera3D.ProjectRayNormal(screenPoint: mousePosition) * rayyyLengthhh;
+        PhysicsDirectSpaceState3D
+        physicsDirectSpaceState =
+                              camera3D.GetWorld3D().DirectSpaceState;
+        PhysicsRayQueryParameters3D
+        physicsRayQueryParameters     = new();
+        physicsRayQueryParameters.From = from;
+        physicsRayQueryParameters.To   = tooo;
+        Dictionary      rayCastResult =
+        physicsDirectSpaceState.IntersectRay(
+        physicsRayQueryParameters           );
+
+        return (Vector3)rayCastResult["position"];
     }
 
-    public static Vector3 Get_LocalMousePosition(this Node3D @node_3D, float zDepth)
+    public static Vector3 Get_LocalMousePosition(this Node3D @node_3D)
     {
-        Vector3 globalMousePosition = @node_3D.GetGlobalMousePosition(zDepth);
-        Vector3 @localMousePosition = @node_3D.  ToLocal(globalMousePosition);
-        return  @localMousePosition;
+        Vector3 globalMousePosition = @node_3D.GetGlobalMousePosition();
+        Vector3 @localMousePosition = @node_3D.  ToLocal             (
+                globalMousePosition);
+        return  @localMousePosition ;
     }
 
     public static Vector2 GetScreenMousePosition(this Node @node)
@@ -98,6 +111,11 @@ public static class Extension
 
     public static void LookAt______Camera(this Node3D @node3D, Camera3D @camera3D)
     {
+        if (@camera3D is null)
+        {
+            return;
+        }
+
         @node3D.Rotation =
         @node3D.Rotation with
         {

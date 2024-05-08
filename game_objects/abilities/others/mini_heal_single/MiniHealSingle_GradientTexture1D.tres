@@ -1,0 +1,7 @@
+[gd_resource type="GradientTexture1D" load_steps=2 format=3 uid="uid://vfsxvgfiyllo"]
+
+[ext_resource type="Gradient" uid="uid://dn1qplnaiyatg" path="res://game_objects/abilities/others/mini_heal_single/MiniHealSingle_Gradient---------.tres" id="1_1pd2g"]
+
+[resource]
+gradient = ExtResource("1_1pd2g")
+use_hdr = true

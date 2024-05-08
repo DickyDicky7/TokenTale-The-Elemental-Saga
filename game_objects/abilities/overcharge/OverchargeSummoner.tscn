@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://ds4corwrs4yyo"]
+
+[ext_resource type="Script" path="res://game_objects/abilities/overcharge/OverchargeSummoner.cs" id="1_2e8tp"]
+[ext_resource type="Shape3D" uid="uid://kdndmjc81i4e" path="res://game_objects/abilities/overcharge/OverchargeSummoner_CollisionShape3D_Scanbox.tres" id="2_kw1ri"]
+[ext_resource type="BlackboardPlan" uid="uid://cc30cyvubhlvq" path="res://game_objects/abilities/overcharge/OverchargeSummoner_BlackboardPlanBase.tres" id="3_6t2jr"]
+[ext_resource type="BehaviorTree" uid="uid://dvyrlhste1a4f" path="res://game_objects/abilities/overcharge/OverchargeSummoner_BehaviorTree.tres" id="3_rkwue"]
+
+[node name="OverchargeSummoner" type="Node3D"]
+script = ExtResource("1_2e8tp")
+
+[node name="Scanboxx" type="Area3D" parent="."]
+
+[node name="CollisionShape3D_Scanbox" type="CollisionShape3D" parent="Scanboxx"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = ExtResource("2_kw1ri")
+
+[node name="BTPlayer" type="BTPlayer" parent="."]
+behavior_tree = ExtResource("3_rkwue")
+blackboard_plan = ExtResource("3_6t2jr")

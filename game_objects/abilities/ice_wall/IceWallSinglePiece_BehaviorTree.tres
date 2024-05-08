@@ -1,6 +1,29 @@
-[gd_resource type="BehaviorTree" load_steps=2 format=3 uid="uid://dttuqje17co3e"]
+[gd_resource type="BehaviorTree" load_steps=9 format=3 uid="uid://dttuqje17co3e"]
 
 [ext_resource type="BlackboardPlan" uid="uid://b7hr0fhi3vt25" path="res://game_objects/abilities/ice_wall/IceWallSinglePiece_BlackboardPlan----.tres" id="1_d0lrs"]
+[ext_resource type="BBNode" uid="uid://n2dmkeymv75o" path="res://game_objects/abilities/ice_wall/IceWallSinglePiece_BBNode_RootNode.tres" id="2_helvb"]
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_skjtc"]
+node = ExtResource("2_helvb")
+method = &"_Show"
+
+[sub_resource type="BTWait" id="BTWait_fq2c0"]
+duration = 9.0
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_h32wj"]
+node = ExtResource("2_helvb")
+method = &"_Hide"
+
+[sub_resource type="BTWait" id="BTWait_1f3mf"]
+duration = 3.0
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_j54re"]
+node = ExtResource("2_helvb")
+method = &"queue_free"
+
+[sub_resource type="BTSequence" id="BTSequence_kad4h"]
+children = [SubResource("BTCallMethod_skjtc"), SubResource("BTWait_fq2c0"), SubResource("BTCallMethod_h32wj"), SubResource("BTWait_1f3mf"), SubResource("BTCallMethod_j54re")]
 
 [resource]
 blackboard_plan = ExtResource("1_d0lrs")
+root_task = SubResource("BTSequence_kad4h")

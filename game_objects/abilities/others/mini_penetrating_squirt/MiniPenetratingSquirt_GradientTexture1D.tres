@@ -1,0 +1,7 @@
+[gd_resource type="GradientTexture1D" load_steps=2 format=3 uid="uid://gf1gdjappxev"]
+
+[ext_resource type="Gradient" uid="uid://ci3tjgxpm8ksh" path="res://game_objects/abilities/others/mini_penetrating_squirt/MiniPenetratingSquirt_Gradient---------.tres" id="1_mdf8s"]
+
+[resource]
+gradient = ExtResource("1_mdf8s")
+use_hdr = true

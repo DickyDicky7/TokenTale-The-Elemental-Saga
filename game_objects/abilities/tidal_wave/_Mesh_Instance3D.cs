@@ -1,7 +1,7 @@
 using Godot;
 using System.Collections.Generic;
 
-namespace TokenTaleTheElementalSaga.TidalWave;
+namespace TokenTaleTheElementalSaga;
 
 //AUTHOR NOTE: CODE CHẠY 1 LẦN THÔI, KHI GENERATE RA RỒI, MÌNH SAVE LẠI THÀNH RESOURCE SAU ĐÓ CÓ THỂ REUSE
 

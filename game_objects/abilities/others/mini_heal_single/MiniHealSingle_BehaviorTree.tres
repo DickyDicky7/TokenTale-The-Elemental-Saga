@@ -1,0 +1,23 @@
+[gd_resource type="BehaviorTree" load_steps=8 format=3 uid="uid://cjkm5qs6q6b45"]
+
+[ext_resource type="BlackboardPlan" uid="uid://dmhg8fwerb8kk" path="res://game_objects/abilities/others/mini_heal_single/MiniHealSingle_BlackboardPlan----.tres" id="1_t8spl"]
+[ext_resource type="BBNode" uid="uid://oxa1kupjagv3" path="res://game_objects/abilities/others/mini_heal_single/MiniHealSingle_BBNode_AnimPlay.tres" id="2_s1377"]
+[ext_resource type="BBNode" uid="uid://mpu2irddjcx6" path="res://game_objects/abilities/others/mini_heal_single/MiniHealSingle_BBNode_RootNode.tres" id="3_oox2t"]
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_6nol4"]
+await_completion = 10.0
+animation_player = ExtResource("2_s1377")
+animation_name = &"HEAL"
+
+[sub_resource type="BTWait" id="BTWait_gjitm"]
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_t1g67"]
+node = ExtResource("3_oox2t")
+method = &"queue_free"
+
+[sub_resource type="BTSequence" id="BTSequence_qlql2"]
+children = [SubResource("BTPlayAnimation_6nol4"), SubResource("BTWait_gjitm"), SubResource("BTCallMethod_t1g67")]
+
+[resource]
+blackboard_plan = ExtResource("1_t8spl")
+root_task = SubResource("BTSequence_qlql2")

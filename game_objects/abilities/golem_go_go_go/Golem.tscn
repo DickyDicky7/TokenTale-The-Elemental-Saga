@@ -447,9 +447,11 @@ target_position = Vector3(0, 0, 0)
 debug_shape_custom_color = Color(0, 0, 1, 1)
 
 [node name="Flippable3DSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
+process_mode = 4
 script = ExtResource("6_o467g")
 Sprites = [NodePath("../AnimatedSprite3D_$Main$"), NodePath("../AnimatedShadow3D_$Main$"), NodePath("../AnimatedSprite3D_Summon"), NodePath("../AnimatedShadow3D_Summon")]
 
 [node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
+process_mode = 4
 script = ExtResource("7_0hrt7")
 Sprites = [NodePath("../AnimatedSprite3D_$Main$"), NodePath("../AnimatedSprite3D_Summon")]

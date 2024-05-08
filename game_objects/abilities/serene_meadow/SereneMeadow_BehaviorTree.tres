@@ -1,6 +1,30 @@
-[gd_resource type="BehaviorTree" load_steps=2 format=3 uid="uid://bxfl32sewhcdt"]
+[gd_resource type="BehaviorTree" load_steps=10 format=3 uid="uid://bxfl32sewhcdt"]
 
 [ext_resource type="BlackboardPlan" uid="uid://vogbfg527nlo" path="res://game_objects/abilities/serene_meadow/SereneMeadow_BlackboardPlan----.tres" id="1_25nb2"]
+[ext_resource type="BBNode" uid="uid://bbaxv72vg4o8d" path="res://game_objects/abilities/serene_meadow/SereneMeadow_BBNode_AnimPlay.tres" id="2_uyxuf"]
+[ext_resource type="BBNode" uid="uid://dmblvyh1nthwj" path="res://game_objects/abilities/serene_meadow/SereneMeadow_BBNode_RootNode.tres" id="3_od2yf"]
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_0tcbp"]
+animation_player = ExtResource("2_uyxuf")
+animation_name = &"HEAL"
+
+[sub_resource type="BTWait" id="BTWait_xfpv5"]
+duration = 9.0
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_641t8"]
+await_completion = 9.0
+animation_player = ExtResource("2_uyxuf")
+animation_name = &"FADE"
+
+[sub_resource type="BTWait" id="BTWait_4on0m"]
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_7n34l"]
+node = ExtResource("3_od2yf")
+method = &"queue_free"
+
+[sub_resource type="BTSequence" id="BTSequence_35q8i"]
+children = [SubResource("BTPlayAnimation_0tcbp"), SubResource("BTWait_xfpv5"), SubResource("BTPlayAnimation_641t8"), SubResource("BTWait_4on0m"), SubResource("BTCallMethod_7n34l")]
 
 [resource]
 blackboard_plan = ExtResource("1_25nb2")
+root_task = SubResource("BTSequence_35q8i")

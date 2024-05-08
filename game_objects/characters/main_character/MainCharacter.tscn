@@ -707,6 +707,7 @@ Acceleration = 0.2
 Deceleration = 0.2
 
 [node name="AnimatedSprite3D_$Main$" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 cast_shadow = 0
 offset = Vector2(0, 12)
 texture_filter = 0

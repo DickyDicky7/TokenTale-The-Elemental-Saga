@@ -1,0 +1,15 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=2 format=3 uid="uid://l7bik4b1k0b4"]
+
+[ext_resource type="Texture2D" uid="uid://gf1gdjappxev" path="res://game_objects/abilities/others/mini_penetrating_squirt/MiniPenetratingSquirt_GradientTexture1D.tres" id="1_fc1kp"]
+
+[resource]
+direction = Vector3(0, 0, -1)
+spread = 0.0
+initial_velocity_min = 0.5
+initial_velocity_max = 0.5
+gravity = Vector3(0, 0, -1.5)
+linear_accel_min = 0.499998
+linear_accel_max = 0.999998
+damping_min = 0.5
+damping_max = 0.5
+color_ramp = ExtResource("1_fc1kp")

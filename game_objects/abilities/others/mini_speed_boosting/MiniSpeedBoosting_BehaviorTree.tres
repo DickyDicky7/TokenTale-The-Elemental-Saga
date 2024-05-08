@@ -1,0 +1,23 @@
+[gd_resource type="BehaviorTree" load_steps=8 format=3 uid="uid://boxaa54h8iyal"]
+
+[ext_resource type="BlackboardPlan" uid="uid://dxecsld6ebbx5" path="res://game_objects/abilities/others/mini_speed_boosting/MiniSpeedBoosting_BlackboardPlan----.tres" id="1_n16y3"]
+[ext_resource type="BBNode" uid="uid://cttrr1eslidvn" path="res://game_objects/abilities/others/mini_speed_boosting/MiniSpeedBoosting_BBNode_AnimPlay.tres" id="2_wrdjy"]
+[ext_resource type="BBNode" uid="uid://d1f86hnhapnrf" path="res://game_objects/abilities/others/mini_speed_boosting/MiniSpeedBoosting_BBNode_RootNode.tres" id="3_q0sgx"]
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_xdjk2"]
+await_completion = 10.0
+animation_player = ExtResource("2_wrdjy")
+animation_name = &"BOOST"
+
+[sub_resource type="BTWait" id="BTWait_7sfrs"]
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_v2kpj"]
+node = ExtResource("3_q0sgx")
+method = &"queue_free"
+
+[sub_resource type="BTSequence" id="BTSequence_xsq07"]
+children = [SubResource("BTPlayAnimation_xdjk2"), SubResource("BTWait_7sfrs"), SubResource("BTCallMethod_v2kpj")]
+
+[resource]
+blackboard_plan = ExtResource("1_n16y3")
+root_task = SubResource("BTSequence_xsq07")

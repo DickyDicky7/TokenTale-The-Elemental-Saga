@@ -1,5 +1,5 @@
-[gd_resource type="CapsuleShape3D" format=3 uid="uid://uj6irmg35oj1"]
+[gd_resource type="SeparationRayShape3D" format=3 uid="uid://c3dcvq0rjpkrc"]
 
 [resource]
-radius = 0.03
-height = 2.4
+margin = 0.05
+length = 3.0

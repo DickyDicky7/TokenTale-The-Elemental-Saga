@@ -1,0 +1,12 @@
+[gd_resource type="BehaviorTree" load_steps=4 format=3 uid="uid://dqqxwm6yjd6xd"]
+
+[ext_resource type="BlackboardPlan" uid="uid://7uyrdywlt1je" path="res://game_objects/abilities/others/mini_blow_wind/MiniBlowWind_BlackboardPlan----.tres" id="1_vyk7b"]
+
+[sub_resource type="BTWait" id="BTWait_ox2me"]
+
+[sub_resource type="BTSequence" id="BTSequence_f4hp8"]
+children = [SubResource("BTWait_ox2me")]
+
+[resource]
+blackboard_plan = ExtResource("1_vyk7b")
+root_task = SubResource("BTSequence_f4hp8")

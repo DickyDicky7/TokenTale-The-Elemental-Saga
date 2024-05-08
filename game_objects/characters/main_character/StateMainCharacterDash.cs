@@ -25,7 +25,7 @@ public partial class StateMainCharacterDash : State
 
         Vector3 blendPosition =  Extension.GetInputDirection().ConvertToTopDown();
         _tween = MainCharacter.CreateTween();
-        _tween.TweenProperty(MainCharacter, "position"
+        _tween.TweenProperty(MainCharacter,    "position"
                            , MainCharacter.     Position
                            +               blendPosition
                            * MainCharacter.Speed  ,0.5d)

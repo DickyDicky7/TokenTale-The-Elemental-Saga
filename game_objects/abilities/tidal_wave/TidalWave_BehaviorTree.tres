@@ -1,6 +1,31 @@
-[gd_resource type="BehaviorTree" load_steps=2 format=3 uid="uid://dgfltm5vq2fjm"]
+[gd_resource type="BehaviorTree" load_steps=10 format=3 uid="uid://dgfltm5vq2fjm"]
 
 [ext_resource type="BlackboardPlan" uid="uid://blcrp3qi8a04d" path="res://game_objects/abilities/tidal_wave/TidalWave_BlackboardPlan----.tres" id="1_55d2k"]
+[ext_resource type="BBNode" uid="uid://c7bjeo2ukxys1" path="res://game_objects/abilities/tidal_wave/TidalWave_BBNode_AnimPlay.tres" id="2_npapg"]
+[ext_resource type="BBNode" uid="uid://b4rqukhyi3x1a" path="res://game_objects/abilities/tidal_wave/TidalWave_BBNode_RootNode.tres" id="3_ope1r"]
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_vxs6l"]
+await_completion = 5.0
+animation_player = ExtResource("2_npapg")
+animation_name = &"START"
+
+[sub_resource type="BTWait" id="BTWait_xinye"]
+duration = 9.0
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_1xeos"]
+await_completion = 5.0
+animation_player = ExtResource("2_npapg")
+animation_name = &"CEASE"
+
+[sub_resource type="BTWait" id="BTWait_hgb6k"]
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_g7vtr"]
+node = ExtResource("3_ope1r")
+method = &"queue_free"
+
+[sub_resource type="BTSequence" id="BTSequence_0cmuw"]
+children = [SubResource("BTPlayAnimation_vxs6l"), SubResource("BTWait_xinye"), SubResource("BTPlayAnimation_1xeos"), SubResource("BTWait_hgb6k"), SubResource("BTCallMethod_g7vtr")]
 
 [resource]
 blackboard_plan = ExtResource("1_55d2k")
+root_task = SubResource("BTSequence_0cmuw")

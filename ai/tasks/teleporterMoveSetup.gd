@@ -130,7 +130,7 @@ func FindTeleportLocation() -> Vector3:
 	return location;
 
 func FindTeleportLocation2(distanceToAction: float) -> Vector3:
-	rayCast3DMove.add_exception_rid(targetCharacter.get_rid())
+	rayCast3DTeleport.add_exception_rid(targetCharacter.get_rid())
 	var clockwisePriority: bool = blackboard.get_var(BBVariable.ClockwisePriority)
 	var mainVector: Vector3 = Helper.ProjectVector3ToPlane(
 		currentCharacter.position.direction_to(targetCharacter.position)
@@ -145,8 +145,8 @@ func FindTeleportLocation2(distanceToAction: float) -> Vector3:
 			rad_to_deg(mainVector.signed_angle_to(potentialDirections[i], Vector3.DOWN)) +
 			rad_to_deg(atan2(mainVector.z, mainVector.x))
 		)
-		rayCast3DMove.force_raycast_update()
-		if (rayCast3DMove.is_colliding() == false):
+		rayCast3DTeleport.force_raycast_update()
+		if (rayCast3DTeleport.is_colliding() == false):
 			break;
 		if (sin(mainVector.angle_to(potentialDirections[i])) >= 0):
 			clockwisePriority = false;

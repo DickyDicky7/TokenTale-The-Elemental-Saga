@@ -464,5 +464,6 @@ ResetState = NodePath("../Reset")
 Sword = NodePath("../..")
 
 [node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
+process_mode = 4
 script = ExtResource("9_831tv")
 Sprites = [NodePath("../Sprite3D"), NodePath("../_AnimatedSprite3D")]

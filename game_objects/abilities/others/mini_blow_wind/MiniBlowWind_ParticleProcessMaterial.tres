@@ -1,0 +1,11 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=2 format=3 uid="uid://k5du8r1k2sty"]
+
+[ext_resource type="Texture2D" uid="uid://q2monia6405o" path="res://game_objects/abilities/others/mini_blow_wind/MiniBlowWind_GradientTexture1D.tres" id="1_xyphw"]
+
+[resource]
+emission_shape_scale = Vector3(1, 0, 1)
+emission_shape = 1
+emission_sphere_radius = 0.5
+gravity = Vector3(0.1, 0, 0)
+color = Color(1, 1.1, 1, 1)
+color_ramp = ExtResource("1_xyphw")

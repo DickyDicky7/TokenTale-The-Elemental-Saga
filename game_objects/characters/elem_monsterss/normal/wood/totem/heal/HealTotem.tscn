@@ -1,6 +1,5 @@
-[gd_scene load_steps=21 format=3 uid="uid://cyv12iosddo4f"]
+[gd_scene load_steps=20 format=3 uid="uid://cyv12iosddo4f"]
 
-[ext_resource type="Material" uid="uid://ce62yhhmbghc" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_MaterialOverride_01.tres" id="1_l2ued"]
 [ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem.cs" id="1_pc638"]
 [ext_resource type="SpriteFrames" uid="uid://b8kirdr3jdxm1" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_SpriteFrames_$Main$.tres" id="1_q6j6a"]
 [ext_resource type="PackedScene" uid="uid://dsbep0yr8rwxa" path="res://game_objects/shared/hits_flashing_by_modulate/HitsFlashingByModulate.tscn" id="2_5nmji"]

@@ -458,8 +458,6 @@ sprite_frames = ExtResource("1_n3j5a")
 animation = &"DEAD"
 
 [node name="HitsFlashingByModulate" parent="AnimatedSprite3D_$Main$" instance=ExtResource("3_5ej0u")]
-DeadColor = null
-HurtColor = null
 
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 cast_shadow = 3

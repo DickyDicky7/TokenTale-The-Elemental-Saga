@@ -26,7 +26,7 @@ public partial class EyeSight3D : Node3D
     }
 
     [Export]
-    public double               RotateDuration { get; set; } // = ~ Rotate Speed
+    public double               RotateDuration { get; set; } // = ~ Rotate Speed In Seconds
     [Export]
     public Tween.      EaseType EasingfuncType { get; set; } // For Rotate Smoothly
     [Export]
@@ -52,3 +52,8 @@ public partial class EyeSight3D : Node3D
         ProcessMode = ProcessModeEnum.Disabled;        
     }
 }
+
+
+
+
+

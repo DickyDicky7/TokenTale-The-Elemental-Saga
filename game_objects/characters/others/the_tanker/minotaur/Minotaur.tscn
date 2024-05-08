@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://dsw38xnjyq7yu"]
+[gd_scene load_steps=23 format=3 uid="uid://dsw38xnjyq7yu"]
 
 [ext_resource type="SpriteFrames" uid="uid://b6px143pmxsue" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_SpriteFrames_$Main$.tres" id="1_nfvla"]
 [ext_resource type="Script" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur.cs" id="1_scwcr"]
 [ext_resource type="Shape3D" uid="uid://c6rxg7lixnpfr" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_CollisionShape3D_Body.tres" id="3_75wp1"]
+[ext_resource type="PackedScene" uid="uid://dsbep0yr8rwxa" path="res://game_objects/shared/hits_flashing_by_modulate/HitsFlashingByModulate.tscn" id="3_ernqa"]
 [ext_resource type="BehaviorTree" uid="uid://do56smytaorys" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_BehaviorTree.tres" id="4_ejkyx"]
 [ext_resource type="BlackboardPlan" uid="uid://bfif4achauhkn" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_BlackboardPlanBase.tres" id="5_3b3my"]
 [ext_resource type="Shape3D" uid="uid://huqvodapiiy6" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_ShapeCast3D.tres" id="6_2h21h"]
@@ -279,6 +280,20 @@ tracks/4/keys = {
 "method": &"queue_free"
 }]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite3D_$Main$/HitsFlashingByModulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.6, 0.1, false],
+"method": &"PlayDeadEffect"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_rcpfy"]
 length = 0.3
@@ -330,6 +345,20 @@ tracks/3/keys = {
 "update": 1,
 "values": ["HURT_0"]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite3D_$Main$/HitsFlashingByModulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.3, 0.1, false],
+"method": &"PlayHurtEffect"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_i6myk"]
 length = 0.3
@@ -380,6 +409,20 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": ["HURT_1"]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite3D_$Main$/HitsFlashingByModulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.3, 0.1, false],
+"method": &"PlayHurtEffect"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_eldqj"]
@@ -567,6 +610,8 @@ offset = Vector2(3, 16)
 texture_filter = 0
 sprite_frames = ExtResource("1_nfvla")
 animation = &"ATTACK_0"
+
+[node name="HitsFlashingByModulate" parent="AnimatedSprite3D_$Main$" instance=ExtResource("3_ernqa")]
 
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 cast_shadow = 3

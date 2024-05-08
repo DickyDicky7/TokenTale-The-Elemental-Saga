@@ -3,9 +3,9 @@
 [ext_resource type="Material" uid="uid://ce62yhhmbghc" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_MaterialOverride_01.tres" id="1_l2ued"]
 [ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem.cs" id="1_pc638"]
 [ext_resource type="SpriteFrames" uid="uid://b8kirdr3jdxm1" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_SpriteFrames_$Main$.tres" id="1_q6j6a"]
+[ext_resource type="PackedScene" uid="uid://dsbep0yr8rwxa" path="res://game_objects/shared/hits_flashing_by_modulate/HitsFlashingByModulate.tscn" id="2_5nmji"]
 [ext_resource type="BehaviorTree" uid="uid://qjvfmmgwhd5t" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_BehaviorTree.tres" id="3_j0och"]
 [ext_resource type="Shape3D" uid="uid://dhds745t3iuay" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_CollisionShape3D_Body.tres" id="3_uclmn"]
-[ext_resource type="Material" uid="uid://dfg2xmmitmjpb" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_MaterialOverride_02.tres" id="4_ggyis"]
 [ext_resource type="BlackboardPlan" uid="uid://cy0c07262ivud" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_BlackboardPlanBase.tres" id="5_y685y"]
 [ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.tscn" id="6_6jmt3"]
 [ext_resource type="Shape3D" uid="uid://hksbajkeyi3p" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_ShapeCast3D.tres" id="6_uclns"]
@@ -179,17 +179,19 @@ tracks/4/keys = {
 "method": &"queue_free"
 }]
 }
-tracks/5/type = "value"
+tracks/5/type = "method"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("AnimatedSprite3D_$Main$:material_override")
+tracks/5/path = NodePath("AnimatedSprite3D_$Main$/HitsFlashingByModulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("1_l2ued"), ExtResource("1_l2ued"), ExtResource("1_l2ued"), ExtResource("1_l2ued"), ExtResource("1_l2ued"), ExtResource("1_l2ued"), ExtResource("1_l2ued")]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.6, 0.1, false],
+"method": &"PlayDeadEffect"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_qqp3e"]
@@ -293,17 +295,19 @@ tracks/3/keys = {
 "update": 1,
 "values": ["HURT"]
 }
-tracks/4/type = "value"
+tracks/4/type = "method"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AnimatedSprite3D_$Main$:material_override")
+tracks/4/path = NodePath("AnimatedSprite3D_$Main$/HitsFlashingByModulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("1_l2ued"), ExtResource("4_ggyis"), ExtResource("1_l2ued"), ExtResource("4_ggyis"), ExtResource("1_l2ued"), ExtResource("4_ggyis"), ExtResource("1_l2ued")]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.6, 0.1, false],
+"method": &"PlayHurtEffect"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_ukw0m"]
@@ -429,12 +433,13 @@ Acceleration = 0.1
 Deceleration = 0.1
 
 [node name="AnimatedSprite3D_$Main$" type="AnimatedSprite3D" parent="."]
-material_override = ExtResource("1_l2ued")
 cast_shadow = 0
 offset = Vector2(0.5, 16)
 texture_filter = 0
 sprite_frames = ExtResource("1_q6j6a")
-animation = &"SMERGE"
+animation = &"ATTACK"
+
+[node name="HitsFlashingByModulate" parent="AnimatedSprite3D_$Main$" instance=ExtResource("2_5nmji")]
 
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 cast_shadow = 3

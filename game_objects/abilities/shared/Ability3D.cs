@@ -8,7 +8,7 @@ public abstract partial class Ability3D : Node3D
     public      Node3D Spacex { get; set; }
     public Character3D Caster { get; set; }
     [Export]
-    public double               MovingDuration { get; set; } // = ~ Moving Speed
+    public double               MovingDuration { get; set; } // = ~ Moving Speed In Seconds
     [Export]
     public Tween.      EaseType EasingfuncType { get; set; } // For Moving Smoothly
     [Export]

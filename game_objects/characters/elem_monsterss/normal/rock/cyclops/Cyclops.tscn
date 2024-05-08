@@ -1,7 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://yfbwbxquk1v"]
+[gd_scene load_steps=22 format=3 uid="uid://yfbwbxquk1v"]
 
 [ext_resource type="SpriteFrames" uid="uid://c8gw1rkf7dxbk" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops_SpriteFrames_$Main$.tres" id="1_1rf3k"]
 [ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops.cs" id="1_qkaly"]
+[ext_resource type="PackedScene" uid="uid://dsbep0yr8rwxa" path="res://game_objects/shared/hits_flashing_by_modulate/HitsFlashingByModulate.tscn" id="3_3d3nc"]
 [ext_resource type="Shape3D" uid="uid://bcks15sxia73f" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops_CollisionShape3D_Body.tres" id="3_n5lrr"]
 [ext_resource type="BlackboardPlan" uid="uid://dtlc6qyr0idvj" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops_BlackboardPlanBase.tres" id="5_sg5x2"]
 [ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.tscn" id="5_tvi3d"]
@@ -73,6 +74,20 @@ tracks/4/keys = {
 "values": [{
 "args": [],
 "method": &"queue_free"
+}]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite3D_$Main$/HitsFlashingByModulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.9, 0.1, false],
+"method": &"PlayDeadEffect"
 }]
 }
 
@@ -177,6 +192,20 @@ tracks/3/keys = {
 "update": 1,
 "values": ["HURT_1"]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite3D_$Main$/HitsFlashingByModulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.3, 0.1, false],
+"method": &"PlayHurtEffect"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_miire"]
 length = 0.5
@@ -227,6 +256,20 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": ["HURT_2"]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite3D_$Main$/HitsFlashingByModulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.5, 0.1, false],
+"method": &"PlayHurtEffect"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_ngoxv"]
@@ -515,7 +558,9 @@ cast_shadow = 0
 offset = Vector2(1.5, 32)
 texture_filter = 0
 sprite_frames = ExtResource("1_1rf3k")
-animation = &"IDLE"
+animation = &"DEAD"
+
+[node name="HitsFlashingByModulate" parent="AnimatedSprite3D_$Main$" instance=ExtResource("3_3d3nc")]
 
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 cast_shadow = 3
@@ -523,7 +568,7 @@ offset = Vector2(1.5, 32)
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_1rf3k")
-animation = &"IDLE"
+animation = &"DEAD"
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)

@@ -26,7 +26,7 @@ public partial class Main : Node3D
 
         //GD.Print(Engine.GetFramesPerSecond());
 
-        if (Input.IsActionJustPressed("L_CLICK"))
+        if (Input.IsActionJustPressed("R_CLICK"))
         {
             Ability3D ability = Scene.Instantiate<
             Ability3D>();

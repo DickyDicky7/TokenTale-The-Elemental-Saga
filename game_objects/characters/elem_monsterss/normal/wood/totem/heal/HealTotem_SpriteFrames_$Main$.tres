@@ -230,4 +230,24 @@ animations = [{
 "loop": true,
 "name": &"IDLE",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2cma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dp3t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8xcs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edry2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxv84")
+}],
+"loop": true,
+"name": &"SMERGE",
+"speed": 10.0
 }]

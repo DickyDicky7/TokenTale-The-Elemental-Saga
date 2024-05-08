@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cyv12iosddo4f"]
+[gd_scene load_steps=21 format=3 uid="uid://cyv12iosddo4f"]
 
 [ext_resource type="Material" uid="uid://ce62yhhmbghc" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_MaterialOverride_01.tres" id="1_l2ued"]
 [ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem.cs" id="1_pc638"]
@@ -179,6 +179,18 @@ tracks/4/keys = {
 "method": &"queue_free"
 }]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite3D_$Main$:material_override")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_l2ued"), ExtResource("1_l2ued"), ExtResource("1_l2ued"), ExtResource("1_l2ued"), ExtResource("1_l2ued"), ExtResource("1_l2ued"), ExtResource("1_l2ued")]
+}
 
 [sub_resource type="Animation" id="Animation_qqp3e"]
 length = 0.5
@@ -346,6 +358,57 @@ tracks/3/keys = {
 "values": ["IDLE"]
 }
 
+[sub_resource type="Animation" id="Animation_c3ngl"]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite3D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite3D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["SMERGE"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite3D_Shadow:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite3D_Shadow:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["SMERGE"]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8xbje"]
 _data = {
 "ATTACK": SubResource("Animation_0cw2i"),
@@ -353,7 +416,8 @@ _data = {
 "DEAD": SubResource("Animation_svji7"),
 "EMERGE": SubResource("Animation_qqp3e"),
 "HURT": SubResource("Animation_fm1xq"),
-"IDLE": SubResource("Animation_ukw0m")
+"IDLE": SubResource("Animation_ukw0m"),
+"SMERGE": SubResource("Animation_c3ngl")
 }
 
 [node name="HealTotem" type="CharacterBody3D"]
@@ -365,13 +429,12 @@ Acceleration = 0.1
 Deceleration = 0.1
 
 [node name="AnimatedSprite3D_$Main$" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 material_override = ExtResource("1_l2ued")
 cast_shadow = 0
 offset = Vector2(0.5, 16)
 texture_filter = 0
 sprite_frames = ExtResource("1_q6j6a")
-animation = &"ATTACK"
+animation = &"SMERGE"
 
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 cast_shadow = 3
@@ -379,7 +442,7 @@ offset = Vector2(0.5, 16)
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_q6j6a")
-animation = &"ATTACK"
+animation = &"SMERGE"
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075, 0)
@@ -397,6 +460,9 @@ blackboard_plan = ExtResource("5_y685y")
 [node name="EyeSight$3D" parent="." instance=ExtResource("6_6jmt3")]
 transform = Transform3D(2.12132, 0, 2.12132, 0, 1, 0, -2.12132, 0, 2.12132, 0, 0, 0)
 visible = false
+RotateDuration = 0.0
+EasingfuncType = 0
+TransitionType = 0
 
 [node name="Ray__Cast3D" type="RayCast3D" parent="."]
 transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0.1, 0)

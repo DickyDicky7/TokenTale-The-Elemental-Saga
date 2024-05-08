@@ -1,14 +1,19 @@
 [gd_scene load_steps=3 format=3 uid="uid://bgdawgq8afl3v"]
 
-[ext_resource type="Script" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.cs" id="1_6t0tl"]
+[ext_resource type="Script"                              path="res://game_objects/shared/eye_sight_3D/EyeSight3D.cs"                     id="1_6t0tl"]
 [ext_resource type="Texture2D" uid="uid://c25qa0rhbkmdy" path="res://game_objects/shared/eye_sight_3D/EyeSight3D_GradientTexture2D.tres" id="1_dvlps"]
 
 [node name="EyeSight3D" type="Node3D"]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
-script = ExtResource("1_6t0tl")
+transform =Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
+script    =ExtResource("1_6t0tl")
+RotateDuration = 0.5
+EasingfuncType = 3
+TransitionType = 3
 
 [node name="_Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.24, 0, 0.24)
-texture = ExtResource("1_dvlps")
+texture   = ExtResource("1_dvlps")
 region_enabled = true
-region_rect = Rect2(0, 0, 48, 48)
+region_rect    = Rect2(0, 0, 48, 48)
+
+

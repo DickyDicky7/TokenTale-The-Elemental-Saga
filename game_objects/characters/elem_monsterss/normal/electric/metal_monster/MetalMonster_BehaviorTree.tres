@@ -1,4 +1,4 @@
-[gd_resource type="BehaviorTree" load_steps=47 format=3 uid="uid://b2bpmha480eof"]
+[gd_resource type="BehaviorTree" load_steps=48 format=3 uid="uid://b2bpmha480eof"]
 
 [ext_resource type="BlackboardPlan" uid="uid://pvay473srm5a" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster_BlackboardPlan----.tres" id="1_qh5j8"]
 [ext_resource type="Script" path="res://ai/tasks/beingHit.gd" id="2_v2wgo"]
@@ -156,9 +156,11 @@ children = [SubResource("BTAction_y884u"), SubResource("BTAction_l2o2m"), SubRes
 animation_player = ExtResource("3_0x2iu")
 animation_name = &"IDLE"
 
+[sub_resource type="BTWait" id="BTWait_l7oo8"]
+
 [sub_resource type="BTSelector" id="BTSelector_2rlpc"]
 custom_name = "Root"
-children = [SubResource("BTSequence_4pkf5"), SubResource("BTSequence_nc3hw"), SubResource("BTSequence_xcsxr"), SubResource("BTSequence_fbvky"), SubResource("BTPlayAnimation_aito6")]
+children = [SubResource("BTSequence_4pkf5"), SubResource("BTSequence_nc3hw"), SubResource("BTSequence_xcsxr"), SubResource("BTSequence_fbvky"), SubResource("BTPlayAnimation_aito6"), SubResource("BTWait_l7oo8")]
 
 [resource]
 blackboard_plan = ExtResource("1_qh5j8")

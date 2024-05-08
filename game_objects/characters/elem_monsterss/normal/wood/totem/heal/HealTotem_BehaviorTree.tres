@@ -70,9 +70,7 @@ resource_name = "AnimationPlayer"
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_w8sn2"]
 await_completion = 1.0
 animation_player = SubResource("BBNode_ajbiq")
-animation_name = &"EMERGE"
-speed = -1.0
-from_end = true
+animation_name = &"SMERGE"
 
 [sub_resource type="BTAction" id="BTAction_3po85"]
 script = ExtResource("9_eruc1")

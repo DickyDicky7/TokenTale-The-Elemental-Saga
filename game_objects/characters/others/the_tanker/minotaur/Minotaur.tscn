@@ -566,7 +566,7 @@ cast_shadow = 0
 offset = Vector2(3, 16)
 texture_filter = 0
 sprite_frames = ExtResource("1_nfvla")
-animation = &"IDLE"
+animation = &"ATTACK_0"
 
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 cast_shadow = 3
@@ -574,7 +574,7 @@ offset = Vector2(3, 16)
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_nfvla")
-animation = &"IDLE"
+animation = &"ATTACK_0"
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)

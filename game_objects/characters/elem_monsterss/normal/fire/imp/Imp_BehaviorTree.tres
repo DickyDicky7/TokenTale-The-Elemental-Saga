@@ -94,7 +94,7 @@ PathEyeSight = NodePath("EyeSight$3D")
 
 [sub_resource type="BTAction" id="BTAction_tf2ka"]
 script = ExtResource("7_3tkrk")
-PathTimer = NodePath("TimerChangeFlipH____________________")
+PathTimer = NodePath("Timer")
 
 [sub_resource type="BTAction" id="BTAction_d6sfd"]
 script = ExtResource("7_ntvm3")

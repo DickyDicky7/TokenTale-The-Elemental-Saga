@@ -41,7 +41,8 @@ public partial class StateSwordReset : StateSword
     {
                     base._Process(      @delta);
 
-        Vector2 hover_Position  = Sword .GetScreenMousePosition();
+        Vector2 hover_Position  = Sword .Get_LocalMousePosition().ConvertToTopDown();
+//      Vector2 hover_Position  = Sword .GetScreenMousePosition()                   ;
         Vector2 inputDirection  = Extension
         .    GetInputDirection();
         if    ( inputDirection !=

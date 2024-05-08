@@ -53,6 +53,8 @@ func _enter() -> void:
 	pass;
 	
 func _exit() -> void:
+	rayCast3DMove.target_position = rayCast3DMove.target_position
+	rayCast3DTeleport.target_position = rayCast3DTeleport.target_position
 	pass;
 	
 func _tick(_delta: float) -> Status:
@@ -123,6 +125,7 @@ func FindTeleportLocation() -> Vector3:
 	var location: Vector3 = Vector3(0, 0, 0)
 	for i in range (potentialLocation.size()):
 		rayCast3DTeleport.target_position = potentialLocation[i]
+		rayCast3DTeleport.position = potentialLocation[i]
 		rayCast3DTeleport.force_raycast_update()
 		if (rayCast3DTeleport.is_colliding() == false):
 			location = potentialLocation[i]
@@ -140,30 +143,34 @@ func FindTeleportLocation2(distanceToAction: float) -> Vector3:
 		mainVector
 		, priorityAngle
 		, clockwisePriority)
+	var teleportDistance: float = 0
+	var rayCastLength: float = Helper.ProjectVector3ToPlane(
+			rayCast3DMove.position, Vector3.UP).distance_to(
+			Helper.ProjectVector3ToPlane(
+			rayCast3DMove.target_position, Vector3.UP))
+	if (rayCastLength <= distanceToAction):
+		teleportDistance = rayCastLength
+	else:
+		teleportDistance = distanceToAction
+	var location: Vector3 = Vector3(0, 0 ,0)
 	for i in range (potentialDirections.size()):
-		rayCast3DTeleport.rotation_degrees.y = Helper.StandardizeDegree(
+		rayCast3DMove.rotation_degrees.y = Helper.StandardizeDegree(
 			rad_to_deg(mainVector.signed_angle_to(potentialDirections[i], Vector3.DOWN)) +
 			rad_to_deg(atan2(mainVector.z, mainVector.x))
 		)
+		var locationTemp: Vector3 = Vector3(0, 0, 0)
+		locationTemp.x = currentCharacter.position.x + cos(deg_to_rad(rayCast3DMove.rotation_degrees.y)) * teleportDistance
+		locationTemp.z = currentCharacter.position.z + sin(deg_to_rad(rayCast3DMove.rotation_degrees.y)) * teleportDistance
+		locationTemp.y = currentCharacter.position.y
+		rayCast3DTeleport.target_position = locationTemp
+		rayCast3DTeleport.position = locationTemp
 		rayCast3DTeleport.force_raycast_update()
 		if (rayCast3DTeleport.is_colliding() == false):
+			location = locationTemp
 			break;
 		if (sin(mainVector.angle_to(potentialDirections[i])) >= 0):
 			clockwisePriority = false;
 		else:
 			clockwisePriority = true;
 	blackboard.set_var(BBVariable.ClockwisePriority, clockwisePriority)
-	var teleportDistance: float = 0
-	var rayCastLength: float = Helper.ProjectVector3ToPlane(
-					rayCast3DMove.position, Vector3.UP).distance_to(
-					Helper.ProjectVector3ToPlane(
-					rayCast3DMove.target_position, Vector3.UP))
-	if (rayCastLength <= distanceToAction):
-		teleportDistance = rayCastLength
-	else:
-		teleportDistance = distanceToAction
-	var location: Vector3 = Vector3(0, 0 ,0)
-	location.x = currentCharacter.position.x + cos(deg_to_rad(rayCast3DTeleport.rotation_degrees.y)) * teleportDistance
-	location.z = currentCharacter.position.z + sin(deg_to_rad(rayCast3DTeleport.rotation_degrees.y)) * teleportDistance
-	location.y = currentCharacter.position.y
 	return location

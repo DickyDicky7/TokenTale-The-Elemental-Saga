@@ -1,4 +1,4 @@
-[gd_resource type="BehaviorTree" load_steps=49 format=3 uid="uid://b58tol6ty0ood"]
+[gd_resource type="BehaviorTree" load_steps=50 format=3 uid="uid://b58tol6ty0ood"]
 
 [ext_resource type="BlackboardPlan" uid="uid://5s0kxfus7bh" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_BlackboardPlan----.tres" id="1_jpusp"]
 [ext_resource type="Script" path="res://ai/tasks/beingHit.gd" id="2_3jam1"]
@@ -164,9 +164,11 @@ children = [SubResource("BTAction_tvem3"), SubResource("BTAction_awurn"), SubRes
 animation_player = ExtResource("4_e2ybg")
 animation_name = &"IDLE_B"
 
+[sub_resource type="BTWait" id="BTWait_2w8iy"]
+
 [sub_resource type="BTSelector" id="BTSelector_roddx"]
 custom_name = "Root"
-children = [SubResource("BTSequence_yh10e"), SubResource("BTSequence_d6jqv"), SubResource("BTSequence_5gfa2"), SubResource("BTSequence_ag5ux"), SubResource("BTPlayAnimation_2gv7o")]
+children = [SubResource("BTSequence_yh10e"), SubResource("BTSequence_d6jqv"), SubResource("BTSequence_5gfa2"), SubResource("BTSequence_ag5ux"), SubResource("BTPlayAnimation_2gv7o"), SubResource("BTWait_2w8iy")]
 
 [resource]
 blackboard_plan = ExtResource("1_jpusp")

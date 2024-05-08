@@ -1,4 +1,4 @@
-[gd_resource type="BehaviorTree" load_steps=50 format=3 uid="uid://c0qgsne1gmjmr"]
+[gd_resource type="BehaviorTree" load_steps=51 format=3 uid="uid://c0qgsne1gmjmr"]
 
 [ext_resource type="BlackboardPlan" uid="uid://dfkm2xh6u1swd" path="res://game_objects/characters/others/the_thief/cat/Cat_BlackboardPlan----.tres" id="1_pj3pd"]
 [ext_resource type="Script" path="res://ai/tasks/beingHit.gd" id="2_8hwu5"]
@@ -166,11 +166,13 @@ resource_name = "AnimationPlayer"
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_6k7wq"]
 animation_player = SubResource("BBNode_fs0ug")
-animation_name = &"IDLE"
+animation_name = &"IDLE_0"
+
+[sub_resource type="BTWait" id="BTWait_eil2i"]
 
 [sub_resource type="BTSelector" id="BTSelector_ld8mk"]
 custom_name = "Root"
-children = [SubResource("BTSequence_jog8o"), SubResource("BTSequence_wd8kp"), SubResource("BTSequence_1o46u"), SubResource("BTSequence_yul8y"), SubResource("BTPlayAnimation_6k7wq")]
+children = [SubResource("BTSequence_jog8o"), SubResource("BTSequence_wd8kp"), SubResource("BTSequence_1o46u"), SubResource("BTSequence_yul8y"), SubResource("BTPlayAnimation_6k7wq"), SubResource("BTWait_eil2i")]
 
 [resource]
 blackboard_plan = ExtResource("1_pj3pd")

@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dsf7uiv5n2gnx"]
+
+[ext_resource type="Shader" path="res://shaders/HitsFlashing.gdshader" id="1_15vx8"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_15vx8")
+shader_parameter/active = false
+shader_parameter/f_lashcolor = Color(1, 1, 1, 1)
+shader_parameter/y_billboard = false

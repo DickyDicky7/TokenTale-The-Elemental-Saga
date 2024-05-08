@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://jgrl74q1we0r"]
+
+[ext_resource type="Script" path="res://game_objects/shared/hits_flashing/HitsFlashing.cs" id="1_0e3p7"]
+[ext_resource type="Material" uid="uid://dsf7uiv5n2gnx" path="res://game_objects/shared/hits_flashing/HitsFlashing_ShaderMaterial.tres" id="2_2u65m"]
+
+[node name="HitsFlashing" type="Node"]
+script = ExtResource("1_0e3p7")
+ShaderMaterialToDuplicate = ExtResource("2_2u65m")

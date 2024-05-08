@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://u16qad10a485"]
+[gd_scene load_steps=18 format=3 uid="uid://u16qad10a485"]
 
 [ext_resource type="SpriteFrames" uid="uid://0kbvt2fcohxa" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster_SpriteFrames_$Main$.tres" id="1_1wafb"]
 [ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster.cs" id="1_x2fgj"]
 [ext_resource type="Shape3D" uid="uid://dnlsnu8nqbmc1" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster_CollisionShape3D_Body.tres" id="3_dqny3"]
+[ext_resource type="PackedScene" uid="uid://dsbep0yr8rwxa" path="res://game_objects/shared/hits_flashing_by_modulate/HitsFlashingByModulate.tscn" id="3_xt4bl"]
 [ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.tscn" id="5_jnxj8"]
 [ext_resource type="BlackboardPlan" uid="uid://fsqsabqsafqi" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster_BlackboardPlanBase.tres" id="5_wy6lx"]
 [ext_resource type="Shape3D" uid="uid://dutdm8qf5mh4b" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster_ShapeCast3D.tres" id="6_1cglj"]
@@ -126,6 +127,20 @@ tracks/4/keys = {
 "method": &"queue_free"
 }]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite3D_$Main$/HitsFlashingModulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.73, 0.1, false],
+"method": &"PlayDeadEffect"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_eykw2"]
 length = 0.333333
@@ -176,6 +191,20 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": ["HURT"]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite3D_$Main$/HitsFlashingModulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.33, 0.1, false],
+"method": &"PlayHurtEffect"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_jh0ta"]
@@ -306,6 +335,8 @@ offset = Vector2(0, 28)
 texture_filter = 0
 sprite_frames = ExtResource("1_1wafb")
 animation = &"CHARGE"
+
+[node name="HitsFlashingModulate" parent="AnimatedSprite3D_$Main$" instance=ExtResource("3_xt4bl")]
 
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 cast_shadow = 3

@@ -1,7 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://da0vo8ll2gr8e"]
+[gd_scene load_steps=25 format=3 uid="uid://da0vo8ll2gr8e"]
 
 [ext_resource type="Script" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton.cs" id="1_dw4lx"]
 [ext_resource type="SpriteFrames" uid="uid://bxpnnnp6gu54r" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_SpriteFrames_$Main$.tres" id="2_hqwn4"]
+[ext_resource type="PackedScene" uid="uid://dsbep0yr8rwxa" path="res://game_objects/shared/hits_flashing_by_modulate/HitsFlashingByModulate.tscn" id="3_0a7lw"]
 [ext_resource type="Shape3D" uid="uid://72bsjybq8q1y" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_CollisionShape3D_Body.tres" id="3_xhr2f"]
 [ext_resource type="BehaviorTree" uid="uid://b58tol6ty0ood" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_BehaviorTree.tres" id="4_edg5u"]
 [ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.tscn" id="5_8vmv1"]
@@ -75,6 +76,20 @@ tracks/4/keys = {
 "method": &"queue_free"
 }]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite3D_$Main$/HitsFlashingByModulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.65, 0.1, false],
+"method": &"PlayDeadEffect"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_f2xqb"]
 length = 0.65
@@ -140,6 +155,20 @@ tracks/4/keys = {
 "method": &"queue_free"
 }]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite3D_$Main$/HitsFlashingByModulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.65, 0.1, false],
+"method": &"PlayDeadEffect"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_d0a0o"]
 length = 0.4
@@ -191,6 +220,20 @@ tracks/3/keys = {
 "update": 1,
 "values": ["HURT_B"]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite3D_$Main$/HitsFlashingByModulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.4, 0.1, false],
+"method": &"PlayHurtEffect"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_5klus"]
 length = 0.4
@@ -241,6 +284,20 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": ["HURT_W"]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite3D_$Main$/HitsFlashingByModulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.4, 0.1, false],
+"method": &"PlayHurtEffect"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_5324e"]
@@ -688,7 +745,9 @@ cast_shadow = 0
 offset = Vector2(0, 12)
 texture_filter = 0
 sprite_frames = ExtResource("2_hqwn4")
-animation = &"SLAP_B"
+animation = &"HURT_W"
+
+[node name="HitsFlashingByModulate" parent="AnimatedSprite3D_$Main$" instance=ExtResource("3_0a7lw")]
 
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 cast_shadow = 3
@@ -696,7 +755,7 @@ offset = Vector2(0, 12)
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("2_hqwn4")
-animation = &"DEAD_B"
+animation = &"HURT_W"
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)

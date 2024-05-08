@@ -89,7 +89,12 @@ public static class Extension
         physicsDirectSpaceState.IntersectRay(
         physicsRayQueryParameters           );
 
-        return (Vector3)rayCastResult["position"];
+        if     (        rayCastResult.ContainsKey("position"))
+        return (Vector3)rayCastResult            ["position"];
+        else
+        return
+        @node_3D         .GetScreenMousePosition()
+                         .ConvertToTopDown      ();
     }
 
     public static Vector3 Get_LocalMousePosition(this Node3D @node_3D)

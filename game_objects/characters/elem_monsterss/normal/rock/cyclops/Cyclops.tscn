@@ -326,7 +326,6 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_1swfy"]
 length = 0.6
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -570,7 +569,7 @@ cast_shadow = 0
 offset = Vector2(1.5, 32)
 texture_filter = 0
 sprite_frames = ExtResource("1_1rf3k")
-animation = &"THROW"
+animation = &"DEAD"
 
 [node name="HitsFlashingByModulate" parent="AnimatedSprite3D_$Main$" instance=ExtResource("3_3d3nc")]
 
@@ -584,7 +583,7 @@ offset = Vector2(1.5, 32)
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_1rf3k")
-animation = &"THROW"
+animation = &"DEAD"
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
@@ -600,7 +599,9 @@ behavior_tree = ExtResource("6_v0w02")
 blackboard_plan = ExtResource("5_sg5x2")
 
 [node name="EyeSight$3D" parent="." instance=ExtResource("5_tvi3d")]
+process_mode = 4
 transform = Transform3D(1.41421, 0, 1.41421, 0, 1, 0, -1.41421, 0, 1.41421, 0, 0, 0)
+Modulate = Color(1, 1, 1, 1)
 
 [node name="Ray__Cast3D" type="RayCast3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0.1, 0)

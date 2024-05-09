@@ -201,7 +201,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fq67n")
 }],
-"loop": true,
+"loop": false,
 "name": &"DEAD",
 "speed": 10.0
 }, {
@@ -215,7 +215,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_n5kvp")
 }],
-"loop": true,
+"loop": false,
 "name": &"HURT",
 "speed": 10.0
 }, {
@@ -270,7 +270,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yx07r")
 }],
-"loop": true,
+"loop": false,
 "name": &"JUMP",
 "speed": 10.0
 }, {
@@ -336,7 +336,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2v2lr")
 }],
-"loop": true,
+"loop": false,
 "name": &"SPIT",
 "speed": 10.0
 }]

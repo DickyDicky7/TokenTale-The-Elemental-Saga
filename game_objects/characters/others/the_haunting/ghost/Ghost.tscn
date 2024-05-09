@@ -14,7 +14,6 @@
 
 [sub_resource type="Animation" id="Animation_hbvmw"]
 length = 1.3
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -94,7 +93,6 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id="Animation_0b1nk"]
 length = 1.3
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -174,7 +172,6 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id="Animation_65ykj"]
 length = 0.6
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -238,7 +235,6 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_scpde"]
 length = 0.6
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -302,7 +298,6 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_i7648"]
 length = 0.4
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -368,7 +363,6 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_l5o5i"]
 length = 0.4
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -642,7 +636,6 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_ydtfj"]
 length = 0.6
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -706,7 +699,6 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_re34a"]
 length = 0.6
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -926,7 +918,7 @@ cast_shadow = 0
 offset = Vector2(0, 16)
 texture_filter = 0
 sprite_frames = ExtResource("2_06es2")
-animation = &"SPOOK_M"
+animation = &"DEAD_F"
 
 [node name="HitsFlashingByModulate" parent="AnimatedSprite3D_$Main$" instance=ExtResource("3_bwxwa")]
 
@@ -940,7 +932,7 @@ offset = Vector2(0, 16)
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("2_06es2")
-animation = &"SPOOK_M"
+animation = &"DEAD_F"
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
@@ -956,7 +948,9 @@ behavior_tree = ExtResource("3_wncf4")
 blackboard_plan = ExtResource("5_ljghu")
 
 [node name="EyeSight$3D" parent="." instance=ExtResource("5_tg2iu")]
+process_mode = 4
 transform = Transform3D(2.12132, 0, 2.12132, 0, 1, 0, -2.12132, 0, 2.12132, 0, 0, 0)
+Modulate = Color(1, 1, 1, 1)
 
 [node name="Ray__Cast3D" type="RayCast3D" parent="."]
 transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0.1, 0)

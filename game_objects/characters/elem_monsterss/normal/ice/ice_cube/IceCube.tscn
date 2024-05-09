@@ -13,7 +13,6 @@
 
 [sub_resource type="Animation" id="Animation_vp6hs"]
 length = 0.8
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -93,7 +92,6 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id="Animation_h4oli"]
 length = 0.3
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -211,7 +209,6 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_mgvog"]
 length = 0.9
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -367,7 +364,6 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_robgp"]
 length = 0.5
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -462,6 +458,8 @@ behavior_tree = ExtResource("4_tbuex")
 blackboard_plan = ExtResource("5_fnojv")
 
 [node name="EyeSight$3D" parent="." instance=ExtResource("5_32iss")]
+process_mode = 4
+Modulate = Color(1, 1, 1, 1)
 
 [node name="Ray__Cast3D" type="RayCast3D" parent="."]
 target_position = Vector3(0.5, 0.1, 0)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bbv4dpufmesgb"]
+[gd_scene load_steps=23 format=3 uid="uid://bbv4dpufmesgb"]
 
 [ext_resource type="Script" path="res://game_objects/characters/others/the_thief/cat/Cat.cs" id="1_qqt7b"]
 [ext_resource type="SpriteFrames" uid="uid://h4rb06aui364" path="res://game_objects/characters/others/the_thief/cat/Cat_SpriteFrames_$Main$.tres" id="2_imwov"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="7_w13qf"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="8_gmbyo"]
 [ext_resource type="Script" path="res://game_objects/shared/HurtBox3d.cs" id="9_bpd42"]
+[ext_resource type="PackedScene" uid="uid://bb7ues43wabc1" path="res://game_objects/shared/indicator/Indicator.tscn" id="10_qbgbe"]
 
 [sub_resource type="Animation" id="Animation_oy1ut"]
 length = 0.4
@@ -427,14 +428,26 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AnimatedSprite3D_$Main$/$$OmniLight$$3D:light_color")
+tracks/4/path = NodePath("Indicator:scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+"values": [Vector3(0.01, 0.01, 0.01), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(0.01, 0.01, 0.01)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Indicator:Modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_dxwcj"]
@@ -586,10 +599,6 @@ texture_filter = 0
 sprite_frames = ExtResource("2_imwov")
 animation = &"CLEAN_0"
 
-[node name="$$OmniLight$$3D" type="OmniLight3D" parent="AnimatedSprite3D_$Main$"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
-light_bake_mode = 0
-
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 cast_shadow = 3
 offset = Vector2(0, 16)
@@ -643,6 +652,11 @@ Sprites = [NodePath("../AnimatedSprite3D_$Main$"), NodePath("../AnimatedSprite3D
 process_mode = 4
 script = ExtResource("8_gmbyo")
 Sprites = [NodePath("../AnimatedSprite3D_$Main$")]
+
+[node name="Indicator" parent="." node_paths=PackedStringArray("Sprite") instance=ExtResource("10_qbgbe")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+Modulate = Color(1, 1, 1, 1)
+Sprite = NodePath("Sprite3D")
 
 [node name="HurtBox3D" type="Area3D" parent="."]
 script = ExtResource("9_bpd42")

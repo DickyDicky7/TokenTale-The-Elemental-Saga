@@ -468,8 +468,8 @@ wait_time = 4.0
 autostart = true
 
 [node name="HurtBox3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 script = ExtResource("9_3sdow")
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="HurtBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 shape = ExtResource("3_gfl41")

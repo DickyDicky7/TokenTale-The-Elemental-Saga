@@ -442,18 +442,6 @@ tracks/6/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("EyeSight$3D:Modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4ue5d"]
 _data = {
@@ -476,10 +464,10 @@ Deceleration = 0.1
 
 [node name="AnimatedSprite3D_$Main$" type="AnimatedSprite3D" parent="."]
 cast_shadow = 0
-offset = Vector2(0, 12)
+offset = Vector2(0, 13)
 texture_filter = 0
 sprite_frames = ExtResource("1_n3j5a")
-animation = &"DEAD"
+animation = &"HURT"
 
 [node name="HitsFlashingByModulate" parent="AnimatedSprite3D_$Main$" instance=ExtResource("3_5ej0u")]
 
@@ -489,14 +477,14 @@ light_bake_mode = 0
 
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 cast_shadow = 3
-offset = Vector2(0, 12)
+offset = Vector2(0, 13)
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_n3j5a")
-animation = &"DEAD"
+animation = &"HURT"
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)
 shape = ExtResource("4_l0j8u")
 
 [node name="BT_______Player" type="BTPlayer" parent="."]
@@ -545,7 +533,7 @@ Sprites = [NodePath("../AnimatedSprite3D_$Main$")]
 script = ExtResource("9_8173t")
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="HurtBox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)
 shape = ExtResource("4_l0j8u")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

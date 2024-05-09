@@ -40,6 +40,7 @@ children = [SubResource("BTAction_tuajh"), SubResource("BTPlayAnimation_7c5rn")]
 script = ExtResource("5_wwoot")
 TargetCharacter3DName = &"MainCharacter"
 PathShapeCast3D = NodePath("ShapeCast3D")
+PathEyeSight3D = NodePath("EyeSight$3D")
 
 [sub_resource type="BTAction" id="BTAction_swu68"]
 script = ExtResource("6_n25u6")

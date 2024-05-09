@@ -26,30 +26,29 @@ func _setup() -> void:
 	pass;
 	
 func _enter() -> void:
+	teleportLocation = Vector3(0, 0, 0)
+	moveDirection = Vector3(0, 0, 0)
+	moveDistance = 0
+	if (!is_instance_valid(blackboard.get_var(BBVariable.TargetCharacter))):
+		blackboard.set_var(BBVariable.TargetCharacter, null)
 	targetCharacter = blackboard.get_var(BBVariable.TargetCharacter)
+	if (targetCharacter == null):
+		return
 	var distanceToTarget: float = Helper.ProjectVector3ToPlane(
 		currentCharacter.position, Vector3.UP).distance_to(
 			Helper.ProjectVector3ToPlane(
 				targetCharacter.position, Vector3.UP))
-	moveDirection = Vector3(0, 0, 0)
 	match Type:
 		"APPROACH":
 			if (distanceToTarget > ActionDistance):
 				moveDirection = FindMoveDirection()
 				moveDistance = FindMoveDistance(distanceToTarget)
-			else:
-				moveDirection = Vector3(0, 0, 0)
-				moveDistance = 0
 		"TELEPORT":
 			if (distanceToTarget <= ActionDistance):
 				teleportLocation = FindTeleportLocation()
-			else:
-				teleportLocation = Vector3(0, 0, 0)
 		"TELEPORT2":
 			if (distanceToTarget > ActionDistance):
 				teleportLocation = FindTeleportLocation2(distanceToTarget - ActionDistance)
-			else:
-				teleportLocation = Vector3(0, 0, 0)
 	pass;
 	
 func _exit() -> void:
@@ -65,20 +64,14 @@ func _tick(_delta: float) -> Status:
 				blackboard.set_var(BBVariable.MoveDirection, moveDirection)
 				blackboard.set_var(BBVariable.MoveDistance, moveDistance)
 				return SUCCESS
-			else:
-				return FAILURE
 		"TELEPORT":
 			if (teleportLocation != null && teleportLocation != Vector3(0, 0, 0)):
 				blackboard.set_var(BBVariable.TeleportLocation, teleportLocation)
 				return SUCCESS
-			else:
-				return FAILURE
 		"TELEPORT2":
 			if (teleportLocation != null && teleportLocation != Vector3(0, 0, 0)):
 				blackboard.set_var(BBVariable.TeleportLocation, teleportLocation)
 				return SUCCESS
-			else:
-				return FAILURE
 	return FAILURE;
 func FindMoveDirection() -> Vector3:
 	rayCast3DMove.add_exception_rid(targetCharacter.get_rid())

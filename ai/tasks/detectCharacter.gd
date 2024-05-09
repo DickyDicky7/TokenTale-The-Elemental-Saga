@@ -27,6 +27,7 @@ func _setup() -> void:
 	pass;
 
 func _enter() -> void:
+	eyeSight.visible = true
 	SeeingAngle = blackboard.get_var(BBVariable.SeeingAngle)
 	SeeingAngle =     Helper.StandardizeDegree(SeeingAngle     );
 	minSeeableAngle = Helper.StandardizeDegree(SeeingAngle - 45);

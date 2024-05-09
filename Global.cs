@@ -15,4 +15,11 @@ public partial class Global : Node
         Rock,
         Wood
     }
+    public enum MonsterType
+    {
+        Distancer,
+        Chaser,
+        Teleporter,
+        Supporter
+    }
 }

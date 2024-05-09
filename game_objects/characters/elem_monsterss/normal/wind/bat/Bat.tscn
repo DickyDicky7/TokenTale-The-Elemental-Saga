@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dks14llooa7jv"]
+[gd_scene load_steps=19 format=3 uid="uid://dks14llooa7jv"]
 
 [ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat.cs" id="1_52p22"]
 [ext_resource type="SpriteFrames" uid="uid://dkd552vapywc0" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat_SpriteFrames_$Main$.tres" id="1_k4jlk"]
@@ -381,6 +381,7 @@ collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_52p22")
 Element = 2
+MonsterType = 3
 Health = 10
 Speed = 1.0
 Acceleration = 0.1
@@ -437,6 +438,13 @@ target_position = Vector3(0, 0, 0)
 collision_mask = 15
 debug_shape_custom_color = Color(0, 0, 1, 1)
 
+[node name="ShapeCast3DFindPartner" type="ShapeCast3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 4, 0, 0.1, 0)
+shape = ExtResource("6_inebg")
+target_position = Vector3(0, 0, 0)
+collision_mask = 15
+debug_shape_custom_color = Color(0, 0, 1, 1)
+
 [node name="Flippable3DSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
 process_mode = 4
 script = ExtResource("7_30kq1")
@@ -453,9 +461,8 @@ wait_time = 4.0
 autostart = true
 
 [node name="HurtBox3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 script = ExtResource("9_3sdow")
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="HurtBox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 shape = ExtResource("3_gfl41")

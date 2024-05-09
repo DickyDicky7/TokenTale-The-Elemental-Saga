@@ -1,6 +1,5 @@
-[gd_scene load_steps=21 format=3 uid="uid://cyv12iosddo4f"]
+[gd_scene load_steps=20 format=3 uid="uid://cyv12iosddo4f"]
 
-[ext_resource type="Material" uid="uid://ce62yhhmbghc" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_MaterialOverride_01.tres" id="1_l2ued"]
 [ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem.cs" id="1_pc638"]
 [ext_resource type="SpriteFrames" uid="uid://b8kirdr3jdxm1" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_SpriteFrames_$Main$.tres" id="1_q6j6a"]
 [ext_resource type="PackedScene" uid="uid://dsbep0yr8rwxa" path="res://game_objects/shared/hits_flashing_by_modulate/HitsFlashingByModulate.tscn" id="2_5nmji"]
@@ -425,7 +424,10 @@ _data = {
 }
 
 [node name="HealTotem" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 15
 script = ExtResource("1_pc638")
+MonsterType = 2
 Health = 10
 Speed = 1.0
 Jumpv = 1.0
@@ -511,5 +513,5 @@ autostart = true
 script = ExtResource("9_on06d")
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="HurtBox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075, 0)
 shape = ExtResource("3_uclmn")

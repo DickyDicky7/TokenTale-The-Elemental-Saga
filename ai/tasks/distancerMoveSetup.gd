@@ -30,7 +30,13 @@ func _setup() -> void:
 	pass;
 
 func _enter() -> void:
+	moveDirection = Vector3(0, 0, 0)
+	moveDistance = 0
+	if (!is_instance_valid(blackboard.get_var(BBVariable.TargetCharacter))):
+		blackboard.set_var(BBVariable.TargetCharacter, null)
 	targetCharacter = blackboard.get_var(BBVariable.TargetCharacter)
+	if (targetCharacter == null):
+		return
 	var distanceToTarget: float = Helper.ProjectVector3ToPlane(
 		currentCharacter.position, Vector3.UP).distance_to(
 			Helper.ProjectVector3ToPlane(
@@ -40,23 +46,14 @@ func _enter() -> void:
 			if (distanceToTarget > ChaseDistance):
 				moveDirection = FindMoveDirection()
 				moveDistance = FindMoveDistance(distanceToTarget)
-			else:
-				moveDirection = Vector3(0, 0, 0)
-				moveDistance = 0
 		"FALLBACK":
 			if (distanceToTarget < FallBackDistance):
 				moveDirection = FindMoveDirection()
 				moveDistance = FindMoveDistance(distanceToTarget)
-			else:
-				moveDirection = Vector3(0, 0, 0)
-				moveDistance = 0
 		"PROBE":
 			if (distanceToTarget <= ChaseDistance && distanceToTarget >=FallBackDistance):
 				moveDirection = FindMoveDirection()
 				moveDistance = FindMoveDistance(distanceToTarget)
-			else:
-				moveDirection = Vector3(0, 0, 0)
-				moveDistance = 0
 	pass;
 
 func _exit() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://o436c4ahk6md"]
+[gd_scene load_steps=19 format=3 uid="uid://o436c4ahk6md"]
 
 [ext_resource type="SpriteFrames" uid="uid://dpxjqilcp56lg" path="res://game_objects/characters/elem_monsterss/normal/water/ratfolk_mage/RatfolkMage_SpriteFrames_$Main$.tres" id="1_3rhfa"]
 [ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/water/ratfolk_mage/RatfolkMage.cs" id="1_pu3gl"]
@@ -373,7 +373,10 @@ _data = {
 }
 
 [node name="RatfolkMage" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 15
 script = ExtResource("1_pu3gl")
+MonsterType = 3
 Health = 10
 Speed = 1.0
 Jumpv = 1.0
@@ -385,7 +388,7 @@ cast_shadow = 0
 offset = Vector2(0, 16)
 texture_filter = 0
 sprite_frames = ExtResource("1_3rhfa")
-animation = &"CAST_1"
+animation = &"CAST_2"
 
 [node name="HitsFlashingByModulate" parent="AnimatedSprite3D_$Main$" instance=ExtResource("3_mv546")]
 
@@ -415,12 +418,14 @@ transform = Transform3D(1.41421, 0, 1.41421, 0, 1, 0, -1.41421, 0, 1.41421, 0, 0
 
 [node name="Ray__Cast3D" type="RayCast3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0.1, 0)
+visible = false
 target_position = Vector3(0.5, 0, 0)
 collision_mask = 15
 debug_shape_custom_color = Color(0, 0, 1, 1)
 
 [node name="RayCast3DMove" type="RayCast3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0.1, 0)
+visible = false
 target_position = Vector3(0.5, 0, 0)
 collision_mask = 7
 
@@ -429,6 +434,13 @@ transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0.1, 0)
 shape = ExtResource("7_l3eds")
 target_position = Vector3(0, 0, 0)
 collision_mask = 15
+debug_shape_custom_color = Color(0, 0, 1, 1)
+
+[node name="ShapeCast3DFindPartner" type="ShapeCast3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 4, 0, 0.1, 0)
+shape = ExtResource("7_l3eds")
+target_position = Vector3(0, 0, 0)
+collision_mask = 4
 debug_shape_custom_color = Color(0, 0, 1, 1)
 
 [node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
@@ -442,10 +454,13 @@ script = ExtResource("7_lhct5")
 Sprites = [NodePath("../AnimatedSprite3D_$Main$"), NodePath("../AnimatedSprite3D_Shadow")]
 
 [node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 5.0
+autostart = true
 
 [node name="HurtBox3D" type="Area3D" parent="."]
 script = ExtResource("10_8rm3q")
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="HurtBox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075, 0)
 shape = ExtResource("4_ml0vs")

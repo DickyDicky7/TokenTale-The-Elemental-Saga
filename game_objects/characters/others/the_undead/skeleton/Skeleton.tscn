@@ -734,6 +734,7 @@ _data = {
 collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_dw4lx")
+MonsterType = 1
 Health = 10
 Speed = 1.0
 Jumpv = 1.0
@@ -805,7 +806,7 @@ Sprites = [NodePath("../AnimatedSprite3D_$Main$")]
 script = ExtResource("9_win7c")
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="HurtBox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
 shape = ExtResource("3_xhr2f")
 
 [node name="Timer" type="Timer" parent="."]

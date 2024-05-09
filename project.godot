@@ -17,8 +17,8 @@ config/icon="res://game_asset_s/icon.svg"
 
 [autoload]
 
-Global="*res://Global.cs"
 BBVariable="*res://BBVariable.gd"
+Global="*res://Global.cs"
 
 [dotnet]
 

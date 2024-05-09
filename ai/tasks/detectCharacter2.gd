@@ -6,21 +6,25 @@ func _generate_name() -> String:
 	
 @export var TargetCharacter3DName: StringName
 @export var PathShapeCast3D: NodePath
+@export var PathEyeSight3D: NodePath
 
 var currentCharacter: Character3D
 var shapeCast3D: ShapeCast3D
+var eyeSight3D: EyeSight3D
 var rootScale: float
 var alreadyDetect: bool
 
 func _setup() -> void:
 	currentCharacter = agent
 	shapeCast3D = agent.get_node(PathShapeCast3D)
-	blackboard.set_var(BBVariable.RootScale, shapeCast3D.scale.x)
+	eyeSight3D = agent.get_node(PathEyeSight3D)
+	blackboard.set_var(BBVariable.RootScale2, shapeCast3D.scale.x)
 	blackboard.set_var(BBVariable.AlreadyDetect, false)
 	pass;
 	
 func _enter() -> void:
-	rootScale = blackboard.get_var(BBVariable.RootScale)
+	eyeSight3D.visible = false
+	rootScale = blackboard.get_var(BBVariable.RootScale2)
 	alreadyDetect = blackboard.get_var(BBVariable.AlreadyDetect)
 	if (alreadyDetect == false):
 		shapeCast3D.scale = Vector3(rootScale, 1, rootScale)

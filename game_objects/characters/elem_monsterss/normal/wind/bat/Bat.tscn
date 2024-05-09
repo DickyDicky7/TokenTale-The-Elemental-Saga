@@ -156,7 +156,6 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_d8mx0"]
 length = 0.4
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -401,7 +400,7 @@ cast_shadow = 0
 offset = Vector2(0, 20)
 texture_filter = 0
 sprite_frames = ExtResource("1_k4jlk")
-animation = &"DEAD"
+animation = &"HURT"
 
 [node name="HitsFlashingByModulate" parent="AnimatedSprite3D_$Main$" instance=ExtResource("2_nswkj")]
 
@@ -415,7 +414,7 @@ offset = Vector2(0, 20)
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_k4jlk")
-animation = &"DEAD"
+animation = &"HURT"
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)

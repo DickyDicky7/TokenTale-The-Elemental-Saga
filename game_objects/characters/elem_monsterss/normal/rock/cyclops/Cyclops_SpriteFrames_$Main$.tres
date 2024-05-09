@@ -452,7 +452,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_440ou")
 }],
-"loop": true,
+"loop": false,
 "name": &"LASER_BEAM",
 "speed": 10.0
 }, {
@@ -495,7 +495,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"MOVE",
-"speed": 10.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,

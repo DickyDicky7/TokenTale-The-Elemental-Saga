@@ -5,10 +5,19 @@ namespace TokenTaleTheElementalSaga;
 public partial class HitsFlashingByModulate : Node
 {
     [Export]
-    public Color DeadColor { get; set; } = Color.Color8(255, 000, 000, 255);
+    public Color DeadColor { get; set; } = Color.Color8(255, 255, 255, 000);
     [Export]
-    public Color HurtColor { get; set; } = Color.Color8(255, 255, 255, 000);
+    public Color HurtColor { get; set; } = Color.Color8(255, 000, 000, 255);
     public Color BaseColor { get; set; }
+
+    [Export]
+    public Tween.      EaseType DeadEasingfuncType { get; set; } = Tween.      EaseType.In    ; // For Modulating Smoothly
+    [Export]
+    public Tween.TransitionType DeadTransitionType { get; set; } = Tween.TransitionType.Linear; // For Modulating Smoothly
+    [Export]
+    public Tween.      EaseType HurtEasingfuncType { get; set; } = Tween.      EaseType.In    ; // For Modulating Smoothly
+    [Export]
+    public Tween.TransitionType HurtTransitionType { get; set; } = Tween.TransitionType.Linear; // For Modulating Smoothly
 
     public AnimatedSprite3D
            AnimatedSprite
@@ -38,21 +47,27 @@ public partial class HitsFlashingByModulate : Node
                    currentTimeStep <= @duration;
                    currentTimeStep += @timeStep)
         {
-              tween                 .
-              TweenCallback(Callable.From(() =>
-              {
-                  if (@firstActive)
-                  {
-                      AnimatedSprite.Modulate = DeadColor;
-                  }
-                  else
-                  {
-                      AnimatedSprite.Modulate = BaseColor;
-                  }
-                      @firstActive =
-                    ! @firstActive ;
-              }))                   .SetDelay (@timeStep);
+            if (@firstActive)
+            {
+                tween.
+                TweenProperty (    AnimatedSprite , "modulate", DeadColor, @timeStep)
+                     .SetEase (DeadEasingfuncType)
+                     .SetTrans(DeadTransitionType);
+            }
+            else
+            {
+                tween.
+                TweenProperty (    AnimatedSprite , "modulate", BaseColor, @timeStep)
+                     .SetEase (DeadEasingfuncType)
+                     .SetTrans(DeadTransitionType);
+            }
+                @firstActive =
+            !   @firstActive ;
         }
+                tween.
+                TweenProperty (    AnimatedSprite , "modulate", BaseColor, @timeStep)
+                     .SetEase (DeadEasingfuncType)
+                     .SetTrans(DeadTransitionType);
     }
 
     // TIME IN SECONDS
@@ -66,24 +81,29 @@ public partial class HitsFlashingByModulate : Node
                    currentTimeStep <= @duration;
                    currentTimeStep += @timeStep)
         {
-              tween                 .
-              TweenCallback(Callable.From(() =>
-              {
-                  if (@firstActive)
-                  {
-                      AnimatedSprite.Modulate = HurtColor;
-                  }
-                  else
-                  {
-                      AnimatedSprite.Modulate = BaseColor;
-                  }
-                      @firstActive =
-                    ! @firstActive ;
-              }))                   .SetDelay (@timeStep);
+            if (@firstActive)
+            {
+                tween.
+                TweenProperty (    AnimatedSprite , "modulate", HurtColor, @timeStep)
+                     .SetEase (HurtEasingfuncType)
+                     .SetTrans(HurtTransitionType);
+            }
+            else
+            {
+                tween.
+                TweenProperty (    AnimatedSprite , "modulate", BaseColor, @timeStep)
+                     .SetEase (HurtEasingfuncType)
+                     .SetTrans(HurtTransitionType);
+            }
+                @firstActive =
+            !   @firstActive ;
         }
+                tween.
+                TweenProperty (    AnimatedSprite , "modulate", BaseColor, @timeStep)
+                     .SetEase (HurtEasingfuncType)
+                     .SetTrans(HurtTransitionType);
     }
 
 }
-
 
 

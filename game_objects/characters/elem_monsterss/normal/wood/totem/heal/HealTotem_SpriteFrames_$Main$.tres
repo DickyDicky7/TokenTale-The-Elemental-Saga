@@ -247,7 +247,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mxv84")
 }],
-"loop": true,
+"loop": false,
 "name": &"SMERGE",
 "speed": 10.0
 }]

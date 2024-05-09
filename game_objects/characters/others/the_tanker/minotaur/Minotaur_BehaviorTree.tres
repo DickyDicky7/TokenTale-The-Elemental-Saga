@@ -18,7 +18,7 @@ script = ExtResource("2_7lxn4")
 PathHurtBox3D = NodePath("HurtBox3D")
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_ur4wb"]
-await_completion = 1.0
+await_completion = 10.0
 animation_player = ExtResource("3_m0cec")
 animation_name = &"HURT_1"
 
@@ -30,7 +30,7 @@ children = [SubResource("BTAction_n7fdv"), SubResource("BTPlayAnimation_ur4wb")]
 script = ExtResource("3_37qwr")
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_1x7v1"]
-await_completion = 1.0
+await_completion = 10.0
 animation_player = ExtResource("3_m0cec")
 animation_name = &"DEAD"
 
@@ -203,7 +203,7 @@ saved_value = NodePath("AnimationPlayer")
 resource_name = "AnimationPlayer"
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_pkd2i"]
-await_completion = 1.0
+await_completion = 10.0
 animation_player = SubResource("BBNode_41rds")
 animation_name = &"ATTACK_0"
 

@@ -2,6 +2,7 @@ using Godot;
 
 namespace TokenTaleTheElementalSaga;
 
+[Tool       ]
 [GlobalClass]
 public partial class EyeSight3D : Node3D
 {
@@ -45,11 +46,20 @@ public partial class EyeSight3D : Node3D
              .SetTrans(TransitionType);
     }
 
+    [Export]
+    public Color                                         Modulate
+    {
+        get => GetNode<Sprite3D>($"_{nameof(Sprite3D)}").Modulate        ;
+        set => GetNode<Sprite3D>($"_{nameof(Sprite3D)}").Modulate = value;
+    }
+
     public override void _Ready()
     {
                     base._Ready();
 
-        ProcessMode = ProcessModeEnum.Disabled;        
+        ProcessMode = ProcessModeEnum.Disabled;
+        
+
     }
 }
 

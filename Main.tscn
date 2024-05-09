@@ -60,7 +60,7 @@ shape = ExtResource("3_vrktx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="MainCharacter"]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 2, 2)
+transform = Transform3D(1, 0, 0, 0, 0.707106, 0.707106, 0, -0.707106, 0.707106, 0, 2, 2)
 projection = 1
 size = 4.0
 far = 5.0

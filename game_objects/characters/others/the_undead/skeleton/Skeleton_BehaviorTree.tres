@@ -22,7 +22,7 @@ saved_value = NodePath("AnimationPlayer")
 resource_name = "AnimationPlayer"
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_txsu0"]
-await_completion = 1.0
+await_completion = 10.0
 animation_player = SubResource("BBNode_edk06")
 animation_name = &"HURT_B"
 
@@ -34,7 +34,7 @@ children = [SubResource("BTAction_g2okg"), SubResource("BTPlayAnimation_txsu0")]
 script = ExtResource("3_me4a2")
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_qgvdr"]
-await_completion = 1.0
+await_completion = 10.0
 animation_player = ExtResource("4_e2ybg")
 animation_name = &"DEAD_B"
 
@@ -145,7 +145,7 @@ variable = &"ReadyToStrike"
 value = SubResource("BBVariant_0ccrm")
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_fkxn6"]
-await_completion = 1.0
+await_completion = 10.0
 animation_player = ExtResource("4_e2ybg")
 animation_name = &"SLAP_B"
 

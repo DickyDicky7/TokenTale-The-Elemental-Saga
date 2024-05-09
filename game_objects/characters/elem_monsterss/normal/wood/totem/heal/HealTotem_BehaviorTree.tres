@@ -16,7 +16,7 @@ script = ExtResource("2_5hjei")
 PathHurtBox3D = NodePath("HurtBox3D")
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_47yv1"]
-await_completion = 1.0
+await_completion = 10.0
 animation_player = ExtResource("3_htl4n")
 animation_name = &"HURT"
 
@@ -28,7 +28,7 @@ children = [SubResource("BTAction_qwhvw"), SubResource("BTPlayAnimation_47yv1")]
 script = ExtResource("4_gwtra")
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_7c5rn"]
-await_completion = 1.0
+await_completion = 10.0
 animation_player = ExtResource("3_htl4n")
 animation_name = &"DEAD"
 
@@ -69,7 +69,7 @@ saved_value = NodePath("AnimationPlayer")
 resource_name = "AnimationPlayer"
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_w8sn2"]
-await_completion = 1.0
+await_completion = 10.0
 animation_player = SubResource("BBNode_ajbiq")
 animation_name = &"SMERGE"
 
@@ -78,7 +78,7 @@ script = ExtResource("9_eruc1")
 PathFlipSprite3D = NodePath("Flippable3DSpriteBase3DConsolidation")
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_lekkn"]
-await_completion = 1.0
+await_completion = 10.0
 animation_player = ExtResource("3_htl4n")
 animation_name = &"EMERGE"
 
@@ -103,7 +103,7 @@ variable = &"ReadyToStrike"
 value = SubResource("BBVariant_tpcms")
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_mu1yu"]
-await_completion = 1.0
+await_completion = 10.0
 animation_player = ExtResource("3_htl4n")
 animation_name = &"ATTACK"
 

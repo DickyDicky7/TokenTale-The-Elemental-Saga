@@ -409,12 +409,15 @@ Speed = 1.0
 Acceleration = 0.1
 Deceleration = 0.1
 
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+debug_enabled = true
+
 [node name="AnimatedSprite3D_$Main$" type="AnimatedSprite3D" parent="."]
 cast_shadow = 0
 offset = Vector2(0, 20)
 texture_filter = 0
 sprite_frames = ExtResource("1_k4jlk")
-animation = &"ECHO"
+animation = &"DEAD"
 
 [node name="HitsFlashingByModulate" parent="AnimatedSprite3D_$Main$" instance=ExtResource("2_nswkj")]
 
@@ -424,7 +427,7 @@ offset = Vector2(0, 20)
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_k4jlk")
-animation = &"ECHO"
+animation = &"DEAD"
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)

@@ -58,6 +58,7 @@ shape = ExtResource("3_vrktx")
 
 [node name="MainCharacter" parent="." instance=ExtResource("9_seby3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 0)
+Speed = 1.5
 
 [node name="Camera3D" type="Camera3D" parent="MainCharacter"]
 transform = Transform3D(1, 0, 0, 0, 0.707106, 0.707106, 0, -0.707106, 0.707106, 0, 2, 2)
@@ -95,6 +96,7 @@ Deceleration = 0.1
 
 [node name="MetalMonster" parent="." instance=ExtResource("26_ynl1c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 4)
+Jumpv = 1.0
 
 [node name="Bat" parent="." instance=ExtResource("15_c3vll")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 4)

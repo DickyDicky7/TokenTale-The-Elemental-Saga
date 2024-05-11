@@ -951,7 +951,6 @@ blackboard_plan = ExtResource("5_ljghu")
 [node name="EyeSight$3D" parent="." instance=ExtResource("5_tg2iu")]
 process_mode = 4
 transform = Transform3D(2.12132, 0, 2.12132, 0, 1, 0, -2.12132, 0, 2.12132, 0, 0, 0)
-Modulate = Color(1, 1, 1, 1)
 
 [node name="Ray__Cast3D" type="RayCast3D" parent="."]
 transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0.1, 0)

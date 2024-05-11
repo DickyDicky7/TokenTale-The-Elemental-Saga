@@ -382,7 +382,6 @@ blackboard_plan = ExtResource("5_wy6lx")
 [node name="EyeSight$3D" parent="." instance=ExtResource("5_jnxj8")]
 process_mode = 4
 transform = Transform3D(1.41421, 0, 1.41421, 0, 1, 0, -1.41421, 0, 1.41421, 0, 0, 0)
-Modulate = Color(1, 1, 1, 1)
 
 [node name="Ray__Cast3D" type="RayCast3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0.1, 0)
@@ -406,7 +405,7 @@ debug_shape_custom_color = Color(0, 0, 1, 1)
 process_mode = 4
 script = ExtResource("7_b48je")
 Sprites = [NodePath("../AnimatedSprite3D_$Main$"), NodePath("../AnimatedSprite3D_Shadow")]
-FlipHInverted = true
+FlipH = true
 
 [node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
 process_mode = 4

@@ -1,4 +1,4 @@
-[gd_resource type="NavigationMesh" format=3 uid="uid://cs81s67qy2un4"]
+[gd_resource type="NavigationMesh" format=3 uid="uid://o6h7401odt60"]
 
 [resource]
 vertices = PackedVector3Array(-4.5, 0.2, -4.5, -4.5, 0.2, 4.5, 24.5, 0.2, 4.5, 24.5, 0.2, -4.5)

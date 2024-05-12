@@ -585,7 +585,7 @@ cast_shadow = 0
 offset = Vector2(1.5, 32)
 texture_filter = 0
 sprite_frames = ExtResource("1_1rf3k")
-animation = &"DEAD"
+animation = &"HURT_2"
 
 [node name="HitsFlashingByModulate" parent="AnimatedSprite3D_$Main$" instance=ExtResource("3_3d3nc")]
 
@@ -645,8 +645,8 @@ Sprites = [NodePath("../AnimatedSprite3D_$Main$")]
 
 [node name="Indicator" parent="." node_paths=PackedStringArray("Sprite") instance=ExtResource("11_h0w1s")]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
-Sprite = NodePath("Sprite3D")
 Modulate = Color(1, 1, 0, 1)
+Sprite = NodePath("Sprite3D")
 
 [node name="HurtBox3D" type="Area3D" parent="."]
 script = ExtResource("10_fyf3p")

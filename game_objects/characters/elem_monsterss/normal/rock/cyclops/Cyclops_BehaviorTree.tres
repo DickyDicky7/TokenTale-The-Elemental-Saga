@@ -1,4 +1,4 @@
-[gd_resource type="BehaviorTree" load_steps=29 format=3 uid="uid://bubi75u730bbr"]
+[gd_resource type="BehaviorTree" load_steps=25 format=3 uid="uid://bubi75u730bbr"]
 
 [ext_resource type="BlackboardPlan" uid="uid://c4kwf8hr8m8an" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops_BlackboardPlan----.tres" id="1_rq2se"]
 [ext_resource type="Script" path="res://ai/tasks/beingHit.gd" id="2_ihfox"]
@@ -6,8 +6,19 @@
 [ext_resource type="BBNode" uid="uid://b8e1hgeu26y3n" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops_BBNode_AnimationPlayer.tres" id="3_weiih"]
 [ext_resource type="Script" path="res://ai/tasks/detectCharacter2.gd" id="5_tj2em"]
 [ext_resource type="Script" path="res://ai/tasks/reload.gd" id="7_dybp4"]
-[ext_resource type="Script" path="res://ai/tasks/changeClockwisePriority.gd" id="8_pqc4b"]
 [ext_resource type="Script" path="res://ai/tasks/attack.gd" id="9_r2yby"]
+
+[sub_resource type="BTAction" id="BTAction_dsipj"]
+script = ExtResource("3_uxgww")
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_vvaki"]
+await_completion = 10.0
+animation_player = ExtResource("3_weiih")
+animation_name = &"DEAD"
+
+[sub_resource type="BTSequence" id="BTSequence_eprjr"]
+custom_name = "Dead"
+children = [SubResource("BTAction_dsipj"), SubResource("BTPlayAnimation_vvaki")]
 
 [sub_resource type="BTAction" id="BTAction_t7tiq"]
 script = ExtResource("2_ihfox")
@@ -22,18 +33,6 @@ animation_name = &"HURT_2"
 custom_name = "TakeDamage"
 children = [SubResource("BTAction_t7tiq"), SubResource("BTPlayAnimation_eiwip")]
 
-[sub_resource type="BTAction" id="BTAction_dsipj"]
-script = ExtResource("3_uxgww")
-
-[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_vvaki"]
-await_completion = 10.0
-animation_player = ExtResource("3_weiih")
-animation_name = &"DEAD"
-
-[sub_resource type="BTSequence" id="BTSequence_eprjr"]
-custom_name = "Dead"
-children = [SubResource("BTAction_dsipj"), SubResource("BTPlayAnimation_vvaki")]
-
 [sub_resource type="BTAction" id="BTAction_t6ggv"]
 script = ExtResource("5_tj2em")
 TargetCharacter3DName = &"MainCharacter"
@@ -43,17 +42,6 @@ PathEyeSight3D = NodePath("EyeSight$3D")
 [sub_resource type="BTAction" id="BTAction_3okqt"]
 script = ExtResource("7_dybp4")
 PathTimer = NodePath("Timer")
-
-[sub_resource type="BTAction" id="BTAction_nmd35"]
-script = ExtResource("8_pqc4b")
-
-[sub_resource type="BTCooldown" id="BTCooldown_xe7fk"]
-duration = 6.0
-children = [SubResource("BTAction_nmd35")]
-
-[sub_resource type="BTInvert" id="BTInvert_dism6"]
-custom_name = "NotChangeClockwisePriority"
-children = [SubResource("BTCooldown_xe7fk")]
 
 [sub_resource type="BBVariant" id="BBVariant_01fks"]
 type = 1
@@ -78,7 +66,7 @@ children = [SubResource("BTCheckVar_iy3o5"), SubResource("BTPlayAnimation_0so5y"
 
 [sub_resource type="BTSequence" id="BTSequence_7dvem"]
 custom_name = "Act"
-children = [SubResource("BTAction_t6ggv"), SubResource("BTAction_3okqt"), SubResource("BTInvert_dism6"), SubResource("BTSequence_kvpwq")]
+children = [SubResource("BTAction_t6ggv"), SubResource("BTAction_3okqt"), SubResource("BTSequence_kvpwq")]
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_bjcad"]
 animation_player = ExtResource("3_weiih")
@@ -88,7 +76,7 @@ animation_name = &"IDLE"
 
 [sub_resource type="BTSelector" id="BTSelector_cqa67"]
 custom_name = "Root"
-children = [SubResource("BTSequence_kcvhj"), SubResource("BTSequence_eprjr"), SubResource("BTSequence_7dvem"), SubResource("BTPlayAnimation_bjcad"), SubResource("BTWait_22sua")]
+children = [SubResource("BTSequence_eprjr"), SubResource("BTSequence_kcvhj"), SubResource("BTSequence_7dvem"), SubResource("BTPlayAnimation_bjcad"), SubResource("BTWait_22sua")]
 
 [resource]
 blackboard_plan = ExtResource("1_rq2se")

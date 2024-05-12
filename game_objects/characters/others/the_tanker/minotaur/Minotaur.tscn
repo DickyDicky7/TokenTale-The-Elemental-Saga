@@ -746,12 +746,6 @@ target_position = Vector3(0.5, 0, 0)
 collision_mask = 15
 debug_shape_custom_color = Color(0, 0, 1, 1)
 
-[node name="RayCast3DMove" type="RayCast3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0.1, 0)
-visible = false
-target_position = Vector3(0.5, 0, 0)
-collision_mask = 7
-
 [node name="ShapeCast3D" type="ShapeCast3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0.1, 0)
 shape = ExtResource("6_2h21h")
@@ -771,8 +765,8 @@ Sprites = [NodePath("../AnimatedSprite3D_$Main$")]
 
 [node name="Indicator" parent="." node_paths=PackedStringArray("Sprite") instance=ExtResource("11_0l2o8")]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
-Sprite = NodePath("Sprite3D")
 Modulate = Color(1, 0.5, 0, 1)
+Sprite = NodePath("Sprite3D")
 
 [node name="HurtBox3D" type="Area3D" parent="."]
 script = ExtResource("10_0cknq")

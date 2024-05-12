@@ -70,34 +70,20 @@ public sealed partial class Helper : GodotObject
 		Vector3 projectedVector = source - dotProduct * planeNormal;
 		return projectedVector;
 	}
-
-	public static Array<Vector3> PossibleAngleToMoveWithPriority(Vector3 mainAngle, float priorityAngle, bool priorityClockwise)
+	public static Array<Vector3> CalculateMoveDirectionList(
+		Vector3 mainVector, 
+		float priorityAngle)
 	{
-		mainAngle.Normalized();
+		mainVector.Normalized();
 		Array<Vector3> vector3List = new();
-		float deltaAngle;
 		//define posible direction
-		if (priorityClockwise == true)
+		float deltaAngle = 0;
+		while (deltaAngle < 2 * Mathf.Pi)
 		{
-			deltaAngle = 0;
-			while (deltaAngle < 2 * Mathf.Pi)
-			{
-				float tempX = Mathf.Cos(deltaAngle) * mainAngle.X - Mathf.Sin(deltaAngle) * mainAngle.Z;
-				float tempZ = Mathf.Sin(deltaAngle) * mainAngle.X + Mathf.Cos(deltaAngle) * mainAngle.Z;
-				vector3List.Add(new Vector3(tempX, 0, tempZ).Normalized());
-				deltaAngle += Mathf.Pi / 10;
-			}
-		}
-		else
-		{
-			deltaAngle = 2 * Mathf.Pi;
-			while(deltaAngle > 0)
-			{
-				float tempX = Mathf.Cos(deltaAngle) * mainAngle.X - Mathf.Sin(deltaAngle) * mainAngle.Z;
-				float tempZ = Mathf.Sin(deltaAngle) * mainAngle.X + Mathf.Cos(deltaAngle) * mainAngle.Z;
-				vector3List.Add(new Vector3(tempX, 0, tempZ).Normalized());
-				deltaAngle -= Mathf.Pi / 10;
-			}
+			float tempX = Mathf.Cos(deltaAngle) * mainVector.X - Mathf.Sin(deltaAngle) * mainVector.Z;
+			float tempZ = Mathf.Sin(deltaAngle) * mainVector.X + Mathf.Cos(deltaAngle) * mainVector.Z;
+			vector3List.Add(new Vector3(tempX, 0, tempZ).Normalized());
+			deltaAngle += Mathf.Pi / 10;
 		}
 		priorityAngle = Mathf.Cos(StandardizeRadian(priorityAngle));
 		//priority sort
@@ -106,8 +92,8 @@ public sealed partial class Helper : GodotObject
 			int highestPriorityIndex = i;
 			for (int j = i + 1; j < vector3List.Count; j++)
 			{
-				if (Mathf.Abs(mainAngle.Dot(vector3List[j]) - priorityAngle) 
-					< Mathf.Abs(mainAngle.Dot(vector3List[highestPriorityIndex]) - priorityAngle))
+				if (Mathf.Abs(mainVector.Dot(vector3List[j]) - priorityAngle) 
+					< Mathf.Abs(mainVector.Dot(vector3List[highestPriorityIndex]) - priorityAngle))
 				{
 					highestPriorityIndex = j;
 				}
@@ -121,15 +107,17 @@ public sealed partial class Helper : GodotObject
 		}
 		return vector3List;
 	}
-	public static Array<Vector3> PossibleTeleportLocation(Vector3 mainAngle,Vector3 targetPosition)
+	public static Array<Vector3> CalculateTeleportDestinationList(
+		Vector3 mainVector,
+		Vector3 targetPosition)
 	{
 		Array<Vector3> vector3List = new();
 		//define angle
 		float deltaAngle = 0;
 		while (deltaAngle < 2 * Mathf.Pi)
 		{
-			float tempX = Mathf.Cos(deltaAngle) * mainAngle.X - Mathf.Sin(deltaAngle) * mainAngle.Z;
-			float tempZ = Mathf.Sin(deltaAngle) * mainAngle.X + Mathf.Cos(deltaAngle) * mainAngle.Z;
+			float tempX = Mathf.Cos(deltaAngle) * mainVector.X - Mathf.Sin(deltaAngle) * mainVector.Z;
+			float tempZ = Mathf.Sin(deltaAngle) * mainVector.X + Mathf.Cos(deltaAngle) * mainVector.Z;
 			vector3List.Add(new Vector3(tempX, 0, tempZ));
 			deltaAngle += Mathf.Pi / 10;
 		}
@@ -140,8 +128,8 @@ public sealed partial class Helper : GodotObject
 			int highestPriorityIndex = i;
 			for (int j = i + 1; j < vector3List.Count; j++)
 			{
-				if (Mathf.Abs(mainAngle.Dot(vector3List[j]) - priorityAngle)
-					< Mathf.Abs(mainAngle.Dot(vector3List[highestPriorityIndex]) - priorityAngle))
+				if (Mathf.Abs(mainVector.Dot(vector3List[j]) - priorityAngle)
+					< Mathf.Abs(mainVector.Dot(vector3List[highestPriorityIndex]) - priorityAngle))
 				{
 					highestPriorityIndex = j;
 				}
@@ -159,5 +147,16 @@ public sealed partial class Helper : GodotObject
 			vector3List[i] += targetPosition;
 		}
 		return vector3List;
+	}
+	public static Vector3 CalculateMoveDestination(
+		Vector3 currentPosition,
+		float distance,
+		Array<Vector3> directionList)
+	{
+		Vector3 finalDestination = new Vector3(0, 0, 0);
+		int luckyNumber = (int)GD.Randi() % 5;
+		Vector3 chosenDirection = directionList[luckyNumber];
+		finalDestination = currentPosition + chosenDirection * distance;
+		return finalDestination;
 	}
 }

@@ -7,7 +7,7 @@ func _generate_name() -> String:
 @export var PathFlipSprite3D : NodePath
 
 var flipSprite3D: Flippable3DSpriteBase3DConsolidation
-var teleportLocation: Vector3
+var destination: Vector3
 var targetCharacter: Character3D
 var currentCharacter: Character3D
 
@@ -18,9 +18,9 @@ func _setup() -> void:
 
 func _enter() -> void:
 	targetCharacter = blackboard.get_var(BBVariable.TargetCharacter)
-	teleportLocation = blackboard.get_var(BBVariable.TeleportLocation)
+	destination = blackboard.get_var(BBVariable.Destination)
 	if (flipSprite3D != null):
-		if (teleportLocation.x <= targetCharacter.position.x):
+		if (destination.x <= targetCharacter.position.x):
 			flipSprite3D.FlipH = false
 		else:
 			flipSprite3D.FlipH = true
@@ -30,5 +30,5 @@ func _exit() -> void:
 	pass;
 	
 func _tick(_delta: float) -> Status:
-	currentCharacter.position = teleportLocation
+	currentCharacter.position = destination
 	return SUCCESS;

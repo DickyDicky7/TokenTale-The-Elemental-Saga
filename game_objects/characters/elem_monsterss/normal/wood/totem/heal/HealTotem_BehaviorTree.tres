@@ -1,15 +1,26 @@
-[gd_resource type="BehaviorTree" load_steps=39 format=3 uid="uid://qjvfmmgwhd5t"]
+[gd_resource type="BehaviorTree" load_steps=35 format=3 uid="uid://qjvfmmgwhd5t"]
 
 [ext_resource type="BlackboardPlan" uid="uid://c72xpnxtx075g" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_BlackboardPlan----.tres" id="1_rryj2"]
 [ext_resource type="Script" path="res://ai/tasks/beingHit.gd" id="2_5hjei"]
 [ext_resource type="BBNode" uid="uid://b1o86uwpvkhev" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_BBNode_AnimationPlayer.tres" id="3_htl4n"]
 [ext_resource type="Script" path="res://ai/tasks/depleteHealth.gd" id="4_gwtra"]
 [ext_resource type="Script" path="res://ai/tasks/detectCharacter2.gd" id="5_wwoot"]
-[ext_resource type="Script" path="res://ai/tasks/changeClockwisePriority.gd" id="6_cq7ag"]
 [ext_resource type="Script" path="res://ai/tasks/reload.gd" id="6_n25u6"]
 [ext_resource type="Script" path="res://ai/tasks/teleporterMoveSetup.gd" id="7_upcit"]
 [ext_resource type="Script" path="res://ai/tasks/teleport.gd" id="9_eruc1"]
 [ext_resource type="Script" path="res://ai/tasks/attack.gd" id="10_16p5e"]
+
+[sub_resource type="BTAction" id="BTAction_tuajh"]
+script = ExtResource("4_gwtra")
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_7c5rn"]
+await_completion = 10.0
+animation_player = ExtResource("3_htl4n")
+animation_name = &"DEAD"
+
+[sub_resource type="BTSequence" id="BTSequence_hhbtf"]
+custom_name = "Dead"
+children = [SubResource("BTAction_tuajh"), SubResource("BTPlayAnimation_7c5rn")]
 
 [sub_resource type="BTAction" id="BTAction_qwhvw"]
 script = ExtResource("2_5hjei")
@@ -24,18 +35,6 @@ animation_name = &"HURT"
 custom_name = "TakeDamage"
 children = [SubResource("BTAction_qwhvw"), SubResource("BTPlayAnimation_47yv1")]
 
-[sub_resource type="BTAction" id="BTAction_tuajh"]
-script = ExtResource("4_gwtra")
-
-[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_7c5rn"]
-await_completion = 10.0
-animation_player = ExtResource("3_htl4n")
-animation_name = &"DEAD"
-
-[sub_resource type="BTSequence" id="BTSequence_hhbtf"]
-custom_name = "Dead"
-children = [SubResource("BTAction_tuajh"), SubResource("BTPlayAnimation_7c5rn")]
-
 [sub_resource type="BTAction" id="BTAction_olha0"]
 script = ExtResource("5_wwoot")
 TargetCharacter3DName = &"MainCharacter"
@@ -46,22 +45,10 @@ PathEyeSight3D = NodePath("EyeSight$3D")
 script = ExtResource("6_n25u6")
 PathTimer = NodePath("Timer")
 
-[sub_resource type="BTAction" id="BTAction_h32k0"]
-script = ExtResource("6_cq7ag")
-
-[sub_resource type="BTCooldown" id="BTCooldown_n0nor"]
-duration = 4.0
-children = [SubResource("BTAction_h32k0")]
-
-[sub_resource type="BTInvert" id="BTInvert_73pfk"]
-custom_name = "NotChangeClockwisePriority"
-children = [SubResource("BTCooldown_n0nor")]
-
 [sub_resource type="BTAction" id="BTAction_q34g6"]
 script = ExtResource("7_upcit")
 Type = &"TELEPORT2"
 ActionDistance = 0.5
-PathRayCast3DMove = NodePath("RayCast3DMove")
 PathRayCast3DTeleport = NodePath("RayCast3DTeleport")
 
 [sub_resource type="BBNode" id="BBNode_ajbiq"]
@@ -116,7 +103,7 @@ children = [SubResource("BTCheckVar_ay1q2"), SubResource("BTPlayAnimation_mu1yu"
 
 [sub_resource type="BTSequence" id="BTSequence_b5lm3"]
 custom_name = "Act"
-children = [SubResource("BTAction_olha0"), SubResource("BTAction_swu68"), SubResource("BTInvert_73pfk"), SubResource("BTInvert_c3dxb"), SubResource("BTSequence_pjhan")]
+children = [SubResource("BTAction_olha0"), SubResource("BTAction_swu68"), SubResource("BTInvert_c3dxb"), SubResource("BTSequence_pjhan")]
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_qhhmi"]
 animation_player = ExtResource("3_htl4n")
@@ -126,7 +113,7 @@ animation_name = &"IDLE"
 
 [sub_resource type="BTSelector" id="BTSelector_p337a"]
 custom_name = "Root"
-children = [SubResource("BTSequence_e13gf"), SubResource("BTSequence_hhbtf"), SubResource("BTSequence_b5lm3"), SubResource("BTPlayAnimation_qhhmi"), SubResource("BTWait_y5kk7")]
+children = [SubResource("BTSequence_hhbtf"), SubResource("BTSequence_e13gf"), SubResource("BTSequence_b5lm3"), SubResource("BTPlayAnimation_qhhmi"), SubResource("BTWait_y5kk7")]
 
 [resource]
 blackboard_plan = ExtResource("1_rryj2")

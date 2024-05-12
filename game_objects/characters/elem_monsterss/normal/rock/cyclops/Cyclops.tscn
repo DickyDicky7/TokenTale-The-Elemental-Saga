@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://yfbwbxquk1v"]
+[gd_scene load_steps=23 format=3 uid="uid://yfbwbxquk1v"]
 
 [ext_resource type="SpriteFrames" uid="uid://c8gw1rkf7dxbk" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops_SpriteFrames_$Main$.tres" id="1_1rf3k"]
 [ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops.cs" id="1_qkaly"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="7_0akb0"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="8_2pmn5"]
 [ext_resource type="Script" path="res://game_objects/shared/HurtBox3d.cs" id="10_fyf3p"]
+[ext_resource type="PackedScene" uid="uid://bb7ues43wabc1" path="res://game_objects/shared/indicator/Indicator.tscn" id="11_h0w1s"]
 
 [sub_resource type="Animation" id="Animation_kk1d2"]
 length = 0.9
@@ -531,14 +532,26 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AnimatedSprite3D_$Main$/$$OmniLight$$3D:light_color")
+tracks/4/path = NodePath("Indicator:scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.6, 0.7, 1.3),
+"times": PackedFloat32Array(0, 0.4, 0.9, 1.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+"values": [Vector3(0.01, 0.01, 0.01), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(0.01, 0.01, 0.01)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Indicator:Modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 0, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4kaly"]
@@ -573,10 +586,6 @@ animation = &"DEAD"
 
 [node name="HitsFlashingByModulate" parent="AnimatedSprite3D_$Main$" instance=ExtResource("3_3d3nc")]
 
-[node name="$$OmniLight$$3D" type="OmniLight3D" parent="AnimatedSprite3D_$Main$"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
-light_bake_mode = 0
-
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 cast_shadow = 3
 offset = Vector2(1.5, 32)
@@ -601,6 +610,7 @@ blackboard_plan = ExtResource("5_sg5x2")
 [node name="EyeSight$3D" parent="." instance=ExtResource("5_tvi3d")]
 process_mode = 4
 transform = Transform3D(1.41421, 0, 1.41421, 0, 1, 0, -1.41421, 0, 1.41421, 0, 0, 0)
+Modulate = Color(1, 1, 1, 1)
 
 [node name="Ray__Cast3D" type="RayCast3D" parent="."]
 transform = Transform3D(4, 0, 0, 0, 2, 0, 0, 0, 4, 0, 0.1, 0)
@@ -629,6 +639,11 @@ Sprites = [NodePath("../AnimatedSprite3D_$Main$"), NodePath("../AnimatedSprite3D
 process_mode = 4
 script = ExtResource("8_2pmn5")
 Sprites = [NodePath("../AnimatedSprite3D_$Main$")]
+
+[node name="Indicator" parent="." node_paths=PackedStringArray("Sprite") instance=ExtResource("11_h0w1s")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+Sprite = NodePath("Sprite3D")
+Modulate = Color(1, 1, 0, 1)
 
 [node name="HurtBox3D" type="Area3D" parent="."]
 script = ExtResource("10_fyf3p")

@@ -1,14 +1,16 @@
-[gd_scene load_steps=31 format=3 uid="uid://w3dkcnkmaulo"]
+[gd_scene load_steps=33 format=3 uid="uid://w3dkcnkmaulo"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_px6f3"]
 [ext_resource type="PlaneMesh" uid="uid://dmf8lh15l3415" path="res://BackgroundPlatform_Mesh.tres" id="2_rk0yh"]
 [ext_resource type="Environment" uid="uid://jjpsnd6sbvf2" path="res://Main_Environment.tres" id="2_vpqwg"]
 [ext_resource type="Shape3D" uid="uid://ckjylylwcue88" path="res://BackgroundPlatform_CollisionShape3D.tres" id="3_vrktx"]
+[ext_resource type="NavigationMesh" path="res://Main_NavigationRegion3D_$Static_NavigationMesh.tres" id="4_6741o"]
 [ext_resource type="PackedScene" uid="uid://cwhrbtjfm2cpc" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp.tscn" id="4_hlmyl"]
 [ext_resource type="QuadMesh" uid="uid://b18ltm5xt45do" path="res://game_objects/shared/len/Len_Mesh.tres" id="5_kmewh"]
 [ext_resource type="PackedScene" uid="uid://d1jlh0uaim28w" path="res://game_objects/abilities/tornado/Tornado.tscn" id="5_rpfgl"]
 [ext_resource type="Script" path="res://_Camera3D_.cs" id="6_1l5gg"]
 [ext_resource type="PackedScene" uid="uid://dsw38xnjyq7yu" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur.tscn" id="7_2coyl"]
+[ext_resource type="NavigationMesh" path="res://Main_NavigationRegion3D_Dynamic_NavigationMesh.tres" id="7_gtwip"]
 [ext_resource type="PackedScene" uid="uid://dmymcmqewv5c4" path="res://game_objects/abilities/serene_meadow/SereneMeadow.tscn" id="7_tyaa3"]
 [ext_resource type="PackedScene" uid="uid://bj14wt31rsok8" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt.tscn" id="8_nid88"]
 [ext_resource type="PackedScene" uid="uid://bocc0hkunia3p" path="res://game_objects/abilities/overcharge/Overcharge.tscn" id="9_5jat6"]
@@ -39,29 +41,50 @@ MainCharacter = NodePath("MainCharacter")
 [node name="Environment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_vpqwg")
 
-[node name="BackgroundPlatform" type="StaticBody3D" parent="."]
+[node name="NavigationRegion3D_$Static" type="NavigationRegion3D" parent="."]
+navigation_mesh = ExtResource("4_6741o")
 
-[node name="Mesh" type="MeshInstance3D" parent="BackgroundPlatform"]
+[node name="BackgroundPlatform1" type="StaticBody3D" parent="NavigationRegion3D_$Static"]
+
+[node name="Mesh" type="MeshInstance3D" parent="NavigationRegion3D_$Static/BackgroundPlatform1"]
 mesh = ExtResource("2_rk0yh")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BackgroundPlatform"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D_$Static/BackgroundPlatform1"]
 shape = ExtResource("3_vrktx")
 
-[node name="BackgroundPlatform2" type="StaticBody3D" parent="."]
+[node name="BackgroundPlatform2" type="StaticBody3D" parent="NavigationRegion3D_$Static"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
 
-[node name="Mesh" type="MeshInstance3D" parent="BackgroundPlatform2"]
+[node name="Mesh" type="MeshInstance3D" parent="NavigationRegion3D_$Static/BackgroundPlatform2"]
 mesh = ExtResource("2_rk0yh")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BackgroundPlatform2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D_$Static/BackgroundPlatform2"]
 shape = ExtResource("3_vrktx")
+
+[node name="BackgroundPlatform3" type="StaticBody3D" parent="NavigationRegion3D_$Static"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="NavigationRegion3D_$Static/BackgroundPlatform3"]
+mesh = ExtResource("2_rk0yh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D_$Static/BackgroundPlatform3"]
+shape = ExtResource("3_vrktx")
+
+[node name="Timer" type="Timer" parent="NavigationRegion3D_$Static"]
+process_callback = 0
+wait_time = 5.0
+autostart = true
+
+[node name="NavigationRegion3D_Dynamic" type="NavigationRegion3D" parent="."]
+navigation_mesh = ExtResource("7_gtwip")
 
 [node name="MainCharacter" parent="." instance=ExtResource("9_seby3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 0)
 Speed = 1.5
 
 [node name="Camera3D" type="Camera3D" parent="MainCharacter"]
-transform = Transform3D(1, 0, 0, 0, 0.707106, 0.707106, 0, -0.707106, 0.707106, 0, 2, 2)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 11, 2, 2)
+top_level = true
 projection = 1
 size = 4.0
 far = 5.0
@@ -83,12 +106,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -4)
 
 [node name="Cat" parent="." instance=ExtResource("23_saaco")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -4)
+MonsterType = 0
 
 [node name="Skeleton" parent="." instance=ExtResource("12_8akbt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 4)
+MonsterType = 0
 
 [node name="GhostRound" parent="." instance=ExtResource("13_e31qg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+MonsterType = 0
 Speed = 1.0
 Jumpv = 1.0
 Acceleration = 0.1
@@ -100,6 +126,7 @@ Jumpv = 1.0
 
 [node name="Bat" parent="." instance=ExtResource("15_c3vll")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 4)
+MonsterType = 0
 
 [node name="KoboldPriest" parent="." instance=ExtResource("16_ro6gg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 4)
@@ -107,6 +134,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 4)
 [node name="HealTotem" parent="." instance=ExtResource("18_ujfjh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
 Element = 6
+MonsterType = 0
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 0, 0)
@@ -155,3 +183,4 @@ script = ExtResource("18_mmfla")
 
 [node name="RatfolkMage" parent="." instance=ExtResource("30_ddnm6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+MonsterType = 0

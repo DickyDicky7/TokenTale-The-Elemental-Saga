@@ -40,4 +40,20 @@ public partial class _Camera3D_ : Camera3D
 
         }
     }
+
+    public override void _PhysicsProcess(double @delta)
+    {
+                    base._PhysicsProcess(       @delta);
+
+
+        Node3D parent = GetParent<Node3D>();
+        float x = Mathf.Lerp(GlobalPosition.X, parent.GlobalPosition.X,        0.1f);
+        float z = Mathf.Lerp(GlobalPosition.Z, parent.GlobalPosition.Z + 2.0f, 0.1f);
+        GlobalPosition =
+        GlobalPosition with
+        {
+            X = x,
+            Z = z,
+        };
+    }
 }

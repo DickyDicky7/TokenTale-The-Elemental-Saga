@@ -697,14 +697,18 @@ nodes/TIME_SCALE/position = Vector2(240, -26.6667)
 nodes/output/position = Vector2(400, -26.6667)
 node_connections = [&"STATE", 0, &"BS2D_IDLE", &"STATE", 1, &"BS2D_MOVE", &"STATE", 2, &"DEAD", &"TIME_SCALE", 0, &"STATE", &"output", 0, &"TIME_SCALE"]
 
-[node name="MainCharacter" type="CharacterBody3D"]
+[node name="MainCharacter" type="CharacterBody3D" node_paths=PackedStringArray("NavigationAgent3D")]
 collision_layer = 8
 collision_mask = 15
 script = ExtResource("1_gm2bn")
+NavigationAgent3D = NodePath("NavigationAgent3D")
 Speed = 2.0
 Jumpv = 2.0
 Acceleration = 0.2
 Deceleration = 0.2
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+debug_enabled = true
 
 [node name="AnimatedSprite3D_$Main$" type="AnimatedSprite3D" parent="."]
 cast_shadow = 0
@@ -712,7 +716,6 @@ offset = Vector2(0, 12)
 texture_filter = 0
 sprite_frames = ExtResource("1_q2bc7")
 animation = &"IDLE_D"
-frame = 2
 
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 cast_shadow = 3
@@ -721,7 +724,6 @@ alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_q2bc7")
 animation = &"IDLE_D"
-frame = 2
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12, 0)
@@ -748,11 +750,13 @@ parameters/STATE/current_index = 0
 parameters/TIME_SCALE/scale = 1.0
 
 [node name="EyeSight3D" parent="." instance=ExtResource("18_uji2a")]
+process_mode = 4
 MinRotationY = -180.0
 MaxRotationY = 180.0
 RotateDuration = 0.0
 EasingfuncType = 0
 TransitionType = 0
+Modulate = Color(1, 1, 1, 1)
 
 [node name="Sword" parent="." node_paths=PackedStringArray("Sprite3D", "Shadow3D", "Aareaa3D", "CollisionShape3D", "AnimatedSprite3D", "AnimatedShadow3D", "AnimationPlayerr") instance=ExtResource("12_frf8n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)

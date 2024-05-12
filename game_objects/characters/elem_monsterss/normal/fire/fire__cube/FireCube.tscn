@@ -322,6 +322,9 @@ _data = {
 [node name="FireCube" type="CharacterBody3D"]
 script = ExtResource("1_jn43u")
 
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+debug_enabled = true
+
 [node name="AnimatedSprite3D_$Main$" type="AnimatedSprite3D" parent="."]
 cast_shadow = 0
 offset = Vector2(0.5, 16)

@@ -17,7 +17,7 @@
 
 [sub_resource type="BTAction" id="BTAction_1kjme"]
 script = ExtResource("2_n8ime")
-PathHurtBox3D = NodePath("HurtBox3D")
+PathHurtbox3D = NodePath("Hurtbox3D")
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_7t2tp"]
 await_completion = 1.0

@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://dv2rsuhi7mpf0"]
+
+[ext_resource type="Script" path="res://game_objects/abilities/others/mini_thief/MiniThief.cs" id="1_7ldjd"]
+[ext_resource type="TextMesh" uid="uid://fqkqytf2jlkw" path="res://game_objects/abilities/others/mini_thief/MiniThief_Mesh.tres" id="1_hbi4e"]
+[ext_resource type="BlackboardPlan" uid="uid://drk5teb3pntlh" path="res://game_objects/abilities/others/mini_thief/MiniThief_BlackboardPlanBase.tres" id="3_6s7d4"]
+[ext_resource type="Script" path="res://game_objects/shared/Hittbox3D.cs" id="3_f8cf4"]
+[ext_resource type="BehaviorTree" uid="uid://dyyfkrceibox" path="res://game_objects/abilities/others/mini_thief/MiniThief_BehaviorTree.tres" id="3_jr24f"]
+[ext_resource type="Shape3D" uid="uid://b65sbw32bucfh" path="res://game_objects/abilities/others/mini_thief/MiniThief_CollisionShape3D_Hitbox.tres" id="3_kfd6o"]
+
+[sub_resource type="Animation" id="Animation_ekaom"]
+resource_name = "@ON"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/$Mesh$Instance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.5, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rnox8"]
+resource_name = "OFF"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/$Mesh$Instance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(2, 2),
+"update": 0,
+"values": [Vector3(0, 0.5, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0l2p1"]
+_data = {
+"@ON": SubResource("Animation_ekaom"),
+"OFF": SubResource("Animation_rnox8")
+}
+
+[node name="MiniThief" type="Node3D"]
+script = ExtResource("1_7ldjd")
+
+[node name="Visual" type="Node3D" parent="."]
+
+[node name="$Mesh$Instance3D" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
+cast_shadow = 0
+mesh = ExtResource("1_hbi4e")
+
+[node name="Hitbox" type="Area3D" parent="."]
+script = ExtResource("3_f8cf4")
+
+[node name="CollisionShape3D_Hitbox" type="CollisionShape3D" parent="Hitbox"]
+shape = ExtResource("3_kfd6o")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0l2p1")
+}
+
+[node name="BT_______Player" type="BTPlayer" parent="."]
+behavior_tree = ExtResource("3_jr24f")
+blackboard_plan = ExtResource("3_6s7d4")

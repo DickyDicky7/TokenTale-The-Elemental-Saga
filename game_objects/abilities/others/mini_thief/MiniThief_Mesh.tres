@@ -1,0 +1,8 @@
+[gd_resource type="TextMesh" load_steps=2 format=3 uid="uid://fqkqytf2jlkw"]
+
+[ext_resource type="Material" uid="uid://iqgsj4rx38fn" path="res://game_objects/abilities/others/mini_thief/MiniThief_StandardMaterial3D.tres" id="1_x81q8"]
+
+[resource]
+material = ExtResource("1_x81q8")
+text = "-1"
+font_size = 20

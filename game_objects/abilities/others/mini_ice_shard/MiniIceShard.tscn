@@ -1,0 +1,101 @@
+[gd_scene load_steps=11 format=3 uid="uid://dav7vdovkccso"]
+
+[ext_resource type="QuadMesh" uid="uid://dptcvwwscxu" path="res://game_objects/abilities/others/mini_ice_shard/MiniIceShard_DrawPass01_Mesh.tres" id="1_2u1c4"]
+[ext_resource type="Script" path="res://game_objects/abilities/others/mini_ice_shard/MiniIceShard.cs" id="1_7ypri"]
+[ext_resource type="Material" uid="uid://b7w2cajik7c0m" path="res://game_objects/abilities/others/mini_ice_shard/MiniIceShard_ParticleProcessMaterial.tres" id="1_yxv7f"]
+[ext_resource type="Script" path="res://game_objects/shared/Hittbox3D.cs" id="4_1rcgf"]
+[ext_resource type="Shape3D" uid="uid://b7xrqho5nkju2" path="res://game_objects/abilities/others/mini_ice_shard/MiniIceShard_CollisionShape3D_Hitbox.tres" id="4_5s4t7"]
+[ext_resource type="BehaviorTree" uid="uid://jl4en6w4xvaa" path="res://game_objects/abilities/others/mini_ice_shard/MiniIceShard_BehaviorTree.tres" id="5_jpyis"]
+[ext_resource type="BlackboardPlan" uid="uid://bqa5ynktin3pp" path="res://game_objects/abilities/others/mini_ice_shard/MiniIceShard_BlackboardPlanBase.tres" id="5_kpjco"]
+
+[sub_resource type="Animation" id="Animation_kci0p"]
+resource_name = "@ON"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/$GPU$Particles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitbox/CollisionShape3D_Hitbox:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_t4hns"]
+resource_name = "OFF"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/$GPU$Particles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitbox/CollisionShape3D_Hitbox:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hcfhw"]
+_data = {
+"@ON": SubResource("Animation_kci0p"),
+"OFF": SubResource("Animation_t4hns")
+}
+
+[node name="MiniIceShard" type="Node3D"]
+script = ExtResource("1_7ypri")
+MovingDuration = 1.0
+EasingfuncType = 2
+TransitionType = 2
+
+[node name="Visual" type="Node3D" parent="."]
+
+[node name="$GPU$Particles3D" type="GPUParticles3D" parent="Visual"]
+amount = 200
+lifetime = 0.3
+local_coords = true
+process_material = ExtResource("1_yxv7f")
+draw_pass_1 = ExtResource("1_2u1c4")
+
+[node name="Hitbox" type="Area3D" parent="."]
+script = ExtResource("4_1rcgf")
+
+[node name="CollisionShape3D_Hitbox" type="CollisionShape3D" parent="Hitbox"]
+shape = ExtResource("4_5s4t7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hcfhw")
+}
+
+[node name="BT_______Player" type="BTPlayer" parent="."]
+behavior_tree = ExtResource("5_jpyis")
+blackboard_plan = ExtResource("5_kpjco")

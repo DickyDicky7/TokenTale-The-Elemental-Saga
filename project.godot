@@ -70,6 +70,10 @@ folder_colors={
 
 import/blender/enabled=false
 
+[gui]
+
+theme/custom_font="res://game_asset_s/monogram.ttf"
+
 [importer_defaults]
 
 texture={

@@ -10,7 +10,7 @@
 [ext_resource type="BehaviorTree" uid="uid://bubi75u730bbr" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops_BehaviorTree.tres" id="6_v0w02"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="7_0akb0"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="8_2pmn5"]
-[ext_resource type="Script" path="res://game_objects/shared/HurtBox3d.cs" id="10_fyf3p"]
+[ext_resource type="Script" path="res://game_objects/shared/Hurtbox3D.cs" id="10_fyf3p"]
 [ext_resource type="PackedScene" uid="uid://bb7ues43wabc1" path="res://game_objects/shared/indicator/Indicator.tscn" id="11_h0w1s"]
 
 [sub_resource type="Animation" id="Animation_kk1d2"]
@@ -648,9 +648,9 @@ transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
 Modulate = Color(1, 1, 0, 1)
 Sprite = NodePath("Sprite3D")
 
-[node name="HurtBox3D" type="Area3D" parent="."]
+[node name="Hurtbox3D" type="Area3D" parent="."]
 script = ExtResource("10_fyf3p")
 
-[node name="CollisionShape3D_Body" type="CollisionShape3D" parent="HurtBox3D"]
+[node name="CollisionShape3D_Body" type="CollisionShape3D" parent="Hurtbox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 shape = ExtResource("3_n5lrr")

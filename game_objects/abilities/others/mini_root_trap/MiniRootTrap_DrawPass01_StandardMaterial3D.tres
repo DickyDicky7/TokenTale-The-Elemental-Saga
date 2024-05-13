@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cw6ua01qhocgo"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vtwuo"]
+load_path = "res://.godot/imported/1.png-3c8f25ffb842f9ff6332e2231a44809c.ctex"
+
+[resource]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("CompressedTexture2D_vtwuo")
+texture_filter = 0
+texture_repeat = false
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 8
+particles_anim_v_frames = 1
+particles_anim_loop = false

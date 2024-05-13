@@ -5,23 +5,22 @@
 [ext_resource type="BBNode" uid="uid://tqtypdkbc4ga" path="res://game_objects/abilities/fire_ball/FireBall_BBNode_RootNode.tres" id="3_xywrm"]
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_6cvqd"]
-await_completion = 10.0
-animation_player = ExtResource("2_3e1y0")
-animation_name = &"OUT"
-
-[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_3ss46"]
 animation_player = ExtResource("2_3e1y0")
 animation_name = &"FLY"
 
 [sub_resource type="BTWait" id="BTWait_aagyc"]
-duration = 9.0
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_ngd6r"]
+await_completion = 10.0
+animation_player = ExtResource("2_3e1y0")
+animation_name = &"HIT"
 
 [sub_resource type="BTCallMethod" id="BTCallMethod_2m0lg"]
 node = ExtResource("3_xywrm")
 method = &"queue_free"
 
 [sub_resource type="BTSequence" id="BTSequence_nmtmf"]
-children = [SubResource("BTPlayAnimation_6cvqd"), SubResource("BTPlayAnimation_3ss46"), SubResource("BTWait_aagyc"), SubResource("BTCallMethod_2m0lg")]
+children = [SubResource("BTPlayAnimation_6cvqd"), SubResource("BTWait_aagyc"), SubResource("BTPlayAnimation_ngd6r"), SubResource("BTCallMethod_2m0lg")]
 
 [resource]
 blackboard_plan = ExtResource("1_5nekw")

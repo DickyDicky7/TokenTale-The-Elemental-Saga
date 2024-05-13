@@ -13,6 +13,14 @@ public partial class MainCharacter : Character3D
         set;
     }
 
+    [Export]
+    public MainCharacterAnimatedSprite3DEffect
+           MainCharacterAnimatedSprite3DEffect
+    {
+        get;
+        set;
+    }
+
     public override void _Process(double @delta)
     {
                     base._Process(       @delta);

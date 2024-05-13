@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://be5mbyii68mta"]
+
+[ext_resource type="Shader" path="res://shaders/Glow.gdshader" id="1_puptg"]
+[ext_resource type="Texture2D" uid="uid://ctief4cdqm2ay" path="res://game_asset_s/pixel_holy_spell_effect_32x32_pack_1(bdragon1727)/Pixel Holy Spell Effect 01.png" id="2_1l8ew"]
+
+[resource]
+render_priority = -1
+shader = ExtResource("1_puptg")
+shader_parameter/MODULATE = Color(1, 2, 2, 1)
+shader_parameter/TEXTURE = ExtResource("2_1l8ew")

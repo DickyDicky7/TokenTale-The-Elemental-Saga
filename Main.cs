@@ -44,7 +44,10 @@ public partial class Main : Node3D
     {
                     base._Process(       @delta);
 
-        GD.Print(Engine.GetFramesPerSecond());
+        //GD.Print(Engine.GetFramesPerSecond()) ;
+
+GetWindow().Title=
+                $"{Engine.GetFramesPerSecond()}";
 
         if (Input.IsActionJustPressed("R_CLICK"))
         {
@@ -57,6 +60,11 @@ public partial class Main : Node3D
             startPosition: MainCharacter          .
            GlobalPosition,
             ceasePosition: globalMousePosition   );
+
+            MainCharacter.
+            MainCharacterAnimatedSprite3DEffect.CurrentEffect=
+            MainCharacterAnimatedSprite3DEffect.       Effect.
+            EFFECT_FIRE  ;
         }
     }
 }

@@ -10,7 +10,7 @@
 [ext_resource type="Shape3D" uid="uid://l4jik3dqygxc" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_ShapeCast3D.tres" id="6_by3lr"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="7_4xr46"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="8_gbxey"]
-[ext_resource type="Script" path="res://game_objects/shared/HurtBox3d.cs" id="9_win7c"]
+[ext_resource type="Script" path="res://game_objects/shared/Hurtbox3D.cs" id="9_win7c"]
 [ext_resource type="PackedScene" uid="uid://bb7ues43wabc1" path="res://game_objects/shared/indicator/Indicator.tscn" id="11_2khnn"]
 
 [sub_resource type="Animation" id="Animation_oe52o"]
@@ -858,10 +858,10 @@ transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
 Modulate = Color(1, 0, 0, 1)
 Sprite = NodePath("Sprite3D")
 
-[node name="HurtBox3D" type="Area3D" parent="."]
+[node name="Hurtbox3D" type="Area3D" parent="."]
 script = ExtResource("9_win7c")
 
-[node name="CollisionShape3D_Body" type="CollisionShape3D" parent="HurtBox3D"]
+[node name="CollisionShape3D_Body" type="CollisionShape3D" parent="Hurtbox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
 shape = ExtResource("3_xhr2f")
 

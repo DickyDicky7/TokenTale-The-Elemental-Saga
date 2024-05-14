@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="7_lhct5"]
 [ext_resource type="BehaviorTree" uid="uid://b1xpc2b6nhfu1" path="res://game_objects/characters/elem_monsterss/normal/water/ratfolk_mage/RatfolkMage_BehaviorTree.tres" id="7_sdvtf"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="8_l5smm"]
-[ext_resource type="Script" path="res://game_objects/shared/HurtBox3d.cs" id="10_8rm3q"]
+[ext_resource type="Script" path="res://game_objects/shared/Hurtbox3D.cs" id="10_8rm3q"]
 [ext_resource type="PackedScene" uid="uid://bb7ues43wabc1" path="res://game_objects/shared/indicator/Indicator.tscn" id="11_iq5p6"]
 
 [sub_resource type="Animation" id="Animation_yt52t"]
@@ -513,9 +513,9 @@ transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
 Modulate = Color(0, 0.5, 1, 1)
 Sprite = NodePath("Sprite3D")
 
-[node name="HurtBox3D" type="Area3D" parent="."]
+[node name="Hurtbox3D" type="Area3D" parent="."]
 script = ExtResource("10_8rm3q")
 
-[node name="CollisionShape3D_Body" type="CollisionShape3D" parent="HurtBox3D"]
+[node name="CollisionShape3D_Body" type="CollisionShape3D" parent="Hurtbox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075, 0)
 shape = ExtResource("4_ml0vs")

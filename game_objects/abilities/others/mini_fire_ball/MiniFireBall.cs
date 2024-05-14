@@ -2,7 +2,7 @@ using Godot;
 
 namespace TokenTaleTheElementalSaga;
 
-[Tool]
+//[Tool]
 public partial class MiniFireBall : Ability3D
 {
     //[Export]

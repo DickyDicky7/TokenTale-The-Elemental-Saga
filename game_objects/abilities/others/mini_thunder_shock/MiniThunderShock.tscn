@@ -1,0 +1,149 @@
+[gd_scene load_steps=18 format=3 uid="uid://c3126manji8w0"]
+
+[ext_resource type="SpriteFrames" uid="uid://ip0srnxp3tur" path="res://game_objects/abilities/others/mini_thunder_shock/MiniThunderShock_SpriteFrames.tres" id="1_t112x"]
+[ext_resource type="Script" path="res://game_objects/abilities/others/mini_thunder_shock/MiniThunderShock.cs" id="1_uronr"]
+[ext_resource type="BehaviorTree" uid="uid://cek67ykpxhi6l" path="res://game_objects/abilities/others/mini_thunder_shock/MiniThunderShock_BehaviorTree.tres" id="2_1bdqn"]
+[ext_resource type="Material" uid="uid://dr5xj5ljrt32t" path="res://game_objects/abilities/others/mini_thunder_shock/MiniThunderShock_ShaderMaterial01.tres" id="2_2curn"]
+[ext_resource type="Shape3D" uid="uid://brhgva1tk6ijx" path="res://game_objects/abilities/others/mini_thunder_shock/MiniThunderShock_CollisionShape3D_Hitbox.tres" id="2_b6n0k"]
+[ext_resource type="Script" path="res://game_objects/shared/Hittbox3D.cs" id="2_ffgyi"]
+[ext_resource type="BlackboardPlan" uid="uid://ce8c1ogctoh8b" path="res://game_objects/abilities/others/mini_thunder_shock/MiniThunderShock_BlackboardPlanBase.tres" id="2_yppce"]
+[ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="5_i8r0m"]
+[ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="6_3s1vp"]
+[ext_resource type="Material" uid="uid://dph8lvccm5xbu" path="res://game_objects/abilities/others/mini_thunder_shock/MiniThunderShock_ShaderMaterial02.tres" id="6_c5gkc"]
+[ext_resource type="Material" uid="uid://cuy1380qj4tda" path="res://game_objects/abilities/others/mini_thunder_shock/MiniThunderShock_ShaderMaterial03.tres" id="7_8vny6"]
+[ext_resource type="Material" uid="uid://dcx1s88ghmtej" path="res://game_objects/abilities/others/mini_thunder_shock/MiniThunderShock_ShaderMaterial04.tres" id="8_hoo7n"]
+[ext_resource type="Material" uid="uid://6ivwmkilouqp" path="res://game_objects/abilities/others/mini_thunder_shock/MiniThunderShock_ShaderMaterial05.tres" id="9_oi0gl"]
+[ext_resource type="Material" uid="uid://h5u0j4xhto53" path="res://game_objects/abilities/others/mini_thunder_shock/MiniThunderShock_ShaderMaterial06.tres" id="10_dwg31"]
+[ext_resource type="Material" uid="uid://b604ra3x0rrwf" path="res://game_objects/abilities/others/mini_thunder_shock/MiniThunderShock_ShaderMaterial07.tres" id="11_764ar"]
+
+[sub_resource type="Animation" id="Animation_jefni"]
+length = 0.4375
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/AnimatedSprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0625, 0.125, 0.1875, 0.25, 0.3125, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/AnimatedSprite3D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["SHOCK"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/AnimatedShadow3D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0625, 0.125, 0.1875, 0.25, 0.3125, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visual/AnimatedShadow3D:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["SHOCK"]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.4375),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Visual/AnimatedSprite3D:material_override")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.0625, 0.125, 0.1875, 0.25, 0.3125, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_2curn"), ExtResource("6_c5gkc"), ExtResource("7_8vny6"), ExtResource("8_hoo7n"), ExtResource("9_oi0gl"), ExtResource("10_dwg31"), ExtResource("11_764ar")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q0ont"]
+_data = {
+"SHOCK": SubResource("Animation_jefni")
+}
+
+[node name="MiniThunderShock" type="Node3D" node_paths=PackedStringArray("Flippable3DSpriteBase3DConsolidation")]
+script = ExtResource("1_uronr")
+Flippable3DSpriteBase3DConsolidation = NodePath("Flippable3DSpriteBase3DConsolidation")
+
+[node name="Visual" type="Node3D" parent="."]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Visual"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+material_override = ExtResource("2_2curn")
+cast_shadow = 0
+modulate = Color(1, 0, 1, 1)
+texture_filter = 0
+sprite_frames = ExtResource("1_t112x")
+animation = &"SHOCK"
+
+[node name="AnimatedShadow3D" type="AnimatedSprite3D" parent="Visual"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+cast_shadow = 3
+modulate = Color(1, 0, 1, 1)
+alpha_cut = 2
+texture_filter = 0
+sprite_frames = ExtResource("1_t112x")
+animation = &"SHOCK"
+
+[node name="Hitbox" type="Area3D" parent="."]
+script = ExtResource("2_ffgyi")
+
+[node name="CollisionShape3D_Hitbox" type="CollisionShape3D" parent="Hitbox"]
+shape = ExtResource("2_b6n0k")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_q0ont")
+}
+autoplay = "SHOCK"
+
+[node name="BT_______Player" type="BTPlayer" parent="."]
+behavior_tree = ExtResource("2_1bdqn")
+blackboard_plan = ExtResource("2_yppce")
+
+[node name="Flippable3DSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
+process_mode = 4
+script = ExtResource("5_i8r0m")
+Sprites = [NodePath("../Visual/AnimatedSprite3D"), NodePath("../Visual/AnimatedShadow3D")]
+
+[node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
+process_mode = 4
+script = ExtResource("6_3s1vp")
+Sprites = [NodePath("../Visual/AnimatedSprite3D")]

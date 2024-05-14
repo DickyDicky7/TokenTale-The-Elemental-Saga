@@ -1,0 +1,28 @@
+[gd_resource type="BehaviorTree" load_steps=9 format=3 uid="uid://dyyfkrceibox"]
+
+[ext_resource type="BlackboardPlan" uid="uid://wk5j2yfxvjnv" path="res://game_objects/abilities/others/mini_thief/MiniThief_BlackboardPlan----.tres" id="1_3tiox"]
+[ext_resource type="BBNode" uid="uid://cxyhs4eqfmcsa" path="res://game_objects/abilities/others/mini_thief/MiniThief_BBNode_AnimPlayer.tres" id="2_wom67"]
+[ext_resource type="BBNode" uid="uid://u00oesrpljm6" path="res://game_objects/abilities/others/mini_thief/MiniThief_BBNode_RootNode.tres" id="3_agkge"]
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_btj35"]
+await_completion = 10.0
+animation_player = ExtResource("2_wom67")
+animation_name = &"@ON"
+
+[sub_resource type="BTWait" id="BTWait_lea4i"]
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_pfd7l"]
+await_completion = 10.0
+animation_player = ExtResource("2_wom67")
+animation_name = &"OFF"
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_63ikp"]
+node = ExtResource("3_agkge")
+method = &"queue_free"
+
+[sub_resource type="BTSequence" id="BTSequence_apadq"]
+children = [SubResource("BTPlayAnimation_btj35"), SubResource("BTWait_lea4i"), SubResource("BTPlayAnimation_pfd7l"), SubResource("BTCallMethod_63ikp")]
+
+[resource]
+blackboard_plan = ExtResource("1_3tiox")
+root_task = SubResource("BTSequence_apadq")

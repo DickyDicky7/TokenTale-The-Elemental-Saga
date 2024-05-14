@@ -9,7 +9,7 @@
 [ext_resource type="Shape3D" uid="uid://blf5opes2r2ci" path="res://game_objects/characters/others/the_thief/cat/Cat_ShapeCast3D.tres" id="6_xrboa"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="7_w13qf"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="8_gmbyo"]
-[ext_resource type="Script" path="res://game_objects/shared/HurtBox3d.cs" id="9_bpd42"]
+[ext_resource type="Script" path="res://game_objects/shared/Hurtbox3D.cs" id="9_bpd42"]
 [ext_resource type="PackedScene" uid="uid://bb7ues43wabc1" path="res://game_objects/shared/indicator/Indicator.tscn" id="10_qbgbe"]
 
 [sub_resource type="Animation" id="Animation_oy1ut"]
@@ -658,10 +658,10 @@ transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
 Modulate = Color(1, 1, 1, 1)
 Sprite = NodePath("Sprite3D")
 
-[node name="HurtBox3D" type="Area3D" parent="."]
+[node name="Hurtbox3D" type="Area3D" parent="."]
 script = ExtResource("9_bpd42")
 
-[node name="CollisionShape3D_Body" type="CollisionShape3D" parent="HurtBox3D"]
+[node name="CollisionShape3D_Body" type="CollisionShape3D" parent="Hurtbox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 shape = ExtResource("3_qjvj3")
 

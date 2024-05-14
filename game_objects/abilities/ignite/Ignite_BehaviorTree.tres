@@ -10,23 +10,23 @@ animation_player = ExtResource("2_7qrtk")
 animation_name = &"HIT_START"
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_cm624"]
-await_completion = 10.0
 animation_player = ExtResource("2_7qrtk")
 animation_name = &"HIT_LOOPS"
+
+[sub_resource type="BTWait" id="BTWait_75l7n"]
+duration = 10.0
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_w6a80"]
 await_completion = 10.0
 animation_player = ExtResource("2_7qrtk")
 animation_name = &"HIT_CEASE"
 
-[sub_resource type="BTWait" id="BTWait_75l7n"]
-
 [sub_resource type="BTCallMethod" id="BTCallMethod_i756r"]
 node = ExtResource("3_fsps0")
 method = &"queue_free"
 
 [sub_resource type="BTSequence" id="BTSequence_xj4ul"]
-children = [SubResource("BTPlayAnimation_dh5ua"), SubResource("BTPlayAnimation_cm624"), SubResource("BTPlayAnimation_w6a80"), SubResource("BTWait_75l7n"), SubResource("BTCallMethod_i756r")]
+children = [SubResource("BTPlayAnimation_dh5ua"), SubResource("BTPlayAnimation_cm624"), SubResource("BTWait_75l7n"), SubResource("BTPlayAnimation_w6a80"), SubResource("BTCallMethod_i756r")]
 
 [resource]
 blackboard_plan = ExtResource("1_yew4j")

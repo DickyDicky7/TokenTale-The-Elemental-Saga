@@ -1,11 +1,31 @@
-[gd_resource type="BehaviorTree" load_steps=4 format=3 uid="uid://dqqxwm6yjd6xd"]
+[gd_resource type="BehaviorTree" load_steps=10 format=3 uid="uid://dqqxwm6yjd6xd"]
 
 [ext_resource type="BlackboardPlan" uid="uid://7uyrdywlt1je" path="res://game_objects/abilities/others/mini_blow_wind/MiniBlowWind_BlackboardPlan----.tres" id="1_vyk7b"]
+[ext_resource type="BBNode" uid="uid://dgm1gs3va6f7y" path="res://game_objects/abilities/others/mini_blow_wind/MiniBlowWind_BBNode_AnimPlay.tres" id="2_3s8sj"]
+[ext_resource type="BBNode" uid="uid://dbuvkbitfhh10" path="res://game_objects/abilities/others/mini_blow_wind/MiniBlowWind_BBNode_RootNode.tres" id="3_ghrtx"]
 
-[sub_resource type="BTWait" id="BTWait_ox2me"]
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_g5egn"]
+await_completion = 10.0
+animation_player = ExtResource("2_3s8sj")
+animation_name = &"@ON"
+
+[sub_resource type="BTWait" id="BTWait_71v1x"]
+duration = 5.0
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_22nqo"]
+await_completion = 10.0
+animation_player = ExtResource("2_3s8sj")
+animation_name = &"OFF"
+
+[sub_resource type="BTWait" id="BTWait_r2q5j"]
+duration = 0.1
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_pi5rm"]
+node = ExtResource("3_ghrtx")
+method = &"queue_free"
 
 [sub_resource type="BTSequence" id="BTSequence_f4hp8"]
-children = [SubResource("BTWait_ox2me")]
+children = [SubResource("BTPlayAnimation_g5egn"), SubResource("BTWait_71v1x"), SubResource("BTPlayAnimation_22nqo"), SubResource("BTWait_r2q5j"), SubResource("BTCallMethod_pi5rm")]
 
 [resource]
 blackboard_plan = ExtResource("1_vyk7b")

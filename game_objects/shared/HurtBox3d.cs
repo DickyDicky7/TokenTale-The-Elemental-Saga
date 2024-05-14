@@ -3,7 +3,7 @@ using Godot;
 namespace TokenTaleTheElementalSaga;
 
 [GlobalClass]
-public partial class HurtBox3d : Area3D
+public partial class Hurtbox3D : CustomArea3D
 {
     public Character3D
            Character3D
@@ -19,7 +19,7 @@ public partial class HurtBox3d : Area3D
         set;
     } = false;
 
-    protected void OnAreaEntered(Area3D @area3D)
+    protected override void OnAreaEntered(Area3D @area3D)
     {
         int oldHealth =   Character3D.Health;
         int newHealth = --Character3D.Health;
@@ -30,14 +30,20 @@ public partial class HurtBox3d : Area3D
         newHealth );
         Hurt = true;
     }
-
-    public void StartWatching()
-    {
-        this.AreaEntered += OnAreaEntered;
-    }
-
-    public void StopWatching()
-    {
-        this.AreaEntered -= OnAreaEntered;
-    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

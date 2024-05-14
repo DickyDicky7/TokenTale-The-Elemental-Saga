@@ -24,7 +24,7 @@ children = [SubResource("BTAction_tuajh"), SubResource("BTPlayAnimation_7c5rn")]
 
 [sub_resource type="BTAction" id="BTAction_qwhvw"]
 script = ExtResource("2_5hjei")
-PathHurtBox3D = NodePath("HurtBox3D")
+PathHurtbox3D = NodePath("Hurtbox3D")
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_47yv1"]
 await_completion = 10.0

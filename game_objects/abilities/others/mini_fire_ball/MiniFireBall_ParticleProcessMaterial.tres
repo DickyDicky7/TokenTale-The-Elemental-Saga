@@ -1,6 +1,6 @@
 [gd_resource type="ParticleProcessMaterial" load_steps=2 format=3 uid="uid://bhi5ki3eoxdc4"]
 
-[ext_resource type="Texture2D" uid="uid://4jlftyaek10" path="res://game_objects/abilities/others/mini_fire_ball/MiniFireBal_GradientTexture1D.tres" id="1_edlk0"]
+[ext_resource type="Texture2D" uid="uid://4jlftyaek10" path="res://game_objects/abilities/others/mini_fire_ball/MiniFireBall_GradientTexture1D.tres" id="1_edlk0"]
 
 [resource]
 direction = Vector3(0, 0, 1)

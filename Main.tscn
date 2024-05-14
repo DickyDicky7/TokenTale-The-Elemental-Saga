@@ -35,7 +35,7 @@
 
 [node name="Main" type="Node3D" node_paths=PackedStringArray("MainCharacter")]
 script = ExtResource("1_px6f3")
-Scene = ExtResource("14_4m8xy")
+Scene = ExtResource("12_qboqi")
 MainCharacter = NodePath("MainCharacter")
 
 [node name="Environment" type="WorldEnvironment" parent="."]
@@ -78,9 +78,10 @@ autostart = true
 [node name="NavigationRegion3D_Dynamic" type="NavigationRegion3D" parent="."]
 navigation_mesh = ExtResource("7_gtwip")
 
-[node name="MainCharacter" parent="." node_paths=PackedStringArray("NavigationAgent3D") instance=ExtResource("9_seby3")]
+[node name="MainCharacter" parent="." node_paths=PackedStringArray("NavigationAgent3D", "MainCharacterAnimatedSprite3DEffect") instance=ExtResource("9_seby3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 0)
 NavigationAgent3D = NodePath("NavigationAgent3D")
+MainCharacterAnimatedSprite3DEffect = NodePath("AnimatedSprite3D_Effect")
 Speed = 1.5
 
 [node name="Camera3D" type="Camera3D" parent="MainCharacter"]

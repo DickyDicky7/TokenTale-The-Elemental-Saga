@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dr5xj5ljrt32t"]
+
+[ext_resource type="Shader" path="res://game_objects/abilities/others/mini_thunder_shock/MiniThunderShock_ShaderMaterial.gdshader" id="1_up5w6"]
+[ext_resource type="Texture2D" uid="uid://08wldmqpml6e" path="res://game_asset_s/vfx/LT_100_nyknck/LT100.png" id="2_35c6e"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_up5w6")
+shader_parameter/TEXTURE = ExtResource("2_35c6e")

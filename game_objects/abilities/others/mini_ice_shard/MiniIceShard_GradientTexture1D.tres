@@ -1,0 +1,7 @@
+[gd_resource type="GradientTexture1D" load_steps=2 format=3 uid="uid://rfv3r6fhlje5"]
+
+[ext_resource type="Gradient" uid="uid://ew5jsgu7xivt" path="res://game_objects/abilities/others/mini_ice_shard/MiniIceShard_Gradient---------.tres" id="1_gqfkv"]
+
+[resource]
+gradient = ExtResource("1_gqfkv")
+use_hdr = true

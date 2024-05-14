@@ -46,6 +46,9 @@ public partial class Main : Node3D
 
         //GD.Print(Engine.GetFramesPerSecond());
 
+GetWindow().Title=
+                $"{Engine.GetFramesPerSecond()}";
+
         if (Input.IsActionJustPressed("R_CLICK"))
         {
             Ability3D ability = Scene.Instantiate<
@@ -57,6 +60,18 @@ public partial class Main : Node3D
             startPosition: MainCharacter          .
            GlobalPosition,
             ceasePosition: globalMousePosition   );
+
+            MainCharacter.
+            MainCharacterAnimatedSprite3DEffect.CurrentEffect=
+            MainCharacterAnimatedSprite3DEffect.       Effect.
+            EFFECT_FIRE  ;
         }
     }
 }
+
+
+
+
+
+
+

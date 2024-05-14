@@ -52,6 +52,7 @@ value = SubResource("BBVariant_viw7e")
 script = ExtResource("5_vjuis")
 Type = "FOLLOW"
 SatelliteDistance = 0.3
+PathNavigationAgent3D = NodePath("NavigationAgent3D")
 
 [sub_resource type="BTAction" id="BTAction_yccde"]
 script = ExtResource("6_f4jgv")
@@ -74,6 +75,7 @@ children = [SubResource("BTAction_n7f5v"), SubResource("BTParallel_gf3lp")]
 script = ExtResource("5_vjuis")
 Type = "SATELLITE"
 SatelliteDistance = 0.3
+PathNavigationAgent3D = NodePath("NavigationAgent3D")
 
 [sub_resource type="BTAction" id="BTAction_ad44q"]
 script = ExtResource("6_f4jgv")

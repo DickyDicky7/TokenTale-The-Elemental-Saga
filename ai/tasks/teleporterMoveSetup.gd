@@ -4,9 +4,11 @@ extends BTAction
 @export var Type: StringName
 @export var ActionDistance: float
 @export var PathRayCast3DTeleport: NodePath
+@export var PathNavigationAgent3D: NodePath
 
 var currentCharacter: Character3D
 var targetCharacter: Character3D
+var navigationAgent3D: NavigationAgent3D
 var rayCast3DTeleport: RayCast3D
 var finalDestination: Vector3
 var priorityAngle: float
@@ -18,6 +20,7 @@ func _setup() -> void:
 	priorityAngle = 0
 	currentCharacter = agent
 	rayCast3DTeleport = agent.get_node(PathRayCast3DTeleport)
+	navigationAgent3D = agent.get_node(PathNavigationAgent3D)
 	pass;
 	
 func _enter() -> void:
@@ -61,7 +64,7 @@ func FindMoveDestination(distanceToTarget) -> Vector3:
 	var directionList: Array = Helper.CalculateMoveDirectionList(
 		mainVector,
 		priorityAngle)
-	var distance: float = FindMoveDistance(distanceToTarget)
+	var distance: float = FindMoveDistance(distanceToTarget) + navigationAgent3D.target_desired_distance
 	destination = Helper.CalculateMoveDestination(
 		currentCharacter.position,
 		distance,
@@ -103,7 +106,7 @@ func FindTeleportDestination2() -> Vector3:
 	var distance: float = 0.2
 	while (distance >= 0.1):
 		for i in range (directionList.size()):
-			var destinationTemp: Vector3 = currentCharacter + directionList[i] * distance
+			var destinationTemp: Vector3 = currentCharacter.position + directionList[i] * distance
 			rayCast3DTeleport.target_position = destinationTemp
 			rayCast3DTeleport.position = destinationTemp
 			rayCast3DTeleport.force_raycast_update()

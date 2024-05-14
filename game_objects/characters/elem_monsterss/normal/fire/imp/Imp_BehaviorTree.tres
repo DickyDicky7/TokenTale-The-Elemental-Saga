@@ -89,6 +89,7 @@ script = ExtResource("7_r0fwc")
 Type = "FALLBACK"
 FallBackDistance = 0.75
 ChaseDistance = 1.25
+PathNavigationAgent3D = NodePath("NavigationAgent3D")
 
 [sub_resource type="BTAction" id="BTAction_wemvr"]
 script = ExtResource("8_lw88l")
@@ -112,6 +113,7 @@ script = ExtResource("7_r0fwc")
 Type = "CHASE"
 FallBackDistance = 0.75
 ChaseDistance = 1.25
+PathNavigationAgent3D = NodePath("NavigationAgent3D")
 
 [sub_resource type="BTAction" id="BTAction_o856m"]
 script = ExtResource("8_lw88l")
@@ -135,6 +137,7 @@ script = ExtResource("7_r0fwc")
 Type = "PROBE"
 FallBackDistance = 0.75
 ChaseDistance = 1.25
+PathNavigationAgent3D = NodePath("NavigationAgent3D")
 
 [sub_resource type="BTAction" id="BTAction_vs130"]
 script = ExtResource("8_lw88l")

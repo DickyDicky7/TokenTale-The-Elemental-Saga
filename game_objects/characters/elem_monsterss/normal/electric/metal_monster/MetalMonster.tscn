@@ -357,6 +357,8 @@ Acceleration = 0.1
 Deceleration = 0.1
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 0.5
+target_desired_distance = 0.3
 debug_enabled = true
 
 [node name="AnimatedSprite3D_$Main$" type="AnimatedSprite3D" parent="."]
@@ -413,7 +415,7 @@ debug_shape_custom_color = Color(0, 0, 1, 1)
 process_mode = 4
 script = ExtResource("7_b48je")
 Sprites = [NodePath("../AnimatedSprite3D_$Main$"), NodePath("../AnimatedSprite3D_Shadow")]
-FlipH = true
+FlipHInverted = true
 
 [node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
 process_mode = 4

@@ -4,9 +4,11 @@ extends BTAction
 @export var Type: String
 @export var FallBackDistance: float
 @export var ChaseDistance: float
+@export var PathNavigationAgent3D: NodePath
 
 var currentCharacter: Character3D
 var targetCharacter: Character3D
+var navigationAgent3D: NavigationAgent3D
 var finalDestination: Vector3
 var priorityAngle: float
 
@@ -22,6 +24,7 @@ func _setup() -> void:
 		"PROBE":
 			priorityAngle = 2 * PI / 5
 	currentCharacter = agent
+	navigationAgent3D = agent.get_node(PathNavigationAgent3D)
 	pass;
 
 func _enter() -> void:
@@ -65,7 +68,7 @@ func FindDestination(distanceToTarget: float) -> Vector3:
 	var directionList: Array = Helper.CalculateMoveDirectionList(
 		mainVector,
 		priorityAngle)
-	var distance: float = FindMoveDistance(distanceToTarget)
+	var distance: float = FindMoveDistance(distanceToTarget) + navigationAgent3D.target_desired_distance
 	destination = Helper.CalculateMoveDestination(
 		currentCharacter.position,
 		distance,

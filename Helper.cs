@@ -154,9 +154,8 @@ public sealed partial class Helper : GodotObject
 		Array<Vector3> directionList)
 	{
 		Vector3 finalDestination = new Vector3(0, 0, 0);
-		int luckyNumber = (int)GD.Randi() % 5;
-		Vector3 chosenDirection = directionList[luckyNumber];
-		finalDestination = currentPosition + chosenDirection * distance;
+		//int luckyNumber = (int)(GD.Randi() % 5);
+		finalDestination = currentPosition + directionList[0] * distance;
 		return finalDestination;
 	}
 }

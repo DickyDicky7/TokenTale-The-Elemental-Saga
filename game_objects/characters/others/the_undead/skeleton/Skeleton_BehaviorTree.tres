@@ -93,6 +93,7 @@ script = ExtResource("9_ywgb2")
 Type = "APPROACH"
 CombatDistance = 0.3
 ProbeDistance = 0.75
+PathNavigationAgent3D = NodePath("NavigationAgent3D")
 
 [sub_resource type="BTAction" id="BTAction_4btw7"]
 script = ExtResource("10_8fiqe")

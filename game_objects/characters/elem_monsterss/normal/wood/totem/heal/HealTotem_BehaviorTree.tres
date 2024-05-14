@@ -50,6 +50,7 @@ script = ExtResource("7_upcit")
 Type = &"TELEPORT2"
 ActionDistance = 0.5
 PathRayCast3DTeleport = NodePath("RayCast3DTeleport")
+PathNavigationAgent3D = NodePath("NavigationAgent3D")
 
 [sub_resource type="BBNode" id="BBNode_ajbiq"]
 saved_value = NodePath("AnimationPlayer")

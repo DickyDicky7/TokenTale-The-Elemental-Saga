@@ -44,7 +44,7 @@ public partial class Main : Node3D
     {
                     base._Process(       @delta);
 
-        GD.Print(Engine.GetFramesPerSecond());
+        //GD.Print(Engine.GetFramesPerSecond());
 
         if (Input.IsActionJustPressed("R_CLICK"))
         {

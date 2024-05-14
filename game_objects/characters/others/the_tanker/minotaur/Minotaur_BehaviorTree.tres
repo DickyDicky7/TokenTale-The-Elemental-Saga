@@ -89,6 +89,7 @@ script = ExtResource("8_fosm8")
 Type = "APPROACH"
 CombatDistance = 0.4
 ProbeDistance = 0.75
+PathNavigationAgent3D = NodePath("NavigationAgent3D")
 
 [sub_resource type="BTAction" id="BTAction_7upvn"]
 script = ExtResource("9_fr7ba")
@@ -116,6 +117,7 @@ script = ExtResource("8_fosm8")
 Type = "RETREAT"
 CombatDistance = 0.4
 ProbeDistance = 0.75
+PathNavigationAgent3D = NodePath("NavigationAgent3D")
 
 [sub_resource type="BTAction" id="BTAction_n00n8"]
 script = ExtResource("9_fr7ba")
@@ -143,6 +145,7 @@ script = ExtResource("8_fosm8")
 Type = "PROBE"
 CombatDistance = 0.4
 ProbeDistance = 0.75
+PathNavigationAgent3D = NodePath("NavigationAgent3D")
 
 [sub_resource type="BTAction" id="BTAction_24j88"]
 script = ExtResource("9_fr7ba")

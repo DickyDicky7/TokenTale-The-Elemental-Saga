@@ -51,6 +51,9 @@ func _enter() -> void:
 	pass;
 
 func _exit() -> void:
+	rayCast3D.position = rayCast3D.position
+	rayCast3D.target_position = rayCast3D.target_position
+	rayCast3D.force_raycast_update()
 	pass;
 
 func _tick(_delta: float) -> Status:
@@ -86,7 +89,7 @@ func PatrollDetection(targetCharacterAngle: float, targetCharacter: Object) -> S
 		, maxSeeableAngle
 	);
 	rayCast3D.rotation_degrees.y = realAngle;	
-	rayCast3D.force_raycast_update();
+	rayCast3D.force_raycast_update()
 	if (rayCast3D.get_collider_rid() == targetCharacter .get_rid()):
 		blackboard.set_var(BBVariable.TargetCharacter, targetCharacter);
 		blackboard.set_var(BBVariable.SeeingAngle  , Helper.StandardizeDegree(realAngle));
@@ -96,6 +99,7 @@ func PatrollDetection(targetCharacterAngle: float, targetCharacter: Object) -> S
 
 func ActionDetection(targetCharactedAngle: float, targetCharacter: Object) -> Status:
 	rayCast3D.rotation_degrees.y = targetCharactedAngle;
+	rayCast3D.force_raycast_update()
 	blackboard.set_var(BBVariable.TargetCharacter, targetCharacter);
 	blackboard.set_var(BBVariable.SeeingAngle    , Helper.StandardizeDegree(targetCharactedAngle));
 	return SUCCESS;

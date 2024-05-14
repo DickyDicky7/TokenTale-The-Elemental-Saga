@@ -44,9 +44,9 @@ func _tick(_delta: float) -> Status:
 		var nextDestination: Vector3 = navigationAgent3D.get_next_path_position()
 		if (flipSprite3D != null):
 			if (nextDestination.x <= currentCharacter.position.x):
-				flipSprite3D.FlipH = false
-			else:
 				flipSprite3D.FlipH = true
+			else:
+				flipSprite3D.FlipH = false
 		var direction: Vector3 = nextDestination - currentCharacter.global_position
 		currentCharacter.Move(direction, _delta)
 		return RUNNING

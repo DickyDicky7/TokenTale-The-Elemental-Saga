@@ -99,6 +99,7 @@ PathNavigationAgent3D = NodePath("NavigationAgent3D")
 script = ExtResource("10_miwgs")
 PathFlipSprite3D = NodePath("Flippable3DSpriteBase3DConsolidation")
 PathNavigationAgent3D = NodePath("NavigationAgent3D")
+PathRayCast3D = NodePath("Ray__Cast3D")
 
 [sub_resource type="BBNode" id="BBNode_jtyr2"]
 saved_value = NodePath("AnimationPlayer")

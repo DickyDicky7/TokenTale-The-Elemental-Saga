@@ -6,15 +6,18 @@ func _generate_name() -> String:
 
 @export var PathFlipSprite3D : NodePath
 @export var PathNavigationAgent3D: NodePath
+@export var PathRayCast3D: NodePath
 
 var currentCharacter: Character3D
 var flipSprite3D: Flippable3DSpriteBase3DConsolidation
 var navigationAgent3D: NavigationAgent3D
+var rayCast3D: RayCast3D
 
 func _setup() -> void:
 	currentCharacter = agent
 	flipSprite3D = agent.get_node(PathFlipSprite3D)
 	navigationAgent3D = agent.get_node(PathNavigationAgent3D)
+	rayCast3D = agent.get_node(PathRayCast3D)
 	pass;
 
 func _enter() -> void:
@@ -25,6 +28,8 @@ func _exit() -> void:
 	pass;
 	
 func _tick(_delta: float) -> Status:
+	rayCast3D.target_position = rayCast3D.target_position
+	rayCast3D.force_raycast_update()
 	var finalPositionXZ: Vector2 = Vector2(
 		navigationAgent3D.get_final_position().x,
 		navigationAgent3D.get_final_position().z)

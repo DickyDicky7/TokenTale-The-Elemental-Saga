@@ -58,6 +58,7 @@ PathNavigationAgent3D = NodePath("NavigationAgent3D")
 script = ExtResource("10_335cj")
 PathFlipSprite3D = NodePath("Flippable3DSpriteBase3DConsolidation")
 PathNavigationAgent3D = NodePath("NavigationAgent3D")
+PathRayCast3D = NodePath("Ray__Cast3D")
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_ah2um"]
 animation_player = ExtResource("3_mctks")
@@ -81,6 +82,7 @@ PathNavigationAgent3D = NodePath("NavigationAgent3D")
 script = ExtResource("10_335cj")
 PathFlipSprite3D = NodePath("Flippable3DSpriteBase3DConsolidation")
 PathNavigationAgent3D = NodePath("NavigationAgent3D")
+PathRayCast3D = NodePath("Ray__Cast3D")
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_whmp0"]
 animation_player = ExtResource("3_mctks")

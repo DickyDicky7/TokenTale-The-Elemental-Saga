@@ -13,18 +13,20 @@ public partial class State_Bow_Shoot : State_Bow_
                     base._Enter();
 
         _Bow_.IsInUse = true;
-        _Bow_.AnimatedSprite3DMmainn.Play("SHOOT");
+        _Bow_.AnimationPlayerr.Play("SHOOT");
         _Bow_.CollisionShape3D      .SetDeferred("disabled", true);
-        _Bow_.AnimatedSprite3DMmainn.AnimationFinished += AnimatedSprite3DMmainn_AnimationFinished; ;
-        _Bow_.AnimatedSprite3DEffect.AnimationFinished += AnimatedSprite3DEffect_AnimationFinished;
+        _Bow_.AnimationPlayerr      .AnimationFinished += AnimationPlayerr_______AnimationFinished;
+//      _Bow_.AnimatedSprite3DMmainn.AnimationFinished += AnimatedSprite3DMmainn_AnimationFinished; ;
+//      _Bow_.AnimatedSprite3DEffect.AnimationFinished += AnimatedSprite3DEffect_AnimationFinished;
     }
 
     public override void _Leave()
     {
                     base._Leave();
 
-        _Bow_.AnimatedSprite3DMmainn.AnimationFinished -= AnimatedSprite3DMmainn_AnimationFinished; ;
-        _Bow_.AnimatedSprite3DEffect.AnimationFinished -= AnimatedSprite3DEffect_AnimationFinished;
+        _Bow_.AnimationPlayerr      .AnimationFinished -= AnimationPlayerr_______AnimationFinished;
+//      _Bow_.AnimatedSprite3DMmainn.AnimationFinished -= AnimatedSprite3DMmainn_AnimationFinished; ;
+//      _Bow_.AnimatedSprite3DEffect.AnimationFinished -= AnimatedSprite3DEffect_AnimationFinished;
     }
 
     private void AnimatedSprite3DMmainn_AnimationFinished()
@@ -49,5 +51,10 @@ public partial class State_Bow_Shoot : State_Bow_
 
             ChangeState(ResetState);
         }
+    }
+
+    private void AnimationPlayerr_______AnimationFinished(StringName @animationName)
+    {
+            ChangeState(ResetState);
     }
 }

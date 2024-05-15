@@ -16,6 +16,9 @@ public abstract partial class Ability3D : Node3D
     [Export]
     public Tween.TransitionType TransitionType { get; set; } // For Moving Smoothly
 
+    public Tween 
+           tween;
+
     public virtual Vector3 CalculateMovingDirection(
                    Vector3 @startPosition          ,
                    Vector3 @ceasePosition          )
@@ -29,12 +32,18 @@ public abstract partial class Ability3D : Node3D
     {
     }
 
+    public virtual void Stop             (
+                                         )
+    {
+        tween .Clear();
+    }
+
     public virtual void Move             (
                    Vector3 @startPosition,
                    Vector3 @ceasePosition)
     {
         Position     =     @startPosition;
-        Tween
+//      Tween
         tween =   CreateTween();
         tween .         TweenProperty (
         this, "position" , @ceasePosition,

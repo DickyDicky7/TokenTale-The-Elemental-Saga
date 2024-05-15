@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://jd74eq7qhdna"]
+
+[ext_resource type="PackedScene" uid="uid://bnhb48jc0sx4w" path="res://game_objects/maps/shared/map_system/MapSystem.tscn" id="1_p4etb"]
+[ext_resource type="PackedScene" uid="uid://c47tcwkeiq0h2" path="res://game_objects/characters/main_character/MainCharacter.tscn" id="2_m5dub"]
+[ext_resource type="Script" path="res://_Camera3D_02.cs" id="2_rwd2k"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2slwr"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_0gdty"]
+sky_material = SubResource("ProceduralSkyMaterial_2slwr")
+
+[sub_resource type="Environment" id="Environment_1gk76"]
+background_mode = 2
+sky = SubResource("Sky_0gdty")
+glow_enabled = true
+
+[node name="Test2" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1gk76")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 0, 0)
+shadow_enabled = true
+directional_shadow_mode = 0
+
+[node name="MapSystem" parent="." node_paths=PackedStringArray("MapAreaPlaceHolder", "MainCharacter") instance=ExtResource("1_p4etb")]
+MapAreaPlaceHolder = NodePath("NavigationRegion3D")
+MainCharacter = NodePath("../MainCharacter")
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("FollowTarget")]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 2, 2)
+projection = 1
+size = 4.0
+far = 5.0
+script = ExtResource("2_rwd2k")
+FollowTarget = NodePath("../MainCharacter")
+
+[node name="MainCharacter" parent="." node_paths=PackedStringArray("NavigationAgent3D", "MainCharacterAnimatedSprite3DEffect") instance=ExtResource("2_m5dub")]
+floor_max_angle = 1.5708
+NavigationAgent3D = NodePath("NavigationAgent3D")
+MainCharacterAnimatedSprite3DEffect = NodePath("AnimatedSprite3D_Effect")

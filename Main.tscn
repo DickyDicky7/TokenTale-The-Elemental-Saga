@@ -4,13 +4,13 @@
 [ext_resource type="PlaneMesh" uid="uid://dmf8lh15l3415" path="res://BackgroundPlatform_Mesh.tres" id="2_rk0yh"]
 [ext_resource type="Environment" uid="uid://jjpsnd6sbvf2" path="res://Main_Environment.tres" id="2_vpqwg"]
 [ext_resource type="Shape3D" uid="uid://ckjylylwcue88" path="res://BackgroundPlatform_CollisionShape3D.tres" id="3_vrktx"]
-[ext_resource type="NavigationMesh" uid="uid://o6h7401odt60" path="res://Main_NavigationRegion3D_$Static_NavigationMesh.tres" id="4_6741o"]
+[ext_resource type="NavigationMesh" uid="uid://bavo3q5ti3quw" path="res://Main_NavigationRegion3D_$Static_NavigationMesh.tres" id="4_6741o"]
 [ext_resource type="PackedScene" uid="uid://cwhrbtjfm2cpc" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp.tscn" id="4_hlmyl"]
 [ext_resource type="QuadMesh" uid="uid://b18ltm5xt45do" path="res://game_objects/shared/len/Len_Mesh.tres" id="5_kmewh"]
 [ext_resource type="PackedScene" uid="uid://d1jlh0uaim28w" path="res://game_objects/abilities/tornado/Tornado.tscn" id="5_rpfgl"]
 [ext_resource type="Script" path="res://_Camera3D_.cs" id="6_1l5gg"]
 [ext_resource type="PackedScene" uid="uid://dsw38xnjyq7yu" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur.tscn" id="7_2coyl"]
-[ext_resource type="NavigationMesh" path="res://Main_NavigationRegion3D_Dynamic_NavigationMesh.tres" id="7_gtwip"]
+[ext_resource type="NavigationMesh" uid="uid://boq0kec5xjj3f" path="res://Main_NavigationRegion3D_Dynamic_NavigationMesh.tres" id="7_gtwip"]
 [ext_resource type="PackedScene" uid="uid://dmymcmqewv5c4" path="res://game_objects/abilities/serene_meadow/SereneMeadow.tscn" id="7_tyaa3"]
 [ext_resource type="PackedScene" uid="uid://bj14wt31rsok8" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt.tscn" id="8_nid88"]
 [ext_resource type="PackedScene" uid="uid://bocc0hkunia3p" path="res://game_objects/abilities/overcharge/Overcharge.tscn" id="9_5jat6"]
@@ -33,10 +33,13 @@
 [ext_resource type="PackedScene" uid="uid://u16qad10a485" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster.tscn" id="26_ynl1c"]
 [ext_resource type="PackedScene" uid="uid://o436c4ahk6md" path="res://game_objects/characters/elem_monsterss/normal/water/ratfolk_mage/RatfolkMage.tscn" id="30_ddnm6"]
 
-[node name="Main" type="Node3D" node_paths=PackedStringArray("MainCharacter")]
+[node name="Main" type="Node3D" node_paths=PackedStringArray("MainCharacter", "NavigationRegionSstatic", "NavigationRegionDynamic", "Timer")]
 script = ExtResource("1_px6f3")
 Scene = ExtResource("12_qboqi")
 MainCharacter = NodePath("MainCharacter")
+NavigationRegionSstatic = NodePath("NavigationRegion3D_$Static")
+NavigationRegionDynamic = NodePath("NavigationRegion3D_Dynamic")
+Timer = NodePath("NavigationRegion3D_$Static/Timer")
 
 [node name="Environment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_vpqwg")
@@ -124,7 +127,6 @@ Deceleration = 0.1
 
 [node name="MetalMonster" parent="." instance=ExtResource("26_ynl1c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 4)
-Jumpv = 1.0
 
 [node name="Bat" parent="." instance=ExtResource("15_c3vll")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 4)

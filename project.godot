@@ -63,6 +63,25 @@ folder_colors={
 "res://game_objects/characters/others/the_tanker/": "blue",
 "res://game_objects/characters/others/the_thief/": "blue",
 "res://game_objects/characters/others/the_undead/": "blue",
+"res://game_objects/maps/beach01/": "blue",
+"res://game_objects/maps/beach02/": "blue",
+"res://game_objects/maps/desert01/": "blue",
+"res://game_objects/maps/desert02/": "blue",
+"res://game_objects/maps/grassland01/": "blue",
+"res://game_objects/maps/graveyard01/": "blue",
+"res://game_objects/maps/graveyard02/": "blue",
+"res://game_objects/maps/highland01/": "blue",
+"res://game_objects/maps/highland02/": "blue",
+"res://game_objects/maps/ice01/": "blue",
+"res://game_objects/maps/ice02/": "blue",
+"res://game_objects/maps/ice03/": "blue",
+"res://game_objects/maps/jungle03/": "blue",
+"res://game_objects/maps/mountain01/": "blue",
+"res://game_objects/maps/tomb01/": "blue",
+"res://game_objects/maps/tomb02/": "blue",
+"res://game_objects/maps/volcano01/": "blue",
+"res://modells/maps/": "blue",
+"res://modells/maps_origin/": "orange",
 "res://shaders/": "orange"
 }
 
@@ -146,7 +165,8 @@ CAMMODE={
 
 [navigation]
 
-3d/default_cell_height=0.1
+3d/default_cell_size=0.01
+3d/default_cell_height=0.01
 
 [rendering]
 
@@ -161,3 +181,4 @@ viewport/hdr_2d=true
 occlusion_culling/use_occlusion_culling=true
 lights_and_shadows/positional_shadow/atlas_size=512
 lights_and_shadows/positional_shadow/atlas_size.mobile=512
+environment/defaults/default_environment="res://Main_Environment.tres"

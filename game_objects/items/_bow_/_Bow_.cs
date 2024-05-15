@@ -6,6 +6,12 @@ namespace TokenTaleTheElementalSaga;
 public partial class _Bow_ : Weapon
 #pragma warning restore IDE1006 // Naming Styles
 {
+    [Export] public AnimationPlayer
+                    AnimationPlayerr
+    {
+        get;
+        set;
+    }
     [Export] public AnimatedSprite3D AnimatedSprite3DMmainn { get; set; }
     [Export] public CollisionShape3D CollisionShape3D       { get; set; }
     [Export] public AnimatedSprite3D AnimatedSprite3DEffect { get; set; }

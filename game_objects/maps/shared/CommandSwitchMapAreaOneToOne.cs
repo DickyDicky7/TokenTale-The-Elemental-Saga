@@ -1,7 +1,8 @@
-﻿using Godot;
+using Godot;
 
 namespace TokenTaleTheElementalSaga;
 
+[GlobalClass]
 public partial class CommandSwitchMapAreaOneToOne : Command
 {
     [Export]
@@ -33,7 +34,16 @@ public partial class CommandSwitchMapAreaOneToOne : Command
                       NextMapArea ,
                       EntranceIdx);
     }
+
+    public override void Initial(params object[] @objects)
+    {
+        MapSystem =                              @objects
+[0] as  MapSystem ;
+    }
 }
+
+
+
 
 
 

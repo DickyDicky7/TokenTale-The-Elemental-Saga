@@ -6,8 +6,18 @@ namespace TokenTaleTheElementalSaga;
 //     Abstract Command
 public abstract partial class Command : Resource
 {
-public abstract void Execute();
+public abstract void Initial(params object[] @objects);
+public abstract void Execute(                        );
 }
+
+
+
+
+
+
+
+
+
 
 
 

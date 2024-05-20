@@ -15,22 +15,27 @@ public abstract partial class Ability3D : Node3D
     public Tween.      EaseType EasingfuncType { get; set; } // For Moving Smoothly
     [Export]
     public Tween.TransitionType TransitionType { get; set; } // For Moving Smoothly
+
     public float ActiveRange { get; protected set; } = AbilityStats.ActiveRange.Short;
-    public float Speed { get; protected set; } = AbilityStats.Speed.Slow;
+    public float       Speed { get; protected set; } = AbilityStats.      Speed.
+                       Slow;
 
     public virtual Vector3 CalculateCeasePosition(
-        Vector3 MovingDirection,
-        Vector3 StartPosition,
-        Vector3 CeasePosition)
+                   Vector3 @movingDirection      ,
+                   Vector3 @startPosition        ,
+                   Vector3 @ceasePosition        )
     {
-        if (StartPosition.DistanceTo(CeasePosition) > this.ActiveRange)
-            return StartPosition + MovingDirection * this.ActiveRange;
+        if (@startPosition.DistanceTo(
+            @ceasePosition           )               > this.ActiveRange)
+            return @startPosition + @movingDirection * this.ActiveRange;
         else
-            return CeasePosition;
+            return @ceasePosition ;
     }
-    public virtual double CalculateMovingDuration(float distance)
+
+    public virtual double CalculateMovingDuration(float @distance)
     {
-        return this.MovingDuration == 0 ? 0 : distance / Speed;
+        return this.MovingDuration == 0.0d ?
+                                      0.0d :            @distance / Speed;
     }
 
     public Tween 
@@ -89,13 +94,27 @@ public abstract partial class Ability3D : Node3D
                 @ceasePosition                    );
         ChangeVisual   (
         movingDirection);
-        Vector3 newCeasePosition = CalculateCeasePosition(movingDirection, @startPosition, @ceasePosition);
-        this.MovingDuration = CalculateMovingDuration(startPosition.DistanceTo(newCeasePosition));
+        Vector3
+              newCeasePosition  =
+        CalculateCeasePosition(
+        movingDirection       ,
+                @startPosition,
+                @ceasePosition);
+                 MovingDuration =
+        CalculateMovingDuration(@startPosition.DistanceTo(newCeasePosition));
         Move                                      (
                 @startPosition                    ,
-                newCeasePosition                   );
+              newCeasePosition                    );
     }
 }
+
+
+
+
+
+
+
+
 
 
 

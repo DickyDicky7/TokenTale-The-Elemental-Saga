@@ -1,5 +1,4 @@
 using Godot;
-using System.Runtime.CompilerServices;
 
 namespace TokenTaleTheElementalSaga;
 
@@ -22,8 +21,19 @@ public partial class MainCharacter : Character3D
         set;
     }
 
-    public BoosterManager BoosterManager { get; private set; }
-    public EquipmentManager EquipmentManager { get; private set; }
+    public   BoosterManager
+             BoosterManager
+    {
+                get;
+        private set;
+    }
+
+    public EquipmentManager
+           EquipmentManager
+    {
+                get;
+        private set;
+    }
 
 	public override void _Process(double @delta)
     {
@@ -72,6 +82,12 @@ public partial class MainCharacter : Character3D
         }
     }
 }
+
+
+
+
+
+
 
 
 

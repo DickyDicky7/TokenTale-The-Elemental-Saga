@@ -66,16 +66,18 @@ public partial class FireBall : Ability3D
     }
 	public override void _Ready()
 	{
-		base._Ready();
-        this.ActiveRange = AbilityStats.ActiveRange.Long;
-        this.Speed = AbilityStats.Speed.MidFast;
+		            base._Ready();
+        this.ActiveRange = AbilityStats.ActiveRange.   Long;
+        this.      Speed = AbilityStats.      Speed.MidFast;
         
 	}
 	public override Vector3 CalculateCeasePosition(
-        Vector3 MovingDirection, 
-        Vector3 StartPosition,
-        Vector3 CeasePosition)
+        Vector3 @movingDirection                  , 
+        Vector3 @startPosition                    ,
+        Vector3 @ceasePosition                    )
 	{
-		return StartPosition + MovingDirection * this.ActiveRange;
+		return  @startPosition +
+                @movingDirection 
+      * this.ActiveRange ;
 	}
 }

@@ -19,7 +19,7 @@ mesh = ExtResource("1_pfsqk")
 shape = SubResource("ConcavePolygonShape3D_mh6gv")
 
 [node name="Entrance01" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.512, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.512, 1.8)
 
 [node name="Entrance02" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.512, 0)

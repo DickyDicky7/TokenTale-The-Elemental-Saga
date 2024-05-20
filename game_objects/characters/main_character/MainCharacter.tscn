@@ -1,7 +1,8 @@
-[gd_scene load_steps=44 format=3 uid="uid://c47tcwkeiq0h2"]
+[gd_scene load_steps=45 format=3 uid="uid://c47tcwkeiq0h2"]
 
 [ext_resource type="Script" path="res://game_objects/characters/main_character/MainCharacter.cs" id="1_gm2bn"]
 [ext_resource type="SpriteFrames" uid="uid://rt7sar8d0e54" path="res://game_objects/characters/main_character/MainCharacter_SpriteFrames_$Main$.tres" id="1_q2bc7"]
+[ext_resource type="Material" uid="uid://bscw2illjxslq" path="res://game_objects/characters/main_character/MainCharacter_ShaderMaterial_GLOU.tres" id="2_ytvyu"]
 [ext_resource type="Shape3D" uid="uid://b7xid5nyum248" path="res://game_objects/characters/main_character/MainCharacter_CollisionShape3D_Body.tres" id="4_7nd0n"]
 [ext_resource type="Script" path="res://game_objects/items/shared/WeaponsController.cs" id="8_aswq2"]
 [ext_resource type="PackedScene" uid="uid://bx1yjtvn2pwyh" path="res://game_objects/items/sword/Sword.tscn" id="12_frf8n"]
@@ -713,12 +714,12 @@ Deceleration = 0.2
 debug_enabled = true
 
 [node name="AnimatedSprite3D_$Main$" type="AnimatedSprite3D" parent="."]
+material_override = ExtResource("2_ytvyu")
 cast_shadow = 0
 offset = Vector2(0, 12)
 texture_filter = 0
 sprite_frames = ExtResource("1_q2bc7")
 animation = &"IDLE_D"
-frame = 2
 
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 cast_shadow = 3
@@ -727,7 +728,6 @@ alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_q2bc7")
 animation = &"IDLE_D"
-frame = 2
 
 [node name="AnimatedSprite3D_Effect" parent="." node_paths=PackedStringArray("AnimationPlayer") instance=ExtResource("19_14buj")]
 AnimationPlayer = NodePath("AnimationPlayer")
@@ -775,9 +775,10 @@ AnimatedSprite3D = NodePath("_AnimatedSprite3D")
 AnimatedShadow3D = NodePath("_AnimatedShadow3D")
 AnimationPlayerr = NodePath("_AnimationPlayerr")
 
-[node name="_Bow_" parent="." node_paths=PackedStringArray("AnimatedSprite3DMmainn", "CollisionShape3D", "AnimatedSprite3DEffect") instance=ExtResource("13_y068q")]
+[node name="_Bow_" parent="." node_paths=PackedStringArray("AnimationPlayerr", "AnimatedSprite3DMmainn", "CollisionShape3D", "AnimatedSprite3DEffect") instance=ExtResource("13_y068q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
 visible = false
+AnimationPlayerr = NodePath("AnimationPlayerrr")
 AnimatedSprite3DMmainn = NodePath("_AnimatedSprite3D_$Main$")
 CollisionShape3D = NodePath("Aareaa3D/CollisionShape3D")
 AnimatedSprite3DEffect = NodePath("_AnimatedSprite3D_Effect")

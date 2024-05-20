@@ -79,7 +79,7 @@ script = ExtResource("7_2vhe3")
 Type = &"TELEPORT"
 ActionDistance = 0.5
 PathRayCast3DTeleport = NodePath("RayCast3DTeleport")
-PathNavigationAgent3D = NodePath("")
+PathNavigationAgent3D = NodePath("NavigationAgent3D")
 
 [sub_resource type="BTAction" id="BTAction_rrmiq"]
 script = ExtResource("9_1xi6t")

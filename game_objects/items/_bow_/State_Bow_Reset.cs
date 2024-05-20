@@ -13,9 +13,8 @@ public partial class State_Bow_Reset : State_Bow_
                     base._Enter();
 
         _Bow_.IsInUse = false;
-        _Bow_.AnimatedSprite3DMmainn.Play("RESET");
-        _Bow_.CollisionShape3D
-             .SetDeferred("disabled",true)        ;
+        _Bow_.AnimationPlayerr.Play       ("RESET"         );
+        _Bow_.CollisionShape3D.SetDeferred("disabled", true);
     }
 
     public override void _Input(InputEvent @inputEvent)
@@ -49,24 +48,24 @@ public partial class State_Bow_Reset : State_Bow_
         _Bow_.AnimatedSprite3DMmainn.Rotation with { Z = -
         _Bow_.CurrentRotationPosition.Angle() + Mathf.Pi / 2.0f, };
         _Bow_.CollisionShape3D      .Rotation       =
-        _Bow_.CollisionShape3D      .Rotation with { Z = -
+        _Bow_.CollisionShape3D      .Rotation with { Y = -
         _Bow_.CurrentRotationPosition.Angle() + Mathf.Pi / 2.0f, };
         _Bow_.AnimatedSprite3DEffect.Rotation =
-        _Bow_.AnimatedSprite3DEffect.Rotation with { Z = -
+        _Bow_.AnimatedSprite3DEffect.Rotation with { Y = -
         _Bow_.CurrentRotationPosition.Angle() + Mathf.Pi       , };
 
         if (_Bow_.CurrentRotationPosition.Angle() <= -Mathf.Pi * 1.0f / 4.0f
         &&  _Bow_.CurrentRotationPosition.Angle() >= -Mathf.Pi * 3.0f / 4.0f)
         {
             int renderPriority = -1;
-            _Bow_.AnimatedSprite3DMmainn.RenderPriority = renderPriority;
-            _Bow_.AnimatedSprite3DEffect.RenderPriority = renderPriority;
+            _Bow_.AnimatedSprite3DMmainn.MaterialOverride.RenderPriority = renderPriority;
+            _Bow_.AnimatedSprite3DEffect.MaterialOverride.RenderPriority = renderPriority;
         }
         else
         {
             int renderPriority = +1;
-            _Bow_.AnimatedSprite3DMmainn.RenderPriority = renderPriority;
-            _Bow_.AnimatedSprite3DEffect.RenderPriority = renderPriority;
+            _Bow_.AnimatedSprite3DMmainn.MaterialOverride.RenderPriority = renderPriority;
+            _Bow_.AnimatedSprite3DEffect.MaterialOverride.RenderPriority = renderPriority;
         }
 
         if (_Bow_.CurrentRotationPosition.X < 0)
@@ -79,3 +78,12 @@ public partial class State_Bow_Reset : State_Bow_
         }
     }
 }
+
+
+
+
+
+
+
+
+

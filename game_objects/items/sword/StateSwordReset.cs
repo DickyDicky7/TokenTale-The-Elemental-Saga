@@ -85,9 +85,15 @@ public partial class StateSwordReset : StateSword
             > -135.0f and <= +045.0f => -1,
             _                        => +1,
         };
-        Sword.        Sprite3D.RenderPriority = renderPriority;
-        Sword.        Shadow3D.RenderPriority = renderPriority;
-        Sword.AnimatedShadow3D.RenderPriority = renderPriority;
-        Sword.AnimatedSprite3D.RenderPriority = renderPriority;
+        Sword.        Sprite3D.MaterialOverride.RenderPriority = renderPriority;
+        Sword.        Shadow3D                 .RenderPriority = renderPriority;
+        Sword.AnimatedSprite3D.MaterialOverride.RenderPriority = renderPriority;
+        Sword.AnimatedShadow3D                 .RenderPriority = renderPriority;
     }
 }
+
+
+
+
+
+

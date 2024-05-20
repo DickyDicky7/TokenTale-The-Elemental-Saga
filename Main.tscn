@@ -4,7 +4,7 @@
 [ext_resource type="PlaneMesh" uid="uid://dmf8lh15l3415" path="res://BackgroundPlatform_Mesh.tres" id="2_rk0yh"]
 [ext_resource type="Environment" uid="uid://jjpsnd6sbvf2" path="res://Main_Environment.tres" id="2_vpqwg"]
 [ext_resource type="Shape3D" uid="uid://ckjylylwcue88" path="res://BackgroundPlatform_CollisionShape3D.tres" id="3_vrktx"]
-[ext_resource type="NavigationMesh" uid="uid://o6h7401odt60" path="res://Main_NavigationRegion3D_$Static_NavigationMesh.tres" id="4_6741o"]
+[ext_resource type="NavigationMesh" uid="uid://bavo3q5ti3quw" path="res://Main_NavigationRegion3D_$Static_NavigationMesh.tres" id="4_6741o"]
 [ext_resource type="PackedScene" uid="uid://cwhrbtjfm2cpc" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp.tscn" id="4_hlmyl"]
 [ext_resource type="QuadMesh" uid="uid://b18ltm5xt45do" path="res://game_objects/shared/len/Len_Mesh.tres" id="5_kmewh"]
 [ext_resource type="PackedScene" uid="uid://d1jlh0uaim28w" path="res://game_objects/abilities/tornado/Tornado.tscn" id="5_rpfgl"]

@@ -1,0 +1,41 @@
+[gd_scene load_steps=28 format=3 uid="uid://bnhb48jc0sx4w"]
+
+[ext_resource type="Script" path="res://game_objects/maps/shared/map_system/MapSystem.cs" id="1_5theo"]
+[ext_resource type="NavigationMesh" uid="uid://n7p8vl187hgc" path="res://game_objects/maps/shared/map_system/MapSystem_NavigationMesh.tres" id="2_gsxuj"]
+[ext_resource type="PackedScene" uid="uid://d3utn2prn2i0v" path="res://game_objects/maps/beach02/Beach02.tscn" id="3_1el2n"]
+[ext_resource type="PackedScene" uid="uid://bpawgw05y1sij" path="res://game_objects/maps/beach01/Beach01.tscn" id="3_8ab5f"]
+[ext_resource type="PackedScene" uid="uid://dl5g58ti3j7ke" path="res://game_objects/maps/desert01/Desert01.tscn" id="4_hq0qd"]
+[ext_resource type="PackedScene" uid="uid://c6ewdecu4o2a8" path="res://game_objects/maps/desert02/Desert02.tscn" id="5_vebge"]
+[ext_resource type="PackedScene" uid="uid://chy8a4kadxf33" path="res://game_objects/maps/grassland01/Grassland01.tscn" id="6_lms6v"]
+[ext_resource type="PackedScene" uid="uid://dec86i55p8uni" path="res://game_objects/maps/grassland02/Grassland02.tscn" id="7_x16x6"]
+[ext_resource type="PackedScene" uid="uid://diaqmc1i4cbtd" path="res://game_objects/maps/grassland03/Grassland03.tscn" id="8_qt6af"]
+[ext_resource type="PackedScene" uid="uid://bc24kbt6f76j1" path="res://game_objects/maps/grassland04/Grassland04.tscn" id="9_t84f7"]
+[ext_resource type="PackedScene" uid="uid://iph3lk5xj2vs" path="res://game_objects/maps/graveyard01/Graveyard01.tscn" id="10_swmwg"]
+[ext_resource type="PackedScene" uid="uid://bcpcdy3nxdnfq" path="res://game_objects/maps/graveyard02/Graveyard02.tscn" id="11_4w3x7"]
+[ext_resource type="PackedScene" uid="uid://b1lyvhwf75cwt" path="res://game_objects/maps/highland01/Highland01.tscn" id="12_hddbs"]
+[ext_resource type="PackedScene" uid="uid://51wvysjhnbvr" path="res://game_objects/maps/highland02/Highland02.tscn" id="13_porfg"]
+[ext_resource type="PackedScene" uid="uid://drepm3pxypymk" path="res://game_objects/maps/ice01/Ice01.tscn" id="14_3f80r"]
+[ext_resource type="PackedScene" uid="uid://cvyi3heyqwshf" path="res://game_objects/maps/ice02/Ice02.tscn" id="15_to7mv"]
+[ext_resource type="PackedScene" uid="uid://b2135rs8j3c8k" path="res://game_objects/maps/ice03/Ice03.tscn" id="16_f58pv"]
+[ext_resource type="PackedScene" uid="uid://do5wq28wtr478" path="res://game_objects/maps/jungle01/Jungle01.tscn" id="17_ocno5"]
+[ext_resource type="PackedScene" uid="uid://dkpkpw74268bm" path="res://game_objects/maps/jungle02/Jungle02.tscn" id="18_sokm1"]
+[ext_resource type="PackedScene" uid="uid://brminwmkx38no" path="res://game_objects/maps/jungle03/Jungle03.tscn" id="19_mskdi"]
+[ext_resource type="PackedScene" uid="uid://08ftjw833mdg" path="res://game_objects/maps/lake01/Lake01.tscn" id="20_kbylo"]
+[ext_resource type="PackedScene" uid="uid://bocdryadjwky3" path="res://game_objects/maps/lake02/Lake02.tscn" id="21_wcopb"]
+[ext_resource type="PackedScene" uid="uid://c1hfgev3fng5b" path="res://game_objects/maps/mountain01/Mountain01.tscn" id="22_03qph"]
+[ext_resource type="PackedScene" uid="uid://ljlpkidsndjb" path="res://game_objects/maps/swamp01/Swamp01.tscn" id="23_grvfy"]
+[ext_resource type="PackedScene" uid="uid://bklmvxu4nl8a4" path="res://game_objects/maps/tomb01/Tomb01.tscn" id="24_vlu3a"]
+[ext_resource type="PackedScene" uid="uid://cx3c362qgpbqg" path="res://game_objects/maps/tomb02/Tomb02.tscn" id="25_u1q6f"]
+[ext_resource type="PackedScene" uid="uid://d0fhk4h2sei57" path="res://game_objects/maps/volcano01/Volcano01.tscn" id="26_1o33j"]
+
+[node name="MapSystem" type="Node" node_paths=PackedStringArray("Characters", "MapAreaPlaceHolder")]
+script = ExtResource("1_5theo")
+AvailableMapAreaPackedScenes = Array[PackedScene]([ExtResource("3_8ab5f"), ExtResource("3_1el2n"), ExtResource("4_hq0qd"), ExtResource("5_vebge"), ExtResource("6_lms6v"), ExtResource("7_x16x6"), ExtResource("8_qt6af"), ExtResource("9_t84f7"), ExtResource("10_swmwg"), ExtResource("11_4w3x7"), ExtResource("12_hddbs"), ExtResource("13_porfg"), ExtResource("14_3f80r"), ExtResource("15_to7mv"), ExtResource("16_f58pv"), ExtResource("17_ocno5"), ExtResource("18_sokm1"), ExtResource("19_mskdi"), ExtResource("20_kbylo"), ExtResource("21_wcopb"), ExtResource("22_03qph"), ExtResource("23_grvfy"), ExtResource("24_vlu3a"), ExtResource("25_u1q6f"), ExtResource("26_1o33j")])
+Characters = []
+MapAreaPlaceHolder = NodePath("NavigationRegion3D")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = ExtResource("2_gsxuj")
+
+[node name="Beach01" parent="NavigationRegion3D" node_paths=PackedStringArray("Entrances") instance=ExtResource("3_8ab5f")]
+Entrances = [NodePath("Entrance01"), NodePath("Entrance02"), NodePath("Entrance03")]

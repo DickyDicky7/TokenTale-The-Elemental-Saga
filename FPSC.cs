@@ -11,3 +11,4 @@ public partial class FPSC : RichTextLabel
         Text = $"FPS: {Engine.GetFramesPerSecond()}";
     }
 }
+

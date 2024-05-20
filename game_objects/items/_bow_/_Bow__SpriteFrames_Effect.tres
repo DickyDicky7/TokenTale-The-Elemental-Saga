@@ -19,6 +19,24 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
 "texture": ExtResource("1_bt0q6")
 }, {
 "duration": 1.0,
@@ -38,5 +56,5 @@ animations = [{
 }],
 "loop": false,
 "name": &"SHOOT",
-"speed": 30.0
+"speed": 20.0
 }]

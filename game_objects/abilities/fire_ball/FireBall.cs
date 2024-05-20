@@ -64,4 +64,18 @@ public partial class FireBall : Ability3D
             AnimatedShadow.FlipV = true;
         }
     }
+	public override void _Ready()
+	{
+		base._Ready();
+        this.ActiveRange = AbilityStats.ActiveRange.Long;
+        this.Speed = AbilityStats.Speed.MidFast;
+        
+	}
+	public override Vector3 CalculateCeasePosition(
+        Vector3 MovingDirection, 
+        Vector3 StartPosition,
+        Vector3 CeasePosition)
+	{
+		return StartPosition + MovingDirection * this.ActiveRange;
+	}
 }

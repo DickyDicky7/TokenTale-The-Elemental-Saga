@@ -65,7 +65,7 @@ public partial class MainCharacterStats : Resource
 		ElementalProficiency.Add(new Record.ElementalKnowledgeInfo
 		{
 			ElementalScrollCollected = 2,
-			Speed = (float)1,
+			Speed = 1.0f,
 			BonusDamageRatio = 0.08f
 		});
 

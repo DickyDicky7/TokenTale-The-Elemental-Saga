@@ -17,6 +17,9 @@ public abstract partial class Ability3D : Node3D
     public Tween.TransitionType TransitionType { get; set; } // For Moving Smoothly
     public float ActiveRange { get; protected set; } = AbilityStats.ActiveRange.Short;
     public float Speed { get; protected set; } = AbilityStats.Speed.Slow;
+    public float DamageRatio { get; set; } = 1.0f;
+    [Export]
+    public Global.Element Element { get; protected set; }
 
     public virtual Vector3 CalculateCeasePosition(
         Vector3 MovingDirection,

@@ -5,17 +5,21 @@ namespace TokenTaleTheElementalSaga;
 
 public partial class EquipmentManager : Node
 {
-	private List<Equipment> EquipmentList = new();
+	public Quiver Quiver { get; private set; } = new Quiver();
+	public Boot Boot { get; private set; } = new Boot();
+	public PowerupsGenerator PowerupsGenerator { get; private set; } = new PowerupsGenerator();
+	public List<ElementalBracelet> ElementalBraceletList { get; private set; } = new();
+	public List<HealthJar> HealthJarList { get; private set; } = new();
+	public List<ElementalJar> ElementalJarList { get; private set; } = new();
 	public EquipmentManager()
 	{
-		EquipmentList.Add(new Quiver());
-		EquipmentList.Add(new ElementalBracelet(true, 0));
-		EquipmentList.Add(new ElementalBracelet(false, 1));
-		EquipmentList.Add(new Boot());
-		EquipmentList.Add(new PowerupsGenerator());
-		EquipmentList.Add(new ElementalJar(0));
-		EquipmentList.Add(new ElementalJar(1));
-		EquipmentList.Add(new HealthJar(0));
-		EquipmentList.Add(new HealthJar(1));
+		ElementalBraceletList.Add(new ElementalBracelet(true, 0));
+		ElementalBraceletList.Add(new ElementalBracelet(false, 1));
+
+		HealthJarList.Add(new HealthJar(0));
+		HealthJarList.Add(new HealthJar(1));
+
+		ElementalJarList.Add(new ElementalJar(0));
+		ElementalJarList.Add(new ElementalJar(1));
 	}
 }

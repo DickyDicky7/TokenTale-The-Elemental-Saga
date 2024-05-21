@@ -24,8 +24,6 @@ func _exit() -> void:
 	pass;
 	
 func _tick(_delta: float) -> Status:
-	#var temp = HitBox3D.get_node("CollisionShape3D_Hitbox") as CollisionShape3D
-	#print(temp.scale)
 	if (HitBox3D.Hit == true):
 		return SUCCESS
 	if (self.get_elapsed_time() >= movingDuration):

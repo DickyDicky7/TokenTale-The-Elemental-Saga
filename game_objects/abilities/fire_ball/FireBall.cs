@@ -69,7 +69,7 @@ public partial class FireBall : Ability3D
 		base._Ready();
         this.ActiveRange = AbilityStats.ActiveRange.Long;
         this.Speed = AbilityStats.Speed.MidFast;
-        
+        this.DamageRatio = 1.0f;
 	}
 	public override Vector3 CalculateCeasePosition(
         Vector3 MovingDirection, 

@@ -6,5 +6,5 @@ namespace TokenTaleTheElementalSaga;
 public abstract partial class ElementalMonster : Monster
 {
 	[Export]
-	private Global.Element Element { get; set; }
+	public Global.Element Element { get; set; }
 }

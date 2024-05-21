@@ -77,13 +77,13 @@ public partial class AbilityStats : Resource
 		WoodStats.Add(new Record.AbilityInfo { Level = 0, ExpNeed = 650, Damage = 48 });
 	}
 
-	public List<Record.AbilityInfo> FireStats { get; private set; }
-	public List<Record.AbilityInfo> WaterStats { get; private set; }
-	public List<Record.AbilityInfo> WindStats { get; private set; }
-	public List<Record.AbilityInfo> ElectricStats { get; private set; }
-	public List<Record.AbilityInfo> IceStats { get; private set; }
-	public List<Record.AbilityInfo> EarthStats { get; private set; }
-	public List<Record.AbilityInfo> WoodStats { get; private set; }
+	public static List<Record.AbilityInfo> FireStats { get; private set; }
+	public static List<Record.AbilityInfo> WaterStats { get; private set; }
+	public static List<Record.AbilityInfo> WindStats { get; private set; }
+	public static List<Record.AbilityInfo> ElectricStats { get; private set; }
+	public static List<Record.AbilityInfo> IceStats { get; private set; }
+	public static List<Record.AbilityInfo> EarthStats { get; private set; }
+	public static List<Record.AbilityInfo> WoodStats { get; private set; }
 	public class ActiveRange
 	{
 		public static float Short { get; private set; } = 1.0f;

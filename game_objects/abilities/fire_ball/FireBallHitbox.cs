@@ -5,7 +5,7 @@ namespace TokenTaleTheElementalSaga;
 
 public partial class FireBallHitbox : Hittbox3D
 {
-	protected override void OnAreaEntered(Area3D area3D)
+	protected override void OnBodyEntered(Area3D area3D)
 	{
 		if (this.Hit == false)
 		{

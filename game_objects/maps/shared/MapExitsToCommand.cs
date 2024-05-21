@@ -4,7 +4,7 @@ using Godot.Collections;
 namespace TokenTaleTheElementalSaga;
 
 [GlobalClass]
-public partial class MapExitsToCommandSwitchMapArea : Resource
+public partial class MapExitsToCommand : Resource
 {
     //[Export]
     //public NodePath
@@ -23,15 +23,15 @@ public partial class MapExitsToCommandSwitchMapArea : Resource
     }
 
     [Export]
-    public CommandSwitchMapArea
-           CommandSwitchMapArea
+    public Command
+           Command
     {
         get;
         set;
     }
 
     [Export]
-    public Array<string> AllowableBodyTypes { get; set; }
+    public Array<string> AllowableBodyTypes { get; set; } = [ "MainCharacter" ];
     public Node3D Agent                     { get; set; }
 
     public void    ConnectSignals()
@@ -61,9 +61,19 @@ public partial class MapExitsToCommandSwitchMapArea : Resource
                 return;
             }
         }
-        CommandSwitchMapArea.Execute();
+        Command       .
+        Execute()     ;
+    }
+
+    public void Initial(params object[]
+                              @objects)
+    {
+        Command.Initial(      @objects)            ;
+        Agent  =              @objects[1] as Node3D;
     }
 }
+
+
 
 
 

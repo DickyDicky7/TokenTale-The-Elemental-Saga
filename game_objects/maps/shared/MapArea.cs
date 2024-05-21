@@ -23,8 +23,8 @@ public partial class MapArea : Node3D
     }
 
     [Export]
-    public Array<MapExitsToCommandSwitchMapArea>
-                 MapExitsToCommandSwitchMapArea
+    public Array<MapExitsToCommand>
+                 MapExitsToCommand
     {
         get;
         set;
@@ -32,16 +32,16 @@ public partial class MapArea : Node3D
 
     public void Setup()
     {
-        foreach (MapExitsToCommandSwitchMapArea map in
-                 MapExitsToCommandSwitchMapArea)
+        foreach (MapExitsToCommand map in
+                 MapExitsToCommand)
         {
-            map.Agent   =   this;
-            map.CommandSwitchMapArea.MapSystem =
-                                     MapSystem ;
-            map.ConnectSignals();
+            map.Initial       (    MapSystem , this    );
+            map.ConnectSignals(                        );
         }
     }
 }
+
+
 
 
 

@@ -27,7 +27,17 @@ public partial class CommandSwitchMapArea : Command
     {
            StrategySwitchMapArea.Execute(MapSystem);
     }
+
+    public override void         Initial(params object[] @objects)
+    {
+           MapSystem =                                   @objects
+[0] as     MapSystem ;
+    }
 }
+
+
+
+
 
 
 

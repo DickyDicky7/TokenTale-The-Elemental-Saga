@@ -104,6 +104,11 @@ public partial class Hittbox3D : CustomArea3D
 		}
 		return Damage;
 	}
+
+    protected override void OnBodyEntered(Node3D @node3D)
+    {
+        //throw new System.NotImplementedException();
+    }
 }
 
 

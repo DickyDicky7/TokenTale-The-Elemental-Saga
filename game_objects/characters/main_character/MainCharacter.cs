@@ -1,5 +1,4 @@
 using Godot;
-using System.Runtime.CompilerServices;
 
 namespace TokenTaleTheElementalSaga;
 
@@ -79,6 +78,12 @@ public partial class MainCharacter : Character3D
         }
     }
 }
+
+
+
+
+
+
 
 
 

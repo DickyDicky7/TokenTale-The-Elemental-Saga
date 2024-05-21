@@ -30,6 +30,11 @@ public partial class Hurtbox3D : CustomArea3D
         newHealth );
         Hurt = true;
     }
+
+    protected override void OnBodyEntered(Node3D @node3D)
+    {
+        //throw new System.NotImplementedException();
+    }
 }
 
 

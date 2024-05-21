@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://b7cey8rb583i7"]
+[gd_scene load_steps=33 format=3 uid="uid://b7cey8rb583i7"]
 
 [ext_resource type="Script" path="res://game_objects/items/_bow_/_Bow_.cs" id="1_tkwil"]
 [ext_resource type="SpriteFrames" uid="uid://cluh2qnw6rggx" path="res://game_objects/items/_bow_/_Bow__SpriteFrames_$Main$.tres" id="2_82x8i"]
@@ -6,16 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://yb8acegdt212" path="res://game_asset_s/characters/main_character_v3/02.png" id="3_a5n8f"]
 [ext_resource type="Shape3D" uid="uid://bpv0qpjlsjrlj" path="res://game_objects/items/_bow_/_Bow__CollisionShape3D.tres" id="5_nvgv3"]
 [ext_resource type="SpriteFrames" uid="uid://cnjolrmubtmrb" path="res://game_objects/items/_bow_/_Bow__SpriteFrames_Effect.tres" id="5_v1wxv"]
-[ext_resource type="Texture2D" uid="uid://bo5uqwhsqek0g" path="res://game_asset_s/vfx/FX024_nyknck/FX024_1.png" id="6_v8vc6"]
-[ext_resource type="Texture2D" uid="uid://byutoxakc4ll3" path="res://game_asset_s/vfx/FX024_nyknck/FX024_2.png" id="7_42a63"]
+[ext_resource type="Texture2D" uid="uid://cob2p07h887t4" path="res://game_asset_s/vfx/SP103_nyknck/SP103_01.png" id="6_g0nm0"]
+[ext_resource type="Texture2D" uid="uid://du15vymucyoko" path="res://game_asset_s/vfx/SP103_nyknck/SP103_02.png" id="7_tmdhf"]
 [ext_resource type="Script" path="res://game_objects/shared/state_machine/StateMachine.cs" id="7_wimn1"]
-[ext_resource type="Texture2D" uid="uid://yhrjjcgxwf3u" path="res://game_asset_s/vfx/FX024_nyknck/FX024_3.png" id="8_4ftkb"]
 [ext_resource type="Script" path="res://game_objects/items/_bow_/State_Bow_Reset.cs" id="8_072kb"]
+[ext_resource type="Texture2D" uid="uid://b1yn67y1v5xom" path="res://game_asset_s/vfx/SP103_nyknck/SP103_03.png" id="8_q4m22"]
 [ext_resource type="Script" path="res://game_objects/items/_bow_/State_Bow_Shoot.cs" id="9_6bc2u"]
-[ext_resource type="Texture2D" uid="uid://c81eeut7e1lt4" path="res://game_asset_s/vfx/FX024_nyknck/FX024_4.png" id="9_jed7b"]
+[ext_resource type="Texture2D" uid="uid://hd6hpa1hhd4u" path="res://game_asset_s/vfx/SP103_nyknck/SP103_04.png" id="9_ng48a"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="9_ytflg"]
-[ext_resource type="Texture2D" uid="uid://cu7ym3cg4qmrk" path="res://game_asset_s/vfx/FX024_nyknck/FX024_5.png" id="10_6s8rm"]
-[ext_resource type="Texture2D" uid="uid://cs5j0cdrdxfgw" path="res://game_asset_s/vfx/FX024_nyknck/FX024_6.png" id="11_uv6bg"]
 [ext_resource type="PackedScene" uid="uid://bblgtm4r3038r" path="res://game_objects/items/_bow_/Arrow.tscn" id="16_6o5r2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6crfs"]
@@ -27,7 +25,7 @@ shader_parameter/TEXTURE = ExtResource("3_a5n8f")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h2c7t"]
 render_priority = 0
 shader = ExtResource("2_v2td1")
-shader_parameter/MODULATE = Color(1, 2, 1, 0)
+shader_parameter/MODULATE = Color(1.5, 1.5, 1.5, 0)
 
 [sub_resource type="Animation" id="Animation_alxfl"]
 length = 0.1
@@ -107,68 +105,66 @@ tracks/5/keys = {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o4h0w"]
 render_priority = 0
 shader = ExtResource("2_v2td1")
-shader_parameter/MODULATE = Color(1, 2, 1, 0)
+shader_parameter/MODULATE = Color(1.5, 1.5, 1.5, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xno1i"]
 render_priority = 0
 shader = ExtResource("2_v2td1")
-shader_parameter/MODULATE = Color(1, 2, 1, 0)
+shader_parameter/MODULATE = Color(1.5, 1.5, 1.5, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xx6w4"]
 render_priority = 0
 shader = ExtResource("2_v2td1")
-shader_parameter/MODULATE = Color(1, 2, 1, 0)
+shader_parameter/MODULATE = Color(1.5, 1.5, 1.5, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jm3hn"]
 render_priority = 0
 shader = ExtResource("2_v2td1")
-shader_parameter/MODULATE = Color(1, 2, 1, 0)
+shader_parameter/MODULATE = Color(1.5, 1.5, 1.5, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6ujiv"]
 render_priority = 0
 shader = ExtResource("2_v2td1")
-shader_parameter/MODULATE = Color(1, 2, 1, 0)
+shader_parameter/MODULATE = Color(1.5, 1.5, 1.5, 1)
+shader_parameter/TEXTURE = ExtResource("6_g0nm0")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tla3o"]
 render_priority = 0
 shader = ExtResource("2_v2td1")
-shader_parameter/MODULATE = Color(1, 2, 1, 0)
+shader_parameter/MODULATE = Color(1.5, 1.5, 1.5, 1)
+shader_parameter/TEXTURE = ExtResource("7_tmdhf")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4gp5g"]
 render_priority = 0
 shader = ExtResource("2_v2td1")
-shader_parameter/MODULATE = Color(1, 2, 1, 1)
-shader_parameter/TEXTURE = ExtResource("6_v8vc6")
+shader_parameter/MODULATE = Color(1.5, 1.5, 1.5, 1)
+shader_parameter/TEXTURE = ExtResource("8_q4m22")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oyyia"]
 render_priority = 0
 shader = ExtResource("2_v2td1")
-shader_parameter/MODULATE = Color(1, 2, 1, 1)
-shader_parameter/TEXTURE = ExtResource("7_42a63")
+shader_parameter/MODULATE = Color(1.5, 1.5, 1.5, 1)
+shader_parameter/TEXTURE = ExtResource("9_ng48a")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aa2pt"]
 render_priority = 0
 shader = ExtResource("2_v2td1")
-shader_parameter/MODULATE = Color(1, 2, 1, 1)
-shader_parameter/TEXTURE = ExtResource("8_4ftkb")
+shader_parameter/MODULATE = Color(1.5, 1.5, 1.5, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ad2hw"]
 render_priority = 0
 shader = ExtResource("2_v2td1")
-shader_parameter/MODULATE = Color(1, 2, 1, 1)
-shader_parameter/TEXTURE = ExtResource("9_jed7b")
+shader_parameter/MODULATE = Color(1.5, 1.5, 1.5, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ds5nf"]
 render_priority = 0
 shader = ExtResource("2_v2td1")
-shader_parameter/MODULATE = Color(1, 2, 1, 1)
-shader_parameter/TEXTURE = ExtResource("10_6s8rm")
+shader_parameter/MODULATE = Color(1.5, 1.5, 1.5, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7qd2w"]
 render_priority = 0
 shader = ExtResource("2_v2td1")
-shader_parameter/MODULATE = Color(1, 2, 1, 1)
-shader_parameter/TEXTURE = ExtResource("11_uv6bg")
+shader_parameter/MODULATE = Color(1.5, 1.5, 1.5, 0)
 
 [sub_resource type="Animation" id="Animation_2wyu4"]
 length = 0.6
@@ -269,7 +265,6 @@ autoplay = "RESET"
 [node name="_AnimatedSprite3D_Effect" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, 1, -1, 4.37114e-08, -4.37114e-08, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_h2c7t")
-offset = Vector2(6, 0)
 texture_filter = 0
 sprite_frames = ExtResource("5_v1wxv")
 animation = &"RESET"

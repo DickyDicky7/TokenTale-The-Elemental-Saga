@@ -12,7 +12,20 @@ public partial class Arrow : Weapon
     public Tween.TransitionType TransitionType { get; set; } = Tween.TransitionType.Quint;
 
     [Export]
-    public Area3D Hitbox { get; set; }
+    public Area3D
+           Hitbox
+    {
+        get;
+        set;
+    }
+
+    [Export]
+    public GpuParticles3D
+           GpuParticles3D
+    {
+        get;
+        set;
+    }
 
     public          void _Setup(Node @node)
     {
@@ -42,7 +55,7 @@ public partial class Arrow : Weapon
     private void Hitbox_BodyEntered(Node3D @body)
     {
              Stop();
-        QueueFree();
+//      QueueFree();
     }
 
     private void Move()
@@ -59,16 +72,23 @@ public partial class Arrow : Weapon
         tween .         TweenCallback (Callable.From(() =>
         {
              Stop();
-        QueueFree();
+//      QueueFree();
         }));
     }
 
     private void Stop()
     {
-        tween  .
-        Clear();
+        GpuParticles3D.Emitting = false;
+        tween         .
+        Clear    ();
+        tween =   CreateTween();
+        tween .         TweenCallback (Callable.From(QueueFree))
+              .              SetDelay (          0.5d          );
     }
 }
+
+
+
 
 
 

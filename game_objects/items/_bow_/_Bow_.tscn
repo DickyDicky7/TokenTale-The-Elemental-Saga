@@ -27,7 +27,7 @@ shader_parameter/TEXTURE = ExtResource("3_a5n8f")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h2c7t"]
 render_priority = 0
 shader = ExtResource("2_v2td1")
-shader_parameter/MODULATE = Color(1, 1.5, 1, 0)
+shader_parameter/MODULATE = Color(1, 2, 1, 0)
 
 [sub_resource type="Animation" id="Animation_alxfl"]
 length = 0.1
@@ -107,67 +107,67 @@ tracks/5/keys = {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o4h0w"]
 render_priority = 0
 shader = ExtResource("2_v2td1")
-shader_parameter/MODULATE = Color(1, 1.5, 1, 0)
+shader_parameter/MODULATE = Color(1, 2, 1, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xno1i"]
 render_priority = 0
 shader = ExtResource("2_v2td1")
-shader_parameter/MODULATE = Color(1, 1.5, 1, 0)
+shader_parameter/MODULATE = Color(1, 2, 1, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xx6w4"]
 render_priority = 0
 shader = ExtResource("2_v2td1")
-shader_parameter/MODULATE = Color(1, 1.5, 1, 0)
+shader_parameter/MODULATE = Color(1, 2, 1, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jm3hn"]
 render_priority = 0
 shader = ExtResource("2_v2td1")
-shader_parameter/MODULATE = Color(1, 1.5, 1, 0)
+shader_parameter/MODULATE = Color(1, 2, 1, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6ujiv"]
 render_priority = 0
 shader = ExtResource("2_v2td1")
-shader_parameter/MODULATE = Color(1, 1.5, 1, 0)
+shader_parameter/MODULATE = Color(1, 2, 1, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tla3o"]
 render_priority = 0
 shader = ExtResource("2_v2td1")
-shader_parameter/MODULATE = Color(1, 1.5, 1, 0)
+shader_parameter/MODULATE = Color(1, 2, 1, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4gp5g"]
 render_priority = 0
 shader = ExtResource("2_v2td1")
-shader_parameter/MODULATE = Color(1, 1.5, 1, 1)
+shader_parameter/MODULATE = Color(1, 2, 1, 1)
 shader_parameter/TEXTURE = ExtResource("6_v8vc6")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oyyia"]
 render_priority = 0
 shader = ExtResource("2_v2td1")
-shader_parameter/MODULATE = Color(1, 1.5, 1, 1)
+shader_parameter/MODULATE = Color(1, 2, 1, 1)
 shader_parameter/TEXTURE = ExtResource("7_42a63")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aa2pt"]
 render_priority = 0
 shader = ExtResource("2_v2td1")
-shader_parameter/MODULATE = Color(1, 1.5, 1, 1)
+shader_parameter/MODULATE = Color(1, 2, 1, 1)
 shader_parameter/TEXTURE = ExtResource("8_4ftkb")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ad2hw"]
 render_priority = 0
 shader = ExtResource("2_v2td1")
-shader_parameter/MODULATE = Color(1, 1.5, 1, 1)
+shader_parameter/MODULATE = Color(1, 2, 1, 1)
 shader_parameter/TEXTURE = ExtResource("9_jed7b")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ds5nf"]
 render_priority = 0
 shader = ExtResource("2_v2td1")
-shader_parameter/MODULATE = Color(1, 1.5, 1, 1)
+shader_parameter/MODULATE = Color(1, 2, 1, 1)
 shader_parameter/TEXTURE = ExtResource("10_6s8rm")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7qd2w"]
 render_priority = 0
 shader = ExtResource("2_v2td1")
-shader_parameter/MODULATE = Color(1, 1.5, 1, 1)
+shader_parameter/MODULATE = Color(1, 2, 1, 1)
 shader_parameter/TEXTURE = ExtResource("11_uv6bg")
 
 [sub_resource type="Animation" id="Animation_2wyu4"]

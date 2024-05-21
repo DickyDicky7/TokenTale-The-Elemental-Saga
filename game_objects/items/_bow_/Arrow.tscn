@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bblgtm4r3038r"]
+
+[ext_resource type="Script" path="res://game_objects/items/_bow_/Arrow.cs" id="1_vv4cg"]
+[ext_resource type="ArrayMesh" uid="uid://byqb504d1qhr2" path="res://vox/Arrow.vox" id="2_k2wcy"]
+[ext_resource type="Shape3D" uid="uid://bsp2pe8out2i6" path="res://game_objects/items/_bow_/Arrow_CollisionShape3D_Hitbox.tres" id="4_4q51r"]
+
+[node name="Arrow" type="Node3D" node_paths=PackedStringArray("Hitbox")]
+script = ExtResource("1_vv4cg")
+Hitbox = NodePath("Hitbox")
+
+[node name="Visual" type="Node3D" parent="."]
+
+[node name="Arrow" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.06, 0)
+mesh = ExtResource("2_k2wcy")
+
+[node name="Hitbox" type="Area3D" parent="."]
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)
+shape = ExtResource("4_4q51r")

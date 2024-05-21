@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://b7cey8rb583i7"]
+[gd_scene load_steps=35 format=3 uid="uid://b7cey8rb583i7"]
 
 [ext_resource type="Script" path="res://game_objects/items/_bow_/_Bow_.cs" id="1_tkwil"]
 [ext_resource type="SpriteFrames" uid="uid://cluh2qnw6rggx" path="res://game_objects/items/_bow_/_Bow__SpriteFrames_$Main$.tres" id="2_82x8i"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="9_ytflg"]
 [ext_resource type="Texture2D" uid="uid://cu7ym3cg4qmrk" path="res://game_asset_s/vfx/FX024_nyknck/FX024_5.png" id="10_6s8rm"]
 [ext_resource type="Texture2D" uid="uid://cs5j0cdrdxfgw" path="res://game_asset_s/vfx/FX024_nyknck/FX024_6.png" id="11_uv6bg"]
+[ext_resource type="PackedScene" uid="uid://bblgtm4r3038r" path="res://game_objects/items/_bow_/Arrow.tscn" id="16_6o5r2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6crfs"]
 render_priority = 0
@@ -296,6 +297,7 @@ _Bow_ = NodePath("../..")
 [node name="Shoot" type="Node" parent="StateMachine" node_paths=PackedStringArray("ResetState", "_Bow_")]
 script = ExtResource("9_6bc2u")
 ResetState = NodePath("../Reset")
+PackedSceneArrow = ExtResource("16_6o5r2")
 _Bow_ = NodePath("../..")
 
 [node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]

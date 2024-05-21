@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cnsny50wc2dpn"]
+
+[ext_resource type="Shader" path="res://shaders/Glow.gdshader" id="1_n2yks"]
+[ext_resource type="Texture2D" uid="uid://n84kamu5h5n7" path="res://game_asset_s/characters/main_character_v3/01.png" id="2_7seiv"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_n2yks")
+shader_parameter/MODULATE = Color(2, 2, 2, 1)
+shader_parameter/TEXTURE = ExtResource("2_7seiv")

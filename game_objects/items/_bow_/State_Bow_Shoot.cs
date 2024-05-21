@@ -6,7 +6,11 @@ public partial class State_Bow_Shoot : State_Bow_
 {
     [Export]
     [ExportGroup("Transition ##")]
-    public State ResetState {  get; set; }
+    public State ResetState { get; set; }
+
+    [Export]
+    public PackedScene
+           PackedSceneArrow { get; set; }
 
     public override void _Enter()
     {
@@ -55,6 +59,31 @@ public partial class State_Bow_Shoot : State_Bow_
 
     private void AnimationPlayerr_______AnimationFinished(StringName @animationName)
     {
+        Arrow arrow =     PackedSceneArrow.Instantiate<
+        Arrow>();
+              arrow. StartPosition  =
+              _Bow_.GlobalPosition  ;
+        Vector2 inputDirection = Extension.GetInputDirection();
+        if (    inputDirection . IsZero())
+              arrow. CeasePosition  =
+              _Bow_.
+            GetGlobalMousePosition();
+        else
+              arrow. CeasePosition  =
+              _Bow_.GlobalPosition  +
+                inputDirection .
+              ConvertToTopDown()    * 2.0f;
+              arrow.MovingDuration  = 0.5d;
+              arrow._Setup
+                    (this);
+
             ChangeState(ResetState);
     }
 }
+
+
+
+
+
+
+

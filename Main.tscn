@@ -1,15 +1,14 @@
-[gd_scene load_steps=44 format=3 uid="uid://w3dkcnkmaulo"]
+[gd_scene load_steps=43 format=3 uid="uid://w3dkcnkmaulo"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_px6f3"]
-[ext_resource type="PackedScene" uid="uid://s4c8ixjtg1uy" path="res://game_objects/abilities/sky_strike/SkyStrike.tscn" id="2_mb85c"]
-[ext_resource type="PlaneMesh" uid="uid://dmf8lh15l3415" path="res://BackgroundPlatform_Mesh.tres" id="2_rk0yh"]
 [ext_resource type="Environment" uid="uid://jjpsnd6sbvf2" path="res://Main_Environment.tres" id="2_vpqwg"]
-[ext_resource type="Shape3D" uid="uid://ckjylylwcue88" path="res://BackgroundPlatform_CollisionShape3D.tres" id="3_vrktx"]
 [ext_resource type="NavigationMesh" uid="uid://bavo3q5ti3quw" path="res://Main_NavigationRegion3D_$Static_NavigationMesh.tres" id="4_6741o"]
 [ext_resource type="PackedScene" uid="uid://cwhrbtjfm2cpc" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp.tscn" id="4_hlmyl"]
+[ext_resource type="BoxMesh" uid="uid://b20wxu1h50rh3" path="res://BackgroundPlatform_Mesh_New.tres" id="5_3awld"]
 [ext_resource type="QuadMesh" uid="uid://b18ltm5xt45do" path="res://game_objects/shared/len/Len_Mesh.tres" id="5_kmewh"]
 [ext_resource type="PackedScene" uid="uid://d1jlh0uaim28w" path="res://game_objects/abilities/tornado/Tornado.tscn" id="5_rpfgl"]
 [ext_resource type="Script" path="res://_Camera3D_.cs" id="6_1l5gg"]
+[ext_resource type="Shape3D" uid="uid://d1662gxfic631" path="res://BackgroundPlatform_CollisionShape3D_New.tres" id="6_7i2yr"]
 [ext_resource type="PackedScene" uid="uid://dsw38xnjyq7yu" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur.tscn" id="7_2coyl"]
 [ext_resource type="NavigationMesh" uid="uid://boq0kec5xjj3f" path="res://Main_NavigationRegion3D_Dynamic_NavigationMesh.tres" id="7_gtwip"]
 [ext_resource type="PackedScene" uid="uid://dmymcmqewv5c4" path="res://game_objects/abilities/serene_meadow/SereneMeadow.tscn" id="7_tyaa3"]
@@ -83,7 +82,7 @@ Thing = "wind"
 
 [node name="Main" type="Node3D" node_paths=PackedStringArray("MainCharacter", "NavigationRegionSstatic", "NavigationRegionDynamic", "Timer", "StatusInfo")]
 script = ExtResource("1_px6f3")
-Scene = ExtResource("2_mb85c")
+Scene = ExtResource("8_nid88")
 MainCharacter = NodePath("MainCharacter")
 NavigationRegionSstatic = NodePath("NavigationRegion3D_$Static")
 NavigationRegionDynamic = NodePath("NavigationRegion3D_Dynamic")
@@ -97,30 +96,31 @@ environment = ExtResource("2_vpqwg")
 navigation_mesh = ExtResource("4_6741o")
 
 [node name="BackgroundPlatform1" type="StaticBody3D" parent="NavigationRegion3D_$Static"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="Mesh" type="MeshInstance3D" parent="NavigationRegion3D_$Static/BackgroundPlatform1"]
-mesh = ExtResource("2_rk0yh")
+mesh = ExtResource("5_3awld")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D_$Static/BackgroundPlatform1"]
-shape = ExtResource("3_vrktx")
+shape = ExtResource("6_7i2yr")
 
 [node name="BackgroundPlatform2" type="StaticBody3D" parent="NavigationRegion3D_$Static"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0.5, 0)
 
 [node name="Mesh" type="MeshInstance3D" parent="NavigationRegion3D_$Static/BackgroundPlatform2"]
-mesh = ExtResource("2_rk0yh")
+mesh = ExtResource("5_3awld")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D_$Static/BackgroundPlatform2"]
-shape = ExtResource("3_vrktx")
+shape = ExtResource("6_7i2yr")
 
 [node name="BackgroundPlatform3" type="StaticBody3D" parent="NavigationRegion3D_$Static"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0.5, 0)
 
 [node name="Mesh" type="MeshInstance3D" parent="NavigationRegion3D_$Static/BackgroundPlatform3"]
-mesh = ExtResource("2_rk0yh")
+mesh = ExtResource("5_3awld")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D_$Static/BackgroundPlatform3"]
-shape = ExtResource("3_vrktx")
+shape = ExtResource("6_7i2yr")
 
 [node name="Timer" type="Timer" parent="NavigationRegion3D_$Static"]
 process_callback = 0
@@ -131,13 +131,13 @@ autostart = true
 navigation_mesh = ExtResource("7_gtwip")
 
 [node name="MainCharacter" parent="." node_paths=PackedStringArray("NavigationAgent3D", "MainCharacterAnimatedSprite3DEffect") instance=ExtResource("9_seby3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 0)
 NavigationAgent3D = NodePath("NavigationAgent3D")
 MainCharacterAnimatedSprite3DEffect = NodePath("AnimatedSprite3D_Effect")
 Speed = 1.5
 
 [node name="Camera3D" type="Camera3D" parent="MainCharacter"]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 11, 2, 2)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 11, 3, 2)
 top_level = true
 projection = 1
 size = 4.0
@@ -156,28 +156,28 @@ Label = NodePath("SubViewport/Label")
 Timer = NodePath("DelTimer")
 
 [node name="Imp" parent="." instance=ExtResource("4_hlmyl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1, -4)
 
 [node name="Minotaur" parent="." instance=ExtResource("7_2coyl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, -4)
 MaxHealth = 50.0
 
 [node name="Cyclops" parent="." instance=ExtResource("10_ogacn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, -4)
 MaxHealth = 50.0
 
 [node name="Cat" parent="." instance=ExtResource("23_saaco")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, -4)
 MonsterType = 0
 MaxHealth = 50.0
 
 [node name="Skeleton" parent="." instance=ExtResource("12_8akbt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1, 4)
 MonsterType = 0
 MaxHealth = 50.0
 
 [node name="GhostRound" parent="." instance=ExtResource("13_e31qg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 0)
 MonsterType = 0
 MaxHealth = 50.0
 Speed = 1.0
@@ -186,26 +186,26 @@ Acceleration = 0.1
 Deceleration = 0.1
 
 [node name="MetalMonster" parent="." instance=ExtResource("26_ynl1c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2, 0, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2, 1, -4)
 Jumpv = 1.0
 
 [node name="Bat" parent="." instance=ExtResource("15_c3vll")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, 4)
 MonsterType = 0
 MaxHealth = 50.0
 
 [node name="KoboldPriest" parent="." instance=ExtResource("16_ro6gg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 4)
 MaxHealth = 50.0
 
 [node name="HealTotem" parent="." instance=ExtResource("18_ujfjh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1, 0)
 Element = 6
 MonsterType = 0
 MaxHealth = 50.0
 
 [node name="RatfolkMage" parent="." instance=ExtResource("30_ddnm6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, 0)
 MonsterType = 0
 MaxHealth = 50.0
 
@@ -215,41 +215,42 @@ shadow_enabled = true
 directional_shadow_mode = 0
 
 [node name="Tornado" parent="." instance=ExtResource("5_rpfgl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -1)
 
 [node name="SereneMeadow" parent="." instance=ExtResource("7_tyaa3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="PenetratingSquirt" parent="." instance=ExtResource("8_nid88")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.1, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -1)
 
 [node name="Overcharge" parent="." instance=ExtResource("9_5jat6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0)
 
 [node name="Lightning" parent="." instance=ExtResource("10_myf47")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
 
 [node name="Ignite" parent="." instance=ExtResource("11_3fjus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
 
 [node name="FireBall" parent="." node_paths=PackedStringArray("GpuParticles", "AnimatedSprite", "AnimatedShadow") instance=ExtResource("12_qboqi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, -1)
 GpuParticles = NodePath("Visual/_GPU_Particles3D")
 AnimatedSprite = NodePath("Visual/AnimatedSprite3D")
 AnimatedShadow = NodePath("Visual/AnimatedShadow3D")
 
 [node name="AirSurge" parent="." node_paths=PackedStringArray("AnimatedSprite", "AnimatedShadow") instance=ExtResource("22_pbjun")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 0)
 AnimatedSprite = NodePath("Visual/AnimatedSprite3D")
 AnimatedShadow = NodePath("Visual/AnimatedShadow3D")
 
 [node name="Frostburn" parent="." instance=ExtResource("13_w4ibj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2)
 
 [node name="IceWall" parent="." instance=ExtResource("14_4m8xy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, -3)
 
 [node name="TidalWave" parent="." instance=ExtResource("15_lavek")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 2)
 
 [node name="PostProcess" type="CanvasLayer" parent="."]
 script = ExtResource("18_mmfla")

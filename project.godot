@@ -99,7 +99,7 @@ import/blender/enabled=false
 
 [gui]
 
-theme/custom_font="res://game_asset_s/monogram.ttf"
+theme/custom_font="res://game_asset_s/ThaleahFat.ttf"
 
 [importer_defaults]
 

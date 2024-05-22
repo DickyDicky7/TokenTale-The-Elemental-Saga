@@ -13,6 +13,7 @@ GpuParticles3D = NodePath("Visual/$GPU$Particles3D")
 [node name="Visual" type="Node3D" parent="."]
 
 [node name="$GPU$Particles3D" type="GPUParticles3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)
 amount = 100
 lifetime = 0.2
 local_coords = true

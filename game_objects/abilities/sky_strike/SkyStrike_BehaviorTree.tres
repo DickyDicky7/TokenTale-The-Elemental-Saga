@@ -10,7 +10,7 @@ animation_player = ExtResource("2_g423e")
 animation_name = &"DROP"
 
 [sub_resource type="BTWait" id="BTWait_g82io"]
-duration = 4.0
+duration = 9.0
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_6o8v6"]
 await_completion = 10.0

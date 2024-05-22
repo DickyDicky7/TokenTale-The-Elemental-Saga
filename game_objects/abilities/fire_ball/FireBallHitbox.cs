@@ -20,7 +20,6 @@ public partial class FireBallHitbox : Hittbox3D
 				{
 					Monster tempMonster = node3D as Monster;
 					Damage = CalculateDamage(tempAbility, tempMonster);
-					GD.Print(Damage);
 					tempMonster.CurrentHealth -= Damage;
 				}
 				tempAbility.DamageRatio = 0.8f;
@@ -34,7 +33,6 @@ public partial class FireBallHitbox : Hittbox3D
 				Ability3D tempAbility = this.GetParent() as Ability3D;
 				Monster tempMonster = node3D as Monster;
 				Damage = CalculateDamage(tempAbility, tempMonster);
-				GD.Print(Damage);
 				tempMonster.CurrentHealth -= Damage;
 			}
 		}

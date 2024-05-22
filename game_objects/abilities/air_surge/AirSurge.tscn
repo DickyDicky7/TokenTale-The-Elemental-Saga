@@ -1,11 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://dtm1w4b8kbx8t"]
+[gd_scene load_steps=15 format=3 uid="uid://dtm1w4b8kbx8t"]
 
 [ext_resource type="Script" path="res://game_objects/abilities/air_surge/AirSurge.cs" id="1_1psjk"]
 [ext_resource type="SpriteFrames" uid="uid://b30e66pvrhgxt" path="res://game_objects/abilities/air_surge/AirSurge_SpriteFrames.tres" id="1_t8oyk"]
 [ext_resource type="Material" uid="uid://t71ofl8t7tll" path="res://game_objects/abilities/air_surge/AirSurge_ParticleProcessMaterial.tres" id="2_e1dvs"]
 [ext_resource type="Texture2D" uid="uid://ysxny8g0qd3u" path="res://game_objects/abilities/air_surge/AirSurge_AnimatedTexture.tres" id="3_ni1xq"]
 [ext_resource type="BehaviorTree" uid="uid://byjbb1t3ra7av" path="res://game_objects/abilities/air_surge/AirSurge_BehaviorTree.tres" id="3_qbw3m"]
-[ext_resource type="Shape3D" uid="uid://dt7lrp2po3kxk" path="res://game_objects/abilities/air_surge/AirSurge_CollisionShape3D_Hitbox_New.tres" id="5_2wnjc"]
+[ext_resource type="Shape3D" path="res://game_objects/abilities/air_surge/AirSurge_CollisionShape3D_Hitbox_New.tres" id="5_2wnjc"]
+[ext_resource type="Script" path="res://game_objects/abilities/air_surge/AirSurgeHitbox.cs" id="5_3u0ah"]
 [ext_resource type="BlackboardPlan" uid="uid://dpdx4v6g2gyy6" path="res://game_objects/abilities/air_surge/AirSurge_BlackboardPlanBase.tres" id="6_u1pv5"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="8_attu0"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="9_dhfsf"]
@@ -288,6 +289,7 @@ AnimatedShadow = NodePath("Visual/AnimatedShadow3D")
 MovingDuration = 1.0
 EasingfuncType = 2
 TransitionType = 2
+Element = 2
 
 [node name="Visual" type="Node3D" parent="."]
 
@@ -316,6 +318,9 @@ sprite_frames = ExtResource("1_t8oyk")
 animation = &"FLY"
 
 [node name="Hitbox" type="Area3D" parent="."]
+collision_layer = 32
+collision_mask = 4
+script = ExtResource("5_3u0ah")
 
 [node name="CollisionShape3D_Hitbox" type="CollisionShape3D" parent="Hitbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16, 0)

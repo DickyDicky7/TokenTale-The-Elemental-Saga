@@ -16,7 +16,7 @@ public abstract partial class Character3D : CharacterBody3D
     [Export]
     public float Deceleration { get; set; }
     [Signal]
-    public delegate void HealthChangeEventHandler(Character3D character, int oldHealth, int newHealth);
+    public delegate void HealthChangeEventHandler(float Damage);
 
     public virtual void Move(Vector3 @direction, double @delta)
     {

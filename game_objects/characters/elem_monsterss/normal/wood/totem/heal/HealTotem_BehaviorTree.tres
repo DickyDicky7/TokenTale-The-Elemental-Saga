@@ -74,12 +74,13 @@ animation_name = &"EMERGE"
 custom_name = "Move"
 children = [SubResource("BTAction_q34g6"), SubResource("BTPlayAnimation_w8sn2"), SubResource("BTAction_3po85"), SubResource("BTPlayAnimation_lekkn")]
 
-[sub_resource type="BTDelay" id="BTDelay_f1di5"]
+[sub_resource type="BTCooldown" id="BTCooldown_41bpe"]
+duration = 1.0
 children = [SubResource("BTSequence_krwlp")]
 
 [sub_resource type="BTInvert" id="BTInvert_c3dxb"]
 custom_name = "NotMove"
-children = [SubResource("BTDelay_f1di5")]
+children = [SubResource("BTCooldown_41bpe")]
 
 [sub_resource type="BBVariant" id="BBVariant_tpcms"]
 type = 1

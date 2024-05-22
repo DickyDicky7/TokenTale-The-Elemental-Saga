@@ -59,6 +59,7 @@ script = ExtResource("6_f4jgv")
 PathFlipSprite3D = NodePath("Flippable3DSpriteBase3DConsolidation")
 PathNavigationAgent3D = NodePath("NavigationAgent3D")
 PathRayCast3D = NodePath("Ray__Cast3D")
+PathHurtbox3D = NodePath("Hurtbox3D")
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_fcl88"]
 animation_player = ExtResource("3_wu56n")
@@ -72,37 +73,38 @@ children = [SubResource("BTAction_yccde"), SubResource("BTPlayAnimation_fcl88")]
 custom_name = "Follow"
 children = [SubResource("BTAction_n7f5v"), SubResource("BTParallel_gf3lp")]
 
-[sub_resource type="BTAction" id="BTAction_0arqt"]
+[sub_resource type="BTAction" id="BTAction_kbyux"]
 script = ExtResource("5_vjuis")
 Type = "SATELLITE"
 SatelliteDistance = 0.3
 PathNavigationAgent3D = NodePath("NavigationAgent3D")
 
-[sub_resource type="BTAction" id="BTAction_ad44q"]
+[sub_resource type="BTAction" id="BTAction_feoao"]
 script = ExtResource("6_f4jgv")
 PathFlipSprite3D = NodePath("Flippable3DSpriteBase3DConsolidation")
 PathNavigationAgent3D = NodePath("NavigationAgent3D")
 PathRayCast3D = NodePath("Ray__Cast3D")
+PathHurtbox3D = NodePath("Hurtbox3D")
 
-[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_lxqls"]
-animation_player = ExtResource("3_wu56n")
+[sub_resource type="BBNode" id="BBNode_wx8yq"]
+saved_value = NodePath("AnimationPlayer")
+resource_name = "AnimationPlayer"
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_e7xss"]
+animation_player = SubResource("BBNode_wx8yq")
 animation_name = &"MOVE"
 
-[sub_resource type="BTParallel" id="BTParallel_ridoi"]
+[sub_resource type="BTParallel" id="BTParallel_ae82n"]
 num_successes_required = 2
-children = [SubResource("BTAction_ad44q"), SubResource("BTPlayAnimation_lxqls")]
+children = [SubResource("BTAction_feoao"), SubResource("BTPlayAnimation_e7xss")]
 
-[sub_resource type="BTSequence" id="BTSequence_ofnxc"]
+[sub_resource type="BTSequence" id="BTSequence_50rd1"]
 custom_name = "Satellite"
-children = [SubResource("BTAction_0arqt"), SubResource("BTParallel_ridoi")]
-
-[sub_resource type="BTCooldown" id="BTCooldown_4pgoo"]
-duration = 2.0
-children = [SubResource("BTSequence_ofnxc")]
+children = [SubResource("BTAction_kbyux"), SubResource("BTParallel_ae82n")]
 
 [sub_resource type="BTSelector" id="BTSelector_tgvi2"]
 custom_name = "Move"
-children = [SubResource("BTSequence_tvd26"), SubResource("BTCooldown_4pgoo")]
+children = [SubResource("BTSequence_tvd26"), SubResource("BTSequence_50rd1")]
 
 [sub_resource type="BTInvert" id="BTInvert_lfp5c"]
 custom_name = "NotMove"

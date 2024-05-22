@@ -2,18 +2,18 @@
 extends BTAction
 
 func _generate_name() -> String:
-	return "Ability Activity";
+	return "FireBall Activity";
 	
 @export var PathHitBox: NodePath
 	
 var currentAbility: Ability3D	
 var movingDuration: float
-var HitBox3D: Hittbox3D
+var FireBallHitBox: FireBallHitbox
 
 func _setup() -> void:
 	currentAbility = agent;
-	HitBox3D = agent.get_node(PathHitBox)
-	HitBox3D.StartWatching()
+	FireBallHitBox = agent.get_node(PathHitBox)
+	FireBallHitBox.StartWatching()
 	pass;
 
 func _enter() -> void:
@@ -24,10 +24,10 @@ func _exit() -> void:
 	pass;
 	
 func _tick(_delta: float) -> Status:
-	if (HitBox3D.Hit == true):
+	if (FireBallHitBox.Hit == true):
 		return SUCCESS
 	if (self.get_elapsed_time() >= movingDuration):
-		HitBox3D.Action()
+		FireBallHitBox.Explode()
 		return SUCCESS
 	else:
 		return RUNNING

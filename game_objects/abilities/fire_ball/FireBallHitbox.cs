@@ -1,9 +1,6 @@
 using Godot;
-using System;
-using System.Linq;
-using System.Linq.Expressions;
 namespace TokenTaleTheElementalSaga;
-
+[GlobalClass]
 public partial class FireBallHitbox : Hittbox3D
 {
 	protected override void OnBodyEntered(Node3D node3D)
@@ -11,7 +8,7 @@ public partial class FireBallHitbox : Hittbox3D
 		if (Hit == false)
 		{
 			base.OnBodyEntered(node3D);
-			Action();
+			Explode();
 			float Damage = 0;
 			if (this.GetParent() is Ability3D)
 			{
@@ -20,7 +17,6 @@ public partial class FireBallHitbox : Hittbox3D
 				{
 					Monster tempMonster = node3D as Monster;
 					Damage = CalculateDamage(tempAbility, tempMonster);
-					GD.Print(Damage);
 					tempMonster.CurrentHealth -= Damage;
 				}
 				tempAbility.DamageRatio = 0.8f;
@@ -34,7 +30,6 @@ public partial class FireBallHitbox : Hittbox3D
 				Ability3D tempAbility = this.GetParent() as Ability3D;
 				Monster tempMonster = node3D as Monster;
 				Damage = CalculateDamage(tempAbility, tempMonster);
-				GD.Print(Damage);
 				tempMonster.CurrentHealth -= Damage;
 			}
 		}
@@ -42,11 +37,12 @@ public partial class FireBallHitbox : Hittbox3D
 	public override void _Ready()
 	{
 		base._Ready();
-		this.EffectRadius = AbilityStats.EffectRadius.Small * 10;
+		this.EffectRadius = AbilityStats.EffectRadius.XSmall;
+		this.Scale = new Vector3(EffectRadius, EffectRadius, EffectRadius);
 	}
-	protected override void Action()
+	private void Explode()
 	{
-		base.Action();
+		this.EffectRadius = AbilityStats.EffectRadius.Medium;
 		this.Scale = new Vector3(EffectRadius, EffectRadius, EffectRadius);
 		Ability3D temp = this.GetParent() as Ability3D;
 		temp.Stop();

@@ -404,7 +404,6 @@ collision_mask = 15
 script = ExtResource("1_52p22")
 Element = 2
 MonsterType = 3
-Health = 10
 Speed = 1.0
 Acceleration = 0.1
 Deceleration = 0.1
@@ -490,6 +489,8 @@ Modulate = Color(0.5, 1, 0.5, 1)
 Sprite = NodePath("Sprite3D")
 
 [node name="Hurtbox3D" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 48
 script = ExtResource("9_3sdow")
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="Hurtbox3D"]

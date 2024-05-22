@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://s4c8ixjtg1uy"]
+[gd_scene load_steps=15 format=3 uid="uid://s4c8ixjtg1uy"]
 
 [ext_resource type="Script" path="res://game_objects/abilities/sky_strike/SkyStrike.cs" id="1_iiucs"]
 [ext_resource type="SpriteFrames" uid="uid://cq2jie543sctx" path="res://game_objects/abilities/sky_strike/SkyStrike_SpriteFrames.tres" id="2_6dxen"]
@@ -7,6 +7,7 @@
 [ext_resource type="SpriteFrames" uid="uid://cduf1f3sho35p" path="res://game_objects/abilities/sky_strike/SkyStrike_SpriteFrames_Effect2.tres" id="4_rd1g6"]
 [ext_resource type="Shape3D" uid="uid://bkvosauacb43d" path="res://game_objects/abilities/sky_strike/SkyStrike_CollisionShape3D_Hitbox.tres" id="6_1al21"]
 [ext_resource type="Script" path="res://game_objects/abilities/sky_strike/SkyStrikeHitbox.cs" id="6_yqu1m"]
+[ext_resource type="Shape3D" path="res://game_objects/abilities/sky_strike/SkyStrike_CollisionShape3D_ObRock.tres" id="7_2uwfi"]
 [ext_resource type="BehaviorTree" uid="uid://db04qtvf251h7" path="res://game_objects/abilities/sky_strike/SkyStrike_BehaviorTree.tres" id="7_g8df4"]
 [ext_resource type="BlackboardPlan" uid="uid://bpi0s0eb4wjxo" path="res://game_objects/abilities/sky_strike/SkyStrike_BlackboardPlanBase.tres" id="7_u4n2a"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="8_q6hfs"]
@@ -237,10 +238,22 @@ tracks/18/path = NodePath("Hitbox/CollisionShape3D_Hitbox:disabled")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [true, false]
+"values": [true, false, true]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("ObRock/CollisionShape3D_ObRock:disabled")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
 }
 
 [sub_resource type="Animation" id="Animation_xujlp"]
@@ -281,6 +294,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ObRock/CollisionShape3D_ObRock:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r63uy"]
 _data = {
@@ -290,6 +315,7 @@ _data = {
 
 [node name="SkyStrike" type="Node3D"]
 script = ExtResource("1_iiucs")
+Element = 5
 
 [node name="Visual" type="Node3D" parent="."]
 
@@ -351,12 +377,22 @@ animation = &"DROP"
 
 [node name="Hitbox" type="Area3D" parent="."]
 collision_layer = 32
-collision_mask = 7
+collision_mask = 4
 script = ExtResource("6_yqu1m")
 
 [node name="CollisionShape3D_Hitbox" type="CollisionShape3D" parent="Hitbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)
 shape = ExtResource("6_1al21")
+disabled = true
+
+[node name="ObRock" type="StaticBody3D" parent="."]
+collision_layer = 34
+collision_mask = 15
+
+[node name="CollisionShape3D_ObRock" type="CollisionShape3D" parent="ObRock"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)
+visible = false
+shape = ExtResource("7_2uwfi")
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

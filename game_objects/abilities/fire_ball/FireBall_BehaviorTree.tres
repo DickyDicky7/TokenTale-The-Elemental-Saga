@@ -2,15 +2,15 @@
 
 [ext_resource type="BlackboardPlan" uid="uid://dqqp4rjen6elg" path="res://game_objects/abilities/fire_ball/FireBall_BlackboardPlan----.tres" id="1_5nekw"]
 [ext_resource type="BBNode" uid="uid://fh38scwm36im" path="res://game_objects/abilities/fire_ball/FireBall_BBNode_AnimPlay.tres" id="2_3e1y0"]
-[ext_resource type="Script" path="res://ai/tasks/abilityActivity.gd" id="3_02h0k"]
 [ext_resource type="BBNode" uid="uid://tqtypdkbc4ga" path="res://game_objects/abilities/fire_ball/FireBall_BBNode_RootNode.tres" id="3_xywrm"]
+[ext_resource type="Script" path="res://ai/tasks/FireBallActivity.gd" id="4_7vqgg"]
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_6cvqd"]
 animation_player = ExtResource("2_3e1y0")
 animation_name = &"FLY"
 
-[sub_resource type="BTAction" id="BTAction_w0yuc"]
-script = ExtResource("3_02h0k")
+[sub_resource type="BTAction" id="BTAction_mnxs1"]
+script = ExtResource("4_7vqgg")
 PathHitBox = NodePath("Hitbox")
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_ngd6r"]
@@ -23,7 +23,7 @@ node = ExtResource("3_xywrm")
 method = &"queue_free"
 
 [sub_resource type="BTSequence" id="BTSequence_nmtmf"]
-children = [SubResource("BTPlayAnimation_6cvqd"), SubResource("BTAction_w0yuc"), SubResource("BTPlayAnimation_ngd6r"), SubResource("BTCallMethod_2m0lg")]
+children = [SubResource("BTPlayAnimation_6cvqd"), SubResource("BTAction_mnxs1"), SubResource("BTPlayAnimation_ngd6r"), SubResource("BTCallMethod_2m0lg")]
 
 [resource]
 blackboard_plan = ExtResource("1_5nekw")

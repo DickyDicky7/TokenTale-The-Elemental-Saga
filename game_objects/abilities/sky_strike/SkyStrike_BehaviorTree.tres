@@ -1,8 +1,13 @@
-[gd_resource type="BehaviorTree" load_steps=10 format=3 uid="uid://db04qtvf251h7"]
+[gd_resource type="BehaviorTree" load_steps=12 format=3 uid="uid://db04qtvf251h7"]
 
 [ext_resource type="BlackboardPlan" uid="uid://bh483bxmrfxg7" path="res://game_objects/abilities/sky_strike/SkyStrike_BlackboardPlan----.tres" id="1_5tq3y"]
+[ext_resource type="Script" path="res://ai/tasks/abilitySetup.gd" id="2_dtdd5"]
 [ext_resource type="BBNode" uid="uid://dxajs0tc0x376" path="res://game_objects/abilities/sky_strike/SkyStrike_BBNode_AnimPlay.tres" id="2_g423e"]
 [ext_resource type="BBNode" uid="uid://b2ueitg5f2vl8" path="res://game_objects/abilities/sky_strike/SkyStrike_BBNode_RootNode.tres" id="3_io56d"]
+
+[sub_resource type="BTAction" id="BTAction_2u038"]
+script = ExtResource("2_dtdd5")
+PathHitBox = NodePath("Hitbox")
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_vs6sj"]
 await_completion = 10.0
@@ -24,7 +29,7 @@ node = ExtResource("3_io56d")
 method = &"queue_free"
 
 [sub_resource type="BTSequence" id="BTSequence_8cssh"]
-children = [SubResource("BTPlayAnimation_vs6sj"), SubResource("BTWait_g82io"), SubResource("BTPlayAnimation_6o8v6"), SubResource("BTWait_eo8py"), SubResource("BTCallMethod_b5fqv")]
+children = [SubResource("BTAction_2u038"), SubResource("BTPlayAnimation_vs6sj"), SubResource("BTWait_g82io"), SubResource("BTPlayAnimation_6o8v6"), SubResource("BTWait_eo8py"), SubResource("BTCallMethod_b5fqv")]
 
 [resource]
 blackboard_plan = ExtResource("1_5tq3y")

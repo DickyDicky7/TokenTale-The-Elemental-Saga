@@ -109,8 +109,10 @@ public partial class AbilityStats : Resource
 	}
 	public class EffectRadius
 	{
-		public static float Small { get; private set; } = 0.5f;
-		public static float Medium { get; private set; } = 0.8f;
-		public static float Large { get; private set; } = 1.2f;
+		public static float XSmall { get; private set; } = 0.5f;
+		public static float Small { get; private set; } = 2.0f;
+		public static float Medium { get; private set; } = 5.0f;
+		public static float Large { get; private set; } = 8.0f;
+		public static float XLarge { get; private set; } = 12.0f;
 	}
 }

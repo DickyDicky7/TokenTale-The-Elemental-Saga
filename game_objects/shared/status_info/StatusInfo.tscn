@@ -1,54 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://chwjmy7grdej"]
+[gd_scene load_steps=5 format=3 uid="uid://chwjmy7grdej"]
 
 [ext_resource type="Script" path="res://game_objects/shared/status_info/StatusInfo.cs" id="1_cvga4"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="1_jayod"]
-[ext_resource type="Shader" path="res://shaders/Glow.gdshader" id="1_r2d3v"]
-[ext_resource type="Script" path="res://game_objects/shared/status_info/StatusInfoItem.cs" id="2_nvbhd"]
-
-[sub_resource type="Resource" id="Resource_x6ee0"]
-script = ExtResource("2_nvbhd")
-Color = Color(1, 1, 1, 1)
-Thing = "a"
-
-[sub_resource type="Resource" id="Resource_xqtdn"]
-script = ExtResource("2_nvbhd")
-Color = Color(1, 1, 1, 1)
-Thing = "b"
-
-[sub_resource type="Resource" id="Resource_4nait"]
-script = ExtResource("2_nvbhd")
-Color = Color(1, 1, 1, 1)
-Thing = "c"
-
-[sub_resource type="Resource" id="Resource_u34kf"]
-script = ExtResource("2_nvbhd")
-Color = Color(1, 1, 1, 1)
-Thing = "d"
-
-[sub_resource type="Resource" id="Resource_fjv4y"]
-script = ExtResource("2_nvbhd")
-Color = Color(1, 1, 1, 1)
-Thing = "e"
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_btc8h"]
-viewport_path = NodePath("SubViewport")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_skl0m"]
-resource_local_to_scene = true
-render_priority = 0
-shader = ExtResource("1_r2d3v")
-shader_parameter/MODULATE = Color(1.5, 1.5, 1.5, 1)
-shader_parameter/TEXTURE = SubResource("ViewportTexture_btc8h")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_u0db8"]
-viewport_path = NodePath("SubViewport")
+[ext_resource type="Material" uid="uid://dosyxoqwvmibw" path="res://game_objects/shared/status_info/StatusInfo_ShaderMaterial_Glow.tres" id="2_borwx"]
+[ext_resource type="Texture2D" uid="uid://bsf13hrb5ouva" path="res://game_objects/shared/status_info/StatusInfo_ViewportTexture.tres" id="3_vawlu"]
 
 [node name="StatusInfo" type="Node3D" node_paths=PackedStringArray("Sprite3D", "Label", "Timer")]
 script = ExtResource("1_cvga4")
-Items = Array[Resource]([SubResource("Resource_x6ee0"), SubResource("Resource_xqtdn"), SubResource("Resource_4nait"), SubResource("Resource_u34kf"), SubResource("Resource_fjv4y")])
 Sprite3D = NodePath("Sprite3D")
 Label = NodePath("SubViewport/Label")
-Timer = NodePath("Timer")
+Timer = NodePath("DelTimer")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 disable_3d = true
@@ -66,6 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 32
@@ -73,15 +35,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-material_override = SubResource("ShaderMaterial_skl0m")
+material_override = ExtResource("2_borwx")
+cast_shadow = 0
 texture_filter = 0
-texture = SubResource("ViewportTexture_u0db8")
+texture = ExtResource("3_vawlu")
+
+[node name="DelTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
 
 [node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
 process_mode = 4
 script = ExtResource("1_jayod")
 Sprites = [NodePath("../Sprite3D")]
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
-autostart = true

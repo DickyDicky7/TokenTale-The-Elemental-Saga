@@ -27,6 +27,14 @@ public partial class Main : Node3D
     [Export]
     public Timer Timer { get; set; }
 
+    [Export]
+    public StatusInfo
+           StatusInfo
+    {
+        get;
+        set;
+    }
+
     public override void _Ready()
     {
                     base._Ready();
@@ -65,9 +73,23 @@ GetWindow().Title=
             MainCharacterAnimatedSprite3DEffect.CurrentEffect=
             MainCharacterAnimatedSprite3DEffect.       Effect.
             EFFECT_FIRE  ;
+
+            StatusInfo
+                .Items
+                .Add(new StatusInfoItemElemental()
+                {
+                    Element = Global.Element.Ice,
+                    Thing =
+@$"Right Click",
+                });
         }
     }
 }
+
+
+
+
+
 
 
 

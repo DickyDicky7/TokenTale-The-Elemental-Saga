@@ -16,10 +16,6 @@ public partial class Hittbox3D : CustomArea3D
 	{
 		this.Hit = true;
 	}
-	protected virtual void Action()
-    {
-
-    }
 	protected float CalculateDamage(
 		Ability3D currentAbility3D,
 		Monster targetMonster3D)
@@ -97,6 +93,7 @@ public partial class Hittbox3D : CustomArea3D
 			if (ElementalReactionDH != null)
 				ElementalProficiencyDH.SetNextHandler(ElementalReactionDH);
 			ElementalEquipmentDH.ProcessDamage(ref Damage);
+			GD.Print(Damage);
 		}
 		return Damage;
 	}

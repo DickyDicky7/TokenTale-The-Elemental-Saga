@@ -1,8 +1,7 @@
-[gd_scene load_steps=35 format=3 uid="uid://w3dkcnkmaulo"]
+[gd_scene load_steps=43 format=3 uid="uid://w3dkcnkmaulo"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_px6f3"]
 [ext_resource type="PlaneMesh" uid="uid://dmf8lh15l3415" path="res://BackgroundPlatform_Mesh.tres" id="2_rk0yh"]
-[ext_resource type="PackedScene" uid="uid://s4c8ixjtg1uy" path="res://game_objects/abilities/sky_strike/SkyStrike.tscn" id="2_sq55v"]
 [ext_resource type="Environment" uid="uid://jjpsnd6sbvf2" path="res://Main_Environment.tres" id="2_vpqwg"]
 [ext_resource type="Shape3D" uid="uid://ckjylylwcue88" path="res://BackgroundPlatform_CollisionShape3D.tres" id="3_vrktx"]
 [ext_resource type="NavigationMesh" uid="uid://bavo3q5ti3quw" path="res://Main_NavigationRegion3D_$Static_NavigationMesh.tres" id="4_6741o"]
@@ -21,12 +20,16 @@
 [ext_resource type="PackedScene" uid="uid://d3gqr2or1jr42" path="res://game_objects/abilities/ignite/Ignite.tscn" id="11_3fjus"]
 [ext_resource type="PackedScene" uid="uid://chwjmy7grdej" path="res://game_objects/shared/status_info/StatusInfo.tscn" id="11_siwmd"]
 [ext_resource type="PackedScene" uid="uid://da0vo8ll2gr8e" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton.tscn" id="12_8akbt"]
+[ext_resource type="Script" path="res://game_objects/shared/status_info/StatusInfoItem.cs" id="12_ps0oq"]
 [ext_resource type="PackedScene" uid="uid://dixv731fuc6gj" path="res://game_objects/abilities/fire_ball/FireBall.tscn" id="12_qboqi"]
 [ext_resource type="PackedScene" uid="uid://y1t0iubx8y1b" path="res://game_objects/characters/others/the_haunting/ghost/Ghost.tscn" id="13_e31qg"]
+[ext_resource type="Script" path="res://game_objects/shared/status_info/StatusInfoItemHeal.cs" id="13_r7jod"]
 [ext_resource type="PackedScene" uid="uid://bflyuqbbpqmkp" path="res://game_objects/abilities/frostburn/Frostburn.tscn" id="13_w4ibj"]
 [ext_resource type="PackedScene" uid="uid://c5cd1cni7lng6" path="res://game_objects/abilities/ice_wall/IceWall.tscn" id="14_4m8xy"]
+[ext_resource type="Script" path="res://game_objects/shared/status_info/StatusInfoItemHurt.cs" id="14_6q7sg"]
 [ext_resource type="PackedScene" uid="uid://dks14llooa7jv" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat.tscn" id="15_c3vll"]
 [ext_resource type="PackedScene" uid="uid://v8blbc8smsjd" path="res://game_objects/abilities/tidal_wave/TidalWave.tscn" id="15_lavek"]
+[ext_resource type="Script" path="res://game_objects/shared/status_info/StatusInfoItemElemental.cs" id="15_xfnnq"]
 [ext_resource type="PackedScene" uid="uid://bqn2g5rr825g4" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest.tscn" id="16_ro6gg"]
 [ext_resource type="Script" path="res://addons/post_processing/node/post_process.gd" id="18_mmfla"]
 [ext_resource type="PackedScene" uid="uid://cyv12iosddo4f" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem.tscn" id="18_ujfjh"]
@@ -35,13 +38,56 @@
 [ext_resource type="PackedScene" uid="uid://u16qad10a485" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster.tscn" id="26_ynl1c"]
 [ext_resource type="PackedScene" uid="uid://o436c4ahk6md" path="res://game_objects/characters/elem_monsterss/normal/water/ratfolk_mage/RatfolkMage.tscn" id="30_ddnm6"]
 
-[node name="Main" type="Node3D" node_paths=PackedStringArray("MainCharacter", "NavigationRegionSstatic", "NavigationRegionDynamic", "Timer")]
+[sub_resource type="Resource" id="Resource_ntmsm"]
+script = ExtResource("12_ps0oq")
+FontColor = Color(1, 1, 1, 1)
+FontColorOutline = Color(0, 0, 0, 1)
+FontSize = 32
+FontSizeOutline = 8
+Thing = "normal"
+
+[sub_resource type="Resource" id="Resource_6wfva"]
+script = ExtResource("13_r7jod")
+FontColor = Color(0, 1, 0, 1)
+FontColorOutline = Color(0, 0, 0, 1)
+FontSize = 32
+FontSizeOutline = 8
+Thing = "heal"
+
+[sub_resource type="Resource" id="Resource_klrs7"]
+script = ExtResource("14_6q7sg")
+FontColor = Color(1, 0, 0, 1)
+FontColorOutline = Color(0, 0, 0, 1)
+FontSize = 32
+FontSizeOutline = 8
+Thing = "hurt"
+
+[sub_resource type="Resource" id="Resource_dgvcs"]
+script = ExtResource("15_xfnnq")
+Element = 0
+FontColor = Color(1, 0, 0, 1)
+FontColorOutline = Color(0, 0, 0, 1)
+FontSize = 32
+FontSizeOutline = 8
+Thing = "fire"
+
+[sub_resource type="Resource" id="Resource_nyrrt"]
+script = ExtResource("15_xfnnq")
+Element = 2
+FontColor = Color(0.501961, 1, 0.501961, 1)
+FontColorOutline = Color(0, 0, 0, 1)
+FontSize = 32
+FontSizeOutline = 8
+Thing = "wind"
+
+[node name="Main" type="Node3D" node_paths=PackedStringArray("MainCharacter", "NavigationRegionSstatic", "NavigationRegionDynamic", "Timer", "StatusInfo")]
 script = ExtResource("1_px6f3")
-Scene = ExtResource("2_sq55v")
+Scene = ExtResource("22_pbjun")
 MainCharacter = NodePath("MainCharacter")
 NavigationRegionSstatic = NodePath("NavigationRegion3D_$Static")
 NavigationRegionDynamic = NodePath("NavigationRegion3D_Dynamic")
 Timer = NodePath("NavigationRegion3D_$Static/Timer")
+StatusInfo = NodePath("MainCharacter/StatusInfo")
 
 [node name="Environment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_vpqwg")
@@ -103,9 +149,10 @@ visible = false
 mesh = ExtResource("5_kmewh")
 
 [node name="StatusInfo" parent="MainCharacter" node_paths=PackedStringArray("Sprite3D", "Label", "Timer") instance=ExtResource("11_siwmd")]
+Items = Array[Object]([SubResource("Resource_ntmsm"), SubResource("Resource_6wfva"), SubResource("Resource_klrs7"), SubResource("Resource_dgvcs"), SubResource("Resource_nyrrt")])
 Sprite3D = NodePath("Sprite3D")
 Label = NodePath("SubViewport/Label")
-Timer = NodePath("Timer")
+Timer = NodePath("DelTimer")
 
 [node name="Imp" parent="." instance=ExtResource("4_hlmyl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -4)
@@ -139,6 +186,7 @@ Deceleration = 0.1
 
 [node name="MetalMonster" parent="." instance=ExtResource("26_ynl1c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2, 0, -4)
+MaxHealth = 50.0
 Jumpv = 1.0
 
 [node name="Bat" parent="." instance=ExtResource("15_c3vll")]
@@ -148,7 +196,6 @@ MaxHealth = 50.0
 
 [node name="KoboldPriest" parent="." instance=ExtResource("16_ro6gg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 4)
-MaxHealth = 50.0
 
 [node name="HealTotem" parent="." instance=ExtResource("18_ujfjh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)

@@ -37,41 +37,73 @@ public partial class StatusInfo : Node3D
         set;
     }
 
-    public Tween
-           tween;
+    //public Tween
+    //       tween;
+
+    [Export]
+    public Vector3 StartPosition { get; set; } = new(0.0f, 0.5f, 0.0f);
+    [Export]
+    public Vector3 CeasePosition { get; set; } = new(0.0f, 1.0f, 0.0f);
+    [Export]
+    public double Delaying { get; set; } = 0.5d;
+    [Export]
+    public double Duration { get; set; } = 0.5d;
+    [Export]
+    public Tween.      EaseType EasingfuncType { get; set; } = Tween.      EaseType.InOut;
+    [Export]
+    public Tween.TransitionType TransitionType { get; set; } = Tween.TransitionType.Quint;
+
 
     public override void _Ready()
     {
-                    base._Ready();
-        Timer.Timeout += Timer_Timeout;
+        base._Ready();
+        Timer.WaitTime     =      Delaying;
+        Timer.    Timeout += Timer_Timeout;
     }
 
     private void Timer_Timeout()
     {
         if (Items.Count != 0)
         {
-            tween = CreateTween();
+            Tween tween  = CreateTween();
+            StatusInfoItem statusInfoItem = Items[0];
+
             tween.TweenCallback(Callable.From(() =>
             {
                 Sprite3D.Show();
-                Sprite3D.Position = new();
-                Label.Text = Items[0].Thing;
-                //Label.Set("theme_override_colors/font_outline_color", Items[0].Color);
+                Sprite3D.Position = StartPosition;
+                Label.Text = statusInfoItem.Thing;
+                Label.AddThemeColorOverride   (        "font_color", statusInfoItem.FontColor       );
+                Label.AddThemeColorOverride   ("font_outline_color", statusInfoItem.FontColorOutline);
+                Label.AddThemeFontSizeOverride
+                (   "font_size", statusInfoItem.FontSize       );
+                Label.AddThemeConstantOverride
+                ("outline_size", statusInfoItem.FontSizeOutline);
             }));
-            tween.TweenProperty(Sprite3D, "position", new Vector3(0.0f, 1.0f, 0.0f), 0.5d);
+
+            tween.TweenProperty(Sprite3D  ,
+                               "position" , CeasePosition, Duration)
+                 .SetEase (EasingfuncType)
+                 .SetTrans(TransitionType);
+
             tween.TweenCallback(Callable.From(() =>
             {
                 Sprite3D.Hide();
             }));
 
-
-            Items.RemoveAt(0);
+            Items.
+        RemoveAt(0)
+               ;
         }
     }
-
-    public override void _Process(double @delta)
-    {
-                    base._Process(       @delta);
-
-    }
 }
+
+
+
+
+
+
+
+
+
+

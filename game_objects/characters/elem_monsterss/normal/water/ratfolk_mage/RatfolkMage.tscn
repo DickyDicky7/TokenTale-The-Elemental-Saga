@@ -426,7 +426,6 @@ collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_pu3gl")
 MonsterType = 3
-Health = 10
 Speed = 1.0
 Jumpv = 1.0
 Acceleration = 0.1

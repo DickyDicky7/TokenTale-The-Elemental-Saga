@@ -933,7 +933,6 @@ _data = {
 collision_layer = 4
 script = ExtResource("1_fppcc")
 MonsterType = 2
-Health = 1
 Speed = 3.0
 Jumpv = 3.0
 Acceleration = 0.15

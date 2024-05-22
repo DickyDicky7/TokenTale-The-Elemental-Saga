@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6tlhr2n7q8ru"]
+
+[ext_resource type="Script" path="res://game_objects/shared/hits_flashing_by_modulate/HitsFlashingByModulateGlowVersion.cs" id="1_1bscx"]
+
+[node name="HitsFlashingByModulateGlowVersion" type="Node"]
+script = ExtResource("1_1bscx")

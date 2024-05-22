@@ -1,6 +1,4 @@
 using Godot;
-using Godot.Collections;
-using System.Collections.Generic;
 
 namespace TokenTaleTheElementalSaga;
 
@@ -8,27 +6,29 @@ public partial class Global : Node
 {
     public enum Element
     {
-        Fire,
-        Water,
-        Wind,
-        Ice,
+        Fire    ,
+        Water   ,
+        Wind    ,
+        Ice     ,
         Electric,
-        Earth,
-        Wood,
-		None
+        Earth   ,
+        Wood    ,
+        None    ,
     }
-    public enum MonsterType
+
+    public enum  MonsterType
     {
-        Distancer,
-        Chaser,
+         Distancer,
+            Chaser,
         Teleporter,
-        Supporter
+         Supporter,
     }
-	public enum ReactionType
-	{
-		Risk,
-		Warning,
-		Neutral,
-		Buff
-	}
+
+    public enum ReactionType
+    {
+        Risk   ,
+        Warning,
+        Neutral,
+        Buff   ,
+    }
 }

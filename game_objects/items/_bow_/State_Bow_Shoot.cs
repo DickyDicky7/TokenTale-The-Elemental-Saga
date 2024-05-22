@@ -6,7 +6,11 @@ public partial class State_Bow_Shoot : State_Bow_
 {
     [Export]
     [ExportGroup("Transition ##")]
-    public State ResetState {  get; set; }
+    public State ResetState { get; set; }
+
+    [Export]
+    public PackedScene
+           PackedSceneArrow { get; set; }
 
     public override void _Enter()
     {
@@ -18,6 +22,25 @@ public partial class State_Bow_Shoot : State_Bow_
         _Bow_.AnimationPlayerr      .AnimationFinished += AnimationPlayerr_______AnimationFinished;
 //      _Bow_.AnimatedSprite3DMmainn.AnimationFinished += AnimatedSprite3DMmainn_AnimationFinished; ;
 //      _Bow_.AnimatedSprite3DEffect.AnimationFinished += AnimatedSprite3DEffect_AnimationFinished;
+    
+        Arrow arrow =     PackedSceneArrow.Instantiate<
+        Arrow>();
+              arrow. StartPosition  =
+              _Bow_.GlobalPosition  ;
+        Vector2 inputDirection = Extension.GetInputDirection();
+        if (    inputDirection . IsZero())
+              arrow. CeasePosition  =
+              _Bow_.
+            GetGlobalMousePosition();
+        else
+              arrow. CeasePosition  =
+              _Bow_.GlobalPosition  +
+                inputDirection .
+              ConvertToTopDown()    * 2.0f;
+              arrow.MovingDuration  = 0.5d;
+              arrow.MovingDelaying  = 0.3d;
+              arrow._Setup
+                    (this);
     }
 
     public override void _Leave()
@@ -58,3 +81,9 @@ public partial class State_Bow_Shoot : State_Bow_
             ChangeState(ResetState);
     }
 }
+
+
+
+
+
+

@@ -1,3 +1,52 @@
-[gd_scene format=3 uid="uid://chwjmy7grdej"]
+[gd_scene load_steps=5 format=3 uid="uid://chwjmy7grdej"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y4oeg"]
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_1ge8y"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8wvry"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1.5, 1.5, 1.5, 1)
+albedo_texture = SubResource("ViewportTexture_1ge8y")
+texture_filter = 0
+texture_repeat = false
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 8
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_n5fqs"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_8wvry")
+size = Vector2(0.32, 0.32)
 
 [node name="StatusInfo" type="Node3D"]
+
+[node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+transparent_bg = true
+positional_shadow_atlas_size = 0
+positional_shadow_atlas_quad_0 = 0
+positional_shadow_atlas_quad_1 = 0
+positional_shadow_atlas_quad_2 = 0
+positional_shadow_atlas_quad_3 = 0
+size = Vector2i(640, 64)
+
+[node name="Label" type="Label" parent="SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 16
+text = "HELLOOOOOOOO"
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+process_material = SubResource("ParticleProcessMaterial_y4oeg")
+draw_pass_1 = SubResource("QuadMesh_n5fqs")

@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bblgtm4r3038r"]
+
+[ext_resource type="Script" path="res://game_objects/items/_bow_/Arrow.cs" id="1_vv4cg"]
+[ext_resource type="QuadMesh" uid="uid://b7iyhgic4ni34" path="res://game_objects/items/_bow_/Arrow_DrawPass01_Mesh.tres" id="2_djgwc"]
+[ext_resource type="Material" uid="uid://bfi1p0jk171y3" path="res://game_objects/items/_bow_/Arrow_ParticleProcessMaterial.tres" id="2_ui0nr"]
+[ext_resource type="Shape3D" uid="uid://bsp2pe8out2i6" path="res://game_objects/items/_bow_/Arrow_CollisionShape3D_Hitbox.tres" id="4_4q51r"]
+
+[node name="Arrow" type="Node3D" node_paths=PackedStringArray("Hitbox", "GpuParticles3D")]
+script = ExtResource("1_vv4cg")
+Hitbox = NodePath("Hitbox")
+GpuParticles3D = NodePath("Visual/$GPU$Particles3D")
+
+[node name="Visual" type="Node3D" parent="."]
+
+[node name="$GPU$Particles3D" type="GPUParticles3D" parent="Visual"]
+amount = 100
+lifetime = 0.2
+local_coords = true
+process_material = ExtResource("2_ui0nr")
+draw_pass_1 = ExtResource("2_djgwc")
+
+[node name="Hitbox" type="Area3D" parent="."]
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)
+shape = ExtResource("4_4q51r")

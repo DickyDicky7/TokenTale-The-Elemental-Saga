@@ -1,0 +1,7 @@
+[gd_resource type="GradientTexture1D" load_steps=2 format=3 uid="uid://waa1wr711ynj"]
+
+[ext_resource type="Gradient" uid="uid://ccsr2pyco3urw" path="res://game_objects/items/_bow_/Arrow_Gradient---------.tres" id="1_edytw"]
+
+[resource]
+gradient = ExtResource("1_edytw")
+use_hdr = true

@@ -3,37 +3,10 @@
 [ext_resource type="Script" path="res://game_objects/abilities/others/mini_blow_wind/MiniBlowWind.cs" id="1_si0bx"]
 [ext_resource type="QuadMesh" uid="uid://cbnw6saak2bph" path="res://game_objects/abilities/others/mini_blow_wind/MiniBlowWind_DrawPass01_Mesh.tres" id="2_g20gc"]
 [ext_resource type="Material" uid="uid://k5du8r1k2sty" path="res://game_objects/abilities/others/mini_blow_wind/MiniBlowWind_ParticleProcessMaterial.tres" id="2_m5eqd"]
-[ext_resource type="Shape3D" uid="uid://lbbvukwltynm" path="res://game_objects/abilities/others/mini_blow_wind/MiniBlowWind_CollisionShape3D_Hitbox.tres" id="3_owhn3"]
 [ext_resource type="Script" path="res://game_objects/shared/Hittbox3D.cs" id="4_rpqan"]
+[ext_resource type="Shape3D" uid="uid://desbr6fp70hik" path="res://game_objects/abilities/others/mini_blow_wind/MiniBlowWind_CollisionShape3D_Hitbox_New.tres" id="5_2jfgr"]
 [ext_resource type="BehaviorTree" uid="uid://dqqxwm6yjd6xd" path="res://game_objects/abilities/others/mini_blow_wind/MiniBlowWind_BehaviorTree.tres" id="5_6oujs"]
 [ext_resource type="BlackboardPlan" uid="uid://b1i8rghh110na" path="res://game_objects/abilities/others/mini_blow_wind/MiniBlowWind_BlackboardPlanBase.tres" id="5_yeo63"]
-
-[sub_resource type="Animation" id="Animation_0h7yu"]
-resource_name = "RESET"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Visual/$GPU$Particles3D:emitting")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Hitbox/CollisionShape3D_Hitbox:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_0yiq4"]
 resource_name = "@ON"
@@ -91,6 +64,33 @@ tracks/1/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_0h7yu"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/$GPU$Particles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitbox/CollisionShape3D_Hitbox:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hyv48"]
 _data = {
 "@ON": SubResource("Animation_0yiq4"),
@@ -118,8 +118,8 @@ draw_pass_1 = ExtResource("2_g20gc")
 script = ExtResource("4_rpqan")
 
 [node name="CollisionShape3D_Hitbox" type="CollisionShape3D" parent="Hitbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-shape = ExtResource("3_owhn3")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
+shape = ExtResource("5_2jfgr")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

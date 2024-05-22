@@ -36,7 +36,7 @@
 
 [node name="Main" type="Node3D" node_paths=PackedStringArray("MainCharacter", "NavigationRegionSstatic", "NavigationRegionDynamic", "Timer")]
 script = ExtResource("1_px6f3")
-Scene = ExtResource("8_nid88")
+Scene = ExtResource("12_qboqi")
 MainCharacter = NodePath("MainCharacter")
 NavigationRegionSstatic = NodePath("NavigationRegion3D_$Static")
 NavigationRegionDynamic = NodePath("NavigationRegion3D_Dynamic")

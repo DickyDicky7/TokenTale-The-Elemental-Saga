@@ -2,9 +2,13 @@ using Godot;
 
 namespace TokenTaleTheElementalSaga;
 
-[GlobalClass]
+[ GlobalClass ]
 public abstract partial class ElementalMonster : Monster
 {
-	[Export]
-	public Global.Element Element { get; set; }
+    [  Export ]
+    public Global.Element
+                  Element
+    {
+        get; set;
+    }
 }

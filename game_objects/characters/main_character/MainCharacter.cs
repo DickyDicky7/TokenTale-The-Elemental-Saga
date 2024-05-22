@@ -21,16 +21,19 @@ public partial class MainCharacter : Character3D
         set;
     }
 
-    public BoosterManager BoosterManager { get; private set; } 
     public EquipmentManager EquipmentManager { get; private set; } 
-    public AbilityManager AbilityManager { get; private set; } 
+    public   AbilityManager   AbilityManager { get; private set; } 
+    public   BoosterManager   BoosterManager { get; private set; } 
+
 	public override void _Ready()
 	{
-		base._Ready();
-        this.BoosterManager = new BoosterManager();
+		            base._Ready();
+
         this.EquipmentManager = new EquipmentManager();
-        this.AbilityManager = new AbilityManager();
+        this.  BoosterManager = new   BoosterManager();
+        this.  AbilityManager = new   AbilityManager();
 	}
+
 	public override void _Process(double @delta)
     {
                     base._Process(       @delta);

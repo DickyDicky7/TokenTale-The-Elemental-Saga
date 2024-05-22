@@ -5,7 +5,8 @@ namespace TokenTaleTheElementalSaga;
 [GlobalClass]
 public abstract partial class Character3D : CharacterBody3D
 {
-    public float CurrentHealth { get; set; } 
+    [Export]
+    public float CurrentHealth{ get; set; } 
 	[Export]
     public float Speed { get; set; }
     [Export]
@@ -74,8 +75,15 @@ public abstract partial class Character3D : CharacterBody3D
     {
 
     }
+
 	public override void _Ready()
 	{
-		base._Ready();
+		            base._Ready();
 	}
 }
+
+
+
+
+
+

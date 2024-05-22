@@ -9,9 +9,10 @@ public partial class ElementalProficiencyDH : BaseDH
 	{
 		this.BonusDamageRatio = BonusDamageRatio;
 	}
-	public override void ProcessDamage(float Damage)
+	public override void ProcessDamage(ref float Damage)
 	{
 		Damage += (Damage * this.BonusDamageRatio);
-		NextHandler.ProcessDamage(Damage);
+		if (this.NextHandler is not null)
+			NextHandler.ProcessDamage(ref Damage);
 	}
 }

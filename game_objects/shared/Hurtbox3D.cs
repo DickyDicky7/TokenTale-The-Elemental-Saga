@@ -21,13 +21,13 @@ public partial class Hurtbox3D : CustomArea3D
 
     protected override void OnAreaEntered(Area3D @area3D)
     {
-        float oldHealth =   Character3D.CurrentHealth;
-        float newHealth = --Character3D.CurrentHealth;
-        Character3D.EmitSignal(
-        Character3D.SignalName.HealthChange,
-        Character3D,
-        oldHealth  ,
-        newHealth );
+        //float oldHealth =   Character3D.CurrentHealth;
+        //float newHealth = --Character3D.CurrentHealth;
+        //Character3D.EmitSignal(
+        //Character3D.SignalName.HealthChange,
+        //Character3D,
+        //oldHealth  ,
+        //newHealth );
         Hurt = true;
     }
 

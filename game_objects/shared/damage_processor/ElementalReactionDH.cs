@@ -2,6 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 namespace TokenTaleTheElementalSaga;
 public partial class ElementalReactionDH : BaseDH
 {
@@ -17,11 +18,11 @@ public partial class ElementalReactionDH : BaseDH
 		this.ActiveElement = ActiveElement;
 		this.IsElementMonster = IsElementMosnter;
 	}
-	public override void ProcessDamage(float Damage)
+	public override void ProcessDamage(ref float Damage)
 	{
 		Global.ReactionType ReactionType = DecideReaction(this.PassiveElement, this.ActiveElement);
 		RandomNumberGenerator rand = new();
-		if (IsElementMonster)
+		if (IsElementMonster is true)
 		{
 			switch (ReactionType)
 			{
@@ -54,12 +55,13 @@ public partial class ElementalReactionDH : BaseDH
 					break;
 			}
 		}
-		NextHandler.ProcessDamage(Damage);
+		if (this.NextHandler is not null)
+			NextHandler.ProcessDamage(ref Damage);
 	}
 	public static Global.ReactionType DecideReaction(
 		Global.Element Passive, 
 		Global.Element Active)
 	{
-		return Global.ReactionTable[(int)Passive][(int)Active];
+		return ElementalReactionTable.GetInstance().ReactionTable[(int)Passive][(int)Active];
 	}
 }

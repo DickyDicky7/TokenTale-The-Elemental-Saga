@@ -1,9 +1,17 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 namespace TokenTaleTheElementalSaga;
 public partial class AbilityStats : Resource
 {
+	private static AbilityStats _instance;
+	public static AbilityStats GetInstance()
+	{
+		if (_instance == null)
+			_instance = new AbilityStats();
+		return _instance;
+	}
 	private AbilityStats() : base()
 	{
 		FireStats.Add(new Record.AbilityInfo { Level = 0, ExpNeed = 0, Damage = 10 });
@@ -77,13 +85,13 @@ public partial class AbilityStats : Resource
 		WoodStats.Add(new Record.AbilityInfo { Level = 0, ExpNeed = 650, Damage = 48 });
 	}
 
-	public static List<Record.AbilityInfo> FireStats { get; private set; }
-	public static List<Record.AbilityInfo> WaterStats { get; private set; }
-	public static List<Record.AbilityInfo> WindStats { get; private set; }
-	public static List<Record.AbilityInfo> ElectricStats { get; private set; }
-	public static List<Record.AbilityInfo> IceStats { get; private set; }
-	public static List<Record.AbilityInfo> EarthStats { get; private set; }
-	public static List<Record.AbilityInfo> WoodStats { get; private set; }
+	public List<Record.AbilityInfo> FireStats { get; private set; } = new();
+	public List<Record.AbilityInfo> WaterStats { get; private set; } = new();
+	public List<Record.AbilityInfo> WindStats { get; private set; } = new();
+	public List<Record.AbilityInfo> ElectricStats { get; private set; } = new();
+	public List<Record.AbilityInfo> IceStats { get; private set; } = new();
+	public List<Record.AbilityInfo> EarthStats { get; private set; } = new();
+	public List<Record.AbilityInfo> WoodStats { get; private set; } = new();
 	public class ActiveRange
 	{
 		public static float Short { get; private set; } = 1.0f;

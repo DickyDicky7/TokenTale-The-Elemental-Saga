@@ -11,8 +11,8 @@ public partial class Boot : Equipment
 		this.Available = true;
 		this.Upgradeable = true;
 		this.Level = 0;
-		this.Speed = ItemStats.BootStats[0].Speed;
-		this.NextLevelUpgradeCost = ItemStats.BootStats[1].UpgradeCost;
+		this.Speed = ItemStats.GetInstance().BootStats[0].Speed;
+		this.NextLevelUpgradeCost = ItemStats.GetInstance().BootStats[1].UpgradeCost;
 	}
 	public override void _Ready()
 	{
@@ -22,14 +22,14 @@ public partial class Boot : Equipment
 	public override void Upgrade()
 	{
 		base.Upgrade();
-		if (this.Level == ItemStats.QuiverStats.Count - 1)
+		if (this.Level == ItemStats.GetInstance().BootStats.Count - 1)
 			Upgradeable = false;
-		int index = ItemStats
+		int index = ItemStats.GetInstance()
 			.BootStats
-			.FindIndex(0, ItemStats.BootStats.Count, x => x.Level == this.Level);
-		this.Speed = ItemStats.BootStats[index].Speed;
+			.FindIndex(0, ItemStats.GetInstance().BootStats.Count, x => x.Level == this.Level);
+		this.Speed = ItemStats.GetInstance().BootStats[index].Speed;
 		if (this.Upgradeable == true)
-			this.NextLevelUpgradeCost = ItemStats.BootStats[index + 1].UpgradeCost;
+			this.NextLevelUpgradeCost = ItemStats.GetInstance().BootStats[index + 1].UpgradeCost;
 		else
 			this.NextLevelUpgradeCost = -1;
 	}

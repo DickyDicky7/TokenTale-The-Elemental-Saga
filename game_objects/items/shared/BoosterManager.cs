@@ -34,14 +34,14 @@ public partial class BoosterManager : Node
 				ElementalScrollStatusList.Add(false);
 			}
 		}
-		MaxHealth = MainCharacterStats.MaxHealthStats[0].MaxHealth;
-		MaxEnergy = MainCharacterStats.MaxEnergyStats[0].MaxEnergy;
-		SwordAttackSpeed = MainCharacterStats.SwordProficiency[0].Speed;
-		SwordBonusDamageRatio = MainCharacterStats.SwordProficiency[0].BonusDamageRatio;
-		BowAttackSpeed = MainCharacterStats.BowProficiency[0].Speed;
-		BowBonusDamageRatio = MainCharacterStats.BowProficiency[0].BonusDamageRatio;
-		ElementalCastSpeed = MainCharacterStats.ElementalProficiency[0].Speed;
-		ElementalBonusDamageRatio = MainCharacterStats.ElementalProficiency[0].BonusDamageRatio;
+		MaxHealth = MainCharacterStats.GetInstance().MaxHealthStats[0].MaxHealth;
+		MaxEnergy = MainCharacterStats.GetInstance().MaxEnergyStats[0].MaxEnergy;
+		SwordAttackSpeed = MainCharacterStats.GetInstance().SwordProficiency[0].Speed;
+		SwordBonusDamageRatio = MainCharacterStats.GetInstance().SwordProficiency[0].BonusDamageRatio;
+		BowAttackSpeed = MainCharacterStats.GetInstance().BowProficiency[0].Speed;
+		BowBonusDamageRatio = MainCharacterStats.GetInstance().BowProficiency[0].BonusDamageRatio;
+		ElementalCastSpeed = MainCharacterStats.GetInstance().ElementalProficiency[0].Speed;
+		ElementalBonusDamageRatio = MainCharacterStats.GetInstance().ElementalProficiency[0].BonusDamageRatio;
 	}
 	public void TakeBooster(Booster booster)
 	{
@@ -74,7 +74,7 @@ public partial class BoosterManager : Node
 	private void ApplyHeart()
 	{
 		int HeartCollected = HeartStatusList.FindAll(x => x == true).Count;
-		this.MaxHealth = MainCharacterStats
+		this.MaxHealth = MainCharacterStats.GetInstance()
 			.MaxHealthStats
 			.First(x => x.HeartColleted == HeartCollected)
 			.MaxHealth;
@@ -82,7 +82,7 @@ public partial class BoosterManager : Node
 	private void ApplyPowerStone()
 	{
 		int EnergyStoneCollected = EnergyStoneStatusList.FindAll(x => x == true).Count;
-		this.MaxEnergy = MainCharacterStats
+		this.MaxEnergy = MainCharacterStats.GetInstance()
 			.MaxEnergyStats
 			.First(x => x.EnergyStoneCollected == EnergyStoneCollected)
 			.MaxEnergy;
@@ -90,7 +90,7 @@ public partial class BoosterManager : Node
 	private void ApplySwordScroll()
 	{
 		int SwordScrollCollected = SwordScrollStatusList.FindAll(x => x == true).Count;
-		Record.SwordKnowledgeInfo info = MainCharacterStats
+		Record.SwordKnowledgeInfo info = MainCharacterStats.GetInstance()
 			.SwordProficiency
 			.First(x => x.SwordScrollCollected == SwordScrollCollected);
 		this.SwordAttackSpeed = info.Speed;
@@ -99,7 +99,7 @@ public partial class BoosterManager : Node
 	private void ApplyBowScroll()
 	{
 		int BowScrollCollected = BowScrollStatusList.FindAll(x => x == true).Count;
-		Record.BowKnowledgeInfo info = MainCharacterStats
+		Record.BowKnowledgeInfo info = MainCharacterStats.GetInstance()
 			.BowProficiency
 			.First(x => x.BowScrollCollected == BowScrollCollected);
 		this.BowAttackSpeed = info.Speed;
@@ -108,7 +108,7 @@ public partial class BoosterManager : Node
 	private void ApplyElementalScroll()
 	{
 		int ElementalScrollCollected = ElementalScrollStatusList.FindAll(x => x == true).Count;
-		Record.ElementalKnowledgeInfo info = MainCharacterStats
+		Record.ElementalKnowledgeInfo info = MainCharacterStats.GetInstance()
 			.ElementalProficiency
 			.First(x => x.ElementalScrollCollected == ElementalScrollCollected);
 		this.ElementalCastSpeed = info.Speed;

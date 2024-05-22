@@ -4,6 +4,13 @@ using System.Collections.Generic;
 namespace TokenTaleTheElementalSaga;
 public partial class MainCharacterStats : Resource
 {
+	private static MainCharacterStats _instance;
+	public static MainCharacterStats GetInstance()
+	{
+		if (_instance == null)
+			_instance = new MainCharacterStats();
+		return _instance;
+	}
 	private MainCharacterStats() : base()
 	{
 		SwordProficiency.Add(new Record.SwordKnowledgeInfo
@@ -89,16 +96,9 @@ public partial class MainCharacterStats : Resource
 		MaxEnergyStats.Add(new Record.MaxEnergyInfo { EnergyStoneCollected = 7, MaxEnergy = 29 });
 		MaxEnergyStats.Add(new Record.MaxEnergyInfo { EnergyStoneCollected = 8, MaxEnergy = 33 });
 	}
-	private static MainCharacterStats _instance;
-	public static MainCharacterStats GetInstance()
-	{
-		if (_instance is null)
-			_instance = new MainCharacterStats();
-		return _instance;
-	}
-	public static List<Record.SwordKnowledgeInfo> SwordProficiency { get; private set; }
-	public static List<Record.BowKnowledgeInfo> BowProficiency { get; private set; }
-	public static List<Record.ElementalKnowledgeInfo> ElementalProficiency { get; private set; }
-	public static List<Record.MaxHealthInfo> MaxHealthStats { get; private set; }
-	public static List<Record.MaxEnergyInfo> MaxEnergyStats { get; private set; }
+	public List<Record.SwordKnowledgeInfo> SwordProficiency { get; private set; } = new();
+	public List<Record.BowKnowledgeInfo> BowProficiency { get; private set; } = new();
+	public List<Record.ElementalKnowledgeInfo> ElementalProficiency { get; private set; } = new();
+	public List<Record.MaxHealthInfo> MaxHealthStats { get; private set; } = new();
+	public List<Record.MaxEnergyInfo> MaxEnergyStats { get; private set; } = new();
 }

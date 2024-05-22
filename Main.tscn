@@ -105,21 +105,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -4)
 
 [node name="Minotaur" parent="." instance=ExtResource("7_2coyl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -4)
+MaxHealth = 50.0
 
 [node name="Cyclops" parent="." instance=ExtResource("10_ogacn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -4)
+MaxHealth = 50.0
 
 [node name="Cat" parent="." instance=ExtResource("23_saaco")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -4)
 MonsterType = 0
+MaxHealth = 50.0
 
 [node name="Skeleton" parent="." instance=ExtResource("12_8akbt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 4)
 MonsterType = 0
+MaxHealth = 50.0
 
 [node name="GhostRound" parent="." instance=ExtResource("13_e31qg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
 MonsterType = 0
+MaxHealth = 50.0
 Speed = 1.0
 Jumpv = 1.0
 Acceleration = 0.1
@@ -132,14 +137,22 @@ Jumpv = 1.0
 [node name="Bat" parent="." instance=ExtResource("15_c3vll")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 4)
 MonsterType = 0
+MaxHealth = 50.0
 
 [node name="KoboldPriest" parent="." instance=ExtResource("16_ro6gg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 4)
+MaxHealth = 50.0
 
 [node name="HealTotem" parent="." instance=ExtResource("18_ujfjh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
 Element = 6
 MonsterType = 0
+MaxHealth = 50.0
+
+[node name="RatfolkMage" parent="." instance=ExtResource("30_ddnm6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+MonsterType = 0
+MaxHealth = 50.0
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 0, 0)
@@ -185,7 +198,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
 
 [node name="PostProcess" type="CanvasLayer" parent="."]
 script = ExtResource("18_mmfla")
-
-[node name="RatfolkMage" parent="." instance=ExtResource("30_ddnm6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
-MonsterType = 0

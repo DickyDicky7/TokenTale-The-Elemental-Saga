@@ -11,7 +11,7 @@ public partial class PowerupsGenerator : Equipment
 		this.Upgradeable = true;
 		this.Level = -1;
 		this.MaxUses = 0;
-		this.NextLevelUpgradeCost = ItemStats.PowerUpsGeneratorStats[0].UpgradeCost;
+		this.NextLevelUpgradeCost = ItemStats.GetInstance().PowerUpsGeneratorStats[0].UpgradeCost;
 	}
 	public override void _Ready()
 	{
@@ -21,14 +21,14 @@ public partial class PowerupsGenerator : Equipment
 	public override void Upgrade()
 	{
 		base.Upgrade();
-		if (this.Level == ItemStats.PowerUpsGeneratorStats.Count - 1)
+		if (this.Level == ItemStats.GetInstance().PowerUpsGeneratorStats.Count - 1)
 			Upgradeable = false;
-		int index = ItemStats
+		int index = ItemStats.GetInstance()
 			.PowerUpsGeneratorStats
-			.FindIndex(0, ItemStats.PowerUpsGeneratorStats.Count, x => x.Level == this.Level);
-		this.MaxUses = ItemStats.PowerUpsGeneratorStats[index].MaxUses;
+			.FindIndex(0, ItemStats.GetInstance().PowerUpsGeneratorStats.Count, x => x.Level == this.Level);
+		this.MaxUses = ItemStats.GetInstance().PowerUpsGeneratorStats[index].MaxUses;
 		if (this.Upgradeable == true)
-			this.NextLevelUpgradeCost = ItemStats.PowerUpsGeneratorStats[index + 1].UpgradeCost;
+			this.NextLevelUpgradeCost = ItemStats.GetInstance().PowerUpsGeneratorStats[index + 1].UpgradeCost;
 		else
 			this.NextLevelUpgradeCost = -1;
 

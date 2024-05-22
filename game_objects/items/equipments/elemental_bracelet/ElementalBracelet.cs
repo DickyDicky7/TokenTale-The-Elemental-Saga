@@ -17,8 +17,8 @@ public partial class ElementalBracelet : Equipment
 		if (Level < 0)
 			this.BonusDamage = 0;
 		else
-			this.BonusDamage = ItemStats.ElementalBraceletStats[0].BonusDamage;
-		this.NextLevelUpgradeCost = ItemStats.ElementalBraceletStats[1].UpgradeCost;
+			this.BonusDamage = ItemStats.GetInstance().ElementalBraceletStats[0].BonusDamage;
+		this.NextLevelUpgradeCost = ItemStats.GetInstance().ElementalBraceletStats[1].UpgradeCost;
 	}
 	public override void _Ready()
 	{
@@ -28,14 +28,14 @@ public partial class ElementalBracelet : Equipment
 	public override void Upgrade()
 	{
 		base.Upgrade();
-		if (this.Level == ItemStats.ElementalBraceletStats.Count - 1)
+		if (this.Level == ItemStats.GetInstance().ElementalBraceletStats.Count - 1)
 			this.Upgradeable = false;
-		int index = ItemStats
+		int index = ItemStats.GetInstance()
 			.ElementalBraceletStats
-			.FindIndex(0, ItemStats.ElementalBraceletStats.Count, x => x.Level == this.Level);
-		this.BonusDamage = ItemStats.ElementalBraceletStats[index].BonusDamage;
+			.FindIndex(0, ItemStats.GetInstance().ElementalBraceletStats.Count, x => x.Level == this.Level);
+		this.BonusDamage = ItemStats.GetInstance().ElementalBraceletStats[index].BonusDamage;
 		if (this.Upgradeable == true)
-			this.NextLevelUpgradeCost = ItemStats.ElementalBraceletStats[index + 1].UpgradeCost;
+			this.NextLevelUpgradeCost = ItemStats.GetInstance().ElementalBraceletStats[index + 1].UpgradeCost;
 		else
 			this.NextLevelUpgradeCost = -1;
 	}

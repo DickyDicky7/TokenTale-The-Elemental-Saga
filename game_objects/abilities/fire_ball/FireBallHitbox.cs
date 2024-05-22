@@ -1,26 +1,42 @@
 using Godot;
 using System;
 using System.Linq;
+using System.Linq.Expressions;
 namespace TokenTaleTheElementalSaga;
 
 public partial class FireBallHitbox : Hittbox3D
 {
-	protected override void OnBodyEntered(Area3D area3D)
+	protected override void OnBodyEntered(Node3D node3D)
 	{
-		if (this.Hit == false)
+		if (Hit == false)
 		{
-			base.OnAreaEntered(area3D);
+			base.OnBodyEntered(node3D);
 			Action();
-			float Damage = CalculateDamage(this, area3D);
+			float Damage = 0;
 			if (this.GetParent() is Ability3D)
 			{
-				Ability3D temp = this.GetParent() as Ability3D;
-				temp.DamageRatio = 0.8f;
+				Ability3D tempAbility = this.GetParent() as Ability3D;
+				if (node3D is Monster)
+				{
+					Monster tempMonster = node3D as Monster;
+					Damage = CalculateDamage(tempAbility, tempMonster);
+					GD.Print(Damage);
+					tempMonster.CurrentHealth -= Damage;
+				}
+				tempAbility.DamageRatio = 0.8f;
 			}
 		}
 		else
 		{
-			float Damage = CalculateDamage(this, area3D);
+			float Damage = 0;
+			if (this.GetParent() is Ability3D && node3D is Monster)
+			{
+				Ability3D tempAbility = this.GetParent() as Ability3D;
+				Monster tempMonster = node3D as Monster;
+				Damage = CalculateDamage(tempAbility, tempMonster);
+				GD.Print(Damage);
+				tempMonster.CurrentHealth -= Damage;
+			}
 		}
 	}
 	public override void _Ready()

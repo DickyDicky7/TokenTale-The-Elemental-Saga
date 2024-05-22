@@ -17,7 +17,7 @@ func _exit() -> void:
 	pass;
 	
 func _tick(_delta: float) -> Status:
-	if (currentCharacter.Health <= 0):
+	if (currentCharacter.CurrentHealth <= 0):
 		return SUCCESS
 	else:
 		return FAILURE

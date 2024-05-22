@@ -4,6 +4,13 @@ using System.Collections.Generic;
 namespace TokenTaleTheElementalSaga;
 public partial class ItemStats : Resource
 {
+	private static ItemStats _instance;
+	public static ItemStats GetInstance()
+	{
+		if (_instance == null)
+			_instance = new ItemStats();
+		return _instance;
+	}
 	private ItemStats() : base()
 	{
 		SwordStats.Add(new Record.SwordInfo { Level = 0, Damage = 10, UpgradeCost = 0 });
@@ -44,18 +51,11 @@ public partial class ItemStats : Resource
 		PowerUpsGeneratorStats.Add(new Record.PowerUpsGeneratorInfo 
 		{ Level = 3, MaxUses = 4, UpgradeCost = 400 });
 	}
-	private static ItemStats _instance;
-	public static ItemStats GetInstance()
-	{
-		if (_instance is null)
-			_instance = new ItemStats();
-		return _instance;
-	}
-	public static List<Record.SwordInfo> SwordStats{ get; private set; }
-	public static List<Record.BowInfo> BowStats{ get; private set; }
-	public static List<Record.QuiverInfo> QuiverStats { get; private set; }
-	public static List<Record.BootInfo> BootStats { get; private set; }
-	public static List<Record.ElementalBraceletInfo> ElementalBraceletStats { get; private set; }
-	public static List<Record.PowerUpsGeneratorInfo> PowerUpsGeneratorStats { get; private set; }
+	public List<Record.SwordInfo> SwordStats{ get; private set; } = new();
+	public List<Record.BowInfo> BowStats{ get; private set; } = new();
+	public List<Record.QuiverInfo> QuiverStats { get; private set; } = new();
+	public List<Record.BootInfo> BootStats { get; private set; } = new();
+	public List<Record.ElementalBraceletInfo> ElementalBraceletStats { get; private set; } = new();
+	public List<Record.PowerUpsGeneratorInfo> PowerUpsGeneratorStats { get; private set; } = new();
 
 }

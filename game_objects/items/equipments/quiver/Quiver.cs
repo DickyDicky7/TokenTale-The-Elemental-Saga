@@ -11,8 +11,8 @@ public partial class Quiver : Equipment
 		this.Available = true;
 		this.Upgradeable = true;
 		this.Level = 0;
-		this.MaxArrow = ItemStats.QuiverStats[0].MaxArrow;
-		this.NextLevelUpgradeCost = ItemStats.QuiverStats[1].UpgradeCost;
+		this.MaxArrow = ItemStats.GetInstance().QuiverStats[0].MaxArrow;
+		this.NextLevelUpgradeCost = ItemStats.GetInstance().QuiverStats[1].UpgradeCost;
 	}
 	public override void _Ready()
 	{
@@ -22,14 +22,14 @@ public partial class Quiver : Equipment
 	public override void Upgrade()
 	{
 		base.Upgrade();
-		if (this.Level == ItemStats.QuiverStats.Count - 1)
+		if (this.Level == ItemStats.GetInstance().QuiverStats.Count - 1)
 			Upgradeable = false;
-		int index = ItemStats
+		int index = ItemStats.GetInstance()
 			.QuiverStats
-			.FindIndex(0, ItemStats.QuiverStats.Count, x => x.Level == this.Level);
-		this.MaxArrow = ItemStats.QuiverStats[index].MaxArrow;
+			.FindIndex(0, ItemStats.GetInstance().QuiverStats.Count, x => x.Level == this.Level);
+		this.MaxArrow = ItemStats.GetInstance().QuiverStats[index].MaxArrow;
 		if (this.Upgradeable == true)
-			this.NextLevelUpgradeCost = ItemStats.QuiverStats[index + 1].UpgradeCost;
+			this.NextLevelUpgradeCost = ItemStats.GetInstance().QuiverStats[index + 1].UpgradeCost;
 		else
 			this.NextLevelUpgradeCost = -1;
 	}

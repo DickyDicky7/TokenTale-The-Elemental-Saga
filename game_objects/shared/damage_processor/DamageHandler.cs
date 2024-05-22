@@ -4,5 +4,5 @@ namespace TokenTaleTheElementalSaga;
 //CHAIN OF RESPONSIBILITY
 public partial interface DamageHandler
 {
-	public void ProcessDamage(float Damage);
+	public void ProcessDamage(ref float Damage);
 }

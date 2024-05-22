@@ -1,7 +1,8 @@
-[gd_scene load_steps=34 format=3 uid="uid://w3dkcnkmaulo"]
+[gd_scene load_steps=35 format=3 uid="uid://w3dkcnkmaulo"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_px6f3"]
 [ext_resource type="PlaneMesh" uid="uid://dmf8lh15l3415" path="res://BackgroundPlatform_Mesh.tres" id="2_rk0yh"]
+[ext_resource type="PackedScene" uid="uid://s4c8ixjtg1uy" path="res://game_objects/abilities/sky_strike/SkyStrike.tscn" id="2_sq55v"]
 [ext_resource type="Environment" uid="uid://jjpsnd6sbvf2" path="res://Main_Environment.tres" id="2_vpqwg"]
 [ext_resource type="Shape3D" uid="uid://ckjylylwcue88" path="res://BackgroundPlatform_CollisionShape3D.tres" id="3_vrktx"]
 [ext_resource type="NavigationMesh" uid="uid://bavo3q5ti3quw" path="res://Main_NavigationRegion3D_$Static_NavigationMesh.tres" id="4_6741o"]
@@ -36,7 +37,7 @@
 
 [node name="Main" type="Node3D" node_paths=PackedStringArray("MainCharacter", "NavigationRegionSstatic", "NavigationRegionDynamic", "Timer")]
 script = ExtResource("1_px6f3")
-Scene = ExtResource("12_qboqi")
+Scene = ExtResource("2_sq55v")
 MainCharacter = NodePath("MainCharacter")
 NavigationRegionSstatic = NodePath("NavigationRegion3D_$Static")
 NavigationRegionDynamic = NodePath("NavigationRegion3D_Dynamic")
@@ -101,9 +102,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 visible = false
 mesh = ExtResource("5_kmewh")
 
-[node name="StatusInfo" parent="MainCharacter" node_paths=PackedStringArray("Sprite3D", "Label") instance=ExtResource("11_siwmd")]
+[node name="StatusInfo" parent="MainCharacter" node_paths=PackedStringArray("Sprite3D", "Label", "Timer") instance=ExtResource("11_siwmd")]
 Sprite3D = NodePath("Sprite3D")
 Label = NodePath("SubViewport/Label")
+Timer = NodePath("Timer")
 
 [node name="Imp" parent="." instance=ExtResource("4_hlmyl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -4)

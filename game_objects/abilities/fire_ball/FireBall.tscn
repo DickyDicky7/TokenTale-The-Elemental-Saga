@@ -7,7 +7,7 @@
 [ext_resource type="BehaviorTree" uid="uid://b0fwx3pd1yexw" path="res://game_objects/abilities/fire_ball/FireBall_BehaviorTree.tres" id="3_xm2p1"]
 [ext_resource type="BlackboardPlan" uid="uid://bpjbwqpw0pbsr" path="res://game_objects/abilities/fire_ball/FireBall_BlackboardPlanBase.tres" id="4_fbkqr"]
 [ext_resource type="Script" path="res://game_objects/abilities/fire_ball/FireBallHitbox.cs" id="5_u51n4"]
-[ext_resource type="Shape3D" uid="uid://cgm57lmgo0wd8" path="res://game_objects/abilities/fire_ball/FireBall_CollisionShape3D_Hitbox_New.tres" id="6_1s2hw"]
+[ext_resource type="Shape3D" path="res://game_objects/abilities/fire_ball/FireBall_CollisionShape3D_Hitbox_New.tres" id="6_1s2hw"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="7_lu4ls"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="8_6uybs"]
 

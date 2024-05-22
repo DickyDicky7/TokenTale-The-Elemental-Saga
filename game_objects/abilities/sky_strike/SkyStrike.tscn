@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://s4c8ixjtg1uy"]
+[gd_scene load_steps=14 format=3 uid="uid://s4c8ixjtg1uy"]
 
 [ext_resource type="Script" path="res://game_objects/abilities/sky_strike/SkyStrike.cs" id="1_iiucs"]
 [ext_resource type="SpriteFrames" uid="uid://cq2jie543sctx" path="res://game_objects/abilities/sky_strike/SkyStrike_SpriteFrames.tres" id="2_6dxen"]
@@ -6,6 +6,7 @@
 [ext_resource type="SpriteFrames" uid="uid://brrcvjnenn4gw" path="res://game_objects/abilities/sky_strike/SkyStrike_SpriteFrames_Effect1.tres" id="3_t6766"]
 [ext_resource type="SpriteFrames" uid="uid://cduf1f3sho35p" path="res://game_objects/abilities/sky_strike/SkyStrike_SpriteFrames_Effect2.tres" id="4_rd1g6"]
 [ext_resource type="Shape3D" uid="uid://bkvosauacb43d" path="res://game_objects/abilities/sky_strike/SkyStrike_CollisionShape3D_Hitbox.tres" id="6_1al21"]
+[ext_resource type="Script" path="res://game_objects/abilities/sky_strike/SkyStrikeHitbox.cs" id="6_yqu1m"]
 [ext_resource type="BehaviorTree" uid="uid://db04qtvf251h7" path="res://game_objects/abilities/sky_strike/SkyStrike_BehaviorTree.tres" id="7_g8df4"]
 [ext_resource type="BlackboardPlan" uid="uid://bpi0s0eb4wjxo" path="res://game_objects/abilities/sky_strike/SkyStrike_BlackboardPlanBase.tres" id="7_u4n2a"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="8_q6hfs"]
@@ -349,6 +350,9 @@ sprite_frames = ExtResource("4_rd1g6")
 animation = &"DROP"
 
 [node name="Hitbox" type="Area3D" parent="."]
+collision_layer = 32
+collision_mask = 7
+script = ExtResource("6_yqu1m")
 
 [node name="CollisionShape3D_Hitbox" type="CollisionShape3D" parent="Hitbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)

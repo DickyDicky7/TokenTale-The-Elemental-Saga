@@ -65,9 +65,11 @@ GetWindow().Title=
             ability.Attach                       (
             spacex:        NavigationRegionSstatic,
             caster:        MainCharacter          ,
-            startPosition: MainCharacter          .
-           GlobalPosition,
-            ceasePosition: globalMousePosition   );
+            startPosition: NavigationRegionSstatic.ToLocal(
+                           MainCharacter          .
+           GlobalPosition),
+            ceasePosition: NavigationRegionSstatic.ToLocal(
+                           globalMousePosition)  );
 
             MainCharacter.
             MainCharacterAnimatedSprite3DEffect.CurrentEffect=

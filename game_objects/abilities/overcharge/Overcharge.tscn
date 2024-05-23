@@ -391,6 +391,7 @@ sprite_frames = ExtResource("1_30fki")
 animation = &"FADE0"
 
 [node name="Hitbox" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 
 [node name="CollisionShape3D_Hitbox" type="CollisionShape3D" parent="Hitbox"]
 shape = ExtResource("3_5v2c0")

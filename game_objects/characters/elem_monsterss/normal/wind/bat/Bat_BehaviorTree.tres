@@ -1,4 +1,4 @@
-[gd_resource type="BehaviorTree" load_steps=68 format=3 uid="uid://cpuark47byu1g"]
+[gd_resource type="BehaviorTree" load_steps=70 format=3 uid="uid://cpuark47byu1g"]
 
 [ext_resource type="BlackboardPlan" uid="uid://dh7rchdmh22pd" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat_BlackboardPlan----.tres" id="1_0m0qp"]
 [ext_resource type="Script" path="res://ai/tasks/monster/beingHit.gd" id="2_nu5n6"]
@@ -13,6 +13,10 @@
 [ext_resource type="Script" path="res://ai/tasks/monster/move.gd" id="10_335cj"]
 [ext_resource type="Script" path="res://ai/tasks/monster/attack.gd" id="11_68scx"]
 [ext_resource type="Script" path="res://ai/tasks/monster/supporterFindPartner.gd" id="12_e2w0m"]
+
+
+[ext_resource type="Script" path="res://ai/tasks/stop.gd" id="11_ki5ll"]
+
 
 [sub_resource type="BTAction" id="BTAction_p3lux"]
 script = ExtResource("3_56vpu")
@@ -161,6 +165,9 @@ PathShapeCast3DFindPartner = NodePath("ShapeCast3DFindPartner")
 custom_name = "Cannot find partner"
 children = [SubResource("BTAction_ybti2")]
 
+[sub_resource type="BTAction" id="BTAction_0cnik"]
+script = ExtResource("11_ki5ll")
+
 [sub_resource type="BTAction" id="BTAction_evxyf"]
 script = ExtResource("4_v4ehm")
 TargetCharacter3DName = &"MainCharacter"
@@ -190,7 +197,7 @@ animation_name = &"IDLE"
 
 [sub_resource type="BTSequence" id="BTSequence_8eaed"]
 custom_name = "Patroll"
-children = [SubResource("BTInvert_e4mht"), SubResource("BTCooldown_tnxtm"), SubResource("BTAction_0bxml"), SubResource("BTPlayAnimation_kavpu")]
+children = [SubResource("BTAction_0cnik"), SubResource("BTInvert_e4mht"), SubResource("BTCooldown_tnxtm"), SubResource("BTAction_0bxml"), SubResource("BTPlayAnimation_kavpu")]
 
 [sub_resource type="BTAction" id="BTAction_yag3g"]
 script = ExtResource("4_v4ehm")

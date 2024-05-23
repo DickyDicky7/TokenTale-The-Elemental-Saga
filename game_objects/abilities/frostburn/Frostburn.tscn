@@ -220,6 +220,7 @@ script = ExtResource("1_rnp3u")
 Element = 3
 
 [node name="Visual" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Visual"]
 cast_shadow = 0

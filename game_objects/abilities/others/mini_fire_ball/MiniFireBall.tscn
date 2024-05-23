@@ -77,6 +77,7 @@ EasingfuncType = 2
 TransitionType = 2
 
 [node name="Visual" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)
 
 [node name="$GPU$Particles3D" type="GPUParticles3D" parent="Visual"]
 amount = 100

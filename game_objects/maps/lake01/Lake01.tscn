@@ -8,8 +8,8 @@
 
 [sub_resource type="Resource" id="Resource_pwr4f"]
 script = ExtResource("2_8kfwy")
-NextMapArea = 0
-EntranceIdx = 0
+NextMapArea = 17
+EntranceIdx = 2
 
 [sub_resource type="Resource" id="Resource_eimqu"]
 script = ExtResource("3_dt32b")
@@ -17,7 +17,7 @@ StrategySwitchMapArea = SubResource("Resource_pwr4f")
 
 [sub_resource type="Resource" id="Resource_lnsmn"]
 script = ExtResource("4_kq1kx")
-Exits = Array[NodePath]([NodePath("Exit01")])
+Exits = Array[NodePath]([NodePath("Exit00")])
 Command = SubResource("Resource_eimqu")
 AllowableBodyTypes = ["MainCharacter"]
 
@@ -32,14 +32,14 @@ StrategySwitchMapArea = SubResource("Resource_1h0fe")
 
 [sub_resource type="Resource" id="Resource_5tei2"]
 script = ExtResource("4_kq1kx")
-Exits = Array[NodePath]([NodePath("Exit02")])
+Exits = Array[NodePath]([NodePath("Exit01")])
 Command = SubResource("Resource_k0b7m")
 AllowableBodyTypes = ["MainCharacter"]
 
 [sub_resource type="Resource" id="Resource_o72py"]
 script = ExtResource("2_8kfwy")
-NextMapArea = 0
-EntranceIdx = 0
+NextMapArea = 20
+EntranceIdx = 2
 
 [sub_resource type="Resource" id="Resource_tjugy"]
 script = ExtResource("3_dt32b")
@@ -47,13 +47,13 @@ StrategySwitchMapArea = SubResource("Resource_o72py")
 
 [sub_resource type="Resource" id="Resource_u4nep"]
 script = ExtResource("4_kq1kx")
-Exits = Array[NodePath]([NodePath("Exit03")])
+Exits = Array[NodePath]([NodePath("Exit02")])
 Command = SubResource("Resource_tjugy")
 AllowableBodyTypes = ["MainCharacter"]
 
 [sub_resource type="Resource" id="Resource_tooku"]
 script = ExtResource("2_8kfwy")
-NextMapArea = 0
+NextMapArea = 14
 EntranceIdx = 0
 
 [sub_resource type="Resource" id="Resource_lvtyn"]
@@ -62,7 +62,7 @@ StrategySwitchMapArea = SubResource("Resource_tooku")
 
 [sub_resource type="Resource" id="Resource_gd4j8"]
 script = ExtResource("4_kq1kx")
-Exits = Array[NodePath]([NodePath("Exit04")])
+Exits = Array[NodePath]([NodePath("Exit03")])
 Command = SubResource("Resource_lvtyn")
 AllowableBodyTypes = ["MainCharacter"]
 
@@ -87,7 +87,7 @@ size = Vector3(1, 1, 0)
 
 [node name="Lake01" type="Node3D" node_paths=PackedStringArray("Entrances")]
 script = ExtResource("1_a44ke")
-Entrances = [NodePath("Entrance01"), NodePath("Entrance02"), NodePath("Entrance03"), NodePath("Entrance04")]
+Entrances = [NodePath("Entrance00"), NodePath("Entrance01"), NodePath("Entrance02"), NodePath("Entrance03")]
 MapExitsToCommand = Array[Object]([SubResource("Resource_lnsmn"), SubResource("Resource_5tei2"), SubResource("Resource_u4nep"), SubResource("Resource_gd4j8")])
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
@@ -98,42 +98,42 @@ mesh = ExtResource("1_nxs4b")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_seu52")
 
-[node name="Entrance01" type="Marker3D" parent="."]
+[node name="Entrance00" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 2.52, 2.8)
 
-[node name="Entrance02" type="Marker3D" parent="."]
+[node name="Entrance01" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 2.52, -0.8)
 
-[node name="Entrance03" type="Marker3D" parent="."]
+[node name="Entrance02" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3, 3.024, -2.009)
 
-[node name="Entrance04" type="Marker3D" parent="."]
+[node name="Entrance03" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.255, 3.024, -2.8)
 
-[node name="Exit01" type="Area3D" parent="."]
+[node name="Exit00" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 2.5, 3)
 collision_mask = 8
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Exit01"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Exit00"]
 shape = SubResource("BoxShape3D_exjgr")
 
-[node name="Exit02" type="Area3D" parent="."]
+[node name="Exit01" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 2.5, -1)
 collision_mask = 8
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Exit02"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Exit01"]
 shape = SubResource("BoxShape3D_6fqmy")
 
-[node name="Exit03" type="Area3D" parent="."]
+[node name="Exit02" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 3, -2.009)
 collision_mask = 8
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Exit03"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Exit02"]
 shape = SubResource("BoxShape3D_guwna")
 
-[node name="Exit04" type="Area3D" parent="."]
+[node name="Exit03" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.255, 3, -3)
 collision_mask = 8
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Exit04"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Exit03"]
 shape = SubResource("BoxShape3D_h1wxh")

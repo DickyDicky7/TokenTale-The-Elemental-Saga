@@ -17,7 +17,6 @@ animation_player = ExtResource("2_1lowb")
 animation_name = &"OFF"
 
 [sub_resource type="BTWait" id="BTWait_1bbuj"]
-duration = 0.1
 
 [sub_resource type="BTCallMethod" id="BTCallMethod_58aw7"]
 node = ExtResource("3_b1vpb")

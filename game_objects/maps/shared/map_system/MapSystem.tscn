@@ -38,4 +38,4 @@ MapAreaPlaceHolder = NodePath("NavigationRegion3D")
 navigation_mesh = ExtResource("2_gsxuj")
 
 [node name="Beach01" parent="NavigationRegion3D" node_paths=PackedStringArray("Entrances") instance=ExtResource("3_8ab5f")]
-Entrances = [NodePath("Entrance01"), NodePath("Entrance02"), NodePath("Entrance03")]
+Entrances = [NodePath("Entrance00"), NodePath("Entrance01"), NodePath("Entrance02")]

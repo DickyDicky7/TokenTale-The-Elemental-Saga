@@ -17,14 +17,14 @@ StrategySwitchMapArea = SubResource("Resource_gv85x")
 
 [sub_resource type="Resource" id="Resource_h7q0i"]
 script = ExtResource("4_4iyxe")
-Exits = Array[NodePath]([NodePath("Exit01")])
+Exits = Array[NodePath]([NodePath("Exit00")])
 Command = SubResource("Resource_w8sgs")
 AllowableBodyTypes = ["MainCharacter"]
 
 [sub_resource type="Resource" id="Resource_2f6mr"]
 script = ExtResource("3_lt8my")
-NextMapArea = 0
-EntranceIdx = 0
+NextMapArea = 21
+EntranceIdx = 1
 
 [sub_resource type="Resource" id="Resource_5ys5d"]
 script = ExtResource("4_kr346")
@@ -32,7 +32,7 @@ StrategySwitchMapArea = SubResource("Resource_2f6mr")
 
 [sub_resource type="Resource" id="Resource_pcwtu"]
 script = ExtResource("4_4iyxe")
-Exits = Array[NodePath]([NodePath("Exit02")])
+Exits = Array[NodePath]([NodePath("Exit01")])
 Command = SubResource("Resource_5ys5d")
 AllowableBodyTypes = ["MainCharacter"]
 
@@ -49,7 +49,7 @@ size = Vector3(1, 1, 0)
 
 [node name="Beach02" type="Node3D" node_paths=PackedStringArray("Entrances")]
 script = ExtResource("1_1xkn5")
-Entrances = [NodePath("Entrance01"), NodePath("Entrance02")]
+Entrances = [NodePath("Entrance00"), NodePath("Entrance01")]
 MapExitsToCommand = Array[Object]([SubResource("Resource_h7q0i"), SubResource("Resource_pcwtu")])
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
@@ -60,22 +60,22 @@ mesh = ExtResource("1_5lhr7")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_u715o")
 
-[node name="Exit01" type="Area3D" parent="."]
+[node name="Exit00" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.04, 0.5, 0)
 collision_mask = 8
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Exit01"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Exit00"]
 shape = SubResource("BoxShape3D_x6hoh")
 
-[node name="Exit02" type="Area3D" parent="."]
+[node name="Exit01" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.77, 0.5, -1.5)
 collision_mask = 8
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Exit02"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Exit01"]
 shape = SubResource("BoxShape3D_iqbai")
 
-[node name="Entrance01" type="Marker3D" parent="."]
+[node name="Entrance00" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8, 0.504, 0)
 
-[node name="Entrance02" type="Marker3D" parent="."]
+[node name="Entrance01" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.77, 0.504, -1.3)

@@ -114,7 +114,7 @@ shape = ExtResource("4_mmqwq")
 libraries = {
 "": SubResource("AnimationLibrary_x5rhq")
 }
-speed_scale = 2.0
+speed_scale = 5.0
 
 [node name="BT_______Player" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("4_wt3nm")

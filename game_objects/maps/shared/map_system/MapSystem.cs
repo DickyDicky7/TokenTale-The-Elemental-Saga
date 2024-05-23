@@ -65,7 +65,7 @@ public partial class MapSystem : Node
 
     public override void _Ready()
     {
-        base._Ready();
+                    base._Ready();
 
         if (MapAreaPlaceHolder.GetChildren()[0] is MapArea
                                                    mapArea)
@@ -73,7 +73,8 @@ public partial class MapSystem : Node
             mapArea.
             MapSystem = this;
             mapArea. Setup();
-            MapAreaPlaceHolder.BakeNavigationMesh();
+            MapAreaPlaceHolder.    NavigationMesh.Clear();
+            MapAreaPlaceHolder.BakeNavigationMesh      ();
                    MainCharacter.GlobalPosition =
             mapArea.Entrances[0].GlobalPosition ;
         }
@@ -94,10 +95,14 @@ public partial class MapSystem : Node
             MapSystem = this;
             mapArea. Setup();
                              MainCharacter.ProcessMode    =
-                                           ProcessModeEnum.Disabled   ;
-            MapAreaPlaceHolder.GetChildren()[  0  ]       .QueueFree();
-            MapAreaPlaceHolder.AddChild   (mapArea);
-            MapAreaPlaceHolder.BakeNavigationMesh();
+                                           ProcessModeEnum.Disabled;
+            Node node = MapAreaPlaceHolder.GetChildren()[0]        ;
+            MapAreaPlaceHolder.RemoveChild(
+            node           );
+            node.QueueFree();
+            MapAreaPlaceHolder.   AddChild(   mapArea   );
+            MapAreaPlaceHolder.    NavigationMesh.Clear();
+            MapAreaPlaceHolder.BakeNavigationMesh      ();
                              MainCharacter.GlobalPosition =
             mapArea.Entrances[entranceIdx].GlobalPosition ;
                              MainCharacter.ProcessMode    =
@@ -106,6 +111,11 @@ public partial class MapSystem : Node
         }
     }
 }
+
+
+
+
+
 
 
 

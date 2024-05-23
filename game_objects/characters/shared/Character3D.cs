@@ -30,14 +30,14 @@ public abstract partial class Character3D : CharacterBody3D
             @direction * CurrentSpeed, Acceleration);
 
 
-            if (!IsOnFloor())
+            if (       !IsOnFloor() )
             {
             velocity+= GetGravity() * (float)delta * Jumpv;
             }
 
             Velocity = velocity;
 
-            MoveAndSlide();            
+            MoveAndSlide();
         }
     }
 
@@ -56,7 +56,7 @@ public abstract partial class Character3D : CharacterBody3D
             velocity = velocity. MoveToward  (
             @direction * CurrentSpeed, Deceleration);
 
-            if (!IsOnFloor())
+            if (       !IsOnFloor() )
             {
             velocity+= GetGravity() * (float)delta * Jumpv;
             }
@@ -73,11 +73,31 @@ public abstract partial class Character3D : CharacterBody3D
 
     }
 
-	public override void _Ready()
-	{
-		            base._Ready();
-	}
+    public override void _Ready()
+    {
+                    base._Ready();
+    }
+
+//  public override void _PhysicsProcess(double @delta)
+//  {
+//                  base._PhysicsProcess(       @delta);
+//
+//      if (!  IsOnFloor())
+//      {
+//          Velocity  =                                  new();
+//          Velocity += GetGravity() *  (float) @delta * Jumpv;
+//          MoveAndSlide();
+//      }
+//  }
 }
+
+
+
+
+
+
+
+
 
 
 

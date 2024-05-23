@@ -8,10 +8,8 @@ public partial class SkyStrikeHitbox : Hittbox3D
 	protected override void OnBodyEntered(Node3D node3D)
 	{
 		float Damage = 0;
-		if (this.GetParent() is Ability3D && node3D is Monster)
+		if (this.GetParent() is Ability3D tempAbility&& node3D is Monster tempMonster)
 		{
-			Ability3D tempAbility = this.GetParent() as Ability3D;
-			Monster tempMonster = node3D as Monster;
 			Damage = CalculateDamage(tempAbility, tempMonster);
 			tempMonster.CurrentHealth -= Damage;
 			tempMonster.EmitSignal(Character3D.SignalName.HealthChange, Damage);

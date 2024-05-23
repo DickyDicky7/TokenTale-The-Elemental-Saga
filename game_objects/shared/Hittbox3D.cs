@@ -21,9 +21,8 @@ public partial class Hittbox3D : CustomArea3D
 		Monster targetMonster3D)
 	{
 		float Damage = 0;
-		if (currentAbility3D.Caster is MainCharacter )
+		if (currentAbility3D.Caster is MainCharacter tempMainChar)
 		{
-			MainCharacter tempMainChar = currentAbility3D.Caster as MainCharacter;
 			//Declare base damage
 			Damage = tempMainChar
 				.AbilityManager
@@ -43,11 +42,10 @@ public partial class Hittbox3D : CustomArea3D
 				.BoosterManager
 				.ElementalBonusDamageRatio);
 			BaseDH ElementalReactionDH = null;
-			if (targetMonster3D is ElementalMonster)
+			if (targetMonster3D is ElementalMonster tempElementalMonster)
 			{
-				ElementalMonster tempElementMonster = targetMonster3D as ElementalMonster;
 				ElementalReactionDH = new ElementalReactionDH(
-					tempElementMonster.Element,
+					tempElementalMonster.Element,
 					currentAbility3D.Element,
 					true);
 			}

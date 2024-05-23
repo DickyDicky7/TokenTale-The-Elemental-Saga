@@ -10,28 +10,22 @@ public partial class FireBallHitbox : Hittbox3D
 			base.OnBodyEntered(node3D);
 			Explode();
 			float Damage = 0;
-			if (this.GetParent() is Ability3D)
+			if (this.GetParent() is Ability3D tempAbility && node3D is Monster tempMonster)
 			{
-				Ability3D tempAbility = this.GetParent() as Ability3D;
-				if (node3D is Monster)
-				{
-					Monster tempMonster = node3D as Monster;
-					Damage = CalculateDamage(tempAbility, tempMonster);
-					tempMonster.CurrentHealth -= Damage;
-					tempMonster.EmitSignal(Character3D.SignalName.HealthChange, Damage);
-				}
+				Damage = CalculateDamage(tempAbility, tempMonster);
+				tempMonster.CurrentHealth -= Damage;
+				tempMonster.EmitSignal(Character3D.SignalName.HealthChange, Damage);
 				tempAbility.DamageRatio = 0.8f;
 			}
 		}
 		else
 		{
 			float Damage = 0;
-			if (this.GetParent() is Ability3D && node3D is Monster)
+			if (this.GetParent() is Ability3D tempAbility&& node3D is Monster tempMonster)
 			{
-				Ability3D tempAbility = this.GetParent() as Ability3D;
-				Monster tempMonster = node3D as Monster;
 				Damage = CalculateDamage(tempAbility, tempMonster);
 				tempMonster.CurrentHealth -= Damage;
+				tempMonster.EmitSignal(Character3D.SignalName.HealthChange, Damage);
 			}
 		}
 	}

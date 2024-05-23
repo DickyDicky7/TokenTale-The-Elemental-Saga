@@ -31,4 +31,11 @@ public partial class Global : Node
         Neutral,
         Buff   ,
     }
+    public enum Difficulty
+    {
+        Beginner,
+        Explorer,
+        Survivor,
+        Challenger
+    }
 }

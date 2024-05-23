@@ -221,7 +221,6 @@ Element = 3
 [node name="Visual" type="Node3D" parent="."]
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Visual"]
-visible = false
 cast_shadow = 0
 offset = Vector2(0, 16)
 texture_filter = 0
@@ -229,7 +228,6 @@ sprite_frames = ExtResource("2_pqyg2")
 animation = &"HIT"
 
 [node name="AnimatedShadow3D" type="AnimatedSprite3D" parent="Visual"]
-visible = false
 cast_shadow = 3
 offset = Vector2(0, 16)
 alpha_cut = 2
@@ -239,6 +237,7 @@ animation = &"HIT"
 
 [node name="AnimatedSprite3D_Effect01" type="AnimatedSprite3D" parent="Visual"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+visible = false
 cast_shadow = 0
 texture_filter = 0
 render_priority = -1
@@ -247,6 +246,7 @@ animation = &"EFF"
 
 [node name="AnimatedSprite3D_Effect02" type="AnimatedSprite3D" parent="Visual"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+visible = false
 cast_shadow = 0
 texture_filter = 0
 render_priority = -1

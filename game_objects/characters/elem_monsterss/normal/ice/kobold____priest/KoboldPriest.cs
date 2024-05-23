@@ -8,4 +8,11 @@ public partial class KoboldPriest : ElementalMonster
     {
 		
     }
+	public override void _Ready()
+	{
+		base._Ready();
+		this.Key = "Ice01";
+		UpdateStats();
+		this.CurrentHealth = this.MaxHealth;
+	}
 }

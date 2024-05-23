@@ -75,4 +75,16 @@ public partial class Record
         public int   ExpNeed { get; set; }
         public float  Damage { get; set; }
     }
+    //monster
+    public record MonsterInfo
+    {
+        public float BaseMoveSpeed { get; set; }
+        public float BaseMaxHealth { get; set; }
+        public float BaseDamage { get; set; }
+    }
+    public record DifficultyScale
+    {
+        public float MonsterMaxHealthRatio { get; set; }
+        public float MonsterBaseDamageRatio { get; set; }
+    }
 }

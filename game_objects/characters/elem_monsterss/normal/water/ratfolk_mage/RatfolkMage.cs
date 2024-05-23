@@ -4,14 +4,18 @@ namespace TokenTaleTheElementalSaga;
 
 public partial class RatfolkMage : ElementalMonster
 {
-	[Export]
 	public float ProjectileSpeed { get; set; }
-	[Export]
 	public float ProjectileAcceleration { get; set; }
-	[Export]
 	public float ProjectileDeceleration { get; set; }
 	public override void Attack(Character3D target)
 	{
 		
+	}
+	public override void _Ready()
+	{
+		base._Ready();
+		this.Key = "Water01";
+		UpdateStats();
+		this.CurrentHealth = this.MaxHealth;
 	}
 }

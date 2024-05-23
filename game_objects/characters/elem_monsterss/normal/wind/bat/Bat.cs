@@ -8,4 +8,11 @@ public partial class Bat : ElementalMonster
     {
 		
     }
+	public override void _Ready()
+	{
+		base._Ready();
+		this.Key = "Wind01";
+		UpdateStats();
+		this.CurrentHealth = this.MaxHealth;
+	}
 }

@@ -18,6 +18,7 @@ public partial class FireBallHitbox : Hittbox3D
 					Monster tempMonster = node3D as Monster;
 					Damage = CalculateDamage(tempAbility, tempMonster);
 					tempMonster.CurrentHealth -= Damage;
+					tempMonster.EmitSignal(Character3D.SignalName.HealthChange, Damage);
 				}
 				tempAbility.DamageRatio = 0.8f;
 			}

@@ -8,4 +8,11 @@ public partial class Ghost : Monster
     {
         this.QueueFree();
     }
+	public override void _Ready()
+	{
+		base._Ready();
+		this.Key = "Haunt";
+		UpdateStats();
+		this.CurrentHealth = this.MaxHealth;
+	}
 }

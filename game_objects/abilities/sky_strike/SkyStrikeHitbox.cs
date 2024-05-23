@@ -14,6 +14,7 @@ public partial class SkyStrikeHitbox : Hittbox3D
 			Monster tempMonster = node3D as Monster;
 			Damage = CalculateDamage(tempAbility, tempMonster);
 			tempMonster.CurrentHealth -= Damage;
+			tempMonster.EmitSignal(Character3D.SignalName.HealthChange, Damage);
 			//this.PushMonsterAside(tempAbility, tempMonster);
 		}
 	}

@@ -8,4 +8,11 @@ public partial class Cat : Monster
 	{
 		this.QueueFree();
 	}
+	public override void _Ready()
+	{
+		base._Ready();
+		this.Key = "Thief";
+		UpdateStats();
+		this.CurrentHealth = this.MaxHealth;
+	}
 }

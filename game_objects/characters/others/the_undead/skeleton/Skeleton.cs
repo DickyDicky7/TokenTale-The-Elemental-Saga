@@ -8,4 +8,11 @@ public partial class Skeleton : Monster
     {
 
     }
+	public override void _Ready()
+	{
+		base._Ready();
+		this.Key = "Undead";
+		UpdateStats();
+		this.CurrentHealth = this.MaxHealth;
+	}
 }

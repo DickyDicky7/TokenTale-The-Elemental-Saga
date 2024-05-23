@@ -8,4 +8,11 @@ public partial class HealTotem : ElementalMonster
     {
 		
     }
+	public override void _Ready()
+	{
+		base._Ready();
+		this.Key = "Wood01";
+		UpdateStats();
+		this.CurrentHealth = this.MaxHealth;
+	}
 }

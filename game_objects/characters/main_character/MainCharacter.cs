@@ -27,11 +27,12 @@ public partial class MainCharacter : Character3D
 
 	public override void _Ready()
 	{
-		            base._Ready();
-
         this.EquipmentManager = new EquipmentManager();
         this.  BoosterManager = new   BoosterManager();
         this.  AbilityManager = new   AbilityManager();
+        this.MaxHealth = BoosterManager.MaxHealth;
+        this.Speed = EquipmentManager.Boot.Speed;
+        this.CurrentHealth = MaxHealth;
 	}
 
 	public override void _Process(double @delta)

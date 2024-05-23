@@ -6,14 +6,11 @@ namespace TokenTaleTheElementalSaga;
 public abstract partial class Character3D : CharacterBody3D
 {
     public float CurrentHealth{ get; set; } 
-	[Export]
-    public float Speed { get; set; }
-    [Export]
-    public float Jumpv { get; set; }
-    [Export]
-    public float Acceleration { get; set; }
-    [Export]
-    public float Deceleration { get; set; }
+    public float MaxHealth { get; set; }
+    public float Speed { get; set; } = 1.0f;
+    public float Jumpv { get; set; } = 1.0f;
+    public float Acceleration { get; set; } = 0.1f;
+    public float Deceleration { get; set; } = 0.1f;
     [Signal]
     public delegate void HealthChangeEventHandler(float Damage);
 

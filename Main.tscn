@@ -1,7 +1,6 @@
 [gd_scene load_steps=43 format=3 uid="uid://w3dkcnkmaulo"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_px6f3"]
-[ext_resource type="PlaneMesh" uid="uid://dmf8lh15l3415" path="res://BackgroundPlatform_Mesh.tres" id="2_rk0yh"]
 [ext_resource type="Environment" uid="uid://jjpsnd6sbvf2" path="res://Main_Environment.tres" id="2_vpqwg"]
 [ext_resource type="NavigationMesh" uid="uid://bavo3q5ti3quw" path="res://Main_NavigationRegion3D_$Static_NavigationMesh.tres" id="4_6741o"]
 [ext_resource type="PackedScene" uid="uid://cwhrbtjfm2cpc" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp.tscn" id="4_hlmyl"]
@@ -159,10 +158,10 @@ Timer = NodePath("DelTimer")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1, -4)
 
 [node name="Minotaur" parent="." instance=ExtResource("7_2coyl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, -4)
 
 [node name="Cyclops" parent="." instance=ExtResource("10_ogacn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, -4)
 
 [node name="Cat" parent="." instance=ExtResource("23_saaco")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, -4)
@@ -177,17 +176,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 0)
 MonsterType = 0
 
 [node name="MetalMonster" parent="." instance=ExtResource("26_ynl1c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2, 0, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 4)
 
 [node name="Bat" parent="." instance=ExtResource("15_c3vll")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, 4)
 MonsterType = 0
 
 [node name="KoboldPriest" parent="." instance=ExtResource("16_ro6gg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 4)
 
 [node name="HealTotem" parent="." instance=ExtResource("18_ujfjh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1, 0)
 MonsterType = 0
 
 [node name="RatfolkMage" parent="." instance=ExtResource("30_ddnm6")]

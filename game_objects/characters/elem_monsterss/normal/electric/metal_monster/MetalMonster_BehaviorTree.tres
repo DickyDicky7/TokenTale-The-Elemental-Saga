@@ -6,14 +6,12 @@
 [ext_resource type="Script" path="res://ai/tasks/monster/depleteHealth.gd" id="3_w0a7o"]
 [ext_resource type="Script" path="res://ai/tasks/monster/detectCharacter.gd" id="4_w7uvl"]
 [ext_resource type="Script" path="res://ai/tasks/monster/watchingAround.gd" id="5_ijtjw"]
+[ext_resource type="Script" path="res://ai/tasks/monster/stop.gd" id="5_tcib0"]
 [ext_resource type="Script" path="res://ai/tasks/monster/changeSeeingDirection.gd" id="6_s70gm"]
 [ext_resource type="Script" path="res://ai/tasks/monster/reload.gd" id="7_m5uvx"]
 [ext_resource type="Script" path="res://ai/tasks/monster/move.gd" id="10_smlby"]
 [ext_resource type="Script" path="res://ai/tasks/monster/chaserMoveSetup.gd" id="10_x7pt4"]
 [ext_resource type="Script" path="res://ai/tasks/monster/attack.gd" id="11_vmavx"]
-
-[ext_resource type="Script" path="res://ai/tasks/stop.gd" id="5_tcib0"]
-
 
 [sub_resource type="BTAction" id="BTAction_d8s7w"]
 script = ExtResource("3_w0a7o")

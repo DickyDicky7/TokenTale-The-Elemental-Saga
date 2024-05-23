@@ -6,14 +6,12 @@
 [ext_resource type="BBNode" uid="uid://dt4angfj7hd8a" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_BBNode_AnimationPlayer.tres" id="4_e2ybg"]
 [ext_resource type="Script" path="res://ai/tasks/monster/detectCharacter.gd" id="4_rcqhg"]
 [ext_resource type="Script" path="res://ai/tasks/monster/watchingAround.gd" id="5_00kn7"]
+[ext_resource type="Script" path="res://ai/tasks/monster/stop.gd" id="5_3yw57"]
 [ext_resource type="Script" path="res://ai/tasks/monster/changeSeeingDirection.gd" id="6_ax6nh"]
 [ext_resource type="Script" path="res://ai/tasks/monster/reload.gd" id="7_7xxa3"]
 [ext_resource type="Script" path="res://ai/tasks/monster/chaserMoveSetup.gd" id="9_ywgb2"]
 [ext_resource type="Script" path="res://ai/tasks/monster/move.gd" id="10_8fiqe"]
 [ext_resource type="Script" path="res://ai/tasks/monster/attack.gd" id="11_0jqy1"]
-
-[ext_resource type="Script" path="res://ai/tasks/stop.gd" id="5_3yw57"]
-
 
 [sub_resource type="BTAction" id="BTAction_qlx3n"]
 script = ExtResource("3_me4a2")

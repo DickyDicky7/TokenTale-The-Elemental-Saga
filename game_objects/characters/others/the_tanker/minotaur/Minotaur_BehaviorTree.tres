@@ -5,15 +5,13 @@
 [ext_resource type="Script" path="res://ai/tasks/monster/depleteHealth.gd" id="3_37qwr"]
 [ext_resource type="BBNode" uid="uid://bxkxh7iuqvww5" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_BBNode_AnimationPlayer.tres" id="3_m0cec"]
 [ext_resource type="Script" path="res://ai/tasks/monster/detectCharacter.gd" id="4_4n3if"]
+[ext_resource type="Script" path="res://ai/tasks/monster/stop.gd" id="5_k0u8y"]
 [ext_resource type="Script" path="res://ai/tasks/monster/watchingAround.gd" id="5_vwugo"]
 [ext_resource type="Script" path="res://ai/tasks/monster/changeSeeingDirection.gd" id="6_0crq4"]
 [ext_resource type="Script" path="res://ai/tasks/monster/reload.gd" id="8_af4g3"]
 [ext_resource type="Script" path="res://ai/tasks/monster/chaserMoveSetup.gd" id="8_fosm8"]
 [ext_resource type="Script" path="res://ai/tasks/monster/move.gd" id="9_fr7ba"]
 [ext_resource type="Script" path="res://ai/tasks/monster/attack.gd" id="10_b7wtk"]
-
-[ext_resource type="Script" path="res://ai/tasks/stop.gd" id="5_k0u8y"]
-
 
 [sub_resource type="BTAction" id="BTAction_wop7j"]
 script = ExtResource("3_37qwr")

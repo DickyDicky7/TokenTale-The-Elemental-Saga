@@ -12,11 +12,8 @@
 [ext_resource type="Script" path="res://ai/tasks/monster/detectCharacter2.gd" id="8_68rbu"]
 [ext_resource type="Script" path="res://ai/tasks/monster/move.gd" id="10_335cj"]
 [ext_resource type="Script" path="res://ai/tasks/monster/attack.gd" id="11_68scx"]
+[ext_resource type="Script" path="res://ai/tasks/monster/stop.gd" id="11_ki5ll"]
 [ext_resource type="Script" path="res://ai/tasks/monster/supporterFindPartner.gd" id="12_e2w0m"]
-
-
-[ext_resource type="Script" path="res://ai/tasks/stop.gd" id="11_ki5ll"]
-
 
 [sub_resource type="BTAction" id="BTAction_p3lux"]
 script = ExtResource("3_56vpu")

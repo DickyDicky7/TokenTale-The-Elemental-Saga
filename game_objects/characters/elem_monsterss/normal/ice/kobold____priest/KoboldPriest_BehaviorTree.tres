@@ -5,16 +5,13 @@
 [ext_resource type="BBNode" uid="uid://cj1yfppw0cx00" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest_BBNode_AnimationPlayer.tres" id="3_plouy"]
 [ext_resource type="Script" path="res://ai/tasks/monster/depleteHealth.gd" id="3_steko"]
 [ext_resource type="Script" path="res://ai/tasks/monster/detectCharacter.gd" id="4_o7xlt"]
+[ext_resource type="Script" path="res://ai/tasks/monster/stop.gd" id="5_hxitl"]
 [ext_resource type="Script" path="res://ai/tasks/monster/watchingAround.gd" id="5_uy4fm"]
 [ext_resource type="Script" path="res://ai/tasks/monster/changeSeeingDirection.gd" id="6_41eq7"]
 [ext_resource type="Script" path="res://ai/tasks/monster/reload.gd" id="7_w7ng8"]
 [ext_resource type="Script" path="res://ai/tasks/monster/distancerMoveSetup.gd" id="9_yyp6y"]
 [ext_resource type="Script" path="res://ai/tasks/monster/move.gd" id="10_ykgan"]
 [ext_resource type="Script" path="res://ai/tasks/monster/attack.gd" id="11_csg5n"]
-
-
-[ext_resource type="Script" path="res://ai/tasks/stop.gd" id="5_hxitl"]
-
 
 [sub_resource type="BTAction" id="BTAction_oq13y"]
 script = ExtResource("3_steko")

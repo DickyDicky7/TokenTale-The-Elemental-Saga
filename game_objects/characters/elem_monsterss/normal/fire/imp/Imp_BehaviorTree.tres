@@ -10,10 +10,8 @@
 [ext_resource type="Script" path="res://ai/tasks/monster/reload.gd" id="7_3tkrk"]
 [ext_resource type="Script" path="res://ai/tasks/monster/distancerMoveSetup.gd" id="7_r0fwc"]
 [ext_resource type="Script" path="res://ai/tasks/monster/move.gd" id="8_lw88l"]
+[ext_resource type="Script" path="res://ai/tasks/monster/stop.gd" id="8_sr73u"]
 [ext_resource type="Script" path="res://ai/tasks/monster/attack.gd" id="12_iawuu"]
-
-[ext_resource type="Script" path="res://ai/tasks/stop.gd" id="8_sr73u"]
-
 
 [sub_resource type="BTAction" id="BTAction_psoou"]
 script = ExtResource("1_ecjrg")

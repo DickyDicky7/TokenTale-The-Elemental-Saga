@@ -15,16 +15,23 @@ public partial class Hittbox3D : CustomArea3D
 	protected override void OnBodyEntered(Node3D @node3D)
 	{
 		this.Hit = true;
+		if (this.GetParent() is Ability3D tempAbility && node3D is Monster tempMonster)
+		{
+			float damage = 0;
+			damage = CalculateDamage(tempAbility, tempMonster);
+			tempMonster.CurrentHealth -= damage;
+			tempMonster.EmitSignal(Character3D.SignalName.HealthChange, damage);
+		}
 	}
 	protected float CalculateDamage(
 		Ability3D currentAbility3D,
 		Monster targetMonster3D)
 	{
-		float Damage = 0;
+		float damage = 0;
 		if (currentAbility3D.Caster is MainCharacter tempMainChar)
 		{
 			//Declare base damage
-			Damage = tempMainChar
+			damage = tempMainChar
 				.AbilityManager
 				.ElementStatus[currentAbility3D.Element]
 				.AbilityInfo
@@ -65,10 +72,10 @@ public partial class Hittbox3D : CustomArea3D
 			ElementalEquipmentDH.SetNextHandler(ElementalProficiencyDH);
 			if (ElementalReactionDH != null)
 				ElementalProficiencyDH.SetNextHandler(ElementalReactionDH);
-			ElementalEquipmentDH.ProcessDamage(ref Damage);
-			GD.Print(Damage);
+			ElementalEquipmentDH.ProcessDamage(ref damage);
+			GD.Print(damage);
 		}
-		return Damage;
+		return damage;
 	}
 }
 

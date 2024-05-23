@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dcl1dgwq4y276"]
+[gd_scene load_steps=11 format=3 uid="uid://dcl1dgwq4y276"]
 
 [ext_resource type="Script" path="res://game_objects/abilities/root_trap/RootTrap.cs" id="1_gs0p3"]
 [ext_resource type="QuadMesh" uid="uid://dod3kxuwtpi5m" path="res://game_objects/abilities/root_trap/RootTrap_DrawPass01_Mesh.tres" id="3_gqnai"]
+[ext_resource type="Script" path="res://game_objects/abilities/root_trap/RootTrapHitbox.cs" id="4_cbwaq"]
 [ext_resource type="Shape3D" uid="uid://2lyk10882k82" path="res://game_objects/abilities/root_trap/RootTrap_CollisionShape3D_Hitbox.tres" id="4_ehh7p"]
 [ext_resource type="Material" uid="uid://dh0ny11jtiv4t" path="res://game_objects/abilities/root_trap/RootTrap_ParticleProcessMaterial.tres" id="4_fhnom"]
 [ext_resource type="BlackboardPlan" uid="uid://ct04cf8673mwm" path="res://game_objects/abilities/root_trap/RootTrap_BlackboardPlanBase.tres" id="5_7ofpr"]
@@ -46,6 +47,7 @@ _data = {
 
 [node name="RootTrap" type="Node3D"]
 script = ExtResource("1_gs0p3")
+Element = 6
 
 [node name="Visual" type="Node3D" parent="."]
 
@@ -55,6 +57,9 @@ process_material = ExtResource("4_fhnom")
 draw_pass_1 = ExtResource("3_gqnai")
 
 [node name="Hitbox" type="Area3D" parent="."]
+collision_layer = 32
+collision_mask = 4
+script = ExtResource("4_cbwaq")
 
 [node name="CollisionShape3D_Hitbox" type="CollisionShape3D" parent="Hitbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)

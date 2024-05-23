@@ -16,5 +16,7 @@ public partial class MetalMonster : ElementalMonster
 		this.Key = "Electric01";
 		UpdateStats();
 		this.CurrentHealth = this.MaxHealth;
+		this.CurrentSpeed = this.Speed;
+		this.CurrentDamage = this.Damage;
 	}
 }

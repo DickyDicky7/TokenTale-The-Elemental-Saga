@@ -1,12 +1,12 @@
 [gd_resource type="BehaviorTree" load_steps=25 format=3 uid="uid://bubi75u730bbr"]
 
 [ext_resource type="BlackboardPlan" uid="uid://c4kwf8hr8m8an" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops_BlackboardPlan----.tres" id="1_rq2se"]
-[ext_resource type="Script" path="res://ai/tasks/beingHit.gd" id="2_ihfox"]
-[ext_resource type="Script" path="res://ai/tasks/depleteHealth.gd" id="3_uxgww"]
+[ext_resource type="Script" path="res://ai/tasks/monster/beingHit.gd" id="2_ihfox"]
+[ext_resource type="Script" path="res://ai/tasks/monster/depleteHealth.gd" id="3_uxgww"]
 [ext_resource type="BBNode" uid="uid://b8e1hgeu26y3n" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops_BBNode_AnimationPlayer.tres" id="3_weiih"]
-[ext_resource type="Script" path="res://ai/tasks/detectCharacter2.gd" id="5_tj2em"]
-[ext_resource type="Script" path="res://ai/tasks/reload.gd" id="7_dybp4"]
-[ext_resource type="Script" path="res://ai/tasks/attack.gd" id="9_r2yby"]
+[ext_resource type="Script" path="res://ai/tasks/monster/detectCharacter2.gd" id="5_tj2em"]
+[ext_resource type="Script" path="res://ai/tasks/monster/reload.gd" id="7_dybp4"]
+[ext_resource type="Script" path="res://ai/tasks/monster/attack.gd" id="9_r2yby"]
 
 [sub_resource type="BTAction" id="BTAction_dsipj"]
 script = ExtResource("3_uxgww")

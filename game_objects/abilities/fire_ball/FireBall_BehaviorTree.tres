@@ -3,7 +3,7 @@
 [ext_resource type="BlackboardPlan" uid="uid://dqqp4rjen6elg" path="res://game_objects/abilities/fire_ball/FireBall_BlackboardPlan----.tres" id="1_5nekw"]
 [ext_resource type="BBNode" uid="uid://fh38scwm36im" path="res://game_objects/abilities/fire_ball/FireBall_BBNode_AnimPlay.tres" id="2_3e1y0"]
 [ext_resource type="BBNode" uid="uid://tqtypdkbc4ga" path="res://game_objects/abilities/fire_ball/FireBall_BBNode_RootNode.tres" id="3_xywrm"]
-[ext_resource type="Script" path="res://ai/tasks/FireBallActivity.gd" id="4_7vqgg"]
+[ext_resource type="Script" path="res://ai/tasks/ability/FireBallActivity.gd" id="4_7vqgg"]
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_6cvqd"]
 animation_player = ExtResource("2_3e1y0")

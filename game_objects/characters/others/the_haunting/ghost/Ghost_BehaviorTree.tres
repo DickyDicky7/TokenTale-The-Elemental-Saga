@@ -1,14 +1,14 @@
 [gd_resource type="BehaviorTree" load_steps=35 format=3 uid="uid://cnmc3ecev6cls"]
 
 [ext_resource type="BlackboardPlan" uid="uid://dnm8jghqyiky" path="res://game_objects/characters/others/the_haunting/ghost/Ghost_BlackboardPlan----.tres" id="1_ej1e8"]
-[ext_resource type="Script" path="res://ai/tasks/beingHit.gd" id="2_noxg3"]
+[ext_resource type="Script" path="res://ai/tasks/monster/beingHit.gd" id="2_noxg3"]
 [ext_resource type="BBNode" uid="uid://lalnq22o5aq5" path="res://game_objects/characters/others/the_haunting/ghost/Ghost_BBNode_AnimationPlayer.tres" id="3_bmnks"]
-[ext_resource type="Script" path="res://ai/tasks/depleteHealth.gd" id="4_pvau5"]
-[ext_resource type="Script" path="res://ai/tasks/detectCharacter2.gd" id="5_embuh"]
-[ext_resource type="Script" path="res://ai/tasks/teleporterMoveSetup.gd" id="7_2vhe3"]
-[ext_resource type="Script" path="res://ai/tasks/move.gd" id="8_efd5e"]
-[ext_resource type="Script" path="res://ai/tasks/teleport.gd" id="9_1xi6t"]
-[ext_resource type="Script" path="res://ai/tasks/attack.gd" id="10_3bfo6"]
+[ext_resource type="Script" path="res://ai/tasks/monster/depleteHealth.gd" id="4_pvau5"]
+[ext_resource type="Script" path="res://ai/tasks/monster/detectCharacter2.gd" id="5_embuh"]
+[ext_resource type="Script" path="res://ai/tasks/monster/teleporterMoveSetup.gd" id="7_2vhe3"]
+[ext_resource type="Script" path="res://ai/tasks/monster/move.gd" id="8_efd5e"]
+[ext_resource type="Script" path="res://ai/tasks/monster/teleport.gd" id="9_1xi6t"]
+[ext_resource type="Script" path="res://ai/tasks/monster/attack.gd" id="10_3bfo6"]
 
 [sub_resource type="BTAction" id="BTAction_pr5hh"]
 script = ExtResource("4_pvau5")

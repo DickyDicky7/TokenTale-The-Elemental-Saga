@@ -17,5 +17,7 @@ public partial class Cyclops : ElementalMonster
 		this.Key = "Earth01";
 		UpdateStats();
 		this.CurrentHealth = this.MaxHealth;
+		this.CurrentSpeed = this.Speed;
+		this.CurrentDamage = this.Damage;
 	}
 }

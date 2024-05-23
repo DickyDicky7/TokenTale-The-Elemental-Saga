@@ -1,8 +1,13 @@
-[gd_resource type="BehaviorTree" load_steps=9 format=3 uid="uid://8cuolfcbawdq"]
+[gd_resource type="BehaviorTree" load_steps=10 format=3 uid="uid://8cuolfcbawdq"]
 
 [ext_resource type="BlackboardPlan" uid="uid://be1ossttctf28" path="res://game_objects/abilities/frostburn/Frostburn_BlackboardPlan----.tres" id="1_f7ugt"]
 [ext_resource type="BBNode" uid="uid://dteny8aihk00m" path="res://game_objects/abilities/frostburn/Frostburn_BBNode_AnimPlay.tres" id="2_qlrxv"]
+[ext_resource type="Script" path="res://ai/tasks/ability/projectileActivity.gd" id="2_svxwu"]
 [ext_resource type="BBNode" uid="uid://c6d2cme7wx21a" path="res://game_objects/abilities/frostburn/Frostburn_BBNode_RootNode.tres" id="3_60f5y"]
+
+[sub_resource type="BTAction" id="BTAction_1eo3k"]
+script = ExtResource("2_svxwu")
+PathHitBox = NodePath("Hitbox")
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_htdwr"]
 await_completion = 10.0
@@ -14,14 +19,12 @@ await_completion = 10.0
 animation_player = ExtResource("2_qlrxv")
 animation_name = &"EFF"
 
-[sub_resource type="BTWait" id="BTWait_sqlxc"]
-
 [sub_resource type="BTCallMethod" id="BTCallMethod_6bh76"]
 node = ExtResource("3_60f5y")
 method = &"queue_free"
 
 [sub_resource type="BTSequence" id="BTSequence_p3ti5"]
-children = [SubResource("BTPlayAnimation_htdwr"), SubResource("BTPlayAnimation_fgi1n"), SubResource("BTWait_sqlxc"), SubResource("BTCallMethod_6bh76")]
+children = [SubResource("BTAction_1eo3k"), SubResource("BTPlayAnimation_htdwr"), SubResource("BTPlayAnimation_fgi1n"), SubResource("BTCallMethod_6bh76")]
 
 [resource]
 blackboard_plan = ExtResource("1_f7ugt")

@@ -2,7 +2,7 @@
 extends BTAction
 
 func _generate_name() -> String:
-	return "Ability Setup";
+	return "Setup Activity";
 	
 @export var PathHitBox: NodePath
 
@@ -20,4 +20,4 @@ func _exit() -> void:
 	pass;
 	
 func _tick(_delta: float) -> Status:
-	return SUCCESS;
+	return SUCCESS

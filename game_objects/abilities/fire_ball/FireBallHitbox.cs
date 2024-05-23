@@ -9,24 +9,10 @@ public partial class FireBallHitbox : Hittbox3D
 		{
 			base.OnBodyEntered(node3D);
 			Explode();
-			float Damage = 0;
-			if (this.GetParent() is Ability3D tempAbility && node3D is Monster tempMonster)
-			{
-				Damage = CalculateDamage(tempAbility, tempMonster);
-				tempMonster.CurrentHealth -= Damage;
-				tempMonster.EmitSignal(Character3D.SignalName.HealthChange, Damage);
-				tempAbility.DamageRatio = 0.8f;
-			}
 		}
 		else
 		{
-			float Damage = 0;
-			if (this.GetParent() is Ability3D tempAbility&& node3D is Monster tempMonster)
-			{
-				Damage = CalculateDamage(tempAbility, tempMonster);
-				tempMonster.CurrentHealth -= Damage;
-				tempMonster.EmitSignal(Character3D.SignalName.HealthChange, Damage);
-			}
+			base.OnBodyEntered(node3D);
 		}
 	}
 	public override void _Ready()
@@ -37,9 +23,10 @@ public partial class FireBallHitbox : Hittbox3D
 	}
 	private void Explode()
 	{
-		this.EffectRadius = AbilityStats.EffectRadius.Medium;
+		this.EffectRadius = AbilityStats.EffectRadius.Small;
 		this.Scale = new Vector3(EffectRadius, EffectRadius, EffectRadius);
 		Ability3D temp = this.GetParent() as Ability3D;
+		temp.DamageRatio = 0.8f;
 		temp.Stop();
 	}
 }

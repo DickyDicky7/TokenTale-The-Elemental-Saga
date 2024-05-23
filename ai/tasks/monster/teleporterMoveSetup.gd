@@ -103,15 +103,12 @@ func FindTeleportDestination2() -> Vector3:
 	var directionList: Array = Helper.CalculateMoveDirectionList(
 		mainVector,
 		priorityAngle)
-	var distance: float = 0.2
-	while (distance >= 0.1):
-		for i in range (directionList.size()):
-			var destinationTemp: Vector3 = currentCharacter.position + directionList[i] * distance
-			rayCast3DTeleport.target_position = destinationTemp
-			rayCast3DTeleport.position = destinationTemp
-			rayCast3DTeleport.force_raycast_update()
-			if (rayCast3DTeleport.is_colliding() == false):
-				destination = destinationTemp
-				return destination;
-		distance -= 0.1
+	for i in range (directionList.size()):
+		var destinationTemp: Vector3 = currentCharacter.position + directionList[i] * currentCharacter.CurrentSpeed / 3
+		rayCast3DTeleport.target_position = destinationTemp
+		rayCast3DTeleport.position = destinationTemp
+		rayCast3DTeleport.force_raycast_update()
+		if (rayCast3DTeleport.is_colliding() == false):
+			destination = destinationTemp
+			return destination;	
 	return destination

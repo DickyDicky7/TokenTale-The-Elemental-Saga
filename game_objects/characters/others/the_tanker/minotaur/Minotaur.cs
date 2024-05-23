@@ -14,5 +14,7 @@ public partial class Minotaur : Monster
 		this.Key = "Tanker";
 		UpdateStats();
 		this.CurrentHealth = this.MaxHealth;
+		this.CurrentSpeed = this.Speed;
+		this.CurrentDamage = this.Damage;
 	}
 }

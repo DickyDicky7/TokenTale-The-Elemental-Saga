@@ -14,5 +14,7 @@ public partial class KoboldPriest : ElementalMonster
 		this.Key = "Ice01";
 		UpdateStats();
 		this.CurrentHealth = this.MaxHealth;
+		this.CurrentSpeed = this.Speed;
+		this.CurrentDamage = this.Damage;
 	}
 }

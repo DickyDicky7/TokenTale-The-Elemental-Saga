@@ -14,5 +14,7 @@ public partial class Cat : Monster
 		this.Key = "Thief";
 		UpdateStats();
 		this.CurrentHealth = this.MaxHealth;
+		this.CurrentSpeed = this.Speed;
+		this.CurrentDamage = this.Damage;
 	}
 }

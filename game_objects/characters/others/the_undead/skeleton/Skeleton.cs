@@ -14,5 +14,7 @@ public partial class Skeleton : Monster
 		this.Key = "Undead";
 		UpdateStats();
 		this.CurrentHealth = this.MaxHealth;
+		this.CurrentSpeed = this.Speed;
+		this.CurrentDamage = this.Damage;
 	}
 }

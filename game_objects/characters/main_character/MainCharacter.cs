@@ -33,6 +33,7 @@ public partial class MainCharacter : Character3D
         this.MaxHealth = BoosterManager.MaxHealth;
         this.Speed = EquipmentManager.Boot.Speed;
         this.CurrentHealth = MaxHealth;
+        this.CurrentSpeed = this.Speed;
 	}
 
 	public override void _Process(double @delta)

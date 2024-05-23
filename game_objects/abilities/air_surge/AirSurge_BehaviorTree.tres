@@ -1,19 +1,17 @@
-[gd_resource type="BehaviorTree" load_steps=11 format=3 uid="uid://byjbb1t3ra7av"]
+[gd_resource type="BehaviorTree" load_steps=10 format=3 uid="uid://byjbb1t3ra7av"]
 
 [ext_resource type="BlackboardPlan" uid="uid://d2jvwf54doq6d" path="res://game_objects/abilities/air_surge/AirSurge_BlackboardPlan----.tres" id="1_scffu"]
 [ext_resource type="BBNode" uid="uid://bj2fkkcjtarqg" path="res://game_objects/abilities/air_surge/AirSurge_BBNode_AnimPlay.tres" id="2_md7x8"]
-[ext_resource type="Script" path="res://ai/tasks/abilitySetup.gd" id="2_vxpi3"]
+[ext_resource type="Script" path="res://ai/tasks/ability/projectileActivity.gd" id="3_53anh"]
 [ext_resource type="BBNode" uid="uid://c0p2tu7is53wr" path="res://game_objects/abilities/air_surge/AirSurge_BBNode_RootNode.tres" id="3_ex3pr"]
-
-[sub_resource type="BTAction" id="BTAction_bmarf"]
-script = ExtResource("2_vxpi3")
-PathHitBox = NodePath("Hitbox")
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_qxdv1"]
 animation_player = ExtResource("2_md7x8")
 animation_name = &"FLY"
 
-[sub_resource type="BTWait" id="BTWait_drwxu"]
+[sub_resource type="BTAction" id="BTAction_bmarf"]
+script = ExtResource("3_53anh")
+PathHitBox = NodePath("Hitbox")
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_d2ti8"]
 await_completion = 10.0
@@ -25,7 +23,7 @@ node = ExtResource("3_ex3pr")
 method = &"queue_free"
 
 [sub_resource type="BTSequence" id="BTSequence_jjti1"]
-children = [SubResource("BTAction_bmarf"), SubResource("BTPlayAnimation_qxdv1"), SubResource("BTWait_drwxu"), SubResource("BTPlayAnimation_d2ti8"), SubResource("BTCallMethod_6b8uy")]
+children = [SubResource("BTPlayAnimation_qxdv1"), SubResource("BTAction_bmarf"), SubResource("BTPlayAnimation_d2ti8"), SubResource("BTCallMethod_6b8uy")]
 
 [resource]
 blackboard_plan = ExtResource("1_scffu")

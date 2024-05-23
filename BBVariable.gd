@@ -10,4 +10,4 @@ var AlreadyDetect: StringName = "AlreadyDetect"
 var TeleportLocation: StringName = "TeleportLocation"
 var CurrentPartner: StringName = "CurrentPartner"
 #ability
-var MovingDuration: StringName = "MovingDuration"
+

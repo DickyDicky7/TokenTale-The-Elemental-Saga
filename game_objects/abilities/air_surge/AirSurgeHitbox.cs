@@ -7,7 +7,7 @@ public partial class AirSurgeHitbox : Hittbox3D
 	public List<Rid> ExceptionRidList { get; private set; } = new();
 	protected override void OnBodyEntered(Node3D node3D)
 	{
-		float Damage = 0;
+		base.OnBodyEntered(node3D);
 		if (this.GetParent() is Ability3D tempAbility && node3D is Monster tempMonster)
 		{
 			this.PushMonsterAside(tempAbility, tempMonster);
@@ -15,9 +15,6 @@ public partial class AirSurgeHitbox : Hittbox3D
 				return;
 			else
 				ExceptionRidList.Add(tempMonster.GetRid());
-			Damage = CalculateDamage(tempAbility, tempMonster);
-			tempMonster.CurrentHealth -= Damage;
-			tempMonster.EmitSignal(Character3D.SignalName.HealthChange, Damage);
 		}
 	}
 	public override void _Ready()
@@ -28,9 +25,9 @@ public partial class AirSurgeHitbox : Hittbox3D
 	}
 	private void PushMonsterAside(Ability3D ability, Monster monster)
 	{
-		Vector3 PushDirection = ability.GlobalPosition.DirectionTo(monster.GlobalPosition);
-		PushDirection = new Vector3(PushDirection.X, 0, PushDirection.Z).Normalized();
-		monster.Velocity = PushDirection * this.PushSpeed;
+		Vector3 pushDirection = ability.GlobalPosition.DirectionTo(monster.GlobalPosition);
+		pushDirection = new Vector3(pushDirection.X, 0, pushDirection.Z).Normalized();
+		monster.Velocity = pushDirection * this.PushSpeed;
 		monster.MoveAndSlide();
 		monster.Velocity = Vector3.Zero;
 	}

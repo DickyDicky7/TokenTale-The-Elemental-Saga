@@ -1,14 +1,14 @@
 [gd_resource type="BehaviorTree" load_steps=35 format=3 uid="uid://qjvfmmgwhd5t"]
 
 [ext_resource type="BlackboardPlan" uid="uid://c72xpnxtx075g" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_BlackboardPlan----.tres" id="1_rryj2"]
-[ext_resource type="Script" path="res://ai/tasks/beingHit.gd" id="2_5hjei"]
+[ext_resource type="Script" path="res://ai/tasks/monster/beingHit.gd" id="2_5hjei"]
 [ext_resource type="BBNode" uid="uid://b1o86uwpvkhev" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_BBNode_AnimationPlayer.tres" id="3_htl4n"]
-[ext_resource type="Script" path="res://ai/tasks/depleteHealth.gd" id="4_gwtra"]
-[ext_resource type="Script" path="res://ai/tasks/detectCharacter2.gd" id="5_wwoot"]
-[ext_resource type="Script" path="res://ai/tasks/reload.gd" id="6_n25u6"]
-[ext_resource type="Script" path="res://ai/tasks/teleporterMoveSetup.gd" id="7_upcit"]
-[ext_resource type="Script" path="res://ai/tasks/teleport.gd" id="9_eruc1"]
-[ext_resource type="Script" path="res://ai/tasks/attack.gd" id="10_16p5e"]
+[ext_resource type="Script" path="res://ai/tasks/monster/depleteHealth.gd" id="4_gwtra"]
+[ext_resource type="Script" path="res://ai/tasks/monster/detectCharacter2.gd" id="5_wwoot"]
+[ext_resource type="Script" path="res://ai/tasks/monster/reload.gd" id="6_n25u6"]
+[ext_resource type="Script" path="res://ai/tasks/monster/teleporterMoveSetup.gd" id="7_upcit"]
+[ext_resource type="Script" path="res://ai/tasks/monster/teleport.gd" id="9_eruc1"]
+[ext_resource type="Script" path="res://ai/tasks/monster/attack.gd" id="10_16p5e"]
 
 [sub_resource type="BTAction" id="BTAction_tuajh"]
 script = ExtResource("4_gwtra")

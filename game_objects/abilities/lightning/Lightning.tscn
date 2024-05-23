@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cn6e4b8ejcnru"]
+[gd_scene load_steps=13 format=3 uid="uid://cn6e4b8ejcnru"]
 
 [ext_resource type="Script" path="res://game_objects/abilities/lightning/Lightning.cs" id="1_v6lla"]
 [ext_resource type="SpriteFrames" uid="uid://bb28sh36aknoq" path="res://game_objects/abilities/lightning/Lightning_SpriteFrames.tres" id="1_weg7p"]
@@ -6,6 +6,7 @@
 [ext_resource type="QuadMesh" uid="uid://ble15l0osx128" path="res://game_objects/abilities/lightning/Lightning_DrawPass01_Mesh.tres" id="4_fgd0e"]
 [ext_resource type="Shape3D" uid="uid://rd72j5r35v7y" path="res://game_objects/abilities/lightning/Lightning_CollisionShape3D_Hitbox.tres" id="4_o25au"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="5_cwiri"]
+[ext_resource type="Script" path="res://game_objects/abilities/lightning/LightningHitbox.cs" id="5_e3uju"]
 [ext_resource type="BehaviorTree" uid="uid://bndh04gk1atcc" path="res://game_objects/abilities/lightning/Lightning_BehaviorTree.tres" id="6_0shj6"]
 [ext_resource type="BlackboardPlan" uid="uid://cv2ahqwcv6xwd" path="res://game_objects/abilities/lightning/Lightning_BlackboardPlanBase.tres" id="6_yx8y4"]
 
@@ -167,6 +168,7 @@ _data = {
 
 [node name="Lightning" type="Node3D"]
 script = ExtResource("1_v6lla")
+Element = 4
 
 [node name="Visual" type="Node3D" parent="."]
 
@@ -196,6 +198,9 @@ process_material = ExtResource("3_02l3o")
 draw_pass_1 = ExtResource("4_fgd0e")
 
 [node name="Hitbox" type="Area3D" parent="."]
+collision_layer = 32
+collision_mask = 4
+script = ExtResource("5_e3uju")
 
 [node name="CollisionShape3D_Hitbox" type="CollisionShape3D" parent="Hitbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)

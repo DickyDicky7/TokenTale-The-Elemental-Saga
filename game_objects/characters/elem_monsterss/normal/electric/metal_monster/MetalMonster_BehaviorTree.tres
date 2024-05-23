@@ -1,4 +1,4 @@
-[gd_resource type="BehaviorTree" load_steps=44 format=3 uid="uid://b2bpmha480eof"]
+[gd_resource type="BehaviorTree" load_steps=46 format=3 uid="uid://b2bpmha480eof"]
 
 [ext_resource type="BlackboardPlan" uid="uid://pvay473srm5a" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster_BlackboardPlan----.tres" id="1_qh5j8"]
 [ext_resource type="Script" path="res://ai/tasks/beingHit.gd" id="2_v2wgo"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://ai/tasks/depleteHealth.gd" id="3_w0a7o"]
 [ext_resource type="Script" path="res://ai/tasks/detectCharacter.gd" id="4_w7uvl"]
 [ext_resource type="Script" path="res://ai/tasks/watchingAround.gd" id="5_ijtjw"]
+[ext_resource type="Script" path="res://ai/tasks/stop.gd" id="5_tcib0"]
 [ext_resource type="Script" path="res://ai/tasks/changeSeeingDirection.gd" id="6_s70gm"]
 [ext_resource type="Script" path="res://ai/tasks/reload.gd" id="7_m5uvx"]
 [ext_resource type="Script" path="res://ai/tasks/move.gd" id="10_smlby"]
@@ -37,6 +38,9 @@ animation_name = &"HURT"
 custom_name = "TakeDamage"
 children = [SubResource("BTAction_cv33i"), SubResource("BTPlayAnimation_kejru")]
 
+[sub_resource type="BTAction" id="BTAction_k6tdb"]
+script = ExtResource("5_tcib0")
+
 [sub_resource type="BTAction" id="BTAction_v56jw"]
 script = ExtResource("4_w7uvl")
 TargetCharacter3DName = &"MainCharacter"
@@ -66,7 +70,7 @@ animation_name = &"IDLE"
 
 [sub_resource type="BTSequence" id="BTSequence_xcsxr"]
 custom_name = "Patroll"
-children = [SubResource("BTInvert_cqvj5"), SubResource("BTCooldown_l0nvb"), SubResource("BTAction_oqyco"), SubResource("BTPlayAnimation_8fq1l")]
+children = [SubResource("BTAction_k6tdb"), SubResource("BTInvert_cqvj5"), SubResource("BTCooldown_l0nvb"), SubResource("BTAction_oqyco"), SubResource("BTPlayAnimation_8fq1l")]
 
 [sub_resource type="BTAction" id="BTAction_y884u"]
 script = ExtResource("4_w7uvl")

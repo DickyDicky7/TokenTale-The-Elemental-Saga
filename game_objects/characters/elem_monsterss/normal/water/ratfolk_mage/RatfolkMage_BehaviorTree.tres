@@ -1,4 +1,4 @@
-[gd_resource type="BehaviorTree" load_steps=68 format=3 uid="uid://b1xpc2b6nhfu1"]
+[gd_resource type="BehaviorTree" load_steps=70 format=3 uid="uid://b1xpc2b6nhfu1"]
 
 [ext_resource type="BlackboardPlan" uid="uid://ctv084222lwh7" path="res://game_objects/characters/elem_monsterss/normal/water/ratfolk_mage/RatfolkMage_BlackboardPlan----.tres" id="1_o2w3q"]
 [ext_resource type="Script" path="res://ai/tasks/beingHit.gd" id="2_n8ime"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://ai/tasks/reload.gd" id="9_flnl7"]
 [ext_resource type="Script" path="res://ai/tasks/attack.gd" id="10_6injh"]
 [ext_resource type="Script" path="res://ai/tasks/supporterFindPartner.gd" id="11_8hymf"]
+[ext_resource type="Script" path="res://ai/tasks/stop.gd" id="11_6830q"]
 [ext_resource type="Script" path="res://ai/tasks/watchingAround.gd" id="12_3ej0l"]
 
 [sub_resource type="BTAction" id="BTAction_1vb0f"]
@@ -159,6 +160,9 @@ PathShapeCast3DFindPartner = NodePath("ShapeCast3DFindPartner")
 custom_name = "Cannot find partner"
 children = [SubResource("BTAction_j7kep")]
 
+[sub_resource type="BTAction" id="BTAction_sx4d2"]
+script = ExtResource("11_6830q")
+
 [sub_resource type="BTAction" id="BTAction_p3b5a"]
 script = ExtResource("7_s2tm0")
 TargetCharacter3DName = &"MainCharacter"
@@ -188,7 +192,7 @@ animation_name = &"IDLE"
 
 [sub_resource type="BTSequence" id="BTSequence_apl6k"]
 custom_name = "Patroll"
-children = [SubResource("BTInvert_8k38n"), SubResource("BTCooldown_0skix"), SubResource("BTAction_nxegr"), SubResource("BTPlayAnimation_121yw")]
+children = [SubResource("BTAction_sx4d2"), SubResource("BTInvert_8k38n"), SubResource("BTCooldown_0skix"), SubResource("BTAction_nxegr"), SubResource("BTPlayAnimation_121yw")]
 
 [sub_resource type="BTAction" id="BTAction_cnijs"]
 script = ExtResource("7_s2tm0")

@@ -1,4 +1,4 @@
-[gd_resource type="BehaviorTree" load_steps=46 format=3 uid="uid://b58tol6ty0ood"]
+[gd_resource type="BehaviorTree" load_steps=48 format=3 uid="uid://b58tol6ty0ood"]
 
 [ext_resource type="BlackboardPlan" uid="uid://5s0kxfus7bh" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_BlackboardPlan----.tres" id="1_jpusp"]
 [ext_resource type="Script" path="res://ai/tasks/beingHit.gd" id="2_3jam1"]
@@ -6,6 +6,7 @@
 [ext_resource type="BBNode" uid="uid://dt4angfj7hd8a" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_BBNode_AnimationPlayer.tres" id="4_e2ybg"]
 [ext_resource type="Script" path="res://ai/tasks/detectCharacter.gd" id="4_rcqhg"]
 [ext_resource type="Script" path="res://ai/tasks/watchingAround.gd" id="5_00kn7"]
+[ext_resource type="Script" path="res://ai/tasks/stop.gd" id="5_3yw57"]
 [ext_resource type="Script" path="res://ai/tasks/changeSeeingDirection.gd" id="6_ax6nh"]
 [ext_resource type="Script" path="res://ai/tasks/reload.gd" id="7_7xxa3"]
 [ext_resource type="Script" path="res://ai/tasks/chaserMoveSetup.gd" id="9_ywgb2"]
@@ -41,6 +42,9 @@ animation_name = &"HURT_B"
 custom_name = "TakeDamage"
 children = [SubResource("BTAction_g2okg"), SubResource("BTPlayAnimation_txsu0")]
 
+[sub_resource type="BTAction" id="BTAction_7egsd"]
+script = ExtResource("5_3yw57")
+
 [sub_resource type="BTAction" id="BTAction_1aqjo"]
 script = ExtResource("4_rcqhg")
 TargetCharacter3DName = &"MainCharacter"
@@ -70,7 +74,7 @@ animation_name = &"IDLE_B"
 
 [sub_resource type="BTSequence" id="BTSequence_5gfa2"]
 custom_name = "Patroll"
-children = [SubResource("BTInvert_iohg5"), SubResource("BTCooldown_epmb2"), SubResource("BTAction_k4gl0"), SubResource("BTPlayAnimation_rr2xc")]
+children = [SubResource("BTAction_7egsd"), SubResource("BTInvert_iohg5"), SubResource("BTCooldown_epmb2"), SubResource("BTAction_k4gl0"), SubResource("BTPlayAnimation_rr2xc")]
 
 [sub_resource type="BTAction" id="BTAction_tvem3"]
 script = ExtResource("4_rcqhg")

@@ -1,4 +1,4 @@
-[gd_resource type="BehaviorTree" load_steps=47 format=3 uid="uid://c0qgsne1gmjmr"]
+[gd_resource type="BehaviorTree" load_steps=49 format=3 uid="uid://c0qgsne1gmjmr"]
 
 [ext_resource type="BlackboardPlan" uid="uid://dfkm2xh6u1swd" path="res://game_objects/characters/others/the_thief/cat/Cat_BlackboardPlan----.tres" id="1_pj3pd"]
 [ext_resource type="Script" path="res://ai/tasks/beingHit.gd" id="2_8hwu5"]
@@ -6,6 +6,7 @@
 [ext_resource type="BBNode" uid="uid://drndgxyak01ea" path="res://game_objects/characters/others/the_thief/cat/Cat_BBNode_AnimationPlayer.tres" id="3_wd6j6"]
 [ext_resource type="Script" path="res://ai/tasks/detectCharacter.gd" id="4_4tta1"]
 [ext_resource type="Script" path="res://ai/tasks/watchingAround.gd" id="5_3yvr0"]
+[ext_resource type="Script" path="res://ai/tasks/stop.gd" id="5_bygsl"]
 [ext_resource type="Script" path="res://ai/tasks/changeSeeingDirection.gd" id="6_mmu4d"]
 [ext_resource type="Script" path="res://ai/tasks/reload.gd" id="7_m7qut"]
 [ext_resource type="Script" path="res://ai/tasks/chaserMoveSetup.gd" id="9_yicwh"]
@@ -36,6 +37,9 @@ animation_name = &"SCARED"
 [sub_resource type="BTSequence" id="BTSequence_jog8o"]
 custom_name = "TakeDamage"
 children = [SubResource("BTAction_tgta7"), SubResource("BTPlayAnimation_j8f1x")]
+
+[sub_resource type="BTAction" id="BTAction_8576p"]
+script = ExtResource("5_bygsl")
 
 [sub_resource type="BTAction" id="BTAction_0klbt"]
 script = ExtResource("4_4tta1")
@@ -70,7 +74,7 @@ animation_name = &"IDLE_0"
 
 [sub_resource type="BTSequence" id="BTSequence_1o46u"]
 custom_name = "Patroll"
-children = [SubResource("BTInvert_mbqh0"), SubResource("BTCooldown_k5c2i"), SubResource("BTAction_0dsy8"), SubResource("BTPlayAnimation_5u8oa")]
+children = [SubResource("BTAction_8576p"), SubResource("BTInvert_mbqh0"), SubResource("BTCooldown_k5c2i"), SubResource("BTAction_0dsy8"), SubResource("BTPlayAnimation_5u8oa")]
 
 [sub_resource type="BTAction" id="BTAction_aj863"]
 script = ExtResource("4_4tta1")

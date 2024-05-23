@@ -43,21 +43,41 @@ public partial class _Camera3D_02 : Camera3D
 
     [Export]
     public Node3D FollowTarget { get; set; }
+    public 
+   Vector3 Offset              { get; set; }
+
+    public override void _Ready()
+    {
+                    base._Ready();
+
+           Offset   =   Position ;
+    }
 
     public override void _PhysicsProcess(double @delta)
     {
                     base._PhysicsProcess(       @delta);
 
-        float x = Mathf.Lerp(GlobalPosition.X, FollowTarget.GlobalPosition.X,        0.1f);
-        float z = Mathf.Lerp(GlobalPosition.Z, FollowTarget.GlobalPosition.Z + 2.0f, 0.1f);
+        float x = Mathf.Lerp(GlobalPosition.X, FollowTarget.GlobalPosition.X           , 0.1f);
+        float y = Mathf.Lerp(GlobalPosition.Y, FollowTarget.GlobalPosition.Y + Offset.Y, 0.1f);
+        float z = Mathf.Lerp(GlobalPosition.Z, FollowTarget.GlobalPosition.Z + Offset.Z, 0.1f);
         GlobalPosition =
         GlobalPosition with
         {
             X = x,
+            Y = y,
             Z = z,
         };
     }
 }
+
+
+
+
+
+
+
+
+
 
 
 

@@ -66,7 +66,8 @@ public partial class FireBall : Ability3D
     }
 	public override void _Ready()
 	{
-		base._Ready();
+		            base._Ready();
+
         this.ActiveRange = AbilityStats.ActiveRange.   Long;
         this.Speed       = AbilityStats.      Speed.MidFast;
         this.DamageRatio = 1.0f;

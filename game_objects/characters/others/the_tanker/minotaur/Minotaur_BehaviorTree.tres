@@ -1,10 +1,11 @@
-[gd_resource type="BehaviorTree" load_steps=60 format=3 uid="uid://do56smytaorys"]
+[gd_resource type="BehaviorTree" load_steps=62 format=3 uid="uid://do56smytaorys"]
 
 [ext_resource type="BlackboardPlan" uid="uid://15j118xma3cw" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_BlackboardPlan----.tres" id="1_o2fpt"]
 [ext_resource type="Script" path="res://ai/tasks/beingHit.gd" id="2_7lxn4"]
 [ext_resource type="Script" path="res://ai/tasks/depleteHealth.gd" id="3_37qwr"]
 [ext_resource type="BBNode" uid="uid://bxkxh7iuqvww5" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_BBNode_AnimationPlayer.tres" id="3_m0cec"]
 [ext_resource type="Script" path="res://ai/tasks/detectCharacter.gd" id="4_4n3if"]
+[ext_resource type="Script" path="res://ai/tasks/stop.gd" id="5_k0u8y"]
 [ext_resource type="Script" path="res://ai/tasks/watchingAround.gd" id="5_vwugo"]
 [ext_resource type="Script" path="res://ai/tasks/changeSeeingDirection.gd" id="6_0crq4"]
 [ext_resource type="Script" path="res://ai/tasks/reload.gd" id="8_af4g3"]
@@ -37,6 +38,9 @@ animation_name = &"HURT_1"
 custom_name = "TakeDamage"
 children = [SubResource("BTAction_n7fdv"), SubResource("BTPlayAnimation_ur4wb")]
 
+[sub_resource type="BTAction" id="BTAction_fq01r"]
+script = ExtResource("5_k0u8y")
+
 [sub_resource type="BTAction" id="BTAction_yg755"]
 script = ExtResource("4_4n3if")
 TargetCharacter3DName = &"MainCharacter"
@@ -66,7 +70,7 @@ animation_name = &"IDLE"
 
 [sub_resource type="BTSequence" id="BTSequence_f1dxg"]
 custom_name = "Patroll"
-children = [SubResource("BTInvert_qe2pc"), SubResource("BTCooldown_mcarp"), SubResource("BTAction_cavwe"), SubResource("BTPlayAnimation_yp7kg")]
+children = [SubResource("BTAction_fq01r"), SubResource("BTInvert_qe2pc"), SubResource("BTCooldown_mcarp"), SubResource("BTAction_cavwe"), SubResource("BTPlayAnimation_yp7kg")]
 
 [sub_resource type="BTAction" id="BTAction_m7g6f"]
 script = ExtResource("4_4n3if")

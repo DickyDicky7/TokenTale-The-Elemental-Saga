@@ -117,7 +117,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"ATTACK",
-"speed": 5.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -140,7 +140,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"DAMAGE",
-"speed": 10.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -163,7 +163,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"DEAD",
-"speed": 10.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -183,7 +183,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"EMERGE",
-"speed": 10.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -206,7 +206,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"HURT",
-"speed": 10.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -229,7 +229,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"IDLE",
-"speed": 10.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -249,5 +249,5 @@ animations = [{
 }],
 "loop": false,
 "name": &"SMERGE",
-"speed": 10.0
+"speed": 20.0
 }]

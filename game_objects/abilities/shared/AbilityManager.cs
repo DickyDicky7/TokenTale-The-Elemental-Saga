@@ -1,76 +1,57 @@
 using Godot;
-using System;
 using System.Collections.Generic;
-using System.Data;
+using System.Linq;
 namespace TokenTaleTheElementalSaga;
 public partial class AbilityManager : Node
 {
 	public record AbilityStatus
 	{
 		public Record.AbilityInfo AbilityInfo { get; set; }
+		public int CurrentLevel { get; set; }
 		public int CurrentExp { get; set; }
 	}
-	public AbilityStatus FireStatus { get; private set; } 
-	public AbilityStatus WaterStatus { get; private set; } 
-	public AbilityStatus WindStatus { get; private set; } 
-	public AbilityStatus IceStatus { get; private set; } 
-	public AbilityStatus ElectricStatus { get; private set; } 
-	public AbilityStatus EarthStatus { get; private set; } 
-	public AbilityStatus WoodStatus { get; private set; }
+	private AbilityStatus FireStatus { get; set; } = new();
+	private AbilityStatus WaterStatus { get; set; } = new();
+	private AbilityStatus WindStatus { get; set; } = new();
+	private AbilityStatus IceStatus { get; set; } = new();
+	private AbilityStatus ElectricStatus { get; set; } = new();
+	private AbilityStatus EarthStatus { get; set; } = new();
+	private AbilityStatus WoodStatus { get; set; } = new();
+	public Dictionary<Global.Element, AbilityStatus> ElementStatus { get; private set; } = new();
 	public AbilityManager()
 	{
-		FireStatus = new AbilityStatus { AbilityInfo = AbilityStats.GetInstance().FireStats[0], CurrentExp = 0 };
-		WaterStatus = new AbilityStatus { AbilityInfo = AbilityStats.GetInstance().WaterStats[0], CurrentExp = 0 };
-		WindStatus = new AbilityStatus { AbilityInfo = AbilityStats.GetInstance().WindStats[0], CurrentExp = 0 };
-		IceStatus = new AbilityStatus { AbilityInfo = AbilityStats.GetInstance().IceStats[0], CurrentExp = 0 };
-		ElectricStatus = new AbilityStatus { AbilityInfo = AbilityStats.GetInstance().ElectricStats[0], CurrentExp = 0 };
-		EarthStatus = new AbilityStatus { AbilityInfo = AbilityStats.GetInstance().EarthStats[0], CurrentExp = 0 };
-		WoodStatus = new AbilityStatus { AbilityInfo = AbilityStats.GetInstance().WoodStats[0], CurrentExp = 0 };
-	}
-	public void UpdateStatus(Global.Element Element, int Exp)
-	{
-		switch (Element)
+		ElementStatus.Add(Global.Element.Fire, FireStatus);
+		ElementStatus.Add(Global.Element.Water, WaterStatus);
+		ElementStatus.Add(Global.Element.Wind, WindStatus);
+		ElementStatus.Add(Global.Element.Ice, IceStatus);
+		ElementStatus.Add(Global.Element.Electric, ElectricStatus);
+		ElementStatus.Add(Global.Element.Earth, EarthStatus);
+		ElementStatus.Add(Global.Element.Wood, WoodStatus);
+
+		foreach (Global.Element key in ElementStatus.Keys)
 		{
-			case Global.Element.Fire:
-				FireStatus.CurrentExp += Exp;
-				Update(FireStatus, AbilityStats.GetInstance().FireStats);
-				break;
-			case Global.Element.Water:
-				WaterStatus.CurrentExp += Exp;
-				Update(WaterStatus, AbilityStats.GetInstance().WaterStats);
-				break;
-			case Global.Element.Wind:
-				WindStatus.CurrentExp += Exp;
-				Update(WindStatus, AbilityStats.GetInstance().WindStats);
-				break;
-			case Global.Element.Ice:
-				IceStatus.CurrentExp += Exp;
-				Update(IceStatus, AbilityStats.GetInstance().IceStats);
-				break;
-			case Global.Element.Electric:
-				ElectricStatus.CurrentExp += Exp;
-				Update(ElectricStatus, AbilityStats.GetInstance().ElectricStats);
-				break;
-			case Global.Element.Earth:
-				EarthStatus.CurrentExp += Exp;
-				Update(EarthStatus, AbilityStats.GetInstance().EarthStats);
-				break;
-			case Global.Element.Wood:
-				WoodStatus.CurrentExp += Exp;
-				Update(WoodStatus, AbilityStats.GetInstance().WoodStats);
-				break;
+			ElementStatus[key].AbilityInfo = AbilityStats.GetInstance().ElementStats[key][0];
+			ElementStatus[key].CurrentExp = 0;
+			ElementStatus[key].CurrentLevel = 0;
 		}
 	}
-	private void Update(AbilityStatus AbilityStatus, List<Record.AbilityInfo> Stats)
+	public void UpdateStatus(Global.Element element, int exp)
 	{
-		if (AbilityStatus.AbilityInfo.Level == Stats.Count - 1)
+		ElementStatus[element].CurrentExp += exp;
+		Update(ElementStatus[element], AbilityStats.GetInstance().ElementStats[element]);
+	}
+	private void Update(AbilityStatus abilityStatus, Dictionary<int, Record.AbilityInfo> stats)
+	{
+		if (abilityStatus.CurrentLevel == stats.Count - 1)
 			return;
 		else
 		{
-			Record.AbilityInfo temp = Stats
-				.Find(x => x.Level == AbilityStatus.AbilityInfo.Level + 1);
-			if (AbilityStatus.CurrentExp >= temp.ExpNeed)
-				AbilityStatus.AbilityInfo = temp;
+			Record.AbilityInfo AbilityInfo = stats[abilityStatus.CurrentLevel + 1];
+			if (abilityStatus.CurrentExp >= AbilityInfo.ExpNeed)
+			{
+				abilityStatus.CurrentLevel += 1;
+				abilityStatus.AbilityInfo = AbilityInfo;
+			}
 		}
 	}
 }

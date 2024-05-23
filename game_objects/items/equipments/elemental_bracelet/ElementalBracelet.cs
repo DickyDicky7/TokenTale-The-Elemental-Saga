@@ -5,20 +5,24 @@ namespace TokenTaleTheElementalSaga;
 
 public partial class ElementalBracelet : Equipment
 {
-	public int Key { get; private set; }
-	public float BonusDamage { get; private set; }
-	public int NextLevelUpgradeCost { get; private set; }
+	public int Key { get; private set; } = default;
+	public float BonusDamage { get; private set; } = default;
+	public int NextLevelUpgradeCost { get; private set; } = default;
 	public ElementalBracelet(bool Available, int Key)
 	{
 		this.Key = Key;
 		this.Available = Available;
 		this.Upgradeable = true;
-		this.Level = this.Available == true ? 0 : 1;
-		if (Level < 0)
-			this.BonusDamage = 0;
-		else
-			this.BonusDamage = ItemStats.GetInstance().ElementalBraceletStats[0].BonusDamage;
-		this.NextLevelUpgradeCost = ItemStats.GetInstance().ElementalBraceletStats[1].UpgradeCost;
+		if (this.Available == true)
+		{
+			this.Level = 0;
+			this.BonusDamage = EquipmentStats.GetInstance()
+				.ElementalBraceletStats[this.Level]
+				.BonusDamage;
+			this.NextLevelUpgradeCost = EquipmentStats.GetInstance()
+				.ElementalBraceletStats[this.Level + 1]
+				.UpgradeCost;
+		}
 	}
 	public override void _Ready()
 	{
@@ -28,14 +32,15 @@ public partial class ElementalBracelet : Equipment
 	public override void Upgrade()
 	{
 		base.Upgrade();
-		if (this.Level == ItemStats.GetInstance().ElementalBraceletStats.Count - 1)
+		if (this.Level == EquipmentStats.GetInstance().ElementalBraceletStats.Count - 1)
 			this.Upgradeable = false;
-		int index = ItemStats.GetInstance()
-			.ElementalBraceletStats
-			.FindIndex(0, ItemStats.GetInstance().ElementalBraceletStats.Count, x => x.Level == this.Level);
-		this.BonusDamage = ItemStats.GetInstance().ElementalBraceletStats[index].BonusDamage;
+		this.BonusDamage = EquipmentStats.GetInstance()
+			.ElementalBraceletStats[this.Level]
+			.BonusDamage;
 		if (this.Upgradeable == true)
-			this.NextLevelUpgradeCost = ItemStats.GetInstance().ElementalBraceletStats[index + 1].UpgradeCost;
+			this.NextLevelUpgradeCost = EquipmentStats.GetInstance()
+				.ElementalBraceletStats[this.Level + 1]
+				.UpgradeCost;
 		else
 			this.NextLevelUpgradeCost = -1;
 	}

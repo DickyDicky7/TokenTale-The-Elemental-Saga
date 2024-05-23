@@ -1,7 +1,5 @@
 using Godot;
-using System;
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
 namespace TokenTaleTheElementalSaga;
 public partial class AbilityStats : Resource
 {
@@ -14,84 +12,93 @@ public partial class AbilityStats : Resource
 	}
 	private AbilityStats() : base()
 	{
-		FireStats.Add(new Record.AbilityInfo { Level = 0, ExpNeed = 0, Damage = 10 });
-		FireStats.Add(new Record.AbilityInfo { Level = 1, ExpNeed = 50, Damage = 12 });
-		FireStats.Add(new Record.AbilityInfo { Level = 2, ExpNeed = 100, Damage = 14 });
-		FireStats.Add(new Record.AbilityInfo { Level = 3, ExpNeed = 175, Damage = 17 });
-		FireStats.Add(new Record.AbilityInfo { Level = 4, ExpNeed = 250, Damage = 20 });
-		FireStats.Add(new Record.AbilityInfo { Level = 5, ExpNeed = 325, Damage = 24 });
-		FireStats.Add(new Record.AbilityInfo { Level = 6, ExpNeed = 425, Damage = 29 });
-		FireStats.Add(new Record.AbilityInfo { Level = 7, ExpNeed = 550, Damage = 35 });
-		FireStats.Add(new Record.AbilityInfo { Level = 8, ExpNeed = 700, Damage = 42 });
+		FireStats.Add(0, new Record.AbilityInfo { ExpNeed = 0, Damage = 10 });
+		FireStats.Add(1, new Record.AbilityInfo { ExpNeed = 50, Damage = 12 });
+		FireStats.Add(2, new Record.AbilityInfo { ExpNeed = 100, Damage = 14 });
+		FireStats.Add(3, new Record.AbilityInfo { ExpNeed = 175, Damage = 17 });
+		FireStats.Add(4, new Record.AbilityInfo { ExpNeed = 250, Damage = 20 });
+		FireStats.Add(5, new Record.AbilityInfo { ExpNeed = 325, Damage = 24 });
+		FireStats.Add(6, new Record.AbilityInfo { ExpNeed = 425, Damage = 29 });
+		FireStats.Add(7, new Record.AbilityInfo { ExpNeed = 550, Damage = 35 });
+		FireStats.Add(8, new Record.AbilityInfo { ExpNeed = 700, Damage = 42 });
 
-		WaterStats.Add(new Record.AbilityInfo { Level = 0, ExpNeed = 0, Damage = 10 });
-		WaterStats.Add(new Record.AbilityInfo { Level = 1, ExpNeed = 50, Damage = 13 });
-		WaterStats.Add(new Record.AbilityInfo { Level = 2, ExpNeed = 100, Damage = 16 });
-		WaterStats.Add(new Record.AbilityInfo { Level = 3, ExpNeed = 150, Damage = 19 });
-		WaterStats.Add(new Record.AbilityInfo { Level = 4, ExpNeed = 225, Damage = 22 });
-		WaterStats.Add(new Record.AbilityInfo { Level = 5, ExpNeed = 300, Damage = 25 });
-		WaterStats.Add(new Record.AbilityInfo { Level = 6, ExpNeed = 400, Damage = 28 });
-		WaterStats.Add(new Record.AbilityInfo { Level = 7, ExpNeed = 500, Damage = 31 });
-		WaterStats.Add(new Record.AbilityInfo { Level = 8, ExpNeed = 600, Damage = 34 });
+		WaterStats.Add(0, new Record.AbilityInfo { ExpNeed = 0, Damage = 10 });
+		WaterStats.Add(1, new Record.AbilityInfo { ExpNeed = 50, Damage = 13 });
+		WaterStats.Add(2, new Record.AbilityInfo { ExpNeed = 100, Damage = 16 });
+		WaterStats.Add(3, new Record.AbilityInfo { ExpNeed = 150, Damage = 19 });
+		WaterStats.Add(4, new Record.AbilityInfo { ExpNeed = 225, Damage = 22 });
+		WaterStats.Add(5, new Record.AbilityInfo { ExpNeed = 300, Damage = 25 });
+		WaterStats.Add(6, new Record.AbilityInfo { ExpNeed = 400, Damage = 28 });
+		WaterStats.Add(7, new Record.AbilityInfo { ExpNeed = 500, Damage = 31 });
+		WaterStats.Add(8, new Record.AbilityInfo { ExpNeed = 600, Damage = 34 });
 
-		WindStats.Add(new Record.AbilityInfo { Level = 0, ExpNeed = 0, Damage = 7 });
-		WindStats.Add(new Record.AbilityInfo { Level = 1, ExpNeed = 50, Damage = 9 });
-		WindStats.Add(new Record.AbilityInfo { Level = 2, ExpNeed = 100, Damage = 11 });
-		WindStats.Add(new Record.AbilityInfo { Level = 3, ExpNeed = 175, Damage = 13 });
-		WindStats.Add(new Record.AbilityInfo { Level = 4, ExpNeed = 250, Damage = 16 });
-		WindStats.Add(new Record.AbilityInfo { Level = 5, ExpNeed = 325, Damage = 19 });
-		WindStats.Add(new Record.AbilityInfo { Level = 6, ExpNeed = 400, Damage = 22 });
-		WindStats.Add(new Record.AbilityInfo { Level = 7, ExpNeed = 475, Damage = 25 });
-		WindStats.Add(new Record.AbilityInfo { Level = 8, ExpNeed = 550, Damage = 28 });
+		WindStats.Add(0, new Record.AbilityInfo { ExpNeed = 0, Damage = 7 });
+		WindStats.Add(1, new Record.AbilityInfo { ExpNeed = 50, Damage = 9 });
+		WindStats.Add(2, new Record.AbilityInfo { ExpNeed = 100, Damage = 11 });
+		WindStats.Add(3, new Record.AbilityInfo { ExpNeed = 175, Damage = 13 });
+		WindStats.Add(4, new Record.AbilityInfo { ExpNeed = 250, Damage = 16 });
+		WindStats.Add(5, new Record.AbilityInfo { ExpNeed = 325, Damage = 19 });
+		WindStats.Add(6, new Record.AbilityInfo { ExpNeed = 400, Damage = 22 });
+		WindStats.Add(7, new Record.AbilityInfo { ExpNeed = 475, Damage = 25 });
+		WindStats.Add(8, new Record.AbilityInfo { ExpNeed = 550, Damage = 28 });
 
-		ElectricStats.Add(new Record.AbilityInfo { Level = 0, ExpNeed = 0, Damage = 12 });
-		ElectricStats.Add(new Record.AbilityInfo { Level = 1, ExpNeed = 50, Damage = 16 });
-		ElectricStats.Add(new Record.AbilityInfo { Level = 2, ExpNeed = 100, Damage = 20 });
-		ElectricStats.Add(new Record.AbilityInfo { Level = 3, ExpNeed = 175, Damage = 24 });
-		ElectricStats.Add(new Record.AbilityInfo { Level = 4, ExpNeed = 250, Damage = 28 });
-		ElectricStats.Add(new Record.AbilityInfo { Level = 5, ExpNeed = 325, Damage = 32 });
-		ElectricStats.Add(new Record.AbilityInfo { Level = 6, ExpNeed = 425, Damage = 36 });
-		ElectricStats.Add(new Record.AbilityInfo { Level = 7, ExpNeed = 550, Damage = 40 });
-		ElectricStats.Add(new Record.AbilityInfo { Level = 8, ExpNeed = 700, Damage = 44 });
+		ElectricStats.Add(0, new Record.AbilityInfo { ExpNeed = 0, Damage = 12 });
+		ElectricStats.Add(1, new Record.AbilityInfo { ExpNeed = 50, Damage = 16 });
+		ElectricStats.Add(2, new Record.AbilityInfo { ExpNeed = 100, Damage = 20 });
+		ElectricStats.Add(3, new Record.AbilityInfo { ExpNeed = 175, Damage = 24 });
+		ElectricStats.Add(4, new Record.AbilityInfo { ExpNeed = 250, Damage = 28 });
+		ElectricStats.Add(5, new Record.AbilityInfo { ExpNeed = 325, Damage = 32 });
+		ElectricStats.Add(6, new Record.AbilityInfo { ExpNeed = 425, Damage = 36 });
+		ElectricStats.Add(7, new Record.AbilityInfo { ExpNeed = 550, Damage = 40 });
+		ElectricStats.Add(8, new Record.AbilityInfo { ExpNeed = 700, Damage = 44 });
 
-		IceStats.Add(new Record.AbilityInfo { Level = 0, ExpNeed = 0, Damage = 7 });
-		IceStats.Add(new Record.AbilityInfo { Level = 1, ExpNeed = 50, Damage = 10 });
-		IceStats.Add(new Record.AbilityInfo { Level = 2, ExpNeed = 100, Damage = 13 });
-		IceStats.Add(new Record.AbilityInfo { Level = 3, ExpNeed = 175, Damage = 16 });
-		IceStats.Add(new Record.AbilityInfo { Level = 4, ExpNeed = 250, Damage = 19 });
-		IceStats.Add(new Record.AbilityInfo { Level = 5, ExpNeed = 325, Damage = 23 });
-		IceStats.Add(new Record.AbilityInfo { Level = 6, ExpNeed = 400, Damage = 27 });
-		IceStats.Add(new Record.AbilityInfo { Level = 7, ExpNeed = 475, Damage = 31 });
-		IceStats.Add(new Record.AbilityInfo { Level = 8, ExpNeed = 550, Damage = 35 });
+		IceStats.Add(0, new Record.AbilityInfo { ExpNeed = 0, Damage = 7 });
+		IceStats.Add(1, new Record.AbilityInfo { ExpNeed = 50, Damage = 10 });
+		IceStats.Add(2, new Record.AbilityInfo { ExpNeed = 100, Damage = 13 });
+		IceStats.Add(3, new Record.AbilityInfo { ExpNeed = 175, Damage = 16 });
+		IceStats.Add(4, new Record.AbilityInfo { ExpNeed = 250, Damage = 19 });
+		IceStats.Add(5, new Record.AbilityInfo { ExpNeed = 325, Damage = 23 });
+		IceStats.Add(6, new Record.AbilityInfo { ExpNeed = 400, Damage = 27 });
+		IceStats.Add(7, new Record.AbilityInfo { ExpNeed = 475, Damage = 31 });
+		IceStats.Add(8, new Record.AbilityInfo { ExpNeed = 550, Damage = 35 });
 
-		EarthStats.Add(new Record.AbilityInfo { Level = 0, ExpNeed = 0, Damage = 20 });
-		EarthStats.Add(new Record.AbilityInfo { Level = 1, ExpNeed = 50, Damage = 22 });
-		EarthStats.Add(new Record.AbilityInfo { Level = 2, ExpNeed = 100, Damage = 24 });
-		EarthStats.Add(new Record.AbilityInfo { Level = 3, ExpNeed = 150, Damage = 26 });
-		EarthStats.Add(new Record.AbilityInfo { Level = 4, ExpNeed = 225, Damage = 28 });
-		EarthStats.Add(new Record.AbilityInfo { Level = 5, ExpNeed = 300, Damage = 30 });
-		EarthStats.Add(new Record.AbilityInfo { Level = 6, ExpNeed = 400, Damage = 33 });
-		EarthStats.Add(new Record.AbilityInfo { Level = 7, ExpNeed = 525, Damage = 36 });
-		EarthStats.Add(new Record.AbilityInfo { Level = 8, ExpNeed = 650, Damage = 39 });
+		EarthStats.Add(0, new Record.AbilityInfo { ExpNeed = 0, Damage = 20 });
+		EarthStats.Add(1, new Record.AbilityInfo { ExpNeed = 50, Damage = 22 });
+		EarthStats.Add(2, new Record.AbilityInfo { ExpNeed = 100, Damage = 24 });
+		EarthStats.Add(3, new Record.AbilityInfo { ExpNeed = 150, Damage = 26 });
+		EarthStats.Add(4, new Record.AbilityInfo { ExpNeed = 225, Damage = 28 });
+		EarthStats.Add(5, new Record.AbilityInfo { ExpNeed = 300, Damage = 30 });
+		EarthStats.Add(6, new Record.AbilityInfo { ExpNeed = 400, Damage = 33 });
+		EarthStats.Add(7, new Record.AbilityInfo { ExpNeed = 525, Damage = 36 });
+		EarthStats.Add(8, new Record.AbilityInfo { ExpNeed = 650, Damage = 39 });
 
-		WoodStats.Add(new Record.AbilityInfo { Level = 0, ExpNeed = 0, Damage = 25 });
-		WoodStats.Add(new Record.AbilityInfo { Level = 0, ExpNeed = 50, Damage = 27 });
-		WoodStats.Add(new Record.AbilityInfo { Level = 0, ExpNeed = 100, Damage = 29 });
-		WoodStats.Add(new Record.AbilityInfo { Level = 0, ExpNeed = 150, Damage = 31 });
-		WoodStats.Add(new Record.AbilityInfo { Level = 0, ExpNeed = 225, Damage = 34 });
-		WoodStats.Add(new Record.AbilityInfo { Level = 0, ExpNeed = 300, Damage = 37 });
-		WoodStats.Add(new Record.AbilityInfo { Level = 0, ExpNeed = 400, Damage = 40 });
-		WoodStats.Add(new Record.AbilityInfo { Level = 0, ExpNeed = 525, Damage = 44 });
-		WoodStats.Add(new Record.AbilityInfo { Level = 0, ExpNeed = 650, Damage = 48 });
+		WoodStats.Add(0, new Record.AbilityInfo { ExpNeed = 0, Damage = 25 });
+		WoodStats.Add(1, new Record.AbilityInfo { ExpNeed = 50, Damage = 27 });
+		WoodStats.Add(2, new Record.AbilityInfo { ExpNeed = 100, Damage = 29 });
+		WoodStats.Add(3, new Record.AbilityInfo { ExpNeed = 150, Damage = 31 });
+		WoodStats.Add(4, new Record.AbilityInfo { ExpNeed = 225, Damage = 34 });
+		WoodStats.Add(5, new Record.AbilityInfo { ExpNeed = 300, Damage = 37 });
+		WoodStats.Add(6, new Record.AbilityInfo { ExpNeed = 400, Damage = 40 });
+		WoodStats.Add(7, new Record.AbilityInfo { ExpNeed = 525, Damage = 44 });
+		WoodStats.Add(8, new Record.AbilityInfo { ExpNeed = 650, Damage = 48 });
+
+		ElementStats.Add(Global.Element.Fire, FireStats);
+		ElementStats.Add(Global.Element.Water, WaterStats);
+		ElementStats.Add(Global.Element.Wind, WindStats);
+		ElementStats.Add(Global.Element.Ice, IceStats);
+		ElementStats.Add(Global.Element.Electric, ElectricStats);
+		ElementStats.Add(Global.Element.Earth, EarthStats);
+		ElementStats.Add(Global.Element.Wood, WoodStats);
 	}
-
-	public List<Record.AbilityInfo> FireStats { get; private set; } = new();
-	public List<Record.AbilityInfo> WaterStats { get; private set; } = new();
-	public List<Record.AbilityInfo> WindStats { get; private set; } = new();
-	public List<Record.AbilityInfo> ElectricStats { get; private set; } = new();
-	public List<Record.AbilityInfo> IceStats { get; private set; } = new();
-	public List<Record.AbilityInfo> EarthStats { get; private set; } = new();
-	public List<Record.AbilityInfo> WoodStats { get; private set; } = new();
+	public Dictionary<Global.Element, Dictionary<int, Record.AbilityInfo>> ElementStats
+	{ get; private set; } = new();
+	private Dictionary<int, Record.AbilityInfo> FireStats { get; set; } = new();
+	private Dictionary<int, Record.AbilityInfo> WaterStats { get; set; } = new();
+	private Dictionary<int, Record.AbilityInfo> WindStats { get; set; } = new();
+	private Dictionary<int, Record.AbilityInfo> ElectricStats { get; set; } = new();
+	private Dictionary<int, Record.AbilityInfo> IceStats { get; set; } = new();
+	private Dictionary<int, Record.AbilityInfo> EarthStats { get; set; } = new();
+	private Dictionary<int, Record.AbilityInfo> WoodStats { get; set; } = new();
 	public class ActiveRange
 	{
 		public static float Short { get; private set; } = 1.0f;

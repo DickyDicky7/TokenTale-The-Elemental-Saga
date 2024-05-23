@@ -3,15 +3,17 @@ using System;
 namespace TokenTaleTheElementalSaga;
 public partial class PowerupsGenerator : Equipment
 {
-	public int MaxUses { get; private set; }
-	public int NextLevelUpgradeCost { get; private set; }
+	public int MaxUses { get; private set; } = default;
+	public int NextLevelUpgradeCost { get; private set; } = default;
 	public PowerupsGenerator()
 	{
 		this.Available = false;
 		this.Upgradeable = true;
 		this.Level = -1;
 		this.MaxUses = 0;
-		this.NextLevelUpgradeCost = ItemStats.GetInstance().PowerUpsGeneratorStats[0].UpgradeCost;
+		this.NextLevelUpgradeCost = EquipmentStats.GetInstance()
+			.PowerUpsGeneratorStats[0]
+			.UpgradeCost;
 	}
 	public override void _Ready()
 	{
@@ -21,14 +23,15 @@ public partial class PowerupsGenerator : Equipment
 	public override void Upgrade()
 	{
 		base.Upgrade();
-		if (this.Level == ItemStats.GetInstance().PowerUpsGeneratorStats.Count - 1)
+		if (this.Level == EquipmentStats.GetInstance().PowerUpsGeneratorStats.Count - 1)
 			Upgradeable = false;
-		int index = ItemStats.GetInstance()
-			.PowerUpsGeneratorStats
-			.FindIndex(0, ItemStats.GetInstance().PowerUpsGeneratorStats.Count, x => x.Level == this.Level);
-		this.MaxUses = ItemStats.GetInstance().PowerUpsGeneratorStats[index].MaxUses;
+		this.MaxUses = EquipmentStats.GetInstance()
+			.PowerUpsGeneratorStats[this.Level]
+			.MaxUses;
 		if (this.Upgradeable == true)
-			this.NextLevelUpgradeCost = ItemStats.GetInstance().PowerUpsGeneratorStats[index + 1].UpgradeCost;
+			this.NextLevelUpgradeCost = EquipmentStats.GetInstance()
+				.PowerUpsGeneratorStats[this.Level + 1]
+				.UpgradeCost;
 		else
 			this.NextLevelUpgradeCost = -1;
 

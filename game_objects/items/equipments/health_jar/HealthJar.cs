@@ -3,9 +3,9 @@ using System;
 namespace TokenTaleTheElementalSaga;
 public partial class HealthJar : Equipment
 {
-	public int Key { get; private set; }
-	public float MaxValue { get; private set; }
-	public float CurrentValue { get; private set; }
+	public int Key { get; private set; } = default;
+	public float MaxValue { get; private set; } = default;
+	public float CurrentValue { get; private set; } = default;
 	public HealthJar(int Key)
 	{
 		this.Available = false;

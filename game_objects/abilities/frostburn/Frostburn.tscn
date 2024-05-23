@@ -216,6 +216,7 @@ _data = {
 
 [node name="Frostburn" type="Node3D"]
 script = ExtResource("1_rnp3u")
+Element = 3
 
 [node name="Visual" type="Node3D" parent="."]
 

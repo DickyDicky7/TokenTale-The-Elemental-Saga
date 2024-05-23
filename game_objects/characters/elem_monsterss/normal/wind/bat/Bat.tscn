@@ -404,6 +404,7 @@ collision_mask = 15
 script = ExtResource("1_52p22")
 Element = 2
 MonsterType = 3
+MaxHealth = 50.0
 Speed = 1.0
 Acceleration = 0.1
 Deceleration = 0.1

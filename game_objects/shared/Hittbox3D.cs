@@ -21,41 +21,16 @@ public partial class Hittbox3D : CustomArea3D
 		Monster targetMonster3D)
 	{
 		float Damage = 0;
-		if (currentAbility3D.Caster.GetType() == typeof(MainCharacter))
+		if (currentAbility3D.Caster is MainCharacter )
 		{
 			MainCharacter tempMainChar = currentAbility3D.Caster as MainCharacter;
 			//Declare base damage
-			switch (currentAbility3D.Element)
-			{
-				case Global.Element.Fire:
-					Damage = tempMainChar.AbilityManager.FireStatus.AbilityInfo.Damage
-						* currentAbility3D.DamageRatio;
-					break;
-				case Global.Element.Water:
-					Damage = tempMainChar.AbilityManager.WaterStatus.AbilityInfo.Damage
-						* currentAbility3D.DamageRatio;
-					break;
-				case Global.Element.Wind:
-					Damage = tempMainChar.AbilityManager.WindStatus.AbilityInfo.Damage
-						* currentAbility3D.DamageRatio;
-					break;
-				case Global.Element.Ice:
-					Damage = tempMainChar.AbilityManager.IceStatus.AbilityInfo.Damage
-						* currentAbility3D.DamageRatio;
-					break;
-				case Global.Element.Electric:
-					Damage = tempMainChar.AbilityManager.ElectricStatus.AbilityInfo.Damage
-						* currentAbility3D.DamageRatio;
-					break;
-				case Global.Element.Earth:
-					Damage = tempMainChar.AbilityManager.EarthStatus.AbilityInfo.Damage
-						* currentAbility3D.DamageRatio;
-					break;
-				case Global.Element.Wood:
-					Damage = tempMainChar.AbilityManager.WoodStatus.AbilityInfo.Damage
-						* currentAbility3D.DamageRatio;
-					break;
-			}
+			Damage = tempMainChar
+				.AbilityManager
+				.ElementStatus[currentAbility3D.Element]
+				.AbilityInfo
+				.Damage
+				* currentAbility3D.DamageRatio;
 			//setup damage handler to calculate
 			BaseDH ElementalEquipmentDH = new ElementalEquipmentDH(
 				tempMainChar

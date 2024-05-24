@@ -351,9 +351,6 @@ collision_mask = 15
 script = ExtResource("1_x2fgj")
 Element = 4
 MonsterType = 1
-Speed = 1.0
-Acceleration = 0.1
-Deceleration = 0.1
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_desired_distance = 0.5
@@ -363,7 +360,6 @@ debug_enabled = true
 [node name="AnimatedSprite3D_$Main$" type="AnimatedSprite3D" parent="."]
 cast_shadow = 0
 offset = Vector2(0, 28)
-flip_h = true
 texture_filter = 0
 sprite_frames = ExtResource("1_1wafb")
 animation = &"CHARGE"
@@ -373,7 +369,6 @@ animation = &"CHARGE"
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 cast_shadow = 3
 offset = Vector2(0, 28)
-flip_h = true
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_1wafb")
@@ -414,6 +409,7 @@ debug_shape_custom_color = Color(0, 0, 1, 1)
 process_mode = 4
 script = ExtResource("7_b48je")
 Sprites = [NodePath("../AnimatedSprite3D_$Main$"), NodePath("../AnimatedSprite3D_Shadow")]
+FlipH = true
 FlipHInverted = true
 
 [node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]

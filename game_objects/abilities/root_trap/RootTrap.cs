@@ -8,5 +8,6 @@ public partial class RootTrap : Ability3D
 	{
 		base._Ready();
 		this.ActiveRange = AbilityStats.ActiveRange.Short;
+		this.DamageRatio = 1.0f;
 	}
 }

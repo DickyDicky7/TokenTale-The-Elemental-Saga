@@ -61,6 +61,7 @@ public partial class AirSurge : Ability3D
 		base._Ready();
         this.Speed = AbilityStats.Speed.Fast;
         this.ActiveRange = AbilityStats.ActiveRange.Long;
+        this.DamageRatio = 1.0f;
 	}
 	public override Vector3 CalculateCeasePosition(
 		Vector3 @movingDirection,

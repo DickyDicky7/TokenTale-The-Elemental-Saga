@@ -8,5 +8,6 @@ public partial class Frostburn : Ability3D
 	{
 		base._Ready();
 		this.ActiveRange = AbilityStats.ActiveRange.Long;
+		this.DamageRatio = 1.0f;
 	}
 }

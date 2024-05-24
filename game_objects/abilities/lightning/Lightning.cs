@@ -8,5 +8,6 @@ public partial class Lightning : Ability3D
 	{
 		base._Ready();
 		this.ActiveRange = AbilityStats.ActiveRange.Medium;
+		this.DamageRatio = 1.0f;
 	}
 }

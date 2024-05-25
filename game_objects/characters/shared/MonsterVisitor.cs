@@ -2,7 +2,9 @@ using Godot;
 using System;
 namespace TokenTaleTheElementalSaga;
 //Visitor pattern: abstract visitor
-public abstract partial class MonsterVisitor : Node
+[GlobalClass]
+[Tool]
+public abstract partial class MonsterVisitor : Resource
 {
 	public abstract void VisitMetalMonster(MetalMonster metalMonster);
 	public abstract void VisitImp(Imp imp);

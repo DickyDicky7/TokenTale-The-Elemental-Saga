@@ -1,8 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://u16qad10a485"]
+[gd_scene load_steps=21 format=3 uid="uid://u16qad10a485"]
 
 [ext_resource type="SpriteFrames" uid="uid://0kbvt2fcohxa" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster_SpriteFrames_$Main$.tres" id="1_1wafb"]
 [ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster.cs" id="1_x2fgj"]
+[ext_resource type="Resource" uid="uid://c183vyxvgajd2" path="res://game_objects/characters/shared/Monster_Ability_Dispatch_Visitor.tres" id="2_3e5o5"]
 [ext_resource type="Shape3D" uid="uid://dnlsnu8nqbmc1" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster_CollisionShape3D_Body.tres" id="3_dqny3"]
+[ext_resource type="PackedScene" uid="uid://chwjmy7grdej" path="res://game_objects/shared/status_info/StatusInfo.tscn" id="3_kbf5y"]
 [ext_resource type="PackedScene" uid="uid://dsbep0yr8rwxa" path="res://game_objects/shared/hits_flashing_by_modulate/HitsFlashingByModulate.tscn" id="3_xt4bl"]
 [ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.tscn" id="5_jnxj8"]
 [ext_resource type="BlackboardPlan" uid="uid://fsqsabqsafqi" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster_BlackboardPlanBase.tres" id="5_wy6lx"]
@@ -350,7 +352,9 @@ collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_x2fgj")
 Element = 4
+AbilityDispatchVisitor = ExtResource("2_3e5o5")
 MonsterType = 1
+StatusInfoPackedScene = ExtResource("3_kbf5y")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_desired_distance = 0.5

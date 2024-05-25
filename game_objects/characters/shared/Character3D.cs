@@ -5,6 +5,8 @@ namespace TokenTaleTheElementalSaga;
 [GlobalClass]
 public abstract partial class Character3D : CharacterBody3D
 {
+    [Export]
+    PackedScene StatusInfoPackedScene { get; set; }
     public float CurrentHealth{ get; set; }
     public float MaxHealth { get; set; } = 1.0f;
     public float CurrentSpeed { get; set; }
@@ -13,6 +15,7 @@ public abstract partial class Character3D : CharacterBody3D
     public float Acceleration { get; set; } = 0.1f;
     public float Deceleration { get; set; } = 0.1f;
 	public Timer EffectTimer { get; private set; } = new();
+    public StatusInfo StatusInfo { get; private set; }
 	[Signal]
     public delegate void HealthChangeEventHandler(float Damage);
 
@@ -82,6 +85,8 @@ public abstract partial class Character3D : CharacterBody3D
 		this.EffectTimer.ProcessCallback = Timer.TimerProcessCallback.Physics;
         this.EffectTimer.ProcessMode = ProcessModeEnum.Always;
 		this.AddChild(EffectTimer);
+        this.StatusInfo = StatusInfoPackedScene.Instantiate<StatusInfo>();
+        this.AddChild(StatusInfo);
 	}
 
 //  public override void _PhysicsProcess(double @delta)

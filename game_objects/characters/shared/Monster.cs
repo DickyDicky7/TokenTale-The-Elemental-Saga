@@ -8,6 +8,9 @@ namespace TokenTaleTheElementalSaga;
 public abstract partial class Monster : Character3D
 {
     [Export]
+    MonsterVisitor AbilityDispatchVisitor { get; set; }
+    
+    [Export]
     public Global.MonsterType
                   MonsterType
     {
@@ -26,14 +29,17 @@ public abstract partial class Monster : Character3D
     public string Key { get; protected set; }
     public float CurrentDamage { get; protected set; }
     public float Damage { get; protected set; } = 1.0f;
-    public Dictionary<Type, Ability3D> Abilities { get; set; }
+    public Dictionary<Type, PackedScene> AbilityPackedScenes { get; set; }
     
-
     public abstract void Attack(MainCharacter targetMainCharacter);
     public void CauseDamage(MainCharacter targetMainCharacter)
     {
         targetMainCharacter.CurrentHealth -= this.CurrentDamage;
         targetMainCharacter.EmitSignal(SignalName.HealthChange, this.CurrentDamage);
+        this.StatusInfo.Items.Add(new StatusInfoItemElemental
+        {
+            Element = Global.Element.Fire, Thing = this.CurrentDamage.ToString()
+        });
     }
     public virtual void PlayAbilityAnimation(MainCharacter targetMainCharacter)
     {
@@ -54,5 +60,9 @@ public abstract partial class Monster : Character3D
 	{
 		base._Ready();
         this.DifficultyChanged += this.UpdateStats;
+		UpdateStats();
+		this.CurrentHealth = this.MaxHealth;
+		this.CurrentSpeed = this.Speed;
+		this.CurrentDamage = this.Damage;
 	}
 }

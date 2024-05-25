@@ -12,9 +12,5 @@ public partial class HealTotem : ElementalMonster
 	{
 		base._Ready();
 		this.Key = "Wood01";
-		UpdateStats();
-		this.CurrentHealth = this.MaxHealth;
-		this.CurrentSpeed = this.Speed;
-		this.CurrentDamage = this.Damage;
 	}
 }

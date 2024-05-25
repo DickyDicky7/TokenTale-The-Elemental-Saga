@@ -15,9 +15,5 @@ public partial class RatfolkMage : ElementalMonster
 	{
 		base._Ready();
 		this.Key = "Water01";
-		UpdateStats();
-		this.CurrentHealth = this.MaxHealth;
-		this.CurrentSpeed = this.Speed;
-		this.CurrentDamage = this.Damage;
 	}
 }

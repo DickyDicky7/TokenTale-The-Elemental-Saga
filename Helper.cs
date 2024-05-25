@@ -158,4 +158,22 @@ public sealed partial class Helper : GodotObject
 		finalDestination = currentPosition + directionList[0] * distance;
 		return finalDestination;
 	}
+	public static bool SuccessBaseOnRate(float successfulRate)
+	{
+		successfulRate = (float)Math.Round(successfulRate, 2);
+		if (successfulRate <= 0)
+			return false;
+		else if (successfulRate >= 1)
+			return true;
+		else
+		{
+			RandomNumberGenerator rand = new RandomNumberGenerator();
+			float temp = rand.Randf();
+			temp = (float)Math.Round(temp, 2);
+			if (temp <= successfulRate)
+				return true;
+			else
+				return false;
+		}
+	}
 }

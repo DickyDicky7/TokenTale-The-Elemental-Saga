@@ -30,7 +30,6 @@ public partial class FrostburnHitbox : Hittbox3D
 	}
 	public void SlowDown(Monster monster)
 	{
-		monster.CurrentSpeed = monster.Speed / 2;
-		monster.EffectTimer.Start(this.SlowDuration);
+		monster.StartSpeedEffect(0.5f, this.SlowDuration);
 	}
 }

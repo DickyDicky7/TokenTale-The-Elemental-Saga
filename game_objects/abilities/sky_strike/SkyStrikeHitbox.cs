@@ -23,8 +23,6 @@ public partial class SkyStrikeHitbox : Hittbox3D
 	{
 		Vector3 pushDirection = ability.GlobalPosition.DirectionTo(monster.GlobalPosition);
 		pushDirection = new Vector3(pushDirection.X, 0, pushDirection.Z).Normalized();
-		monster.Velocity = pushDirection * this.PushSpeed * 5;
-		monster.MoveAndSlide();
-		monster.Velocity = Vector3.Zero;
+		monster.BePushed(pushDirection * PushSpeed);
 	}
 }

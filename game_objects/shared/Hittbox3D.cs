@@ -73,7 +73,7 @@ public partial class Hittbox3D : CustomArea3D
 			if (ElementalReactionDH != null)
 				ElementalProficiencyDH.SetNextHandler(ElementalReactionDH);
 			ElementalEquipmentDH.ProcessDamage(ref damage);
-			GD.Print(damage);
+			//GD.Print(damage);
 		}
 		return damage;
 	}

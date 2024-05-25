@@ -60,7 +60,7 @@ GetWindow().Title=
         if (Input.IsActionJustPressed("R_CLICK"))
         {
             Ability3D ability = Scene.Instantiate<
-            Ability3D>();
+            Ability3D>(); 
             Vector3        globalMousePosition = this.GetGlobalMousePosition();
             ability.Attach                       (
             spacex:        NavigationRegionSstatic,

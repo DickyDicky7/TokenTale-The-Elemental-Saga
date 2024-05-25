@@ -1,15 +1,25 @@
 using Godot;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 
 namespace TokenTaleTheElementalSaga;
 
 public partial class MetalMonster : ElementalMonster
 {
-	
-    public override void Attack(Character3D target)
+	private int Charge { get; set; } = 0;
+    public override void Attack(MainCharacter targetMainCharacter)
     {
-
-    }
+		
+	}
+	public override void PlayAbilityAnimation(MainCharacter targetMainCharacter)
+	{
+		Ability3D tempAbility3D = this.Abilities[typeof(MiniThunderShock)];
+		
+	}
+	public void AcceptVisitor(MonsterAbilityDispatchVisitor visitor)
+	{
+		visitor.VisitMetalMonster(this);
+	}
 	public override void _Ready()
 	{
 		base._Ready();

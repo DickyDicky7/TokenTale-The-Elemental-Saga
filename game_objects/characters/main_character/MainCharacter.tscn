@@ -705,10 +705,6 @@ collision_mask = 15
 script = ExtResource("1_gm2bn")
 NavigationAgent3D = NodePath("NavigationAgent3D")
 MainCharacterAnimatedSprite3DEffect = NodePath("AnimatedSprite3D_Effect")
-Speed = 2.0
-Jumpv = 2.0
-Acceleration = 0.2
-Deceleration = 0.2
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 debug_enabled = true

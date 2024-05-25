@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://w3dkcnkmaulo"]
+[gd_scene load_steps=52 format=3 uid="uid://w3dkcnkmaulo"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_px6f3"]
 [ext_resource type="Environment" uid="uid://jjpsnd6sbvf2" path="res://Main_Environment.tres" id="2_vpqwg"]
@@ -37,6 +37,15 @@
 [ext_resource type="PackedScene" uid="uid://bbv4dpufmesgb" path="res://game_objects/characters/others/the_thief/cat/Cat.tscn" id="23_saaco"]
 [ext_resource type="PackedScene" uid="uid://u16qad10a485" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster.tscn" id="26_ynl1c"]
 [ext_resource type="PackedScene" uid="uid://o436c4ahk6md" path="res://game_objects/characters/elem_monsterss/normal/water/ratfolk_mage/RatfolkMage.tscn" id="30_ddnm6"]
+[ext_resource type="Script" path="res://game_objects/characters/shared/MonsterAbilityDispatchVisitor.cs" id="38_mp72g"]
+[ext_resource type="PackedScene" uid="uid://b8rsg6nu8jxo1" path="res://game_objects/abilities/others/mini_blow_wind/MiniBlowWind.tscn" id="39_joite"]
+[ext_resource type="PackedScene" uid="uid://b71t3fr8f4lsn" path="res://game_objects/abilities/others/mini_fire_ball/MiniFireBall.tscn" id="40_bb2x7"]
+[ext_resource type="PackedScene" uid="uid://bkeb1iagp6x1l" path="res://game_objects/abilities/others/mini_heal_single/MiniHealSingle.tscn" id="41_8u6f1"]
+[ext_resource type="PackedScene" uid="uid://dav7vdovkccso" path="res://game_objects/abilities/others/mini_ice_shard/MiniIceShard.tscn" id="42_iy6kh"]
+[ext_resource type="PackedScene" uid="uid://spukk1fjrqpv" path="res://game_objects/abilities/others/mini_penetrating_squirt/MiniPenetratingSquirt.tscn" id="43_eh0j8"]
+[ext_resource type="PackedScene" uid="uid://fecxlx81woms" path="res://game_objects/abilities/others/mini_root_trap/MiniRootTrap.tscn" id="44_8oq87"]
+[ext_resource type="PackedScene" uid="uid://wnynddmf6usi" path="res://game_objects/abilities/others/mini_throwin_grock/MiniThrowingRock.tscn" id="45_o7ugn"]
+[ext_resource type="PackedScene" uid="uid://c3126manji8w0" path="res://game_objects/abilities/others/mini_thunder_shock/MiniThunderShock.tscn" id="46_t7y6a"]
 
 [sub_resource type="Resource" id="Resource_ntmsm"]
 script = ExtResource("12_ps0oq")
@@ -204,8 +213,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -1)
 [node name="SereneMeadow" parent="." instance=ExtResource("7_tyaa3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="PenetratingSquirt" parent="." instance=ExtResource("8_nid88")]
+[node name="PenetratingSquirt" parent="." node_paths=PackedStringArray("GPUParticles3D", "AnimationPlayer", "CollisionShape3D") instance=ExtResource("8_nid88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -1)
+GPUParticles3D = NodePath("Visual/_GPU_Particles3D")
+AnimationPlayer = NodePath("AnimationPlayer")
+CollisionShape3D = NodePath("Hitbox/CollisionShape3D_Hitbox")
 
 [node name="Overcharge" parent="." instance=ExtResource("9_5jat6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0)
@@ -238,3 +250,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 2)
 
 [node name="PostProcess" type="CanvasLayer" parent="."]
 script = ExtResource("18_mmfla")
+
+[node name="MonsterAbilityDispatcher" type="Node" parent="."]
+script = ExtResource("38_mp72g")
+AvailableMonsterAbilityPackedScene = Array[PackedScene]([ExtResource("39_joite"), ExtResource("40_bb2x7"), ExtResource("41_8u6f1"), ExtResource("42_iy6kh"), ExtResource("43_eh0j8"), ExtResource("44_8oq87"), ExtResource("45_o7ugn"), ExtResource("46_t7y6a")])

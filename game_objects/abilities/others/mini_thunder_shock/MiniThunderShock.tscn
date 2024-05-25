@@ -101,6 +101,7 @@ _data = {
 [node name="MiniThunderShock" type="Node3D" node_paths=PackedStringArray("Flippable3DSpriteBase3DConsolidation")]
 script = ExtResource("1_uronr")
 Flippable3DSpriteBase3DConsolidation = NodePath("Flippable3DSpriteBase3DConsolidation")
+Element = 4
 
 [node name="Visual" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
@@ -125,6 +126,8 @@ animation = &"SHOCK"
 
 [node name="Hitbox" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+collision_layer = 128
+collision_mask = 8
 script = ExtResource("2_ffgyi")
 
 [node name="CollisionShape3D_Hitbox" type="CollisionShape3D" parent="Hitbox"]

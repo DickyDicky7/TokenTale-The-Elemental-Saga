@@ -20,6 +20,7 @@ func _exit() -> void:
 	pass;
 
 func _tick(_delta: float) -> Status:
+	targetCharacter = targetCharacter as MainCharacter
 	currentCharacter.Attack(targetCharacter)
 	blackboard.set_var(BBVariable.ReadyToStrike, false)
 	return SUCCESS;	

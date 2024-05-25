@@ -4,10 +4,10 @@ namespace TokenTaleTheElementalSaga;
 
 public partial class KoboldPriest : ElementalMonster
 {
-    public override void Attack(Character3D target)
-    {
+	public override void Attack(MainCharacter targetMainCharacter)
+	{
 		
-    }
+	}
 	public override void _Ready()
 	{
 		base._Ready();

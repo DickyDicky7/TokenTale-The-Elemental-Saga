@@ -25,7 +25,6 @@ public partial class RootTrapHitbox : Hittbox3D
 		AnimationPlayer animationPlayer = ability.GetNode("AnimationPlayer") as AnimationPlayer;
 		float timeLeft = (float)animationPlayer.CurrentAnimation.Length 
 			- (float)animationPlayer.CurrentAnimationPosition;
-		monster.CurrentSpeed = 0;
-		monster.EffectTimer.Start(timeLeft);
+		monster.StartSpeedEffect(0, timeLeft);
 	}
 }

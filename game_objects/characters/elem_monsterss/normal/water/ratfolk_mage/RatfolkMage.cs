@@ -7,7 +7,7 @@ public partial class RatfolkMage : ElementalMonster
 	public float ProjectileSpeed { get; set; }
 	public float ProjectileAcceleration { get; set; }
 	public float ProjectileDeceleration { get; set; }
-	public override void Attack(Character3D target)
+	public override void Attack(MainCharacter targetMainCharacter)
 	{
 		
 	}

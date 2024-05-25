@@ -409,6 +409,7 @@ AbilityDispatchVisitor = ExtResource("2_kcs1j")
 MonsterType = 3
 StatusInfoPackedScene = ExtResource("3_3dydc")
 
+
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_desired_distance = 0.5
 target_desired_distance = 0.3
@@ -497,3 +498,6 @@ script = ExtResource("9_3sdow")
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="Hurtbox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 shape = ExtResource("3_gfl41")
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
+aabb = AABB(-0.05, 0, -0.05, 0.1, 0.3, 0.1)

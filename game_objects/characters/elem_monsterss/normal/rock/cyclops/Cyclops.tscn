@@ -577,6 +577,7 @@ Element = 5
 AbilityDispatchVisitor = ExtResource("2_jo8m2")
 StatusInfoPackedScene = ExtResource("3_aafvv")
 
+
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 debug_enabled = true
 
@@ -656,3 +657,6 @@ script = ExtResource("10_fyf3p")
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="Hurtbox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 shape = ExtResource("3_n5lrr")
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
+aabb = AABB(-0.1, 0, -0.1, 0.2, 0.4, 0.2)

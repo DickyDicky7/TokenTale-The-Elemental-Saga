@@ -1,8 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://o436c4ahk6md"]
+[gd_scene load_steps=22 format=3 uid="uid://o436c4ahk6md"]
 
 [ext_resource type="SpriteFrames" uid="uid://dpxjqilcp56lg" path="res://game_objects/characters/elem_monsterss/normal/water/ratfolk_mage/RatfolkMage_SpriteFrames_$Main$.tres" id="1_3rhfa"]
 [ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/water/ratfolk_mage/RatfolkMage.cs" id="1_pu3gl"]
+[ext_resource type="Resource" uid="uid://cpr7h4q8dcy8n" path="res://game_objects/characters/shared/V.tres" id="2_mgoog"]
 [ext_resource type="PackedScene" uid="uid://dsbep0yr8rwxa" path="res://game_objects/shared/hits_flashing_by_modulate/HitsFlashingByModulate.tscn" id="3_mv546"]
+[ext_resource type="PackedScene" uid="uid://chwjmy7grdej" path="res://game_objects/shared/status_info/StatusInfo.tscn" id="3_wfnn0"]
 [ext_resource type="Shape3D" uid="uid://chrq4uqni4ts8" path="res://game_objects/characters/elem_monsterss/normal/water/ratfolk_mage/RatfolkMage_CollisionShape3D_Body.tres" id="4_ml0vs"]
 [ext_resource type="BlackboardPlan" uid="uid://cug48lbgyna66" path="res://game_objects/characters/elem_monsterss/normal/water/ratfolk_mage/RatfolkMage_BlackboardPlanBase.tres" id="6_dfou7"]
 [ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.tscn" id="7_evo1x"]
@@ -426,7 +428,9 @@ collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_pu3gl")
 Element = 1
+AbilityDispatchVisitor = ExtResource("2_mgoog")
 MonsterType = 3
+StatusInfoPackedScene = ExtResource("3_wfnn0")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_desired_distance = 0.5

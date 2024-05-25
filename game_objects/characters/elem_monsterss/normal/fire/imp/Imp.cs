@@ -15,9 +15,5 @@ public partial class Imp : ElementalMonster
 	{
 		base._Ready();
 		this.Key = "Fire01";
-		UpdateStats();
-		this.CurrentHealth = this.MaxHealth;
-		this.CurrentSpeed = this.Speed;
-		this.CurrentDamage = this.Damage;
 	}
 }

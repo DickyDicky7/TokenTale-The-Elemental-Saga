@@ -11,7 +11,7 @@ public partial class StatusInfo : Node3D
     {
         get;
         set;
-    }
+    } = [ ];
 
     [Export]
     public Sprite3D

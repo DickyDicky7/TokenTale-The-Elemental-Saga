@@ -9,11 +9,11 @@ public partial class MetalMonster : ElementalMonster
 	private int Charge { get; set; } = 0;
     public override void Attack(MainCharacter targetMainCharacter)
     {
-		
+		this.CauseDamage(targetMainCharacter);
 	}
 	public override void PlayAbilityAnimation(MainCharacter targetMainCharacter)
 	{
-		Ability3D tempAbility3D = this.Abilities[typeof(MiniThunderShock)];
+		
 		
 	}
 	public void AcceptVisitor(MonsterAbilityDispatchVisitor visitor)
@@ -24,9 +24,5 @@ public partial class MetalMonster : ElementalMonster
 	{
 		base._Ready();
 		this.Key = "Electric01";
-		UpdateStats();
-		this.CurrentHealth = this.MaxHealth;
-		this.CurrentSpeed = this.Speed;
-		this.CurrentDamage = this.Damage;
 	}
 }

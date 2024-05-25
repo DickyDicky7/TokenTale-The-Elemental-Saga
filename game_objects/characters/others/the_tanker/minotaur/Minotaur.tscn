@@ -2,7 +2,7 @@
 
 [ext_resource type="SpriteFrames" uid="uid://b6px143pmxsue" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_SpriteFrames_$Main$.tres" id="1_nfvla"]
 [ext_resource type="Script" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur.cs" id="1_scwcr"]
-[ext_resource type="Resource" uid="uid://c183vyxvgajd2" path="res://game_objects/characters/shared/Monster_Ability_Dispatch_Visitor.tres" id="2_0b0bt"]
+[ext_resource type="Resource" uid="uid://cpr7h4q8dcy8n" path="res://game_objects/characters/shared/V.tres" id="2_so73t"]
 [ext_resource type="Shape3D" uid="uid://c6rxg7lixnpfr" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_CollisionShape3D_Body.tres" id="3_75wp1"]
 [ext_resource type="PackedScene" uid="uid://chwjmy7grdej" path="res://game_objects/shared/status_info/StatusInfo.tscn" id="3_duwsf"]
 [ext_resource type="PackedScene" uid="uid://dsbep0yr8rwxa" path="res://game_objects/shared/hits_flashing_by_modulate/HitsFlashingByModulate.tscn" id="3_ernqa"]
@@ -697,7 +697,7 @@ _data = {
 collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_scwcr")
-AbilityDispatchVisitor = ExtResource("2_0b0bt")
+AbilityDispatchVisitor = ExtResource("2_so73t")
 MonsterType = 1
 StatusInfoPackedScene = ExtResource("3_duwsf")
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://game_objects/characters/others/the_haunting/ghost/Ghost.cs" id="1_fppcc"]
 [ext_resource type="SpriteFrames" uid="uid://b0vb6jgcmi6na" path="res://game_objects/characters/others/the_haunting/ghost/Ghost_SpriteFrames_$Main$.tres" id="2_06es2"]
-[ext_resource type="Resource" uid="uid://c183vyxvgajd2" path="res://game_objects/characters/shared/Monster_Ability_Dispatch_Visitor.tres" id="2_r0wqw"]
+[ext_resource type="Resource" uid="uid://cpr7h4q8dcy8n" path="res://game_objects/characters/shared/V.tres" id="2_kb3ay"]
 [ext_resource type="Shape3D" uid="uid://cy7dym7lga2wt" path="res://game_objects/characters/others/the_haunting/ghost/Ghost_CollisionShape3D_Body.tres" id="3_7w274"]
 [ext_resource type="PackedScene" uid="uid://chwjmy7grdej" path="res://game_objects/shared/status_info/StatusInfo.tscn" id="3_87jan"]
 [ext_resource type="PackedScene" uid="uid://dsbep0yr8rwxa" path="res://game_objects/shared/hits_flashing_by_modulate/HitsFlashingByModulate.tscn" id="3_bwxwa"]
@@ -934,7 +934,7 @@ _data = {
 [node name="GhostRound" type="CharacterBody3D"]
 collision_layer = 4
 script = ExtResource("1_fppcc")
-AbilityDispatchVisitor = ExtResource("2_r0wqw")
+AbilityDispatchVisitor = ExtResource("2_kb3ay")
 MonsterType = 2
 StatusInfoPackedScene = ExtResource("3_87jan")
 

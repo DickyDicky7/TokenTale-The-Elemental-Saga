@@ -4,11 +4,12 @@ using System.Collections.Generic;
 
 namespace TokenTaleTheElementalSaga;
 
+[Tool]
 [GlobalClass]
 public abstract partial class Monster : Character3D
 {
     [Export]
-    MonsterVisitor AbilityDispatchVisitor { get; set; }
+    public MonsterVisitor AbilityDispatchVisitor { get; set; }
     
     [Export]
     public Global.MonsterType
@@ -59,6 +60,8 @@ public abstract partial class Monster : Character3D
 	public override void _Ready()
 	{
 		base._Ready();
+        AbilityDispatchVisitor.Init();
+
         this.DifficultyChanged += this.UpdateStats;
 		UpdateStats();
 		this.CurrentHealth = this.MaxHealth;

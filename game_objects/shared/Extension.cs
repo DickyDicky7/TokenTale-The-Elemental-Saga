@@ -1,5 +1,6 @@
 ﻿using Godot;
 using Godot.Collections;
+using System.Linq;
 
 namespace TokenTaleTheElementalSaga;
 
@@ -88,6 +89,8 @@ public static class Extension
         Dictionary      rayCastResult =
         physicsDirectSpaceState.IntersectRay(
         physicsRayQueryParameters           );
+
+        GD.Print(rayCastResult.Keys.ToArray()[3].GetType());
 
         if     (        rayCastResult.ContainsKey("position"))
         return (Vector3)rayCastResult            ["position"];

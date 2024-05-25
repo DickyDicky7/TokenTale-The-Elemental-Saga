@@ -90,8 +90,6 @@ public static class Extension
         physicsDirectSpaceState.IntersectRay(
         physicsRayQueryParameters           );
 
-        GD.Print(rayCastResult.Keys.ToArray()[3].GetType());
-
         if     (        rayCastResult.ContainsKey("position"))
         return (Vector3)rayCastResult            ["position"];
         else

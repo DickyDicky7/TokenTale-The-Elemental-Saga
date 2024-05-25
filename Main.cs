@@ -59,8 +59,6 @@ GetWindow().Title=
 
         if (Input.IsActionJustPressed("R_CLICK"))
         {
-            GD.Print(this.GetGlobalMousePosition());
-
             Ability3D ability = Scene.Instantiate<
             Ability3D>(); 
             Vector3        globalMousePosition = this.GetGlobalMousePosition();

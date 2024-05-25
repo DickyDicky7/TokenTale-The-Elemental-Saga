@@ -84,15 +84,15 @@ public abstract partial class Character3D : CharacterBody3D
     {
                     base._Ready();
 
-		this.EffectTimer. OneShot = true;
-		this.EffectTimer.WaitTime = 1.0d;
-		this.EffectTimer.ProcessCallback = Timer.TimerProcessCallback.Physics;
-    this.EffectTimer.ProcessMode     =            ProcessModeEnum. Always;
-		this.AddChild   (
+        this.EffectTimer. OneShot = true;
+        this.EffectTimer.WaitTime = 1.0d;
+        this.EffectTimer.ProcessCallback = Timer.TimerProcessCallback.Physics;
+        this.EffectTimer.ProcessMode     =            ProcessModeEnum. Always;
+        this.AddChild   (
          EffectTimer);
-     this.StatusInfo = StatusInfoPackedScene.Instantiate<StatusInfo>();
-     this.AddChild  (  StatusInfo                                    );
-	}
+        this.StatusInfo = StatusInfoPackedScene.Instantiate<StatusInfo>();
+        this.AddChild  (  StatusInfo                                    );
+    }
 
 //  public override void _PhysicsProcess(double @delta)
 //  {

@@ -1,4 +1,4 @@
-using Godot;
+﻿using Godot;
 using Godot.Collections;
 using System;
 namespace TokenTaleTheElementalSaga;
@@ -80,3 +80,18 @@ public partial class MonsterAbilityDispatchVisitor : MonsterVisitor
 
 	}
 }
+
+// Cách giải quyết vấn đề Dictionary
+// Lưu ý: Duplicate() giống new(): chỉ tại cái node đó thôi, ko tạo node con
+// Cách giải quyết: Tạo 1 class như sau
+//[GlobalClass]
+//[Tool]
+//public partial class  A : Resource
+//{
+//	[Export]
+//	public string TypeName { get; set; }
+//	[Export]
+//	public PackedScene Ability { get; set; }
+//}
+
+//lúc đó class DispatchVistor chỉ cần export Array<A>

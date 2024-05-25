@@ -213,10 +213,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -1)
 [node name="SereneMeadow" parent="." instance=ExtResource("7_tyaa3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="PenetratingSquirt" parent="." node_paths=PackedStringArray("GPUParticles3D", "AnimationPlayer", "CollisionShape3D") instance=ExtResource("8_nid88")]
+[node name="PenetratingSquirt" parent="." node_paths=PackedStringArray("GPUParticles3Ddd", "AnimationPlayerr", "CollisionShape3D") instance=ExtResource("8_nid88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -1)
-GPUParticles3D = NodePath("Visual/_GPU_Particles3D")
-AnimationPlayer = NodePath("AnimationPlayer")
+GPUParticles3Ddd = NodePath("Visual/_GPU_Particles3D")
+AnimationPlayerr = NodePath("AnimationPlayer")
 CollisionShape3D = NodePath("Hitbox/CollisionShape3D_Hitbox")
 
 [node name="Overcharge" parent="." instance=ExtResource("9_5jat6")]

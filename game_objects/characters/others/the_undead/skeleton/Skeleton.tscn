@@ -784,10 +784,6 @@ collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_dw4lx")
 MonsterType = 1
-Speed = 1.0
-Jumpv = 1.0
-Acceleration = 0.1
-Deceleration = 0.1
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_desired_distance = 0.5
@@ -870,3 +866,6 @@ shape = ExtResource("3_xhr2f")
 process_callback = 0
 wait_time = 0.1
 autostart = true
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
+aabb = AABB(-0.1, 0, -0.1, 0.2, 0.3, 0.2)

@@ -572,11 +572,6 @@ collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_qkaly")
 Element = 5
-MaxHealth = 50.0
-Speed = 1.0
-Jumpv = 1.0
-Acceleration = 0.1
-Deceleration = 0.1
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 debug_enabled = true
@@ -657,3 +652,6 @@ script = ExtResource("10_fyf3p")
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="Hurtbox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 shape = ExtResource("3_n5lrr")
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
+aabb = AABB(-0.1, 0, -0.1, 0.2, 0.4, 0.2)

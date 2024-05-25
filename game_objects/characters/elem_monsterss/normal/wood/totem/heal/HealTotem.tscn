@@ -454,11 +454,6 @@ collision_mask = 15
 script = ExtResource("1_pc638")
 Element = 6
 MonsterType = 2
-MaxHealth = 50.0
-Speed = 1.0
-Jumpv = 1.0
-Acceleration = 0.1
-Deceleration = 0.1
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_desired_distance = 0.5
@@ -547,3 +542,6 @@ script = ExtResource("9_on06d")
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="Hurtbox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075, 0)
 shape = ExtResource("3_uclmn")
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
+aabb = AABB(-0.075, 0, -0.075, 0.15, 0.15, 0.15)

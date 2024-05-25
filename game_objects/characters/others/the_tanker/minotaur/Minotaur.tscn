@@ -696,10 +696,6 @@ collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_scwcr")
 MonsterType = 1
-Speed = 1.0
-Jumpv = 1.0
-Acceleration = 0.1
-Deceleration = 0.1
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_desired_distance = 0.5
@@ -782,3 +778,6 @@ shape = ExtResource("3_75wp1")
 process_callback = 0
 wait_time = 4.0
 autostart = true
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
+aabb = AABB(-0.15, 0, -0.15, 0.3, 0.4, 0.3)

@@ -1,13 +1,25 @@
-using Godot;
+using     Godot                    ;
 
 namespace TokenTaleTheElementalSaga;
 
 public partial class PenetratingSquirt : Ability3D
 {
 	[Export]
-	GpuParticles3D GPUParticles3D { get; set; }
+	public GpuParticles3D
+		   GPUParticles3Ddd
+	{
+		get;
+		set;
+	}
+
 	[Export]
-	AnimationPlayer AnimationPlayer { get; set; }
+	public AnimationPlayer
+		   AnimationPlayerr
+	{
+		get;
+		set;
+	}
+
 	[Export]
 	CollisionShape3D CollisionShape3D { get; set; }
 	public override void ChangeVisual(Vector3 @movingDirection)
@@ -16,16 +28,24 @@ public partial class PenetratingSquirt : Ability3D
 
         LookAt(target: @movingDirection, up: Vector3.Up, useModelFront: false);
     }
+
 	public override void _Ready()
 	{
 		base._Ready();
 		this.DamageRatio = 1.2f;
 	}
+
 	public override Vector3 CalculateCeasePosition(
-		Vector3 @movingDirection,
-		Vector3 @startPosition,
-		Vector3 @ceasePosition)
+		Vector3 @movingDirection                  ,
+		Vector3 @startPosition                    ,
+		Vector3 @ceasePosition                    )
 	{
-		return @startPosition;
+		return  @startPosition                    ;
 	}
 }
+
+
+
+
+
+

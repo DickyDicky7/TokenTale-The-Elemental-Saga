@@ -105,10 +105,10 @@ _data = {
 "SHOOT": SubResource("Animation_gxndt")
 }
 
-[node name="PenetratingSquirt" type="Node3D" node_paths=PackedStringArray("GPUParticles3D", "AnimationPlayer", "CollisionShape3D")]
+[node name="PenetratingSquirt" type="Node3D" node_paths=PackedStringArray("GPUParticles3Ddd", "AnimationPlayerr", "CollisionShape3D")]
 script = ExtResource("1_dl1o4")
-GPUParticles3D = NodePath("Visual/_GPU_Particles3D")
-AnimationPlayer = NodePath("AnimationPlayer")
+GPUParticles3Ddd = NodePath("Visual/_GPU_Particles3D")
+AnimationPlayerr = NodePath("AnimationPlayer")
 CollisionShape3D = NodePath("Hitbox/CollisionShape3D_Hitbox")
 Element = 1
 

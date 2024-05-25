@@ -7,8 +7,8 @@ public partial class MonsterAbilityDispatchVisitor : MonsterVisitor
 {
 	[Export]
 	public Array<PackedScene> AvailableMonsterAbilityPackedScene { get; set; }
-	public System.Collections.Generic.Dictionary<Type, Ability3D> 
-		MonsterAbilityDictionary { get; private set; }
+	public System.Collections.Generic.Dictionary<Type, Ability3D>
+		MonsterAbilityDictionary{ get; private set; } = new();
 	public override void _Ready()
 	{
 		base._Ready();

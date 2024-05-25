@@ -3,13 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://csa4xm8tgwqvw" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_GradientTexture1D.tres" id="1_rdm2l"]
 
 [resource]
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
 direction = Vector3(0, 0, -1)
 spread = 1.0
-initial_velocity_min = 1.0
-initial_velocity_max = 1.0
-gravity = Vector3(0, 0, -3)
-linear_accel_min = 0.999998
-linear_accel_max = 2.0
-damping_min = 1.0
-damping_max = 1.0
+initial_velocity_min = 4.0
+initial_velocity_max = 4.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = -2.23517e-06
 color_ramp = ExtResource("1_rdm2l")

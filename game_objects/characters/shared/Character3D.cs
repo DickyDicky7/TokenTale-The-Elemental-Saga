@@ -89,9 +89,9 @@ public abstract partial class Character3D : CharacterBody3D
         this.EffectTimer.ProcessCallback = Timer.TimerProcessCallback.Physics;
         this.EffectTimer.ProcessMode     =            ProcessModeEnum. Always;
         this.AddChild   (
-         EffectTimer);
+             EffectTimer);
         this.StatusInfo = StatusInfoPackedScene.Instantiate<StatusInfo>();
-        this.AddChild  (  StatusInfo                                    );
+        this.AddChild   ( StatusInfo                                    );
     }
 
 //  public override void _PhysicsProcess(double @delta)

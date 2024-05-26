@@ -65,6 +65,9 @@ public partial class MiniThrowingRock : Ability3D
     {
                     base.Move(        @startPosition,         @ceasePosition);
 
+              float offsetY
+        = @startPosition. Y        ;
+
         Tween tween = CreateTween();
         tween.TweenMethod(Callable.From((float @time) =>
         {
@@ -72,7 +75,8 @@ public partial class MiniThrowingRock : Ability3D
             Position with
             {
                 Y   =  Curve
-                    . Sample(@time),
+                    . Sample(@time    / (float      )
+                       MovingDuration)+ offsetY
             };
         })   , 0.0f ,  MovingDuration ,
                        MovingDuration);

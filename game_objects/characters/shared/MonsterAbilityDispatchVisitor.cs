@@ -8,10 +8,10 @@ namespace TokenTaleTheElementalSaga;
 public partial class MonsterAbilityDispatchVisitor : MonsterVisitor
 {
 	[Export]
-	public Array<PackedScene> AvailableMonsterAbilityPackedScene { get; set; }
+	public Array<PackedScene> AvailableMonsterAbilityPackedScene { get; set; } = [];
 	public System.Collections.Generic.Dictionary<string, PackedScene>
 		MonsterAbilityDictionary{ get; private set; } = new();
-	public override void Init()
+	public MonsterAbilityDispatchVisitor():base()
 	{
 		foreach (PackedScene packedScene in AvailableMonsterAbilityPackedScene)
 		{

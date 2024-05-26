@@ -60,7 +60,7 @@ public abstract partial class Monster : Character3D
 	public override void _Ready()
 	{
 		base._Ready();
-        AbilityDispatchVisitor.Init();
+        //AbilityDispatchVisitor.Init();
 
         this.DifficultyChanged += this.UpdateStats;
 		UpdateStats();

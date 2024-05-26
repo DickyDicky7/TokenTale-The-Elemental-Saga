@@ -6,7 +6,10 @@ namespace TokenTaleTheElementalSaga;
 [GlobalClass]
 public abstract partial class MonsterVisitor : Resource
 {
-	public abstract void Init();
+	public MonsterVisitor():base()
+	{
+
+	}
 
 
 	public abstract void VisitMetalMonster(MetalMonster metalMonster);

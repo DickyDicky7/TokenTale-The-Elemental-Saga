@@ -13,4 +13,4 @@
 
 [resource]
 script = ExtResource("1_8rirj")
-AvailableMonsterAbilityPackedScene = Array[PackedScene]([ExtResource("1_fbxmg"), ExtResource("2_s68rl"), ExtResource("3_es6ff"), ExtResource("4_y88mn"), ExtResource("5_hdt6f"), ExtResource("6_yopdx"), ExtResource("7_pbpsj"), ExtResource("8_1jjxf"), ExtResource("9_s4qe2")])
+AvailableMonsterAbilityPackedScene = [ExtResource("1_fbxmg"), ExtResource("2_s68rl"), ExtResource("3_es6ff"), ExtResource("4_y88mn"), ExtResource("5_hdt6f"), ExtResource("6_yopdx"), ExtResource("7_pbpsj"), ExtResource("8_1jjxf"), ExtResource("9_s4qe2")]

@@ -105,11 +105,8 @@ _data = {
 "SHOOT": SubResource("Animation_gxndt")
 }
 
-[node name="PenetratingSquirt" type="Node3D" node_paths=PackedStringArray("GPUParticles3Ddd", "AnimationPlayerr", "CollisionShape3D")]
+[node name="PenetratingSquirt" type="Node3D"]
 script = ExtResource("1_dl1o4")
-GPUParticles3Ddd = NodePath("Visual/_GPU_Particles3D")
-AnimationPlayerr = NodePath("AnimationPlayer")
-CollisionShape3D = NodePath("Hitbox/CollisionShape3D_Hitbox")
 Element = 1
 
 [node name="Visual" type="Node3D" parent="."]
@@ -123,7 +120,6 @@ process_material = ExtResource("6_7sgmm")
 draw_pass_1 = ExtResource("6_scnkn")
 
 [node name="Hitbox" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 collision_layer = 32
 collision_mask = 4
 script = ExtResource("4_7fopb")

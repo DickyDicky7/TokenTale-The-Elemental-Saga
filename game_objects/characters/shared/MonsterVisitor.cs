@@ -7,8 +7,6 @@ namespace TokenTaleTheElementalSaga;
 public abstract partial class MonsterVisitor : Resource
 {
 	public abstract void Init();
-
-
 	public abstract void VisitMetalMonster(MetalMonster metalMonster);
 	public abstract void VisitImp(Imp imp);
 	public abstract void VisitKoboldPriest(KoboldPriest koboldPriest);

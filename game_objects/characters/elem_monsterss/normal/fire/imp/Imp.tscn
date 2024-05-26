@@ -474,7 +474,6 @@ script = ExtResource("1_41j3n")
 AbilityDispatchVisitor = ExtResource("2_qyosf")
 StatusInfoPackedScene = ExtResource("14_vdc28")
 
-
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_desired_distance = 0.5
 target_desired_distance = 0.3

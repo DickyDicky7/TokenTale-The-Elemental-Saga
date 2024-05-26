@@ -15,67 +15,12 @@ public partial class Hittbox3D : CustomArea3D
 	protected override void OnBodyEntered(Node3D @node3D)
 	{
 		this.Hit = true;
-		if (this.GetParent() is Ability3D tempAbility && node3D is Monster tempMonster)
+		if (this.GetParent() is Ability3D tempAbility && node3D is Character3D tempCharacter)
 		{
-			float damage = 0;
-			damage = CalculateDamage(tempAbility, tempMonster);
-			tempMonster.CurrentHealth -= damage;
-			tempMonster.EmitSignal(Character3D.SignalName.HealthChange, damage);
+			float damage = tempAbility.Caster.CalculateDamage(tempAbility, tempCharacter);
+			tempCharacter.CurrentHealth -= damage;
+			tempCharacter.EmitSignal(Character3D.SignalName.HealthChange, damage);
 		}
-	}
-	protected float CalculateDamage(
-		Ability3D currentAbility3D,
-		Monster targetMonster3D)
-	{
-		float damage = 0;
-		if (currentAbility3D.Caster is MainCharacter tempMainChar)
-		{
-			//Declare base damage
-			damage = tempMainChar
-				.AbilityManager
-				.ElementStatus[currentAbility3D.Element]
-				.AbilityInfo
-				.Damage
-				* currentAbility3D.DamageRatio;
-			//setup damage handler to calculate
-			BaseDH ElementalEquipmentDH = new ElementalEquipmentDH(
-				tempMainChar
-				.EquipmentManager
-				.ElementalBraceletList
-				.First(x => x.Key == 0) //Change later when toggle elemental ready
-				.BonusDamage);
-			BaseDH ElementalProficiencyDH = new ElementalProficiencyDH(
-				tempMainChar
-				.BoosterManager
-				.ElementalBonusDamageRatio);
-			BaseDH ElementalReactionDH = null;
-			if (targetMonster3D is ElementalMonster tempElementalMonster)
-			{
-				ElementalReactionDH = new ElementalReactionDH(
-					tempElementalMonster.Element,
-					currentAbility3D.Element,
-					true);
-			}
-			else if(targetMonster3D.ElementMark == Global.Element.None)
-			{
-				targetMonster3D.ElementMark = currentAbility3D.Element;
-			}
-			else
-			{
-				ElementalReactionDH = new ElementalReactionDH(
-					targetMonster3D.ElementMark,
-					currentAbility3D.Element,
-					false);
-				targetMonster3D.ElementMark = Global.Element.None;
-			}
-			//calculate Damage
-			ElementalEquipmentDH.SetNextHandler(ElementalProficiencyDH);
-			if (ElementalReactionDH != null)
-				ElementalProficiencyDH.SetNextHandler(ElementalReactionDH);
-			ElementalEquipmentDH.ProcessDamage(ref damage);
-			//GD.Print(damage);
-		}
-		return damage;
 	}
 }
 

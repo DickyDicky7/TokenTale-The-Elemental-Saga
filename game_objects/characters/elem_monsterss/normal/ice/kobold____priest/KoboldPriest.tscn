@@ -355,7 +355,6 @@ Element = 3
 AbilityDispatchVisitor = ExtResource("2_hr0yf")
 StatusInfoPackedScene = ExtResource("3_deyr3")
 
-
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_desired_distance = 0.5
 target_desired_distance = 0.3

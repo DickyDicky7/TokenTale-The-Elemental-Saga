@@ -8,13 +8,17 @@ public partial class Skeleton : Monster
     {
 
     }
+	public override void CreateAbility(MainCharacter targetMainCharacter)
+	{
+
+	}
+	public override void AcceptVisitor(MonsterVisitor visitor)
+	{
+		visitor.VisitSkeleton(this);
+	}
 	public override void _Ready()
 	{
-		base._Ready();
 		this.Key = "Undead";
-		UpdateStats();
-		this.CurrentHealth = this.MaxHealth;
-		this.CurrentSpeed = this.Speed;
-		this.CurrentDamage = this.Damage;
+		base._Ready();
 	}
 }

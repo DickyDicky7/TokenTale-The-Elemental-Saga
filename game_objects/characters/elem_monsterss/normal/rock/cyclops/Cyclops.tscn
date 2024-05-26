@@ -577,7 +577,6 @@ Element = 5
 AbilityDispatchVisitor = ExtResource("2_jo8m2")
 StatusInfoPackedScene = ExtResource("3_aafvv")
 
-
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 debug_enabled = true
 

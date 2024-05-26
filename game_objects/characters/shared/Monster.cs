@@ -10,17 +10,12 @@ public abstract partial class Monster : Character3D
 {
     [Export]
     public MonsterVisitor AbilityDispatchVisitor { get; set; }
+    [Export]
+    public NavigationRegion3D NavigationRegion3DStatic { get; set; }
     
     [Export]
     public Global.MonsterType
                   MonsterType
-    {
-        get;
-        set;
-    }
-
-    public Global.Element
-                  ElementMark
     {
         get;
         set;
@@ -30,23 +25,35 @@ public abstract partial class Monster : Character3D
     public string Key { get; protected set; }
     public float CurrentDamage { get; protected set; }
     public float Damage { get; protected set; } = 1.0f;
-    public Dictionary<Type, PackedScene> AbilityPackedScenes { get; set; }
+    public Dictionary<string, PackedScene> AbilityPackedScenes { get; set; } = new();
     
     public abstract void Attack(MainCharacter targetMainCharacter);
-    public void CauseDamage(MainCharacter targetMainCharacter)
-    {
-        targetMainCharacter.CurrentHealth -= this.CurrentDamage;
-        targetMainCharacter.EmitSignal(SignalName.HealthChange, this.CurrentDamage);
-        this.StatusInfo.Items.Add(new StatusInfoItemElemental
+    public abstract void AcceptVisitor(MonsterVisitor visitor);
+    public abstract void CreateAbility(MainCharacter targetMainCharacter);
+	public override float CalculateDamage(Ability3D ability, Character3D targetCharacter)
+	{
+        float damage = 0;
+        if (targetCharacter is not MainCharacter)
+            return damage;
+        damage = this.CurrentDamage * ability.DamageRatio;
+        BaseDH elementalReactionDH = null;
+        if (targetCharacter.ElementMark == Global.Element.None)
         {
-            Element = Global.Element.Fire, Thing = this.CurrentDamage.ToString()
-        });
-    }
-    public virtual void PlayAbilityAnimation(MainCharacter targetMainCharacter)
-    {
-
-    }
-    public void UpdateStats()
+			targetCharacter.ElementMark = ability.Element;
+        }
+        else
+        {
+            elementalReactionDH = new ElementalReactionDH(
+                targetCharacter.ElementMark,
+                ability.Element,
+                false);
+            targetCharacter.ElementMark = Global.Element.None;
+        }
+        if (elementalReactionDH != null)
+            elementalReactionDH.ProcessDamage(ref damage);
+        return damage;
+	}
+	public void UpdateStats()
     {
         Record.MonsterInfo MonsterInfo = MonsterStats.GetInstance()
             .Monster[this.Key];
@@ -60,8 +67,10 @@ public abstract partial class Monster : Character3D
 	public override void _Ready()
 	{
 		base._Ready();
+        //init ability resource
         AbilityDispatchVisitor.Init();
-
+        this.AcceptVisitor(this.AbilityDispatchVisitor);
+        //update stats base on difficulty
         this.DifficultyChanged += this.UpdateStats;
 		UpdateStats();
 		this.CurrentHealth = this.MaxHealth;

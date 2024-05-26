@@ -9,11 +9,13 @@ public partial class AirSurgeHitbox : Hittbox3D
 	{
 		if (this.GetParent() is Ability3D tempAbility && node3D is Monster tempMonster)
 		{
-			this.PushMonsterAside(tempAbility, tempMonster);
 			if (ExceptionRidList.Find(x => x == tempMonster.GetRid()) != default)
 				return;
 			else
+			{
 				ExceptionRidList.Add(tempMonster.GetRid());
+				this.PushMonsterAside(tempAbility, tempMonster);
+			}
 		}
 		base.OnBodyEntered(node3D);
 	}

@@ -8,13 +8,17 @@ public partial class Ghost : Monster
     {
         this.QueueFree();
     }
+	public override void CreateAbility(MainCharacter targetMainCharacter)
+	{
+
+	}
+	public override void AcceptVisitor(MonsterVisitor visitor)
+	{
+		visitor.VisitGhost(this);
+	}
 	public override void _Ready()
 	{
-		base._Ready();
 		this.Key = "Haunt";
-		UpdateStats();
-		this.CurrentHealth = this.MaxHealth;
-		this.CurrentSpeed = this.Speed;
-		this.CurrentDamage = this.Damage;
+		base._Ready();
 	}
 }

@@ -5,8 +5,8 @@
 [ext_resource type="BehaviorTree" uid="uid://cek67ykpxhi6l" path="res://game_objects/abilities/others/mini_thunder_shock/MiniThunderShock_BehaviorTree.tres" id="2_1bdqn"]
 [ext_resource type="Material" uid="uid://dr5xj5ljrt32t" path="res://game_objects/abilities/others/mini_thunder_shock/MiniThunderShock_ShaderMaterial01.tres" id="2_2curn"]
 [ext_resource type="Shape3D" uid="uid://brhgva1tk6ijx" path="res://game_objects/abilities/others/mini_thunder_shock/MiniThunderShock_CollisionShape3D_Hitbox.tres" id="2_b6n0k"]
-[ext_resource type="Script" path="res://game_objects/shared/Hittbox3D.cs" id="2_ffgyi"]
 [ext_resource type="BlackboardPlan" uid="uid://ce8c1ogctoh8b" path="res://game_objects/abilities/others/mini_thunder_shock/MiniThunderShock_BlackboardPlanBase.tres" id="2_yppce"]
+[ext_resource type="Script" path="res://game_objects/abilities/others/mini_thunder_shock/MThunderShockHitbox.cs" id="4_qid02"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="5_i8r0m"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="6_3s1vp"]
 [ext_resource type="Material" uid="uid://dph8lvccm5xbu" path="res://game_objects/abilities/others/mini_thunder_shock/MiniThunderShock_ShaderMaterial02.tres" id="6_c5gkc"]
@@ -128,7 +128,7 @@ animation = &"SHOCK"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 collision_layer = 128
 collision_mask = 8
-script = ExtResource("2_ffgyi")
+script = ExtResource("4_qid02")
 
 [node name="CollisionShape3D_Hitbox" type="CollisionShape3D" parent="Hitbox"]
 shape = ExtResource("2_b6n0k")

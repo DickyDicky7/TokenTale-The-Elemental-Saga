@@ -82,7 +82,7 @@ Thing = "wind"
 
 [node name="Main" type="Node3D" node_paths=PackedStringArray("MainCharacter", "NavigationRegionSstatic", "NavigationRegionDynamic", "Timer", "StatusInfo")]
 script = ExtResource("1_px6f3")
-Scene = ExtResource("8_nid88")
+Scene = ExtResource("13_w4ibj")
 MainCharacter = NodePath("MainCharacter")
 NavigationRegionSstatic = NodePath("NavigationRegion3D_$Static")
 NavigationRegionDynamic = NodePath("NavigationRegion3D_Dynamic")
@@ -154,38 +154,49 @@ Sprite3D = NodePath("Sprite3D")
 Label = NodePath("SubViewport/Label")
 Timer = NodePath("DelTimer")
 
-[node name="Imp" parent="." instance=ExtResource("4_hlmyl")]
+[node name="Imp" parent="." node_paths=PackedStringArray("NavigationRegion3DStatic") instance=ExtResource("4_hlmyl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1, -4)
+NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
 
-[node name="Minotaur" parent="." instance=ExtResource("7_2coyl")]
+[node name="Minotaur" parent="." node_paths=PackedStringArray("NavigationRegion3DStatic") instance=ExtResource("7_2coyl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, -4)
+NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
 
-[node name="Cyclops" parent="." instance=ExtResource("10_ogacn")]
+[node name="Cyclops" parent="." node_paths=PackedStringArray("NavigationRegion3DStatic") instance=ExtResource("10_ogacn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, -4)
+NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
 
-[node name="Cat" parent="." instance=ExtResource("23_saaco")]
+[node name="Cat" parent="." node_paths=PackedStringArray("NavigationRegion3DStatic") instance=ExtResource("23_saaco")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, -4)
+NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
 
-[node name="Skeleton" parent="." instance=ExtResource("12_8akbt")]
+[node name="Skeleton" parent="." node_paths=PackedStringArray("NavigationRegion3DStatic") instance=ExtResource("12_8akbt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1, 4)
+NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
 
-[node name="GhostRound" parent="." instance=ExtResource("13_e31qg")]
+[node name="GhostRound" parent="." node_paths=PackedStringArray("NavigationRegion3DStatic") instance=ExtResource("13_e31qg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 0)
+NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
 
-[node name="MetalMonster" parent="." instance=ExtResource("26_ynl1c")]
+[node name="MetalMonster" parent="." node_paths=PackedStringArray("NavigationRegion3DStatic") instance=ExtResource("26_ynl1c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 4)
+NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
 
-[node name="Bat" parent="." instance=ExtResource("15_c3vll")]
+[node name="Bat" parent="." node_paths=PackedStringArray("NavigationRegion3DStatic") instance=ExtResource("15_c3vll")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, 4)
+NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
 
-[node name="KoboldPriest" parent="." instance=ExtResource("16_ro6gg")]
+[node name="KoboldPriest" parent="." node_paths=PackedStringArray("NavigationRegion3DStatic") instance=ExtResource("16_ro6gg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 4)
+NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
 
-[node name="HealTotem" parent="." instance=ExtResource("18_ujfjh")]
+[node name="HealTotem" parent="." node_paths=PackedStringArray("NavigationRegion3DStatic") instance=ExtResource("18_ujfjh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1, 0)
+NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
 
-[node name="RatfolkMage" parent="." instance=ExtResource("30_ddnm6")]
+[node name="RatfolkMage" parent="." node_paths=PackedStringArray("NavigationRegion3DStatic") instance=ExtResource("30_ddnm6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, 0)
+NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 0, 0)

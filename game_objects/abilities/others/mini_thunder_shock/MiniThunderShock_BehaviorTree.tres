@@ -1,11 +1,16 @@
-[gd_resource type="BehaviorTree" load_steps=4 format=3 uid="uid://cek67ykpxhi6l"]
+[gd_resource type="BehaviorTree" load_steps=6 format=3 uid="uid://cek67ykpxhi6l"]
 
 [ext_resource type="BlackboardPlan" uid="uid://33v58qqg4nd5" path="res://game_objects/abilities/others/mini_thunder_shock/MiniThunderShock_BlackboardPlan----.tres" id="1_ne2rk"]
+[ext_resource type="Script" path="res://ai/tasks/ability/setupAbility.gd" id="2_mj0c3"]
+
+[sub_resource type="BTAction" id="BTAction_a2k3o"]
+script = ExtResource("2_mj0c3")
+PathHitBox = NodePath("Hitbox")
 
 [sub_resource type="BTWait" id="BTWait_7gruh"]
 
 [sub_resource type="BTSequence" id="BTSequence_7kkt8"]
-children = [SubResource("BTWait_7gruh")]
+children = [SubResource("BTAction_a2k3o"), SubResource("BTWait_7gruh")]
 
 [resource]
 blackboard_plan = ExtResource("1_ne2rk")

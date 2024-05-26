@@ -15,6 +15,7 @@ public abstract partial class Character3D : CharacterBody3D
     public float        Jumpv  { get; set; } = 1.0f;
     public float Acceleration  { get; set; } = 0.1f;
     public float Deceleration  { get; set; } = 0.1f;
+    public Global.Element ElementMark { get; set; } = Global.Element.None;
     public Timer EffectTimer   { get; private set; } = new();
     public StatusInfo
            StatusInfo          { get; private set; }
@@ -82,29 +83,28 @@ public abstract partial class Character3D : CharacterBody3D
 
     public override void _Ready()
     {
-                    base._Ready();
-
         this.EffectTimer. OneShot = true;
         this.EffectTimer.WaitTime = 1.0d;
         this.EffectTimer.ProcessCallback = Timer.TimerProcessCallback.Physics;
         this.EffectTimer.ProcessMode     =            ProcessModeEnum. Always;
-        this.AddChild   (
-         EffectTimer);
+        this.AddChild   (EffectTimer, @internal: InternalMode.Back);
         this.StatusInfo = StatusInfoPackedScene.Instantiate<StatusInfo>();
         this.AddChild  (  StatusInfo                                    );
-    }
+		base._Ready();
+	}
 
-//  public override void _PhysicsProcess(double @delta)
-//  {
-//                  base._PhysicsProcess(       @delta);
-//
-//      if (!  IsOnFloor())
-//      {
-//          Velocity  =                                  new();
-//          Velocity += GetGravity() *  (float) @delta * Jumpv;
-//          MoveAndSlide();
-//      }
-//  }
+    //  public override void _PhysicsProcess(double @delta)
+    //  {
+    //                  base._PhysicsProcess(       @delta);
+    //
+    //      if (!  IsOnFloor())
+    //      {
+    //          Velocity  =                                  new();
+    //          Velocity += GetGravity() *  (float) @delta * Jumpv;
+    //          MoveAndSlide();
+    //      }
+    //  }
+    public abstract float CalculateDamage(Ability3D ability, Character3D target);
 
     public void StartSpeedEffect(float @ratio, float @duration)
     {

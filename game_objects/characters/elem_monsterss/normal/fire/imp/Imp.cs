@@ -11,9 +11,17 @@ public partial class Imp : ElementalMonster
 	{
 		
 	}
+	public override void CreateAbility(MainCharacter targetMainCharacter)
+	{
+
+	}
+	public override void AcceptVisitor(MonsterVisitor visitor)
+	{
+		visitor.VisitImp(this);
+	}
 	public override void _Ready()
 	{
-		base._Ready();
 		this.Key = "Fire01";
+		base._Ready();
 	}
 }

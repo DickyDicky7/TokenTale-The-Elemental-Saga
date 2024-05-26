@@ -701,7 +701,6 @@ AbilityDispatchVisitor = ExtResource("2_so73t")
 MonsterType = 1
 StatusInfoPackedScene = ExtResource("3_duwsf")
 
-
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_desired_distance = 0.5
 target_desired_distance = 0.3

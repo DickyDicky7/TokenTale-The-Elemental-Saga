@@ -1,8 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://yfbwbxquk1v"]
+[gd_scene load_steps=25 format=3 uid="uid://yfbwbxquk1v"]
 
 [ext_resource type="SpriteFrames" uid="uid://c8gw1rkf7dxbk" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops_SpriteFrames_$Main$.tres" id="1_1rf3k"]
 [ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops.cs" id="1_qkaly"]
+[ext_resource type="Resource" uid="uid://cpr7h4q8dcy8n" path="res://game_objects/characters/shared/V.tres" id="2_jo8m2"]
 [ext_resource type="PackedScene" uid="uid://dsbep0yr8rwxa" path="res://game_objects/shared/hits_flashing_by_modulate/HitsFlashingByModulate.tscn" id="3_3d3nc"]
+[ext_resource type="PackedScene" uid="uid://chwjmy7grdej" path="res://game_objects/shared/status_info/StatusInfo.tscn" id="3_aafvv"]
 [ext_resource type="Shape3D" uid="uid://bcks15sxia73f" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops_CollisionShape3D_Body.tres" id="3_n5lrr"]
 [ext_resource type="BlackboardPlan" uid="uid://dtlc6qyr0idvj" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops_BlackboardPlanBase.tres" id="5_sg5x2"]
 [ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.tscn" id="5_tvi3d"]
@@ -572,11 +574,9 @@ collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_qkaly")
 Element = 5
-MaxHealth = 50.0
-Speed = 1.0
-Jumpv = 1.0
-Acceleration = 0.1
-Deceleration = 0.1
+AbilityDispatchVisitor = ExtResource("2_jo8m2")
+StatusInfoPackedScene = ExtResource("3_aafvv")
+
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 debug_enabled = true
@@ -657,3 +657,6 @@ script = ExtResource("10_fyf3p")
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="Hurtbox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 shape = ExtResource("3_n5lrr")
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
+aabb = AABB(-0.1, 0, -0.1, 0.2, 0.4, 0.2)

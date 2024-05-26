@@ -1,7 +1,8 @@
-[gd_scene load_steps=45 format=3 uid="uid://c47tcwkeiq0h2"]
+[gd_scene load_steps=46 format=3 uid="uid://c47tcwkeiq0h2"]
 
 [ext_resource type="Script" path="res://game_objects/characters/main_character/MainCharacter.cs" id="1_gm2bn"]
 [ext_resource type="SpriteFrames" uid="uid://rt7sar8d0e54" path="res://game_objects/characters/main_character/MainCharacter_SpriteFrames_$Main$.tres" id="1_q2bc7"]
+[ext_resource type="PackedScene" uid="uid://chwjmy7grdej" path="res://game_objects/shared/status_info/StatusInfo.tscn" id="2_dyk2k"]
 [ext_resource type="Material" uid="uid://bscw2illjxslq" path="res://game_objects/characters/main_character/MainCharacter_ShaderMaterial_GLOU.tres" id="2_ytvyu"]
 [ext_resource type="Shape3D" uid="uid://b7xid5nyum248" path="res://game_objects/characters/main_character/MainCharacter_CollisionShape3D_Body.tres" id="4_7nd0n"]
 [ext_resource type="Script" path="res://game_objects/items/shared/WeaponsController.cs" id="8_aswq2"]
@@ -705,6 +706,7 @@ collision_mask = 15
 script = ExtResource("1_gm2bn")
 NavigationAgent3D = NodePath("NavigationAgent3D")
 MainCharacterAnimatedSprite3DEffect = NodePath("AnimatedSprite3D_Effect")
+StatusInfoPackedScene = ExtResource("2_dyk2k")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 debug_enabled = true
@@ -716,7 +718,7 @@ offset = Vector2(0, 12)
 texture_filter = 0
 sprite_frames = ExtResource("1_q2bc7")
 animation = &"IDLE_D"
-frame = 2
+frame = 1
 
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 cast_shadow = 3
@@ -725,7 +727,7 @@ alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_q2bc7")
 animation = &"IDLE_D"
-frame = 2
+frame = 1
 
 [node name="AnimatedSprite3D_Effect" parent="." node_paths=PackedStringArray("AnimationPlayer") instance=ExtResource("19_14buj")]
 AnimationPlayer = NodePath("AnimationPlayer")

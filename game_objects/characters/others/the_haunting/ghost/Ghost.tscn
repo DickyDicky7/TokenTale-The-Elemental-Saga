@@ -1,8 +1,10 @@
-[gd_scene load_steps=28 format=3 uid="uid://y1t0iubx8y1b"]
+[gd_scene load_steps=30 format=3 uid="uid://y1t0iubx8y1b"]
 
 [ext_resource type="Script" path="res://game_objects/characters/others/the_haunting/ghost/Ghost.cs" id="1_fppcc"]
 [ext_resource type="SpriteFrames" uid="uid://b0vb6jgcmi6na" path="res://game_objects/characters/others/the_haunting/ghost/Ghost_SpriteFrames_$Main$.tres" id="2_06es2"]
+[ext_resource type="Resource" uid="uid://cpr7h4q8dcy8n" path="res://game_objects/characters/shared/V.tres" id="2_kb3ay"]
 [ext_resource type="Shape3D" uid="uid://cy7dym7lga2wt" path="res://game_objects/characters/others/the_haunting/ghost/Ghost_CollisionShape3D_Body.tres" id="3_7w274"]
+[ext_resource type="PackedScene" uid="uid://chwjmy7grdej" path="res://game_objects/shared/status_info/StatusInfo.tscn" id="3_87jan"]
 [ext_resource type="PackedScene" uid="uid://dsbep0yr8rwxa" path="res://game_objects/shared/hits_flashing_by_modulate/HitsFlashingByModulate.tscn" id="3_bwxwa"]
 [ext_resource type="BehaviorTree" uid="uid://cnmc3ecev6cls" path="res://game_objects/characters/others/the_haunting/ghost/Ghost_BehaviorTree.tres" id="3_wncf4"]
 [ext_resource type="BlackboardPlan" uid="uid://wbnqf68uhbs6" path="res://game_objects/characters/others/the_haunting/ghost/Ghost_BlackboardPlanBase.tres" id="5_ljghu"]
@@ -932,11 +934,10 @@ _data = {
 [node name="GhostRound" type="CharacterBody3D"]
 collision_layer = 4
 script = ExtResource("1_fppcc")
+AbilityDispatchVisitor = ExtResource("2_kb3ay")
 MonsterType = 2
-Speed = 3.0
-Jumpv = 3.0
-Acceleration = 0.15
-Deceleration = 0.15
+StatusInfoPackedScene = ExtResource("3_87jan")
+
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_desired_distance = 0.5
@@ -1018,3 +1019,6 @@ script = ExtResource("9_t17ql")
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="Hurtbox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
 shape = ExtResource("3_7w274")
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
+aabb = AABB(-0.1, 0, -0.1, 0.2, 0.3, 0.2)

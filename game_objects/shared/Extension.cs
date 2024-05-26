@@ -1,5 +1,6 @@
 ﻿using Godot;
 using Godot.Collections;
+using System.Linq;
 
 namespace TokenTaleTheElementalSaga;
 
@@ -103,6 +104,50 @@ public static class Extension
         Vector3 @localMousePosition = @node_3D.  ToLocal             (
                 globalMousePosition);
         return  @localMousePosition ;
+    }
+
+    public static (Vector3 GlobalMousePosition , PhysicsBody3D PhysicsBody3D         )
+                        GetGlobalMousePositionAndPhysicsBody3D( this  Node3D @nodee3D)
+    {
+        Viewport viewport = @nodee3D.GetViewport();
+        Camera3D camera3D = viewport.GetCamera3D();
+
+        Vector2 mousePosition = viewport.GetMousePosition();
+        float   rayyyLengthhh = 1000;
+        Vector3 from =        camera3D.ProjectRayOrigin(screenPoint: mousePosition)                ;
+        Vector3 tooo = from + camera3D.ProjectRayNormal(screenPoint: mousePosition) * rayyyLengthhh;
+        PhysicsDirectSpaceState3D
+        physicsDirectSpaceState =
+                              camera3D.GetWorld3D().DirectSpaceState;
+        PhysicsRayQueryParameters3D
+        physicsRayQueryParameters     = new();
+        physicsRayQueryParameters.From = from;
+        physicsRayQueryParameters.To   = tooo;
+        Dictionary      rayCastResult =
+        physicsDirectSpaceState.IntersectRay(
+        physicsRayQueryParameters           );
+
+        if     (                       rayCastResult.ContainsKey("position"))
+        return
+        (GlobalMousePosition: (Vector3)rayCastResult            ["position"], PhysicsBody3D: (PhysicsBody3D)rayCastResult.Keys.ToList()[3]);
+        else
+        return
+        (GlobalMousePosition: @nodee3D.GetScreenMousePosition()
+                                      .      ConvertToTopDown()             , PhysicsBody3D:
+                                             new StaticBody3D()                                                                           );
+    }
+
+    public static (Vector3 LLocalMousePosition , PhysicsBody3D PhysicsBody3D         )
+                        GetLLocalMousePositionAndPhysicsBody3D( this  Node3D @nodee3D)
+    {
+                  (Vector3 GlobalMousePosition , PhysicsBody3D PhysicsBody3D         ) _ =
+                                                                             @nodee3D    .
+                        GetGlobalMousePositionAndPhysicsBody3D(                      );
+                   Vector3 llocalMousePosition =                             @nodee3D    .ToLocal(
+                         _.GlobalMousePosition                                                   );
+           return (        LLocalMousePosition :
+                           llocalMousePosition ,               PhysicsBody3D :
+                                                             _.PhysicsBody3D         );
     }
 
     public static Vector2 GetScreenMousePosition(this Node @node)

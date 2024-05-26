@@ -1,9 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://bqn2g5rr825g4"]
+[gd_scene load_steps=21 format=3 uid="uid://bqn2g5rr825g4"]
 
 [ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest.cs" id="1_g4x14"]
 [ext_resource type="SpriteFrames" uid="uid://b5w6psdxkqfdx" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest_SpriteFrames_$Main$.tres" id="1_plsuf"]
 [ext_resource type="PackedScene" uid="uid://dsbep0yr8rwxa" path="res://game_objects/shared/hits_flashing_by_modulate/HitsFlashingByModulate.tscn" id="2_cj2tq"]
+[ext_resource type="Resource" uid="uid://cpr7h4q8dcy8n" path="res://game_objects/characters/shared/V.tres" id="2_hr0yf"]
 [ext_resource type="Shape3D" uid="uid://cyhidcdjpi64j" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest_CollisionShape3D_Body.tres" id="3_6xqyd"]
+[ext_resource type="PackedScene" uid="uid://chwjmy7grdej" path="res://game_objects/shared/status_info/StatusInfo.tscn" id="3_deyr3"]
 [ext_resource type="BlackboardPlan" uid="uid://bvyrderb61tqr" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest_BlackboardPlanBase.tres" id="5_5t8jw"]
 [ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.tscn" id="5_rh2dw"]
 [ext_resource type="BehaviorTree" uid="uid://dwwfq1c3bej11" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest_BehaviorTree.tres" id="6_mxaxa"]
@@ -350,11 +352,9 @@ collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_g4x14")
 Element = 3
-MaxHealth = 50.0
-Speed = 1.0
-Jumpv = 1.0
-Acceleration = 0.1
-Deceleration = 0.1
+AbilityDispatchVisitor = ExtResource("2_hr0yf")
+StatusInfoPackedScene = ExtResource("3_deyr3")
+
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_desired_distance = 0.5
@@ -437,3 +437,6 @@ script = ExtResource("9_l7u76")
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="Hurtbox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075, 0)
 shape = ExtResource("3_6xqyd")
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
+aabb = AABB(-0.075, 0, -0.075, 0.15, 0.15, 0.15)

@@ -1,8 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://dks14llooa7jv"]
+[gd_scene load_steps=22 format=3 uid="uid://dks14llooa7jv"]
 
 [ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat.cs" id="1_52p22"]
 [ext_resource type="SpriteFrames" uid="uid://dkd552vapywc0" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat_SpriteFrames_$Main$.tres" id="1_k4jlk"]
+[ext_resource type="Resource" uid="uid://cpr7h4q8dcy8n" path="res://game_objects/characters/shared/V.tres" id="2_kcs1j"]
 [ext_resource type="PackedScene" uid="uid://dsbep0yr8rwxa" path="res://game_objects/shared/hits_flashing_by_modulate/HitsFlashingByModulate.tscn" id="2_nswkj"]
+[ext_resource type="PackedScene" uid="uid://chwjmy7grdej" path="res://game_objects/shared/status_info/StatusInfo.tscn" id="3_3dydc"]
 [ext_resource type="Shape3D" uid="uid://v8akknafh8ti" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat_CollisionShape3D_Body.tres" id="3_gfl41"]
 [ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.tscn" id="5_3qblb"]
 [ext_resource type="BlackboardPlan" uid="uid://b228i5frlcwo7" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat_BlackboardPlanBase.tres" id="5_esgvn"]
@@ -403,11 +405,10 @@ collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_52p22")
 Element = 2
+AbilityDispatchVisitor = ExtResource("2_kcs1j")
 MonsterType = 3
-MaxHealth = 50.0
-Speed = 1.0
-Acceleration = 0.1
-Deceleration = 0.1
+StatusInfoPackedScene = ExtResource("3_3dydc")
+
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_desired_distance = 0.5
@@ -497,3 +498,6 @@ script = ExtResource("9_3sdow")
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="Hurtbox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 shape = ExtResource("3_gfl41")
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
+aabb = AABB(-0.05, 0, -0.05, 0.1, 0.3, 0.1)

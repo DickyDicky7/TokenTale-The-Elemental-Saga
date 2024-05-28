@@ -57,34 +57,34 @@ public partial class Main : Node3D
 GetWindow().Title=
                 $"{Engine.GetFramesPerSecond()}";
 
-        if (Input.IsActionJustPressed("R_CLICK"))
-        {
-            Ability3D ability = Scene.Instantiate<
-            Ability3D>(); 
-            Vector3        globalMousePosition = this.GetGlobalMousePosition();
-            ability.Attach                       (
-            spacex:        NavigationRegionSstatic,
-            caster:        MainCharacter          ,
-            startPosition: NavigationRegionSstatic.ToLocal(
-                           MainCharacter          .
-           GlobalPosition),
-            ceasePosition: NavigationRegionSstatic.ToLocal(
-                           globalMousePosition)  );
+//        if (Input.IsActionJustPressed("R_CLICK"))
+//        {
+//            Ability3D ability = Scene.Instantiate<
+//            Ability3D>(); 
+//            Vector3        globalMousePosition = this.GetGlobalMousePosition();
+//            ability.Attach                       (
+//            spacex:        NavigationRegionSstatic,
+//            caster:        MainCharacter          ,
+//            startPosition: NavigationRegionSstatic.ToLocal(
+//                           MainCharacter          .
+//           GlobalPosition),
+//            ceasePosition: NavigationRegionSstatic.ToLocal(
+//                           globalMousePosition)  );
 
-            MainCharacter.
-            MainCharacterAnimatedSprite3DEffect.CurrentEffect=
-            MainCharacterAnimatedSprite3DEffect.       Effect.
-            EFFECT_FIRE  ;
+//            MainCharacter.
+//            MainCharacterAnimatedSprite3DEffect.CurrentEffect=
+//            MainCharacterAnimatedSprite3DEffect.       Effect.
+//            EFFECT_FIRE  ;
 
-            StatusInfo
-                .Items
-                .Add(new StatusInfoItemElemental()
-                {
-                    Element = Global.Element.Ice,
-                    Thing =
-@$"Right Click",
-                });
-        }
+//            StatusInfo
+//                .Items
+//                .Add(new StatusInfoItemElemental()
+//                {
+//                    Element = Global.Element.Ice,
+//                    Thing =
+//@$"Right Click",
+//                });
+//        }
     }
 }
 

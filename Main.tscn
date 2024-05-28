@@ -133,9 +133,10 @@ autostart = true
 [node name="NavigationRegion3D_Dynamic" type="NavigationRegion3D" parent="."]
 navigation_mesh = ExtResource("7_gtwip")
 
-[node name="MainCharacter" parent="." node_paths=PackedStringArray("NavigationAgent3D", "MainCharacterAnimatedSprite3DEffect") instance=ExtResource("9_seby3")]
+[node name="MainCharacter" parent="." node_paths=PackedStringArray("NavigationAgent3D", "NavigationRegion3DStatic", "MainCharacterAnimatedSprite3DEffect") instance=ExtResource("9_seby3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 0)
 NavigationAgent3D = NodePath("NavigationAgent3D")
+NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
 MainCharacterAnimatedSprite3DEffect = NodePath("AnimatedSprite3D_Effect")
 
 [node name="Camera3D" type="Camera3D" parent="MainCharacter"]

@@ -1,4 +1,5 @@
 using Godot;
+using Godot.Collections;
 using System;
 
 namespace TokenTaleTheElementalSaga;
@@ -7,12 +8,18 @@ namespace TokenTaleTheElementalSaga;
 public partial class MainCharacter : Character3D
 {
     [Export]
+    public WeaponsController WeaponsController { get; set; }
+    [Export]
+    public AlliesVisitor VisitorAbilityDispatch { get; set; }
+    [Export]
     public NavigationAgent3D
            NavigationAgent3D
     {
         get;
         set;
     }
+    [Export]
+    public NavigationRegion3D NavigationRegion3DStatic { get; set; }
 
     [Export]
     public MainCharacterAnimatedSprite3DEffect
@@ -21,7 +28,7 @@ public partial class MainCharacter : Character3D
         get;
         set;
     }
-
+    public int CurrentEnergy { get; set; }
     public EquipmentManager EquipmentManager { get; private set; } 
     public   AbilityManager   AbilityManager { get; private set; } 
     public   BoosterManager   BoosterManager { get; private set; } 
@@ -33,41 +40,18 @@ public partial class MainCharacter : Character3D
         this.  BoosterManager = new   BoosterManager();
         this.  AbilityManager = new   AbilityManager();
         this.MaxHealth = BoosterManager.MaxHealth;
-        this.Speed = EquipmentManager.Boot.Speed;
+        this.MaxSpeed = EquipmentManager.Boot.Speed;
         this.CurrentHealth = MaxHealth;
-        this.CurrentSpeed = this.Speed;
+        this.CurrentSpeed = this.MaxSpeed;
+        this.CurrentEnergy = BoosterManager.MaxEnergy;
+        this.VisitorAbilityDispatch.Init();
+        this.AcceptVisitor(VisitorAbilityDispatch);
 	}
 
 	public override void _Process(double @delta)
     {
                     base._Process(       @delta);
         //SingletonMainCharacterTracesManager.Instance.Add(Position);
-    }
-
-    public override void _UnhandledInput(InputEvent @event)
-    {
-                    base._UnhandledInput(           @event);
-
-        if (@event.IsActionPressed("DUMMY"))
-        {
-            GetNode<Node>(nameof(StateMachine)).ProcessMode    =
-                                                ProcessModeEnum.Disabled;
-        }
-
-        if (@event.IsActionPressed("SPACE")
-        &&  GetNode<Node>(nameof(StateMachine)).ProcessMode   ==
-                                                ProcessModeEnum.Disabled)
-        {
-            Vector3 randomPosition =
-                    GlobalPosition +
-            Vector3.Zero with
-            {
-                X = (float)GD.RandRange(-5, 5),
-                Z = (float)GD.RandRange(-5, 5),
-            };
-            NavigationAgent3D.TargetPosition =
-                              randomPosition ;
-        }
     }
 
     public override void _PhysicsProcess(double @delta)
@@ -84,6 +68,10 @@ public partial class MainCharacter : Character3D
             Move( direction , @delta);
         }
     }
+    public void AcceptVisitor(AlliesVisitor visitor)
+    {
+        visitor.VisitMainCharacter(this);
+    }
 	public override float CalculateElementalDamage(Ability3D ability,Character3D targetCharacter)
 	{
         float damage = 0;
@@ -98,9 +86,8 @@ public partial class MainCharacter : Character3D
 		//setup damage handler to calculate
 		BaseDH elementalEquipmentDH = new ElementalEquipmentDH(
 			this
-			.EquipmentManager
-			.ElementalBraceletList
-			.Find(x => x.Key ==0) //Change later when toggle elemental ready
+			.WeaponsController
+			.ChosenBracelet 
 			.BonusDamage);
 		BaseDH elementalProficiencyDH = new ElementalProficiencyDH(
 			this
@@ -134,7 +121,7 @@ public partial class MainCharacter : Character3D
 		//GD.Print(damage);
 		damage = (float)Math.Round(damage, 2);
 		targetCharacter.StatusInfo.Items.Add(
-            new StatusInfoItemElemental { Element = ability.Element, Thing = $"-{damage}" });
+            new StatusInfoItemElemental { Element = ability.Element, Thing = $"-{damage}🩸" });
 		return damage;
 	}
 	public override float CalculatePhysicsDamage(Character3D targetCharacter)
@@ -144,9 +131,32 @@ public partial class MainCharacter : Character3D
 			return damage;
 		damage = (float)Math.Round(damage, 2);
 		targetCharacter.StatusInfo.Items.Add(
-            new StatusInfoItemHurt { Thing = $"-{damage}" });
+            new StatusInfoItemHurt { Thing = $"-{damage}🩸" });
         return damage;
 	}
+    public void CreateAbility (string abilityName)
+    {
+        Ability3D ability = this
+            .AbilityPackedScenes[abilityName]
+            .Instantiate<Ability3D>();
+        Vector3 globalMousePosition = this.GetGlobalMousePosition();
+        ability.Attach(
+            this.NavigationRegion3DStatic,
+            this,
+            this.NavigationRegion3DStatic.ToLocal(this.GlobalPosition),
+            this.NavigationRegion3DStatic.ToLocal(globalMousePosition));
+        this.MainCharacterAnimatedSprite3DEffect.CurrentEffect =
+        this.MainCharacterAnimatedSprite3DEffect.EffectDictionary[ability.Element];
+    }
+    public void Cast(Global.Element element)
+    {
+        string abilityName = this
+            .AbilityManager
+            .ElementStatus[element]
+            .ChosenAbility;
+        CreateAbility(abilityName);
+        this.AbilityManager.UpdateStatus(element);
+    }
 }
 
 

@@ -1,15 +1,17 @@
-[gd_scene load_steps=46 format=3 uid="uid://c47tcwkeiq0h2"]
+[gd_scene load_steps=49 format=3 uid="uid://c47tcwkeiq0h2"]
 
 [ext_resource type="Script" path="res://game_objects/characters/main_character/MainCharacter.cs" id="1_gm2bn"]
 [ext_resource type="SpriteFrames" uid="uid://rt7sar8d0e54" path="res://game_objects/characters/main_character/MainCharacter_SpriteFrames_$Main$.tres" id="1_q2bc7"]
 [ext_resource type="PackedScene" uid="uid://chwjmy7grdej" path="res://game_objects/shared/status_info/StatusInfo.tscn" id="2_dyk2k"]
+[ext_resource type="Resource" uid="uid://d05m2sakmpkvn" path="res://game_objects/characters/shared/AlliesAbility.tres" id="2_r74wh"]
 [ext_resource type="Material" uid="uid://bscw2illjxslq" path="res://game_objects/characters/main_character/MainCharacter_ShaderMaterial_GLOU.tres" id="2_ytvyu"]
 [ext_resource type="Shape3D" uid="uid://b7xid5nyum248" path="res://game_objects/characters/main_character/MainCharacter_CollisionShape3D_Body.tres" id="4_7nd0n"]
-[ext_resource type="Script" path="res://game_objects/items/shared/WeaponsController.cs" id="8_aswq2"]
-[ext_resource type="PackedScene" uid="uid://bx1yjtvn2pwyh" path="res://game_objects/items/sword/Sword.tscn" id="12_frf8n"]
+[ext_resource type="Script" path="res://game_objects/items/weapons/WeaponsController.cs" id="8_aswq2"]
+[ext_resource type="PackedScene" uid="uid://dfecuavmxmhn7" path="res://game_objects/items/weapons/elemental_bracelet/ElementalBracelet.tscn" id="12_25v8g"]
+[ext_resource type="PackedScene" uid="uid://bx1yjtvn2pwyh" path="res://game_objects/items/weapons/sword/Sword.tscn" id="12_frf8n"]
 [ext_resource type="Script" path="res://game_objects/shared/state_machine/StateMachine.cs" id="12_wpmlx"]
 [ext_resource type="Script" path="res://game_objects/characters/main_character/StateMainCharacterLive.cs" id="13_etnf6"]
-[ext_resource type="PackedScene" uid="uid://b7cey8rb583i7" path="res://game_objects/items/_bow_/_Bow_.tscn" id="13_y068q"]
+[ext_resource type="PackedScene" uid="uid://b7cey8rb583i7" path="res://game_objects/items/weapons/_bow_/_Bow_.tscn" id="13_y068q"]
 [ext_resource type="Script" path="res://game_objects/characters/main_character/StateMainCharacterDead.cs" id="14_md3m3"]
 [ext_resource type="Script" path="res://game_objects/characters/main_character/StateMainCharacterSafe.cs" id="15_855r3"]
 [ext_resource type="Script" path="res://game_objects/characters/main_character/StateMainCharacterHurt.cs" id="16_g63ce"]
@@ -97,6 +99,18 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Weapons(_Controller_):WeaponsKeyCommand")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [{}]
 }
 
 [sub_resource type="Animation" id="Animation_qh5dr"]
@@ -611,6 +625,21 @@ tracks/4/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_y5eao"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Weapons(_Controller_):WeaponsKeyCommand")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [{}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7so4u"]
 _data = {
 "DEAD": SubResource("Animation_kpxto"),
@@ -621,7 +650,8 @@ _data = {
 "MOVE_D": SubResource("Animation_se0jj"),
 "MOVE_L": SubResource("Animation_qcwc5"),
 "MOVE_R": SubResource("Animation_k2rk6"),
-"MOVE_U": SubResource("Animation_b3u6r")
+"MOVE_U": SubResource("Animation_b3u6r"),
+"RESET": SubResource("Animation_y5eao")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c3f6a"]
@@ -700,10 +730,12 @@ nodes/TIME_SCALE/position = Vector2(240, -26)
 nodes/output/position = Vector2(400, -26)
 node_connections = [&"STATE", 0, &"BS2D_IDLE", &"STATE", 1, &"BS2D_MOVE", &"STATE", 2, &"DEAD", &"TIME_SCALE", 0, &"STATE", &"output", 0, &"TIME_SCALE"]
 
-[node name="MainCharacter" type="CharacterBody3D" node_paths=PackedStringArray("NavigationAgent3D", "MainCharacterAnimatedSprite3DEffect")]
+[node name="MainCharacter" type="CharacterBody3D" node_paths=PackedStringArray("WeaponsController", "NavigationAgent3D", "MainCharacterAnimatedSprite3DEffect")]
 collision_layer = 8
 collision_mask = 15
 script = ExtResource("1_gm2bn")
+WeaponsController = NodePath("Weapons(_Controller_)")
+VisitorAbilityDispatch = ExtResource("2_r74wh")
 NavigationAgent3D = NodePath("NavigationAgent3D")
 MainCharacterAnimatedSprite3DEffect = NodePath("AnimatedSprite3D_Effect")
 StatusInfoPackedScene = ExtResource("2_dyk2k")
@@ -718,7 +750,6 @@ offset = Vector2(0, 12)
 texture_filter = 0
 sprite_frames = ExtResource("1_q2bc7")
 animation = &"IDLE_D"
-frame = 3
 
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 cast_shadow = 3
@@ -727,7 +758,6 @@ alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_q2bc7")
 animation = &"IDLE_D"
-frame = 3
 
 [node name="AnimatedSprite3D_Effect" parent="." node_paths=PackedStringArray("AnimationPlayer") instance=ExtResource("19_14buj")]
 AnimationPlayer = NodePath("AnimationPlayer")
@@ -736,10 +766,12 @@ AnimationPlayer = NodePath("AnimationPlayer")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12, 0)
 shape = ExtResource("4_7nd0n")
 
-[node name="Weapons(_Controller_)" type="Node" parent="." node_paths=PackedStringArray("Weapons")]
+[node name="Weapons(_Controller_)" type="Node" parent="." node_paths=PackedStringArray("PhysicsWeapons", "Bracelets")]
 script = ExtResource("8_aswq2")
-Keys = Array[int]([70, 71])
-Weapons = [NodePath("../Sword"), NodePath("../_Bow_")]
+PhysicsWeaponKeys = Array[int]([49, 50])
+PhysicsWeapons = [NodePath("../Sword"), NodePath("../_Bow_")]
+BraceletKeys = Array[int]([51, 52])
+Bracelets = [NodePath("../ElementalBracelet"), NodePath("../ElementalBracelet2")]
 
 [node name="AnimationP" type="AnimationPlayer" parent="."]
 libraries = {
@@ -782,6 +814,16 @@ AnimationPlayerr = NodePath("AnimationPlayerrr")
 AnimatedSprite3DMmainn = NodePath("_AnimatedSprite3D_$Main$")
 CollisionShape3D = NodePath("Aareaa3D/CollisionShape3D")
 AnimatedSprite3DEffect = NodePath("_AnimatedSprite3D_Effect")
+
+[node name="ElementalBracelet" parent="." node_paths=PackedStringArray("OwnerMainCharacter") instance=ExtResource("12_25v8g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
+OwnerMainCharacter = NodePath("..")
+CurrentElement = 0
+
+[node name="ElementalBracelet2" parent="." node_paths=PackedStringArray("OwnerMainCharacter") instance=ExtResource("12_25v8g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
+OwnerMainCharacter = NodePath("..")
+CurrentElement = 2
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("ActiveStates")]
 script = ExtResource("12_wpmlx")

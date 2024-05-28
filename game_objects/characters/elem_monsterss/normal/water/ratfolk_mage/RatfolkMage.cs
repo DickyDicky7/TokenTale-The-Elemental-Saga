@@ -9,11 +9,7 @@ public partial class RatfolkMage : ElementalMonster
 	public float ProjectileDeceleration { get; set; }
 	public override void Attack(MainCharacter targetMainCharacter)
 	{
-		
-	}
-	public override void CreateAbility(MainCharacter targetMainCharacter)
-	{
-
+		CreateAbility(nameof(MiniPenetratingSquirt), targetMainCharacter);
 	}
 	public override void AcceptVisitor(MonsterVisitor visitor)
 	{

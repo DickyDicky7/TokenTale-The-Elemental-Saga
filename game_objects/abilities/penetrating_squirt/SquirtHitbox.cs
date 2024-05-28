@@ -5,10 +5,11 @@ public partial class SquirtHitbox : Hittbox3D
 {
 	protected override void OnBodyEntered(Node3D node3D)
 	{
-		if (node3D is CollisionObject3D tempObject)
+		if (node3D is StaticBody3D)
 		{
-			if (tempObject.CollisionLayer == 1 || tempObject.CollisionLayer == 2)
-				Stop();
+			Ability3D tempAbility = this.GetParent() as Ability3D;
+			tempAbility.Stop();
+			tempAbility.QueueFree();
 		}
 		if (Hit == false)
 		{
@@ -20,14 +21,5 @@ public partial class SquirtHitbox : Hittbox3D
 		{
 			base.OnBodyEntered(node3D);
 		}
-	}
-	public override void _Ready()
-	{
-		base._Ready();
-	}
-	private void Stop()
-	{
-		Ability3D temp = this.GetParent() as Ability3D;
-		temp.Stop();
 	}
 }

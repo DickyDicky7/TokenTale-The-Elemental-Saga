@@ -17,7 +17,7 @@ public partial class Hittbox3D : CustomArea3D
 		this.Hit = true;
 		if (this.GetParent() is Ability3D tempAbility && node3D is Character3D tempCharacter)
 		{
-			float damage = tempAbility.Caster.CalculateDamage(tempAbility, tempCharacter);
+			float damage = tempAbility.Caster.CalculateElementalDamage(tempAbility, tempCharacter);
 			tempCharacter.CurrentHealth -= damage;
 			tempCharacter.EmitSignal(Character3D.SignalName.HealthChange, damage);
 		}

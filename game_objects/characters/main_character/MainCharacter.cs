@@ -1,4 +1,5 @@
 using Godot;
+using System;
 
 namespace TokenTaleTheElementalSaga;
 
@@ -83,7 +84,7 @@ public partial class MainCharacter : Character3D
             Move( direction , @delta);
         }
     }
-	public override float CalculateDamage(Ability3D ability,Character3D targetCharacter)
+	public override float CalculateElementalDamage(Ability3D ability,Character3D targetCharacter)
 	{
         float damage = 0;
         if (targetCharacter is not Monster)
@@ -131,7 +132,20 @@ public partial class MainCharacter : Character3D
 			elementalProficiencyDH.SetNextHandler(elementalReactionDH);
 		elementalEquipmentDH.ProcessDamage(ref damage);
 		//GD.Print(damage);
+		damage = (float)Math.Round(damage, 2);
+		targetCharacter.StatusInfo.Items.Add(
+            new StatusInfoItemElemental { Element = ability.Element, Thing = $"-{damage}" });
 		return damage;
+	}
+	public override float CalculatePhysicsDamage(Character3D targetCharacter)
+	{
+		float damage = 0;
+		if (targetCharacter is not Monster)
+			return damage;
+		damage = (float)Math.Round(damage, 2);
+		targetCharacter.StatusInfo.Items.Add(
+            new StatusInfoItemHurt { Thing = $"-{damage}" });
+        return damage;
 	}
 }
 

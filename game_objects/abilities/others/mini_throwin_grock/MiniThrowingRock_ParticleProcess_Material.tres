@@ -1,0 +1,11 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://bcbquqtadww1o"]
+
+[resource]
+emission_shape_offset = Vector3(0, 0.1, 0)
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0
+damping_min = 5.0
+damping_max = 5.0
+color = Color(0.592157, 0.584314, 0.592157, 1)

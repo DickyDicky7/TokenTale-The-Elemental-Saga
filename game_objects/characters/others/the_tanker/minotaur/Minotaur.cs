@@ -8,10 +8,6 @@ public partial class Minotaur : Monster
     {
 
     }
-	public override void CreateAbility(MainCharacter targetMainCharacter)
-	{
-
-	}
 	public override void AcceptVisitor(MonsterVisitor visitor)
 	{
 		visitor.VisitMinotaur(this);

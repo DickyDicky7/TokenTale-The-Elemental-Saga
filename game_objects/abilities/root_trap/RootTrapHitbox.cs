@@ -23,7 +23,7 @@ public partial class RootTrapHitbox : Hittbox3D
 	private void Trap(Ability3D ability, Monster monster)
 	{
 		AnimationPlayer animationPlayer = ability.GetNode("AnimationPlayer") as AnimationPlayer;
-		float timeLeft = (float)animationPlayer.CurrentAnimation.Length 
+		float timeLeft = (float)animationPlayer.CurrentAnimationLength
 			- (float)animationPlayer.CurrentAnimationPosition;
 		monster.StartSpeedEffect(0, timeLeft);
 	}

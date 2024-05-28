@@ -64,7 +64,7 @@ public partial class MiniThrowingRock : Ability3D
     public override void Move(Vector3 @startPosition, Vector3 @ceasePosition)
     {
                     base.Move(        @startPosition,         @ceasePosition);
-
+        float offSetY = startPosition.Y;
         Tween tween = CreateTween();
         tween.TweenMethod(Callable.From((float @time) =>
         {
@@ -72,7 +72,7 @@ public partial class MiniThrowingRock : Ability3D
             Position with
             {
                 Y   =  Curve
-                    . Sample(@time),
+                    . Sample(@time / (float)MovingDuration) + offSetY,
             };
         })   , 0.0f ,  MovingDuration ,
                        MovingDuration);
@@ -82,8 +82,9 @@ public partial class MiniThrowingRock : Ability3D
 	public override void _Ready()
 	{
 		base._Ready();
-		this.Speed = AbilityStats.Speed.Fast;
 		this.ActiveRange = AbilityStats.ActiveRange.Great;
+		this.Speed = AbilityStats.Speed.Fast;
+        this.DamageRatio = 1.0f;
 	}
 }
 

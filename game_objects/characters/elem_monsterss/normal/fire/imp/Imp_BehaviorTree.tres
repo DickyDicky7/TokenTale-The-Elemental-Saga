@@ -99,7 +99,6 @@ PathNavigationAgent3D = NodePath("NavigationAgent3D")
 script = ExtResource("8_lw88l")
 PathFlipSprite3D = NodePath("Flippable3DSpriteBase3DConsolidation")
 PathNavigationAgent3D = NodePath("NavigationAgent3D")
-PathRayCast3D = NodePath("Ray__Cast3D")
 PathHurtbox3D = NodePath("Hurtbox3D")
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_b7ut1"]
@@ -125,7 +124,6 @@ PathNavigationAgent3D = NodePath("NavigationAgent3D")
 script = ExtResource("8_lw88l")
 PathFlipSprite3D = NodePath("Flippable3DSpriteBase3DConsolidation")
 PathNavigationAgent3D = NodePath("NavigationAgent3D")
-PathRayCast3D = NodePath("Ray__Cast3D")
 PathHurtbox3D = NodePath("Hurtbox3D")
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_7v83x"]
@@ -151,7 +149,6 @@ PathNavigationAgent3D = NodePath("NavigationAgent3D")
 script = ExtResource("8_lw88l")
 PathFlipSprite3D = NodePath("Flippable3DSpriteBase3DConsolidation")
 PathNavigationAgent3D = NodePath("NavigationAgent3D")
-PathRayCast3D = NodePath("Ray__Cast3D")
 PathHurtbox3D = NodePath("Hurtbox3D")
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_xjo03"]

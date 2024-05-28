@@ -3,7 +3,7 @@
 [ext_resource type="Material" uid="uid://bhi5ki3eoxdc4" path="res://game_objects/abilities/others/mini_fire_ball/MiniFireBall_ParticleProcessMaterial.tres" id="1_7spjv"]
 [ext_resource type="QuadMesh" uid="uid://bftp1qrcqp670" path="res://game_objects/abilities/others/mini_fire_ball/MiniFireBall_DrawPass01_Mesh.tres" id="1_ckagi"]
 [ext_resource type="Script" path="res://game_objects/abilities/others/mini_fire_ball/MiniFireBall.cs" id="1_ydu4l"]
-[ext_resource type="Script" path="res://game_objects/shared/Hittbox3D.cs" id="4_p086q"]
+[ext_resource type="Script" path="res://game_objects/abilities/others/mini_fire_ball/MFireBallHitbox.cs" id="4_3bghx"]
 [ext_resource type="BehaviorTree" uid="uid://b683gj23sj1ys" path="res://game_objects/abilities/others/mini_fire_ball/MiniFireBall_BehaviorTree.tres" id="5_8nc1h"]
 [ext_resource type="Shape3D" path="res://game_objects/abilities/others/mini_fire_ball/MiniFireBall_CollisionShape3D_Hitbox_New.tres" id="5_iall5"]
 [ext_resource type="BlackboardPlan" uid="uid://ds1xb11hlsg20" path="res://game_objects/abilities/others/mini_fire_ball/MiniFireBall_BlackboardPlanBase.tres" id="6_yfj0u"]
@@ -80,6 +80,7 @@ TransitionType = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)
 
 [node name="$GPU$Particles3D" type="GPUParticles3D" parent="Visual"]
+emitting = false
 amount = 100
 lifetime = 0.2
 local_coords = true
@@ -87,11 +88,14 @@ process_material = ExtResource("1_7spjv")
 draw_pass_1 = ExtResource("1_ckagi")
 
 [node name="Hitbox" type="Area3D" parent="."]
-script = ExtResource("4_p086q")
+collision_layer = 128
+collision_mask = 11
+script = ExtResource("4_3bghx")
 
 [node name="CollisionShape3D_Hitbox" type="CollisionShape3D" parent="Hitbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)
 shape = ExtResource("5_iall5")
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

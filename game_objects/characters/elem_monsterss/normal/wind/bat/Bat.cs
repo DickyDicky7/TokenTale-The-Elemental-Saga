@@ -6,11 +6,7 @@ public partial class Bat : ElementalMonster
 {
 	public override void Attack(MainCharacter targetMainCharacter)
 	{
-
-	}
-	public override void CreateAbility(MainCharacter targetMainCharacter)
-	{
-
+		CreateAbility(nameof(MiniBlowWind), targetMainCharacter);
 	}
 	public override void AcceptVisitor(MonsterVisitor visitor)
 	{

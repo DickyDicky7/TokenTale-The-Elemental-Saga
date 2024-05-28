@@ -469,7 +469,7 @@ cast_shadow = 0
 offset = Vector2(0.5, 16)
 texture_filter = 0
 sprite_frames = ExtResource("1_q6j6a")
-animation = &"SMERGE"
+animation = &"ATTACK"
 
 [node name="HitsFlashingByModulate" parent="AnimatedSprite3D_$Main$" instance=ExtResource("2_5nmji")]
 
@@ -479,7 +479,7 @@ offset = Vector2(0.5, 16)
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_q6j6a")
-animation = &"SMERGE"
+animation = &"ATTACK"
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075, 0)
@@ -497,6 +497,7 @@ blackboard_plan = ExtResource("5_y685y")
 [node name="EyeSight$3D" parent="." instance=ExtResource("6_6jmt3")]
 process_mode = 4
 transform = Transform3D(2.12132, 0, 2.12132, 0, 1, 0, -2.12132, 0, 2.12132, 0, 0, 0)
+visible = false
 RotateDuration = 0.0
 EasingfuncType = 0
 TransitionType = 0

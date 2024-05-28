@@ -420,7 +420,7 @@ Sprites = [NodePath("../AnimatedSprite3D_$Main$")]
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
-wait_time = 4.0
+wait_time = 2.0
 autostart = true
 
 [node name="Indicator" parent="." node_paths=PackedStringArray("Sprite") instance=ExtResource("12_uo5h2")]

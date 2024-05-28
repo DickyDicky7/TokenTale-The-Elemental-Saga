@@ -17,7 +17,7 @@ func _setup() -> void:
 	pass;
 
 func _enter() -> void:
-	if (is_instance_valid(blackboard.get_var(BBVariable.TargetCharacter))):
+	if (!is_instance_valid(blackboard.get_var(BBVariable.TargetCharacter))):
 		blackboard.set_var(BBVariable.TargetCharacter, null);
 	targetCharacter = blackboard.get_var(BBVariable.TargetCharacter)
 	destination = blackboard.get_var(BBVariable.Destination)

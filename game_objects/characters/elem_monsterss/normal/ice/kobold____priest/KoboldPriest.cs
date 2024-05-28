@@ -6,11 +6,7 @@ public partial class KoboldPriest : ElementalMonster
 {
 	public override void Attack(MainCharacter targetMainCharacter)
 	{
-		
-	}
-	public override void CreateAbility(MainCharacter targetMainCharacter)
-	{
-
+		this.CreateAbility(nameof(MiniIceShard), targetMainCharacter);
 	}
 	public override void AcceptVisitor(MonsterVisitor visitor)
 	{

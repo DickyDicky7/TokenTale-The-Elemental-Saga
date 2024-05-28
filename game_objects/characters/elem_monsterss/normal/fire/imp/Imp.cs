@@ -9,11 +9,7 @@ public partial class Imp : ElementalMonster
 	public float ProjectileDeceleration { get; set; }
 	public override void Attack(MainCharacter targetMainCharacter)
 	{
-		
-	}
-	public override void CreateAbility(MainCharacter targetMainCharacter)
-	{
-
+		this.CreateAbility(nameof(MiniFireBall), targetMainCharacter);
 	}
 	public override void AcceptVisitor(MonsterVisitor visitor)
 	{

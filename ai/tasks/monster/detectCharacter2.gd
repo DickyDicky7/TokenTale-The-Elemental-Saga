@@ -18,12 +18,12 @@ func _setup() -> void:
 	currentCharacter = agent
 	shapeCast3D = agent.get_node(PathShapeCast3D)
 	eyeSight3D = agent.get_node(PathEyeSight3D)
+	eyeSight3D.visible = false
 	blackboard.set_var(BBVariable.RootScale2, shapeCast3D.scale.x)
 	blackboard.set_var(BBVariable.AlreadyDetect, false)
 	pass;
 	
 func _enter() -> void:
-	eyeSight3D.visible = false
 	rootScale = blackboard.get_var(BBVariable.RootScale2)
 	alreadyDetect = blackboard.get_var(BBVariable.AlreadyDetect)
 	if (alreadyDetect == false):
@@ -44,6 +44,16 @@ func _tick(_delta: float) -> Status:
 			&&   targetCharacter.name == TargetCharacter3DName):
 				blackboard.set_var(BBVariable.AlreadyDetect, true)
 				blackboard.set_var(BBVariable.TargetCharacter, targetCharacter)
+				var  targetCharacterVector: Vector3 =  Helper.ProjectVector3ToPlane(
+					currentCharacter.position.direction_to(targetCharacter.position)
+					, Vector3.UP
+				).normalized();
+				var targetCharacterAngle: float = Helper.StandardizeDegree(
+					rad_to_deg(
+					targetCharacterVector
+						.signed_angle_to(Vector3(1, 0, 0), Vector3.DOWN))
+				)
+				blackboard.set_var(BBVariable.SeeingAngle, targetCharacterAngle)
 				return SUCCESS
 		blackboard.set_var(BBVariable.AlreadyDetect, false)
 		return FAILURE

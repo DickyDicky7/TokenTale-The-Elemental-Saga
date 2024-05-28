@@ -447,16 +447,11 @@ blackboard_plan = ExtResource("5_esgvn")
 [node name="EyeSight$3D" parent="." instance=ExtResource("5_3qblb")]
 process_mode = 4
 transform = Transform3D(1.41421, 0, 1.41421, 0, 1, 0, -1.41421, 0, 1.41421, 0, 0, 0)
+visible = false
 Modulate = Color(1, 1, 1, 1)
 
-[node name="Ray__Cast3D" type="RayCast3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0.1, 0)
-target_position = Vector3(0.5, 0, 0)
-collision_mask = 15
-debug_shape_custom_color = Color(0, 0, 1, 1)
-
 [node name="ShapeCast3D" type="ShapeCast3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0.1, 0)
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0.1, 0)
 shape = ExtResource("6_inebg")
 target_position = Vector3(0, 0, 0)
 collision_mask = 15
@@ -481,7 +476,7 @@ Sprites = [NodePath("../AnimatedSprite3D_$Main$")]
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
-wait_time = 4.0
+wait_time = 0.5
 autostart = true
 
 [node name="Indicator" parent="." node_paths=PackedStringArray("Sprite") instance=ExtResource("11_sqqjb")]

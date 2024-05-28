@@ -3,8 +3,8 @@ using System.Collections.Generic;
 namespace TokenTaleTheElementalSaga;
 public partial class AirSurgeHitbox : Hittbox3D
 {
-	public float PushSpeed { get; private set; } = AbilityStats.Speed.Fast;
-	public List<Rid> ExceptionRidList { get; private set; } = new();
+	public float PushSpeed { get; protected set; } = AbilityStats.Speed.Fast;
+	public List<Rid> ExceptionRidList { get; protected set; } = new();
 	protected override void OnBodyEntered(Node3D node3D)
 	{
 		if (this.GetParent() is Ability3D tempAbility && node3D is Monster tempMonster)

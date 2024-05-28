@@ -8,10 +8,6 @@ public partial class Ghost : Monster
     {
         this.QueueFree();
     }
-	public override void CreateAbility(MainCharacter targetMainCharacter)
-	{
-
-	}
 	public override void AcceptVisitor(MonsterVisitor visitor)
 	{
 		visitor.VisitGhost(this);

@@ -4,8 +4,8 @@
 [ext_resource type="Material" uid="uid://l7bik4b1k0b4" path="res://game_objects/abilities/others/mini_penetrating_squirt/MiniPenetratingSquirt_ParticleProcessMaterial.tres" id="1_ldqao"]
 [ext_resource type="Script" path="res://game_objects/abilities/others/mini_penetrating_squirt/MiniPenetratingSquirt.cs" id="1_m0co1"]
 [ext_resource type="Shape3D" uid="uid://domackc6b8x1t" path="res://game_objects/abilities/others/mini_penetrating_squirt/MiniPenetratingSquirt_CollisionShape3D_Hitbox.tres" id="3_njyyn"]
-[ext_resource type="Script" path="res://game_objects/shared/Hittbox3D.cs" id="4_56g3o"]
 [ext_resource type="BlackboardPlan" uid="uid://y1m2hav1l4nc" path="res://game_objects/abilities/others/mini_penetrating_squirt/MiniPenetratingSquirt_BlackboardPlanBase.tres" id="4_ejaqt"]
+[ext_resource type="Script" path="res://game_objects/abilities/others/mini_penetrating_squirt/MSquirtHitbox.cs" id="4_fn5my"]
 [ext_resource type="BehaviorTree" uid="uid://bgn5if7a8gll0" path="res://game_objects/abilities/others/mini_penetrating_squirt/MiniPenetratingSquirt_BehaviorTree.tres" id="4_lfu0y"]
 
 [sub_resource type="Animation" id="Animation_f33vo"]
@@ -17,10 +17,10 @@ tracks/0/path = NodePath("Visual/$GPU$Particles3D:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [true, false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -37,10 +37,22 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Hitbox/CollisionShape3D_Hitbox:disabled")
+tracks/2/path = NodePath("Hitbox/CollisionShape3D_Hitbox:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.05, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hitbox/CollisionShape3D_Hitbox:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -76,14 +88,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Hitbox/CollisionShape3D_Hitbox:disabled")
+tracks/2/path = NodePath("Hitbox/CollisionShape3D_Hitbox:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.05, 0), Vector3(0, 0.05, -1.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hitbox/CollisionShape3D_Hitbox:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_vmism"]
@@ -122,7 +146,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s2a1x"]
@@ -134,22 +158,27 @@ _data = {
 
 [node name="MiniPenetratingSquirt" type="Node3D"]
 script = ExtResource("1_m0co1")
+Element = 1
 
 [node name="Visual" type="Node3D" parent="."]
 
 [node name="$GPU$Particles3D" type="GPUParticles3D" parent="Visual"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 amount = 1000
+speed_scale = 5.0
 local_coords = true
 process_material = ExtResource("1_ldqao")
 draw_pass_1 = ExtResource("1_gmj74")
 
 [node name="Hitbox" type="Area3D" parent="."]
-script = ExtResource("4_56g3o")
+collision_layer = 128
+collision_mask = 11
+script = ExtResource("4_fn5my")
 
 [node name="CollisionShape3D_Hitbox" type="CollisionShape3D" parent="Hitbox"]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0.05, 0)
 shape = ExtResource("3_njyyn")
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

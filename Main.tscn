@@ -52,7 +52,7 @@ FontColor = Color(0, 1, 0, 1)
 FontColorOutline = Color(0, 0, 0, 1)
 FontSize = 32
 FontSizeOutline = 8
-Thing = "heal"
+Thing = ""
 
 [sub_resource type="Resource" id="Resource_klrs7"]
 script = ExtResource("14_6q7sg")
@@ -60,7 +60,7 @@ FontColor = Color(1, 0, 0, 1)
 FontColorOutline = Color(0, 0, 0, 1)
 FontSize = 32
 FontSizeOutline = 8
-Thing = "hurt"
+Thing = ""
 
 [sub_resource type="Resource" id="Resource_dgvcs"]
 script = ExtResource("15_xfnnq")
@@ -69,7 +69,7 @@ FontColor = Color(1, 0, 0, 1)
 FontColorOutline = Color(0, 0, 0, 1)
 FontSize = 32
 FontSizeOutline = 8
-Thing = "fire"
+Thing = ""
 
 [sub_resource type="Resource" id="Resource_nyrrt"]
 script = ExtResource("15_xfnnq")
@@ -78,7 +78,7 @@ FontColor = Color(0.501961, 1, 0.501961, 1)
 FontColorOutline = Color(0, 0, 0, 1)
 FontSize = 32
 FontSizeOutline = 8
-Thing = "wind"
+Thing = ""
 
 [node name="Main" type="Node3D" node_paths=PackedStringArray("MainCharacter", "NavigationRegionSstatic", "NavigationRegionDynamic", "Timer", "StatusInfo")]
 script = ExtResource("1_px6f3")
@@ -97,6 +97,7 @@ navigation_mesh = ExtResource("4_6741o")
 
 [node name="BackgroundPlatform1" type="StaticBody3D" parent="NavigationRegion3D_$Static"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+collision_mask = 255
 
 [node name="Mesh" type="MeshInstance3D" parent="NavigationRegion3D_$Static/BackgroundPlatform1"]
 mesh = ExtResource("5_3awld")
@@ -106,6 +107,7 @@ shape = ExtResource("6_7i2yr")
 
 [node name="BackgroundPlatform2" type="StaticBody3D" parent="NavigationRegion3D_$Static"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0.5, 0)
+collision_mask = 255
 
 [node name="Mesh" type="MeshInstance3D" parent="NavigationRegion3D_$Static/BackgroundPlatform2"]
 mesh = ExtResource("5_3awld")
@@ -115,6 +117,7 @@ shape = ExtResource("6_7i2yr")
 
 [node name="BackgroundPlatform3" type="StaticBody3D" parent="NavigationRegion3D_$Static"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0.5, 0)
+collision_mask = 255
 
 [node name="Mesh" type="MeshInstance3D" parent="NavigationRegion3D_$Static/BackgroundPlatform3"]
 mesh = ExtResource("5_3awld")

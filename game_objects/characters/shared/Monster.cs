@@ -29,8 +29,18 @@ public abstract partial class Monster : Character3D
     
     public abstract void Attack(MainCharacter targetMainCharacter);
     public abstract void AcceptVisitor(MonsterVisitor visitor);
-    public abstract void CreateAbility(MainCharacter targetMainCharacter);
-	public override float CalculateDamage(Ability3D ability, Character3D targetCharacter)
+    public virtual void CreateAbility(string abilityName, MainCharacter targetMainCharacter)
+    {
+		Ability3D tempAbility = this
+			.AbilityPackedScenes[abilityName]
+			.Instantiate<Ability3D>();
+		tempAbility.Attach(
+			this.NavigationRegion3DStatic,
+			this,
+			NavigationRegion3DStatic.ToLocal(this.GlobalPosition),
+			NavigationRegion3DStatic.ToLocal(targetMainCharacter.GlobalPosition));
+	}
+	public override float CalculateElementalDamage(Ability3D ability, Character3D targetCharacter)
 	{
         float damage = 0;
         if (targetCharacter is not MainCharacter)
@@ -51,6 +61,20 @@ public abstract partial class Monster : Character3D
         }
         if (elementalReactionDH != null)
             elementalReactionDH.ProcessDamage(ref damage);
+        damage = (float)Math.Round(damage, 2);
+        targetCharacter.StatusInfo.Items.Add(
+            new StatusInfoItemElemental {Element = ability.Element, Thing = $"-{damage}" });
+        return damage;
+	}
+	public override float CalculatePhysicsDamage(Character3D targetCharacter)
+	{
+		float damage = 0;
+		if (targetCharacter is not MainCharacter)
+			return damage;
+        damage = this.CurrentDamage;
+		damage = (float)Math.Round(damage, 2);
+		targetCharacter.StatusInfo.Items.Add(
+            new StatusInfoItemHurt { Thing = $"-{damage}" });
         return damage;
 	}
 	public void UpdateStats()

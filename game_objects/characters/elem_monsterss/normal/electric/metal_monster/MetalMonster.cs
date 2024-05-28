@@ -10,18 +10,7 @@ public partial class MetalMonster : ElementalMonster
 	private float StunDuration { get; set; } = 1.0f;
     public override void Attack(MainCharacter targetMainCharacter)
     {
-		this.CreateAbility(targetMainCharacter);
-	}
-	public override void CreateAbility(MainCharacter targetMainCharacter)
-	{
-		Ability3D tempAbility = this
-			.AbilityPackedScenes[nameof(MiniThunderShock)]
-			.Instantiate<Ability3D>();
-		tempAbility.Attach(
-			this.NavigationRegion3DStatic,
-			this,
-			NavigationRegion3DStatic.ToLocal(this.GlobalPosition),
-			NavigationRegion3DStatic.ToLocal(targetMainCharacter.GlobalPosition));
+		this.CreateAbility(nameof(MiniThunderShock) ,targetMainCharacter);
 	}
 	public override void AcceptVisitor(MonsterVisitor visitor)
 	{

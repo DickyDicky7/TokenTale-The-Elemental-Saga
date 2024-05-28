@@ -16,7 +16,9 @@ public abstract partial class Character3D : CharacterBody3D
     public float Acceleration  { get; set; } = 0.1f;
     public float Deceleration  { get; set; } = 0.1f;
     public Global.Element ElementMark { get; set; } = Global.Element.None;
-    public Timer EffectTimer   { get; private set; } = new();
+    private Timer EffectTimerSpeed { get; set; } = new();
+    private Timer EffectTimerStun { get; set; } = new();
+    public bool IsStunning { get; private set; } = false;
     public StatusInfo
            StatusInfo          { get; private set; }
 
@@ -83,14 +85,23 @@ public abstract partial class Character3D : CharacterBody3D
 
     public override void _Ready()
     {
-        this.EffectTimer. OneShot = true;
-        this.EffectTimer.WaitTime = 1.0d;
-        this.EffectTimer.ProcessCallback = Timer.TimerProcessCallback.Physics;
-        this.EffectTimer.ProcessMode     =            ProcessModeEnum. Always;
-        this.AddChild   (EffectTimer, @internal: InternalMode.Back);
-        this.StatusInfo = StatusInfoPackedScene.Instantiate<StatusInfo>();
+        this.TimerReady();
+		this.StatusInfo = StatusInfoPackedScene.Instantiate<StatusInfo>();
         this.AddChild  (  StatusInfo                                    );
 		base._Ready();
+	}
+    private void TimerReady()
+    {
+		this.EffectTimerSpeed.OneShot = true;
+		this.EffectTimerSpeed.WaitTime = 1.0d;
+		this.EffectTimerSpeed.ProcessCallback = Timer.TimerProcessCallback.Physics;
+		this.EffectTimerSpeed.Timeout += EndSpeedEffect;
+		this.AddChild(EffectTimerSpeed);
+		this.EffectTimerStun.OneShot = true;
+		this.EffectTimerStun.WaitTime = 1.0d;
+		this.EffectTimerStun.ProcessCallback = Timer.TimerProcessCallback.Physics;
+		this.EffectTimerStun.Timeout += EndStun;
+		this.AddChild(EffectTimerStun);
 	}
 
     //  public override void _PhysicsProcess(double @delta)
@@ -104,23 +115,30 @@ public abstract partial class Character3D : CharacterBody3D
     //          MoveAndSlide();
     //      }
     //  }
-    public abstract float CalculateDamage(Ability3D ability, Character3D target);
+    public abstract float CalculateElementalDamage(Ability3D ability, Character3D target);
+    public abstract float CalculatePhysicsDamage(Character3D target);
 
     public void StartSpeedEffect(float @ratio, float @duration)
     {
-        this.CurrentSpeed =
-        this.       Speed *            @ratio     ;
-        this.EffectTimer.Timeout += EndSpeedEffect;
-        this.EffectTimer.Start  (                    @duration);
+        this.CurrentSpeed = this.Speed * @ratio;
+        this.EffectTimerSpeed.Start(@duration);
+        if (ratio < 1)
+        {
+            this.StatusInfo.Items.Add(
+                new StatusInfoItemElemental { Element = Global.Element.None, Thing = "Speed-" });
+        }
+        if (ratio > 1)
+        {
+            this.StatusInfo.Items.Add(
+                new StatusInfoItemElemental { Element = Global.Element.None, Thing = "Speed+" });
+        }
     }
 
-    public void   EndSpeedEffect()
+    public void EndSpeedEffect()
     {
-        this.EffectTimer.Stop   ();
-        this.CurrentSpeed =
-        this.       Speed ;
-        this.EffectTimer.WaitTime     = 1.0f          ;
-        this.EffectTimer.    Timeout -= EndSpeedEffect;
+        this.EffectTimerSpeed.Stop();
+        this.CurrentSpeed = this.Speed;
+        this.EffectTimerSpeed.WaitTime = 1.0f;
     }
 
     public void BePushed(Vector3 @velocity)
@@ -132,17 +150,16 @@ public abstract partial class Character3D : CharacterBody3D
 
     public void StartStun(float @duration)
     {
-        this.EffectTimer.Timeout += EndStun;
-        this.EffectTimer.Start( @duration) ;
-        this.ProcessMode = ProcessModeEnum.Disabled;
-    }
+        this.EffectTimerStun.Start(@duration) ;
+        this.IsStunning = true;
+		this.StatusInfo.Items.Add(
+			new StatusInfoItemElemental { Element = Global.Element.None, Thing = "Stunned" });
+	}
 
-    public void   EndStun()
+    public void EndStun()
     {
-        this.EffectTimer.Stop();
-        this.EffectTimer.Timeout -= EndStun;
-        this.ProcessMode = ProcessModeEnum
-                        .          Inherit ;
+        this.EffectTimerStun.Stop();
+        this.IsStunning = false;
     }
 }
 

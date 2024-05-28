@@ -6,14 +6,8 @@ public partial class FireBallHitbox : Hittbox3D
 	protected override void OnBodyEntered(Node3D node3D)
 	{
 		if (Hit == false)
-		{
-			base.OnBodyEntered(node3D);
 			Explode();
-		}
-		else
-		{
-			base.OnBodyEntered(node3D);
-		}
+		base.OnBodyEntered(node3D);
 	}
 	public override void _Ready()
 	{

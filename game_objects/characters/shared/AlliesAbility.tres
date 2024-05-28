@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AlliesVisitorAbilityDispatch" load_steps=9 format=3 uid="uid://d05m2sakmpkvn"]
+
+[ext_resource type="Script" path="res://game_objects/characters/shared/AlliesVisitorAbilityDispatch.cs" id="1_g2qav"]
+[ext_resource type="PackedScene" uid="uid://dtm1w4b8kbx8t" path="res://game_objects/abilities/air_surge/AirSurge.tscn" id="1_w8rwp"]
+[ext_resource type="PackedScene" uid="uid://dixv731fuc6gj" path="res://game_objects/abilities/fire_ball/FireBall.tscn" id="2_f8qia"]
+[ext_resource type="PackedScene" uid="uid://bflyuqbbpqmkp" path="res://game_objects/abilities/frostburn/Frostburn.tscn" id="3_nlkt7"]
+[ext_resource type="PackedScene" uid="uid://cn6e4b8ejcnru" path="res://game_objects/abilities/lightning/Lightning.tscn" id="4_x34ag"]
+[ext_resource type="PackedScene" uid="uid://bj14wt31rsok8" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt.tscn" id="5_gd4gn"]
+[ext_resource type="PackedScene" uid="uid://dcl1dgwq4y276" path="res://game_objects/abilities/root_trap/RootTrap.tscn" id="6_lla81"]
+[ext_resource type="PackedScene" uid="uid://s4c8ixjtg1uy" path="res://game_objects/abilities/sky_strike/SkyStrike.tscn" id="7_o867w"]
+
+[resource]
+script = ExtResource("1_g2qav")
+AvailableAlliesAbilityPackedScene = [ExtResource("1_w8rwp"), ExtResource("2_f8qia"), ExtResource("3_nlkt7"), ExtResource("4_x34ag"), ExtResource("5_gd4gn"), ExtResource("6_lla81"), ExtResource("7_o867w")]

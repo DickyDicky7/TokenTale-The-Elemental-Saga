@@ -1,4 +1,5 @@
 using Godot;
+using System.Collections.Generic;
 
 namespace TokenTaleTheElementalSaga;
 
@@ -11,7 +12,7 @@ public abstract partial class Character3D : CharacterBody3D
     public float CurrentHealth { get; set; }
     public float     MaxHealth { get; set; } = 1.0f;
     public float CurrentSpeed  { get; set; }
-    public float        Speed  { get; set; } = 1.0f;
+    public float     MaxSpeed  { get; set; } = 1.0f;
     public float        Jumpv  { get; set; } = 1.0f;
     public float Acceleration  { get; set; } = 0.1f;
     public float Deceleration  { get; set; } = 0.1f;
@@ -24,8 +25,9 @@ public abstract partial class Character3D : CharacterBody3D
 
     [Signal]
     public delegate void HealthChangeEventHandler(float damage);
+	public Dictionary<string, PackedScene> AbilityPackedScenes { get; set; } = new();
 
-    public virtual void Move(Vector3 @direction, double @delta)
+	public virtual void Move(Vector3 @direction, double @delta)
     {
             @direction  =   (         Transform.         Basis
         *   @direction).Normalized();
@@ -120,7 +122,7 @@ public abstract partial class Character3D : CharacterBody3D
 
     public void StartSpeedEffect(float @ratio, float @duration)
     {
-        this.CurrentSpeed = this.Speed * @ratio;
+        this.CurrentSpeed = this.MaxSpeed * @ratio;
         this.EffectTimerSpeed.Start(@duration);
         if (ratio < 1)
         {
@@ -137,7 +139,7 @@ public abstract partial class Character3D : CharacterBody3D
     public void EndSpeedEffect()
     {
         this.EffectTimerSpeed.Stop();
-        this.CurrentSpeed = this.Speed;
+        this.CurrentSpeed = this.MaxSpeed;
         this.EffectTimerSpeed.WaitTime = 1.0f;
     }
 

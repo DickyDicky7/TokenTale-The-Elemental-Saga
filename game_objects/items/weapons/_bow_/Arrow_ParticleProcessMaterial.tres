@@ -1,6 +1,6 @@
 [gd_resource type="ParticleProcessMaterial" load_steps=2 format=3 uid="uid://bfi1p0jk171y3"]
 
-[ext_resource type="Texture2D" uid="uid://waa1wr711ynj" path="res://game_objects/items/_bow_/Arrow_GradientTexture1D.tres" id="1_xfev5"]
+[ext_resource type="Texture2D" uid="uid://waa1wr711ynj" path="res://game_objects/items/weapons/_bow_/Arrow_GradientTexture1D.tres" id="1_xfev5"]
 
 [resource]
 direction = Vector3(0, 0, 1)

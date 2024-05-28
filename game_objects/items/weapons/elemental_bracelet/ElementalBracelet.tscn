@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfecuavmxmhn7"]
+
+[ext_resource type="Script" path="res://game_objects/items/weapons/elemental_bracelet/ElementalBracelet.cs" id="1_jnik6"]
+[ext_resource type="Script" path="res://game_objects/shared/state_machine/StateMachine.cs" id="2_qs2nf"]
+[ext_resource type="Script" path="res://game_objects/items/weapons/elemental_bracelet/StateEBCast.cs" id="3_m4tui"]
+[ext_resource type="Script" path="res://game_objects/items/weapons/elemental_bracelet/StateEBReset.cs" id="4_b0m7h"]
+
+[node name="ElementalBracelet" type="Node3D"]
+script = ExtResource("1_jnik6")
+Available = true
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("ActiveStates")]
+script = ExtResource("2_qs2nf")
+ActiveStates = [NodePath("Reset")]
+
+[node name="Cast" type="Node" parent="StateMachine" node_paths=PackedStringArray("ResetState", "ElementalBracelet")]
+script = ExtResource("3_m4tui")
+ResetState = NodePath("../Reset")
+ElementalBracelet = NodePath("../..")
+
+[node name="Reset" type="Node" parent="StateMachine" node_paths=PackedStringArray("CastState", "ElementalBracelet")]
+script = ExtResource("4_b0m7h")
+CastState = NodePath("../Cast")
+ElementalBracelet = NodePath("../..")

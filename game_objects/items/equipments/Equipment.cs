@@ -3,9 +3,10 @@ using System;
 namespace TokenTaleTheElementalSaga;
 public abstract partial class Equipment : Item3D
 {
-	public int Level { get; protected set; }
+	[Export]
 	public bool Available { get; set; }
-	public bool Upgradeable { get; protected set; }
+	public bool Upgradeable { get; set; }
+	public int Level { get; protected set; }
 	public override void _Ready()
 	{
 		base._Ready();

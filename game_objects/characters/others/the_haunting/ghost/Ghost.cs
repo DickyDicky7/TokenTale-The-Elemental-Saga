@@ -10,7 +10,7 @@ public partial class Ghost : Monster
 		targetMainCharacter.CurrentHealth -= Damage;
 		targetMainCharacter.EmitSignal(Character3D.SignalName.HealthChange, damage);
 		targetMainCharacter.StatusInfo.Items.Add(
-			new StatusInfoItemHurt { Thing = $"-{damage}💧" });
+			new StatusInfoItemHurt { Thing = $"-{damage}🩸" });
         this.QueueFree();
     }
 	public override void AcceptVisitor(EnemiesVisitor visitor)

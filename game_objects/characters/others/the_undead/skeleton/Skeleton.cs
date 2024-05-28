@@ -10,7 +10,7 @@ public partial class Skeleton : Monster
 		targetMainCharacter.CurrentHealth -= Damage;
 		targetMainCharacter.EmitSignal(Character3D.SignalName.HealthChange, damage);
 		targetMainCharacter.StatusInfo.Items.Add(
-			new StatusInfoItemHurt { Thing = $"-{damage}💧" });
+			new StatusInfoItemHurt { Thing = $"-{damage}🩸" });
 	}
 	public override void AcceptVisitor(EnemiesVisitor visitor)
 	{

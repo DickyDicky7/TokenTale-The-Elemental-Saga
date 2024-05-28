@@ -53,38 +53,7 @@ public partial class Main : Node3D
                     base._Process(       @delta);
 
         //GD.Print(Engine.GetFramesPerSecond());
-
-GetWindow().Title=
-                $"{Engine.GetFramesPerSecond()}";
-
-//        if (Input.IsActionJustPressed("R_CLICK"))
-//        {
-//            Ability3D ability = Scene.Instantiate<
-//            Ability3D>(); 
-//            Vector3        globalMousePosition = this.GetGlobalMousePosition();
-//            ability.Attach                       (
-//            spacex:        NavigationRegionSstatic,
-//            caster:        MainCharacter          ,
-//            startPosition: NavigationRegionSstatic.ToLocal(
-//                           MainCharacter          .
-//           GlobalPosition),
-//            ceasePosition: NavigationRegionSstatic.ToLocal(
-//                           globalMousePosition)  );
-
-//            MainCharacter.
-//            MainCharacterAnimatedSprite3DEffect.CurrentEffect=
-//            MainCharacterAnimatedSprite3DEffect.       Effect.
-//            EFFECT_FIRE  ;
-
-//            StatusInfo
-//                .Items
-//                .Add(new StatusInfoItemElemental()
-//                {
-//                    Element = Global.Element.Ice,
-//                    Thing =
-//@$"Right Click",
-//                });
-//        }
+        GetWindow().Title = $"{Engine.GetFramesPerSecond()}";
     }
 }
 

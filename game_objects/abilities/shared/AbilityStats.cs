@@ -89,6 +89,21 @@ public partial class AbilityStats : Resource
 		ElementStats.Add(Global.Element.Electric, ElectricStats);
 		ElementStats.Add(Global.Element.Earth, EarthStats);
 		ElementStats.Add(Global.Element.Wood, WoodStats);
+
+		EnergyConsumption.Add(nameof(FireBall), 3);
+		EnergyConsumption.Add(nameof(Ignite), 9);
+		EnergyConsumption.Add(nameof(PenetratingSquirt), 2);
+		EnergyConsumption.Add(nameof(TidalWave), 6);
+		EnergyConsumption.Add(nameof(AirSurge), 2);
+		EnergyConsumption.Add(nameof(Tornado), 7);
+		EnergyConsumption.Add(nameof(Frostburn), 5);
+		EnergyConsumption.Add(nameof(IceWall), 5);
+		EnergyConsumption.Add(nameof(Lightning), 3);
+		EnergyConsumption.Add(nameof(Overcharge), 7);
+		EnergyConsumption.Add(nameof(SkyStrike), 7);
+		//EnergyConsumption.Add(nameof(), 3); GolemGoGoGo ?
+		EnergyConsumption.Add(nameof(RootTrap), 5);
+		EnergyConsumption.Add(nameof(SereneMeadow), 14);
 	}
 	public Dictionary<Global.Element, Dictionary<int, Record.AbilityInfo>> ElementStats
 	{ get; private set; } = new();
@@ -99,6 +114,7 @@ public partial class AbilityStats : Resource
 	private Dictionary<int, Record.AbilityInfo> IceStats { get; set; } = new();
 	private Dictionary<int, Record.AbilityInfo> EarthStats { get; set; } = new();
 	private Dictionary<int, Record.AbilityInfo> WoodStats { get; set; } = new();
+	public Dictionary<string, int> EnergyConsumption { get; private set; } = new();
 	public class ActiveRange
 	{
 		public static float Short { get; private set; } = 1.0f;

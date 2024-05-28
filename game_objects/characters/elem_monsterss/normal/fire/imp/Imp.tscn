@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp.cs" id="1_41j3n"]
 [ext_resource type="SpriteFrames" uid="uid://bqs28pblt174t" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_SpriteFrames_$Main$.tres" id="1_n3j5a"]
-[ext_resource type="Resource" uid="uid://cpr7h4q8dcy8n" path="res://game_objects/characters/shared/V.tres" id="2_qyosf"]
+[ext_resource type="Resource" uid="uid://bks16vr7o4ojt" path="res://game_objects/characters/shared/EnemiesAbilities.tres" id="2_ig0nc"]
 [ext_resource type="PackedScene" uid="uid://dsbep0yr8rwxa" path="res://game_objects/shared/hits_flashing_by_modulate/HitsFlashingByModulate.tscn" id="3_5ej0u"]
 [ext_resource type="Shape3D" uid="uid://bucn4fsdotdh5" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_CollisionShape3D_Body.tres" id="4_l0j8u"]
 [ext_resource type="BlackboardPlan" uid="uid://hoyi5k3pm20n" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_BlackboardPlanBase.tres" id="6_yc0yk"]
@@ -471,7 +471,7 @@ _data = {
 collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_41j3n")
-AbilityDispatchVisitor = ExtResource("2_qyosf")
+VisitorAbilityDispatch = ExtResource("2_ig0nc")
 StatusInfoPackedScene = ExtResource("14_vdc28")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

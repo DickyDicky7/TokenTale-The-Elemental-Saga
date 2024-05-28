@@ -11,7 +11,7 @@ public partial class Imp : ElementalMonster
 	{
 		this.CreateAbility(nameof(MiniFireBall), targetMainCharacter);
 	}
-	public override void AcceptVisitor(MonsterVisitor visitor)
+	public override void AcceptVisitor(EnemiesVisitor visitor)
 	{
 		visitor.VisitImp(this);
 	}

@@ -12,7 +12,7 @@ public partial class MetalMonster : ElementalMonster
     {
 		this.CreateAbility(nameof(MiniThunderShock) ,targetMainCharacter);
 	}
-	public override void AcceptVisitor(MonsterVisitor visitor)
+	public override void AcceptVisitor(EnemiesVisitor visitor)
 	{
 		visitor.VisitMetalMonster(this);
 	}

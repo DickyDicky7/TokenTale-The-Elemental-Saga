@@ -8,7 +8,7 @@ public partial class KoboldPriest : ElementalMonster
 	{
 		this.CreateAbility(nameof(MiniIceShard), targetMainCharacter);
 	}
-	public override void AcceptVisitor(MonsterVisitor visitor)
+	public override void AcceptVisitor(EnemiesVisitor visitor)
 	{
 		visitor.VisitKoboldPriest(this);
 	}

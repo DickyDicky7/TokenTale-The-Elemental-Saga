@@ -8,7 +8,7 @@ public partial class Bat : ElementalMonster
 	{
 		CreateAbility(nameof(MiniBlowWind), targetMainCharacter);
 	}
-	public override void AcceptVisitor(MonsterVisitor visitor)
+	public override void AcceptVisitor(EnemiesVisitor visitor)
 	{
 		visitor.VisitBat(this);
 	}

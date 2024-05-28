@@ -8,7 +8,7 @@ public partial class HealTotem : ElementalMonster
 	{
 		CreateAbility(nameof(MiniRootTrap), targetMainCharacter);
 	}
-	public override void AcceptVisitor(MonsterVisitor visitor)
+	public override void AcceptVisitor(EnemiesVisitor visitor)
 	{
 		visitor.VisitHealTotem(this);
 	}

@@ -14,7 +14,7 @@ public partial class Cyclops : ElementalMonster
 	public override void CreateAbility(string abilityName, MainCharacter targetMainCharacter)
 	{
 		Ability3D tempAbility = this
-			.AbilityPackedScenes[nameof(abilityName)]
+			.AbilityPackedScenes[abilityName]
 			.Instantiate<Ability3D>();
 		tempAbility.Attach(
 			this.NavigationRegion3DStatic,
@@ -42,7 +42,7 @@ public partial class Cyclops : ElementalMonster
 			tempAbility.DamageRatio = 1.4f;
 		}
 	}
-	public override void AcceptVisitor(MonsterVisitor visitor)
+	public override void AcceptVisitor(EnemiesVisitor visitor)
 	{
 		visitor.VisitCyclops(this);
 	}

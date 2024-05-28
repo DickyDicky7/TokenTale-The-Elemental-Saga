@@ -5,21 +5,21 @@ namespace TokenTaleTheElementalSaga;
 //Visitor pattern: Concrete Visitor
 [Tool]
 [GlobalClass]
-public partial class MonsterAbilityDispatchVisitor : MonsterVisitor
+public partial class EnemiesVisitorAbilityDispatch : EnemiesVisitor
 {
 	[Export]
-	public Array<PackedScene> AvailableMonsterAbilityPackedScene { get; set; } = [];
+	public Array<PackedScene> AvailableEnemiesAbilityPackedScene { get; set; } = [];
 	public System.Collections.Generic.Dictionary<string, PackedScene>
-		MonsterAbilityDictionary{ get; private set; } = new();
+		EnemiesAbilityDictionary { get; private set; } = new();
 	private bool AlreadySet { get; set; } = false;
 	public override void Init()
 	{
 		if (this.AlreadySet == true)
 			return;
-		foreach (PackedScene packedScene in AvailableMonsterAbilityPackedScene)
+		foreach (PackedScene packedScene in AvailableEnemiesAbilityPackedScene)
 		{
 			Ability3D ability3D = packedScene.Instantiate<Ability3D>();
-			MonsterAbilityDictionary.Add(ability3D.Name, packedScene);
+			EnemiesAbilityDictionary.Add(ability3D.Name, packedScene);
 		}
 		this.AlreadySet = true;
 	}
@@ -27,46 +27,46 @@ public partial class MonsterAbilityDispatchVisitor : MonsterVisitor
 	{
 		metalMonster.AbilityPackedScenes.Add(
 			nameof(MiniThunderShock),
-			MonsterAbilityDictionary[nameof(MiniThunderShock)]);
+			EnemiesAbilityDictionary[nameof(MiniThunderShock)]);
 	}
 	public override void VisitImp(Imp imp)
 	{
 		imp.AbilityPackedScenes.Add(
 			nameof(MiniFireBall),
-			MonsterAbilityDictionary[nameof(MiniFireBall)]);
+			EnemiesAbilityDictionary[nameof(MiniFireBall)]);
 	}
 	public override void VisitKoboldPriest(KoboldPriest koboldPriest)
 	{
 		koboldPriest.AbilityPackedScenes.Add(
 			nameof(MiniIceShard),
-			MonsterAbilityDictionary[nameof(MiniIceShard)]);
+			EnemiesAbilityDictionary[nameof(MiniIceShard)]);
 	}
 	public override void VisitCyclops(Cyclops cyclops)
 	{
 		cyclops.AbilityPackedScenes.Add(
 			nameof(MiniThrowingRock),
-			MonsterAbilityDictionary[nameof(MiniThrowingRock)]);
+			EnemiesAbilityDictionary[nameof(MiniThrowingRock)]);
 	}
 	public override void VisitRatfolkMage(RatfolkMage ratfolkMage)
 	{
 		ratfolkMage.AbilityPackedScenes.Add(
 			nameof(MiniPenetratingSquirt),
-			MonsterAbilityDictionary[nameof(MiniPenetratingSquirt)]);
+			EnemiesAbilityDictionary[nameof(MiniPenetratingSquirt)]);
 		ratfolkMage.AbilityPackedScenes.Add(
 			nameof(MiniHealSingle),
-			MonsterAbilityDictionary[nameof(MiniHealSingle)]);
+			EnemiesAbilityDictionary[nameof(MiniHealSingle)]);
 	}
 	public override void VisitBat(Bat bat)
 	{
 		bat.AbilityPackedScenes.Add(
 			nameof(MiniBlowWind),
-			MonsterAbilityDictionary[nameof(MiniBlowWind)]);
+			EnemiesAbilityDictionary[nameof(MiniBlowWind)]);
 	}
 	public override void VisitHealTotem(HealTotem healTotem)
 	{
 		healTotem.AbilityPackedScenes.Add(
 			nameof(MiniRootTrap),
-			MonsterAbilityDictionary[nameof(MiniRootTrap)]);
+			EnemiesAbilityDictionary[nameof(MiniRootTrap)]);
 	}
 	public override void VisitGhost(Ghost ghost)
 	{

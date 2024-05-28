@@ -4,7 +4,7 @@ namespace TokenTaleTheElementalSaga;
 //Visitor pattern: abstract visitor
 [Tool]
 [GlobalClass]
-public abstract partial class MonsterVisitor : Resource
+public abstract partial class EnemiesVisitor : Resource
 {
 	public abstract void Init();
 	public abstract void VisitMetalMonster(MetalMonster metalMonster);

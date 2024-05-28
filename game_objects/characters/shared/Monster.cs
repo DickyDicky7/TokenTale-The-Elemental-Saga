@@ -9,7 +9,7 @@ namespace TokenTaleTheElementalSaga;
 public abstract partial class Monster : Character3D
 {
     [Export]
-    public MonsterVisitor AbilityDispatchVisitor { get; set; }
+    public EnemiesVisitor VisitorAbilityDispatch { get; set; }
     [Export]
     public NavigationRegion3D NavigationRegion3DStatic { get; set; }
     
@@ -25,10 +25,9 @@ public abstract partial class Monster : Character3D
     public string Key { get; protected set; }
     public float CurrentDamage { get; protected set; }
     public float Damage { get; protected set; } = 1.0f;
-    public Dictionary<string, PackedScene> AbilityPackedScenes { get; set; } = new();
     
     public abstract void Attack(MainCharacter targetMainCharacter);
-    public abstract void AcceptVisitor(MonsterVisitor visitor);
+    public abstract void AcceptVisitor(EnemiesVisitor visitor);
     public virtual void CreateAbility(string abilityName, MainCharacter targetMainCharacter)
     {
 		Ability3D tempAbility = this
@@ -63,7 +62,7 @@ public abstract partial class Monster : Character3D
             elementalReactionDH.ProcessDamage(ref damage);
         damage = (float)Math.Round(damage, 2);
         targetCharacter.StatusInfo.Items.Add(
-            new StatusInfoItemElemental {Element = ability.Element, Thing = $"-{damage}" });
+            new StatusInfoItemElemental {Element = ability.Element, Thing = $"-{damage}🩸" });
         return damage;
 	}
 	public override float CalculatePhysicsDamage(Character3D targetCharacter)
@@ -74,7 +73,7 @@ public abstract partial class Monster : Character3D
         damage = this.CurrentDamage;
 		damage = (float)Math.Round(damage, 2);
 		targetCharacter.StatusInfo.Items.Add(
-            new StatusInfoItemHurt { Thing = $"-{damage}" });
+            new StatusInfoItemHurt { Thing = $"-{damage}🩸" });
         return damage;
 	}
 	public void UpdateStats()
@@ -86,19 +85,19 @@ public abstract partial class Monster : Character3D
             .CurrentDifficulty;
         this.Damage = MonsterInfo.BaseDamage * Difficulty.MonsterBaseDamageRatio;
         this.MaxHealth = MonsterInfo.BaseMaxHealth * Difficulty.MonsterMaxHealthRatio;
-        this.Speed = MonsterInfo.BaseMoveSpeed;
+        this.MaxSpeed = MonsterInfo.BaseMoveSpeed;
 	}
 	public override void _Ready()
 	{
 		base._Ready();
         //init ability resource
-        AbilityDispatchVisitor.Init();
-        this.AcceptVisitor(this.AbilityDispatchVisitor);
+        VisitorAbilityDispatch.Init();
+        this.AcceptVisitor(this.VisitorAbilityDispatch);
         //update stats base on difficulty
         this.DifficultyChanged += this.UpdateStats;
 		UpdateStats();
 		this.CurrentHealth = this.MaxHealth;
-		this.CurrentSpeed = this.Speed;
+		this.CurrentSpeed = this.MaxSpeed;
 		this.CurrentDamage = this.Damage;
 	}
 }

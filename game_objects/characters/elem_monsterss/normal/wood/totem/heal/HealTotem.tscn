@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem.cs" id="1_pc638"]
 [ext_resource type="SpriteFrames" uid="uid://b8kirdr3jdxm1" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_SpriteFrames_$Main$.tres" id="1_q6j6a"]
 [ext_resource type="PackedScene" uid="uid://dsbep0yr8rwxa" path="res://game_objects/shared/hits_flashing_by_modulate/HitsFlashingByModulate.tscn" id="2_5nmji"]
-[ext_resource type="Resource" uid="uid://cpr7h4q8dcy8n" path="res://game_objects/characters/shared/V.tres" id="2_d7vfg"]
+[ext_resource type="Resource" uid="uid://bks16vr7o4ojt" path="res://game_objects/characters/shared/EnemiesAbilities.tres" id="2_6eu1f"]
 [ext_resource type="PackedScene" uid="uid://chwjmy7grdej" path="res://game_objects/shared/status_info/StatusInfo.tscn" id="3_ip88c"]
 [ext_resource type="BehaviorTree" uid="uid://qjvfmmgwhd5t" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_BehaviorTree.tres" id="3_j0och"]
 [ext_resource type="Shape3D" uid="uid://dhds745t3iuay" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_CollisionShape3D_Body.tres" id="3_uclmn"]
@@ -455,7 +455,7 @@ collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_pc638")
 Element = 6
-AbilityDispatchVisitor = ExtResource("2_d7vfg")
+VisitorAbilityDispatch = ExtResource("2_6eu1f")
 MonsterType = 2
 StatusInfoPackedScene = ExtResource("3_ip88c")
 

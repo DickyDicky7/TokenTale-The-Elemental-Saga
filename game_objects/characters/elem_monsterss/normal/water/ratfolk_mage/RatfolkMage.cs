@@ -11,7 +11,7 @@ public partial class RatfolkMage : ElementalMonster
 	{
 		CreateAbility(nameof(MiniPenetratingSquirt), targetMainCharacter);
 	}
-	public override void AcceptVisitor(MonsterVisitor visitor)
+	public override void AcceptVisitor(EnemiesVisitor visitor)
 	{
 		visitor.VisitRatfolkMage(this);
 	}

@@ -32,5 +32,7 @@ func _exit() -> void:
 	pass;
 	
 func _tick(_delta: float) -> Status:
+	if (currentCharacter.IsStunning == true):
+		return FAILURE
 	currentCharacter.position = destination
 	return SUCCESS;

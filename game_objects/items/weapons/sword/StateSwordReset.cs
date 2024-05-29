@@ -28,6 +28,8 @@ public partial class StateSwordReset : StateSword
 
     public override void _Input(InputEvent @inputEvent)
     {
+        if (this.Sword.IsCoolingDown == true || this.Sword.OwnerMainCharacter.IsStunning == true)
+            return;
                     base._Input(           @inputEvent);
 
         if ( @inputEvent.IsMousePressed

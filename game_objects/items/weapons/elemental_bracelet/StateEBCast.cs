@@ -17,5 +17,7 @@ public partial class StateEBCast : StateEB
 	public override void _Leave()
 	{
 		base._Leave();
+		this.ElementalBracelet.StartCoolDown(
+			this.ElementalBracelet.OwnerMainCharacter.BoosterManager.ElementalCoolDown);
 	}
 }

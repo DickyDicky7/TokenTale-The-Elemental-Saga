@@ -5,8 +5,10 @@ func _generate_name() -> String:
 	return "WatchingAround";
 	
 var angle: float = 0
+var currentCharacter: Character3D
 
 func _setup() -> void:
+	currentCharacter = agent
 	#blackboard.set_var(BBSeeingAngle, 0)
 	pass;
 
@@ -17,6 +19,8 @@ func _exit() -> void:
 	pass;
 	
 func _tick(_delta:float) -> Status:
+	if (currentCharacter.IsStunning == true):
+		return FAILURE
 	angle = blackboard.get_var(BBVariable.SeeingAngle)
 	if (int(angle) % 90 == 0):
 		angle += 90

@@ -13,11 +13,11 @@ public partial class BoosterManager : Node
 
 	public float MaxHealth { get; private set; }
 	public int MaxEnergy { get; private set; }
-	public float SwordAttackSpeed { get; private set; }
+	public float SwordCoolDown { get; private set; }
 	public float SwordBonusDamageRatio { get; private set; }
-	public float BowAttackSpeed { get; private set; }
+	public float BowCoolDown { get; private set; }
 	public float BowBonusDamageRatio { get; private set; }
-	public float ElementalCastSpeed { get; private set; }
+	public float ElementalCoolDown { get; private set; }
 	public float ElementalBonusDamageRatio { get; private set; }
 
 	public BoosterManager()
@@ -37,11 +37,11 @@ public partial class BoosterManager : Node
 		BoosterStats BoosterStats = BoosterStats.GetInstance();
 		MaxHealth = BoosterStats.MaxHealthStats[0].MaxHealth;
 		MaxEnergy = BoosterStats.MaxEnergyStats[0].MaxEnergy;
-		SwordAttackSpeed = BoosterStats.SwordProficiency[0].Speed;
+		SwordCoolDown = BoosterStats.SwordProficiency[0].CoolDown;
 		SwordBonusDamageRatio = BoosterStats.SwordProficiency[0].BonusDamageRatio;
-		BowAttackSpeed = BoosterStats.BowProficiency[0].Speed;
+		BowCoolDown = BoosterStats.BowProficiency[0].CoolDown;
 		BowBonusDamageRatio = BoosterStats.BowProficiency[0].BonusDamageRatio;
-		ElementalCastSpeed = BoosterStats.ElementalProficiency[0].Speed;
+		ElementalCoolDown = BoosterStats.ElementalProficiency[0].CoolDown;
 		ElementalBonusDamageRatio = BoosterStats.ElementalProficiency[0].BonusDamageRatio;
 	}
 	public void TakeBooster(Booster booster)
@@ -91,7 +91,7 @@ public partial class BoosterManager : Node
 		int SwordScrollCollected = SwordScrollStatusList.FindAll(x => x == true).Count;
 		Record.SwordKnowledgeInfo info = BoosterStats.GetInstance()
 			.SwordProficiency[SwordScrollCollected];
-		this.SwordAttackSpeed = info.Speed;
+		this.SwordCoolDown = info.CoolDown;
 		this.SwordBonusDamageRatio = info.BonusDamageRatio;
 	}
 	private void ApplyBowScroll()
@@ -99,7 +99,7 @@ public partial class BoosterManager : Node
 		int BowScrollCollected = BowScrollStatusList.FindAll(x => x == true).Count;
 		Record.BowKnowledgeInfo info = BoosterStats.GetInstance()
 			.BowProficiency[BowScrollCollected];
-		this.BowAttackSpeed = info.Speed;
+		this.BowCoolDown = info.CoolDown;
 		this.BowBonusDamageRatio = info.BonusDamageRatio;
 	}
 	private void ApplyElementalScroll()
@@ -107,7 +107,7 @@ public partial class BoosterManager : Node
 		int ElementalScrollCollected = ElementalScrollStatusList.FindAll(x => x == true).Count;
 		Record.ElementalKnowledgeInfo info = BoosterStats.GetInstance()
 			.ElementalProficiency[ElementalScrollCollected];
-		this.ElementalCastSpeed = info.Speed;
+		this.ElementalCoolDown = info.CoolDown;
 		this.ElementalBonusDamageRatio = info.BonusDamageRatio;
 	}
 }

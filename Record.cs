@@ -54,20 +54,20 @@ public partial class Record
 
     public record SwordKnowledgeInfo
     {
-        public float            Speed { get; set; }
+        public float CoolDown { get; set; }
         public float BonusDamageRatio { get; set; }
     }
 
     public record BowKnowledgeInfo
     {
-        public float            Speed { get; set; }
+        public float CoolDown { get; set; }
         public float BonusDamageRatio { get; set; }
     }
 
     public record ElementalKnowledgeInfo
     {
-        public float Speed                    { get; set; }
-        public float         BonusDamageRatio { get; set; }
+        public float CoolDown { get; set; }
+        public float BonusDamageRatio { get; set; }
     }
     //ability
     public record AbilityInfo

@@ -50,9 +50,10 @@ public partial class State_Bow_Shoot : State_Bow_
                     base._Leave();
 
         _Bow_.AnimationPlayerr      .AnimationFinished -= AnimationPlayerr_______AnimationFinished;
-//      _Bow_.AnimatedSprite3DMmainn.AnimationFinished -= AnimatedSprite3DMmainn_AnimationFinished; ;
-//      _Bow_.AnimatedSprite3DEffect.AnimationFinished -= AnimatedSprite3DEffect_AnimationFinished;
-    }
+		//      _Bow_.AnimatedSprite3DMmainn.AnimationFinished -= AnimatedSprite3DMmainn_AnimationFinished; ;
+		//      _Bow_.AnimatedSprite3DEffect.AnimationFinished -= AnimatedSprite3DEffect_AnimationFinished;
+		_Bow_.StartCoolDown(_Bow_.OwnerMainCharacter.BoosterManager.BowCoolDown);
+	}
 
     private void AnimatedSprite3DMmainn_AnimationFinished()
     {

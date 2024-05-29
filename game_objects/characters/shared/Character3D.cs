@@ -29,6 +29,8 @@ public abstract partial class Character3D : CharacterBody3D
 
 	public virtual void Move(Vector3 @direction, double @delta)
     {
+        if (this.IsStunning == true)
+            return;
             @direction  =   (         Transform.         Basis
         *   @direction).Normalized();
 

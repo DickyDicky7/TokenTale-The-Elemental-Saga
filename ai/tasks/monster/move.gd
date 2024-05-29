@@ -29,6 +29,8 @@ func _exit() -> void:
 	pass;
 	
 func _tick(_delta: float) -> Status:
+	if (currentCharacter.IsStunning == true):
+		return FAILURE
 	if (hurtbox3D.Hurt):
 		return SUCCESS
 	var finalPositionXZ: Vector2 = Vector2(

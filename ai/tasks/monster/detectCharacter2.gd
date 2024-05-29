@@ -36,6 +36,8 @@ func _exit() -> void:
 	pass;
 	
 func _tick(_delta: float) -> Status:
+	if (currentCharacter.IsStunning == true):
+		return FAILURE
 	if (shapeCast3D.is_colliding()):
 		for i in range(shapeCast3D.collision_result.size()):
 			var  targetCharacter:Object = shapeCast3D.get_collider(i);

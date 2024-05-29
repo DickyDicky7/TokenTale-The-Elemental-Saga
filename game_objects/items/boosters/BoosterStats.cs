@@ -15,54 +15,54 @@ public partial class BoosterStats : Resource
 		//sword
 		SwordProficiency.Add(0, new Record.SwordKnowledgeInfo
 		{
-			Speed = 2.0f,
+			CoolDown = 1.25f,
 			BonusDamageRatio = 0
 		});
 		SwordProficiency.Add(1, new Record.SwordKnowledgeInfo
 		{
-			Speed = 1.5f,
+			CoolDown = 1.0f,
 			BonusDamageRatio = 0.065f
 		});
 		SwordProficiency.Add(2, new Record.SwordKnowledgeInfo
 		{
-			Speed = 1.0f,
+			CoolDown = 0.5f,
 			BonusDamageRatio = 0.13f
 		});
 		SwordProficiency.Add(3, new Record.SwordKnowledgeInfo
 		{
-			Speed = 0.5f,
+			CoolDown = 0.25f,
 			BonusDamageRatio = 0.2f
 		});
 		//bow
 		BowProficiency.Add(0, new Record.BowKnowledgeInfo
 		{
-			Speed = 2.0f,
+			CoolDown = 1.5f,
 			BonusDamageRatio = 0
 		});
 		BowProficiency.Add(1, new Record.BowKnowledgeInfo
 		{
-			Speed = 1.5f,
+			CoolDown = 1.0f,
 			BonusDamageRatio = 0.075f
 		});
 		BowProficiency.Add(2, new Record.BowKnowledgeInfo
 		{
-			Speed = 1.0f,
+			CoolDown = 0.5f,
 			BonusDamageRatio = 0.15f
 		});
 		//elemental
 		ElementalProficiency.Add(0, new Record.ElementalKnowledgeInfo
 		{
-			Speed = 2.0f,
+			CoolDown = 1.5f,
 			BonusDamageRatio = 0
 		});
 		ElementalProficiency.Add(1, new Record.ElementalKnowledgeInfo
 		{
-			Speed = 1.5f,
+			CoolDown = 1.0f,
 			BonusDamageRatio = 0.05f
 		});
 		ElementalProficiency.Add(2, new Record.ElementalKnowledgeInfo
 		{
-			Speed = 1.0f,
+			CoolDown = 0.5f,
 			BonusDamageRatio = 0.1f
 		});
 		//health

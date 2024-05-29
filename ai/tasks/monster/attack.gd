@@ -9,7 +9,7 @@ func _generate_name() -> String:
 	
 func _setup() -> void:
 	currentCharacter = agent
-	blackboard.set_var(BBVariable.ReadyToStrike, true)
+	blackboard.set_var(BBVariable.ReadyToStrike, false)
 	pass;
 	
 func _enter() -> void:
@@ -22,6 +22,8 @@ func _exit() -> void:
 	pass;
 
 func _tick(_delta: float) -> Status:
+	if (currentCharacter.IsStunning == true):
+		return FAILURE
 	if (targetCharacter == null):
 		return FAILURE
 	targetCharacter = targetCharacter as MainCharacter

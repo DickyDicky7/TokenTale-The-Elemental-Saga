@@ -1,13 +1,8 @@
-[gd_resource type="BehaviorTree" load_steps=9 format=3 uid="uid://bndh04gk1atcc"]
+[gd_resource type="BehaviorTree" load_steps=7 format=3 uid="uid://bndh04gk1atcc"]
 
 [ext_resource type="BlackboardPlan" uid="uid://b4o1clikv0qgj" path="res://game_objects/abilities/lightning/Lightning_BlackboardPlan----.tres" id="1_v1ia7"]
-[ext_resource type="Script" path="res://ai/tasks/ability/projectileActivity.gd" id="2_i1mm7"]
 [ext_resource type="BBNode" uid="uid://bms8a4bnbfyfi" path="res://game_objects/abilities/lightning/Lightning_BBNode_AnimPlay.tres" id="2_pk2nn"]
 [ext_resource type="BBNode" uid="uid://bplseflhb2scc" path="res://game_objects/abilities/lightning/Lightning_BBNode_RootNode.tres" id="3_eej5o"]
-
-[sub_resource type="BTAction" id="BTAction_m1rhc"]
-script = ExtResource("2_i1mm7")
-PathHitBox = NodePath("Hitbox")
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_4o38l"]
 await_completion = 1.0
@@ -19,7 +14,7 @@ node = ExtResource("3_eej5o")
 method = &"queue_free"
 
 [sub_resource type="BTSequence" id="BTSequence_3jgyk"]
-children = [SubResource("BTAction_m1rhc"), SubResource("BTPlayAnimation_4o38l"), SubResource("BTCallMethod_wxff3")]
+children = [SubResource("BTPlayAnimation_4o38l"), SubResource("BTCallMethod_wxff3")]
 
 [resource]
 blackboard_plan = ExtResource("1_v1ia7")

@@ -10,6 +10,7 @@ public partial class Arrow : Weapon
     public double MovingDelaying { get; set; }
     public Tween.      EaseType EasingfuncType { get; set; } = Tween.      EaseType.InOut;
     public Tween.TransitionType TransitionType { get; set; } = Tween.TransitionType.Quint;
+    public _Bow_ Bow { get; set; }
 
     [Export]
     public Area3D
@@ -55,7 +56,27 @@ public partial class Arrow : Weapon
     private void Hitbox_BodyEntered(Node3D @body)
     {
              Stop();
+        if (body is Monster monster)
+        {
+            float damage = this.Bow.OwnerMainCharacter.CalculatePhysicsDamage(monster);
+            monster.CurrentHealth -= damage;
+            monster.EmitSignal(Character3D.SignalName.HealthChange, damage);
+        }
 //      QueueFree();
+    }
+    public Vector3 CalculateCeasePosition(
+        Vector3 startPosition,
+        Vector3 ceasePosition)
+    {
+        float maxRange = AbilityStats.ActiveRange.Long;
+        Vector3 movingDirection = startPosition.DirectionTo(ceasePosition).Normalized();
+        Vector3 newCeasePosition = startPosition + movingDirection * maxRange;
+        newCeasePosition = new Vector3(newCeasePosition.X, startPosition.Y, newCeasePosition.Z);
+        return newCeasePosition;
+    }
+    public double CalculateMovingDuration(float distance)
+    {
+        return this.MovingDuration = distance / AbilityStats.Speed.Quick;
     }
 
     private void Move()

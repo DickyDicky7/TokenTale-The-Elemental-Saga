@@ -1,4 +1,5 @@
 using Godot;
+using System.Collections.Generic;
 using Aareaa3D         = Godot.
                                         Area3D;
 using AnimationPlayerr = Godot.AnimationPlayer;
@@ -21,11 +22,34 @@ public partial class Sword : Weapon
     public     Vector2
     DefaultOffsetSprite3D
     { get; private set; }
+    public float Damage { get; set; }
+    public Sword()
+    {
+        this.Upgradeable = true;
+        this.Available = true;
+        this.Level = -1;
+        if (this.Available == true)
+            this.Upgrade();
+    }
 
     public override void _Ready()
     {
                     base._Ready();
 
         DefaultOffsetSprite3D = Sprite3D.Offset;
+        //Load from saved ?
     }
+	public override void Upgrade()
+	{
+		base.Upgrade();
+        Dictionary<int, Record.SwordInfo> SwordStats
+            = WeaponStats.GetInstance().SwordStats;
+        if (this.Level == SwordStats.Count - 1)
+            this.Upgradeable = false;
+        this.Damage = SwordStats[Level].Damage;
+        if (this.Upgradeable == true)
+            this.NextLevelUpgradeCost = SwordStats[Level + 1].UpgradeCost;
+        else
+            this.NextLevelUpgradeCost = -1;
+	}
 }

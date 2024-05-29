@@ -15,4 +15,8 @@ public partial class MSquirtHitbox : Hittbox3D
 			}
 		}
 	}
+	public override void _Ready()
+	{
+		base._Ready();
+	}
 }

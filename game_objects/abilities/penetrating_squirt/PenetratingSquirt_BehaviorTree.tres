@@ -1,13 +1,8 @@
-[gd_resource type="BehaviorTree" load_steps=9 format=3 uid="uid://t6yhjbbcq7hq"]
+[gd_resource type="BehaviorTree" load_steps=7 format=3 uid="uid://t6yhjbbcq7hq"]
 
 [ext_resource type="BlackboardPlan" uid="uid://6afyhrto2vay" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_BlackboardPlan----.tres" id="1_8tl4g"]
 [ext_resource type="BBNode" uid="uid://b6wow3j833jcw" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_BBNode_AnimPlay.tres" id="2_h653f"]
-[ext_resource type="Script" path="res://ai/tasks/ability/setupAbility.gd" id="2_kkc8o"]
 [ext_resource type="BBNode" uid="uid://bv53xhq8t5r1o" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_BBNode_RootNode.tres" id="3_dp55m"]
-
-[sub_resource type="BTAction" id="BTAction_bbpwh"]
-script = ExtResource("2_kkc8o")
-PathHitBox = NodePath("Hitbox")
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_5rcq2"]
 await_completion = 10.0
@@ -19,7 +14,7 @@ node = ExtResource("3_dp55m")
 method = &"queue_free"
 
 [sub_resource type="BTSequence" id="BTSequence_e737d"]
-children = [SubResource("BTAction_bbpwh"), SubResource("BTPlayAnimation_5rcq2"), SubResource("BTCallMethod_8nffr")]
+children = [SubResource("BTPlayAnimation_5rcq2"), SubResource("BTCallMethod_8nffr")]
 
 [resource]
 blackboard_plan = ExtResource("1_8tl4g")

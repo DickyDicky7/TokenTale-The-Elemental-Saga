@@ -21,6 +21,17 @@ public partial class Hittbox3D : CustomArea3D
 			tempCharacter.CurrentHealth -= damage;
 			tempCharacter.EmitSignal(Character3D.SignalName.HealthChange, damage);
 		}
+		if (this.GetParent() is Weapon tempWeapon && node3D is Monster tempMonster)
+		{
+			float damage = tempWeapon.OwnerMainCharacter.CalculatePhysicsDamage(tempMonster);
+			tempMonster.CurrentHealth -= damage;
+			tempMonster.EmitSignal(Character3D.SignalName.HealthChange, damage);
+		}
+	}
+	public override void _Ready()
+	{
+		base._Ready();
+		this.StartWatching();
 	}
 }
 

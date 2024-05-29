@@ -1,15 +1,9 @@
-[gd_resource type="BehaviorTree" load_steps=5 format=3 uid="uid://buj0wgsimyiuh"]
+[gd_resource type="BehaviorTree" load_steps=3 format=3 uid="uid://buj0wgsimyiuh"]
 
 [ext_resource type="BlackboardPlan" uid="uid://bvmqtcyxjnqhq" path="res://game_objects/abilities/others/mini_throwin_grock/MiniThrowingRock_BlackboardPlan----.tres" id="1_5166g"]
-[ext_resource type="Script" path="res://ai/tasks/ability/setupAbility.gd" id="2_0hhow"]
 
-[sub_resource type="BTAction" id="BTAction_e5gd1"]
-script = ExtResource("2_0hhow")
-PathHitBox = NodePath("Hitbox")
-
-[sub_resource type="BTSequence" id="BTSequence_nvqs0"]
-children = [SubResource("BTAction_e5gd1")]
+[sub_resource type="BTWait" id="BTWait_jnxnp"]
 
 [resource]
 blackboard_plan = ExtResource("1_5166g")
-root_task = SubResource("BTSequence_nvqs0")
+root_task = SubResource("BTWait_jnxnp")

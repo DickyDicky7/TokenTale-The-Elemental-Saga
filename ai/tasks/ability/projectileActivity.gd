@@ -8,12 +8,9 @@ func _generate_name() -> String:
 
 var currentAbility: Ability3D	
 var movingDuration: float
-var HitBox3D: Hittbox3D
 
 func _setup() -> void:
 	currentAbility = agent
-	HitBox3D = agent.get_node(PathHitBox)
-	HitBox3D.StartWatching()
 	pass;
 	
 func _enter() -> void:

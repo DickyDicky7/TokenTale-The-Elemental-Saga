@@ -750,6 +750,7 @@ offset = Vector2(0, 12)
 texture_filter = 0
 sprite_frames = ExtResource("1_q2bc7")
 animation = &"IDLE_D"
+frame = 3
 
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 cast_shadow = 3
@@ -758,6 +759,7 @@ alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_q2bc7")
 animation = &"IDLE_D"
+frame = 3
 
 [node name="AnimatedSprite3D_Effect" parent="." node_paths=PackedStringArray("AnimationPlayer") instance=ExtResource("19_14buj")]
 AnimationPlayer = NodePath("AnimationPlayer")
@@ -797,7 +799,7 @@ EasingfuncType = 0
 TransitionType = 0
 Modulate = Color(1, 1, 1, 1)
 
-[node name="Sword" parent="." node_paths=PackedStringArray("Sprite3D", "Shadow3D", "Aareaa3D", "CollisionShape3D", "AnimatedSprite3D", "AnimatedShadow3D", "AnimationPlayerr") instance=ExtResource("12_frf8n")]
+[node name="Sword" parent="." node_paths=PackedStringArray("Sprite3D", "Shadow3D", "Aareaa3D", "CollisionShape3D", "AnimatedSprite3D", "AnimatedShadow3D", "AnimationPlayerr", "OwnerMainCharacter") instance=ExtResource("12_frf8n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
 Sprite3D = NodePath("Sprite3D")
 Shadow3D = NodePath("Shadow3D")
@@ -806,24 +808,26 @@ CollisionShape3D = NodePath("Aareaa3D/CollisionShape3D")
 AnimatedSprite3D = NodePath("_AnimatedSprite3D")
 AnimatedShadow3D = NodePath("_AnimatedShadow3D")
 AnimationPlayerr = NodePath("_AnimationPlayerr")
+OwnerMainCharacter = NodePath("..")
 
-[node name="_Bow_" parent="." node_paths=PackedStringArray("AnimationPlayerr", "AnimatedSprite3DMmainn", "CollisionShape3D", "AnimatedSprite3DEffect") instance=ExtResource("13_y068q")]
+[node name="_Bow_" parent="." node_paths=PackedStringArray("AnimationPlayerr", "AnimatedSprite3DMmainn", "CollisionShape3D", "AnimatedSprite3DEffect", "OwnerMainCharacter") instance=ExtResource("13_y068q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
 visible = false
 AnimationPlayerr = NodePath("AnimationPlayerrr")
 AnimatedSprite3DMmainn = NodePath("_AnimatedSprite3D_$Main$")
 CollisionShape3D = NodePath("Aareaa3D/CollisionShape3D")
 AnimatedSprite3DEffect = NodePath("_AnimatedSprite3D_Effect")
+OwnerMainCharacter = NodePath("..")
 
 [node name="ElementalBracelet" parent="." node_paths=PackedStringArray("OwnerMainCharacter") instance=ExtResource("12_25v8g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
-OwnerMainCharacter = NodePath("..")
 CurrentElement = 0
+OwnerMainCharacter = NodePath("..")
 
 [node name="ElementalBracelet2" parent="." node_paths=PackedStringArray("OwnerMainCharacter") instance=ExtResource("12_25v8g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
-OwnerMainCharacter = NodePath("..")
 CurrentElement = 2
+OwnerMainCharacter = NodePath("..")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("ActiveStates")]
 script = ExtResource("12_wpmlx")

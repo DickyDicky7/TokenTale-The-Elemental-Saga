@@ -1,13 +1,8 @@
-[gd_resource type="BehaviorTree" load_steps=10 format=3 uid="uid://byhh7tvkx4ku3"]
+[gd_resource type="BehaviorTree" load_steps=8 format=3 uid="uid://byhh7tvkx4ku3"]
 
 [ext_resource type="BlackboardPlan" uid="uid://cymackqgd8xjl" path="res://game_objects/abilities/others/mini_root_trap/MiniRootTrap_BlackboardPlan----.tres" id="1_6u2ow"]
-[ext_resource type="Script" path="res://ai/tasks/ability/setupAbility.gd" id="2_33vvs"]
 [ext_resource type="BBNode" uid="uid://dnq15qipqpyno" path="res://game_objects/abilities/others/mini_root_trap/MiniRootTrap_BBNode_AnimPlay.tres" id="2_y54uu"]
 [ext_resource type="BBNode" uid="uid://dnroolvky2ywj" path="res://game_objects/abilities/others/mini_root_trap/MiniRootTrap_BBNode_RootNode.tres" id="3_y1c7x"]
-
-[sub_resource type="BTAction" id="BTAction_rfctw"]
-script = ExtResource("2_33vvs")
-PathHitBox = NodePath("Hitbox")
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_0nbda"]
 await_completion = 10.0
@@ -24,7 +19,7 @@ node = ExtResource("3_y1c7x")
 method = &"queue_free"
 
 [sub_resource type="BTSequence" id="BTSequence_f0vcf"]
-children = [SubResource("BTAction_rfctw"), SubResource("BTPlayAnimation_0nbda"), SubResource("BTPlayAnimation_dau8y"), SubResource("BTCallMethod_8i37t")]
+children = [SubResource("BTPlayAnimation_0nbda"), SubResource("BTPlayAnimation_dau8y"), SubResource("BTCallMethod_8i37t")]
 
 [resource]
 blackboard_plan = ExtResource("1_6u2ow")

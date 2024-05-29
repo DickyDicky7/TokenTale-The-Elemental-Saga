@@ -129,6 +129,20 @@ public partial class MainCharacter : Character3D
 		float damage = 0;
 		if (targetCharacter is not Monster)
 			return damage;
+        if (this.WeaponsController.ChosenWeapon is Sword tempSword)
+        {
+            damage = tempSword.Damage;
+            BaseDH swordProficiencyDH = new SwordProficiencyDH(
+                this.BoosterManager.SwordBonusDamageRatio);
+            swordProficiencyDH.ProcessDamage(ref damage);
+        }
+        else if (this.WeaponsController.ChosenWeapon is _Bow_ tempBow)
+        {
+            damage = tempBow.Damage;
+			BaseDH bowProficiencyDH = new BowProficiencyDH(
+				this.BoosterManager.BowBonusDamageRatio);
+            bowProficiencyDH.ProcessDamage(ref damage);
+		}
 		damage = (float)Math.Round(damage, 2);
 		targetCharacter.StatusInfo.Items.Add(
             new StatusInfoItemHurt { Thing = $"-{damage}🩸" });

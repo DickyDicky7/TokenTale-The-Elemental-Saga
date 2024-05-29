@@ -1,10 +1,11 @@
-[gd_scene load_steps=57 format=3 uid="uid://bx1yjtvn2pwyh"]
+[gd_scene load_steps=58 format=3 uid="uid://bx1yjtvn2pwyh"]
 
 [ext_resource type="Script" path="res://game_objects/items/weapons/sword/Sword.cs" id="1_pcobt"]
 [ext_resource type="Texture2D" uid="uid://j7oq61sp7i8y" path="res://game_asset_s/macrune's_weaponry/spritesheet/32x32/RPG Weapons Darkk Outline 32x32.png" id="2_67fip"]
 [ext_resource type="Material" uid="uid://3ecq4gw3x75h" path="res://game_objects/items/weapons/sword/Sword_ShaderMaterial_GLOU.tres" id="2_a47rq"]
 [ext_resource type="Shader" path="res://shaders/Glow.gdshader" id="3_emuqp"]
 [ext_resource type="Shape3D" uid="uid://djeb1w4437hhy" path="res://game_objects/items/weapons/sword/Sword_CollisionShape3D.tres" id="4_5bwhb"]
+[ext_resource type="Script" path="res://game_objects/items/weapons/sword/SwordHitbox.cs" id="4_hmo0a"]
 [ext_resource type="SpriteFrames" uid="uid://cgqt1fh8w4vqh" path="res://game_objects/items/weapons/sword/Sword_SpriteFrames.tres" id="5_ugswj"]
 [ext_resource type="Texture2D" uid="uid://b7spl0jtocvqi" path="res://game_asset_s/vfx/SFX300_nyknck/SFX301_nyknck/SFX301_01.png" id="5_xjyhf"]
 [ext_resource type="Script" path="res://game_objects/shared/state_machine/StateMachine.cs" id="6_n03hb"]
@@ -614,6 +615,9 @@ region_enabled = true
 region_rect = Rect2(224, 96, 32, 32)
 
 [node name="Aareaa3D" type="Area3D" parent="."]
+collision_layer = 16
+collision_mask = 6
+script = ExtResource("4_hmo0a")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Aareaa3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)

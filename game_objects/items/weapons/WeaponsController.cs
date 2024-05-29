@@ -67,7 +67,9 @@ public partial class WeaponsController : Node
     {
         Weapon potentialWeapon = null;
         potentialWeapon = WeaponControlDictionary[inputEventKey.Keycode];
-        if (potentialWeapon != null && potentialWeapon != ChosenWeapon)
+        if (potentialWeapon != null
+            && potentialWeapon != ChosenWeapon
+            && potentialWeapon.Available == true)
         {
 			ChosenWeapon.IsInUseChanged -= ChosenWeapon_IsInUseChanged;
 			ChosenWeapon.Disable();
@@ -81,7 +83,9 @@ public partial class WeaponsController : Node
     {
         ElementalBracelet potentialBracelet = null;
 		potentialBracelet = BraceletControlDictionary[inputEventKey.Keycode];
-		if (potentialBracelet != null && potentialBracelet != ChosenBracelet)
+		if (potentialBracelet != null 
+            && potentialBracelet != ChosenBracelet
+            && potentialBracelet.Available == true)
 		{
 			ChosenBracelet.IsInUseChanged -= ChosenBraceletIsInUseChanged;
 			ChosenBracelet.Disable();

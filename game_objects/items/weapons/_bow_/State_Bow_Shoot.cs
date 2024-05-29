@@ -23,24 +23,26 @@ public partial class State_Bow_Shoot : State_Bow_
 //      _Bow_.AnimatedSprite3DMmainn.AnimationFinished += AnimatedSprite3DMmainn_AnimationFinished; ;
 //      _Bow_.AnimatedSprite3DEffect.AnimationFinished += AnimatedSprite3DEffect_AnimationFinished;
     
-        Arrow arrow =     PackedSceneArrow.Instantiate<
-        Arrow>();
-              arrow. StartPosition  =
-              _Bow_.GlobalPosition  ;
-        Vector2 inputDirection = Extension.GetInputDirection();
-        if (    inputDirection . IsZero())
-              arrow. CeasePosition  =
-              _Bow_.
-            GetGlobalMousePosition();
-        else
-              arrow. CeasePosition  =
-              _Bow_.GlobalPosition  +
-                inputDirection .
-              ConvertToTopDown()    * 2.0f;
-              arrow.MovingDuration  = 0.5d;
-              arrow.MovingDelaying  = 0.3d;
-              arrow._Setup
-                    (this);
+        Arrow arrow = PackedSceneArrow.Instantiate<Arrow>();
+        arrow. StartPosition = _Bow_.GlobalPosition  ;
+        //Vector2 inputDirection = Extension.GetInputDirection();
+        //if (    inputDirection . IsZero())
+        //      arrow. CeasePosition  =
+        //      _Bow_.
+        //    GetGlobalMousePosition();
+        //else
+        //      arrow. CeasePosition  =
+        //      _Bow_.GlobalPosition  +
+        //        inputDirection .
+        //      ConvertToTopDown()    * 2.0f;
+
+        Vector3 mousePosition = _Bow_.GetGlobalMousePosition();
+        arrow.CeasePosition = arrow.CalculateCeasePosition(arrow.StartPosition, mousePosition);
+        arrow.MovingDuration = arrow.CalculateMovingDuration(
+            arrow.StartPosition.DistanceTo(arrow.CeasePosition));
+        arrow.MovingDelaying = 0.3d;
+        arrow.Bow = this._Bow_;
+        arrow._Setup(this);
     }
 
     public override void _Leave()

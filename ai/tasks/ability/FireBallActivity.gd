@@ -13,7 +13,6 @@ var FireBallHitBox: FireBallHitbox
 func _setup() -> void:
 	currentAbility = agent;
 	FireBallHitBox = agent.get_node(PathHitBox)
-	FireBallHitBox.StartWatching()
 	pass;
 
 func _enter() -> void:

@@ -1,19 +1,17 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 namespace TokenTaleTheElementalSaga;
 public partial class PowerupsGenerator : Equipment
 {
 	public int MaxUses { get; private set; } = default;
-	public int NextLevelUpgradeCost { get; private set; } = default;
 	public PowerupsGenerator()
 	{
 		this.Available = false;
 		this.Upgradeable = true;
 		this.Level = -1;
-		this.MaxUses = 0;
-		this.NextLevelUpgradeCost = EquipmentStats.GetInstance()
-			.PowerUpsGeneratorStats[0]
-			.UpgradeCost;
+		if (this.Available == true && this.Upgradeable == true)
+			this.Upgrade();
 	}
 	public override void _Ready()
 	{
@@ -23,18 +21,15 @@ public partial class PowerupsGenerator : Equipment
 	public override void Upgrade()
 	{
 		base.Upgrade();
-		if (this.Level == EquipmentStats.GetInstance().PowerUpsGeneratorStats.Count - 1)
+		Dictionary<int, Record.PowerUpsGeneratorInfo> PUGeneratoInfo
+			= EquipmentStats.GetInstance().PowerUpsGeneratorStats;
+		if (this.Level == PUGeneratoInfo.Count - 1)
 			Upgradeable = false;
-		this.MaxUses = EquipmentStats.GetInstance()
-			.PowerUpsGeneratorStats[this.Level]
-			.MaxUses;
+		this.MaxUses = PUGeneratoInfo[this.Level].MaxUses;
 		if (this.Upgradeable == true)
-			this.NextLevelUpgradeCost = EquipmentStats.GetInstance()
-				.PowerUpsGeneratorStats[this.Level + 1]
-				.UpgradeCost;
+			this.NextLevelUpgradeCost = PUGeneratoInfo[this.Level + 1].UpgradeCost;
 		else
 			this.NextLevelUpgradeCost = -1;
-
 	}
 	public void BeBought()
 	{

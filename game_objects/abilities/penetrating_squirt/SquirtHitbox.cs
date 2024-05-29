@@ -22,4 +22,8 @@ public partial class SquirtHitbox : Hittbox3D
 			base.OnBodyEntered(node3D);
 		}
 	}
+	public override void _Ready()
+	{
+		base._Ready();
+	}
 }

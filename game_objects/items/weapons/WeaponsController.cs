@@ -11,7 +11,10 @@ public partial class WeaponsController : Node
     [Export] public Array<Weapon> PhysicsWeapons { get; set; }
     [Export] public Array<Key> BraceletKeys { get; set; }
     [Export] public Array<ElementalBracelet> Bracelets { get; set; }
-    [Signal] public delegate void ChosenWeaponChangedEventHandler(Weapon @chosenWeapon);
+    [Signal] 
+    public delegate void ChosenPhysicsWeaponChangedEventHandler(Weapon @chosenWeapon);
+    [Signal]
+    public delegate void ChosenBraceletChangedEventHandler(ElementalBracelet elementalBracelet);
 
     public Weapon ChosenWeapon { get; protected  set; }
     public ElementalBracelet ChosenBracelet { get; protected set; }
@@ -76,7 +79,7 @@ public partial class WeaponsController : Node
 			potentialWeapon.IsInUseChanged += ChosenWeapon_IsInUseChanged;
 			potentialWeapon.En_able();
 			ChosenWeapon = potentialWeapon;
-			EmitSignal(SignalName.ChosenWeaponChanged, ChosenWeapon);
+			EmitSignal(SignalName.ChosenPhysicsWeaponChanged, ChosenWeapon);
 		}
     }
     private void SwitchBracelet(InputEventKey inputEventKey)
@@ -92,7 +95,7 @@ public partial class WeaponsController : Node
 			potentialBracelet.IsInUseChanged += ChosenBraceletIsInUseChanged;
 			potentialBracelet.En_able();
 			ChosenBracelet = potentialBracelet;
-			EmitSignal(SignalName.ChosenWeaponChanged, ChosenWeapon);
+			EmitSignal(SignalName.ChosenBraceletChanged, ChosenBracelet);
 		}
 	}
 

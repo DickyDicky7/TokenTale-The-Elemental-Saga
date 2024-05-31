@@ -1,12 +1,15 @@
 using Godot;
 using Godot.Collections;
 using System;
+using System.Runtime.CompilerServices;
 
 namespace TokenTaleTheElementalSaga;
 
 [GlobalClass]
 public partial class MainCharacter : Character3D
 {
+    [Export]
+    public MainCharacterHUDController HUDController { get; set; }
     [Export]
     public WeaponsController WeaponsController { get; set; }
     [Export]
@@ -28,50 +31,48 @@ public partial class MainCharacter : Character3D
         get;
         set;
     }
-    public int CurrentEnergy { get; set; }
     public EquipmentManager EquipmentManager { get; private set; } 
     public   AbilityManager   AbilityManager { get; private set; } 
     public   BoosterManager   BoosterManager { get; private set; } 
-
+    public MainCharacter()
+    {
+        SetupStats();
+    }
 	public override void _Ready()
 	{
         base._Ready();
-        this.EquipmentManager = new EquipmentManager();
-        this.  BoosterManager = new   BoosterManager();
-        this.  AbilityManager = new   AbilityManager();
-        this.MaxHealth = BoosterManager.MaxHealth;
-        this.MaxSpeed = EquipmentManager.Boot.Speed;
-        this.CurrentHealth = MaxHealth;
-        this.CurrentSpeed = this.MaxSpeed;
-        this.CurrentEnergy = BoosterManager.MaxEnergy;
-        this.VisitorAbilityDispatch.Init();
-        this.AcceptVisitor(VisitorAbilityDispatch);
+        this.SetupStats();
+        this.SetupVisitor();
 	}
 
 	public override void _Process(double @delta)
     {
                     base._Process(       @delta);
-        //SingletonMainCharacterTracesManager.Instance.Add(Position);
-    }
+	}
 
     public override void _PhysicsProcess(double @delta)
     {
                     base._PhysicsProcess(       @delta);
-
-        if (GetNode<Node>(nameof(StateMachine)).ProcessMode   ==
-                                                ProcessModeEnum.Disabled)
-        {
-            var destination = NavigationAgent3D.GetNextPathPosition();
-            var   direction =
-                destination -
-             GlobalPosition ;
-            Move( direction , @delta);
-        }
-    }
-    public void AcceptVisitor(AlliesVisitor visitor)
+	}
+    private void AcceptVisitor(AlliesVisitor visitor)
     {
         visitor.VisitMainCharacter(this);
     }
+    private void SetupVisitor()
+    {
+		this.VisitorAbilityDispatch.Init();
+		this.AcceptVisitor(VisitorAbilityDispatch);
+	}
+    private void SetupStats()
+    {
+		this.EquipmentManager = new EquipmentManager();
+		this.BoosterManager = new BoosterManager();
+		this.AbilityManager = new AbilityManager();
+		this.MaxHealth = BoosterManager.MaxHealth;
+		this.MaxSpeed = EquipmentManager.Boot.Speed;
+		this.CurrentHealth = MaxHealth;
+		this.CurrentSpeed = this.MaxSpeed;
+	}
 	public override float CalculateElementalDamage(Ability3D ability,Character3D targetCharacter)
 	{
         float damage = 0;

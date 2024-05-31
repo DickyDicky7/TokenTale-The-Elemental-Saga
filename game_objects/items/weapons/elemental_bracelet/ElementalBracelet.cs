@@ -19,6 +19,7 @@ public partial class ElementalBracelet : Weapon
 	public override void _Ready()
 	{
 		base._Ready();
+		this.CoolDownTimer.WaitTime = OwnerMainCharacter.BoosterManager.ElementalCoolDown;
 		//Load from saved ?
 	}
 	public override void Upgrade()

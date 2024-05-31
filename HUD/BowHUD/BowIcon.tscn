@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://brc6pkdvn1obv"]
+
+[ext_resource type="Texture2D" uid="uid://ckg50cdojy2cl" path="res://game_asset_s/progress bar/icon-frame.png" id="1_riwsb"]
+[ext_resource type="Texture2D" uid="uid://yb8acegdt212" path="res://game_asset_s/characters/main_character_v3/02.png" id="2_cp7my"]
+[ext_resource type="Script" path="res://HUD/shared/WeaponIcon.cs" id="2_y8r5g"]
+
+[node name="BowIcon" type="TextureRect"]
+offset_right = 48.0
+offset_bottom = 48.0
+texture = ExtResource("1_riwsb")
+expand_mode = 1
+script = ExtResource("2_y8r5g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(24, 24)
+rotation = 3.92699
+texture = ExtResource("2_cp7my")
+region_enabled = true
+region_rect = Rect2(8, 18, 32, 32)

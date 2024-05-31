@@ -78,7 +78,7 @@ public partial class StateSwordSlash : StateSword
     {
                     base._Leave();
         Sword.AnimationPlayerr.AnimationFinished -= AnimationPlayer__AnimationFinished;
-		Sword.StartCoolDown(Sword.OwnerMainCharacter.BoosterManager.SwordCoolDown);
+		Sword.StartCoolDown();
 	}
 
     private void AnimationPlayer__AnimationFinished(StringName @animationName)

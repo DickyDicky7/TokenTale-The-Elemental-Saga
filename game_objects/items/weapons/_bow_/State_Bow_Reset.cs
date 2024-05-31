@@ -21,6 +21,11 @@ public partial class State_Bow_Reset : State_Bow_
     {
         if (_Bow_.IsCoolingDown == true || _Bow_.OwnerMainCharacter.IsStunning == true)
             return;
+        if (_Bow_.CurrentArrow == 0)
+        {
+            _Bow_.EmitSignal(_Bow_.SignalName.OutOfArrow);
+            return;
+        } 
                     base._Input(           @inputEvent);
         if ( @inputEvent.IsMousePressed
            ( MouseButton.Left))

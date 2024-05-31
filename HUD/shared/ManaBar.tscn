@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8cfv85dq51fp"]
+
+[ext_resource type="Texture2D" uid="uid://b8e0mlpni48ef" path="res://game_asset_s/progress bar/bar-fill.png" id="1_0s0j3"]
+[ext_resource type="Texture2D" uid="uid://ckb6wgdmggdh5" path="res://game_asset_s/progress bar/bar-frame.png" id="2_c07es"]
+
+[node name="ManaBar" type="TextureProgressBar"]
+offset_right = 200.0
+offset_bottom = 40.0
+value = 30.0
+nine_patch_stretch = true
+texture_under = ExtResource("1_0s0j3")
+texture_over = ExtResource("2_c07es")
+texture_progress = ExtResource("1_0s0j3")
+tint_under = Color(0.501961, 0.501961, 0.501961, 1)
+tint_over = Color(0.588235, 0.294118, 0, 1)
+tint_progress = Color(0.0901961, 0.282353, 1, 1)

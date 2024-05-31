@@ -37,8 +37,9 @@ public partial class Sword : Weapon
                     base._Ready();
 
         DefaultOffsetSprite3D = Sprite3D.Offset;
-        //Load from saved ?
-    }
+        this.CoolDownTimer.WaitTime = OwnerMainCharacter.BoosterManager.SwordCoolDown;
+		//Load from saved ?
+	}
 	public override void Upgrade()
 	{
 		base.Upgrade();

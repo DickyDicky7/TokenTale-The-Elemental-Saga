@@ -43,6 +43,9 @@ public partial class State_Bow_Shoot : State_Bow_
         arrow.MovingDelaying = 0.3d;
         arrow.Bow = this._Bow_;
         arrow._Setup(this);
+
+        this._Bow_.CurrentArrow--;
+        this._Bow_.EmitSignal(_Bow_.SignalName.Shoot, _Bow_.CurrentArrow);
     }
 
     public override void _Leave()
@@ -52,7 +55,7 @@ public partial class State_Bow_Shoot : State_Bow_
         _Bow_.AnimationPlayerr      .AnimationFinished -= AnimationPlayerr_______AnimationFinished;
 		//      _Bow_.AnimatedSprite3DMmainn.AnimationFinished -= AnimatedSprite3DMmainn_AnimationFinished; ;
 		//      _Bow_.AnimatedSprite3DEffect.AnimationFinished -= AnimatedSprite3DEffect_AnimationFinished;
-		_Bow_.StartCoolDown(_Bow_.OwnerMainCharacter.BoosterManager.BowCoolDown);
+		_Bow_.StartCoolDown();
 	}
 
     private void AnimatedSprite3DMmainn_AnimationFinished()

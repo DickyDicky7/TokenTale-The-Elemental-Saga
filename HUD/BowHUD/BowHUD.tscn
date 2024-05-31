@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://88oya6ywjc3n"]
+
+[ext_resource type="PackedScene" uid="uid://dcavcuht5xtbv" path="res://HUD/shared/WeaponCDBar.tscn" id="1_e7630"]
+[ext_resource type="Script" path="res://HUD/shared/PhysicsWeaponHUD.cs" id="1_wr5vc"]
+[ext_resource type="PackedScene" uid="uid://brc6pkdvn1obv" path="res://HUD/BowHUD/BowIcon.tscn" id="2_v0b3i"]
+[ext_resource type="Texture2D" uid="uid://ckg50cdojy2cl" path="res://game_asset_s/progress bar/icon-frame.png" id="3_7k506"]
+[ext_resource type="Script" path="res://HUD/BowHUD/AmmoLabel.cs" id="5_ngf62"]
+
+[node name="BowHUD" type="Control" node_paths=PackedStringArray("CoolDownBar", "WeaponIcon", "AmmoLabel")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1052.0
+offset_bottom = -588.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wr5vc")
+CoolDownBar = NodePath("WeaponCoolDownBar")
+WeaponIcon = NodePath("BowIcon")
+AmmoLabel = NodePath("Ammo/Label")
+
+[node name="WeaponCoolDownBar" parent="." instance=ExtResource("1_e7630")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 30.0
+offset_bottom = 30.0
+
+[node name="BowIcon" parent="." instance=ExtResource("2_v0b3i")]
+layout_mode = 0
+offset_left = 40.0
+offset_right = 88.0
+
+[node name="Ammo" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 36.0
+offset_right = 100.0
+offset_bottom = 60.0
+texture = ExtResource("3_7k506")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Ammo"]
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 24.0
+text = "10
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_ngf62")

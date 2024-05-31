@@ -17,7 +17,7 @@ public abstract partial class Weapon : Equipment
             EmitSignal(SignalName.IsInUseChanged, _isInUse);
         }
     }
-    public Timer CoolDownTimer { get; private set; } = new();
+    public Timer CoolDownTimer { get; protected set; } = new();
     public bool IsCoolingDown { get; set; } = false;
     [Signal]
     public delegate void IsInUseChangedEventHandler
@@ -49,15 +49,14 @@ public abstract partial class Weapon : Equipment
         this.CoolDownTimer.ProcessMode = ProcessModeEnum.Always;
         this.AddChild(CoolDownTimer);
     }
-    public void StartCoolDown(double duration)
+    public void StartCoolDown()
     {
-        this.CoolDownTimer.Start(duration);
+        this.CoolDownTimer.Start();
         this.IsCoolingDown = true;
     }
     public void EndCoolDown()
     {
         this.CoolDownTimer.Stop();
-        this.CoolDownTimer.WaitTime = 1.0d;
         this.IsCoolingDown = false;
     }
 }

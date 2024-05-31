@@ -15,6 +15,10 @@ public partial class _Bow_ : Weapon
     [Export] public AnimatedSprite3D AnimatedSprite3DMmainn { get; set; }
     [Export] public CollisionShape3D CollisionShape3D       { get; set; }
     [Export] public AnimatedSprite3D AnimatedSprite3DEffect { get; set; }
+    [Signal]
+    public delegate void ShootEventHandler(int newCurrentArrow);
+    [Signal]
+    public delegate void OutOfArrowEventHandler();
 
     public Vector2 CurrentRotationPosition { get; set; }
 
@@ -26,7 +30,8 @@ public partial class _Bow_ : Weapon
     //    AnimatedSprite3DEffect.LookAtActiveCamera();
     //}
     public float Damage { get; set; } = default;
-    public _Bow_()
+    public int CurrentArrow { get; set; }
+    public _Bow_() : base()
     {
         this.Upgradeable = true;
         this.Available = true;
@@ -37,6 +42,8 @@ public partial class _Bow_ : Weapon
 	public override void _Ready()
 	{
 		base._Ready();
+        this.CoolDownTimer.WaitTime = OwnerMainCharacter.BoosterManager.BowCoolDown;
+        this.CurrentArrow = OwnerMainCharacter.EquipmentManager.Quiver.MaxArrow;
         //Load from saved
 	}
 	public override void Upgrade()

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ChessAndItemResource" load_steps=3 format=3 uid="uid://elnor3yw8e6c"]
+
+[ext_resource type="Texture2D" uid="uid://c1fhyg66oe681" path="res://game_asset_s/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/scroll_01a.png" id="1_r8iwc"]
+[ext_resource type="Script" path="res://game_objects/items/chest_and_item/resource/ChessAndItemResource.cs" id="2_w1m4f"]
+
+[resource]
+script = ExtResource("2_w1m4f")
+ItemTexture = ExtResource("1_r8iwc")
+ItemClassName = "BowScroll"
+Item_____Name = "BowScroll"

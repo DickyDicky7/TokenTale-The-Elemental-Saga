@@ -1,0 +1,115 @@
+[gd_scene load_steps=17 format=3 uid="uid://c7i7emx3rn41l"]
+
+[ext_resource type="Script" path="res://game_objects/items/elemental_token/ElementalToken.cs" id="1_3fynj"]
+[ext_resource type="Shape3D" uid="uid://cee8ybu6dxh3a" path="res://game_objects/items/elemental_token/ElementalToken_CollisionShape3D_Hitbox.tres" id="1_eycgj"]
+[ext_resource type="Shader" path="res://shaders/Glow.gdshader" id="4_0fg4h"]
+[ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="4_7mjdu"]
+[ext_resource type="Shader" path="res://shaders/Glow.gdshader" id="4_mj6ff"]
+[ext_resource type="Texture2D" uid="uid://ck87s0hntiqqy" path="res://game_asset_s/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/16x16/shard_01e.png" id="5_djlwq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7keux"]
+render_priority = 0
+shader = ExtResource("4_0fg4h")
+shader_parameter/MODULATE = Color(2, 0, 0, 1)
+shader_parameter/TEXTURE = ExtResource("5_djlwq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_10j66"]
+render_priority = 0
+shader = ExtResource("4_0fg4h")
+shader_parameter/MODULATE = Color(0, 0.5, 2, 1)
+shader_parameter/TEXTURE = ExtResource("5_djlwq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s4u44"]
+render_priority = 0
+shader = ExtResource("4_0fg4h")
+shader_parameter/MODULATE = Color(0.5, 2, 0.5, 1)
+shader_parameter/TEXTURE = ExtResource("5_djlwq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ujv2"]
+render_priority = 0
+shader = ExtResource("4_0fg4h")
+shader_parameter/MODULATE = Color(0, 2, 2, 1)
+shader_parameter/TEXTURE = ExtResource("5_djlwq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_giq0v"]
+render_priority = 0
+shader = ExtResource("4_0fg4h")
+shader_parameter/MODULATE = Color(2, 0, 2, 1)
+shader_parameter/TEXTURE = ExtResource("5_djlwq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ftkrs"]
+render_priority = 0
+shader = ExtResource("4_0fg4h")
+shader_parameter/MODULATE = Color(2, 2, 0, 1)
+shader_parameter/TEXTURE = ExtResource("5_djlwq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xx26p"]
+render_priority = 0
+shader = ExtResource("4_0fg4h")
+shader_parameter/MODULATE = Color(0, 2, 0, 1)
+shader_parameter/TEXTURE = ExtResource("5_djlwq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qy60w"]
+render_priority = 0
+shader = ExtResource("4_mj6ff")
+shader_parameter/MODULATE = Color(2, 2, 2, 1)
+shader_parameter/TEXTURE = ExtResource("5_djlwq")
+
+[sub_resource type="Animation" id="Animation_flfds"]
+resource_name = "IDLE"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.5, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2t036"]
+_data = {
+"IDLE": SubResource("Animation_flfds")
+}
+
+[node name="ElementalToken" type="Node3D" node_paths=PackedStringArray("Sprite3D", "Shadow3D", "Hitbox")]
+script = ExtResource("1_3fynj")
+Sprite3D = NodePath("Visual/Sprite3D")
+Shadow3D = NodePath("Visual/Shadow3D")
+Materials = [SubResource("ShaderMaterial_7keux"), SubResource("ShaderMaterial_10j66"), SubResource("ShaderMaterial_s4u44"), SubResource("ShaderMaterial_0ujv2"), SubResource("ShaderMaterial_giq0v"), SubResource("ShaderMaterial_ftkrs"), SubResource("ShaderMaterial_xx26p"), SubResource("ShaderMaterial_qy60w")]
+Hitbox = NodePath("Hitbox")
+
+[node name="Visual" type="Node3D" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="Visual"]
+cast_shadow = 0
+texture_filter = 0
+texture = ExtResource("5_djlwq")
+
+[node name="Shadow3D" type="Sprite3D" parent="Visual"]
+cast_shadow = 3
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("5_djlwq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual"]
+libraries = {
+"": SubResource("AnimationLibrary_2t036")
+}
+autoplay = "IDLE"
+
+[node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="Visual" node_paths=PackedStringArray("Sprites")]
+process_mode = 4
+script = ExtResource("4_7mjdu")
+Sprites = [NodePath("../Sprite3D")]
+
+[node name="Hitbox" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+shape = ExtResource("1_eycgj")

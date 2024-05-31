@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://jd74eq7qhdna"]
+[gd_scene load_steps=16 format=3 uid="uid://jd74eq7qhdna"]
 
 [ext_resource type="Script" path="res://Test2.cs" id="1_gycpf"]
 [ext_resource type="PackedScene" uid="uid://bnhb48jc0sx4w" path="res://game_objects/maps/shared/map_system/MapSystem.tscn" id="1_p4etb"]
@@ -7,6 +7,10 @@
 [ext_resource type="Script" path="res://addons/post_processing/node/post_process.gd" id="5_w31rq"]
 [ext_resource type="Script" path="res://addons/post_processing/resource/post_processing_configuration.gd" id="6_38os5"]
 [ext_resource type="PackedScene" uid="uid://cwhrbtjfm2cpc" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp.tscn" id="7_1yv3t"]
+[ext_resource type="PackedScene" uid="uid://cmht27qyeeh6" path="res://game_objects/items/chest_and_item/ChessAndItem.tscn" id="8_tgpjb"]
+[ext_resource type="PackedScene" uid="uid://c7i7emx3rn41l" path="res://game_objects/items/elemental_token/ElementalToken.tscn" id="9_fwkxj"]
+[ext_resource type="Resource" uid="uid://elnor3yw8e6c" path="res://game_objects/items/chest_and_item/resource/ChessAndItemResource_BowScroll.tres" id="9_pwcn3"]
+[ext_resource type="PackedScene" uid="uid://c14s46yvkynh8" path="res://game_objects/items/soul_or_coin/SoulOrCoin.tscn" id="11_ycaex"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2slwr"]
 sky_top_color = Color(0.4, 0.5, 0.5, 1)
@@ -105,8 +109,7 @@ environment = SubResource("Environment_1gk76")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 0, 0)
-light_color = Color(1, 1, 0.5, 1)
-light_energy = 0.5
+light_energy = 0.1
 shadow_enabled = true
 directional_shadow_mode = 0
 
@@ -130,6 +133,27 @@ MainCharacterAnimatedSprite3DEffect = NodePath("AnimatedSprite3D_Effect")
 [node name="PostProcess" type="CanvasLayer" parent="."]
 script = ExtResource("5_w31rq")
 configuration = SubResource("Resource_jm7kc")
+dynamically_update = false
 
 [node name="Imp" parent="." instance=ExtResource("7_1yv3t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="ChessAndItem" parent="." node_paths=PackedStringArray("Hitbox", "Sprite3D", "AnimationPlayer") instance=ExtResource("8_tgpjb")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0.504, 0)
+visible = false
+ChessAndItemResource = ExtResource("9_pwcn3")
+Hitbox = NodePath("Hitbox")
+Sprite3D = NodePath("Visual/Sprite3D")
+AnimationPlayer = NodePath("Visual/AnimationPlayer")
+
+[node name="ElementalToken" parent="." node_paths=PackedStringArray("Sprite3D", "Shadow3D", "Hitbox") instance=ExtResource("9_fwkxj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.504, 0)
+visible = false
+Element = 3
+Sprite3D = NodePath("Visual/Sprite3D")
+Shadow3D = NodePath("Visual/Shadow3D")
+Hitbox = NodePath("Hitbox")
+
+[node name="SoulOrCoin" parent="." node_paths=PackedStringArray("Hitbox") instance=ExtResource("11_ycaex")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.504, 0)
+Hitbox = NodePath("Hitbox")

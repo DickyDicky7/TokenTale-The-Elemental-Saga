@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ChessAndItemResource" load_steps=3 format=3 uid="uid://2x06s1s71oh4"]
+
+[ext_resource type="Texture2D" uid="uid://dfnwqiavyd21m" path="res://game_asset_s/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/potion_03d.png" id="1_b4rje"]
+[ext_resource type="Script" path="res://game_objects/items/chest_and_item/resource/ChessAndItemResource.cs" id="1_ffnb5"]
+
+[resource]
+script = ExtResource("1_ffnb5")
+ItemTexture = ExtResource("1_b4rje")
+ItemClassName = "ElementalJar"
+Item_____Name = "ElementalJar"

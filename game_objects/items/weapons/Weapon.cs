@@ -22,6 +22,8 @@ public abstract partial class Weapon : Equipment
     [Signal]
     public delegate void IsInUseChangedEventHandler
                                             (bool @isInUse);
+    [Signal]
+    public delegate void ChosenEventHandler(Weapon chosenWeapon);
 
     public void Disable()
     {

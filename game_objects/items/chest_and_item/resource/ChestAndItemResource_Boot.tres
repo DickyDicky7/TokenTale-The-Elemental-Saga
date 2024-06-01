@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ChessAndItemResource" load_steps=3 format=3 uid="uid://eywrmvm24kfd"]
+
+[ext_resource type="Script" path="res://game_objects/items/chest_and_item/resource/ChessAndItemResource.cs" id="1_gjtdg"]
+[ext_resource type="Texture2D" uid="uid://bud1r8jlxo8sk" path="res://game_asset_s/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/boots_01a.png" id="1_q3lyo"]
+
+[resource]
+script = ExtResource("1_gjtdg")
+ItemTexture = ExtResource("1_q3lyo")
+ItemClassName = "Boot"
+Item_____Name = "Boot"

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ckg50cdojy2cl" path="res://game_asset_s/progress bar/icon-frame.png" id="1_riwsb"]
 [ext_resource type="Texture2D" uid="uid://yb8acegdt212" path="res://game_asset_s/characters/main_character_v3/02.png" id="2_cp7my"]
-[ext_resource type="Script" path="res://HUD/shared/WeaponIcon.cs" id="2_y8r5g"]
+[ext_resource type="Script" path="res://HUD/shared/IconFrame.cs" id="2_y8r5g"]
 
 [node name="BowIcon" type="TextureRect"]
 offset_right = 48.0

@@ -155,11 +155,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 visible = false
 mesh = ExtResource("5_kmewh")
 
-[node name="MainCharaterHUD" parent="MainCharacter/Camera3D" node_paths=PackedStringArray("MainCharacter", "HealthBar", "SwordHUD", "BowHUD") instance=ExtResource("11_hmd88")]
+[node name="MainCharaterHUD" parent="MainCharacter/Camera3D" node_paths=PackedStringArray("MainCharacter", "HealthBar", "SwordHUD", "BowHUD", "BraceletHUDs") instance=ExtResource("11_hmd88")]
 MainCharacter = NodePath("../..")
 HealthBar = NodePath("HealthBar")
 SwordHUD = NodePath("SwordHUD")
 BowHUD = NodePath("BowHUD")
+BraceletHUDs = [NodePath("ElementalHUD"), NodePath("ElementalHUD2")]
 
 [node name="StatusInfo" parent="MainCharacter" node_paths=PackedStringArray("Sprite3D", "Label", "Timer") instance=ExtResource("11_siwmd")]
 Items = [SubResource("Resource_ntmsm"), SubResource("Resource_6wfva"), SubResource("Resource_klrs7"), SubResource("Resource_dgvcs"), SubResource("Resource_nyrrt")]

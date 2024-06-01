@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ChessAndItemResource" load_steps=3 format=3 uid="uid://dad00knu3xd0n"]
+
+[ext_resource type="Script" path="res://game_objects/items/chest_and_item/ChessAndItemResource.cs" id="1_2i8wc"]
+[ext_resource type="Texture2D" uid="uid://brbp2qaffjfbn" path="res://game_asset_s/heart.png" id="1_qiwsa"]
+
+[resource]
+script = ExtResource("1_2i8wc")
+ItemTexture = ExtResource("1_qiwsa")
+ItemClassName = "Heart"
+Item_____Name = "Heart"

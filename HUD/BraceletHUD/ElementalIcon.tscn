@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvlcx3x6jke7q"]
+
+[ext_resource type="Texture2D" uid="uid://ckg50cdojy2cl" path="res://game_asset_s/progress bar/icon-frame.png" id="1_pgn5q"]
+[ext_resource type="Script" path="res://HUD/BraceletHUD/ElementalIcon.cs" id="2_yrtov"]
+
+[node name="ElementalIcon" type="TextureRect"]
+offset_right = 48.0
+offset_bottom = 48.0
+texture = ExtResource("1_pgn5q")
+expand_mode = 1
+script = ExtResource("2_yrtov")

@@ -163,7 +163,7 @@ public partial class MainCharacter : Character3D
         this.MainCharacterAnimatedSprite3DEffect.CurrentEffect =
         this.MainCharacterAnimatedSprite3DEffect.EffectDictionary[ability.Element];
     }
-    public void Cast(Global.Element element)
+    public string Cast(Global.Element element)
     {
         string abilityName = this
             .AbilityManager
@@ -171,6 +171,7 @@ public partial class MainCharacter : Character3D
             .ChosenAbility;
         CreateAbility(abilityName);
         this.AbilityManager.UpdateStatus(element);
+        return abilityName;
     }
 }
 

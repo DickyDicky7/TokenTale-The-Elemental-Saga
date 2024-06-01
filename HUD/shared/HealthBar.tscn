@@ -5,7 +5,7 @@
 
 [node name="HealthBar" type="TextureProgressBar"]
 offset_right = 300.0
-offset_bottom = 60.0
+offset_bottom = 20.0
 value = 33.0
 nine_patch_stretch = true
 texture_under = ExtResource("1_fpgh3")

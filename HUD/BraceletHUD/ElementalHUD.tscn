@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://8rom7frujpcl"]
+
+[ext_resource type="Script" path="res://HUD/BraceletHUD/ElementalBraceletHUD.cs" id="1_0qvwu"]
+[ext_resource type="PackedScene" uid="uid://dcavcuht5xtbv" path="res://HUD/shared/WeaponCDBar.tscn" id="1_khtq1"]
+[ext_resource type="PackedScene" uid="uid://dvlcx3x6jke7q" path="res://HUD/BraceletHUD/ElementalIcon.tscn" id="2_3kfyk"]
+[ext_resource type="PackedScene" uid="uid://c8cfv85dq51fp" path="res://HUD/shared/ManaBar.tscn" id="3_i5s7j"]
+
+[node name="ElementalHUD" type="Control" node_paths=PackedStringArray("ManaBar", "CoolDownBar", "IconFrame")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -952.0
+offset_bottom = -600.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0qvwu")
+ManaBar = NodePath("ManaBar")
+CoolDownBar = NodePath("WeaponCoolDownBar")
+IconFrame = NodePath("ElementalIcon")
+
+[node name="WeaponCoolDownBar" parent="." instance=ExtResource("1_khtq1")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 30.0
+offset_bottom = 30.0
+
+[node name="ElementalIcon" parent="." instance=ExtResource("2_3kfyk")]
+layout_mode = 0
+offset_left = 40.0
+offset_right = 88.0
+
+[node name="ManaBar" parent="." instance=ExtResource("3_i5s7j")]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 19.0
+offset_right = 200.0
+offset_bottom = 29.0

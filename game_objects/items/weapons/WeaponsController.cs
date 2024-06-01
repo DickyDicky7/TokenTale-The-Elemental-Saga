@@ -80,6 +80,7 @@ public partial class WeaponsController : Node
 			potentialWeapon.En_able();
 			ChosenWeapon = potentialWeapon;
 			EmitSignal(SignalName.ChosenPhysicsWeaponChanged, ChosenWeapon);
+            ChosenWeapon.EmitSignal(Weapon.SignalName.Chosen, ChosenWeapon);
 		}
     }
     private void SwitchBracelet(InputEventKey inputEventKey)
@@ -96,6 +97,7 @@ public partial class WeaponsController : Node
 			potentialBracelet.En_able();
 			ChosenBracelet = potentialBracelet;
 			EmitSignal(SignalName.ChosenBraceletChanged, ChosenBracelet);
+            ChosenBracelet.EmitSignal(Weapon.SignalName.Chosen, ChosenBracelet);
 		}
 	}
 

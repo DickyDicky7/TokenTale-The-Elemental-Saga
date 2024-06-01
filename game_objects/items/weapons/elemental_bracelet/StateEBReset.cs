@@ -20,7 +20,8 @@ public partial class StateEBReset : StateEB
 	public override void _Input(InputEvent @event)
 	{
 		if (this.ElementalBracelet.IsCoolingDown == true
-			|| this.ElementalBracelet.OwnerMainCharacter.IsStunning == true)
+			|| this.ElementalBracelet.OwnerMainCharacter.IsStunning == true
+			|| this.ElementalBracelet.CurrentElement == Global.Element.None)
 			return;
 		base._Input(@event);
 		if (@event.IsMousePressed(MouseButton.Right))

@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://c14s46yvkynh8"]
+
+[ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="1_deepv"]
+[ext_resource type="Texture2D" uid="uid://cwcv1roglcg1s" path="res://game_asset_s/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/16x16/coin_05d.png" id="1_l0kqm"]
+[ext_resource type="Script" path="res://game_objects/items/soul_or_coin/SoulOrCoin.cs" id="1_oksh2"]
+[ext_resource type="Material" uid="uid://byke5gr4qif3n" path="res://game_objects/items/soul_or_coin/SoulOrCoin_ShaderMaterial_Glow.tres" id="1_qpbnj"]
+[ext_resource type="Shape3D" uid="uid://j06ccegiphmr" path="res://game_objects/items/soul_or_coin/SoulOrCoin_CollisionShape3D_Hitbox.tres" id="4_3cfaw"]
+
+[sub_resource type="Animation" id="Animation_yejn5"]
+resource_name = "IDLE"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-3, -3),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.5, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dywha"]
+_data = {
+"IDLE": SubResource("Animation_yejn5")
+}
+
+[node name="SoulOrCoin" type="Node3D" node_paths=PackedStringArray("Hitbox")]
+script = ExtResource("1_oksh2")
+Hitbox = NodePath("Hitbox")
+
+[node name="Visual" type="Node3D" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="Visual"]
+material_override = ExtResource("1_qpbnj")
+cast_shadow = 0
+texture_filter = 0
+texture = ExtResource("1_l0kqm")
+
+[node name="Shadow3D" type="Sprite3D" parent="Visual"]
+cast_shadow = 3
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("1_l0kqm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual"]
+libraries = {
+"": SubResource("AnimationLibrary_dywha")
+}
+autoplay = "IDLE"
+
+[node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="Visual" node_paths=PackedStringArray("Sprites")]
+process_mode = 4
+script = ExtResource("1_deepv")
+Sprites = [NodePath("../Sprite3D")]
+
+[node name="Hitbox" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+shape = ExtResource("4_3cfaw")

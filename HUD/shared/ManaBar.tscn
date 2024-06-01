@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://ckb6wgdmggdh5" path="res://game_asset_s/progress bar/bar-frame.png" id="2_c07es"]
 
 [node name="ManaBar" type="TextureProgressBar"]
-offset_right = 200.0
-offset_bottom = 40.0
+offset_right = 100.0
+offset_bottom = 10.0
 value = 30.0
 nine_patch_stretch = true
 texture_under = ExtResource("1_0s0j3")

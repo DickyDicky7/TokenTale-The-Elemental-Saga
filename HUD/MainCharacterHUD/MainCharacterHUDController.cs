@@ -1,5 +1,7 @@
 using Godot;
+using Godot.Collections;
 using System;
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 namespace TokenTaleTheElementalSaga;
 public partial class MainCharacterHUDController : Control
@@ -9,25 +11,24 @@ public partial class MainCharacterHUDController : Control
 	[Export]
 	public TextureProgressBar HealthBar { get; set; }
 	[Export]
-	public PhysicsWeaponHUD SwordHUD { get; set; }
+	public WeaponHUD SwordHUD { get; set; }
 	[Export]
-	public PhysicsWeaponHUD BowHUD { get; set; }
+	public BowHUD BowHUD { get; set; }
+	[Export]
+	public Array<ElementalBraceletHUD> BraceletHUDs { get; set; }
 	public WeaponsController WeaponController { get; set; }
+	private List<WeaponHUD> WeaponHUDs { get; set; } = new();
 	public override void _Ready()
 	{
 		base._Ready();
 		this.WeaponController = MainCharacter.WeaponsController;
 		SetupHealthBar();
-		SetupChosenWeapon();
-		SetupCoolDownBar(SwordHUD.CoolDownBar, WeaponController.PhysicsWeapons[0].CoolDownTimer);
-		SetupCoolDownBar(BowHUD.CoolDownBar, WeaponController.PhysicsWeapons[1].CoolDownTimer);
-		SetupBowAmmo();
+		SetupBraceletHUD();
+		SetupWeaponHUD();
 	}
 	public override void _Process(double delta)
 	{
 		base._Process(delta);
-		UpdateCoolDownBar(SwordHUD.CoolDownBar, WeaponController.PhysicsWeapons[0].CoolDownTimer);
-		UpdateCoolDownBar(BowHUD.CoolDownBar, WeaponController.PhysicsWeapons[1].CoolDownTimer);
 	}
 	private void OnHealthChanged(float damage)
 	{
@@ -40,61 +41,45 @@ public partial class MainCharacterHUDController : Control
 		this.HealthBar.MaxValue = MainCharacter.MaxHealth;
 		this.HealthBar.Value = MainCharacter.CurrentHealth;
 	}
-	private void OnPhysicsWeaponChanged(Weapon weapon)
+	private void SetupWeaponHUD()
 	{
-		if (weapon is Sword)
+		this.SwordHUD.Partner = this.WeaponController.PhysicsWeapons[0];
+		this.BowHUD.Partner = this.WeaponController.PhysicsWeapons[1];
+		this.WeaponHUDs.Add(SwordHUD);
+		this.WeaponHUDs.Add(BowHUD);
+		foreach(WeaponHUD weaponHUD in WeaponHUDs)
 		{
-			this.SwordHUD.WeaponIcon.EmitSignal(WeaponIcon.SignalName.PickedChange, true);
-			this.BowHUD.WeaponIcon.EmitSignal(WeaponIcon.SignalName.PickedChange, false);
-		}
-		else
-		{
-			this.SwordHUD.WeaponIcon.EmitSignal(WeaponIcon.SignalName.PickedChange, false);
-			this.BowHUD.WeaponIcon.EmitSignal(WeaponIcon.SignalName.PickedChange, true);
-		}
-	}
-	private void SetupChosenWeapon()
-	{
-		this.WeaponController.ChosenPhysicsWeaponChanged += OnPhysicsWeaponChanged;
-		OnPhysicsWeaponChanged(this.WeaponController.ChosenWeapon);
-	}
-	private void UpdateCoolDownBar(
-		TextureProgressBar coolDownBar,
-		Timer coolDownTimer)
-	{
-		if (coolDownTimer.IsStopped())
-		{
-			coolDownBar.Visible = false;
-		}
-		else
-		{
-			coolDownBar.Visible = true;
-			coolDownBar.Value = coolDownTimer.TimeLeft * 100;
+			weaponHUD.Setup(WeaponController.ChosenWeapon);
+			weaponHUD.PartnerChosen += OnNewChosenWeapon;
 		}
 	}
-	private void SetupCoolDownBar(
-		TextureProgressBar coolDownBar,
-		Timer coolDownTimer)
+	private void OnNewChosenWeapon(Weapon weapon)
 	{
-		coolDownBar.MaxValue = coolDownTimer.WaitTime * 100;
-		UpdateCoolDownBar(coolDownBar, coolDownTimer);
+		foreach (WeaponHUD weaponHUD in WeaponHUDs)
+		{
+			if (weaponHUD.Partner == weapon)
+				continue;
+			weaponHUD.OnOtherWeaponChosen();
+		}
 	}
-	private void OnBowShoot(int newCurrentArrow)
+	private void SetupBraceletHUD()
 	{
-		this.BowHUD.AmmoLabel.Text = newCurrentArrow.ToString();
+		for (int i = 0; i < BraceletHUDs.Count; i++)
+		{
+			BraceletHUDs[i].Partner = WeaponController.Bracelets[i];
+			BraceletHUDs[i].Setup(
+				MainCharacter.BoosterManager.MaxEnergy,
+				WeaponController.ChosenBracelet);
+			BraceletHUDs[i].PartnerChosen += OnNewChosenBracelet;
+		}
 	}
-	private void OnBowOutOfAmmo()
+	private void OnNewChosenBracelet(Weapon weapon)
 	{
-		AmmoLabel ammoLabel = this.BowHUD.AmmoLabel as AmmoLabel;
-		ammoLabel.StartWarning();
-	}
-	private void SetupBowAmmo()
-	{
-		if (this.WeaponController.PhysicsWeapons[1] is not _Bow_)
-			return;
-		_Bow_ tempBow = this.WeaponController.PhysicsWeapons[1] as _Bow_;
-		tempBow.Shoot += OnBowShoot;
-		this.BowHUD.AmmoLabel.Text = tempBow.CurrentArrow.ToString();
-		tempBow.OutOfArrow += OnBowOutOfAmmo;
+		foreach (ElementalBraceletHUD braceletHUD in BraceletHUDs)
+		{
+			if (braceletHUD.Partner == weapon)
+				continue;
+			braceletHUD.OnOtherWeaponChosen();
+		}
 	}
 }

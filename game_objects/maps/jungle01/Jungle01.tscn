@@ -8,8 +8,8 @@
 
 [sub_resource type="Resource" id="Resource_xcriv"]
 script = ExtResource("2_4sdbo")
-NextMapArea = 0
-EntranceIdx = 0
+NextMapArea = 21
+EntranceIdx = 2
 
 [sub_resource type="Resource" id="Resource_pk2iw"]
 script = ExtResource("3_gd3a6")

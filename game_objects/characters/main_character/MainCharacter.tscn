@@ -706,12 +706,15 @@ animation = &"DEAD"
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_gsyfd"]
 input_0/name = "IDLE"
 input_0/auto_advance = false
+input_0/break_loop_at_end = false
 input_0/reset = true
 input_1/name = "MOVE"
 input_1/auto_advance = false
+input_1/break_loop_at_end = false
 input_1/reset = true
 input_2/name = "DEAD"
 input_2/auto_advance = false
+input_2/break_loop_at_end = false
 input_2/reset = true
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_q8s8x"]
@@ -781,12 +784,57 @@ libraries = {
 [node name="AnimationT" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeBlendTree_0khbu")
 anim_player = NodePath("../AnimationP")
+parameters/current_length = null
+parameters/current_position = null
+parameters/current_delta = null
+parameters/BS2D_IDLE/current_length = null
+parameters/BS2D_IDLE/current_position = null
+parameters/BS2D_IDLE/current_delta = null
 parameters/BS2D_IDLE/blend_position = Vector2(0, 0)
+parameters/BS2D_IDLE/0/current_length = null
+parameters/BS2D_IDLE/0/current_position = null
+parameters/BS2D_IDLE/0/current_delta = null
+parameters/BS2D_IDLE/1/current_length = null
+parameters/BS2D_IDLE/1/current_position = null
+parameters/BS2D_IDLE/1/current_delta = null
+parameters/BS2D_IDLE/2/current_length = null
+parameters/BS2D_IDLE/2/current_position = null
+parameters/BS2D_IDLE/2/current_delta = null
+parameters/BS2D_IDLE/3/current_length = null
+parameters/BS2D_IDLE/3/current_position = null
+parameters/BS2D_IDLE/3/current_delta = null
+parameters/BS2D_MOVE/current_length = null
+parameters/BS2D_MOVE/current_position = null
+parameters/BS2D_MOVE/current_delta = null
 parameters/BS2D_MOVE/blend_position = Vector2(0, 0)
+parameters/BS2D_MOVE/0/current_length = null
+parameters/BS2D_MOVE/0/current_position = null
+parameters/BS2D_MOVE/0/current_delta = null
+parameters/BS2D_MOVE/1/current_length = null
+parameters/BS2D_MOVE/1/current_position = null
+parameters/BS2D_MOVE/1/current_delta = null
+parameters/BS2D_MOVE/2/current_length = null
+parameters/BS2D_MOVE/2/current_position = null
+parameters/BS2D_MOVE/2/current_delta = null
+parameters/BS2D_MOVE/3/current_length = null
+parameters/BS2D_MOVE/3/current_position = null
+parameters/BS2D_MOVE/3/current_delta = null
+parameters/DEAD/current_length = null
+parameters/DEAD/current_position = null
+parameters/DEAD/current_delta = null
+parameters/STATE/current_length = null
+parameters/STATE/current_position = null
+parameters/STATE/current_delta = null
 parameters/STATE/current_state = "IDLE"
 parameters/STATE/transition_request = ""
 parameters/STATE/current_index = 0
+parameters/TIME_SCALE/current_length = null
+parameters/TIME_SCALE/current_position = null
+parameters/TIME_SCALE/current_delta = null
 parameters/TIME_SCALE/scale = 1.0
+parameters/output/current_length = null
+parameters/output/current_position = null
+parameters/output/current_delta = null
 
 [node name="EyeSight3D" parent="." instance=ExtResource("18_uji2a")]
 process_mode = 4
@@ -856,12 +904,13 @@ MoveState = NodePath("../Move")
 MainCharacter = NodePath("../..")
 AnimationTree = NodePath("../../AnimationT")
 
-[node name="Move" type="Node" parent="StateMachine" node_paths=PackedStringArray("IdleState", "DashState", "MainCharacter", "AnimationTree")]
+[node name="Move" type="Node" parent="StateMachine" node_paths=PackedStringArray("IdleState", "DashState", "MainCharacter", "AnimationTree", "GroundDetector")]
 script = ExtResource("18_yoft4")
 IdleState = NodePath("../Idle")
 DashState = NodePath("../Dash")
 MainCharacter = NodePath("../..")
 AnimationTree = NodePath("../../AnimationT")
+GroundDetector = NodePath("../../GroundDetector")
 
 [node name="Dash" type="Node" parent="StateMachine" node_paths=PackedStringArray("MoveState", "MainCharacter")]
 script = ExtResource("19_bla35")
@@ -881,3 +930,11 @@ amount = 5
 process_material = ExtResource("20_olqmh")
 texture = ExtResource("21_mtv4e")
 fixed_fps = 60
+
+[node name="GroundDetector" type="Node3D" parent="."]
+
+[node name="RayCast3D" type="RayCast3D" parent="GroundDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.15, 0)
+target_position = Vector3(0, -0.2, 0)
+hit_from_inside = true
+collide_with_areas = true

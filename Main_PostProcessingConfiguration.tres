@@ -47,6 +47,7 @@ ColorCorrection = false
 ColorCorrectionTint = Color(0, 0, 0, 1)
 ColorCorrectionBrightness = 0.0
 ColorCorrectionSaturation = 0.0
+Palette = false
 Pixelate = false
 PixelatePixelSize = 8
 CRT = false

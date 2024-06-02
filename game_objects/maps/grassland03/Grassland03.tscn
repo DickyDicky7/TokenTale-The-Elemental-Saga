@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://diaqmc1i4cbtd"]
+[gd_scene load_steps=24 format=3 uid="uid://diaqmc1i4cbtd"]
 
 [ext_resource type="ArrayMesh" uid="uid://b5okjswoaa6ve" path="res://modells/maps_origin/GrassLand03.vox" id="1_pfsqk"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapArea.cs" id="1_xs2m7"]
@@ -83,7 +83,11 @@ size = Vector3(0, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3h7x7"]
 margin = 0.05
-size = Vector3(0, 1, 2)
+size = Vector3(0, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_epxsn"]
+margin = 0.05
+size = Vector3(0.4, 1, 1)
 
 [node name="Grassland03" type="Node3D" node_paths=PackedStringArray("Entrances")]
 script = ExtResource("1_xs2m7")
@@ -137,3 +141,9 @@ collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Exit03"]
 shape = SubResource("BoxShape3D_3h7x7")
+
+[node name="Stair00" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8, 1.5, -1.26)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stair00"]
+shape = SubResource("BoxShape3D_epxsn")

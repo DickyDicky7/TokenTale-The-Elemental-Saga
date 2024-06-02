@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://brminwmkx38no"]
+[gd_scene load_steps=28 format=3 uid="uid://brminwmkx38no"]
 
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapArea.cs" id="1_ftcvi"]
 [ext_resource type="ArrayMesh" uid="uid://eevtyr0yjm5b" path="res://modells/maps_origin/Jungle03.vox" id="1_vn844"]
@@ -104,6 +104,10 @@ size = Vector3(0, 1, 3.4)
 margin = 0.05
 size = Vector3(0, 1, 1.9)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_271f8"]
+margin = 0.05
+size = Vector3(1, 1, 0.4)
+
 [node name="Jungle03" type="Node3D" node_paths=PackedStringArray("Entrances")]
 script = ExtResource("1_ftcvi")
 Entrances = [NodePath("Entrance00"), NodePath("Entrance01"), NodePath("Entrance02"), NodePath("Entrance03"), NodePath("Entrance04")]
@@ -166,3 +170,9 @@ collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Exit04"]
 shape = SubResource("BoxShape3D_smvcr")
+
+[node name="Stair00" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.755, 2, -2.8)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stair00"]
+shape = SubResource("BoxShape3D_271f8")

@@ -17,6 +17,8 @@ func update_shaders() -> void:
 
 func _update_shader_parameters( _name : String, _material : Material) -> void:
 	match _name:
+		"Palette":
+			_material.set_shader_parameter("palette", configuration.PalettePalette)
 		"Pixelate":
 			_material.set_shader_parameter("pixelSize", configuration.PixelatePixelSize)
 		"ColorCorrection":
@@ -87,6 +89,8 @@ func _update_shader_parameters( _name : String, _material : Material) -> void:
 			
 
 func _check_shader_visibility(_name: String) -> bool:
+		if _name.begins_with("Palette"):
+			return true if configuration.Palette else false
 		if _name.begins_with("Pixelate"):
 			return true if configuration.Pixelate else false
 		if _name.begins_with("ColorCorrection"):
@@ -150,6 +154,7 @@ func _enter_tree():
 	_add_canvas_layer_children("res://addons/post_processing/node/children/CRT.tscn", "CRT")
 	_add_canvas_layer_children("res://addons/post_processing/node/children/color_correction.tscn", "CC")
 	_add_canvas_layer_children("res://addons/post_processing/node/children/pixelate.tscn", "PXL")
+	_add_canvas_layer_children("res://addons/post_processing/node/children/palette.tscn", "PLT")
 	
 	update_shaders()
 

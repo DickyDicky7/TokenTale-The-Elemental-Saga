@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://51wvysjhnbvr"]
+[gd_scene load_steps=16 format=3 uid="uid://51wvysjhnbvr"]
 
 [ext_resource type="ArrayMesh" uid="uid://166pdrxemito" path="res://modells/maps_origin/Highland02.vox" id="1_gyexc"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapArea.cs" id="1_xchij"]
@@ -47,6 +47,10 @@ size = Vector3(0, 1, 1)
 margin = 0.05
 size = Vector3(1, 1, 0)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_dfxlx"]
+margin = 0.05
+size = Vector3(0.4, 1, 1)
+
 [node name="Highland02" type="Node3D" node_paths=PackedStringArray("Entrances")]
 script = ExtResource("1_xchij")
 Entrances = [NodePath("Entrance00"), NodePath("Entrance01")]
@@ -79,3 +83,9 @@ collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Exit01"]
 shape = SubResource("BoxShape3D_npu15")
+
+[node name="Stair00" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8, 3, -0.75)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stair00"]
+shape = SubResource("BoxShape3D_dfxlx")

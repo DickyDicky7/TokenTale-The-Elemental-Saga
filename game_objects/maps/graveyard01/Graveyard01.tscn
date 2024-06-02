@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://iph3lk5xj2vs"]
+[gd_scene load_steps=21 format=3 uid="uid://iph3lk5xj2vs"]
 
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapArea.cs" id="1_63bdr"]
 [ext_resource type="ArrayMesh" uid="uid://c218qe8hx07s1" path="res://modells/maps_origin/Graveyard01.vox" id="1_rykl7"]
@@ -66,6 +66,14 @@ size = Vector3(1, 1, 0)
 margin = 0.05
 size = Vector3(0, 1, 4)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_eho8v"]
+margin = 0.05
+size = Vector3(1, 1, 0.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_535va"]
+margin = 0.05
+size = Vector3(0.5, 1.5, 1)
+
 [node name="Graveyard01" type="Node3D" node_paths=PackedStringArray("Entrances")]
 script = ExtResource("1_63bdr")
 Entrances = [NodePath("Entrance00"), NodePath("Entrance01"), NodePath("Entrance02")]
@@ -108,3 +116,15 @@ collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Exit02"]
 shape = SubResource("BoxShape3D_3qcvr")
+
+[node name="Stair00" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 1.5, 1.7)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stair00"]
+shape = SubResource("BoxShape3D_eho8v")
+
+[node name="Stair01" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.285, 1.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stair01"]
+shape = SubResource("BoxShape3D_535va")

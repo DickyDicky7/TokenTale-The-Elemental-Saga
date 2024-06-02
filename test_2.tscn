@@ -73,6 +73,7 @@ ColorCorrection = false
 ColorCorrectionTint = Color(0, 0, 0, 1)
 ColorCorrectionBrightness = 0.0
 ColorCorrectionSaturation = 0.0
+Palette = false
 Pixelate = false
 PixelatePixelSize = 8
 CRT = false
@@ -125,8 +126,9 @@ far = 5.0
 script = ExtResource("2_rwd2k")
 FollowTarget = NodePath("../MainCharacter")
 
-[node name="MainCharacter" parent="." node_paths=PackedStringArray("NavigationAgent3D", "MainCharacterAnimatedSprite3DEffect") instance=ExtResource("2_m5dub")]
+[node name="MainCharacter" parent="." node_paths=PackedStringArray("WeaponsController", "NavigationAgent3D", "MainCharacterAnimatedSprite3DEffect") instance=ExtResource("2_m5dub")]
 floor_max_angle = 1.5708
+WeaponsController = NodePath("Weapons(_Controller_)")
 NavigationAgent3D = NodePath("NavigationAgent3D")
 MainCharacterAnimatedSprite3DEffect = NodePath("AnimatedSprite3D_Effect")
 
@@ -136,7 +138,7 @@ configuration = SubResource("Resource_jm7kc")
 dynamically_update = false
 
 [node name="Imp" parent="." instance=ExtResource("7_1yv3t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0)
 
 [node name="ChessAndItem" parent="." node_paths=PackedStringArray("Hitbox", "Sprite3D", "AnimationPlayer") instance=ExtResource("8_tgpjb")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0.504, 0)

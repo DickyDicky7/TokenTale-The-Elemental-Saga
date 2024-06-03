@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6dgdm6x17rhx"]
+
+[ext_resource type="Script" path="res://HUD/BraceletHUD/ElementalBraceletHUD.cs" id="1_bxn75"]
+[ext_resource type="PackedScene" uid="uid://dcavcuht5xtbv" path="res://HUD/shared/WeaponCDBar.tscn" id="1_nbrop"]
+[ext_resource type="PackedScene" uid="uid://beo8yq30pou78" path="res://HUD/BraceletHUD/ElementalIcon.tscn" id="2_ynbvl"]
+[ext_resource type="PackedScene" uid="uid://c8cfv85dq51fp" path="res://HUD/shared/ManaBar.tscn" id="3_5bcii"]
+
+[node name="ElementalBraceletHUD" type="HBoxContainer" node_paths=PackedStringArray("ManaBar", "CoolDownBar", "WeaponIcon")]
+custom_minimum_size = Vector2(176, 48)
+offset_right = 176.0
+offset_bottom = 48.0
+script = ExtResource("1_bxn75")
+ManaBar = NodePath("ManaBar")
+CoolDownBar = NodePath("WeaponCoolDownBar")
+WeaponIcon = NodePath("ElementalIcon")
+
+[node name="WeaponCoolDownBar" parent="." instance=ExtResource("1_nbrop")]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="ElementalIcon" parent="." node_paths=PackedStringArray("IconFrame") instance=ExtResource("2_ynbvl")]
+layout_mode = 2
+size_flags_stretch_ratio = 2.4
+IconFrame = NodePath("TextureRect")
+
+[node name="ManaBar" parent="." instance=ExtResource("3_5bcii")]
+layout_mode = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 5.0

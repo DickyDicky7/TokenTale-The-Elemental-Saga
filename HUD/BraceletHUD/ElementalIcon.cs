@@ -1,7 +1,7 @@
 using Godot;
 using System;
 namespace TokenTaleTheElementalSaga;
-public partial class ElementalIcon : IconFrame
+public partial class ElementalIcon : WeaponIcon
 {
 	
 }

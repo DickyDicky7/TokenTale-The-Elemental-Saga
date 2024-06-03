@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://kmcxf5igdd4d"]
+
+[ext_resource type="Theme" uid="uid://d0gj3t6cdlghf" path="res://UI/ui_theme_1.tres" id="1_ykl61"]
+[ext_resource type="Script" path="res://UI/Trackerv3.cs" id="2_1kflq"]
+
+[node name="Trackerv3" type="VBoxContainer" node_paths=PackedStringArray("Title", "TrackUnitContainer", "TrackStatsContainer")]
+auto_translate_mode = 1
+offset_right = 378.0
+offset_bottom = 79.0
+theme = ExtResource("1_ykl61")
+script = ExtResource("2_1kflq")
+Title = NodePath("Title")
+TrackUnitContainer = NodePath("MarginContainer/VBoxContainer/TrackUnitContainer")
+TrackStatsContainer = NodePath("MarginContainer/VBoxContainer/TrackStatsContainer")
+
+[node name="Title" type="Label" parent="."]
+auto_translate_mode = 1
+self_modulate = Color(0.411765, 0.588235, 1, 1)
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Title"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+
+[node name="TrackUnitContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+
+[node name="TrackStatsContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_vertical = 3

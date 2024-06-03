@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Runtime.CompilerServices;
 namespace TokenTaleTheElementalSaga;
 public partial class ElementalJar : Equipment
 {

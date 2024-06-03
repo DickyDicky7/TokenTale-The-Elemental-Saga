@@ -65,13 +65,14 @@ public partial class MainCharacter : Character3D
 	}
     private void SetupStats()
     {
-		this.EquipmentManager = new EquipmentManager();
+        //WARNING: do not change the order
 		this.BoosterManager = new BoosterManager();
-		this.AbilityManager = new AbilityManager();
 		this.MaxHealth = BoosterManager.MaxHealth;
+		this.EquipmentManager = new EquipmentManager(this);
 		this.MaxSpeed = EquipmentManager.Boot.Speed;
 		this.CurrentHealth = MaxHealth;
 		this.CurrentSpeed = this.MaxSpeed;
+		this.AbilityManager = new AbilityManager();
 	}
 	public override float CalculateElementalDamage(Ability3D ability,Character3D targetCharacter)
 	{

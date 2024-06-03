@@ -5,11 +5,11 @@ using System.Linq;
 namespace TokenTaleTheElementalSaga;
 public partial class BoosterManager : Node
 {
-	private List<bool> HeartStatusList = new();
-	private List<bool> EnergyStoneStatusList = new();
-	private List<bool> SwordScrollStatusList = new();
-	private List<bool> BowScrollStatusList = new();
-	private List<bool> ElementalScrollStatusList = new();
+	public List<bool> HeartStatusList = new();
+	public List<bool> EnergyStoneStatusList = new();
+	public List<bool> SwordScrollStatusList = new();
+	public List<bool> BowScrollStatusList = new();
+	public List<bool> ElementalScrollStatusList = new();
 
 	public float MaxHealth { get; private set; }
 	public int MaxEnergy { get; private set; }
@@ -24,7 +24,10 @@ public partial class BoosterManager : Node
 	{
 		foreach (int i in Enumerable.Range(0, 8))
 		{
-			HeartStatusList.Add(false);
+			if (i % 2 == 0)
+				HeartStatusList.Add(false);
+			else
+				HeartStatusList.Add(true);
 			EnergyStoneStatusList.Add(false);
 			if (i <= 3)
 				SwordScrollStatusList.Add(false);
@@ -34,15 +37,11 @@ public partial class BoosterManager : Node
 				ElementalScrollStatusList.Add(false);
 			}
 		}
-		BoosterStats BoosterStats = BoosterStats.GetInstance();
-		MaxHealth = BoosterStats.MaxHealthStats[0].MaxHealth;
-		MaxEnergy = BoosterStats.MaxEnergyStats[0].MaxEnergy;
-		SwordCoolDown = BoosterStats.SwordProficiency[0].CoolDown;
-		SwordBonusDamageRatio = BoosterStats.SwordProficiency[0].BonusDamageRatio;
-		BowCoolDown = BoosterStats.BowProficiency[0].CoolDown;
-		BowBonusDamageRatio = BoosterStats.BowProficiency[0].BonusDamageRatio;
-		ElementalCoolDown = BoosterStats.ElementalProficiency[0].CoolDown;
-		ElementalBonusDamageRatio = BoosterStats.ElementalProficiency[0].BonusDamageRatio;
+		ApplyHeart();
+		ApplyPowerStone();
+		ApplySwordScroll();
+		ApplyBowScroll();
+		ApplyElementalScroll();
 	}
 	public void TakeBooster(Booster booster)
 	{

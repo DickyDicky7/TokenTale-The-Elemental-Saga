@@ -17,7 +17,7 @@ public partial class AmmoLabel : Label
 	public void StartWarning()
 	{
 		WarningTimer.Stop();
-		this.SelfModulate = new Color(204, 51, 0);
+		this.SelfModulate = new Color(204 / 255, 51 / 255, 0 / 255, 255 / 255);
 		WarningTimer.Start();
 	}
 	public void EndWarning()

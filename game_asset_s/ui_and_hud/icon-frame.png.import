@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ju1h5yrq1rj0"
-path="res://.godot/imported/progress-bar-circle.png-02eab0178a3fdfbb539f1e70b237c35e.ctex"
+uid="uid://ckg50cdojy2cl"
+path="res://.godot/imported/icon-frame.png-7ceee6e0e53a6fc66073f705d25ba910.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game_asset_s/progress bar/progress-bar-circle.png"
-dest_files=["res://.godot/imported/progress-bar-circle.png-02eab0178a3fdfbb539f1e70b237c35e.ctex"]
+source_file="res://game_asset_s/ui_and_hud/icon-frame.png"
+dest_files=["res://.godot/imported/icon-frame.png-7ceee6e0e53a6fc66073f705d25ba910.ctex"]
 
 [params]
 

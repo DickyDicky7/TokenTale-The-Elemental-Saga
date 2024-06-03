@@ -1,19 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://brc6pkdvn1obv"]
+[gd_scene load_steps=5 format=3 uid="uid://bv1ht2d2u8pr6"]
 
-[ext_resource type="Texture2D" uid="uid://ckg50cdojy2cl" path="res://game_asset_s/progress bar/icon-frame.png" id="1_riwsb"]
-[ext_resource type="Texture2D" uid="uid://yb8acegdt212" path="res://game_asset_s/characters/main_character_v3/02.png" id="2_cp7my"]
-[ext_resource type="Script" path="res://HUD/shared/IconFrame.cs" id="2_y8r5g"]
+[ext_resource type="Script" path="res://HUD/shared/WeaponIcon.cs" id="1_15ap2"]
+[ext_resource type="Texture2D" uid="uid://ckg50cdojy2cl" path="res://game_asset_s/ui_and_hud/icon-frame.png" id="1_ln5g4"]
+[ext_resource type="Texture2D" uid="uid://dmgdg4ylaloa5" path="res://game_asset_s/characters/main_character_v3/bow-only.png" id="2_ir6fh"]
+[ext_resource type="Script" path="res://HUD/shared/IconFrame.cs" id="3_bd6bg"]
 
-[node name="BowIcon" type="TextureRect"]
+[node name="BowIcon" type="MarginContainer" node_paths=PackedStringArray("IconFrame")]
 offset_right = 48.0
 offset_bottom = 48.0
-texture = ExtResource("1_riwsb")
-expand_mode = 1
-script = ExtResource("2_y8r5g")
+script = ExtResource("1_15ap2")
+IconFrame = NodePath("TextureRect")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(24, 24)
-rotation = 3.92699
-texture = ExtResource("2_cp7my")
-region_enabled = true
-region_rect = Rect2(8, 18, 32, 32)
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_ln5g4")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("3_bd6bg")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_ir6fh")
+expand_mode = 2
+stretch_mode = 5

@@ -4,14 +4,16 @@ namespace TokenTaleTheElementalSaga;
 public partial class HealthJar : Equipment
 {
 	public int Key { get; private set; } = default;
-	public float MaxValue { get; private set; } = default;
-	public float CurrentValue { get; private set; } = default;
-	public HealthJar(int Key)
+	public float MaxValue { get; private set; }
+	public float CurrentValue { get; private set; } = 0;
+	public HealthJar(int Key, MainCharacter mainCharacter)
 	{
 		this.Available = false;
 		this.Upgradeable = false;
 		this.Level = -1;
 		this.Key = Key;
+		this.OwnerMainCharacter = mainCharacter;
+		this.MaxValue = mainCharacter.MaxHealth * 0.7f;
 	}
 	public void BeTaken()
 	{

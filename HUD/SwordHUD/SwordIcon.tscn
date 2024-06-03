@@ -1,19 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://70xm8rwurfuq"]
+[gd_scene load_steps=5 format=3 uid="uid://b6t5f13xljb3g"]
 
-[ext_resource type="Texture2D" uid="uid://j7oq61sp7i8y" path="res://game_asset_s/macrune's_weaponry/spritesheet/32x32/RPG Weapons Darkk Outline 32x32.png" id="1_qx2g3"]
-[ext_resource type="Script" path="res://HUD/shared/IconFrame.cs" id="2_3tsj2"]
-[ext_resource type="Texture2D" uid="uid://ckg50cdojy2cl" path="res://game_asset_s/progress bar/icon-frame.png" id="2_on588"]
+[ext_resource type="Texture2D" uid="uid://ckg50cdojy2cl" path="res://game_asset_s/ui_and_hud/icon-frame.png" id="1_eqxhd"]
+[ext_resource type="Script" path="res://HUD/shared/WeaponIcon.cs" id="1_qx5oh"]
+[ext_resource type="Script" path="res://HUD/shared/IconFrame.cs" id="2_mva52"]
+[ext_resource type="Texture2D" uid="uid://cxl6bu5ua0ji" path="res://game_asset_s/macrune's_weaponry/spritesheet/32x32/sword only.png" id="2_xned1"]
 
-[node name="SwordIcon" type="TextureRect"]
-auto_translate_mode = 1
+[node name="SwordIcon" type="MarginContainer" node_paths=PackedStringArray("IconFrame")]
 offset_right = 48.0
 offset_bottom = 48.0
-texture = ExtResource("2_on588")
-expand_mode = 1
-script = ExtResource("2_3tsj2")
+script = ExtResource("1_qx5oh")
+IconFrame = NodePath("IconFrame")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(24, 24)
-texture = ExtResource("1_qx2g3")
-region_enabled = true
-region_rect = Rect2(224, 96, 32, 32)
+[node name="IconFrame" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_eqxhd")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("2_mva52")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_xned1")
+expand_mode = 2
+stretch_mode = 5

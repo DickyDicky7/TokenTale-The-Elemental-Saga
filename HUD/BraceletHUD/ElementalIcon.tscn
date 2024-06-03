@@ -1,11 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvlcx3x6jke7q"]
+[gd_scene load_steps=4 format=3 uid="uid://beo8yq30pou78"]
 
-[ext_resource type="Texture2D" uid="uid://ckg50cdojy2cl" path="res://game_asset_s/progress bar/icon-frame.png" id="1_pgn5q"]
+[ext_resource type="Texture2D" uid="uid://ckg50cdojy2cl" path="res://game_asset_s/ui_and_hud/icon-frame.png" id="1_jcfe3"]
 [ext_resource type="Script" path="res://HUD/BraceletHUD/ElementalIcon.cs" id="2_yrtov"]
+[ext_resource type="Script" path="res://HUD/shared/IconFrame.cs" id="3_qs7r5"]
 
-[node name="ElementalIcon" type="TextureRect"]
+[node name="ElementalIcon" type="MarginContainer" node_paths=PackedStringArray("IconFrame")]
 offset_right = 48.0
 offset_bottom = 48.0
-texture = ExtResource("1_pgn5q")
-expand_mode = 1
 script = ExtResource("2_yrtov")
+IconFrame = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_jcfe3")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("3_qs7r5")

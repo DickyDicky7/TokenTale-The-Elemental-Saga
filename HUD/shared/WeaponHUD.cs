@@ -7,7 +7,7 @@ public partial class WeaponHUD : Control
 	[Export]
 	public TextureProgressBar CoolDownBar { get; set; }
 	[Export]
-	public IconFrame IconFrame { get; set; }
+	public WeaponIcon WeaponIcon { get; set; }
 	public Weapon Partner { get; set; }
 	[Signal]
 	public delegate void PartnerChosenEventHandler(Weapon weapon);
@@ -44,15 +44,15 @@ public partial class WeaponHUD : Control
 	{
 		Partner.Chosen += OnWeaponChosen;
 		if (Partner == chosenWeapon)
-			this.IconFrame.EmitSignal(IconFrame.SignalName.ChosenChanged, true);
+			this.WeaponIcon.IconFrame.EmitSignal(IconFrame.SignalName.ChosenChanged, true);
 	}
 	private void OnWeaponChosen(Weapon chosenWeapon)
 	{
-		this.IconFrame.EmitSignal(IconFrame.SignalName.ChosenChanged, true);
+		this.WeaponIcon.IconFrame.EmitSignal(IconFrame.SignalName.ChosenChanged, true);
 		this.EmitSignal(WeaponHUD.SignalName.PartnerChosen, chosenWeapon);
 	}
 	public void OnOtherWeaponChosen()
 	{
-		this.IconFrame.EmitSignal(IconFrame.SignalName.ChosenChanged, false);
+		this.WeaponIcon.IconFrame.EmitSignal(IconFrame.SignalName.ChosenChanged, false);
 	}
 }

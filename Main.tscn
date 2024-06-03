@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://w3dkcnkmaulo"]
+[gd_scene load_steps=45 format=3 uid="uid://w3dkcnkmaulo"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_px6f3"]
 [ext_resource type="Environment" uid="uid://jjpsnd6sbvf2" path="res://Main_Environment.tres" id="2_vpqwg"]
@@ -18,9 +18,10 @@
 [ext_resource type="PackedScene" uid="uid://cn6e4b8ejcnru" path="res://game_objects/abilities/lightning/Lightning.tscn" id="10_myf47"]
 [ext_resource type="PackedScene" uid="uid://yfbwbxquk1v" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops.tscn" id="10_ogacn"]
 [ext_resource type="PackedScene" uid="uid://d3gqr2or1jr42" path="res://game_objects/abilities/ignite/Ignite.tscn" id="11_3fjus"]
-[ext_resource type="PackedScene" uid="uid://c4elnjgtflmqo" path="res://HUD/MainCharacterHUD/MainCharacterHUD.tscn" id="11_hmd88"]
+[ext_resource type="PackedScene" uid="uid://c76082smfjyg4" path="res://HUD/MainCharacterHUD/MainCharacterHUD.tscn" id="11_cyovv"]
 [ext_resource type="PackedScene" uid="uid://chwjmy7grdej" path="res://game_objects/shared/status_info/StatusInfo.tscn" id="11_siwmd"]
 [ext_resource type="PackedScene" uid="uid://da0vo8ll2gr8e" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton.tscn" id="12_8akbt"]
+[ext_resource type="PackedScene" uid="uid://o6cefw4r60gs" path="res://UI/TrackingScreen.tscn" id="12_gn6r5"]
 [ext_resource type="Script" path="res://game_objects/shared/status_info/StatusInfoItem.cs" id="12_ps0oq"]
 [ext_resource type="PackedScene" uid="uid://dixv731fuc6gj" path="res://game_objects/abilities/fire_ball/FireBall.tscn" id="12_qboqi"]
 [ext_resource type="PackedScene" uid="uid://y1t0iubx8y1b" path="res://game_objects/characters/others/the_haunting/ghost/Ghost.tscn" id="13_e31qg"]
@@ -134,9 +135,8 @@ autostart = true
 [node name="NavigationRegion3D_Dynamic" type="NavigationRegion3D" parent="."]
 navigation_mesh = ExtResource("7_gtwip")
 
-[node name="MainCharacter" parent="." node_paths=PackedStringArray("HUDController", "WeaponsController", "NavigationAgent3D", "NavigationRegion3DStatic", "MainCharacterAnimatedSprite3DEffect") instance=ExtResource("9_seby3")]
+[node name="MainCharacter" parent="." node_paths=PackedStringArray("WeaponsController", "NavigationAgent3D", "NavigationRegion3DStatic", "MainCharacterAnimatedSprite3DEffect") instance=ExtResource("9_seby3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 0)
-HUDController = NodePath("Camera3D/MainCharaterHUD")
 WeaponsController = NodePath("Weapons(_Controller_)")
 NavigationAgent3D = NodePath("NavigationAgent3D")
 NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
@@ -155,12 +155,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 visible = false
 mesh = ExtResource("5_kmewh")
 
-[node name="MainCharaterHUD" parent="MainCharacter/Camera3D" node_paths=PackedStringArray("MainCharacter", "HealthBar", "SwordHUD", "BowHUD", "BraceletHUDs") instance=ExtResource("11_hmd88")]
+[node name="MainCharacterHUD" parent="MainCharacter/Camera3D" node_paths=PackedStringArray("MainCharacter", "HealthBar", "SwordHUD", "BowHUD", "BraceletHUDs") instance=ExtResource("11_cyovv")]
 MainCharacter = NodePath("../..")
-HealthBar = NodePath("HealthBar")
-SwordHUD = NodePath("SwordHUD")
-BowHUD = NodePath("BowHUD")
-BraceletHUDs = [NodePath("ElementalHUD"), NodePath("ElementalHUD2")]
+HealthBar = NodePath("VBoxContainer/HealthBar")
+SwordHUD = NodePath("VBoxContainer/MarginContainer/WeaponHUD/SwordHUD2")
+BowHUD = NodePath("VBoxContainer/MarginContainer/WeaponHUD/BowHUD2")
+BraceletHUDs = [NodePath("VBoxContainer/MarginContainer2/ElementalHUD"), NodePath("VBoxContainer/MarginContainer3/ElementalHUD")]
+
+[node name="TrackingScreen" parent="MainCharacter/Camera3D" node_paths=PackedStringArray("Viewer") instance=ExtResource("12_gn6r5")]
+visible = false
+Viewer = NodePath("../..")
 
 [node name="StatusInfo" parent="MainCharacter" node_paths=PackedStringArray("Sprite3D", "Label", "Timer") instance=ExtResource("11_siwmd")]
 Items = [SubResource("Resource_ntmsm"), SubResource("Resource_6wfva"), SubResource("Resource_klrs7"), SubResource("Resource_dgvcs"), SubResource("Resource_nyrrt")]

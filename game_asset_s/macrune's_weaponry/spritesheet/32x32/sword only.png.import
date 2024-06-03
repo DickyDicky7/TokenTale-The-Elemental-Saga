@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8e0mlpni48ef"
-path="res://.godot/imported/bar-fill.png-0056fc848e20046890d78e77ae373da6.ctex"
+uid="uid://cxl6bu5ua0ji"
+path="res://.godot/imported/sword only.png-59ae13d110cb5cdce2b3ba93156c761e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game_asset_s/progress bar/bar-fill.png"
-dest_files=["res://.godot/imported/bar-fill.png-0056fc848e20046890d78e77ae373da6.ctex"]
+source_file="res://game_asset_s/macrune's_weaponry/spritesheet/32x32/sword only.png"
+dest_files=["res://.godot/imported/sword only.png-59ae13d110cb5cdce2b3ba93156c761e.ctex"]
 
 [params]
 

@@ -4,6 +4,8 @@ namespace TokenTaleTheElementalSaga;
 public abstract partial class Equipment : Item3D
 {
 	[Export]
+	public MainCharacter OwnerMainCharacter { get; set; }
+	[Export]
 	public bool Available { get; set; }
 	public bool Upgradeable { get; set; }
 	public int Level { get; protected set; }

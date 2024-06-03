@@ -5,8 +5,6 @@ namespace TokenTaleTheElementalSaga;
 [GlobalClass]
 public abstract partial class Weapon : Equipment
 {
-	[Export]
-	public MainCharacter OwnerMainCharacter { get; set; }
 	protected      bool _isInUse     ;
     public virtual bool  IsInUse
     {

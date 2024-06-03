@@ -1,9 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://d2q588jssw45x"]
 
-[ext_resource type="Texture2D" uid="uid://b8e0mlpni48ef" path="res://game_asset_s/progress bar/bar-fill.png" id="1_fpgh3"]
-[ext_resource type="Texture2D" uid="uid://ckb6wgdmggdh5" path="res://game_asset_s/progress bar/bar-frame.png" id="2_4himr"]
+[ext_resource type="Texture2D" uid="uid://b8e0mlpni48ef" path="res://game_asset_s/ui_and_hud/bar-fill.png" id="1_fpgh3"]
+[ext_resource type="Texture2D" uid="uid://ckb6wgdmggdh5" path="res://game_asset_s/ui_and_hud/bar-frame.png" id="2_4himr"]
 
 [node name="HealthBar" type="TextureProgressBar"]
+custom_minimum_size = Vector2(300, 20)
 offset_right = 300.0
 offset_bottom = 20.0
 value = 33.0

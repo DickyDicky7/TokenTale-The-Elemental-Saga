@@ -1,9 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://c8cfv85dq51fp"]
 
-[ext_resource type="Texture2D" uid="uid://b8e0mlpni48ef" path="res://game_asset_s/progress bar/bar-fill.png" id="1_0s0j3"]
-[ext_resource type="Texture2D" uid="uid://ckb6wgdmggdh5" path="res://game_asset_s/progress bar/bar-frame.png" id="2_c07es"]
+[ext_resource type="Texture2D" uid="uid://b8e0mlpni48ef" path="res://game_asset_s/ui_and_hud/bar-fill.png" id="1_0s0j3"]
+[ext_resource type="Texture2D" uid="uid://ckb6wgdmggdh5" path="res://game_asset_s/ui_and_hud/bar-frame.png" id="2_c07es"]
 
 [node name="ManaBar" type="TextureProgressBar"]
+custom_minimum_size = Vector2(100, 10)
 offset_right = 100.0
 offset_bottom = 10.0
 value = 30.0

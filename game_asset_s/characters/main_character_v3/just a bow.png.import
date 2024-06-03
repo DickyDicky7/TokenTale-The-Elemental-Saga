@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckg50cdojy2cl"
-path="res://.godot/imported/icon-frame.png-3c35f95c29b1571597b0c2b4cf403e2e.ctex"
+uid="uid://br72fgy0ibvng"
+path="res://.godot/imported/just a bow.png-c1616844bea2cae5c774a8b7ac0a627a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game_asset_s/progress bar/icon-frame.png"
-dest_files=["res://.godot/imported/icon-frame.png-3c35f95c29b1571597b0c2b4cf403e2e.ctex"]
+source_file="res://game_asset_s/characters/main_character_v3/just a bow.png"
+dest_files=["res://.godot/imported/just a bow.png-c1616844bea2cae5c774a8b7ac0a627a.ctex"]
 
 [params]
 

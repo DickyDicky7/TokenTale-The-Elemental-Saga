@@ -20,6 +20,11 @@ config/icon="res://game_asset_s/icon.svg"
 BBVariable="*res://BBVariable.gd"
 Global="*res://Global.cs"
 
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
 [dotnet]
 
 project/assembly_name="TokenTale-The-Elemental-Saga"

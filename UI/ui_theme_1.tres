@@ -1,0 +1,6 @@
+[gd_resource type="Theme" format=3 uid="uid://d0gj3t6cdlghf"]
+
+[resource]
+HeaderLarge/base_type = &"Label"
+HeaderLarge/font_sizes/font_size = 48
+Label/font_sizes/font_size = 32

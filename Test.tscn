@@ -19,7 +19,10 @@ transform = Transform3D(1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107
 shadow_enabled = true
 directional_shadow_mode = 0
 
-[node name="MainCharacter" parent="." instance=ExtResource("2_mcgch")]
+[node name="MainCharacter" parent="." node_paths=PackedStringArray("WeaponsController", "NavigationAgent3D", "MainCharacterAnimatedSprite3DEffect") instance=ExtResource("2_mcgch")]
+WeaponsController = NodePath("Weapons(_Controller_)")
+NavigationAgent3D = NodePath("NavigationAgent3D")
+MainCharacterAnimatedSprite3DEffect = NodePath("AnimatedSprite3D_Effect")
 
 [node name="Camera3D" type="Camera3D" parent="MainCharacter"]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 1.5, 1.5)

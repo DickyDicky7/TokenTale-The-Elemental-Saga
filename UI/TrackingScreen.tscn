@@ -1,9 +1,44 @@
-[gd_scene format=3 uid="uid://o6cefw4r60gs"]
+[gd_scene load_steps=5 format=3 uid="uid://o6cefw4r60gs"]
 
-[node name="TrackingScreen" type="Control"]
-layout_mode = 3
+[ext_resource type="Theme" uid="uid://d0gj3t6cdlghf" path="res://UI/ui_theme_1.tres" id="1_62cdh"]
+[ext_resource type="Script" path="res://UI/TrackingScreen.cs" id="1_ctqre"]
+[ext_resource type="PackedScene" uid="uid://dbvxj4ykf57c0" path="res://UI/TrackBooster.tscn" id="1_fpvfd"]
+[ext_resource type="PackedScene" uid="uid://bq1pgokixavd1" path="res://UI/TrackEquipment.tscn" id="4_jkwg2"]
+
+[node name="TrackingScreen" type="PanelContainer"]
+self_modulate = Color(1, 1, 1, 0.196078)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 96.0
+offset_top = 54.0
+offset_right = -96.0
+offset_bottom = -54.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_62cdh")
+script = ExtResource("1_ctqre")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0.196078)
+layout_mode = 2
+current_tab = 0
+
+[node name="TrackBooster" parent="TabContainer" node_paths=PackedStringArray("TrackingScreen", "HeartTracker", "EnergyStoneTracker", "SwordScrollTracker", "BowScrollTracker", "ElementalScrollTracker") instance=ExtResource("1_fpvfd")]
+layout_mode = 2
+TrackingScreen = NodePath("../..")
+HeartTracker = NodePath("ScrollContainer/MarginContainer/VBoxContainer/TrackerHeart")
+EnergyStoneTracker = NodePath("ScrollContainer/MarginContainer/VBoxContainer/TrackerEnergyStone")
+SwordScrollTracker = NodePath("ScrollContainer/MarginContainer/VBoxContainer/TrackerSwordScroll")
+BowScrollTracker = NodePath("ScrollContainer/MarginContainer/VBoxContainer/TrackerBowScroll")
+ElementalScrollTracker = NodePath("ScrollContainer/MarginContainer/VBoxContainer/TrackerElementalScroll")
+
+[node name="TrackEquipment" parent="TabContainer" node_paths=PackedStringArray("TrackingScreen", "BootsTracker", "QuiverTracker", "PowerupGeneratorTracker", "HealthJarTracker", "ElementalJarTracker") instance=ExtResource("4_jkwg2")]
+visible = false
+layout_mode = 2
+TrackingScreen = NodePath("../..")
+BootsTracker = NodePath("ScrollContainer/MarginContainer/VBoxContainer/TrackerBoots")
+QuiverTracker = NodePath("ScrollContainer/MarginContainer/VBoxContainer/TrackerQuiver")
+PowerupGeneratorTracker = NodePath("ScrollContainer/MarginContainer/VBoxContainer/TrackerPowerupGenerator")
+HealthJarTracker = NodePath("ScrollContainer/MarginContainer/VBoxContainer/TrackerHealthJar")
+ElementalJarTracker = NodePath("ScrollContainer/MarginContainer/VBoxContainer/TrackerElementalJar")

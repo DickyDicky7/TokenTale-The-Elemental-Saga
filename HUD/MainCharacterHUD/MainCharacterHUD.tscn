@@ -1,66 +1,74 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4elnjgtflmqo"]
+[gd_scene load_steps=6 format=3 uid="uid://c76082smfjyg4"]
 
-[ext_resource type="PackedScene" uid="uid://d2q588jssw45x" path="res://HUD/shared/HealthBar.tscn" id="1_t8a8c"]
-[ext_resource type="Script" path="res://HUD/MainCharacterHUD/MainCharacterHUDController.cs" id="1_wgyv3"]
-[ext_resource type="PackedScene" uid="uid://cr5lpnjc7uayp" path="res://HUD/SwordHUD/SwordHUD.tscn" id="3_py0eg"]
-[ext_resource type="PackedScene" uid="uid://88oya6ywjc3n" path="res://HUD/BowHUD/BowHUD.tscn" id="4_xruvi"]
-[ext_resource type="PackedScene" uid="uid://8rom7frujpcl" path="res://HUD/BraceletHUD/ElementalHUD.tscn" id="5_tpt48"]
+[ext_resource type="PackedScene" uid="uid://d2q588jssw45x" path="res://HUD/shared/HealthBar.tscn" id="1_enkkg"]
+[ext_resource type="Script" path="res://HUD/MainCharacterHUD/MainCharacterHUDController.cs" id="1_ra6t1"]
+[ext_resource type="PackedScene" uid="uid://cc38qa6q6o53w" path="res://HUD/SwordHUD/SwordHUD.tscn" id="2_wra23"]
+[ext_resource type="PackedScene" uid="uid://dop5wheieajkd" path="res://HUD/BowHUD/BowHUD.tscn" id="3_eyf40"]
+[ext_resource type="PackedScene" uid="uid://b6dgdm6x17rhx" path="res://HUD/BraceletHUD/ElementalBraceletHUD.tscn" id="5_tpt48"]
 
-[node name="MainCharaterHUD" type="Control" node_paths=PackedStringArray("HealthBar", "SwordHUD", "BowHUD", "BraceletHUDs")]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_wgyv3")
-HealthBar = NodePath("HealthBar")
-SwordHUD = NodePath("SwordHUD")
-BowHUD = NodePath("BowHUD")
-BraceletHUDs = [NodePath("ElementalHUD"), NodePath("ElementalHUD2")]
-
-[node name="HealthBar" parent="." instance=ExtResource("1_t8a8c")]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 320.0
+[node name="MainCharacterHUD" type="MarginContainer" node_paths=PackedStringArray("HealthBar", "SwordHUD", "BowHUD", "BraceletHUDs")]
+offset_right = 40.0
 offset_bottom = 40.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_ra6t1")
+HealthBar = NodePath("VBoxContainer/HealthBar")
+SwordHUD = NodePath("VBoxContainer/MarginContainer/WeaponHUD/SwordHUD2")
+BowHUD = NodePath("VBoxContainer/MarginContainer/WeaponHUD/BowHUD2")
+BraceletHUDs = [NodePath("VBoxContainer/MarginContainer2/ElementalHUD"), NodePath("VBoxContainer/MarginContainer3/ElementalHUD")]
 
-[node name="SwordHUD" parent="." node_paths=PackedStringArray("CoolDownBar", "IconFrame") instance=ExtResource("3_py0eg")]
-layout_mode = 1
-offset_left = 20.0
-offset_top = 50.0
-offset_right = -1132.0
-offset_bottom = -598.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HealthBar" parent="VBoxContainer" instance=ExtResource("1_enkkg")]
+auto_translate_mode = 1
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="WeaponHUD" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SwordHUD2" parent="VBoxContainer/MarginContainer/WeaponHUD" node_paths=PackedStringArray("CoolDownBar", "WeaponIcon") instance=ExtResource("2_wra23")]
+auto_translate_mode = 1
+layout_mode = 2
 CoolDownBar = NodePath("WeaponCoolDownBar")
-IconFrame = NodePath("SwordIcon")
+WeaponIcon = NodePath("SwordIcon")
 
-[node name="BowHUD" parent="." node_paths=PackedStringArray("AmmoLabel", "CoolDownBar", "IconFrame") instance=ExtResource("4_xruvi")]
-layout_mode = 1
-offset_left = 130.0
-offset_top = 50.0
-offset_right = 130.0
-offset_bottom = 50.0
+[node name="BowHUD2" parent="VBoxContainer/MarginContainer/WeaponHUD" node_paths=PackedStringArray("AmmoLabel", "CoolDownBar", "WeaponIcon") instance=ExtResource("3_eyf40")]
+auto_translate_mode = 1
+layout_mode = 2
 AmmoLabel = NodePath("TextureRect/Label")
 CoolDownBar = NodePath("WeaponCoolDownBar")
-IconFrame = NodePath("BowIcon")
+WeaponIcon = NodePath("BowIcon2")
 
-[node name="ElementalHUD" parent="." node_paths=PackedStringArray("ManaBar", "CoolDownBar", "IconFrame") instance=ExtResource("5_tpt48")]
-layout_mode = 1
-offset_left = 20.0
-offset_top = 120.0
-offset_right = 20.0
-offset_bottom = 120.0
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="ElementalHUD" parent="VBoxContainer/MarginContainer2" node_paths=PackedStringArray("ManaBar", "CoolDownBar", "WeaponIcon") instance=ExtResource("5_tpt48")]
+layout_mode = 2
 ManaBar = NodePath("ManaBar")
 CoolDownBar = NodePath("WeaponCoolDownBar")
-IconFrame = NodePath("ElementalIcon")
+WeaponIcon = NodePath("ElementalIcon")
 
-[node name="ElementalHUD2" parent="." node_paths=PackedStringArray("ManaBar", "CoolDownBar", "IconFrame") instance=ExtResource("5_tpt48")]
-layout_mode = 1
-offset_left = 20.0
-offset_top = 190.0
-offset_right = 20.0
-offset_bottom = 190.0
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="ElementalHUD" parent="VBoxContainer/MarginContainer3" node_paths=PackedStringArray("ManaBar", "CoolDownBar", "WeaponIcon") instance=ExtResource("5_tpt48")]
+layout_mode = 2
 ManaBar = NodePath("ManaBar")
 CoolDownBar = NodePath("WeaponCoolDownBar")
-IconFrame = NodePath("ElementalIcon")
+WeaponIcon = NodePath("ElementalIcon")

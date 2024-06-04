@@ -24,6 +24,10 @@ public partial class StateSwordReset : StateSword
                     base._Leave();
 
         _tween.Clear();
+        if (Sword.Aareaa3D is SwordHitbox swordHitbox)
+        {
+            swordHitbox.ResetExceptionList();
+        }
     }
 
     public override void _Input(InputEvent @inputEvent)

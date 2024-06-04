@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cues8hkop43m7" path="res://game_asset_s/ui_and_hud/heart_fill.png" id="2_ivcak"]
 [ext_resource type="Texture2D" uid="uid://b7ioleaul1p7h" path="res://game_asset_s/ui_and_hud/heart_frame.png" id="3_deo4b"]
-[ext_resource type="Script" path="res://UI/TrackerHealthJar.cs" id="3_qxgpl"]
+[ext_resource type="Script" path="res://UI/TrackerUnit/TrackerHealthJar.cs" id="3_qxgpl"]
 
 [node name="TrackerHealthJar" type="MarginContainer" node_paths=PackedStringArray("ProgressBar")]
 offset_right = 26.0

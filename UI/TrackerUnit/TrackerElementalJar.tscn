@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cth6b2gbhnqry"]
 
-[ext_resource type="Script" path="res://UI/TrackerElementalJar.cs" id="1_0frnu"]
+[ext_resource type="Script" path="res://UI/TrackerUnit/TrackerElementalJar.cs" id="1_0frnu"]
 [ext_resource type="Texture2D" uid="uid://d0grsbliksgjc" path="res://game_asset_s/ui_and_hud/element_frame.png" id="1_g3wk3"]
 [ext_resource type="Texture2D" uid="uid://djce7067lwl5x" path="res://game_asset_s/ui_and_hud/elemental_fill.png" id="1_jjejn"]
 

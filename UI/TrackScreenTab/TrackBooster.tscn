@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dbvxj4ykf57c0"]
 
-[ext_resource type="Script" path="res://UI/TrackBooster.cs" id="1_0dafd"]
-[ext_resource type="PackedScene" uid="uid://epioybyqckww" path="res://UI/Tracker.tscn" id="2_f83r6"]
+[ext_resource type="Script" path="res://UI/TrackScreenTab/TrackBooster.cs" id="1_0dafd"]
+[ext_resource type="PackedScene" uid="uid://epioybyqckww" path="res://UI/Tracker/Tracker.tscn" id="2_f83r6"]
 
 [node name="TrackBooster" type="PanelContainer" node_paths=PackedStringArray("HeartTracker", "EnergyStoneTracker", "SwordScrollTracker", "BowScrollTracker", "ElementalScrollTracker")]
 self_modulate = Color(1, 1, 1, 0.196078)

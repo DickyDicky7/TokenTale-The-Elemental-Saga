@@ -175,6 +175,8 @@ CAMMODE={
 3d_physics/layer_6="Allies Elemental Attack"
 3d_physics/layer_7="Enemies Physics Attack"
 3d_physics/layer_8="Enemies Elemental Attack"
+3d_physics/layer_9="Allies collector"
+3d_physics/layer_10="Collectibles"
 
 [navigation]
 

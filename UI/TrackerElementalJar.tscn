@@ -4,25 +4,20 @@
 [ext_resource type="Texture2D" uid="uid://d0grsbliksgjc" path="res://game_asset_s/ui_and_hud/element_frame.png" id="1_g3wk3"]
 [ext_resource type="Texture2D" uid="uid://djce7067lwl5x" path="res://game_asset_s/ui_and_hud/elemental_fill.png" id="1_jjejn"]
 
-[node name="MarginContainer" type="MarginContainer" node_paths=PackedStringArray("ElementRect")]
-custom_minimum_size = Vector2(20, 20)
+[node name="MarginContainer" type="MarginContainer" node_paths=PackedStringArray("ProgressBar")]
 offset_right = 20.0
 offset_bottom = 20.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 script = ExtResource("1_0frnu")
-ElementRect = NodePath("ElementalCore")
+ProgressBar = NodePath("TextureProgressBar")
 
-[node name="ElementalCore" type="TextureRect" parent="."]
-self_modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(20, 20)
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-texture = ExtResource("1_jjejn")
-expand_mode = 2
-
-[node name="Frame" type="TextureRect" parent="."]
-self_modulate = Color(0.847059, 0.894118, 0.913725, 0.772549)
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-texture = ExtResource("1_g3wk3")
-expand_mode = 2
+fill_mode = 3
+nine_patch_stretch = true
+texture_under = ExtResource("1_jjejn")
+texture_over = ExtResource("1_g3wk3")
+texture_progress = ExtResource("1_jjejn")
+tint_under = Color(1, 1, 1, 0)

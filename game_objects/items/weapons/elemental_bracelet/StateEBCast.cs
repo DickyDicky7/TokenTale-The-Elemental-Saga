@@ -16,8 +16,10 @@ public partial class StateEBCast : StateEB
 			.OwnerMainCharacter
 			.Cast(this.ElementalBracelet.CurrentElement);
 		int energyConsume = AbilityStats.GetInstance().EnergyConsumption[abilityName];
-		int newCurrentEnergy = this.ElementalBracelet.CurrentEnergy - energyConsume;
-		this.ElementalBracelet.EmitSignal(ElementalBracelet.SignalName.Cast, newCurrentEnergy);
+		this.ElementalBracelet.CurrentEnergy -= energyConsume;
+		this.ElementalBracelet.EmitSignal(
+			ElementalBracelet.SignalName.Cast,
+			this.ElementalBracelet.CurrentEnergy);
 		ChangeState(ResetState);
 	}
 	public override void _Leave()

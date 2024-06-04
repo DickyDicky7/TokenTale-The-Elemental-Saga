@@ -10,10 +10,13 @@ public partial class ElementalBracelet : Weapon
 	public Global.Element CurrentElement { get; set; } = Global.Element.None;
 	public int CurrentEnergy { get; set; }
 	public float BonusDamage { get; private set; } = default;
+	public ElementalJar Storage { get; set; }
 	[Signal]
 	public delegate void CastEventHandler(int newCurrentEnergy);
 	[Signal]
-	public delegate void OutOfEnergyEventHandler();
+	public delegate void OutOfEnergyEventHandler(ElementalBracelet elementalBracelet);
+	[Signal]
+	public delegate void RechargeEventHandler(ElementalBracelet elementalBracelet);
 	public ElementalBracelet()
 	{
 		this.Upgradeable = true;
@@ -26,7 +29,6 @@ public partial class ElementalBracelet : Weapon
 		base._Ready();
 		this.CoolDownTimer.WaitTime = OwnerMainCharacter.BoosterManager.ElementalCoolDown;
 		this.CurrentEnergy = OwnerMainCharacter.BoosterManager.MaxEnergy;
-		this.OutOfEnergy += OnOutOfEnergy;
 		this.Cast += OnCast;
 		//Load from saved ?
 	}
@@ -48,16 +50,31 @@ public partial class ElementalBracelet : Weapon
 		this.Available = true;
 		Upgrade();
 	}
-	public void OnOutOfEnergy()
-	{
-		this.CurrentElement = Global.Element.None;
-	}
 	public void OnCast(int newCurrentEnergy)
 	{
-		this.CurrentEnergy = newCurrentEnergy;
 		if (this.CurrentEnergy < 0)
 			this.CurrentEnergy = 0;
 		if (this.CurrentEnergy == 0)
-			this.EmitSignal(ElementalBracelet.SignalName.OutOfEnergy);
+		{
+			this.CurrentElement = Global.Element.None;
+			this.EmitSignal(ElementalBracelet.SignalName.OutOfEnergy, this);
+		}
+	}
+	public void Store()
+	{
+		if (this.Storage.Available == false)
+			return;
+		this.Storage.Store(this.CurrentElement, this.CurrentEnergy);
+		this.CurrentElement = Global.Element.None;
+		this.CurrentEnergy = 0;
+		this.EmitSignal(ElementalBracelet.SignalName.OutOfEnergy, this);
+	}
+	public void Retrive()
+	{
+		if (this.Storage.Available == false)
+			return;
+		this.Storage.Dispose(this);
+		this.Storage.Store(Global.Element.None, 0);
+		this.EmitSignal(ElementalBracelet.SignalName.Recharge, this);
 	}
 }

@@ -18,9 +18,10 @@ WeaponIcon = NodePath("ElementalIcon")
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="ElementalIcon" parent="." node_paths=PackedStringArray("IconFrame") instance=ExtResource("2_ynbvl")]
+[node name="ElementalIcon" parent="." node_paths=PackedStringArray("Token", "IconFrame") instance=ExtResource("2_ynbvl")]
 layout_mode = 2
 size_flags_stretch_ratio = 2.4
+Token = NodePath("TextureRect2")
 IconFrame = NodePath("TextureRect")
 
 [node name="ManaBar" parent="." instance=ExtResource("3_5bcii")]

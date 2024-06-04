@@ -1,11 +1,13 @@
-[gd_scene load_steps=26 format=3 uid="uid://dsw38xnjyq7yu"]
+[gd_scene load_steps=28 format=3 uid="uid://dsw38xnjyq7yu"]
 
 [ext_resource type="SpriteFrames" uid="uid://b6px143pmxsue" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_SpriteFrames_$Main$.tres" id="1_nfvla"]
 [ext_resource type="Script" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur.cs" id="1_scwcr"]
+[ext_resource type="PackedScene" uid="uid://c7i7emx3rn41l" path="res://game_objects/items/elemental_token/ElementalToken.tscn" id="2_jh77q"]
 [ext_resource type="Resource" uid="uid://bks16vr7o4ojt" path="res://game_objects/characters/shared/EnemiesAbilities.tres" id="2_wq70c"]
 [ext_resource type="Shape3D" uid="uid://c6rxg7lixnpfr" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_CollisionShape3D_Body.tres" id="3_75wp1"]
 [ext_resource type="PackedScene" uid="uid://chwjmy7grdej" path="res://game_objects/shared/status_info/StatusInfo.tscn" id="3_duwsf"]
 [ext_resource type="PackedScene" uid="uid://dsbep0yr8rwxa" path="res://game_objects/shared/hits_flashing_by_modulate/HitsFlashingByModulate.tscn" id="3_ernqa"]
+[ext_resource type="PackedScene" uid="uid://c14s46yvkynh8" path="res://game_objects/items/soul_or_coin/SoulOrCoin.tscn" id="3_us02s"]
 [ext_resource type="BehaviorTree" uid="uid://do56smytaorys" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_BehaviorTree.tres" id="4_ejkyx"]
 [ext_resource type="BlackboardPlan" uid="uid://bfif4achauhkn" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_BlackboardPlanBase.tres" id="5_3b3my"]
 [ext_resource type="Shape3D" uid="uid://huqvodapiiy6" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_ShapeCast3D.tres" id="6_2h21h"]
@@ -697,6 +699,8 @@ _data = {
 collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_scwcr")
+ElementalTokenPackedScene = ExtResource("2_jh77q")
+CoinPackedScene = ExtResource("3_us02s")
 VisitorAbilityDispatch = ExtResource("2_wq70c")
 MonsterType = 1
 StatusInfoPackedScene = ExtResource("3_duwsf")

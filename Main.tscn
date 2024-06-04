@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://w3dkcnkmaulo"]
+[gd_scene load_steps=46 format=3 uid="uid://w3dkcnkmaulo"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_px6f3"]
 [ext_resource type="Environment" uid="uid://jjpsnd6sbvf2" path="res://Main_Environment.tres" id="2_vpqwg"]
@@ -39,6 +39,7 @@
 [ext_resource type="PackedScene" uid="uid://bbv4dpufmesgb" path="res://game_objects/characters/others/the_thief/cat/Cat.tscn" id="23_saaco"]
 [ext_resource type="PackedScene" uid="uid://u16qad10a485" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster.tscn" id="26_ynl1c"]
 [ext_resource type="PackedScene" uid="uid://o436c4ahk6md" path="res://game_objects/characters/elem_monsterss/normal/water/ratfolk_mage/RatfolkMage.tscn" id="30_ddnm6"]
+[ext_resource type="PackedScene" uid="uid://c7i7emx3rn41l" path="res://game_objects/items/elemental_token/ElementalToken.tscn" id="40_lawox"]
 
 [sub_resource type="Resource" id="Resource_ntmsm"]
 script = ExtResource("12_ps0oq")
@@ -261,3 +262,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 2)
 
 [node name="PostProcess" type="CanvasLayer" parent="."]
 script = ExtResource("18_mmfla")
+
+[node name="ElementalToken" parent="." node_paths=PackedStringArray("Sprite3D", "Shadow3D", "Hitbox") instance=ExtResource("40_lawox")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, 0)
+Element = 4
+Sprite3D = NodePath("Visual/Sprite3D")
+Shadow3D = NodePath("Visual/Shadow3D")
+Hitbox = NodePath("Hitbox")

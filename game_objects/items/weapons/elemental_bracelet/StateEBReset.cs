@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Security.Permissions;
 namespace TokenTaleTheElementalSaga;
 public partial class StateEBReset : StateEB
 {
@@ -19,14 +20,35 @@ public partial class StateEBReset : StateEB
 	}
 	public override void _Input(InputEvent @event)
 	{
-		if (this.ElementalBracelet.IsCoolingDown == true
-			|| this.ElementalBracelet.OwnerMainCharacter.IsStunning == true
-			|| this.ElementalBracelet.CurrentElement == Global.Element.None)
-			return;
 		base._Input(@event);
 		if (@event.IsMousePressed(MouseButton.Right))
 		{
-			ChangeState(CastState);
+			if (this.ElementalBracelet.IsCoolingDown == false
+			&& this.ElementalBracelet.OwnerMainCharacter.IsStunning == false
+			&& this.ElementalBracelet.CurrentElement != Global.Element.None)
+				ChangeState(CastState);
+		}
+		if (@event is InputEventKey inputEventKey)
+		{
+			if (inputEventKey.Pressed)
+			{
+				if (this.ElementalBracelet.CurrentElement != Global.Element.None &&
+					this.ElementalBracelet.CurrentEnergy != 0)
+				{
+					if (inputEventKey.Keycode == Key.P)
+					{
+						this.ElementalBracelet.Store();
+					}
+				}
+				if (this.ElementalBracelet.CurrentElement == Global.Element.None &&
+					this.ElementalBracelet.CurrentEnergy == 0)
+				{
+					if (inputEventKey.Keycode == Key.O)
+					{
+						this.ElementalBracelet.Retrive();
+					}
+				}
+			}
 		}
 	}
 }

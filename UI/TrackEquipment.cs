@@ -20,8 +20,8 @@ public partial class TrackEquipment : PanelContainer
 	public PackedScene HealthJarTrackerScene { get; set; }
 	[Export]
 	public PackedScene ElementalJarTrackerScene { get; set; }
-	private Color CheckedColor = new Color(47 / 255, 255 / 255, 67 / 255, 255 / 255);
-	private Color UncheckedColor = new Color(128 / 255, 128 / 255, 128 / 255, 255 / 255);
+	private Color CheckedColor = Helper.Color255ToColor1(47, 255, 67, 255);
+	private Color UncheckedColor = Helper.Color255ToColor1(128, 128, 128, 255);
 	private EquipmentManager EquipmentManager { get; set; }
 	public override void _Ready()
 	{
@@ -44,74 +44,47 @@ public partial class TrackEquipment : PanelContainer
 	}
 	private void SetupAllTracker()
 	{
-		SetupBootsTracker();
-		SetupQuiverTracker();
-		SetupPowerupGeneratorTracker();
+		EquipmentStats equipmentStats = EquipmentStats.GetInstance();
+		SetupBootsTracker(
+			equipmentStats.BootStats.Count, 
+			this.EquipmentManager.Boot);
+		SetupQuiverTracker(
+			equipmentStats.QuiverStats.Count,
+			this.EquipmentManager.Quiver);
+		SetupPowerupGeneratorTracker(
+			equipmentStats.PowerUpsGeneratorStats.Count,
+			this.EquipmentManager.PowerupsGenerator);
 		SetupHealthJarTracker();
 		SetupElementalJarTracker();
 	}
-	private void SetupBootsTracker()
+	private void SetupBootsTracker(int totalLevel, Boot boot)
 	{
-		int totalLevel = EquipmentStats.GetInstance().BootStats.Count;
-		Boot viewerBoot = this.EquipmentManager.Boot;
-		foreach(int i in Enumerable.Range(0, totalLevel))
-		{
-			ColorRect colorRect = new();
-			SetupColorRect(colorRect);
-			if (i <= viewerBoot.Level)
-				colorRect.SelfModulate = CheckedColor;
-			BootsTracker.TrackUnitContainer.AddChild(colorRect);
-
-			Label label = new();
-			SetupLabel(label);
-			label.Text = (i + 1).ToString();
-			BootsTracker.TrackLevelContainer.AddChild(label);
-		}
-		BootsTracker.Title.Text = "BOOTS";
-		BootsTracker.Prop.Text = $"Speed: {viewerBoot.Speed}";
+		BootsTracker.Setup(
+			"BOOTS",
+			$"Speed: {boot.Speed}",
+			totalLevel,
+			boot);
 	}
-	private void SetupQuiverTracker()
+	private void SetupQuiverTracker(int totalLevel, Quiver quiver)
 	{
-		int totalLevel = EquipmentStats.GetInstance().QuiverStats.Count;
-		Quiver viewerQuiver = this.EquipmentManager.Quiver;
-		foreach (int i in Enumerable.Range(0, totalLevel))
-		{
-			ColorRect colorRect = new();
-			SetupColorRect(colorRect);
-			if (i <= viewerQuiver.Level)
-				colorRect.SelfModulate = CheckedColor;
-			QuiverTracker.TrackUnitContainer.AddChild(colorRect);
-
-			Label label = new();
-			SetupLabel(label);
-			label.Text = (i + 1).ToString();
-			QuiverTracker.TrackLevelContainer.AddChild(label);
-		}
-		QuiverTracker.Title.Text = "QUIVER";
-		QuiverTracker.Prop.Text = $"Max arrow: {viewerQuiver.MaxArrow}";
+		QuiverTracker.Setup(
+			"QUIVER",
+			$"Max arrow: {quiver.MaxArrow}",
+			totalLevel,
+			quiver);
 	}
-	private void SetupPowerupGeneratorTracker()
+	private void SetupPowerupGeneratorTracker(int totalLevel, PowerupsGenerator powerupsGenerator)
 	{
-		int totalLevel = EquipmentStats.GetInstance().PowerUpsGeneratorStats.Count;
-		PowerupsGenerator viewerPowerupsGenerator = this.EquipmentManager.PowerupsGenerator;
-		foreach (int i in Enumerable.Range(0, totalLevel))
-		{
-			ColorRect colorRect = new();
-			SetupColorRect(colorRect);
-			if (i <= viewerPowerupsGenerator.Level)
-				colorRect.SelfModulate = CheckedColor;
-			PowerupGeneratorTracker.TrackUnitContainer.AddChild(colorRect);
-
-			Label label = new();
-			SetupLabel(label);
-			label.Text = (i + 1).ToString();
-			PowerupGeneratorTracker.TrackLevelContainer.AddChild(label);
-		}
-		PowerupGeneratorTracker.Title.Text = "POWERUPS GENERATOR";
-		if (viewerPowerupsGenerator.Level >= 0)
-			PowerupGeneratorTracker.Prop.Text = $"Max stored uses: {viewerPowerupsGenerator.MaxUses}";
+		string propText = default!;
+		if (powerupsGenerator.Level >= 0)
+			propText = $"Max stored uses: {powerupsGenerator.MaxUses}";
 		else
-			PowerupGeneratorTracker.Prop.Text = $"Max stored uses: 0";
+			propText = $"Max stored uses: 0";
+		PowerupGeneratorTracker.Setup(
+			"POWERUPS GENERATOR",
+			propText,
+			totalLevel,
+			powerupsGenerator);
 	}
 	private void SetupHealthJarTracker()
 	{
@@ -145,6 +118,8 @@ public partial class TrackEquipment : PanelContainer
 		{
 			TrackerElementalJar elementalJarTrackerUnit =
 				ElementalJarTrackerScene.Instantiate<TrackerElementalJar>();
+			elementalJarTrackerUnit.ProgressBar.MaxValue =
+					this.TrackingScreen.Viewer.BoosterManager.MaxEnergy;
 			Label label = new();
 			SetupLabel(label);
 			
@@ -155,10 +130,13 @@ public partial class TrackEquipment : PanelContainer
 			}
 			else
 			{
-				
+				elementalJarTrackerUnit.Modulate = new Color(1, 1, 1, 1);
+				elementalJarTrackerUnit.ProgressBar.Value = elementalJar.CurrentEnergy;
+				elementalJarTrackerUnit.UpdateProgressColor(elementalJar.CurrentElement);
 			}
 			this.ElementalJarTracker.TrackUnitContainer.AddChild(elementalJarTrackerUnit);
 			this.ElementalJarTracker.TrackStatsContainer.AddChild(label);
+			elementalJar.Action += elementalJarTrackerUnit.Update;
 		}
 	}
 }

@@ -1,10 +1,12 @@
-[gd_scene load_steps=21 format=3 uid="uid://bqn2g5rr825g4"]
+[gd_scene load_steps=23 format=3 uid="uid://bqn2g5rr825g4"]
 
 [ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest.cs" id="1_g4x14"]
 [ext_resource type="SpriteFrames" uid="uid://b5w6psdxkqfdx" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest_SpriteFrames_$Main$.tres" id="1_plsuf"]
 [ext_resource type="PackedScene" uid="uid://dsbep0yr8rwxa" path="res://game_objects/shared/hits_flashing_by_modulate/HitsFlashingByModulate.tscn" id="2_cj2tq"]
 [ext_resource type="Resource" uid="uid://bks16vr7o4ojt" path="res://game_objects/characters/shared/EnemiesAbilities.tres" id="2_f4jco"]
+[ext_resource type="PackedScene" uid="uid://c7i7emx3rn41l" path="res://game_objects/items/elemental_token/ElementalToken.tscn" id="2_n2q6d"]
 [ext_resource type="Shape3D" uid="uid://cyhidcdjpi64j" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest_CollisionShape3D_Body.tres" id="3_6xqyd"]
+[ext_resource type="PackedScene" uid="uid://c14s46yvkynh8" path="res://game_objects/items/soul_or_coin/SoulOrCoin.tscn" id="3_au87c"]
 [ext_resource type="PackedScene" uid="uid://chwjmy7grdej" path="res://game_objects/shared/status_info/StatusInfo.tscn" id="3_deyr3"]
 [ext_resource type="BlackboardPlan" uid="uid://bvyrderb61tqr" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest_BlackboardPlanBase.tres" id="5_5t8jw"]
 [ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.tscn" id="5_rh2dw"]
@@ -352,6 +354,8 @@ collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_g4x14")
 Element = 3
+ElementalTokenPackedScene = ExtResource("2_n2q6d")
+CoinPackedScene = ExtResource("3_au87c")
 VisitorAbilityDispatch = ExtResource("2_f4jco")
 StatusInfoPackedScene = ExtResource("3_deyr3")
 

@@ -2,9 +2,7 @@ using Godot;
 using Godot.Collections;
 using System;
 using System.Collections.Generic;
-using System.Net;
-using System.Security.Cryptography.X509Certificates;
-using System.Xml.Schema;
+using System.Linq;
 namespace TokenTaleTheElementalSaga;
 [GlobalClass]
 public sealed partial class Helper : GodotObject
@@ -176,5 +174,28 @@ public sealed partial class Helper : GodotObject
 			else
 				return false;
 		}
+	}
+	public static Color Color255ToColor1(int r, int g, int b, int a)
+	{
+		float convertedR = (float)r / 255.0f;
+		float convertedG = (float)g / 255.0f;
+		float convertedB = (float)b / 255.0f;
+		float convertedA = (float)a / 255.0f;
+		return new Color(convertedR, convertedG, convertedB, convertedA);
+	}
+	public static string DecideBaseOnRange(Godot.Collections.Dictionary<int, string> ratios)
+	{
+		//assure last keys is 100
+		//keys in ratios sort ascending
+		RandomNumberGenerator rand = new RandomNumberGenerator();
+		int temp = rand.RandiRange(0, 100);
+		foreach (int i in ratios.Keys)
+		{
+			if (temp < i)
+			{
+				return ratios[i];
+			}
+		}
+		return string.Empty;
 	}
 }

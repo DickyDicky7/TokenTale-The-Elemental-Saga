@@ -1,11 +1,13 @@
-[gd_scene load_steps=25 format=3 uid="uid://yfbwbxquk1v"]
+[gd_scene load_steps=27 format=3 uid="uid://yfbwbxquk1v"]
 
 [ext_resource type="SpriteFrames" uid="uid://c8gw1rkf7dxbk" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops_SpriteFrames_$Main$.tres" id="1_1rf3k"]
 [ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops.cs" id="1_qkaly"]
 [ext_resource type="Resource" uid="uid://bks16vr7o4ojt" path="res://game_objects/characters/shared/EnemiesAbilities.tres" id="2_761kw"]
+[ext_resource type="PackedScene" uid="uid://c7i7emx3rn41l" path="res://game_objects/items/elemental_token/ElementalToken.tscn" id="2_yrkc6"]
 [ext_resource type="PackedScene" uid="uid://dsbep0yr8rwxa" path="res://game_objects/shared/hits_flashing_by_modulate/HitsFlashingByModulate.tscn" id="3_3d3nc"]
 [ext_resource type="PackedScene" uid="uid://chwjmy7grdej" path="res://game_objects/shared/status_info/StatusInfo.tscn" id="3_aafvv"]
 [ext_resource type="Shape3D" uid="uid://bcks15sxia73f" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops_CollisionShape3D_Body.tres" id="3_n5lrr"]
+[ext_resource type="PackedScene" uid="uid://c14s46yvkynh8" path="res://game_objects/items/soul_or_coin/SoulOrCoin.tscn" id="3_xjq5p"]
 [ext_resource type="BlackboardPlan" uid="uid://dtlc6qyr0idvj" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops_BlackboardPlanBase.tres" id="5_sg5x2"]
 [ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.tscn" id="5_tvi3d"]
 [ext_resource type="Shape3D" uid="uid://dlud21l7y0vgr" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops_ShapeCast3D.tres" id="6_fm2yy"]
@@ -574,6 +576,8 @@ collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_qkaly")
 Element = 5
+ElementalTokenPackedScene = ExtResource("2_yrkc6")
+CoinPackedScene = ExtResource("3_xjq5p")
 VisitorAbilityDispatch = ExtResource("2_761kw")
 StatusInfoPackedScene = ExtResource("3_aafvv")
 

@@ -1,8 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://bbv4dpufmesgb"]
+[gd_scene load_steps=27 format=3 uid="uid://bbv4dpufmesgb"]
 
 [ext_resource type="Script" path="res://game_objects/characters/others/the_thief/cat/Cat.cs" id="1_qqt7b"]
+[ext_resource type="PackedScene" uid="uid://c7i7emx3rn41l" path="res://game_objects/items/elemental_token/ElementalToken.tscn" id="2_00nop"]
 [ext_resource type="SpriteFrames" uid="uid://h4rb06aui364" path="res://game_objects/characters/others/the_thief/cat/Cat_SpriteFrames_$Main$.tres" id="2_imwov"]
 [ext_resource type="Resource" uid="uid://bks16vr7o4ojt" path="res://game_objects/characters/shared/EnemiesAbilities.tres" id="2_j8jf8"]
+[ext_resource type="PackedScene" uid="uid://c14s46yvkynh8" path="res://game_objects/items/soul_or_coin/SoulOrCoin.tscn" id="3_2jmw8"]
 [ext_resource type="PackedScene" uid="uid://chwjmy7grdej" path="res://game_objects/shared/status_info/StatusInfo.tscn" id="3_ndnh8"]
 [ext_resource type="Shape3D" uid="uid://cnk8fxivphg27" path="res://game_objects/characters/others/the_thief/cat/Cat_CollisionShape3D_Body.tres" id="3_qjvj3"]
 [ext_resource type="BehaviorTree" uid="uid://c0qgsne1gmjmr" path="res://game_objects/characters/others/the_thief/cat/Cat_BehaviorTree.tres" id="4_bejlc"]
@@ -587,6 +589,8 @@ _data = {
 collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_qqt7b")
+ElementalTokenPackedScene = ExtResource("2_00nop")
+CoinPackedScene = ExtResource("3_2jmw8")
 VisitorAbilityDispatch = ExtResource("2_j8jf8")
 MonsterType = 1
 StatusInfoPackedScene = ExtResource("3_ndnh8")

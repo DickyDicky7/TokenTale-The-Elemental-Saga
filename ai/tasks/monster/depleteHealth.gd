@@ -18,6 +18,8 @@ func _exit() -> void:
 	
 func _tick(_delta: float) -> Status:
 	if (currentCharacter.CurrentHealth <= 0):
+		currentCharacter = currentCharacter as Monster
+		currentCharacter.Drop()
 		return SUCCESS
 	else:
 		return FAILURE

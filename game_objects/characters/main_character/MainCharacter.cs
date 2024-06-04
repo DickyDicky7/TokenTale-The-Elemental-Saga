@@ -1,6 +1,7 @@
 using Godot;
 using Godot.Collections;
 using System;
+using System.Linq;
 using System.Runtime.CompilerServices;
 
 namespace TokenTaleTheElementalSaga;
@@ -37,12 +38,12 @@ public partial class MainCharacter : Character3D
     public MainCharacter()
     {
         SetupStats();
-    }
+	}
 	public override void _Ready()
 	{
         base._Ready();
-        this.SetupStats();
         this.SetupVisitor();
+		this.PairEBraceletAndEJar();
 	}
 
 	public override void _Process(double @delta)
@@ -74,6 +75,13 @@ public partial class MainCharacter : Character3D
 		this.CurrentSpeed = this.MaxSpeed;
 		this.AbilityManager = new AbilityManager();
 	}
+    private void PairEBraceletAndEJar()
+    {
+		foreach (int i in Enumerable.Range(0, this.WeaponsController.Bracelets.Count))
+        {
+            this.WeaponsController.Bracelets[i].Storage = this.EquipmentManager.ElementalJarList[i];
+        }
+    }
 	public override float CalculateElementalDamage(Ability3D ability,Character3D targetCharacter)
 	{
         float damage = 0;

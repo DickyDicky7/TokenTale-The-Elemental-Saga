@@ -5,8 +5,8 @@ namespace TokenTaleTheElementalSaga;
 [GlobalClass]
 public partial class IconFrame : TextureRect
 {
-	private Color ChosenColor { get; set; } = new Color(255, 255, 0);
-	private Color NormalColor { get; set; } = new Color(255, 255, 255);
+	private Color ChosenColor { get; set; } = new Color(1, 1, 0, 1);
+	private Color NormalColor { get; set; } = new Color(1, 1, 1, 1);
 	[Signal]
 	public delegate void ChosenChangedEventHandler(bool picked);
 

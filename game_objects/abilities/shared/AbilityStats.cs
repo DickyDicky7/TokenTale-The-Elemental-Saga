@@ -104,6 +104,15 @@ public partial class AbilityStats : Resource
 		//EnergyConsumption.Add(nameof(), 3); GolemGoGoGo ?
 		EnergyConsumption.Add(nameof(RootTrap), 5);
 		EnergyConsumption.Add(nameof(SereneMeadow), 14);
+
+		ColorDict.Add(Global.Element.Fire, FireColor);
+		ColorDict.Add(Global.Element.Water, WaterColor);
+		ColorDict.Add(Global.Element.Wind, WindColor);
+		ColorDict.Add(Global.Element.Ice, IceColor);
+		ColorDict.Add(Global.Element.Electric, ElectricColor);
+		ColorDict.Add(Global.Element.Earth, EarthColor);
+		ColorDict.Add(Global.Element.Wood, WoodColor);
+		ColorDict.Add(Global.Element.None, NoneColor);
 	}
 	public Dictionary<Global.Element, Dictionary<int, Record.AbilityInfo>> ElementStats
 	{ get; private set; } = new();
@@ -138,4 +147,13 @@ public partial class AbilityStats : Resource
 		public static float Large { get; private set; } = 8.0f;
 		public static float XLarge { get; private set; } = 12.0f;
 	}
+	public Dictionary<Global.Element, Color> ColorDict { get; set; } = new();
+	private Color FireColor { get; set; } = Helper.Color255ToColor1(255, 69, 0, 255);
+	private Color WaterColor { get; set; } = Helper.Color255ToColor1(0, 97, 241, 255);
+	private Color WindColor { get; set; } = Helper.Color255ToColor1(73, 233, 176, 255);
+	private Color IceColor { get; set; } = Helper.Color255ToColor1(70, 216, 240, 255);
+	private Color ElectricColor { get; set; } = Helper.Color255ToColor1(136, 31, 214, 255);
+	private Color EarthColor { get; set; } = Helper.Color255ToColor1(226, 145, 45, 255);
+	private Color WoodColor { get; set; } = Helper.Color255ToColor1(139, 69, 19, 255);
+	private Color NoneColor { get; set; } = Helper.Color255ToColor1(255, 255, 255, 0);
 }

@@ -1,52 +1,51 @@
-[gd_scene load_steps=17 format=3 uid="uid://c7i7emx3rn41l"]
+[gd_scene load_steps=16 format=3 uid="uid://c7i7emx3rn41l"]
 
 [ext_resource type="Script" path="res://game_objects/items/elemental_token/ElementalToken.cs" id="1_3fynj"]
 [ext_resource type="Shape3D" uid="uid://cee8ybu6dxh3a" path="res://game_objects/items/elemental_token/ElementalToken_CollisionShape3D_Hitbox.tres" id="1_eycgj"]
-[ext_resource type="Shader" path="res://shaders/Glow.gdshader" id="4_0fg4h"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="4_7mjdu"]
 [ext_resource type="Shader" path="res://shaders/Glow.gdshader" id="4_mj6ff"]
 [ext_resource type="Texture2D" uid="uid://ck87s0hntiqqy" path="res://game_asset_s/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/16x16/shard_01e.png" id="5_djlwq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7keux"]
 render_priority = 0
-shader = ExtResource("4_0fg4h")
-shader_parameter/MODULATE = Color(2, 0, 0, 1)
+shader = ExtResource("4_mj6ff")
+shader_parameter/MODULATE = Color(1, 0.270588, 0, 1)
 shader_parameter/TEXTURE = ExtResource("5_djlwq")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_10j66"]
 render_priority = 0
-shader = ExtResource("4_0fg4h")
-shader_parameter/MODULATE = Color(0, 0.5, 2, 1)
+shader = ExtResource("4_mj6ff")
+shader_parameter/MODULATE = Color(0, 0.380392, 0.945098, 1)
 shader_parameter/TEXTURE = ExtResource("5_djlwq")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s4u44"]
 render_priority = 0
-shader = ExtResource("4_0fg4h")
-shader_parameter/MODULATE = Color(0.5, 2, 0.5, 1)
+shader = ExtResource("4_mj6ff")
+shader_parameter/MODULATE = Color(0.286275, 0.913725, 0.690196, 1)
 shader_parameter/TEXTURE = ExtResource("5_djlwq")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0ujv2"]
 render_priority = 0
-shader = ExtResource("4_0fg4h")
-shader_parameter/MODULATE = Color(0, 2, 2, 1)
+shader = ExtResource("4_mj6ff")
+shader_parameter/MODULATE = Color(0.27451, 0.847059, 0.941176, 1)
 shader_parameter/TEXTURE = ExtResource("5_djlwq")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_giq0v"]
 render_priority = 0
-shader = ExtResource("4_0fg4h")
-shader_parameter/MODULATE = Color(2, 0, 2, 1)
+shader = ExtResource("4_mj6ff")
+shader_parameter/MODULATE = Color(0.533333, 0.121569, 0.839216, 1)
 shader_parameter/TEXTURE = ExtResource("5_djlwq")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ftkrs"]
 render_priority = 0
-shader = ExtResource("4_0fg4h")
-shader_parameter/MODULATE = Color(2, 2, 0, 1)
+shader = ExtResource("4_mj6ff")
+shader_parameter/MODULATE = Color(0.886275, 0.568627, 0.176471, 1)
 shader_parameter/TEXTURE = ExtResource("5_djlwq")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xx26p"]
 render_priority = 0
-shader = ExtResource("4_0fg4h")
-shader_parameter/MODULATE = Color(0, 2, 0, 1)
+shader = ExtResource("4_mj6ff")
+shader_parameter/MODULATE = Color(0.545098, 0.270588, 0.0745098, 1)
 shader_parameter/TEXTURE = ExtResource("5_djlwq")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qy60w"]
@@ -108,8 +107,8 @@ script = ExtResource("4_7mjdu")
 Sprites = [NodePath("../Sprite3D")]
 
 [node name="Hitbox" type="Area3D" parent="."]
-collision_layer = 2
-collision_mask = 8
+collision_layer = 512
+collision_mask = 256
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
 shape = ExtResource("1_eycgj")

@@ -13,6 +13,7 @@ public partial class BowHUD : WeaponHUD
 			this.PartnerBow = Partner as _Bow_;
 		SetupBowAmmo();
 	}
+	//AmmoLabel method group
 	private void SetupBowAmmo()
 	{
 		if (this.PartnerBow is null)

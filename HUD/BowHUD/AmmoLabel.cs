@@ -4,6 +4,7 @@ namespace TokenTaleTheElementalSaga;
 public partial class AmmoLabel : Label
 {
 	private Timer WarningTimer { get; set; } = new();
+	private Color WarningColor = Helper.Color255ToColor1(204, 51, 0, 255);
 	public override void _Ready()
 	{
 		base._Ready();
@@ -17,12 +18,12 @@ public partial class AmmoLabel : Label
 	public void StartWarning()
 	{
 		WarningTimer.Stop();
-		this.SelfModulate = new Color(204 / 255, 51 / 255, 0 / 255, 255 / 255);
+		this.SelfModulate = this.WarningColor;
 		WarningTimer.Start();
 	}
 	public void EndWarning()
 	{
-		this.SelfModulate = new Color(255, 255, 255);
+		this.SelfModulate = new Color(1, 1, 1, 1);
 		WarningTimer.Stop();
 	}
 }

@@ -19,7 +19,7 @@ public partial class EquipmentManager : Node
 		HealthJarList.Add(new HealthJar(0, mainCharacter));
 		HealthJarList.Add(new HealthJar(1, mainCharacter));
 
-		ElementalJarList.Add(new ElementalJar(0));
-		ElementalJarList.Add(new ElementalJar(1));
+		ElementalJarList.Add(new ElementalJar(0, true, mainCharacter));
+		ElementalJarList.Add(new ElementalJar(1, false, mainCharacter));
 	}
 }

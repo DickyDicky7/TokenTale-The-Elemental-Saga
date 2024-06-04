@@ -1,6 +1,5 @@
 using Godot;
 using System;
-using System.Collections.Generic;
 
 namespace TokenTaleTheElementalSaga;
 
@@ -8,6 +7,10 @@ namespace TokenTaleTheElementalSaga;
 [GlobalClass]
 public abstract partial class Monster : Character3D
 {
+    [Export]
+    public PackedScene ElementalTokenPackedScene { get; set; }
+    [Export]
+    public PackedScene CoinPackedScene { get; set; }
     [Export]
     public EnemiesVisitor VisitorAbilityDispatch { get; set; }
     [Export]
@@ -25,6 +28,8 @@ public abstract partial class Monster : Character3D
     public string Key { get; protected set; }
     public float CurrentDamage { get; protected set; }
     public float Damage { get; protected set; } = 1.0f;
+    protected Godot.Collections.Dictionary<int, string> RatioRange = new();
+    protected Godot.Collections.Dictionary<string, Global.Element> ElementalTokenElementDict = new();
     
     public abstract void Attack(MainCharacter targetMainCharacter);
     public abstract void AcceptVisitor(EnemiesVisitor visitor);
@@ -99,5 +104,52 @@ public abstract partial class Monster : Character3D
 		this.CurrentHealth = this.MaxHealth;
 		this.CurrentSpeed = this.MaxSpeed;
 		this.CurrentDamage = this.Damage;
+        //setup for dropping
+        this.SetupRatioRange();
+        this.SetupElementalTokenElementDict();
 	}
+    protected virtual void SetupRatioRange()
+    {
+        RatioRange.Add(8, "fire");
+		RatioRange.Add(16, "water");
+		RatioRange.Add(24, "wind");
+		RatioRange.Add(32, "ice");
+		RatioRange.Add(40, "electric");
+		RatioRange.Add(48, "earth");
+		RatioRange.Add(56, "wood");
+		RatioRange.Add(86, "heal");
+	}
+    protected void SetupElementalTokenElementDict()
+    {
+        ElementalTokenElementDict.Add("fire", Global.Element.Fire);
+		ElementalTokenElementDict.Add("water", Global.Element.Water);
+		ElementalTokenElementDict.Add("wind", Global.Element.Wind);
+		ElementalTokenElementDict.Add("ice", Global.Element.Ice);
+		ElementalTokenElementDict.Add("electric", Global.Element.Electric);
+		ElementalTokenElementDict.Add("earth", Global.Element.Earth);
+		ElementalTokenElementDict.Add("wood", Global.Element.Wood);
+	}
+	public void Drop()
+    {
+        string type = Helper.DecideBaseOnRange(this.RatioRange);
+
+		if (type != "heal")
+        {
+            ElementalToken tempToken = this.ElementalTokenPackedScene.Instantiate<ElementalToken>();
+            tempToken.Element = ElementalTokenElementDict[type];
+            tempToken.Position = new Vector3(
+                this.Position.X - 3,
+                this.Position.Y,
+                this.Position.Z);
+        }
+        else
+        {
+
+        }
+        SoulOrCoin tempCoin = this.CoinPackedScene.Instantiate<SoulOrCoin>();
+        tempCoin.Position = new Vector3(
+            this.Position.X + 2,
+            this.Position.Y,
+            this.Position.Z - 2);
+    }
 }

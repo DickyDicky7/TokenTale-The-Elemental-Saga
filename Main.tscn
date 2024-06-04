@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://w3dkcnkmaulo"]
+[gd_scene load_steps=45 format=3 uid="uid://w3dkcnkmaulo"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_px6f3"]
 [ext_resource type="Environment" uid="uid://jjpsnd6sbvf2" path="res://Main_Environment.tres" id="2_vpqwg"]
@@ -33,7 +33,6 @@
 [ext_resource type="PackedScene" uid="uid://v8blbc8smsjd" path="res://game_objects/abilities/tidal_wave/TidalWave.tscn" id="15_lavek"]
 [ext_resource type="Script" path="res://game_objects/shared/status_info/StatusInfoItemElemental.cs" id="15_xfnnq"]
 [ext_resource type="PackedScene" uid="uid://bqn2g5rr825g4" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest.tscn" id="16_ro6gg"]
-[ext_resource type="Script" path="res://addons/post_processing/node/post_process.gd" id="18_mmfla"]
 [ext_resource type="PackedScene" uid="uid://cyv12iosddo4f" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem.tscn" id="18_ujfjh"]
 [ext_resource type="PackedScene" uid="uid://dtm1w4b8kbx8t" path="res://game_objects/abilities/air_surge/AirSurge.tscn" id="22_pbjun"]
 [ext_resource type="PackedScene" uid="uid://bbv4dpufmesgb" path="res://game_objects/characters/others/the_thief/cat/Cat.tscn" id="23_saaco"]
@@ -259,9 +258,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, -3)
 
 [node name="TidalWave" parent="." instance=ExtResource("15_lavek")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 2)
-
-[node name="PostProcess" type="CanvasLayer" parent="."]
-script = ExtResource("18_mmfla")
 
 [node name="ElementalToken" parent="." node_paths=PackedStringArray("Sprite3D", "Shadow3D", "Hitbox") instance=ExtResource("40_lawox")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, 0)

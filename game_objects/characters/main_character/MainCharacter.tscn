@@ -751,7 +751,7 @@ offset = Vector2(0, 12)
 texture_filter = 0
 sprite_frames = ExtResource("1_q2bc7")
 animation = &"IDLE_D"
-frame = 3
+frame = 2
 
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 cast_shadow = 3
@@ -760,7 +760,7 @@ alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_q2bc7")
 animation = &"IDLE_D"
-frame = 3
+frame = 2
 
 [node name="AnimatedSprite3D_Effect" parent="." node_paths=PackedStringArray("AnimationPlayer") instance=ExtResource("19_14buj")]
 AnimationPlayer = NodePath("AnimationPlayer")
@@ -859,12 +859,13 @@ MoveState = NodePath("../Move")
 MainCharacter = NodePath("../..")
 AnimationTree = NodePath("../../AnimationT")
 
-[node name="Move" type="Node" parent="StateMachine" node_paths=PackedStringArray("IdleState", "DashState", "MainCharacter", "AnimationTree")]
+[node name="Move" type="Node" parent="StateMachine" node_paths=PackedStringArray("IdleState", "DashState", "MainCharacter", "AnimationTree", "GroundDetector")]
 script = ExtResource("18_yoft4")
 IdleState = NodePath("../Idle")
 DashState = NodePath("../Dash")
 MainCharacter = NodePath("../..")
 AnimationTree = NodePath("../../AnimationT")
+GroundDetector = NodePath("../../GroundDetector")
 
 [node name="Dash" type="Node" parent="StateMachine" node_paths=PackedStringArray("MoveState", "MainCharacter")]
 script = ExtResource("19_bla35")
@@ -893,3 +894,11 @@ script = ExtResource("24_xvkrt")
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="CollectorBox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 shape = ExtResource("4_7nd0n")
+
+[node name="GroundDetector" type="Node3D" parent="."]
+
+[node name="RayCast3D" type="RayCast3D" parent="GroundDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.15, 0)
+target_position = Vector3(0, -0.2, 0)
+hit_from_inside = true
+collide_with_areas = true

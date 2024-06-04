@@ -4,11 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 namespace TokenTaleTheElementalSaga;
+
 [GlobalClass]
 public sealed partial class Helper : GodotObject
 {
-	private Helper() : base()
-	{
+    private Helper() : base()
+    {
 
 	}
 	private static Helper _instance;
@@ -199,3 +200,9 @@ public sealed partial class Helper : GodotObject
 		return string.Empty;
 	}
 }
+
+
+
+
+
+

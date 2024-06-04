@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dl5g58ti3j7ke"]
+[gd_scene load_steps=24 format=3 uid="uid://dl5g58ti3j7ke"]
 
 [ext_resource type="ArrayMesh" uid="uid://c20k1tyxsemwm" path="res://modells/maps_origin/Desert01.vox" id="1_06r8e"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapArea.cs" id="1_mawhj"]
@@ -85,6 +85,10 @@ size = Vector3(0, 1, 1)
 margin = 0.05
 size = Vector3(0, 1, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_w51wo"]
+margin = 0.05
+size = Vector3(1, 1, 0.4)
+
 [node name="Desert01" type="Node3D" node_paths=PackedStringArray("Entrances")]
 script = ExtResource("1_mawhj")
 Entrances = [NodePath("Entrance00"), NodePath("Entrance01"), NodePath("Entrance02"), NodePath("Entrance03")]
@@ -137,3 +141,9 @@ collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Exit03"]
 shape = SubResource("BoxShape3D_mx7fx")
+
+[node name="Stair00" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 1, -4.8)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stair00"]
+shape = SubResource("BoxShape3D_w51wo")

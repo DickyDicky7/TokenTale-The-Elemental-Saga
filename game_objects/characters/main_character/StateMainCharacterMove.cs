@@ -21,6 +21,22 @@ public partial class StateMainCharacterMove : State
     public AnimationTree AnimationTree { get; set; }
 
     [Export]
+    [ExportGroup("Components @@")]
+    public
+    Node3D GroundDetector
+    {
+        get;
+        set;
+    }
+
+    public RayCast3D
+           RayCast3D
+    {
+        get;
+        set;
+    }
+
+    [Export]
     [ExportGroup("Parameters @@")]
     public Vector3 MovingDirection { get; set; }
 
@@ -34,6 +50,10 @@ public partial class StateMainCharacterMove : State
 
         AnimationTree.Set
 ("parameters/STATE/transition_request", "MOVE");
+        RayCast3D = GroundDetector.GetNode<
+        RayCast3D>(nameof(
+        RayCast3D )      );
+        RayCast3D.AddExceptionRid(MainCharacter.GetRid());
     }
 
     public override void _Input(InputEvent @inputEvent)
@@ -60,13 +80,50 @@ public partial class StateMainCharacterMove : State
         base         .   _PhysicsProcess(       @delta);
 
         MovingDirection =
-            Extension.GetInputDirection() .ConvertToTopDown   ();
-        MainCharacter.Move(MovingDirection.Normalized(), @delta);
+            Extension.GetInputDirection().               ConvertToTopDown();
+
+        GroundDetector.Rotation          =
+        GroundDetector.Rotation with { Y =
+        MovingDirection                  .SignedAngleTo( Vector3.Right    ,
+                                                         Vector3.@Down ) };
+                RayCast3D.TargetPosition =
+                RayCast3D.TargetPosition ;
+                RayCast3D.ForceRaycastUpdate();
+            if (RayCast3D.IsColliding       ())
+            {
+        MainCharacter.Move(MovingDirection
+                     .Normalized(), @delta);
+            }
 
         if (               MovingDirection
         .IsZero())
         {
             ChangeState(IdleState);
         }
+
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

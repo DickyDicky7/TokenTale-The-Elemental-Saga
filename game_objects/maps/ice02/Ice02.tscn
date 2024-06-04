@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cvyi3heyqwshf"]
+[gd_scene load_steps=29 format=3 uid="uid://cvyi3heyqwshf"]
 
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapArea.cs" id="1_850p6"]
 [ext_resource type="ArrayMesh" uid="uid://bdbsobjuir8o7" path="res://modells/maps_origin/Ice02.vox" id="1_eq1ua"]
@@ -104,6 +104,14 @@ size = Vector3(0.03, 0.8, 0.5)
 margin = 0.05
 size = Vector3(0.5, 0.8, 0)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_efgj0"]
+margin = 0.05
+size = Vector3(1, 1.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_224hk"]
+margin = 0.05
+size = Vector3(0.5, 1.5, 1)
+
 [node name="Ice02" type="Node3D" node_paths=PackedStringArray("Entrances")]
 script = ExtResource("1_850p6")
 Entrances = [NodePath("Entrance00"), NodePath("Entrance01"), NodePath("Entrance02"), NodePath("Entrance03"), NodePath("Entrance04")]
@@ -166,3 +174,15 @@ collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Exit04"]
 shape = SubResource("BoxShape3D_5ld18")
+
+[node name="Stair00" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7, 2, 3.285)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stair00"]
+shape = SubResource("BoxShape3D_efgj0")
+
+[node name="Stair01" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.785, 2.5, -2)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stair01"]
+shape = SubResource("BoxShape3D_224hk")

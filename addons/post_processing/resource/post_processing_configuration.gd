@@ -143,6 +143,9 @@ class_name PostProcessingConfiguration extends Resource
 @export var ColorCorrectionTint : Color
 @export_range(-1.0, 1.0) var ColorCorrectionBrightness : float = 0
 @export_range(-1.0, 1.0) var ColorCorrectionSaturation : float = 0
+@export_subgroup("Palette")
+@export var Palette : bool
+@export var PalettePalette : Texture2D
 @export_subgroup("Pixelate")
 @export var Pixelate : bool
 @export_range(0, 64) var PixelatePixelSize = 8

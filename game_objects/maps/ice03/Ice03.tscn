@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b2135rs8j3c8k"]
+[gd_scene load_steps=24 format=3 uid="uid://b2135rs8j3c8k"]
 
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapArea.cs" id="1_8c5rt"]
 [ext_resource type="ArrayMesh" uid="uid://bnfgqu6solq7o" path="res://modells/maps_origin/Ice03.vox" id="1_wu00s"]
@@ -85,6 +85,10 @@ size = Vector3(0, 1, 1)
 margin = 0.05
 size = Vector3(1, 1, 0)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_wsnio"]
+margin = 0.05
+size = Vector3(1, 1, 0.4)
+
 [node name="Ice03" type="Node3D" node_paths=PackedStringArray("Entrances")]
 script = ExtResource("1_8c5rt")
 Entrances = [NodePath("Entrance00"), NodePath("Entrance01"), NodePath("Entrance02"), NodePath("Entrance03")]
@@ -137,3 +141,9 @@ collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Exit03"]
 shape = SubResource("BoxShape3D_0fxet")
+
+[node name="Stair00" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 3.4, 1.8)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stair00"]
+shape = SubResource("BoxShape3D_wsnio")

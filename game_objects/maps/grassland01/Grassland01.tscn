@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://chy8a4kadxf33"]
+[gd_scene load_steps=42 format=3 uid="uid://chy8a4kadxf33"]
 
 [ext_resource type="ArrayMesh" uid="uid://cie1vuyf6puoo" path="res://modells/maps_origin/GrassLand01.vox" id="1_um27m"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapArea.cs" id="1_xj0t1"]
@@ -161,6 +161,18 @@ size = Vector3(2.3, 1, 0)
 margin = 0.05
 size = Vector3(0.5, 0.8, 0)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_6jnkg"]
+margin = 0.05
+size = Vector3(0.6, 1.5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_edqsq"]
+margin = 0.05
+size = Vector3(0.5, 1.5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ay2de"]
+margin = 0.05
+size = Vector3(1, 1.5, 0.5)
+
 [node name="Grassland01" type="Node3D" node_paths=PackedStringArray("Entrances")]
 script = ExtResource("1_xj0t1")
 Entrances = [NodePath("Entrance00"), NodePath("Entrance01"), NodePath("Entrance02"), NodePath("Entrance03"), NodePath("Entrance04"), NodePath("Entrance05"), NodePath("Entrance06"), NodePath("Entrance07")]
@@ -253,3 +265,21 @@ collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Exit07"]
 shape = SubResource("BoxShape3D_uysrf")
+
+[node name="Stair00" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 1, -1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stair00"]
+shape = SubResource("BoxShape3D_6jnkg")
+
+[node name="Bridge00" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 1.5, -2.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bridge00"]
+shape = SubResource("BoxShape3D_edqsq")
+
+[node name="Bridge01" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1, 2.765)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bridge01"]
+shape = SubResource("BoxShape3D_ay2de")

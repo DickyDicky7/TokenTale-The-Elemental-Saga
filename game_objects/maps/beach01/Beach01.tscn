@@ -1,10 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://bpawgw05y1sij"]
+[gd_scene load_steps=24 format=3 uid="uid://bpawgw05y1sij"]
 
 [ext_resource type="ArrayMesh" uid="uid://bceaw7jsdiktl" path="res://modells/maps_origin/Beach01.vox" id="1_uh7ks"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapArea.cs" id="1_v8tck"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/CommandSwitchMapArea.cs" id="3_bbfsa"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/StrategySwitchMapAreaOneToOne.cs" id="3_l5c6j"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapExitsToCommand.cs" id="4_yawbm"]
+[ext_resource type="Shader" path="res://game_objects/water/Water.gdshader" id="7_3u74g"]
 
 [sub_resource type="Resource" id="Resource_sx18m"]
 script = ExtResource("3_l5c6j")
@@ -74,6 +75,25 @@ size = Vector3(1, 1, 0.4)
 margin = 0.05
 size = Vector3(1, 1, 0.4)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m4px1"]
+render_priority = -2
+shader = ExtResource("7_3u74g")
+shader_parameter/alpha = 1.0
+shader_parameter/WATER1_COL = Color(0.4, 0.7, 0.7, 1)
+shader_parameter/WATER2_COL = Color(0.3, 0.6, 0.6, 1)
+shader_parameter/FOAM_COL = Color(0.8, 0.9, 0.9, 1)
+shader_parameter/distortion_speed = 2.0
+shader_parameter/tile = Vector2(175, 38)
+shader_parameter/height = 0.0
+shader_parameter/wave_sizes = Vector2(2, 2)
+shader_parameter/wave_speed = 1.5
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_dpif0"]
+material = SubResource("ShaderMaterial_m4px1")
+size = Vector2(14, 3)
+subdivide_width = 64
+subdivide_depth = 64
+
 [node name="Beach01" type="Node3D" node_paths=PackedStringArray("Entrances")]
 script = ExtResource("1_v8tck")
 Entrances = [NodePath("Entrance00"), NodePath("Entrance01"), NodePath("Entrance02")]
@@ -128,3 +148,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.78, 0.55, -1.3)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Stair01"]
 shape = SubResource("BoxShape3D_dm0en")
+
+[node name="Water00" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
+mesh = SubResource("PlaneMesh_dpif0")

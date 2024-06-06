@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Flower01.vox-a7a9e0948c4af6315b7715ec2fe0d862
 
 [params]
 
-Scale=0.1
+Scale=0.016
 GreedyMeshGenerator=true
 SnapToGround=false
 FirstKeyframeOnly=true

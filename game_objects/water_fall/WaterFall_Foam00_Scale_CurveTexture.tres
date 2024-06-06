@@ -1,0 +1,6 @@
+[gd_resource type="CurveTexture" load_steps=2 format=3 uid="uid://b3kaebmbobay4"]
+
+[ext_resource type="Curve" uid="uid://bkmk3kqjw0tqo" path="res://game_objects/water_fall/WaterFall_Foam00_Scale_Curve.tres" id="1_fusa5"]
+
+[resource]
+curve = ExtResource("1_fusa5")

@@ -19,9 +19,12 @@ config/icon="res://game_asset_s/icon.svg"
 
 BBVariable="*res://BBVariable.gd"
 Global="*res://Global.cs"
+SimpleGrass="*res://addons/simplegrasstextured/singleton.tscn"
 
 [display]
 
+window/size/viewport_width=768
+window/size/viewport_height=432
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
@@ -35,7 +38,7 @@ import/use_multiple_threads=false
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AS2P/plugin.cfg", "res://addons/MagicaVoxel_Importer_with_Extensions/plugin.cfg", "res://addons/post_processing/plugin.cfg")
+enabled=PackedStringArray("res://addons/AS2P/plugin.cfg", "res://addons/MagicaVoxel_Importer_with_Extensions/plugin.cfg", "res://addons/post_processing/plugin.cfg", "res://addons/simplegrasstextured/plugin.cfg")
 
 [file_customization]
 
@@ -68,30 +71,30 @@ folder_colors={
 "res://game_objects/characters/others/the_tanker/": "blue",
 "res://game_objects/characters/others/the_thief/": "blue",
 "res://game_objects/characters/others/the_undead/": "blue",
-"res://game_objects/maps/beach01/": "blue",
-"res://game_objects/maps/beach02/": "blue",
-"res://game_objects/maps/desert01/": "blue",
-"res://game_objects/maps/desert02/": "blue",
-"res://game_objects/maps/grassland01/": "blue",
-"res://game_objects/maps/grassland02/": "blue",
-"res://game_objects/maps/grassland03/": "blue",
-"res://game_objects/maps/grassland04/": "blue",
-"res://game_objects/maps/graveyard01/": "blue",
-"res://game_objects/maps/graveyard02/": "blue",
-"res://game_objects/maps/highland01/": "blue",
-"res://game_objects/maps/highland02/": "blue",
-"res://game_objects/maps/ice01/": "blue",
-"res://game_objects/maps/ice02/": "blue",
-"res://game_objects/maps/ice03/": "blue",
-"res://game_objects/maps/jungle01/": "blue",
-"res://game_objects/maps/jungle02/": "blue",
-"res://game_objects/maps/jungle03/": "blue",
-"res://game_objects/maps/lake01/": "blue",
-"res://game_objects/maps/lake02/": "blue",
+"res://game_objects/maps/beach01/": "orange",
+"res://game_objects/maps/beach02/": "orange",
+"res://game_objects/maps/desert01/": "orange",
+"res://game_objects/maps/desert02/": "orange",
+"res://game_objects/maps/grassland01/": "orange",
+"res://game_objects/maps/grassland02/": "orange",
+"res://game_objects/maps/grassland03/": "orange",
+"res://game_objects/maps/grassland04/": "orange",
+"res://game_objects/maps/graveyard01/": "orange",
+"res://game_objects/maps/graveyard02/": "orange",
+"res://game_objects/maps/highland01/": "orange",
+"res://game_objects/maps/highland02/": "orange",
+"res://game_objects/maps/ice01/": "orange",
+"res://game_objects/maps/ice02/": "orange",
+"res://game_objects/maps/ice03/": "orange",
+"res://game_objects/maps/jungle01/": "orange",
+"res://game_objects/maps/jungle02/": "orange",
+"res://game_objects/maps/jungle03/": "orange",
+"res://game_objects/maps/lake01/": "orange",
+"res://game_objects/maps/lake02/": "orange",
 "res://game_objects/maps/mountain01/": "blue",
 "res://game_objects/maps/swamp01/": "blue",
-"res://game_objects/maps/tomb01/": "blue",
-"res://game_objects/maps/tomb02/": "blue",
+"res://game_objects/maps/tomb01/": "orange",
+"res://game_objects/maps/tomb02/": "orange",
 "res://game_objects/maps/volcano01/": "blue",
 "res://modells/maps/": "blue",
 "res://modells/maps_origin/": "orange",
@@ -197,3 +200,42 @@ occlusion_culling/use_occlusion_culling=true
 lights_and_shadows/positional_shadow/atlas_size=512
 lights_and_shadows/positional_shadow/atlas_size.mobile=512
 environment/defaults/default_environment="res://Main_Environment.tres"
+
+[shader_globals]
+
+sgt_player_position={
+"type": "vec3",
+"value": Vector3(1e+06, 1e+06, 1e+06)
+}
+sgt_player_mov={
+"type": "vec3",
+"value": Vector3(0, 0, 0)
+}
+sgt_normal_displacement={
+"type": "sampler2D",
+"value": "res://addons/simplegrasstextured/images/normal.png"
+}
+sgt_motion_texture={
+"type": "sampler2D",
+"value": "res://addons/simplegrasstextured/images/motion.png"
+}
+sgt_wind_direction={
+"type": "vec3",
+"value": Vector3(1, 0, 0)
+}
+sgt_wind_movement={
+"type": "vec3",
+"value": Vector2(0, 0)
+}
+sgt_wind_strength={
+"type": "float",
+"value": 0.15
+}
+sgt_wind_turbulence={
+"type": "float",
+"value": 1.0
+}
+sgt_wind_pattern={
+"type": "sampler2D",
+"value": "res://addons/simplegrasstextured/images/wind_pattern.png"
+}

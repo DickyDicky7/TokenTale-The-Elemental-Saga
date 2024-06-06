@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://gdipkqqhbum0"]
+
+[ext_resource type="Material" uid="uid://cqu71dnsyyoxq" path="res://game_objects/water/Water_ShaderMaterial.tres" id="1_ltmtj"]
+[ext_resource type="PlaneMesh" uid="uid://cggj7xd1xjt37" path="res://game_objects/water/Water_Mesh.tres" id="1_os7wl"]
+
+[node name="Water" type="Node3D"]
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_os7wl")
+surface_material_override/0 = ExtResource("1_ltmtj")

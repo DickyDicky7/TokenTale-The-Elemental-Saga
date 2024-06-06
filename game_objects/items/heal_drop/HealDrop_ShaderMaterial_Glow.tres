@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dw2qx4wfxnvbc"]
+
+[ext_resource type="Shader" path="res://shaders/Glow.gdshader" id="1_h4nfv"]
+[ext_resource type="Texture2D" uid="uid://brbp2qaffjfbn" path="res://game_asset_s/heart.png" id="2_d64oe"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_h4nfv")
+shader_parameter/MODULATE = Color(2, 2, 1, 1)
+shader_parameter/TEXTURE = ExtResource("2_d64oe")

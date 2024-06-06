@@ -21,15 +21,20 @@ public partial class ElementalBracelet : Weapon
 	{
 		this.Upgradeable = true;
 		this.Level = -1;
-		if (this.Available == true && this.Upgradeable == true)
-			this.Upgrade();
+		
 	}
 	public override void _Ready()
 	{
+		if (this.Available == true && this.Upgradeable == true)
+			this.Upgrade();
 		base._Ready();
 		this.CoolDownTimer.WaitTime = OwnerMainCharacter.BoosterManager.ElementalCoolDown;
 		this.CurrentEnergy = OwnerMainCharacter.BoosterManager.MaxEnergy;
 		this.Cast += OnCast;
+		if (this.Available == false)
+			this.CurrentElement = Global.Element.None;
+		if(this.CurrentElement == Global.Element.None)
+			this.CurrentEnergy = 0;
 		//Load from saved ?
 	}
 	public override void Upgrade()
@@ -44,11 +49,15 @@ public partial class ElementalBracelet : Weapon
 			this.NextLevelUpgradeCost = ElementalBraceletStats[this.Level + 1].UpgradeCost;
 		else
 			this.NextLevelUpgradeCost = -1;
+		this.EmitSignal(Equipment.SignalName.JustUpgrade);
 	}
 	public void BeTaken()
 	{
 		this.Available = true;
 		Upgrade();
+		this.CurrentElement = Global.Element.None;
+		this.CurrentEnergy = 0;
+		this.EmitSignal(ElementalBracelet.SignalName.OutOfEnergy, this);
 	}
 	public void OnCast(int newCurrentEnergy)
 	{

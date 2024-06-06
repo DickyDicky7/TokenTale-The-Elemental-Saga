@@ -1,74 +1,102 @@
-[gd_scene load_steps=6 format=3 uid="uid://c76082smfjyg4"]
+[gd_scene load_steps=7 format=3 uid="uid://c76082smfjyg4"]
 
 [ext_resource type="PackedScene" uid="uid://d2q588jssw45x" path="res://HUD/shared/HealthBar.tscn" id="1_enkkg"]
 [ext_resource type="Script" path="res://HUD/MainCharacterHUD/MainCharacterHUDController.cs" id="1_ra6t1"]
 [ext_resource type="PackedScene" uid="uid://cc38qa6q6o53w" path="res://HUD/SwordHUD/SwordHUD.tscn" id="2_wra23"]
 [ext_resource type="PackedScene" uid="uid://dop5wheieajkd" path="res://HUD/BowHUD/BowHUD.tscn" id="3_eyf40"]
 [ext_resource type="PackedScene" uid="uid://b6dgdm6x17rhx" path="res://HUD/BraceletHUD/ElementalBraceletHUD.tscn" id="5_tpt48"]
+[ext_resource type="Texture2D" uid="uid://cwcv1roglcg1s" path="res://game_asset_s/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/16x16/coin_05d.png" id="6_dm5lp"]
 
-[node name="MainCharacterHUD" type="MarginContainer" node_paths=PackedStringArray("HealthBar", "SwordHUD", "BowHUD", "BraceletHUDs")]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="MainCharacterHUD" type="MarginContainer" node_paths=PackedStringArray("HealthBar", "SwordHUD", "BowHUD", "BraceletHUDs", "CoinLabel")]
+offset_right = 1152.0
+offset_bottom = 214.0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 script = ExtResource("1_ra6t1")
-HealthBar = NodePath("VBoxContainer/HealthBar")
-SwordHUD = NodePath("VBoxContainer/MarginContainer/WeaponHUD/SwordHUD2")
-BowHUD = NodePath("VBoxContainer/MarginContainer/WeaponHUD/BowHUD2")
-BraceletHUDs = [NodePath("VBoxContainer/MarginContainer2/ElementalHUD"), NodePath("VBoxContainer/MarginContainer3/ElementalHUD")]
+HealthBar = NodePath("HBoxContainer/VBoxContainer/HealthBar")
+SwordHUD = NodePath("HBoxContainer/VBoxContainer/MarginContainer/WeaponHUD/SwordHUD2")
+BowHUD = NodePath("HBoxContainer/VBoxContainer/MarginContainer/WeaponHUD/BowHUD2")
+BraceletHUDs = [NodePath("HBoxContainer/VBoxContainer/MarginContainer2/ElementalHUD"), NodePath("HBoxContainer/VBoxContainer/MarginContainer3/ElementalHUD")]
+CoinLabel = NodePath("HBoxContainer/VBoxContainer2/HBoxContainer/Label")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 auto_translate_mode = 1
 layout_mode = 2
+size_flags_horizontal = 0
 theme_override_constants/separation = 10
 
-[node name="HealthBar" parent="VBoxContainer" instance=ExtResource("1_enkkg")]
+[node name="HealthBar" parent="HBoxContainer/VBoxContainer" instance=ExtResource("1_enkkg")]
 auto_translate_mode = 1
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_right = 10
 
-[node name="WeaponHUD" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+[node name="WeaponHUD" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/MarginContainer"]
 auto_translate_mode = 1
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="SwordHUD2" parent="VBoxContainer/MarginContainer/WeaponHUD" node_paths=PackedStringArray("CoolDownBar", "WeaponIcon") instance=ExtResource("2_wra23")]
+[node name="SwordHUD2" parent="HBoxContainer/VBoxContainer/MarginContainer/WeaponHUD" node_paths=PackedStringArray("CoolDownBar", "WeaponIcon") instance=ExtResource("2_wra23")]
 auto_translate_mode = 1
 layout_mode = 2
 CoolDownBar = NodePath("WeaponCoolDownBar")
 WeaponIcon = NodePath("SwordIcon")
 
-[node name="BowHUD2" parent="VBoxContainer/MarginContainer/WeaponHUD" node_paths=PackedStringArray("AmmoLabel", "CoolDownBar", "WeaponIcon") instance=ExtResource("3_eyf40")]
+[node name="BowHUD2" parent="HBoxContainer/VBoxContainer/MarginContainer/WeaponHUD" node_paths=PackedStringArray("AmmoLabel", "CoolDownBar", "WeaponIcon") instance=ExtResource("3_eyf40")]
 auto_translate_mode = 1
 layout_mode = 2
 AmmoLabel = NodePath("TextureRect/Label")
 CoolDownBar = NodePath("WeaponCoolDownBar")
 WeaponIcon = NodePath("BowIcon2")
 
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_right = 10
 
-[node name="ElementalHUD" parent="VBoxContainer/MarginContainer2" node_paths=PackedStringArray("ManaBar", "CoolDownBar", "WeaponIcon") instance=ExtResource("5_tpt48")]
+[node name="ElementalHUD" parent="HBoxContainer/VBoxContainer/MarginContainer2" node_paths=PackedStringArray("ManaBar", "CoolDownBar", "WeaponIcon") instance=ExtResource("5_tpt48")]
 layout_mode = 2
 ManaBar = NodePath("ManaBar")
 CoolDownBar = NodePath("WeaponCoolDownBar")
 WeaponIcon = NodePath("ElementalIcon")
 
-[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer"]
+[node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_right = 10
 
-[node name="ElementalHUD" parent="VBoxContainer/MarginContainer3" node_paths=PackedStringArray("ManaBar", "CoolDownBar", "WeaponIcon") instance=ExtResource("5_tpt48")]
+[node name="ElementalHUD" parent="HBoxContainer/VBoxContainer/MarginContainer3" node_paths=PackedStringArray("ManaBar", "CoolDownBar", "WeaponIcon") instance=ExtResource("5_tpt48")]
 layout_mode = 2
 ManaBar = NodePath("ManaBar")
 CoolDownBar = NodePath("WeaponCoolDownBar")
 WeaponIcon = NodePath("ElementalIcon")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(80, 40)
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "5000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="CoinSymbol" type="TextureRect" parent="HBoxContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("6_dm5lp")
+expand_mode = 2
+stretch_mode = 5

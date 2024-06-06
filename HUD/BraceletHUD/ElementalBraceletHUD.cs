@@ -20,6 +20,7 @@ public partial class ElementalBraceletHUD : WeaponHUD
 	private void SetupManaBar(int newMaxValue)
 	{
 		this.ManaBar.MaxValue = newMaxValue;
+		this.ManaBar.Value = this.PartnerEB.CurrentEnergy;
 		this.PartnerEB.Cast += OnPartnerCast;
 		this.PartnerEB.OutOfEnergy += OnPartnerRechargeOrOutOfEnergy;
 		this.PartnerEB.Recharge += OnPartnerRechargeOrOutOfEnergy;

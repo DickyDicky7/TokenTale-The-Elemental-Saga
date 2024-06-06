@@ -16,6 +16,8 @@ public partial class MainCharacterHUDController : Control
 	public BowHUD BowHUD { get; set; }
 	[Export]
 	public Array<ElementalBraceletHUD> BraceletHUDs { get; set; }
+	[Export]
+	public Label CoinLabel { get; set; }
 	public WeaponsController WeaponController { get; set; }
 	private List<WeaponHUD> WeaponHUDs { get; set; } = new();
 	public override void _Ready()
@@ -25,6 +27,8 @@ public partial class MainCharacterHUDController : Control
 		SetupHealthBar();
 		SetupBraceletHUD();
 		SetupWeaponHUD();
+		this.CoinLabel.Text = MainCharacter.CurrentCoin.ToString();
+		this.MainCharacter.CoinChanged += OnCoinChanged;
 	}
 	public override void _Process(double delta)
 	{
@@ -32,14 +36,19 @@ public partial class MainCharacterHUDController : Control
 	}
 	private void OnHealthChanged(float damage)
 	{
-		if (damage > 0)
+		if (damage != 0)
 			this.HealthBar.Value = MainCharacter.CurrentHealth;
+	}
+	private void OnMaxHealthChanged(float newMaxHealth)
+	{
+		this.HealthBar.MaxValue = newMaxHealth;
 	}
 	private void SetupHealthBar()
 	{
 		this.MainCharacter.HealthChange += OnHealthChanged;
 		this.HealthBar.MaxValue = MainCharacter.MaxHealth;
 		this.HealthBar.Value = MainCharacter.CurrentHealth;
+		this.MainCharacter.BoosterManager.HeartChanged += OnMaxHealthChanged;
 	}
 	private void SetupWeaponHUD()
 	{
@@ -81,5 +90,9 @@ public partial class MainCharacterHUDController : Control
 				continue;
 			braceletHUD.OnOtherWeaponChosen();
 		}
+	}
+	private void OnCoinChanged(int newCoin)
+	{
+		this.CoinLabel.Text = newCoin.ToString();
 	}
 }

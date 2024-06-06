@@ -6,13 +6,14 @@ namespace TokenTaleTheElementalSaga;
 public partial class Quiver : Equipment
 {
 	public int MaxArrow { get; private set; } = default;
-	public Quiver()
+	public Quiver(MainCharacter mainCharacter)
 	{
 		this.Available = true;
 		this.Upgradeable = true;
 		this.Level = -1;
 		if (this.Available == true && this.Upgradeable == true)
 			this.Upgrade();
+		this.OwnerMainCharacter = mainCharacter;
 	}
 	public override void _Ready()
 	{
@@ -31,5 +32,6 @@ public partial class Quiver : Equipment
 			this.NextLevelUpgradeCost = QuiverStats[this.Level + 1].UpgradeCost;
 		else
 			this.NextLevelUpgradeCost = -1;
+		this.EmitSignal(Equipment.SignalName.JustUpgrade);
 	}
 }

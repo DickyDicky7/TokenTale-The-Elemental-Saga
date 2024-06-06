@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://o6cefw4r60gs"]
+[gd_scene load_steps=6 format=3 uid="uid://o6cefw4r60gs"]
 
 [ext_resource type="Theme" uid="uid://d0gj3t6cdlghf" path="res://UI/ui_theme_1.tres" id="1_62cdh"]
 [ext_resource type="Script" path="res://UI/TrackScreen/TrackingScreen.cs" id="1_ctqre"]
 [ext_resource type="PackedScene" uid="uid://dbvxj4ykf57c0" path="res://UI/TrackScreenTab/TrackBooster.tscn" id="1_fpvfd"]
 [ext_resource type="PackedScene" uid="uid://bq1pgokixavd1" path="res://UI/TrackScreenTab/TrackEquipment.tscn" id="4_jkwg2"]
+[ext_resource type="PackedScene" uid="uid://bctw0iasnxyar" path="res://UI/TrackScreenTab/TrackWeapon.tscn" id="5_m0s71"]
 
 [node name="TrackingScreen" type="PanelContainer"]
 self_modulate = Color(1, 1, 1, 0.196078)
@@ -42,3 +43,9 @@ QuiverTracker = NodePath("ScrollContainer/MarginContainer/VBoxContainer/TrackerQ
 PowerupGeneratorTracker = NodePath("ScrollContainer/MarginContainer/VBoxContainer/TrackerPowerupGenerator")
 HealthJarTracker = NodePath("ScrollContainer/MarginContainer/VBoxContainer/TrackerHealthJar")
 ElementalJarTracker = NodePath("ScrollContainer/MarginContainer/VBoxContainer/TrackerElementalJar")
+
+[node name="TrackWeapon" parent="TabContainer" node_paths=PackedStringArray("TrackingScreen", "TrackerContainer") instance=ExtResource("5_m0s71")]
+visible = false
+layout_mode = 2
+TrackingScreen = NodePath("../..")
+TrackerContainer = NodePath("ScrollContainer/MarginContainer/VBoxContainer")

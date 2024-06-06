@@ -5,6 +5,23 @@ using System.Linq;
 namespace TokenTaleTheElementalSaga;
 public partial class BoosterManager : Node
 {
+	[Signal]
+	public delegate void HeartChangedEventHandler(float newMaxHealth);
+	[Signal]
+	public delegate void EnergyStoneChangedEventHandler(int newMaxEnergy);
+	[Signal]
+	public delegate void SwordScollChangedEventHandler(
+		float newSwordCooldown, 
+		float newSwordBonusDamageRatio);
+	[Signal]
+	public delegate void BowScrollChangedEventHandler(
+		float newBowCooldown,
+		float newBowBonusDamageRatio);
+	[Signal]
+	public delegate void ElementalScrollChangedEventHandler(
+		float newElementalCoolDown,
+		float newElementalBonusDamageRatio);
+	private MainCharacter MainCharacter { get; set; }
 	public List<bool> HeartStatusList = new();
 	public List<bool> EnergyStoneStatusList = new();
 	public List<bool> SwordScrollStatusList = new();
@@ -20,8 +37,9 @@ public partial class BoosterManager : Node
 	public float ElementalCoolDown { get; private set; }
 	public float ElementalBonusDamageRatio { get; private set; }
 
-	public BoosterManager()
+	public BoosterManager(MainCharacter mainCharacter)
 	{
+		this.MainCharacter = mainCharacter;
 		foreach (int i in Enumerable.Range(0, 8))
 		{
 			if (i % 2 == 0)
@@ -77,6 +95,8 @@ public partial class BoosterManager : Node
 		this.MaxHealth = BoosterStats.GetInstance()
 			.MaxHealthStats[HeartCollected]
 			.MaxHealth;
+		this.MainCharacter.MaxHealth = this.MaxHealth;
+		this.EmitSignal(BoosterManager.SignalName.HeartChanged, this.MaxHealth);
 	}
 	private void ApplyPowerStone()
 	{
@@ -84,6 +104,7 @@ public partial class BoosterManager : Node
 		this.MaxEnergy = BoosterStats.GetInstance()
 			.MaxEnergyStats[EnergyStoneCollected]
 			.MaxEnergy;
+		this.EmitSignal(BoosterManager.SignalName.EnergyStoneChanged, this.MaxEnergy);
 	}
 	private void ApplySwordScroll()
 	{
@@ -92,6 +113,10 @@ public partial class BoosterManager : Node
 			.SwordProficiency[SwordScrollCollected];
 		this.SwordCoolDown = info.CoolDown;
 		this.SwordBonusDamageRatio = info.BonusDamageRatio;
+		this.EmitSignal(
+			BoosterManager.SignalName.SwordScollChanged,
+			this.SwordCoolDown,
+			this.SwordBonusDamageRatio);
 	}
 	private void ApplyBowScroll()
 	{
@@ -100,6 +125,10 @@ public partial class BoosterManager : Node
 			.BowProficiency[BowScrollCollected];
 		this.BowCoolDown = info.CoolDown;
 		this.BowBonusDamageRatio = info.BonusDamageRatio;
+		this.EmitSignal(
+			BoosterManager.SignalName.BowScrollChanged,
+			this.BowCoolDown,
+			this.BowBonusDamageRatio);
 	}
 	private void ApplyElementalScroll()
 	{
@@ -108,5 +137,9 @@ public partial class BoosterManager : Node
 			.ElementalProficiency[ElementalScrollCollected];
 		this.ElementalCoolDown = info.CoolDown;
 		this.ElementalBonusDamageRatio = info.BonusDamageRatio;
+		this.EmitSignal(
+			BoosterManager.SignalName.ElementalScrollChanged,
+			this.ElementalCoolDown,
+			this.ElementalBonusDamageRatio);
 	}
 }

@@ -93,10 +93,9 @@ public partial class TrackEquipment : PanelContainer
 		{
 			TrackerHealthJar healthJarTrackerUnit = 
 				HealthJarTrackerScene.Instantiate<TrackerHealthJar>();
+			healthJarTrackerUnit.ProgressBar.Value = 0;
 			Label label = new();
 			SetupLabel(label);
-			healthJarTrackerUnit.ProgressBar.MaxValue = healthJar.MaxValue;
-			healthJarTrackerUnit.ProgressBar.Value = healthJar.CurrentValue;
 			if (healthJar.Available is false)
 			{
 				healthJarTrackerUnit.Modulate = new Color(1, 1, 1, 0.5f);
@@ -104,11 +103,13 @@ public partial class TrackEquipment : PanelContainer
 			}
 			else
 			{
-				label.Text = $"{healthJarTrackerUnit.ProgressBar.Value}/" +
-					$"{healthJarTrackerUnit.ProgressBar.MaxValue}";
+				healthJarTrackerUnit.Modulate = new Color(1, 1, 1, 1);
+				healthJarTrackerUnit.Update(healthJar);
 			}
 			this.HealthJarTracker.TrackUnitContainer.AddChild(healthJarTrackerUnit);
 			this.HealthJarTracker.TrackStatsContainer.AddChild(label);
+			healthJar.Action += healthJarTrackerUnit.Update;
+			healthJar.Taken += () => { label.Text = string.Empty; };
 		}
 	}
 	private void SetupElementalJarTracker()
@@ -118,11 +119,9 @@ public partial class TrackEquipment : PanelContainer
 		{
 			TrackerElementalJar elementalJarTrackerUnit =
 				ElementalJarTrackerScene.Instantiate<TrackerElementalJar>();
-			elementalJarTrackerUnit.ProgressBar.MaxValue =
-					this.TrackingScreen.Viewer.BoosterManager.MaxEnergy;
+			elementalJarTrackerUnit.ProgressBar.Value = 0;
 			Label label = new();
 			SetupLabel(label);
-			
 			if (elementalJar.Available is false)
 			{
 				elementalJarTrackerUnit.Modulate = new Color(1, 1, 1, 0.5f);
@@ -131,12 +130,12 @@ public partial class TrackEquipment : PanelContainer
 			else
 			{
 				elementalJarTrackerUnit.Modulate = new Color(1, 1, 1, 1);
-				elementalJarTrackerUnit.ProgressBar.Value = elementalJar.CurrentEnergy;
-				elementalJarTrackerUnit.UpdateProgressColor(elementalJar.CurrentElement);
+				elementalJarTrackerUnit.Update(elementalJar);
 			}
 			this.ElementalJarTracker.TrackUnitContainer.AddChild(elementalJarTrackerUnit);
 			this.ElementalJarTracker.TrackStatsContainer.AddChild(label);
 			elementalJar.Action += elementalJarTrackerUnit.Update;
+			elementalJar.Taken += () => { label.Text = string.Empty; };
 		}
 	}
 }

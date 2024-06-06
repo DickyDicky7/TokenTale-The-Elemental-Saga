@@ -67,7 +67,7 @@ public abstract partial class Monster : Character3D
             elementalReactionDH.ProcessDamage(ref damage);
         damage = (float)Math.Round(damage, 2);
         targetCharacter.StatusInfo.Items.Add(
-            new StatusInfoItemElemental {Element = ability.Element, Thing = $"-{damage}🩸" });
+            new StatusInfoItemElemental {Element = ability.Element, Thing = $"-{damage}" });
         return damage;
 	}
 	public override float CalculatePhysicsDamage(Character3D targetCharacter)
@@ -78,7 +78,7 @@ public abstract partial class Monster : Character3D
         damage = this.CurrentDamage;
 		damage = (float)Math.Round(damage, 2);
 		targetCharacter.StatusInfo.Items.Add(
-            new StatusInfoItemHurt { Thing = $"-{damage}🩸" });
+            new StatusInfoItemHurt { Thing = $"-{damage}" });
         return damage;
 	}
 	public void UpdateStats()
@@ -132,7 +132,8 @@ public abstract partial class Monster : Character3D
 	public void Drop()
     {
         string type = Helper.DecideBaseOnRange(this.RatioRange);
-
+        if (type == string.Empty)
+            return;
 		if (type != "heal")
         {
             ElementalToken tempToken = this.ElementalTokenPackedScene.Instantiate<ElementalToken>();

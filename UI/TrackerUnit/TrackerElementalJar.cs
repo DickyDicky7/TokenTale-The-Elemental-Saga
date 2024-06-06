@@ -1,5 +1,6 @@
 using Godot;
 using Godot.Collections;
+using System.Linq.Expressions;
 namespace TokenTaleTheElementalSaga;
 [GlobalClass]
 public partial class TrackerElementalJar : Control
@@ -14,5 +15,6 @@ public partial class TrackerElementalJar : Control
 	{
 		this.ProgressBar.Value = elementalJar.CurrentEnergy;
 		this.UpdateProgressColor(elementalJar.CurrentElement);
+		this.ProgressBar.MaxValue = elementalJar.MaxEnergy;
 	}
 }

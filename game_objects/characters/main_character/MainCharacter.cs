@@ -44,9 +44,12 @@ public partial class MainCharacter : Character3D
         get;
         set;
     }
+    [Signal]
+    public delegate void CoinChangedEventHandler(int newCoint);
     public EquipmentManager EquipmentManager { get; private set; } 
     public   AbilityManager   AbilityManager { get; private set; } 
     public   BoosterManager   BoosterManager { get; private set; } 
+    public int CurrentCoin { get; set; }
     public MainCharacter()
     {
         SetupStats();
@@ -79,13 +82,14 @@ public partial class MainCharacter : Character3D
     private void SetupStats()
     {
         //WARNING: do not change the order
-		this.BoosterManager = new BoosterManager();
+		this.BoosterManager = new BoosterManager(this);
 		this.MaxHealth = BoosterManager.MaxHealth;
 		this.EquipmentManager = new EquipmentManager(this);
 		this.MaxSpeed = EquipmentManager.Boot.Speed;
 		this.CurrentHealth = MaxHealth;
 		this.CurrentSpeed = this.MaxSpeed;
 		this.AbilityManager = new AbilityManager();
+        this.CurrentCoin = 2000;
 	}
     private void PairEBraceletAndEJar()
     {
@@ -160,7 +164,7 @@ public partial class MainCharacter : Character3D
            { Element =
      ability.Element ,
                Thing =
-@$"-{damage}."       });
+@$"-{damage}"       });
      return
      damage            ;
     }
@@ -190,7 +194,7 @@ float              damage = 0;
         targetCharacter.StatusInfo
                        .Items.Add (
                               new
-                        StatusInfoItemHurt { Thing = $"-{damage}." });
+                        StatusInfoItemHurt { Thing = $"-{damage}" });
         return damage;
     }
 

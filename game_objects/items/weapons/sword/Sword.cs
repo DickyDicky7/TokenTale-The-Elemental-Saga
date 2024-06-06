@@ -52,5 +52,6 @@ public partial class Sword : Weapon
             this.NextLevelUpgradeCost = SwordStats[Level + 1].UpgradeCost;
         else
             this.NextLevelUpgradeCost = -1;
+        this.EmitSignal(Equipment.SignalName.JustUpgrade);
 	}
 }

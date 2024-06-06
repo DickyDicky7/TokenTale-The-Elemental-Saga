@@ -10,6 +10,8 @@ public abstract partial class Equipment : Item3D
 	public bool Upgradeable { get; set; }
 	public int Level { get; protected set; }
 	public int NextLevelUpgradeCost { get; protected set; }
+	[Signal]
+	public delegate void JustUpgradeEventHandler();
 	public override void _Ready()
 	{
 		base._Ready();

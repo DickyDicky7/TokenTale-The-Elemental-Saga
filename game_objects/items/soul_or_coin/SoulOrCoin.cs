@@ -29,6 +29,11 @@ public partial class SoulOrCoin : Node3D
 
         }
     }
+    public int RandomizeAmountOfCoin()
+    {
+        RandomNumberGenerator rand = new RandomNumberGenerator();
+        return rand.RandiRange(5, 15);
+    }
 }
 
 

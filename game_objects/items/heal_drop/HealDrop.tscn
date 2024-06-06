@@ -1,10 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://c14s46yvkynh8"]
+[gd_scene load_steps=8 format=3 uid="uid://d214m5mqgg6go"]
 
-[ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="1_deepv"]
-[ext_resource type="Texture2D" uid="uid://cwcv1roglcg1s" path="res://game_asset_s/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/16x16/coin_05d.png" id="1_l0kqm"]
-[ext_resource type="Script" path="res://game_objects/items/soul_or_coin/SoulOrCoin.cs" id="1_oksh2"]
-[ext_resource type="Material" uid="uid://byke5gr4qif3n" path="res://game_objects/items/soul_or_coin/SoulOrCoin_ShaderMaterial_Glow.tres" id="1_qpbnj"]
-[ext_resource type="Shape3D" uid="uid://j06ccegiphmr" path="res://game_objects/items/soul_or_coin/SoulOrCoin_CollisionShape3D_Hitbox.tres" id="4_3cfaw"]
+[ext_resource type="Script" path="res://game_objects/items/heal_drop/HealDrop.cs" id="1_m332s"]
+[ext_resource type="Material" uid="uid://dw2qx4wfxnvbc" path="res://game_objects/items/heal_drop/HealDrop_ShaderMaterial_Glow.tres" id="2_v8y8g"]
+[ext_resource type="Texture2D" uid="uid://brbp2qaffjfbn" path="res://game_asset_s/heart.png" id="3_icoqh"]
+[ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="4_php0a"]
+[ext_resource type="Shape3D" uid="uid://cgt3gmvj13tkj" path="res://game_objects/items/heal_drop/HealDrop_CollisionShape3D_Hitbox.tres" id="5_eoqus"]
 
 [sub_resource type="Animation" id="Animation_yejn5"]
 resource_name = "IDLE"
@@ -27,23 +27,22 @@ _data = {
 "IDLE": SubResource("Animation_yejn5")
 }
 
-[node name="SoulOrCoin" type="Node3D" node_paths=PackedStringArray("Hitbox")]
-script = ExtResource("1_oksh2")
-Hitbox = NodePath("Hitbox")
+[node name="HealDrop" type="Node3D"]
+script = ExtResource("1_m332s")
 
 [node name="Visual" type="Node3D" parent="."]
 
 [node name="Sprite3D" type="Sprite3D" parent="Visual"]
-material_override = ExtResource("1_qpbnj")
+material_override = ExtResource("2_v8y8g")
 cast_shadow = 0
 texture_filter = 0
-texture = ExtResource("1_l0kqm")
+texture = ExtResource("3_icoqh")
 
 [node name="Shadow3D" type="Sprite3D" parent="Visual"]
 cast_shadow = 3
 alpha_cut = 2
 texture_filter = 0
-texture = ExtResource("1_l0kqm")
+texture = ExtResource("3_icoqh")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Visual"]
 libraries = {
@@ -53,7 +52,7 @@ autoplay = "IDLE"
 
 [node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="Visual" node_paths=PackedStringArray("Sprites")]
 process_mode = 4
-script = ExtResource("1_deepv")
+script = ExtResource("4_php0a")
 Sprites = [NodePath("../Sprite3D")]
 
 [node name="Hitbox" type="Area3D" parent="."]
@@ -62,4 +61,4 @@ collision_mask = 256
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
-shape = ExtResource("4_3cfaw")
+shape = ExtResource("5_eoqus")

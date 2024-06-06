@@ -58,5 +58,6 @@ public partial class _Bow_ : Weapon
 			this.NextLevelUpgradeCost = BowStats[Level + 1].UpgradeCost;
 		else
 			this.NextLevelUpgradeCost = -1;
+        this.EmitSignal(Equipment.SignalName.JustUpgrade);
 	}
 }

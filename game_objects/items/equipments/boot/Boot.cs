@@ -6,17 +6,19 @@ namespace TokenTaleTheElementalSaga;
 public partial class Boot : Equipment
 {
 	public float Speed { get; private set; } = default;
-	public Boot()
+	public Boot(MainCharacter mainCharacter)
 	{
 		this.Available = true;
 		this.Upgradeable = true;
 		this.Level = -1;
 		if (this.Available == true && this.Upgradeable == true)
 			this.Upgrade();
+		this.OwnerMainCharacter = mainCharacter;
 	}
 	public override void _Ready()
 	{
 		base._Ready();
+		this.JustUpgrade += OnJustUpgrade;
 		//Load from saved ?
 	}
 	public override void Upgrade()
@@ -31,5 +33,11 @@ public partial class Boot : Equipment
 			this.NextLevelUpgradeCost = BootStats[this.Level + 1].UpgradeCost;
 		else
 			this.NextLevelUpgradeCost = -1;
+		this.EmitSignal(Equipment.SignalName.JustUpgrade);
+	}
+	private void OnJustUpgrade()
+	{
+		this.OwnerMainCharacter.MaxSpeed = this.Speed;
+		this.OwnerMainCharacter.CurrentSpeed = this.Speed;
 	}
 }

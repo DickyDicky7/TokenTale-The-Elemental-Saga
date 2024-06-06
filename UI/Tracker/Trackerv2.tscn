@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://d0gj3t6cdlghf" path="res://UI/ui_theme_1.tres" id="1_pavpn"]
 [ext_resource type="Script" path="res://UI/Tracker/Trackerv2.cs" id="2_vpn7v"]
 
-[node name="Trackerv2" type="VBoxContainer" node_paths=PackedStringArray("Title", "TrackUnitContainer", "TrackLevelContainer", "Prop")]
+[node name="Trackerv2" type="VBoxContainer" node_paths=PackedStringArray("Title", "TrackUnitContainer", "TrackLevelContainer", "Prop", "UpgradeButton")]
 auto_translate_mode = 1
 offset_right = 378.0
 offset_bottom = 79.0
@@ -12,7 +12,8 @@ script = ExtResource("2_vpn7v")
 Title = NodePath("Title")
 TrackUnitContainer = NodePath("MarginContainer/VBoxContainer/TrackUnitContainer")
 TrackLevelContainer = NodePath("MarginContainer/VBoxContainer/TrackLevelContainer")
-Prop = NodePath("MarginContainer/VBoxContainer/Prop")
+Prop = NodePath("MarginContainer/VBoxContainer/HBoxContainer/Prop")
+UpgradeButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/Button")
 
 [node name="Title" type="Label" parent="."]
 auto_translate_mode = 1
@@ -43,7 +44,15 @@ auto_translate_mode = 1
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Prop" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 auto_translate_mode = 1
 layout_mode = 2
 text = "Prop: 30"
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Upgrade"

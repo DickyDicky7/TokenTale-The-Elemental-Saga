@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://w3dkcnkmaulo"]
+[gd_scene load_steps=47 format=3 uid="uid://w3dkcnkmaulo"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_px6f3"]
 [ext_resource type="Environment" uid="uid://jjpsnd6sbvf2" path="res://Main_Environment.tres" id="2_vpqwg"]
@@ -39,6 +39,8 @@
 [ext_resource type="PackedScene" uid="uid://u16qad10a485" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster.tscn" id="26_ynl1c"]
 [ext_resource type="PackedScene" uid="uid://o436c4ahk6md" path="res://game_objects/characters/elem_monsterss/normal/water/ratfolk_mage/RatfolkMage.tscn" id="30_ddnm6"]
 [ext_resource type="PackedScene" uid="uid://c7i7emx3rn41l" path="res://game_objects/items/elemental_token/ElementalToken.tscn" id="40_lawox"]
+[ext_resource type="PackedScene" uid="uid://c14s46yvkynh8" path="res://game_objects/items/soul_or_coin/SoulOrCoin.tscn" id="40_oasok"]
+[ext_resource type="PackedScene" uid="uid://d214m5mqgg6go" path="res://game_objects/items/heal_drop/HealDrop.tscn" id="41_u6iqv"]
 
 [sub_resource type="Resource" id="Resource_ntmsm"]
 script = ExtResource("12_ps0oq")
@@ -155,12 +157,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 visible = false
 mesh = ExtResource("5_kmewh")
 
-[node name="MainCharacterHUD" parent="MainCharacter/Camera3D" node_paths=PackedStringArray("MainCharacter", "HealthBar", "SwordHUD", "BowHUD", "BraceletHUDs") instance=ExtResource("11_cyovv")]
+[node name="MainCharacterHUD" parent="MainCharacter/Camera3D" node_paths=PackedStringArray("MainCharacter", "HealthBar", "SwordHUD", "BowHUD", "BraceletHUDs", "CoinLabel") instance=ExtResource("11_cyovv")]
 MainCharacter = NodePath("../..")
-HealthBar = NodePath("VBoxContainer/HealthBar")
-SwordHUD = NodePath("VBoxContainer/MarginContainer/WeaponHUD/SwordHUD2")
-BowHUD = NodePath("VBoxContainer/MarginContainer/WeaponHUD/BowHUD2")
-BraceletHUDs = [NodePath("VBoxContainer/MarginContainer2/ElementalHUD"), NodePath("VBoxContainer/MarginContainer3/ElementalHUD")]
+HealthBar = NodePath("HBoxContainer/VBoxContainer/HealthBar")
+SwordHUD = NodePath("HBoxContainer/VBoxContainer/MarginContainer/WeaponHUD/SwordHUD2")
+BowHUD = NodePath("HBoxContainer/VBoxContainer/MarginContainer/WeaponHUD/BowHUD2")
+BraceletHUDs = [NodePath("HBoxContainer/VBoxContainer/MarginContainer2/ElementalHUD"), NodePath("HBoxContainer/VBoxContainer/MarginContainer3/ElementalHUD")]
+CoinLabel = NodePath("HBoxContainer/VBoxContainer2/HBoxContainer/Label")
 
 [node name="TrackingScreen" parent="MainCharacter/Camera3D" node_paths=PackedStringArray("Viewer") instance=ExtResource("12_gn6r5")]
 visible = false
@@ -265,3 +268,32 @@ Element = 4
 Sprite3D = NodePath("Visual/Sprite3D")
 Shadow3D = NodePath("Visual/Shadow3D")
 Hitbox = NodePath("Hitbox")
+
+[node name="SoulOrCoin" parent="." node_paths=PackedStringArray("Hitbox") instance=ExtResource("40_oasok")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1, 0)
+Hitbox = NodePath("Hitbox")
+
+[node name="SoulOrCoin2" parent="." node_paths=PackedStringArray("Hitbox") instance=ExtResource("40_oasok")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1, 1)
+Hitbox = NodePath("Hitbox")
+
+[node name="SoulOrCoin3" parent="." node_paths=PackedStringArray("Hitbox") instance=ExtResource("40_oasok")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1, 2)
+Hitbox = NodePath("Hitbox")
+
+[node name="SoulOrCoin4" parent="." node_paths=PackedStringArray("Hitbox") instance=ExtResource("40_oasok")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1, -1)
+Hitbox = NodePath("Hitbox")
+
+[node name="SoulOrCoin5" parent="." node_paths=PackedStringArray("Hitbox") instance=ExtResource("40_oasok")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1, -2)
+Hitbox = NodePath("Hitbox")
+
+[node name="HealDrop" parent="." instance=ExtResource("41_u6iqv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 1, 0)
+
+[node name="HealDrop2" parent="." instance=ExtResource("41_u6iqv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 1, -1)
+
+[node name="HealDrop3" parent="." instance=ExtResource("41_u6iqv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 1, 1)

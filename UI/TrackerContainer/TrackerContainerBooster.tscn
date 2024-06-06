@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://epioybyqckww"]
 
-[ext_resource type="Script" path="res://UI/Tracker/Tracker.cs" id="1_d4pnj"]
-[ext_resource type="Theme" uid="uid://d0gj3t6cdlghf" path="res://UI/ui_theme_1.tres" id="1_r60fy"]
+[ext_resource type="Theme" uid="uid://d0gj3t6cdlghf" path="res://UI/ui_theme_1.tres" id="1_4tecy"]
+[ext_resource type="Script" path="res://UI/TrackerContainer/TrackerContainerBooster.cs" id="2_7vm0u"]
 
-[node name="Tracker" type="VBoxContainer" node_paths=PackedStringArray("Title", "TrackUnitContainer", "Prop")]
+[node name="TrackerContainerBooster" type="VBoxContainer" node_paths=PackedStringArray("Title", "TrackUnitContainer", "Prop")]
 offset_right = 378.0
 offset_bottom = 79.0
-theme = ExtResource("1_r60fy")
-script = ExtResource("1_d4pnj")
+theme = ExtResource("1_4tecy")
+script = ExtResource("2_7vm0u")
 Title = NodePath("Title")
 TrackUnitContainer = NodePath("MarginContainer/VBoxContainer/TrackUnitContainer")
 Prop = NodePath("MarginContainer/VBoxContainer/Prop")

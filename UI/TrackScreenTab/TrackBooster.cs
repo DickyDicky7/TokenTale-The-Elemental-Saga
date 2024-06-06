@@ -7,15 +7,15 @@ public partial class TrackBooster : PanelContainer
 	[Export]
 	public TrackingScreen TrackingScreen { get; set; }
 	[Export]
-	public Tracker HeartTracker { get; set; }
+	public TrackerContainerBooster HeartTracker { get; set; }
 	[Export]
-	public Tracker EnergyStoneTracker { get; set; }
+	public TrackerContainerBooster EnergyStoneTracker { get; set; }
 	[Export]
-	public Tracker SwordScrollTracker { get; set; }
+	public TrackerContainerBooster SwordScrollTracker { get; set; }
 	[Export]
-	public Tracker BowScrollTracker { get; set; }
+	public TrackerContainerBooster BowScrollTracker { get; set; }
 	[Export]
-	public Tracker ElementalScrollTracker { get; set; }
+	public TrackerContainerBooster ElementalScrollTracker { get; set; }
 	private BoosterManager BoosterManager { get; set; }
 	public override void _Ready()
 	{

@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Linq;
 namespace TokenTaleTheElementalSaga;
-public partial class Trackerv2 : VBoxContainer
+public partial class TrackerContainerEquipment : VBoxContainer
 {
 	[Export]
 	public Label Title { get; set; }
@@ -19,21 +19,25 @@ public partial class Trackerv2 : VBoxContainer
 	private Color CheckedColor = Helper.Color255ToColor1(47, 255, 67, 255);
 	private Color UncheckedColor = Helper.Color255ToColor1(128, 128, 128, 255);
 	private Color WarningColor = Helper.Color255ToColor1(204, 51, 0, 255);
-	private void SetupColorRect(ColorRect colorRect, bool levelStatus)
+	private ColorRect SetupColorRect(bool levelStatus)
 	{
+		ColorRect colorRect = new();
 		colorRect.CustomMinimumSize = new Vector2(0, 30);
 		colorRect.SizeFlagsHorizontal = SizeFlags.ExpandFill;
 		colorRect.SelfModulate = UncheckedColor;
 		if (levelStatus == true)
 			colorRect.SelfModulate = CheckedColor;
+		return colorRect;
 	}
-	private void SetupLabel(Label label, int level)
+	private Label SetupLabel(int level)
 	{
+		Label label = new();
 		label.CustomMinimumSize = new Vector2(0, 30);
 		label.SizeFlagsHorizontal = SizeFlags.ExpandFill;
 		label.HorizontalAlignment = HorizontalAlignment.Center;
 		label.VerticalAlignment = VerticalAlignment.Center;
 		label.Text = level.ToString();
+		return label;
 	}
 	private void SetupTimer()
 	{
@@ -58,12 +62,10 @@ public partial class Trackerv2 : VBoxContainer
 	{
 		foreach (int i in Enumerable.Range(0, totalLevel))
 		{
-			ColorRect colorRect = new();
-			SetupColorRect(colorRect, i <= equipment.Level);
+			ColorRect colorRect = SetupColorRect(i <= equipment.Level);
 			this.TrackUnitContainer.AddChild(colorRect);
 
-			Label label = new();
-			SetupLabel(label, i + 1);
+			Label label = SetupLabel(i + 1);
 			this.TrackLevelContainer.AddChild(label);
 		}
 		this.Title.Text = title;
@@ -110,8 +112,8 @@ public partial class Trackerv2 : VBoxContainer
 	{
 		if (Partner.NextLevelUpgradeCost <= this.Partner.OwnerMainCharacter.CurrentCoin)
 		{
-			this.Partner.Upgrade();
 			this.Partner.OwnerMainCharacter.CurrentCoin -= Partner.NextLevelUpgradeCost;
+			this.Partner.Upgrade();
 			this.Partner.OwnerMainCharacter.EmitSignal(
 				MainCharacter.SignalName.CoinChanged,
 				this.Partner.OwnerMainCharacter.CurrentCoin);

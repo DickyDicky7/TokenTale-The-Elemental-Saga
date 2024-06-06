@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://kmcxf5igdd4d"]
 
 [ext_resource type="Theme" uid="uid://d0gj3t6cdlghf" path="res://UI/ui_theme_1.tres" id="1_ykl61"]
-[ext_resource type="Script" path="res://UI/Tracker/Trackerv3.cs" id="2_1kflq"]
+[ext_resource type="Script" path="res://UI/TrackerContainer/TrackerContainerEquipment2.cs" id="2_1kflq"]
 
-[node name="Trackerv3" type="VBoxContainer" node_paths=PackedStringArray("Title", "TrackUnitContainer", "TrackStatsContainer")]
+[node name="TrackerContainerEquipment2" type="VBoxContainer" node_paths=PackedStringArray("Title", "TrackUnitContainer", "TrackStatsContainer")]
 auto_translate_mode = 1
 offset_right = 378.0
 offset_bottom = 79.0

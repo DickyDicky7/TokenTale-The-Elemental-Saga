@@ -1,7 +1,7 @@
 using Godot;
 using System;
 namespace TokenTaleTheElementalSaga;
-public partial class Trackerv3 : VBoxContainer
+public partial class TrackerContainerEquipment2 : VBoxContainer
 {
 	[Export]
 	public Label Title { get; set; }

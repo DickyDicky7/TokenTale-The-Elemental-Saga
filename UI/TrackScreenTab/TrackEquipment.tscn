@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://bq1pgokixavd1"]
 
 [ext_resource type="Script" path="res://UI/TrackScreenTab/TrackEquipment.cs" id="1_3us6x"]
-[ext_resource type="PackedScene" uid="uid://bvvghl8ofbjew" path="res://UI/Tracker/Trackerv2.tscn" id="1_3xqkn"]
+[ext_resource type="PackedScene" uid="uid://bvvghl8ofbjew" path="res://UI/TrackerContainer/TrackerContainerEquipment.tscn" id="1_3xqkn"]
 [ext_resource type="PackedScene" uid="uid://btvq5p1tt4ykt" path="res://UI/TrackerUnit/TrackerHealthJar.tscn" id="2_83jsh"]
-[ext_resource type="PackedScene" uid="uid://kmcxf5igdd4d" path="res://UI/Tracker/Trackerv3.tscn" id="3_427ow"]
+[ext_resource type="PackedScene" uid="uid://kmcxf5igdd4d" path="res://UI/TrackerContainer/TrackerContainerEquipment2.tscn" id="3_427ow"]
 [ext_resource type="PackedScene" uid="uid://cth6b2gbhnqry" path="res://UI/TrackerUnit/TrackerElementalJar.tscn" id="3_db1qu"]
 
 [node name="TrackEquipment" type="PanelContainer" node_paths=PackedStringArray("BootsTracker", "QuiverTracker", "PowerupGeneratorTracker", "HealthJarTracker", "ElementalJarTracker")]

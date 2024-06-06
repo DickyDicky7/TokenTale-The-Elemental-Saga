@@ -4,6 +4,8 @@ using System.Linq;
 namespace TokenTaleTheElementalSaga;
 public partial class AbilityManager : Node
 {
+	[Signal]
+	public delegate void StatusChangedEventHandler(string element, bool maxLevel);
 	public record AbilityStatus
 	{
 		public Record.AbilityInfo AbilityInfo { get; set; }
@@ -104,6 +106,7 @@ public partial class AbilityManager : Node
 			ElementStatus[element], 
 			AbilityStats.GetInstance().ElementStats[element],
 			element);
+
 	}
 	private void Update(
 		AbilityStatus abilityStatus,
@@ -114,16 +117,20 @@ public partial class AbilityManager : Node
 			return;
 		else
 		{
-			Record.AbilityInfo AbilityInfo = stats[abilityStatus.CurrentLevel + 1];
-			if (abilityStatus.CurrentExp >= AbilityInfo.ExpNeed)
+			if (abilityStatus.CurrentExp >= abilityStatus.AbilityInfo.ExpNeed)
 			{
 				abilityStatus.CurrentLevel += 1;
-				abilityStatus.AbilityInfo = AbilityInfo;
+				abilityStatus.AbilityInfo = stats[abilityStatus.CurrentLevel];
 			}
 			if (abilityStatus.CurrentLevel >= 5)
 			{
 				AbilityList[new AbilityKey { Element = element, Key = 1 }].Unlocked = true;
 			}
+			if (abilityStatus.CurrentLevel == stats.Count - 1)
+				this.EmitSignal(AbilityManager.SignalName.StatusChanged, element.ToString(), true);
+			else
+				this.EmitSignal(AbilityManager.SignalName.StatusChanged, element.ToString(), false);
+
 		}
 	}
 	public void ChooseAbility(Global.Element element, int key)

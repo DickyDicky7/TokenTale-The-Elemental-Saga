@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 namespace TokenTaleTheElementalSaga;
-public partial class Tracker : VBoxContainer
+public partial class TrackerContainerBooster : VBoxContainer
 {
 	[Export]
 	public Label Title { get; set; }

@@ -7,15 +7,15 @@ public partial class TrackEquipment : PanelContainer
 	[Export]
 	public TrackingScreen TrackingScreen { get; set; }
 	[Export]
-	public Trackerv2 BootsTracker { get; set; }
+	public TrackerContainerEquipment BootsTracker { get; set; }
 	[Export]
-	public Trackerv2 QuiverTracker { get; set; }
+	public TrackerContainerEquipment QuiverTracker { get; set; }
 	[Export]
-	public Trackerv2 PowerupGeneratorTracker { get; set; }
+	public TrackerContainerEquipment PowerupGeneratorTracker { get; set; }
 	[Export]
-	public Trackerv3 HealthJarTracker { get; set; }
+	public TrackerContainerEquipment2 HealthJarTracker { get; set; }
 	[Export]
-	public Trackerv3 ElementalJarTracker { get; set; }
+	public TrackerContainerEquipment2 ElementalJarTracker { get; set; }
 	[Export]
 	public PackedScene HealthJarTrackerScene { get; set; }
 	[Export]

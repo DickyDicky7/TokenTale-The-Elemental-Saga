@@ -30,13 +30,13 @@ public partial class TrackWeapon : PanelContainer
 			if (weapon is Sword sword)
 			{
 				int totalLevel = weaponStats.SwordStats.Count;
-				Trackerv2 temp = SetupSwordTracker(totalLevel, sword);
+				TrackerContainerEquipment temp = SetupSwordTracker(totalLevel, sword);
 				this.TrackerContainer.AddChild(temp);
 			}
 			if (weapon is _Bow_ bow)
 			{
 				int totalLevel = weaponStats.BowStats.Count;
-				Trackerv2 temp = SetupBowTracker(totalLevel, bow);
+				TrackerContainerEquipment temp = SetupBowTracker(totalLevel, bow);
 				this.TrackerContainer.AddChild(temp);
 			}
 		}
@@ -46,13 +46,13 @@ public partial class TrackWeapon : PanelContainer
 		foreach(ElementalBracelet bracelet in WeaponsController.Bracelets)
 		{
 			int totalLevel = weaponStats.ElementalBraceletStats.Count;
-			Trackerv2 temp = SetupBraceletTracker(totalLevel, bracelet);
+			TrackerContainerEquipment temp = SetupBraceletTracker(totalLevel, bracelet);
 			this.TrackerContainer.AddChild(temp);
 		}
 	}
-	private Trackerv2 SetupSwordTracker(int totalLevel, Sword sword)
+	private TrackerContainerEquipment SetupSwordTracker(int totalLevel, Sword sword)
 	{
-		Trackerv2 temp = this.Trackerv2PackedScene.Instantiate<Trackerv2>();
+		TrackerContainerEquipment temp = this.Trackerv2PackedScene.Instantiate<TrackerContainerEquipment>();
 		temp.Setup(
 			"SWORD",
 			$"Damage: {sword.Damage}",
@@ -60,9 +60,9 @@ public partial class TrackWeapon : PanelContainer
 			sword);
 		return temp;
 	}
-	private Trackerv2 SetupBowTracker(int totalLevel, _Bow_ bow)
+	private TrackerContainerEquipment SetupBowTracker(int totalLevel, _Bow_ bow)
 	{
-		Trackerv2 temp = this.Trackerv2PackedScene.Instantiate<Trackerv2>();
+		TrackerContainerEquipment temp = this.Trackerv2PackedScene.Instantiate<TrackerContainerEquipment>();
 		temp.Setup(
 			"BOW",
 			$"Damage: {bow.Damage}",
@@ -70,9 +70,9 @@ public partial class TrackWeapon : PanelContainer
 			bow);
 		return temp;
 	}
-	private Trackerv2 SetupBraceletTracker(int totalLevel, ElementalBracelet bracelet)
+	private TrackerContainerEquipment SetupBraceletTracker(int totalLevel, ElementalBracelet bracelet)
 	{
-		Trackerv2 temp = this.Trackerv2PackedScene.Instantiate<Trackerv2>();
+		TrackerContainerEquipment temp = this.Trackerv2PackedScene.Instantiate<TrackerContainerEquipment>();
 		temp.Setup(
 			"ELEMENTAL BRACELET",
 			$"Bonus damage: {bracelet.BonusDamage}",

@@ -38,6 +38,7 @@ public partial class Sword : Weapon
 
         DefaultOffsetSprite3D = Sprite3D.Offset;
         this.CoolDownTimer.WaitTime = OwnerMainCharacter.BoosterManager.SwordCoolDown;
+        this.OwnerMainCharacter.BoosterManager.SwordSrcollChanged += UpdateCoolDown;
 		//Load from saved ?
 	}
 	public override void Upgrade()
@@ -53,5 +54,9 @@ public partial class Sword : Weapon
         else
             this.NextLevelUpgradeCost = -1;
         this.EmitSignal(Equipment.SignalName.JustUpgrade);
+	}
+	private void UpdateCoolDown(float newCooldown, float newBonusDamageRatio)
+	{
+		this.CoolDownTimer.WaitTime = newCooldown;
 	}
 }

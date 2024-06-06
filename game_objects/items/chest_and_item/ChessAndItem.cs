@@ -35,6 +35,8 @@ public partial class ChessAndItem : Node3D
         get;
         set;
     }
+    [Export]
+    public int Key { get; set; } = -1;
 
     public override void _Ready()
     {
@@ -72,10 +74,23 @@ public partial class ChessAndItem : Node3D
            )
         {
             AnimationPlayer.Play("@OPEN");
-            //Code to feed item to main character
-            //Note: if(ChestAndItemResource != null)
-            //         ChestAndItemResource.GetItem3D()
-            //         => this method returns new instance of Item3D based on ChestAndItemResource.ItemClassName
+            if (ChessAndItemResource != null)
+            {
+                Item3D item3D = this.ChessAndItemResource.GetItem3D();
+                if (item3D is Booster booster && this.Key != -1)
+                {
+                    booster.Key = this.Key;
+                    mainCharacter.BoosterManager.TakeBooster(booster);
+                }
+                else if (item3D is Weapon weapon)
+                {
+
+                }
+                else if (item3D is Equipment equipment)
+                {
+
+                }
+            }
         }
     }
 }

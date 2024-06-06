@@ -35,6 +35,7 @@ public partial class ElementalBracelet : Weapon
 			this.CurrentElement = Global.Element.None;
 		if(this.CurrentElement == Global.Element.None)
 			this.CurrentEnergy = 0;
+		this.OwnerMainCharacter.BoosterManager.ElementalScrollChanged += UpdateCoolDown;
 		//Load from saved ?
 	}
 	public override void Upgrade()
@@ -85,5 +86,9 @@ public partial class ElementalBracelet : Weapon
 		this.Storage.Dispose(this);
 		this.Storage.Store(Global.Element.None, 0);
 		this.EmitSignal(ElementalBracelet.SignalName.Recharge, this);
+	}
+	private void UpdateCoolDown(float newCooldown, float newBonusDamageRatio)
+	{
+		this.CoolDownTimer.WaitTime = newCooldown;
 	}
 }

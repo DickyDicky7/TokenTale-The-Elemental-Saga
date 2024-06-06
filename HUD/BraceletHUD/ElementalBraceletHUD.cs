@@ -24,6 +24,8 @@ public partial class ElementalBraceletHUD : WeaponHUD
 		this.PartnerEB.Cast += OnPartnerCast;
 		this.PartnerEB.OutOfEnergy += OnPartnerRechargeOrOutOfEnergy;
 		this.PartnerEB.Recharge += OnPartnerRechargeOrOutOfEnergy;
+		this.PartnerEB.OwnerMainCharacter.BoosterManager.EnergyStoneChanged
+			+= OnMaxEnergyChanged;
 	}
 	private void OnPartnerCast(int newCurrentEnergy)
 	{
@@ -32,6 +34,10 @@ public partial class ElementalBraceletHUD : WeaponHUD
 	private void OnPartnerRechargeOrOutOfEnergy(ElementalBracelet elementalBracelet)
 	{
 		this.ManaBar.Value = elementalBracelet.CurrentEnergy;
+	}
+	private void OnMaxEnergyChanged(int newMaxEnergy)
+	{
+		this.ManaBar.MaxValue = newMaxEnergy;
 	}
 	//Icon method group
 	private void SetupIcon()

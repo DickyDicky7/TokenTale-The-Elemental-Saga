@@ -1,5 +1,6 @@
 using Godot;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 namespace TokenTaleTheElementalSaga;
 
 #pragma warning disable IDE1006 // Naming Styles
@@ -44,6 +45,7 @@ public partial class _Bow_ : Weapon
 		base._Ready();
         this.CoolDownTimer.WaitTime = OwnerMainCharacter.BoosterManager.BowCoolDown;
         this.CurrentArrow = OwnerMainCharacter.EquipmentManager.Quiver.MaxArrow;
+        this.OwnerMainCharacter.BoosterManager.BowScrollChanged += UpdateCoolDown;
         //Load from saved
 	}
 	public override void Upgrade()
@@ -60,4 +62,8 @@ public partial class _Bow_ : Weapon
 			this.NextLevelUpgradeCost = -1;
         this.EmitSignal(Equipment.SignalName.JustUpgrade);
 	}
+    private void UpdateCoolDown(float newCooldown, float newBonusDamageRatio)
+    {
+        this.CoolDownTimer.WaitTime = newCooldown;
+    }
 }

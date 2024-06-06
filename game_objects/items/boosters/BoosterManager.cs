@@ -10,7 +10,7 @@ public partial class BoosterManager : Node
 	[Signal]
 	public delegate void EnergyStoneChangedEventHandler(int newMaxEnergy);
 	[Signal]
-	public delegate void SwordScollChangedEventHandler(
+	public delegate void SwordSrcollChangedEventHandler(
 		float newSwordCooldown, 
 		float newSwordBonusDamageRatio);
 	[Signal]
@@ -47,9 +47,9 @@ public partial class BoosterManager : Node
 			else
 				HeartStatusList.Add(true);
 			EnergyStoneStatusList.Add(false);
-			if (i <= 3)
-				SwordScrollStatusList.Add(false);
 			if (i <= 2)
+				SwordScrollStatusList.Add(false);
+			if (i <= 1)
 			{
 				BowScrollStatusList.Add(false);
 				ElementalScrollStatusList.Add(false);
@@ -114,7 +114,7 @@ public partial class BoosterManager : Node
 		this.SwordCoolDown = info.CoolDown;
 		this.SwordBonusDamageRatio = info.BonusDamageRatio;
 		this.EmitSignal(
-			BoosterManager.SignalName.SwordScollChanged,
+			BoosterManager.SignalName.SwordSrcollChanged,
 			this.SwordCoolDown,
 			this.SwordBonusDamageRatio);
 	}

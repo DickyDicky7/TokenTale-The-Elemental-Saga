@@ -707,12 +707,15 @@ animation = &"DEAD"
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_gsyfd"]
 input_0/name = "IDLE"
 input_0/auto_advance = false
+input_0/break_loop_at_end = false
 input_0/reset = true
 input_1/name = "MOVE"
 input_1/auto_advance = false
+input_1/break_loop_at_end = false
 input_1/reset = true
 input_2/name = "DEAD"
 input_2/auto_advance = false
+input_2/break_loop_at_end = false
 input_2/reset = true
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_q8s8x"]
@@ -751,6 +754,7 @@ offset = Vector2(0, 12)
 texture_filter = 0
 sprite_frames = ExtResource("1_q2bc7")
 animation = &"IDLE_D"
+frame = 1
 
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 cast_shadow = 3
@@ -759,6 +763,7 @@ alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_q2bc7")
 animation = &"IDLE_D"
+frame = 1
 
 [node name="AnimatedSprite3D_Effect" parent="." node_paths=PackedStringArray("AnimationPlayer") instance=ExtResource("19_14buj")]
 AnimationPlayer = NodePath("AnimationPlayer")
@@ -782,12 +787,57 @@ libraries = {
 [node name="AnimationT" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeBlendTree_0khbu")
 anim_player = NodePath("../AnimationP")
+parameters/current_length = 0.4
+parameters/current_position = 0.198158
+parameters/current_delta = 0.00833333
+parameters/BS2D_IDLE/current_length = 0.4
+parameters/BS2D_IDLE/current_position = 0.198158
+parameters/BS2D_IDLE/current_delta = 0.00833333
 parameters/BS2D_IDLE/blend_position = Vector2(0, 0)
+parameters/BS2D_IDLE/0/current_length = 0.4
+parameters/BS2D_IDLE/0/current_position = 0.198158
+parameters/BS2D_IDLE/0/current_delta = 0.00833333
+parameters/BS2D_IDLE/1/current_length = null
+parameters/BS2D_IDLE/1/current_position = null
+parameters/BS2D_IDLE/1/current_delta = null
+parameters/BS2D_IDLE/2/current_length = null
+parameters/BS2D_IDLE/2/current_position = null
+parameters/BS2D_IDLE/2/current_delta = null
+parameters/BS2D_IDLE/3/current_length = null
+parameters/BS2D_IDLE/3/current_position = null
+parameters/BS2D_IDLE/3/current_delta = null
+parameters/BS2D_MOVE/current_length = Vector2(0, 0)
+parameters/BS2D_MOVE/current_position = Vector2(0, 0)
+parameters/BS2D_MOVE/current_delta = Vector2(0, 0)
 parameters/BS2D_MOVE/blend_position = Vector2(0, 0)
+parameters/BS2D_MOVE/0/current_length = null
+parameters/BS2D_MOVE/0/current_position = null
+parameters/BS2D_MOVE/0/current_delta = null
+parameters/BS2D_MOVE/1/current_length = null
+parameters/BS2D_MOVE/1/current_position = null
+parameters/BS2D_MOVE/1/current_delta = null
+parameters/BS2D_MOVE/2/current_length = null
+parameters/BS2D_MOVE/2/current_position = null
+parameters/BS2D_MOVE/2/current_delta = null
+parameters/BS2D_MOVE/3/current_length = null
+parameters/BS2D_MOVE/3/current_position = null
+parameters/BS2D_MOVE/3/current_delta = null
+parameters/DEAD/current_length = null
+parameters/DEAD/current_position = null
+parameters/DEAD/current_delta = null
+parameters/STATE/current_length = 0.4
+parameters/STATE/current_position = 0.198158
+parameters/STATE/current_delta = 0.00833333
 parameters/STATE/current_state = "IDLE"
 parameters/STATE/transition_request = ""
 parameters/STATE/current_index = 0
+parameters/TIME_SCALE/current_length = 0.4
+parameters/TIME_SCALE/current_position = 0.198158
+parameters/TIME_SCALE/current_delta = 0.00833333
 parameters/TIME_SCALE/scale = 1.0
+parameters/output/current_length = 0.4
+parameters/output/current_position = 0.198158
+parameters/output/current_delta = 0.00833333
 
 [node name="EyeSight3D" parent="." instance=ExtResource("18_uji2a")]
 process_mode = 4

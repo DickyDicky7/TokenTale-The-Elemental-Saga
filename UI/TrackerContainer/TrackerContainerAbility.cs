@@ -47,7 +47,7 @@ public partial class TrackerContainerAbility : VBoxContainer
 		{
 			ColorRect colorRect = SetupColorRect(i <= abilityStatus.CurrentLevel);
 			this.TrackUnitContainer.AddChild(colorRect);
-			Label label = SetupLabel(i + 1);
+			Label label = SetupLabel(i);
 			this.LevelLabelContainer.AddChild(label);
 		}
 		this.Title.Text = element.ToString();

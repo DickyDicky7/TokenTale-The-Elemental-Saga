@@ -8,7 +8,6 @@ func _generate_name() -> String:
 
 var currentCharacter: Character3D;
 var        hurtbox3D:   Hurtbox3D;
-
 func _setup() -> void:
 	currentCharacter = agent;
 	hurtbox3D        = agent.get_node(PathHurtbox3D);
@@ -26,14 +25,7 @@ func _exit () -> void:
 	
 func _tick(_delta: float) -> Status:
 	if (hurtbox3D.Hurt):
+		#blackboard.set_var(BBVariable.AlreadyDetect, true)
 		return SUCCESS;
 	else:
 		return FAILURE;
-
-
-
-
-
-
-
-

@@ -28,6 +28,7 @@ children = [SubResource("BTAction_qlx3n"), SubResource("BTPlayAnimation_qgvdr")]
 [sub_resource type="BTAction" id="BTAction_g2okg"]
 script = ExtResource("2_3jam1")
 PathHurtbox3D = NodePath("Hurtbox3D")
+PathShapeCast3D = NodePath("ShapeCast3D")
 
 [sub_resource type="BBNode" id="BBNode_edk06"]
 saved_value = NodePath("AnimationPlayer")

@@ -11,7 +11,7 @@ func _generate_name() -> String:
 var currentCharacter: Character3D
 var shapeCast3D: ShapeCast3D
 var eyeSight3D: EyeSight3D
-var rootScale: float
+var rootScale: Array
 var alreadyDetect: bool
 
 func _setup() -> void:
@@ -19,20 +19,20 @@ func _setup() -> void:
 	shapeCast3D = agent.get_node(PathShapeCast3D)
 	eyeSight3D = agent.get_node(PathEyeSight3D)
 	eyeSight3D.visible = false
-	blackboard.set_var(BBVariable.RootScale2, shapeCast3D.scale.x)
+	blackboard.set_var(BBVariable.RootScale, [shapeCast3D.scale.x])
 	blackboard.set_var(BBVariable.AlreadyDetect, false)
 	pass;
 	
 func _enter() -> void:
-	rootScale = blackboard.get_var(BBVariable.RootScale2)
-	alreadyDetect = blackboard.get_var(BBVariable.AlreadyDetect)
-	if (alreadyDetect == false):
-		shapeCast3D.scale = Vector3(rootScale, 1, rootScale)
-	else:
-		shapeCast3D.scale = Vector3(rootScale * 2, 1, rootScale * 2)
+	rootScale = blackboard.get_var(BBVariable.RootScale)
 	pass;
 	
 func _exit() -> void:
+	alreadyDetect = blackboard.get_var(BBVariable.AlreadyDetect)
+	if (alreadyDetect == false):
+		shapeCast3D.scale = Vector3(rootScale[0], 1, rootScale[0])
+	else:
+		shapeCast3D.scale = Vector3(rootScale[0] * 2, 1, rootScale[0] * 2)
 	pass;
 	
 func _tick(_delta: float) -> Status:

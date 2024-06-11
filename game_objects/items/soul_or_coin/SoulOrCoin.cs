@@ -26,10 +26,12 @@ public partial class SoulOrCoin : Node3D
             mainCharacter
            )
         {
-
-        }
+			mainCharacter.CurrentCoin += this.RandomizeAmountOfCoin();
+			mainCharacter.EmitSignal(MainCharacter.SignalName.CoinChanged, mainCharacter.CurrentCoin);
+			this.QueueFree();
+		}
     }
-    public int RandomizeAmountOfCoin()
+    private int RandomizeAmountOfCoin()
     {
         RandomNumberGenerator rand = new RandomNumberGenerator();
         return rand.RandiRange(5, 15);

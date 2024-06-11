@@ -27,8 +27,9 @@ _data = {
 "IDLE": SubResource("Animation_yejn5")
 }
 
-[node name="HealDrop" type="Node3D"]
+[node name="HealDrop" type="Node3D" node_paths=PackedStringArray("HitBox")]
 script = ExtResource("1_m332s")
+HitBox = NodePath("Hitbox")
 
 [node name="Visual" type="Node3D" parent="."]
 
@@ -56,8 +57,8 @@ script = ExtResource("4_php0a")
 Sprites = [NodePath("../Sprite3D")]
 
 [node name="Hitbox" type="Area3D" parent="."]
-collision_layer = 512
-collision_mask = 256
+collision_layer = 256
+collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)

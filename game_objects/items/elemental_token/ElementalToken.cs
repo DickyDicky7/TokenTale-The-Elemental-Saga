@@ -78,8 +78,18 @@ public partial class ElementalToken : Item3D
             mainCharacter
            )
         {
-
-        }
+			foreach (ElementalBracelet elementalBracelet in mainCharacter.WeaponsController.Bracelets)
+			{
+				if (elementalBracelet.CurrentElement == Global.Element.None)
+				{
+					elementalBracelet.CurrentElement = this.Element;
+					elementalBracelet.CurrentEnergy = mainCharacter.BoosterManager.MaxEnergy;
+					elementalBracelet.EmitSignal(ElementalBracelet.SignalName.Recharge, elementalBracelet);
+					this.QueueFree();
+					break;
+				}
+			}
+		}
     }
 }
 

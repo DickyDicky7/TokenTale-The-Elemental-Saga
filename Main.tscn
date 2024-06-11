@@ -306,14 +306,17 @@ Hitbox = NodePath("Hitbox")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1, -2)
 Hitbox = NodePath("Hitbox")
 
-[node name="HealDrop" parent="." instance=ExtResource("41_u6iqv")]
+[node name="HealDrop" parent="." node_paths=PackedStringArray("HitBox") instance=ExtResource("41_u6iqv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 1, 0)
+HitBox = NodePath("Hitbox")
 
-[node name="HealDrop2" parent="." instance=ExtResource("41_u6iqv")]
+[node name="HealDrop2" parent="." node_paths=PackedStringArray("HitBox") instance=ExtResource("41_u6iqv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 1, -1)
+HitBox = NodePath("Hitbox")
 
-[node name="HealDrop3" parent="." instance=ExtResource("41_u6iqv")]
+[node name="HealDrop3" parent="." node_paths=PackedStringArray("HitBox") instance=ExtResource("41_u6iqv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 1, 1)
+HitBox = NodePath("Hitbox")
 
 [node name="ChessAndItem" parent="." node_paths=PackedStringArray("Hitbox", "Sprite3D", "AnimationPlayer") instance=ExtResource("42_ntpsf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 1, 0)

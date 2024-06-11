@@ -34,6 +34,7 @@ EnergyStoneTracker = NodePath("ScrollContainer/MarginContainer/VBoxContainer/Tra
 SwordScrollTracker = NodePath("ScrollContainer/MarginContainer/VBoxContainer/TrackerSwordScroll")
 BowScrollTracker = NodePath("ScrollContainer/MarginContainer/VBoxContainer/TrackerBowScroll")
 ElementalScrollTracker = NodePath("ScrollContainer/MarginContainer/VBoxContainer/TrackerElementalScroll")
+metadata/_tab_index = 0
 
 [node name="TrackEquipment" parent="TabContainer" node_paths=PackedStringArray("TrackingScreen", "BootsTracker", "QuiverTracker", "PowerupGeneratorTracker", "HealthJarTracker", "ElementalJarTracker") instance=ExtResource("4_jkwg2")]
 visible = false
@@ -44,15 +45,18 @@ QuiverTracker = NodePath("ScrollContainer/MarginContainer/VBoxContainer/TrackerQ
 PowerupGeneratorTracker = NodePath("ScrollContainer/MarginContainer/VBoxContainer/TrackerPowerupGenerator")
 HealthJarTracker = NodePath("ScrollContainer/MarginContainer/VBoxContainer/TrackerHealthJar")
 ElementalJarTracker = NodePath("ScrollContainer/MarginContainer/VBoxContainer/TrackerElementalJar")
+metadata/_tab_index = 1
 
 [node name="TrackWeapon" parent="TabContainer" node_paths=PackedStringArray("TrackingScreen", "TrackerContainer") instance=ExtResource("5_m0s71")]
 visible = false
 layout_mode = 2
 TrackingScreen = NodePath("../..")
 TrackerContainer = NodePath("ScrollContainer/MarginContainer/TrackerContainer")
+metadata/_tab_index = 2
 
 [node name="TrackAbility" parent="TabContainer" node_paths=PackedStringArray("TrackingScreen", "TrackerContainer") instance=ExtResource("6_tb77e")]
 visible = false
 layout_mode = 2
 TrackingScreen = NodePath("../..")
 TrackerContainer = NodePath("ScrollContainer/MarginContainer/VBoxContainer")
+metadata/_tab_index = 3

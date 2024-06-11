@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://biodockcags5y"]
+
+[ext_resource type="Texture2D" uid="uid://ds3543m81pory" path="res://game_asset_s/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/16x16/arrow_01e.png" id="1_m4vqy"]
+[ext_resource type="Theme" uid="uid://d0gj3t6cdlghf" path="res://UI/ui_theme_1.tres" id="1_wtonx"]
+[ext_resource type="Script" path="res://UI/ShopItem/ShopItemArrow.cs" id="2_2aarb"]
+
+[node name="ShopItemArrow" type="MarginContainer" node_paths=PackedStringArray("BuyButton")]
+custom_minimum_size = Vector2(175, 175)
+offset_right = 175.0
+offset_bottom = 175.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_wtonx")
+script = ExtResource("2_2aarb")
+BuyButton = NodePath("VBoxContainer/ItemBuyButton")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ItemImage" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource("1_m4vqy")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="ItemName" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Arrow x 5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemBuyButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Buy"

@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="ChessAndItemResource" load_steps=3 format=3 uid="uid://djd88bnf5ewcn"]
 
+[ext_resource type="Texture2D" uid="uid://cm78p5h75vdwh" path="res://game_asset_s/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/pearl_01b.png" id="1_6t7jn"]
 [ext_resource type="Script" path="res://game_objects/items/chest_and_item/resource/ChessAndItemResource.cs" id="1_jbsw1"]
-[ext_resource type="Texture2D" uid="uid://clhraedmm4bhm" path="res://game_asset_s/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/pearl_01a.png" id="1_u30no"]
 
 [resource]
 script = ExtResource("1_jbsw1")
-ItemTexture = ExtResource("1_u30no")
+ItemTexture = ExtResource("1_6t7jn")
 ItemClassName = "EnergyStone"
 Item_____Name = "EnergyStone"

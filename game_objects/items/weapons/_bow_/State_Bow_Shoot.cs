@@ -45,7 +45,7 @@ public partial class State_Bow_Shoot : State_Bow_
         arrow._Setup(this);
 
         this._Bow_.CurrentArrow--;
-        this._Bow_.EmitSignal(_Bow_.SignalName.Shoot, _Bow_.CurrentArrow);
+        this._Bow_.EmitSignal(_Bow_.SignalName.ArrowChanged, _Bow_.CurrentArrow);
     }
 
     public override void _Leave()

@@ -18,11 +18,11 @@ public partial class BowHUD : WeaponHUD
 	{
 		if (this.PartnerBow is null)
 			return;
-		PartnerBow.Shoot += OnBowShoot;
+		PartnerBow.ArrowChanged += OnBowArrowChanged;
 		PartnerBow.OutOfArrow += OnBowOutOfAmmo;
 		this.AmmoLabel.Text = PartnerBow.CurrentArrow.ToString();
 	}
-	private void OnBowShoot(int newCurrentArrow)
+	private void OnBowArrowChanged(int newCurrentArrow)
 	{
 		this.AmmoLabel.Text = newCurrentArrow.ToString();
 	}

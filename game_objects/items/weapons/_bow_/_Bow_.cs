@@ -17,7 +17,7 @@ public partial class _Bow_ : Weapon
     [Export] public CollisionShape3D CollisionShape3D       { get; set; }
     [Export] public AnimatedSprite3D AnimatedSprite3DEffect { get; set; }
     [Signal]
-    public delegate void ShootEventHandler(int newCurrentArrow);
+    public delegate void ArrowChangedEventHandler(int newCurrentArrow);
     [Signal]
     public delegate void OutOfArrowEventHandler();
 

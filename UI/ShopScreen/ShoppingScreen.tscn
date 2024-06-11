@@ -1,0 +1,76 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqp528howcdyc"]
+
+[ext_resource type="PackedScene" uid="uid://biodockcags5y" path="res://UI/ShopItem/ShopItemArrow.tscn" id="1_4o4rs"]
+[ext_resource type="Script" path="res://UI/ShopScreen/ShoppingScreen.cs" id="1_51y80"]
+[ext_resource type="PackedScene" uid="uid://0p7h43sqmfcc" path="res://UI/ShopItem/ShopItemBooster.tscn" id="3_k4bkr"]
+
+[node name="ShoppingScreen" type="PanelContainer" node_paths=PackedStringArray("ShopItemContainer")]
+self_modulate = Color(1, 1, 1, 0.588235)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 96.0
+offset_top = 54.0
+offset_right = -96.0
+offset_bottom = -54.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_51y80")
+ShopItemContainer = NodePath("ScrollContainer/MarginContainer/GridContainer")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 66
+theme_override_constants/v_separation = 30
+columns = 4
+
+[node name="ShopItemArrow" parent="ScrollContainer/MarginContainer/GridContainer" node_paths=PackedStringArray("BuyButton") instance=ExtResource("1_4o4rs")]
+layout_mode = 2
+BuyButton = NodePath("VBoxContainer/ItemBuyButton")
+
+[node name="ShopItemHeart0" parent="ScrollContainer/MarginContainer/GridContainer" node_paths=PackedStringArray("ItemImage", "ItemName", "BuyButton") instance=ExtResource("3_k4bkr")]
+layout_mode = 2
+ItemImage = NodePath("VBoxContainer/ItemImage")
+ItemName = NodePath("VBoxContainer/ItemName")
+BuyButton = NodePath("VBoxContainer/ItemBuyButton")
+
+[node name="ShopItemHeart1" parent="ScrollContainer/MarginContainer/GridContainer" node_paths=PackedStringArray("ItemImage", "ItemName", "BuyButton") instance=ExtResource("3_k4bkr")]
+layout_mode = 2
+Key = 1
+ItemImage = NodePath("VBoxContainer/ItemImage")
+ItemName = NodePath("VBoxContainer/ItemName")
+BuyButton = NodePath("VBoxContainer/ItemBuyButton")
+
+[node name="ShopItemEnergyStone0" parent="ScrollContainer/MarginContainer/GridContainer" node_paths=PackedStringArray("ItemImage", "ItemName", "BuyButton") instance=ExtResource("3_k4bkr")]
+layout_mode = 2
+ItemType = 1
+ItemImage = NodePath("VBoxContainer/ItemImage")
+ItemName = NodePath("VBoxContainer/ItemName")
+BuyButton = NodePath("VBoxContainer/ItemBuyButton")
+
+[node name="ShopItemEnergyStone1" parent="ScrollContainer/MarginContainer/GridContainer" node_paths=PackedStringArray("ItemImage", "ItemName", "BuyButton") instance=ExtResource("3_k4bkr")]
+layout_mode = 2
+Key = 1
+ItemType = 1
+ItemImage = NodePath("VBoxContainer/ItemImage")
+ItemName = NodePath("VBoxContainer/ItemName")
+BuyButton = NodePath("VBoxContainer/ItemBuyButton")
+
+[node name="ShopItemSwordScroll0" parent="ScrollContainer/MarginContainer/GridContainer" node_paths=PackedStringArray("ItemImage", "ItemName", "BuyButton") instance=ExtResource("3_k4bkr")]
+layout_mode = 2
+ItemType = 2
+ItemImage = NodePath("VBoxContainer/ItemImage")
+ItemName = NodePath("VBoxContainer/ItemName")
+BuyButton = NodePath("VBoxContainer/ItemBuyButton")

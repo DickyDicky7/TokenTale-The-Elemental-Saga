@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://w3dkcnkmaulo"]
+[gd_scene load_steps=54 format=3 uid="uid://w3dkcnkmaulo"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_px6f3"]
 [ext_resource type="Environment" uid="uid://jjpsnd6sbvf2" path="res://Main_Environment.tres" id="2_vpqwg"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://o6cefw4r60gs" path="res://UI/TrackScreen/TrackingScreen.tscn" id="12_gn6r5"]
 [ext_resource type="Script" path="res://game_objects/shared/status_info/StatusInfoItem.cs" id="12_ps0oq"]
 [ext_resource type="PackedScene" uid="uid://dixv731fuc6gj" path="res://game_objects/abilities/fire_ball/FireBall.tscn" id="12_qboqi"]
+[ext_resource type="PackedScene" uid="uid://bqp528howcdyc" path="res://UI/ShopScreen/ShoppingScreen.tscn" id="13_2we43"]
 [ext_resource type="PackedScene" uid="uid://y1t0iubx8y1b" path="res://game_objects/characters/others/the_haunting/ghost/Ghost.tscn" id="13_e31qg"]
 [ext_resource type="Script" path="res://game_objects/shared/status_info/StatusInfoItemHeal.cs" id="13_r7jod"]
 [ext_resource type="PackedScene" uid="uid://bflyuqbbpqmkp" path="res://game_objects/abilities/frostburn/Frostburn.tscn" id="13_w4ibj"]
@@ -171,9 +172,16 @@ BowHUD = NodePath("HBoxContainer/VBoxContainer/MarginContainer/WeaponHUD/BowHUD2
 BraceletHUDs = [NodePath("HBoxContainer/VBoxContainer/MarginContainer2/ElementalHUD"), NodePath("HBoxContainer/VBoxContainer/MarginContainer3/ElementalHUD")]
 CoinLabel = NodePath("HBoxContainer/VBoxContainer2/HBoxContainer/Label")
 
-[node name="TrackingScreen" parent="MainCharacter/Camera3D" node_paths=PackedStringArray("Viewer") instance=ExtResource("12_gn6r5")]
+[node name="TrackingScreen" parent="MainCharacter/Camera3D" node_paths=PackedStringArray("Viewer", "ShoppingScreen") instance=ExtResource("12_gn6r5")]
 visible = false
 Viewer = NodePath("../..")
+ShoppingScreen = NodePath("../ShoppingScreen")
+
+[node name="ShoppingScreen" parent="MainCharacter/Camera3D" node_paths=PackedStringArray("Viewer", "ShopItemContainer", "TrackingScreen") instance=ExtResource("13_2we43")]
+visible = false
+Viewer = NodePath("../..")
+ShopItemContainer = NodePath("ScrollContainer/MarginContainer/GridContainer")
+TrackingScreen = NodePath("../TrackingScreen")
 
 [node name="StatusInfo" parent="MainCharacter" node_paths=PackedStringArray("Sprite3D", "Label", "Timer") instance=ExtResource("11_siwmd")]
 Items = [SubResource("Resource_ntmsm"), SubResource("Resource_6wfva"), SubResource("Resource_klrs7"), SubResource("Resource_dgvcs"), SubResource("Resource_nyrrt")]
@@ -318,7 +326,7 @@ ChessAndItemResource = ExtResource("44_ralc2")
 Hitbox = NodePath("Hitbox")
 Sprite3D = NodePath("Visual/Sprite3D")
 AnimationPlayer = NodePath("Visual/AnimationPlayer")
-Key = 1
+Key = 2
 
 [node name="ChessAndItem3" parent="." node_paths=PackedStringArray("Hitbox", "Sprite3D", "AnimationPlayer") instance=ExtResource("42_ntpsf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 1, 2)
@@ -342,4 +350,4 @@ ChessAndItemResource = ExtResource("47_7g4ki")
 Hitbox = NodePath("Hitbox")
 Sprite3D = NodePath("Visual/Sprite3D")
 AnimationPlayer = NodePath("Visual/AnimationPlayer")
-Key = 1
+Key = 0

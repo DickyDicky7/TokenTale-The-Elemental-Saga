@@ -42,10 +42,7 @@ public partial class BoosterManager : Node
 		this.MainCharacter = mainCharacter;
 		foreach (int i in Enumerable.Range(0, 8))
 		{
-			if (i % 2 == 0)
-				HeartStatusList.Add(false);
-			else
-				HeartStatusList.Add(true);
+			HeartStatusList.Add(false);
 			EnergyStoneStatusList.Add(false);
 			if (i <= 2)
 				SwordScrollStatusList.Add(false);

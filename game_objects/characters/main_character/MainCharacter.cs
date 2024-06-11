@@ -53,32 +53,32 @@ public partial class MainCharacter : Character3D
     public MainCharacter()
     {
         SetupStats();
-	}
-	public override void _Ready()
-	{
+    }
+    public override void _Ready()
+    {
         base._Ready();
         this.SetupVisitor();
-		this.PairEBraceletAndEJar();
-	}
+        this.PairEBraceletAndEJar();
+    }
 
     public override void _Process(double @delta)
     {
                     base._Process(       @delta);
-	}
+    }
 
     public override void _PhysicsProcess(double @delta)
     {
                     base._PhysicsProcess(       @delta);
-	}
+    }
     private void AcceptVisitor(AlliesVisitor visitor)
     {
         visitor.VisitMainCharacter(this);
     }
     private void SetupVisitor()
     {
-		this.VisitorAbilityDispatch.Init();
-		this.AcceptVisitor(VisitorAbilityDispatch);
-	}
+        this.VisitorAbilityDispatch.Init();
+        this.AcceptVisitor(VisitorAbilityDispatch);
+    }
     private void SetupStats()
     {
         //WARNING: do not change the order
@@ -93,7 +93,7 @@ public partial class MainCharacter : Character3D
 	}
     private void PairEBraceletAndEJar()
     {
-		foreach (int i in Enumerable.Range(0, this.WeaponsController.Bracelets.Count))
+        foreach (int i in Enumerable.Range(0, this.WeaponsController.Bracelets.Count))
         {
             this.WeaponsController.Bracelets[i].Storage = this.EquipmentManager.ElementalJarList[i];
         }

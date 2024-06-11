@@ -18,22 +18,22 @@ public partial class MainCharacterAnimatedSprite3DEffect : Node3D
     }
 
     public Dictionary<Global.Element, Effect> EffectDictionary { get; private set; } = [];
-	
+    
     public override void _Ready()
-	{
-		            base._Ready();
+    {
+                    base._Ready();
         
         EffectDictionary.Add(Global.Element.Fire    , Effect.EFFECT_FIRE    );
-		EffectDictionary.Add(Global.Element.Water   , Effect.EFFECT_WATER   );
-		EffectDictionary.Add(Global.Element.Wind    , Effect.EFFECT_WIND    );
-		EffectDictionary.Add(Global.Element.Ice     , Effect.EFFECT_ICE     );
-		EffectDictionary.Add(Global.Element.Electric, Effect.EFFECT_ELECTRIC);
-		EffectDictionary.Add(Global.Element.Earth   , Effect.EFFECT_ROCK    );
-		EffectDictionary.Add(Global.Element.Wood    , Effect.EFFECT_WOOD    );
-		EffectDictionary.Add(Global.Element.None    , Effect.EFFECT_EMPTY   );
-	}
+        EffectDictionary.Add(Global.Element.Water   , Effect.EFFECT_WATER   );
+        EffectDictionary.Add(Global.Element.Wind    , Effect.EFFECT_WIND    );
+        EffectDictionary.Add(Global.Element.Ice     , Effect.EFFECT_ICE     );
+        EffectDictionary.Add(Global.Element.Electric, Effect.EFFECT_ELECTRIC);
+        EffectDictionary.Add(Global.Element.Earth   , Effect.EFFECT_ROCK    );
+        EffectDictionary.Add(Global.Element.Wood    , Effect.EFFECT_WOOD    );
+        EffectDictionary.Add(Global.Element.None    , Effect.EFFECT_EMPTY   );
+    }
 
-	[Export]
+    [Export]
     public AnimationPlayer
            AnimationPlayer
     {

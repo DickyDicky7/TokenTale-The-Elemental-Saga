@@ -25,10 +25,10 @@ public partial class MiniThunderShock : Ability3D
             Flippable3DSpriteBase3DConsolidation.FlipH =  false;
         }
     }
-	public override void _Ready()
-	{
-		base._Ready();
+    public override void _Ready()
+    {
+        base._Ready();
         this.ActiveRange = AbilityStats.ActiveRange.Medium;
         this.DamageRatio = 1.0f;
-	}
+    }
 }

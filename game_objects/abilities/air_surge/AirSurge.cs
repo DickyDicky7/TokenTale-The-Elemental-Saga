@@ -56,21 +56,21 @@ public partial class AirSurge : Ability3D
             AnimatedShadow.FlipV = true;
         }
     }
-	public override void _Ready()
-	{
-		base._Ready();
+    public override void _Ready()
+    {
+        base._Ready();
         this.Speed = AbilityStats.Speed.Fast;
         this.ActiveRange = AbilityStats.ActiveRange.Long;
         this.DamageRatio = 1.0f;
-	}
-	public override Vector3 CalculateCeasePosition(
-		Vector3 @movingDirection,
-		Vector3 @startPosition,
-		Vector3 @ceasePosition)
-	{
-		return @startPosition +
-				@movingDirection
-						 *
-		this.ActiveRange;
-	}
+    }
+    public override Vector3 CalculateCeasePosition(
+        Vector3 @movingDirection,
+        Vector3 @startPosition,
+        Vector3 @ceasePosition)
+    {
+        return @startPosition +
+                @movingDirection
+                         *
+        this.ActiveRange;
+    }
 }

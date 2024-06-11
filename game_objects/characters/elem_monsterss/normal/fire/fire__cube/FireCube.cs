@@ -8,8 +8,8 @@ public partial class FireCube : ElementalMonster
     {
         throw new System.NotImplementedException();
     }
-	public override void AcceptVisitor(EnemiesVisitor visitor)
-	{
-		throw new System.NotImplementedException();
-	}
+    public override void AcceptVisitor(EnemiesVisitor visitor)
+    {
+        throw new System.NotImplementedException();
+    }
 }

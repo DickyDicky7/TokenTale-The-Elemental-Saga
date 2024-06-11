@@ -167,23 +167,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 visible = false
 mesh = ExtResource("5_kmewh")
 
-[node name="MainCharacterHUD" parent="MainCharacter/Camera3D" node_paths=PackedStringArray("MainCharacter", "HealthBar", "SwordHUD", "BowHUD", "BraceletHUDs", "CoinLabel") instance=ExtResource("11_cyovv")]
+[node name="MainCharacterHUD" parent="MainCharacter/Camera3D" node_paths=PackedStringArray("MainCharacter", "HealthBar", "SwordHUD", "BowHUD", "BraceletHUDs") instance=ExtResource("11_cyovv")]
 MainCharacter = NodePath("../..")
 HealthBar = NodePath("HBoxContainer/VBoxContainer/HealthBar")
 SwordHUD = NodePath("HBoxContainer/VBoxContainer/MarginContainer/WeaponHUD/SwordHUD2")
 BowHUD = NodePath("HBoxContainer/VBoxContainer/MarginContainer/WeaponHUD/BowHUD2")
 BraceletHUDs = [NodePath("HBoxContainer/VBoxContainer/MarginContainer2/ElementalHUD"), NodePath("HBoxContainer/VBoxContainer/MarginContainer3/ElementalHUD")]
-CoinLabel = NodePath("HBoxContainer/VBoxContainer2/HBoxContainer/Label")
 
-[node name="TrackingScreen" parent="MainCharacter/Camera3D" node_paths=PackedStringArray("Viewer", "ShoppingScreen") instance=ExtResource("12_gn6r5")]
+[node name="TrackingScreen" parent="MainCharacter/Camera3D" node_paths=PackedStringArray("Viewer") instance=ExtResource("12_gn6r5")]
 visible = false
 Viewer = NodePath("../..")
-ShoppingScreen = NodePath("../ShoppingScreen")
 
-[node name="ShoppingScreen" parent="MainCharacter/Camera3D" node_paths=PackedStringArray("Viewer", "ShopItemContainer", "TrackingScreen") instance=ExtResource("13_2we43")]
+[node name="ShoppingScreen" parent="MainCharacter/Camera3D" node_paths=PackedStringArray("ShopItemContainer", "Viewer", "TrackingScreen") instance=ExtResource("13_2we43")]
 visible = false
-Viewer = NodePath("../..")
 ShopItemContainer = NodePath("ScrollContainer/MarginContainer/GridContainer")
+Viewer = NodePath("../..")
 TrackingScreen = NodePath("../TrackingScreen")
 
 [node name="StatusInfo" parent="MainCharacter" node_paths=PackedStringArray("Sprite3D", "Label", "Timer") instance=ExtResource("11_siwmd")]
@@ -324,7 +322,6 @@ ChessAndItemResource = ExtResource("43_1aaou")
 Hitbox = NodePath("Hitbox")
 Sprite3D = NodePath("Visual/Sprite3D")
 AnimationPlayer = NodePath("Visual/AnimationPlayer")
-Key = 2
 
 [node name="ChessAndItem2" parent="." node_paths=PackedStringArray("Hitbox", "Sprite3D", "AnimationPlayer") instance=ExtResource("42_ntpsf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 1, 1)
@@ -332,7 +329,6 @@ ChessAndItemResource = ExtResource("44_ralc2")
 Hitbox = NodePath("Hitbox")
 Sprite3D = NodePath("Visual/Sprite3D")
 AnimationPlayer = NodePath("Visual/AnimationPlayer")
-Key = 2
 
 [node name="ChessAndItem3" parent="." node_paths=PackedStringArray("Hitbox", "Sprite3D", "AnimationPlayer") instance=ExtResource("42_ntpsf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 1, 2)
@@ -340,7 +336,6 @@ ChessAndItemResource = ExtResource("45_8kqui")
 Hitbox = NodePath("Hitbox")
 Sprite3D = NodePath("Visual/Sprite3D")
 AnimationPlayer = NodePath("Visual/AnimationPlayer")
-Key = 1
 
 [node name="ChessAndItem4" parent="." node_paths=PackedStringArray("Hitbox", "Sprite3D", "AnimationPlayer") instance=ExtResource("42_ntpsf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 1, -1)
@@ -348,7 +343,6 @@ ChessAndItemResource = ExtResource("46_a3df6")
 Hitbox = NodePath("Hitbox")
 Sprite3D = NodePath("Visual/Sprite3D")
 AnimationPlayer = NodePath("Visual/AnimationPlayer")
-Key = 0
 
 [node name="ChessAndItem5" parent="." node_paths=PackedStringArray("Hitbox", "Sprite3D", "AnimationPlayer") instance=ExtResource("42_ntpsf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 1, -2)
@@ -356,7 +350,6 @@ ChessAndItemResource = ExtResource("47_7g4ki")
 Hitbox = NodePath("Hitbox")
 Sprite3D = NodePath("Visual/Sprite3D")
 AnimationPlayer = NodePath("Visual/AnimationPlayer")
-Key = 0
 
 [node name="ChessAndItem6" parent="." node_paths=PackedStringArray("Hitbox", "Sprite3D", "AnimationPlayer") instance=ExtResource("42_ntpsf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 1, 0)
@@ -371,7 +364,6 @@ ChessAndItemResource = ExtResource("50_nky0w")
 Hitbox = NodePath("Hitbox")
 Sprite3D = NodePath("Visual/Sprite3D")
 AnimationPlayer = NodePath("Visual/AnimationPlayer")
-Key = 1
 
 [node name="ChessAndItem8" parent="." node_paths=PackedStringArray("Hitbox", "Sprite3D", "AnimationPlayer") instance=ExtResource("42_ntpsf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 1, -1)
@@ -379,4 +371,3 @@ ChessAndItemResource = ExtResource("51_adq4f")
 Hitbox = NodePath("Hitbox")
 Sprite3D = NodePath("Visual/Sprite3D")
 AnimationPlayer = NodePath("Visual/AnimationPlayer")
-Key = 0

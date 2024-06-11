@@ -8,8 +8,8 @@ public partial class IceCube : ElementalMonster
     {
         throw new System.NotImplementedException();
     }
-	public override void AcceptVisitor(EnemiesVisitor visitor)
-	{
-		throw new System.NotImplementedException();
-	}
+    public override void AcceptVisitor(EnemiesVisitor visitor)
+    {
+        throw new System.NotImplementedException();
+    }
 }

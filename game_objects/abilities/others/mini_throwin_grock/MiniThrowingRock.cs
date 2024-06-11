@@ -79,13 +79,13 @@ public partial class MiniThrowingRock : Ability3D
         tween.SetEase (EasingfuncType)
              .SetTrans(TransitionType);
     }
-	public override void _Ready()
-	{
-		base._Ready();
-		this.ActiveRange = AbilityStats.ActiveRange.Great;
-		this.Speed = AbilityStats.Speed.Fast;
+    public override void _Ready()
+    {
+        base._Ready();
+        this.ActiveRange = AbilityStats.ActiveRange.Great;
+        this.Speed = AbilityStats.Speed.Fast;
         this.DamageRatio = 1.0f;
-	}
+    }
 }
 
 

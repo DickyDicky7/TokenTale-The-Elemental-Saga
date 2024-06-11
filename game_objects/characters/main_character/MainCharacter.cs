@@ -82,15 +82,15 @@ public partial class MainCharacter : Character3D
     private void SetupStats()
     {
         //WARNING: do not change the order
-		this.BoosterManager = new BoosterManager(this);
-		this.MaxHealth = BoosterManager.MaxHealth;
-		this.EquipmentManager = new EquipmentManager(this);
-		this.MaxSpeed = EquipmentManager.Boot.Speed;
-		this.CurrentHealth = MaxHealth;
-		this.CurrentSpeed = this.MaxSpeed;
-		this.AbilityManager = new AbilityManager();
+        this.BoosterManager = new BoosterManager(this);
+        this.MaxHealth = BoosterManager.MaxHealth;
+        this.EquipmentManager = new EquipmentManager(this);
+        this.MaxSpeed = EquipmentManager.Boot.Speed;
+        this.CurrentHealth = MaxHealth;
+        this.CurrentSpeed = this.MaxSpeed;
+        this.AbilityManager = new AbilityManager();
         this.CurrentCoin = 2000;
-	}
+    }
     private void PairEBraceletAndEJar()
     {
         foreach (int i in Enumerable.Range(0, this.WeaponsController.Bracelets.Count))

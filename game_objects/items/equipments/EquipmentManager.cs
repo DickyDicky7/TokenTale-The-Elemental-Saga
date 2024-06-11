@@ -18,11 +18,11 @@ public partial class EquipmentManager : Node
 		Boot = new Boot(mainCharacter);
 		PowerupsGenerator = new PowerupsGenerator(mainCharacter);
 
-		HealthJarList.Add(new HealthJar(0, true, mainCharacter));
-		HealthJarList.Add(new HealthJar(1, false, mainCharacter));
+		HealthJarList.Add(new HealthJar(false, mainCharacter));
+		HealthJarList.Add(new HealthJar(false, mainCharacter));
 
-		ElementalJarList.Add(new ElementalJar(0, true, mainCharacter));
-		ElementalJarList.Add(new ElementalJar(1, false, mainCharacter));
+		ElementalJarList.Add(new ElementalJar(false, mainCharacter));
+		ElementalJarList.Add(new ElementalJar(false, mainCharacter));
 
 		this.AddChildren(mainCharacter);
 	}

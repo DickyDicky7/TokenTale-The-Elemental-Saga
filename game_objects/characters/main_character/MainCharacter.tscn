@@ -754,7 +754,6 @@ offset = Vector2(0, 12)
 texture_filter = 0
 sprite_frames = ExtResource("1_q2bc7")
 animation = &"IDLE_D"
-frame = 1
 
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 cast_shadow = 3
@@ -763,7 +762,6 @@ alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_q2bc7")
 animation = &"IDLE_D"
-frame = 1
 
 [node name="AnimatedSprite3D_Effect" parent="." node_paths=PackedStringArray("AnimationPlayer") instance=ExtResource("19_14buj")]
 AnimationPlayer = NodePath("AnimationPlayer")
@@ -788,14 +786,14 @@ libraries = {
 tree_root = SubResource("AnimationNodeBlendTree_0khbu")
 anim_player = NodePath("../AnimationP")
 parameters/current_length = 0.4
-parameters/current_position = 0.149808
+parameters/current_position = 0.0998575
 parameters/current_delta = 0.00833333
 parameters/BS2D_IDLE/current_length = 0.4
-parameters/BS2D_IDLE/current_position = 0.149808
+parameters/BS2D_IDLE/current_position = 0.0998575
 parameters/BS2D_IDLE/current_delta = 0.00833333
 parameters/BS2D_IDLE/blend_position = Vector2(0, 0)
 parameters/BS2D_IDLE/0/current_length = 0.4
-parameters/BS2D_IDLE/0/current_position = 0.149808
+parameters/BS2D_IDLE/0/current_position = 0.0998575
 parameters/BS2D_IDLE/0/current_delta = 0.00833333
 parameters/BS2D_IDLE/1/current_length = null
 parameters/BS2D_IDLE/1/current_position = null
@@ -826,17 +824,17 @@ parameters/DEAD/current_length = null
 parameters/DEAD/current_position = null
 parameters/DEAD/current_delta = null
 parameters/STATE/current_length = 0.4
-parameters/STATE/current_position = 0.149808
+parameters/STATE/current_position = 0.0998575
 parameters/STATE/current_delta = 0.00833333
 parameters/STATE/current_state = "IDLE"
 parameters/STATE/transition_request = ""
 parameters/STATE/current_index = 0
 parameters/TIME_SCALE/current_length = 0.4
-parameters/TIME_SCALE/current_position = 0.149808
+parameters/TIME_SCALE/current_position = 0.0998575
 parameters/TIME_SCALE/current_delta = 0.00833333
 parameters/TIME_SCALE/scale = 1.0
 parameters/output/current_length = 0.4
-parameters/output/current_position = 0.149808
+parameters/output/current_position = 0.0998575
 parameters/output/current_delta = 0.00833333
 
 [node name="EyeSight3D" parent="." instance=ExtResource("18_uji2a")]

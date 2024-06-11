@@ -88,8 +88,9 @@ public partial class TrackBooster : PanelContainer
 	}
 	private void UpdateElementalScroll(float newElementalCoolDown, float newElementalBonusDamageRatio)
 	{
-		this.ElementalScrollTracker.Update($"Elemental bonus damage ratio: {this.BoosterManager.ElementalBonusDamageRatio}\n" +
+		this.ElementalScrollTracker.Update(
+			$"Elemental bonus damage ratio: {this.BoosterManager.ElementalBonusDamageRatio}\n" +
 			$"Elemental cooldown: {this.BoosterManager.ElementalCoolDown}",
-			this.BoosterManager.BowScrollStatusList);
+			this.BoosterManager.ElementalScrollStatusList);
 	}
 }

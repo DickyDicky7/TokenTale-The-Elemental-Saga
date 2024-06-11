@@ -59,6 +59,7 @@ public partial class ElementalBracelet : Weapon
 		this.CurrentElement = Global.Element.None;
 		this.CurrentEnergy = 0;
 		this.EmitSignal(ElementalBracelet.SignalName.OutOfEnergy, this);
+		this.EmitSignal(Equipment.SignalName.Taken);
 	}
 	public void OnCast(int newCurrentEnergy)
 	{

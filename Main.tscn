@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://w3dkcnkmaulo"]
+[gd_scene load_steps=57 format=3 uid="uid://w3dkcnkmaulo"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_px6f3"]
 [ext_resource type="Environment" uid="uid://jjpsnd6sbvf2" path="res://Main_Environment.tres" id="2_vpqwg"]
@@ -48,6 +48,9 @@
 [ext_resource type="Resource" uid="uid://bj703dy424t5t" path="res://game_objects/items/chest_and_item/resource/ChestAndItemResource_SwordScroll.tres" id="45_8kqui"]
 [ext_resource type="Resource" uid="uid://elnor3yw8e6c" path="res://game_objects/items/chest_and_item/resource/ChessAndItemResource_BowScroll.tres" id="46_a3df6"]
 [ext_resource type="Resource" uid="uid://dttjuhea26qxt" path="res://game_objects/items/chest_and_item/resource/ChestAndItemResource_ElementalScroll.tres" id="47_7g4ki"]
+[ext_resource type="Resource" uid="uid://c7x0dab4fmasx" path="res://game_objects/items/chest_and_item/resource/ChestAndItemResource_ElementalBracelet.tres" id="49_k3yre"]
+[ext_resource type="Resource" uid="uid://celorlhg4axm7" path="res://game_objects/items/chest_and_item/resource/ChestAndItemResource_HealthJar.tres" id="50_nky0w"]
+[ext_resource type="Resource" uid="uid://2x06s1s71oh4" path="res://game_objects/items/chest_and_item/resource/ChestAndItemResource_ElementalJar.tres" id="51_adq4f"]
 
 [sub_resource type="Resource" id="Resource_ntmsm"]
 script = ExtResource("12_ps0oq")
@@ -347,6 +350,29 @@ Key = 0
 [node name="ChessAndItem5" parent="." node_paths=PackedStringArray("Hitbox", "Sprite3D", "AnimationPlayer") instance=ExtResource("42_ntpsf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 1, -2)
 ChessAndItemResource = ExtResource("47_7g4ki")
+Hitbox = NodePath("Hitbox")
+Sprite3D = NodePath("Visual/Sprite3D")
+AnimationPlayer = NodePath("Visual/AnimationPlayer")
+Key = 0
+
+[node name="ChessAndItem6" parent="." node_paths=PackedStringArray("Hitbox", "Sprite3D", "AnimationPlayer") instance=ExtResource("42_ntpsf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 1, 0)
+ChessAndItemResource = ExtResource("49_k3yre")
+Hitbox = NodePath("Hitbox")
+Sprite3D = NodePath("Visual/Sprite3D")
+AnimationPlayer = NodePath("Visual/AnimationPlayer")
+
+[node name="ChessAndItem7" parent="." node_paths=PackedStringArray("Hitbox", "Sprite3D", "AnimationPlayer") instance=ExtResource("42_ntpsf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 1, 1)
+ChessAndItemResource = ExtResource("50_nky0w")
+Hitbox = NodePath("Hitbox")
+Sprite3D = NodePath("Visual/Sprite3D")
+AnimationPlayer = NodePath("Visual/AnimationPlayer")
+Key = 1
+
+[node name="ChessAndItem8" parent="." node_paths=PackedStringArray("Hitbox", "Sprite3D", "AnimationPlayer") instance=ExtResource("42_ntpsf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 1, -1)
+ChessAndItemResource = ExtResource("51_adq4f")
 Hitbox = NodePath("Hitbox")
 Sprite3D = NodePath("Visual/Sprite3D")
 AnimationPlayer = NodePath("Visual/AnimationPlayer")

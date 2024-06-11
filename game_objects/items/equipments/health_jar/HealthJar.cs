@@ -3,19 +3,19 @@ using System;
 namespace TokenTaleTheElementalSaga;
 public partial class HealthJar : Equipment
 {
-	public int Key { get; private set; } = default;
 	public float MaxValue { get; private set; }
 	public float CurrentValue { get; private set; } = 0;
 	[Signal]
 	public delegate void ActionEventHandler(HealthJar healthJar);
-	[Signal]
-	public delegate void TakenEventHandler();
-	public HealthJar(int Key, bool available,MainCharacter mainCharacter)
+	public HealthJar()
+	{
+
+	}
+	public HealthJar(bool available,MainCharacter mainCharacter)
 	{
 		this.Available = available;
 		this.Upgradeable = false;
 		this.Level = -1;
-		this.Key = Key;
 		this.OwnerMainCharacter = mainCharacter;
 		this.MaxValue = mainCharacter.MaxHealth * 0.7f;
 	}
@@ -28,7 +28,7 @@ public partial class HealthJar : Equipment
 	{
 		this.Available = true;
 		this.EmitSignal(HealthJar.SignalName.Action, this);
-		this.EmitSignal(HealthJar.SignalName.Taken);
+		this.EmitSignal(Equipment.SignalName.Taken);
 	}
 	public void UpdateMaxValue(float newMaxValue)
 	{

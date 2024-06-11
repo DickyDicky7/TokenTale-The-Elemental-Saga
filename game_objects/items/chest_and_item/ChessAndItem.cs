@@ -84,11 +84,23 @@ public partial class ChessAndItem : Node3D
                 }
                 else if (item3D is Weapon weapon)
                 {
-
+                    if (weapon is ElementalBracelet)
+                    {
+                        ElementalBracelet elementalBracelet =
+                            mainCharacter.WeaponsController.Bracelets[1] as ElementalBracelet;
+                        elementalBracelet.BeTaken();
+                    }
                 }
                 else if (item3D is Equipment equipment)
                 {
-
+                    if (equipment is HealthJar && this.Key != -1)
+                    {
+                        mainCharacter.EquipmentManager.HealthJarList[Key].BeTaken();
+                    }
+                    else if (equipment is ElementalJar && this.Key != -1)
+                    {
+                        mainCharacter.EquipmentManager.ElementalJarList[Key].BeTaken();
+                    }
                 }
             }
         }

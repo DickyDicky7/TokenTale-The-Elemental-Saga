@@ -20,6 +20,15 @@ public partial class WeaponHUD : Control
 	{
 		SetupCoolDownBar();
 		SetupIcon(chosenWeapon);
+		if (this.Partner.Available is false)
+		{
+			this.Visible = false;
+		}
+		this.Partner.Taken += OnPartnerTaken;
+	}
+	private void OnPartnerTaken()
+	{
+		this.Visible = true;
 	}
 	//CoolDownBar method group
 	private void SetupCoolDownBar()

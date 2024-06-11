@@ -4,17 +4,18 @@ using System.Runtime.CompilerServices;
 namespace TokenTaleTheElementalSaga;
 public partial class ElementalJar : Equipment
 {
-	public int Key { get; private set; } = default;
 	public Global.Element CurrentElement { get; private set; } = Global.Element.None;
 	public int MaxEnergy { get; private set; }
 	public int CurrentEnergy { get; private set; } = 0;
 	[Signal]
 	public delegate void ActionEventHandler(ElementalJar elementalJar);
-	[Signal]
-	public delegate void TakenEventHandler();
-	public ElementalJar(int key, bool available, MainCharacter mainCharacter)
+	
+	public ElementalJar()
 	{
-		this.Key = Key;
+
+	}
+	public ElementalJar(bool available, MainCharacter mainCharacter)
+	{
 		this.Available = available;
 		this.Upgradeable = false;
 		this.Level = -1;
@@ -30,7 +31,7 @@ public partial class ElementalJar : Equipment
 	{
 		this.Available = true;
 		this.EmitSignal(ElementalJar.SignalName.Action, this);
-		this.EmitSignal(ElementalJar.SignalName.Taken);
+		this.EmitSignal(Equipment.SignalName.Taken);
 	}
 	private void UpdateMaxEnergy(int newMaxEnergy)
 	{

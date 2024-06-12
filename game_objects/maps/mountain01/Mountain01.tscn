@@ -1,10 +1,14 @@
-[gd_scene load_steps=31 format=3 uid="uid://c1hfgev3fng5b"]
+[gd_scene load_steps=40 format=4 uid="uid://c1hfgev3fng5b"]
 
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapArea.cs" id="1_go4fb"]
 [ext_resource type="ArrayMesh" uid="uid://c8dbo3ln6iwcl" path="res://modells/maps_origin/Mountain01.vox" id="1_om15c"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/StrategySwitchMapAreaOneToOne.cs" id="2_elpvw"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/CommandSwitchMapArea.cs" id="3_kioqn"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapExitsToCommand.cs" id="4_ba4w1"]
+[ext_resource type="Shader" path="res://game_objects/water/Water.gdshader" id="6_2l8lr"]
+[ext_resource type="Shader" path="res://addons/simplegrasstextured/shaders/grass.gdshader" id="7_fe065"]
+[ext_resource type="Texture2D" uid="uid://csjvmtqgr5kln" path="res://game_asset_s/kenney_foliageSprites/PNG/Shaded/sprite_0054.png" id="8_j72ku"]
+[ext_resource type="Script" path="res://addons/simplegrasstextured/grass.gd" id="9_t3mxw"]
 
 [sub_resource type="Resource" id="Resource_2npj6"]
 script = ExtResource("2_elpvw")
@@ -123,6 +127,71 @@ size = Vector3(0.5, 0.8, 0)
 margin = 0.05
 size = Vector3(0, 0.8, 0.5)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fi0dk"]
+render_priority = -2
+shader = ExtResource("6_2l8lr")
+shader_parameter/alpha = 1.0
+shader_parameter/WATER1_COL = Color(0.1, 0.5, 0.6, 1)
+shader_parameter/WATER2_COL = Color(0, 0.4, 0.5, 1)
+shader_parameter/FOAM_COL = Color(0.8, 0.9, 0.9, 1)
+shader_parameter/distortion_speed = 2.0
+shader_parameter/tile = Vector2(113, 75)
+shader_parameter/height = 0.0
+shader_parameter/wave_sizes = Vector2(2, 2)
+shader_parameter/wave_speed = 1.5
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_v5qj8"]
+material = SubResource("ShaderMaterial_fi0dk")
+size = Vector2(9, 6)
+subdivide_width = 64
+subdivide_depth = 64
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dk8lv"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("7_fe065")
+shader_parameter/albedo = Color(0.5, 1, 0.5, 1)
+shader_parameter/texture_frames = Vector2(1, 1)
+shader_parameter/light_mode = 1
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/normal_scale = 1.0
+shader_parameter/metallic = 0.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/roughness = 1.0
+shader_parameter/roughness_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/scale_h = 0.2
+shader_parameter/scale_w = 0.2
+shader_parameter/scale_var = 0.0
+shader_parameter/grass_strength = 0.0
+shader_parameter/optimization_by_distance = false
+shader_parameter/optimization_level = 7.0
+shader_parameter/optimization_dist_min = 10.0
+shader_parameter/optimization_dist_max = 50.0
+shader_parameter/grass_size_y = 1.0
+shader_parameter/interactive_mode = true
+shader_parameter/interactive_level_xz = 3.0
+shader_parameter/interactive_level_y = 0.3
+shader_parameter/texture_albedo = ExtResource("8_j72ku")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_c8rri"]
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 1.00001, 1),
+"attribute_data": PackedByteArray("/wAA/wAAAAAAAAAAAAAA/wAAgD8AAIA/AAAA/wAAAAAAAIA//wAA/wAAgD8AAAAA/wAA/wAAAAAAAAAAAAAA/wAAgD8AAIA/AAAA/wAAAAAAAIA//wAA/wAAgD8AAAAA"),
+"format": 34359742495,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
+"material": SubResource("ShaderMaterial_dk8lv"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAvwAAgD8AAAAAAAAAPwAAAAAAAAAAAAAAvwAAAAAAAAAAAAAAPwAAgD8AAAAAAAAAAAAAgD8AAAC/AAAAAAAAAAAAAAA/AAAAAAAAAAAAAAC/AAAAAAAAgD8AAAA//3//f////7//f/9/////v/9//3////+//3//f////78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//vw==")
+}]
+
+[sub_resource type="MultiMesh" id="MultiMesh_0jqe3"]
+transform_format = 1
+mesh = SubResource("ArrayMesh_c8rri")
+
 [node name="Mountain01" type="Node3D" node_paths=PackedStringArray("Entrances")]
 script = ExtResource("1_go4fb")
 Entrances = [NodePath("Entrance00"), NodePath("Entrance01"), NodePath("Entrance02"), NodePath("Entrance03"), NodePath("Entrance04"), NodePath("Entrance05")]
@@ -195,3 +264,27 @@ collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Exit05"]
 shape = SubResource("BoxShape3D_s3xfb")
+
+[node name="Water00" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.465, 3.05)
+mesh = SubResource("PlaneMesh_v5qj8")
+
+[node name="SimpleGrassTextured" type="MultiMeshInstance3D" parent="."]
+cast_shadow = 0
+multimesh = SubResource("MultiMesh_0jqe3")
+script = ExtResource("9_t3mxw")
+albedo = Color(0.5, 1, 0.5, 1)
+texture_albedo = ExtResource("8_j72ku")
+scale_h = 0.2
+scale_w = 0.2
+scale_var = 0.0
+grass_strength = 0.0
+interactive = false
+sgt_radius = 0.1
+sgt_density = 20
+sgt_scale = 1.0
+sgt_rotation = 0.0
+sgt_rotation_rand = 1.0
+sgt_dist_min = 0.1
+sgt_follow_normal = false
+metadata/SimpleGrassTextured = "2.0.3"

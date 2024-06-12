@@ -51,11 +51,11 @@ size = Vector3(0, 1, 1)
 margin = 0.05
 size = Vector3(0, 1, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_d2k1a"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vg0qg"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("6_r6mpi")
-shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/albedo = Color(0.5, 1, 0.5, 1)
 shader_parameter/texture_frames = Vector2(1, 1)
 shader_parameter/light_mode = 1
 shader_parameter/alpha_scissor_threshold = 0.5
@@ -67,8 +67,8 @@ shader_parameter/roughness_texture_channel = Vector4(1, 0, 0, 0)
 shader_parameter/specular = 0.5
 shader_parameter/scale_h = 0.4
 shader_parameter/scale_w = 0.2
-shader_parameter/scale_var = -0.25
-shader_parameter/grass_strength = 0.55
+shader_parameter/scale_var = 0.0
+shader_parameter/grass_strength = 0.0
 shader_parameter/optimization_by_distance = false
 shader_parameter/optimization_level = 7.0
 shader_parameter/optimization_dist_min = 10.0
@@ -86,7 +86,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_d2k1a"),
+"material": SubResource("ShaderMaterial_vg0qg"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -99,7 +99,7 @@ instance_count = 30
 mesh = SubResource("ArrayMesh_gyi0w")
 buffer = PackedFloat32Array(-0.510424, 0, -0.859923, -2.7447, 0, 1, 0, 1.008, 0.859923, 0, -0.510424, -0.487063, 0.601639, 0, -0.798768, -2.66843, 0, 1, 0, 1.008, 0.798768, 0, 0.601639, -1.55544, -0.538595, 0, 0.842565, -2.32355, 0, 1, 0, 1.008, -0.842565, 0, -0.538595, -2.09376, 0.80053, 0, 0.599293, 0.246188, 0, 1, 0, 1.008, -0.599293, 0, 0.80053, -2.17556, -0.93608, 0, -0.351786, -0.437869, 0, 1, 0, 1.008, 0.351786, 0, -0.93608, 0.104629, 0.00350017, 0, -0.999994, -0.758483, 0, 1, 0, 1.008, 0.999994, 0, 0.00350017, 0.682986, -0.884409, 0, -0.466713, -2.3626, 0, 1, 0, 1.008, 0.466713, 0, -0.884409, 1.1593, -0.990676, 0, 0.136238, -2.33474, 0, 1, 0, 1.008, -0.136238, 0, -0.990676, 1.93046, -0.0379285, 0, -0.99928, -0.426378, 0, 1, 0, 1.008, 0.99928, 0, -0.0379285, 2.06, -0.999998, 0, -0.00200692, 0.478914, 0, 1, 0, 1.008, 0.00200692, 0, -0.999998, 1.31158, -0.663167, 0, -0.748471, 0.807693, 0, 1, 0, 1.008, 0.748471, 0, -0.663167, -0.129359, 0.701143, 0, -0.713021, 2.07376, 0, 1, 0, 1.008, 0.713021, 0, 0.701143, -2.04472, 0.730744, 0, 0.682652, 2.60675, 0, 1, 0, 1.008, -0.682652, 0, 0.730744, -2.19118, -0.709764, 0, -0.70444, 2.58211, 0, 1, 0, 1.008, 0.70444, 0, -0.709764, -0.606778, 0.492475, 0, 0.870327, 1.91351, 0, 1, 0, 1.008, -0.870327, 0, 0.492475, 1.2126, -0.707872, 0, 0.706341, 2.52561, 0, 1, 0, 1.008, -0.706341, 0, -0.707872, 2.00299, -0.371359, 0, 0.928489, 1.52827, 0, 1, 0, 1.323, -0.928489, 0, -0.371359, -2.05999, 0.540483, 0, 0.841355, 1.02451, 0, 1, 0, 1.449, -0.841355, 0, 0.540483, -1.6526, -0.966618, 0, -0.256222, 1.20776, 0, 1, 0, 1.449, 0.256222, 0, -0.966618, 0.572928, -0.707171, 0, 0.707042, -0.774689, 0, 1, 0, 1.386, -0.707042, 0, -0.707171, -0.920404, 0.82463, 0, -0.565672, -1.3305, 0, 1, 0, 1.386, 0.565672, 0, 0.82463, -0.272224, -0.300805, 0, 0.953686, -1.4561, 0, 1, 0, 1.323, -0.953686, 0, -0.300805, 0.6068, -0.986501, 0, -0.163753, -1.31767, 0, 1, 0, 1.449, 0.163753, 0, -0.986501, 1.61003, -0.278908, 0, 0.960318, 1.19789, 0, 1, 0, 1.197, -0.960318, 0, -0.278908, 1.15241, -0.275827, 0, -0.961207, -1.06168, 0, 1, 0, 1.386, 0.961207, 0, -0.275827, -0.615493, 0.614361, 0, -0.789025, -1.17412, 0, 1, 0, 1.008, 0.789025, 0, 0.614361, -1.41097, -0.408903, 0, 0.912578, 1.16947, 0, 1, 0, 1.197, -0.912578, 0, -0.408903, -0.528445, 0.684961, 0, 0.728579, 2.77437, 0, 1, 0, 1.008, -0.728579, 0, 0.684961, -0.0418565, 0.974541, 0, -0.224208, 1.9031, 0, 1, 0, 1.008, 0.224208, 0, 0.974541, 0.670985, 0.954937, 0, -0.296808, 1.16982, 0, 1, 0, 1.008, 0.296808, 0, 0.954937, 1.63073)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xwi68"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0sy2f"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("6_r6mpi")
@@ -115,8 +115,8 @@ shader_parameter/roughness_texture_channel = Vector4(1, 0, 0, 0)
 shader_parameter/specular = 0.5
 shader_parameter/scale_h = 0.2
 shader_parameter/scale_w = 0.2
-shader_parameter/scale_var = -0.25
-shader_parameter/grass_strength = 0.55
+shader_parameter/scale_var = 0.0
+shader_parameter/grass_strength = 0.0
 shader_parameter/optimization_by_distance = false
 shader_parameter/optimization_level = 7.0
 shader_parameter/optimization_dist_min = 10.0
@@ -134,7 +134,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_xwi68"),
+"material": SubResource("ShaderMaterial_0sy2f"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -184,9 +184,12 @@ shape = SubResource("BoxShape3D_p7jm0")
 cast_shadow = 0
 multimesh = SubResource("MultiMesh_njwmx")
 script = ExtResource("8_rkm8y")
+albedo = Color(0.5, 1, 0.5, 1)
 texture_albedo = ExtResource("7_bvlav")
 scale_h = 0.4
 scale_w = 0.2
+scale_var = 0.0
+grass_strength = 0.0
 interactive = false
 sgt_radius = 0.1
 sgt_density = 1
@@ -205,6 +208,8 @@ albedo = Color(0.9, 0.5, 0.3, 1)
 texture_albedo = ExtResource("9_rk7ow")
 scale_h = 0.2
 scale_w = 0.2
+scale_var = 0.0
+grass_strength = 0.0
 interactive = false
 sgt_radius = 0.2
 sgt_density = 10

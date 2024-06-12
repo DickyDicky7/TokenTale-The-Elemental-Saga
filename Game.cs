@@ -3,7 +3,7 @@ using System;
 
 namespace TokenTaleTheElementalSaga;
 
-public partial class Test2 : Node3D
+public partial class Game : Node3D
 {
     [Export]
     public MapSystem
@@ -17,8 +17,8 @@ public partial class Test2 : Node3D
     {
                     base._Process(       @delta);
 
-        GetWindow().Title =
-          $"{Engine.GetFramesPerSecond()} {MapSystem.GetChild(0).GetChild(0).Name}";
+        //GetWindow().Title =
+        //  $"{Engine.GetFramesPerSecond()} {MapSystem.GetChild(0).GetChild(0).Name}";
 
     }
 }

@@ -1,4 +1,5 @@
-using Godot;
+using        Godot        ;
+using Vect = Godot.Vector3;
 
 namespace TokenTaleTheElementalSaga;
 
@@ -7,59 +8,76 @@ public partial class _Camera3D_02 : Camera3D
 #pragma warning restore IDE1006 // Naming Styles
 {
     public bool IsZoomedIn { get; set; } = false;
-
-    public override void _Input(InputEvent @inputEvent)
-    {
-                    base._Input(           @inputEvent);
-
-        if (@inputEvent.IsMousePressed(MouseButton.WheelUp  ))
-        {
-            Fov -= 1.0f;
-        }
-        if (@inputEvent.IsMousePressed(MouseButton.WheelDown))
-        {
-            Fov += 1.0f;
-        }
-        if (@inputEvent.IsKeyboardPressed(Key.Z))
-        {
-            Vector3 destination;
-                IsZoomedIn =
-               !IsZoomedIn ;
-            if (IsZoomedIn)
-            {
-                destination = new Vector3(0.0f, 1.5f, 1.5f);
-            }
-            else
-            {
-                destination = new Vector3(0.0f, 2.0f, 2.0f);
-            }
-            Tween tween = CreateTween();
-            tween.TweenProperty(this, "position", destination, 0.5d);
-            tween.SetEase (Tween.      EaseType.    Out)
-                 .SetTrans(Tween.TransitionType.Elastic);
-
-        }
-    }
+    public Vect   Offset   { get; set; }
 
     [Export]
-    public Node3D FollowTarget { get; set; }
-    public 
-   Vector3 Offset              { get; set; }
+    public Tween.TransitionType
+           TType { get; set; }
+    [Export]
+    public Tween.      EaseType
+           EType { get; set; }
+    [Export]
+    public Node3D
+    @FollowTarget
+    { get; set; }
+    [Export]
+    public float LerpWeight { get; set; } = 01.0f;
+    [Export]
+    public float FovWhenHasZoomedIn { get; set; } = 65.0f;
+    [Export]
+    public float FovWhenNotZoomedIn { get; set; } = 75.0f;
 
     public override void _Ready()
     {
-                    base._Ready();
+                    base._Ready()  ;
 
-           Offset   =   Position ;
+        Offset = Position          ;
+        Fov    = FovWhenNotZoomedIn;
+    }
+
+    public override void _Process(double @delta)
+    {
+                    base._Process(       @delta);
+
+        if (Input.IsActionPressed("U")
+        ||  Input.IsActionPressed("D")
+        ||  Input.IsActionPressed("L")
+        ||  Input.IsActionPressed("R"))
+        {
+            if (!IsZoomedIn)
+            {
+                Tween tween =
+                CreateTween();
+                tween.TweenProperty(this, "fov", FovWhenHasZoomedIn, 0.5d)
+                     .SetEase (EType)
+                     .SetTrans(TType);
+            }
+                 IsZoomedIn = true;
+        }
+        else
+        {
+            if ( IsZoomedIn)
+            {
+                Tween tween =
+                CreateTween();
+                tween.TweenProperty(this, "fov", FovWhenNotZoomedIn, 0.5d)
+                     .SetEase (EType)
+                     .SetTrans(TType);
+            }
+                 IsZoomedIn =!true;
+        }
     }
 
     public override void _PhysicsProcess(double @delta)
     {
                     base._PhysicsProcess(       @delta);
 
-        float x = Mathf.Lerp(GlobalPosition.X, FollowTarget.GlobalPosition.X           , 0.1f);
-        float y = Mathf.Lerp(GlobalPosition.Y, FollowTarget.GlobalPosition.Y + Offset.Y, 0.1f);
-        float z = Mathf.Lerp(GlobalPosition.Z, FollowTarget.GlobalPosition.Z + Offset.Z, 0.1f);
+        if (FollowTarget is null)
+            return;
+
+        float x = Mathf.Lerp(GlobalPosition.X, FollowTarget.GlobalPosition.X           , LerpWeight);
+        float y = Mathf.Lerp(GlobalPosition.Y, FollowTarget.GlobalPosition.Y + Offset.Y, LerpWeight);
+        float z = Mathf.Lerp(GlobalPosition.Z, FollowTarget.GlobalPosition.Z + Offset.Z, LerpWeight);
         GlobalPosition =
         GlobalPosition with
         {
@@ -69,6 +87,11 @@ public partial class _Camera3D_02 : Camera3D
         };
     }
 }
+
+
+
+
+
 
 
 

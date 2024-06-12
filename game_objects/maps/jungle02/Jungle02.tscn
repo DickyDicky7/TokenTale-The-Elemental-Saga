@@ -96,7 +96,6 @@ size = Vector3(0.6, 1.5, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jtp3q"]
 margin = 0.05
-size = Vector3(1, 1, 0.4)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vk4c7"]
 render_priority = -2
@@ -154,7 +153,7 @@ size = Vector2(1, 1)
 subdivide_width = 64
 subdivide_depth = 64
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_j1hq3"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i12d1"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("8_eokoa")
@@ -170,8 +169,8 @@ shader_parameter/roughness_texture_channel = Vector4(1, 0, 0, 0)
 shader_parameter/specular = 0.5
 shader_parameter/scale_h = 0.6
 shader_parameter/scale_w = 0.2
-shader_parameter/scale_var = -0.25
-shader_parameter/grass_strength = 0.55
+shader_parameter/scale_var = 0.0
+shader_parameter/grass_strength = 0.0
 shader_parameter/optimization_by_distance = false
 shader_parameter/optimization_level = 7.0
 shader_parameter/optimization_dist_min = 10.0
@@ -189,7 +188,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_j1hq3"),
+"material": SubResource("ShaderMaterial_i12d1"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -291,6 +290,8 @@ albedo = Color(0.2, 0.6, 0.2, 1)
 texture_albedo = ExtResource("9_w4dgd")
 scale_h = 0.6
 scale_w = 0.2
+scale_var = 0.0
+grass_strength = 0.0
 interactive = false
 sgt_radius = 0.3
 sgt_density = 20

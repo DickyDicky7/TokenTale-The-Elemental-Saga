@@ -7,6 +7,22 @@ namespace TokenTaleTheElementalSaga;
 // Receiver
 public partial class MapSystem : Node
 {
+    [Export]
+    public Environment
+           Environment
+    {
+        get;
+        set;
+    }
+
+    [Export]
+    public DirectionalLight3D
+           DirectionalLight3D
+    {
+        get;
+        set;
+    }
+
     public enum AvailableMapArea
     {
             BEACH_01,
@@ -42,7 +58,15 @@ public partial class MapSystem : Node
     {
         get;
         set;
-    }
+    } = [ ];
+
+    [Export]
+    public Array<Color>
+    @AmbientLightColors
+    {
+        get;
+        set;
+    } = [ ];
 
     [Export]
     public Array<Character3D>
@@ -50,7 +74,7 @@ public partial class MapSystem : Node
     {
         get;
         set;
-    }
+    } = [ ];
 
     [Export]
     public NavigationRegion3D
@@ -77,6 +101,11 @@ public partial class MapSystem : Node
             MapAreaPlaceHolder.BakeNavigationMesh      ();
                    MainCharacter.GlobalPosition =
             mapArea.Entrances[0].GlobalPosition ;
+
+        Environment.AmbientLightColor
+                   =AmbientLightColors[(int)System.Enum.Parse<AvailableMapArea>(
+                       ((string)mapArea.Name).ToUpper().Insert(
+                       ((string)mapArea.Name).Length - 2 , "_"))];
         }
     }
 
@@ -84,6 +113,8 @@ public partial class MapSystem : Node
                AvailableMapArea @nextMapArea,
                             int @entranceIdx)
     {
+try
+{
         if (   AvailableMapAreaPackedScenes[(int)@nextMapArea]
             .Instantiate
            (   editState:   PackedScene.
@@ -108,7 +139,15 @@ public partial class MapSystem : Node
                              MainCharacter.ProcessMode    =
                                            ProcessModeEnum.
             Inherit;
+
+            Environment.AmbientLightColor
+                       =AmbientLightColors[(int)@nextMapArea];
         }
+}
+catch
+{
+
+}
     }
 }
 

@@ -1,10 +1,13 @@
-[gd_scene load_steps=24 format=3 uid="uid://d0fhk4h2sei57"]
+[gd_scene load_steps=30 format=4 uid="uid://d0fhk4h2sei57"]
 
 [ext_resource type="ArrayMesh" uid="uid://b0dixsb8153qw" path="res://modells/maps_origin/Volcano01.vox" id="1_nfih5"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapArea.cs" id="1_us1xk"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/StrategySwitchMapAreaOneToOne.cs" id="2_oxxh7"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/CommandSwitchMapArea.cs" id="3_2oarc"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapExitsToCommand.cs" id="4_1pows"]
+[ext_resource type="Shader" path="res://addons/simplegrasstextured/shaders/grass.gdshader" id="6_u1qoy"]
+[ext_resource type="Texture2D" uid="uid://cgcmkpn3k1puy" path="res://game_asset_s/kenney_foliageSprites/PNG/Shaded/sprite_0070.png" id="7_5jq4y"]
+[ext_resource type="Script" path="res://addons/simplegrasstextured/grass.gd" id="8_vg0f0"]
 
 [sub_resource type="Resource" id="Resource_065bt"]
 script = ExtResource("2_oxxh7")
@@ -89,6 +92,52 @@ size = Vector3(0.4, 0.7, 0)
 margin = 0.05
 size = Vector3(1, 1.5, 0.6)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hku4x"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("6_u1qoy")
+shader_parameter/albedo = Color(0.2, 0, 0, 1)
+shader_parameter/texture_frames = Vector2(1, 1)
+shader_parameter/light_mode = 1
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/normal_scale = 1.0
+shader_parameter/metallic = 0.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/roughness = 1.0
+shader_parameter/roughness_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/scale_h = 0.2
+shader_parameter/scale_w = 0.2
+shader_parameter/scale_var = 0.0
+shader_parameter/grass_strength = 0.0
+shader_parameter/optimization_by_distance = false
+shader_parameter/optimization_level = 7.0
+shader_parameter/optimization_dist_min = 10.0
+shader_parameter/optimization_dist_max = 50.0
+shader_parameter/grass_size_y = 1.0
+shader_parameter/interactive_mode = true
+shader_parameter/interactive_level_xz = 3.0
+shader_parameter/interactive_level_y = 0.3
+shader_parameter/texture_albedo = ExtResource("7_5jq4y")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_oj84h"]
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 1.00001, 1),
+"attribute_data": PackedByteArray("/wAA/wAAAAAAAAAAAAAA/wAAgD8AAIA/AAAA/wAAAAAAAIA//wAA/wAAgD8AAAAA/wAA/wAAAAAAAAAAAAAA/wAAgD8AAIA/AAAA/wAAAAAAAIA//wAA/wAAgD8AAAAA"),
+"format": 34359742495,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
+"material": SubResource("ShaderMaterial_hku4x"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAvwAAgD8AAAAAAAAAPwAAAAAAAAAAAAAAvwAAAAAAAAAAAAAAPwAAgD8AAAAAAAAAAAAAgD8AAAC/AAAAAAAAAAAAAAA/AAAAAAAAAAAAAAC/AAAAAAAAgD8AAAA//3//f////7//f/9/////v/9//3////+//3//f////78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//vw==")
+}]
+
+[sub_resource type="MultiMesh" id="MultiMesh_ugv8k"]
+transform_format = 1
+mesh = SubResource("ArrayMesh_oj84h")
+
 [node name="Volcano01" type="Node3D" node_paths=PackedStringArray("Entrances")]
 script = ExtResource("1_us1xk")
 Entrances = [NodePath("Entrance00"), NodePath("Entrance01"), NodePath("Entrance02"), NodePath("Entrance03")]
@@ -147,3 +196,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.05, 3, 3.245)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Stair00"]
 shape = SubResource("BoxShape3D_mpuf8")
+
+[node name="SimpleGrassTextured" type="MultiMeshInstance3D" parent="."]
+cast_shadow = 0
+multimesh = SubResource("MultiMesh_ugv8k")
+script = ExtResource("8_vg0f0")
+albedo = Color(0.2, 0, 0, 1)
+texture_albedo = ExtResource("7_5jq4y")
+scale_h = 0.2
+scale_w = 0.2
+scale_var = 0.0
+grass_strength = 0.0
+interactive = false
+sgt_radius = 0.1
+sgt_density = 20
+sgt_scale = 1.0
+sgt_rotation = 0.0
+sgt_rotation_rand = 1.0
+sgt_dist_min = 0.05
+sgt_follow_normal = false
+metadata/SimpleGrassTextured = "2.0.3"

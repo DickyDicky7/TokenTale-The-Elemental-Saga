@@ -50,7 +50,6 @@ size = Vector3(1, 1, 0)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3xfoh"]
 margin = 0.05
-size = Vector3(1, 1, 0.4)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_geef8"]
 render_priority = -2

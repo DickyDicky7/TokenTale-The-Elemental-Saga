@@ -9,8 +9,9 @@
 script = ExtResource("1_gycpf")
 MapSystem = NodePath("MapSystem")
 
-[node name="MapSystem" parent="." node_paths=PackedStringArray("DirectionalLight3D", "MapAreaPlaceHolder", "MainCharacter") instance=ExtResource("1_p4etb")]
+[node name="MapSystem" parent="." node_paths=PackedStringArray("DirectionalLight3D", "ScreenTransition", "MapAreaPlaceHolder", "MainCharacter") instance=ExtResource("1_p4etb")]
 DirectionalLight3D = NodePath("Sun")
+ScreenTransition = NodePath("ScreenTransition$$")
 MapAreaPlaceHolder = NodePath("NavigationRegion3D")
 MainCharacter = NodePath("../MainCharacter")
 
@@ -19,9 +20,11 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 size = 4.0
 far = 6.0
 script = ExtResource("2_rwd2k")
-TType = 1
-EType = 1
+TType = 7
+EType = 2
 FollowTarget = NodePath("../MainCharacter")
+FovWhenHasZoomedIn = 70.0
+DurationZoomedIn = 0.5
 
 [node name="MainCharacter" parent="." node_paths=PackedStringArray("WeaponsController", "NavigationAgent3D", "MainCharacterAnimatedSprite3DEffect") instance=ExtResource("2_m5dub")]
 floor_max_angle = 1.5708

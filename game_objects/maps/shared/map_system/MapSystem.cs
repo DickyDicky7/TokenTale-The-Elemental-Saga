@@ -23,6 +23,9 @@ public partial class MapSystem : Node
         set;
     }
 
+    [Export]
+    public Node ScreenTransition { get; set; }
+
     public enum AvailableMapArea
     {
             BEACH_01,
@@ -142,6 +145,9 @@ try
 
             Environment.AmbientLightColor
                        =AmbientLightColors[(int)@nextMapArea];
+
+            ScreenTransition
+                       .Call              ("switch_map_area");
         }
 }
 catch

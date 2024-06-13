@@ -74,7 +74,8 @@ public partial class _Camera3D_02 : Camera3D
     {
                     base._PhysicsProcess(       @delta);
 
-        if (@FollowTarget is null)
+        if (!IsInstanceValid(@FollowTarget        )
+        ||                   @FollowTarget is null)
             return;
 
         float x = Mathf.Lerp(GlobalPosition.X, @FollowTarget.GlobalPosition.X           , LerpWeight);

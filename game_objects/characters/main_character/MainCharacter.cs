@@ -1,8 +1,7 @@
-using Godot;
+using Godot            ;
 using Godot.Collections;
-using System;
+using System     ;
 using System.Linq;
-using System.Runtime.CompilerServices;
 
 namespace TokenTaleTheElementalSaga;
 
@@ -10,9 +9,21 @@ namespace TokenTaleTheElementalSaga;
 public partial class MainCharacter : Character3D
 {
     [Export]
-    public MainCharacterHUDController HUDController { get; set; }
+    public MainCharacterHUDController
+                        HUDController
+    {
+        get;
+        set;
+    }
+    
     [Export]
-    public WeaponsController WeaponsController { get; set; }
+    public WeaponsController
+           WeaponsController
+    {
+        get;
+        set;
+    }
+
     [Export]
     public AlliesVisitor
                  VisitorAbilityDispatch
@@ -44,21 +55,25 @@ public partial class MainCharacter : Character3D
         get;
         set;
     }
+
     [Signal]
     public delegate void CoinChangedEventHandler(int newCoint);
+    
     public EquipmentManager EquipmentManager { get; private set; } 
     public   AbilityManager   AbilityManager { get; private set; } 
     public   BoosterManager   BoosterManager { get; private set; } 
     public int CurrentCoin { get; set; }
+    
     public MainCharacter()
     {
-        SetupStats();
+              SetupStats();
     }
+
     public override void _Ready()
     {
-        base._Ready();
-        this.SetupVisitor();
-        this.PairEBraceletAndEJar();
+                    base._Ready();
+                    this.        SetupVisitor();
+                    this.PairEBraceletAndEJar();
     }
 
     public override void _Process(double @delta)
@@ -70,30 +85,50 @@ public partial class MainCharacter : Character3D
     {
                     base._PhysicsProcess(       @delta);
     }
+
     private void AcceptVisitor(AlliesVisitor visitor)
     {
         visitor.VisitMainCharacter(this);
     }
+
     private void SetupVisitor()
     {
-        this.VisitorAbilityDispatch.Init();
-        this.AcceptVisitor(VisitorAbilityDispatch);
+        this.              VisitorAbilityDispatch.Init();
+        this.AcceptVisitor(VisitorAbilityDispatch)      ;
     }
+
     private void SetupStats()
     {
         //WARNING: do not change the order
-        this.BoosterManager = new BoosterManager(this);
-        this.MaxHealth = BoosterManager.MaxHealth;
-        this.EquipmentManager = new EquipmentManager(this);
-        this.MaxSpeed = EquipmentManager.Boot.Speed;
-        this.CurrentHealth = MaxHealth;
-        this.CurrentSpeed = this.MaxSpeed;
-        this.AbilityManager = new AbilityManager();
-        this.CurrentCoin = 2000;
+        this.BoosterManager = new
+             BoosterManager(this);
+
+        this.               MaxHealth =
+             BoosterManager.MaxHealth ;
+
+        this.EquipmentManager = new
+             EquipmentManager(this);
+
+        this.                   MaxSpeed =
+             EquipmentManager.Boot.Speed ;
+
+        this.CurrentHealth =
+                 MaxHealth ;
+
+        this.CurrentSpeed  =
+        this.    MaxSpeed  ;
+
+        this.AbilityManager = new
+             AbilityManager   ();
+
+        this.CurrentCoin
+      = 2000;
     }
+
     private void PairEBraceletAndEJar()
     {
-        foreach (int i in Enumerable.Range(0, this.WeaponsController.Bracelets.Count))
+        foreach (int i in         Enumerable.Range(0    ,
+            this.WeaponsController.Bracelets.Count))
         {
             this.WeaponsController.Bracelets[i].Storage = this.EquipmentManager.ElementalJarList[i];
         }

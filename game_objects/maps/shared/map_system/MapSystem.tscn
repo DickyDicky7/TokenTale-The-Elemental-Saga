@@ -51,8 +51,8 @@ shadow_opacity = 0.8
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = ExtResource("2_gsxuj")
 
-[node name="Grassland04" parent="NavigationRegion3D" node_paths=PackedStringArray("Entrances") instance=ExtResource("9_t84f7")]
-Entrances = [NodePath("Entrance00"), NodePath("Entrance01"), NodePath("Entrance02"), NodePath("Entrance03"), NodePath("Entrance04")]
+[node name="Beach01" parent="NavigationRegion3D" node_paths=PackedStringArray("Entrances") instance=ExtResource("3_8ab5f")]
+Entrances = [NodePath("Entrance00"), NodePath("Entrance01"), NodePath("Entrance02")]
 
 [node name="ScreenTransition$$" type="Node" parent="."]
 script = ExtResource("29_8jf83")

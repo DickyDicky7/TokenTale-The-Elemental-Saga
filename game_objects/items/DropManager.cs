@@ -3,22 +3,87 @@ using System.Collections.Generic;
 
 namespace TokenTaleTheElementalSaga;
 
-public partial class
-                   DropManager
+public partial class  DropManager  : Node
 {
-    private static DropManager    _instance  ;
-    public  static DropManager  GetInstance()
+    public override void _Ready()
     {
-        if (   _instance == null)
-               _instance =  new DropManager();
-        return _instance                     ;
+                    base._Ready();
+
+        foreach (MapSystem.AvailableMapArea
+                           availableMapArea in System.Enum.GetValues
+                <MapSystem.AvailableMapArea>())
+        {
+                SoulOrCoins.Add(availableMapArea, []);
+            ElementalTokens.Add(availableMapArea, []);
+        }
+                             ChildExitingTree +=
+                 DropManager_ChildExitingTree   ;
     }
 
-    private        DropManager()
+    private void DropManager_ChildExitingTree(Node @node)
     {
-
+        if (@node.IsQueuedForDeletion())
+        {
+            if (@node is     SoulOrCoin
+                             soulOrCoin)
+            {
+                             SoulOrCoins[CurrentMapArea].Remove(
+                             soulOrCoin                        );
+            }
+            else
+            if (@node is ElementalToken
+                         elementalToken)
+            {
+                         ElementalTokens[CurrentMapArea].Remove(
+                         elementalToken                        );
+            }
+        }
     }
 
-    public List<SoulOrCoin    > @CoinList { get; set; } = [];
-    public List<ElementalToken> TokenList { get; set; } = [];
+    public void Add(
+             Item3D
+            @item3D)
+    {
+        if (@item3D is     SoulOrCoin
+                           soulOrCoin)
+        {
+                           SoulOrCoins[CurrentMapArea].Add(
+                           soulOrCoin                     );
+            AddChild(      soulOrCoin                     );
+        }
+        else
+        if (@item3D is ElementalToken
+                       elementalToken)
+        {
+                       ElementalTokens[CurrentMapArea].Add(
+                       elementalToken                     );
+            AddChild(  elementalToken                     );
+        }
+    }
+
+    public MapSystem.AvailableMapArea
+                       CurrentMapArea
+    {
+        get;
+        set;
+    }
+
+    private Dictionary<MapSystem.AvailableMapArea, List<    SoulOrCoin>>     SoulOrCoins { get; set; } = [];
+    private Dictionary<MapSystem.AvailableMapArea, List<ElementalToken>> ElementalTokens { get; set; } = [];
+
+    public void Load()
+    {
+            SoulOrCoins[CurrentMapArea].ForEach(    soulOrCoin => AddChild(    soulOrCoin));
+        ElementalTokens[CurrentMapArea].ForEach(elementalToken => AddChild(elementalToken));
+    }
+
+    public void Save()
+    {
+        foreach (Node child
+             in    GetChildren())
+        {
+                RemoveChild(
+                      child);
+        }
+    }
 }

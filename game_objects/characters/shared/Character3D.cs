@@ -25,9 +25,9 @@ public abstract partial class Character3D : CharacterBody3D
 
     [Signal]
     public delegate void HealthChangeEventHandler(float damage);
-	public Dictionary<string, PackedScene> AbilityPackedScenes { get; set; } = new();
+    public Dictionary<string, PackedScene> AbilityPackedScenes { get; set; } = new();
 
-	public virtual void Move(Vector3 @direction, double @delta)
+    public virtual void Move(Vector3 @direction, double @delta)
     {
         if (this.IsStunning == true)
             return;
@@ -90,23 +90,23 @@ public abstract partial class Character3D : CharacterBody3D
     public override void _Ready()
     {
         this.TimerReady();
-		this.StatusInfo = StatusInfoPackedScene.Instantiate<StatusInfo>();
+        this.StatusInfo = StatusInfoPackedScene.Instantiate<StatusInfo>();
         this.AddChild  (  StatusInfo                                    );
-		base._Ready();
-	}
+        base._Ready();
+    }
     private void TimerReady()
     {
-		this.EffectTimerSpeed.OneShot = true;
-		this.EffectTimerSpeed.WaitTime = 1.0d;
-		this.EffectTimerSpeed.ProcessCallback = Timer.TimerProcessCallback.Physics;
-		this.EffectTimerSpeed.Timeout += EndSpeedEffect;
-		this.AddChild(EffectTimerSpeed);
-		this.EffectTimerStun.OneShot = true;
-		this.EffectTimerStun.WaitTime = 1.0d;
-		this.EffectTimerStun.ProcessCallback = Timer.TimerProcessCallback.Physics;
-		this.EffectTimerStun.Timeout += EndStun;
-		this.AddChild(EffectTimerStun);
-	}
+        this.EffectTimerSpeed.OneShot = true;
+        this.EffectTimerSpeed.WaitTime = 1.0d;
+        this.EffectTimerSpeed.ProcessCallback = Timer.TimerProcessCallback.Physics;
+        this.EffectTimerSpeed.Timeout += EndSpeedEffect;
+        this.AddChild(EffectTimerSpeed);
+        this.EffectTimerStun.OneShot = true;
+        this.EffectTimerStun.WaitTime = 1.0d;
+        this.EffectTimerStun.ProcessCallback = Timer.TimerProcessCallback.Physics;
+        this.EffectTimerStun.Timeout += EndStun;
+        this.AddChild(EffectTimerStun);
+    }
 
     //  public override void _PhysicsProcess(double @delta)
     //  {
@@ -156,9 +156,9 @@ public abstract partial class Character3D : CharacterBody3D
     {
         this.EffectTimerStun.Start(@duration) ;
         this.IsStunning = true;
-		this.StatusInfo.Items.Add(
-			new StatusInfoItemElemental { Element = Global.Element.None, Thing = "Stunned" });
-	}
+        this.StatusInfo.Items.Add(
+            new StatusInfoItemElemental { Element = Global.Element.None, Thing = "Stunned" });
+    }
 
     public void EndStun()
     {

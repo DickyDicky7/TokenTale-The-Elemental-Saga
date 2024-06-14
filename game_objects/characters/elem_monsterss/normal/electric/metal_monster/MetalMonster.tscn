@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://u16qad10a485"]
+[gd_scene load_steps=24 format=3 uid="uid://u16qad10a485"]
 
 [ext_resource type="SpriteFrames" uid="uid://0kbvt2fcohxa" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster_SpriteFrames_$Main$.tres" id="1_1wafb"]
 [ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster.cs" id="1_x2fgj"]
@@ -8,6 +8,7 @@
 [ext_resource type="Shape3D" uid="uid://dnlsnu8nqbmc1" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster_CollisionShape3D_Body.tres" id="3_dqny3"]
 [ext_resource type="PackedScene" uid="uid://chwjmy7grdej" path="res://game_objects/shared/status_info/StatusInfo.tscn" id="3_kbf5y"]
 [ext_resource type="PackedScene" uid="uid://dsbep0yr8rwxa" path="res://game_objects/shared/hits_flashing_by_modulate/HitsFlashingByModulate.tscn" id="3_xt4bl"]
+[ext_resource type="PackedScene" uid="uid://d214m5mqgg6go" path="res://game_objects/items/heal_drop/HealDrop.tscn" id="4_eu44q"]
 [ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.tscn" id="5_jnxj8"]
 [ext_resource type="BlackboardPlan" uid="uid://fsqsabqsafqi" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster_BlackboardPlanBase.tres" id="5_wy6lx"]
 [ext_resource type="Shape3D" uid="uid://dutdm8qf5mh4b" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster_ShapeCast3D.tres" id="6_1cglj"]
@@ -356,6 +357,7 @@ script = ExtResource("1_x2fgj")
 Element = 4
 ElementalTokenPackedScene = ExtResource("2_j4kdn")
 CoinPackedScene = ExtResource("3_c1wq2")
+HealDropPackedScene = ExtResource("4_eu44q")
 VisitorAbilityDispatch = ExtResource("2_jy6ms")
 MonsterType = 1
 StatusInfoPackedScene = ExtResource("3_kbf5y")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dks14llooa7jv"]
+[gd_scene load_steps=25 format=3 uid="uid://dks14llooa7jv"]
 
 [ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat.cs" id="1_52p22"]
 [ext_resource type="SpriteFrames" uid="uid://dkd552vapywc0" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat_SpriteFrames_$Main$.tres" id="1_k4jlk"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://chwjmy7grdej" path="res://game_objects/shared/status_info/StatusInfo.tscn" id="3_3dydc"]
 [ext_resource type="Shape3D" uid="uid://v8akknafh8ti" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat_CollisionShape3D_Body.tres" id="3_gfl41"]
 [ext_resource type="PackedScene" uid="uid://c14s46yvkynh8" path="res://game_objects/items/soul_or_coin/SoulOrCoin.tscn" id="3_i07f3"]
+[ext_resource type="PackedScene" uid="uid://d214m5mqgg6go" path="res://game_objects/items/heal_drop/HealDrop.tscn" id="4_b6olq"]
 [ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.tscn" id="5_3qblb"]
 [ext_resource type="BlackboardPlan" uid="uid://b228i5frlcwo7" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat_BlackboardPlanBase.tres" id="5_esgvn"]
 [ext_resource type="Shape3D" uid="uid://cnkgpbfvc40wt" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat_ShapeCast3D.tres" id="6_inebg"]
@@ -409,6 +410,7 @@ script = ExtResource("1_52p22")
 Element = 2
 ElementalTokenPackedScene = ExtResource("2_dsnjv")
 CoinPackedScene = ExtResource("3_i07f3")
+HealDropPackedScene = ExtResource("4_b6olq")
 VisitorAbilityDispatch = ExtResource("2_tgw2b")
 MonsterType = 3
 StatusInfoPackedScene = ExtResource("3_3dydc")

@@ -15,6 +15,7 @@ public partial class  DropManager  : Node
         {
                 SoulOrCoins.Add(availableMapArea, []);
             ElementalTokens.Add(availableMapArea, []);
+                  HealDrops.Add(availableMapArea, []);
         }
                              ChildExitingTree +=
                  DropManager_ChildExitingTree   ;
@@ -37,7 +38,14 @@ public partial class  DropManager  : Node
                          ElementalTokens[CurrentMapArea].Remove(
                          elementalToken                        );
             }
-        }
+			else
+			if (@node is HealDrop
+						 healDrop)
+			{
+				HealDrops[CurrentMapArea].Remove(
+				healDrop);
+			}
+		}
     }
 
     public void Add(
@@ -59,7 +67,15 @@ public partial class  DropManager  : Node
                        elementalToken                     );
             AddChild(  elementalToken                     );
         }
-    }
+		else
+		if (@item3D is HealDrop
+					   healDrop)
+		{
+			HealDrops[CurrentMapArea].Add(
+			healDrop);
+			AddChild(healDrop);
+		}
+	}
 
     public MapSystem.AvailableMapArea
                        CurrentMapArea
@@ -70,11 +86,13 @@ public partial class  DropManager  : Node
 
     private Dictionary<MapSystem.AvailableMapArea, List<    SoulOrCoin>>     SoulOrCoins { get; set; } = [];
     private Dictionary<MapSystem.AvailableMapArea, List<ElementalToken>> ElementalTokens { get; set; } = [];
+    private Dictionary<MapSystem.AvailableMapArea, List<HealDrop>> HealDrops { get; set; } = [];
 
     public void Load()
     {
             SoulOrCoins[CurrentMapArea].ForEach(    soulOrCoin => AddChild(    soulOrCoin));
         ElementalTokens[CurrentMapArea].ForEach(elementalToken => AddChild(elementalToken));
+        HealDrops[CurrentMapArea].ForEach(healDrop => AddChild(healDrop));
     }
 
     public void Save()

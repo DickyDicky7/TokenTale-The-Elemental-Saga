@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://da0vo8ll2gr8e"]
+[gd_scene load_steps=31 format=3 uid="uid://da0vo8ll2gr8e"]
 
 [ext_resource type="Script" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton.cs" id="1_dw4lx"]
 [ext_resource type="PackedScene" uid="uid://c7i7emx3rn41l" path="res://game_objects/items/elemental_token/ElementalToken.tscn" id="2_adyel"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://chwjmy7grdej" path="res://game_objects/shared/status_info/StatusInfo.tscn" id="3_rja43"]
 [ext_resource type="Shape3D" uid="uid://72bsjybq8q1y" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_CollisionShape3D_Body.tres" id="3_xhr2f"]
 [ext_resource type="BehaviorTree" uid="uid://b58tol6ty0ood" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_BehaviorTree.tres" id="4_edg5u"]
+[ext_resource type="PackedScene" uid="uid://d214m5mqgg6go" path="res://game_objects/items/heal_drop/HealDrop.tscn" id="4_tibjk"]
 [ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.tscn" id="5_8vmv1"]
 [ext_resource type="BlackboardPlan" uid="uid://dgl2lgd4in8ho" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_BlackboardPlanBase.tres" id="5_q46md"]
 [ext_resource type="Shape3D" uid="uid://l4jik3dqygxc" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_ShapeCast3D.tres" id="6_by3lr"]
@@ -789,6 +790,7 @@ collision_mask = 15
 script = ExtResource("1_dw4lx")
 ElementalTokenPackedScene = ExtResource("2_adyel")
 CoinPackedScene = ExtResource("3_idxjb")
+HealDropPackedScene = ExtResource("4_tibjk")
 VisitorAbilityDispatch = ExtResource("2_ckn5j")
 MonsterType = 1
 StatusInfoPackedScene = ExtResource("3_rja43")

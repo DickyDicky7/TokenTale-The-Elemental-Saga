@@ -116,14 +116,13 @@ public abstract partial class Monster : Character3D
     }
     protected virtual void SetupRatioRange()
     {
-        RatioRange.Add(08, "fire"    );
-        RatioRange.Add(16, "water"   );
-        RatioRange.Add(24, "wind"    );
-        RatioRange.Add(32, "ice"     );
-        RatioRange.Add(40, "electric");
-        RatioRange.Add(48, "earth"   );
-        RatioRange.Add(56, "wood"    );
-        RatioRange.Add(86, "heal"    );
+        RatioRange.Add(12, "fire"    );
+        RatioRange.Add(24, "water"   );
+        RatioRange.Add(36, "wind"    );
+        RatioRange.Add(48, "ice"     );
+        RatioRange.Add(60, "electric");
+        RatioRange.Add(72, "earth"   );
+        RatioRange.Add(84, "wood"    );
     }
     protected void SetupElementalTokenElementDict()
     {
@@ -138,38 +137,36 @@ public abstract partial class Monster : Character3D
     public void Drop()
     {
         string type = Helper.DecideBaseOnRange(this.RatioRange);
-        if (type == string.Empty)
-            return;
 
             DropManager
             dropManager=GetNode<
             DropManager        >
     ("/root/DropManager");
 
-        if (type != "heal")
+        if (type != string.Empty)
         {
             ElementalToken tempToken = this.ElementalTokenPackedScene.Instantiate<ElementalToken>();
             tempToken.Element = ElementalTokenElementDict[type];
             tempToken.GlobalPosition = new Vector3(
-                this.GlobalPosition.X - 0.03f,
+                this.GlobalPosition.X - 0.1f,
                 this.GlobalPosition.Y        ,
                 this.GlobalPosition.Z);
             dropManager.Add(tempToken);
         }
-        else
+        if (Helper.SuccessBaseOnRate(0.5f))
         {
-            HealDrop healDrop = this.HealDropPackedScene.Instantiate<HealDrop>();
-            healDrop.Position = new Vector3(
-                this.Position.X + 0.35f,
-                this.Position.Y,
-                this.Position.Z + 0.35f);
-            dropManager.Add(healDrop);
-        }
-        SoulOrCoin tempCoin = this.CoinPackedScene.Instantiate<SoulOrCoin>();
+			HealDrop healDrop = this.HealDropPackedScene.Instantiate<HealDrop>();
+			healDrop.GlobalPosition = new Vector3(
+				this.Position.X + 0.07f,
+				this.Position.Y,
+				this.Position.Z + 0.07f);
+			dropManager.Add(healDrop);
+		}
+		SoulOrCoin tempCoin = this.CoinPackedScene.Instantiate<SoulOrCoin>();
         tempCoin.GlobalPosition = new Vector3(
-            this.GlobalPosition.X + 0.02f,
+            this.GlobalPosition.X + 0.07f,
             this.GlobalPosition.Y        ,
-            this.GlobalPosition.Z - 0.02f);
+            this.GlobalPosition.Z - 0.07f);
         dropManager.Add(tempCoin);
     }
 }

@@ -20,6 +20,7 @@ public partial class UiControl : PanelContainer
 		this.UIList.Add(TrackingScreen);
 		this.UIList.Add(ShoppingScreen);
 		this.UIList.Add(ControlBoard);
+		this.ControlBoard.VisibilityChanged += OnControlBoardVisibilityChanged;
 	}
 	public override void _Input(InputEvent @event)
 	{
@@ -35,10 +36,12 @@ public partial class UiControl : PanelContainer
 					{
 						this.CurrentActiveUI = this.TrackingScreen;
 						TurnOffOtherUI();
+						GetTree().Paused = true;
 					}
 					else
 					{
 						this.CurrentActiveUI = null;
+						GetTree().Paused = false;
 					}
 				}
 				if (inputEventKey.Keycode == Key.B)
@@ -48,10 +51,12 @@ public partial class UiControl : PanelContainer
 					{
 						this.CurrentActiveUI = this.ShoppingScreen;
 						TurnOffOtherUI();
+						GetTree().Paused = true;
 					}
 					else
 					{
 						this.CurrentActiveUI = null;
+						GetTree().Paused = false;
 					}
 				}
 				if (inputEventKey.Keycode == Key.Escape)
@@ -60,11 +65,13 @@ public partial class UiControl : PanelContainer
 					{
 						this.ControlBoard.Visible = true;
 						this.CurrentActiveUI = ControlBoard;
+						GetTree().Paused = true;
 					}
 					else
 					{
 						this.CurrentActiveUI.Visible = false;
 						this.CurrentActiveUI = null;
+						GetTree().Paused = false;
 					}
 				}
 			}
@@ -77,6 +84,14 @@ public partial class UiControl : PanelContainer
 			if (controlItem == CurrentActiveUI)
 				continue;
 			controlItem.Visible = false;
+		}
+	}
+	private void OnControlBoardVisibilityChanged()
+	{
+		if (this.ControlBoard.Visible is false)
+		{
+			this.CurrentActiveUI = null;
+			GetTree().Paused = false;
 		}
 	}
 }

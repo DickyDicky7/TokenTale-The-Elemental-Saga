@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" path="res://UI/UiControl.cs" id="1_xr2k4"]
 
-[node name="UIControl" type="PanelContainer" node_paths=PackedStringArray("MainCharacterHUDController", "TrackingScreen", "ShoppingScreen", "ControlBoard")]
+[node name="UIControl" type="PanelContainer"]
+process_mode = 3
 self_modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,7 +11,3 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xr2k4")
-MainCharacterHUDController = NodePath("")
-TrackingScreen = NodePath("")
-ShoppingScreen = NodePath("")
-ControlBoard = NodePath("")

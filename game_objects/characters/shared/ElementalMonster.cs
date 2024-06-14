@@ -12,17 +12,17 @@ public abstract partial class ElementalMonster : Monster
     {
         get; set;
     }
-	private int[] FireRatioRange = { 38, 44, 50, 56, 62, 68, 74, 100 };
-	private int[] WaterRatioRange = { 6, 44, 50, 56, 62, 68, 74, 100 };
-	private int[] WindRatioRange = { 6, 12, 50, 56, 62, 68, 74, 100 };
-	private int[] IceRatioRange = { 6, 12, 18, 56, 62, 68, 74, 100 };
-	private int[] ElectricRatioRange = { 6, 12, 18, 24, 62, 68, 74, 100 };
-	private int[] EarthRatioRange = { 6, 12, 18, 24, 30, 68, 74, 100 };
-	private int[] WoodRatioRange = { 6, 12, 18, 24, 30, 36, 74, 100 };
+	private int[] FireRatioRange = { 50, 58, 66, 74, 82, 90, 98 };
+	private int[] WaterRatioRange = { 8, 58, 66, 74, 82, 90, 98 };
+	private int[] WindRatioRange = { 8, 16, 66, 74, 82, 90, 98 };
+	private int[] IceRatioRange = { 8, 16, 24, 74, 82, 90, 98 };
+	private int[] ElectricRatioRange = { 8, 16, 24, 32, 82, 90, 98 };
+	private int[] EarthRatioRange = { 8, 16, 24, 32, 40, 90, 98 };
+	private int[] WoodRatioRange = { 8, 16, 24, 32, 40, 48, 98 };
 	private Godot.Collections.Dictionary<Global.Element, int[]> ElementRatioRange { get; set; } = new();
 	protected override void SetupRatioRange()
 	{
-		string[] tempStrings = { "fire", "water", "wind", "ice", "electric", "earth", "wood", "heal" };
+		string[] tempStrings = { "fire", "water", "wind", "ice", "electric", "earth", "wood" };
 		int[] tempRatioRange = ElementRatioRange[this.Element];
 		foreach(int i in Enumerable.Range(0, tempRatioRange.Length))
 		{

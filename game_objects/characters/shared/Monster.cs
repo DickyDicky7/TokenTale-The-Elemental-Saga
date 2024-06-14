@@ -38,17 +38,17 @@ public abstract partial class Monster : Character3D
     public abstract void AcceptVisitor(EnemiesVisitor visitor);
     public virtual void CreateAbility(string abilityName, MainCharacter targetMainCharacter)
     {
-		Ability3D tempAbility = this
-			.AbilityPackedScenes[abilityName]
-			.Instantiate<Ability3D>();
-		tempAbility.Attach(
-			this.NavigationRegion3DStatic,
-			this,
-			NavigationRegion3DStatic.ToLocal(this.GlobalPosition),
-			NavigationRegion3DStatic.ToLocal(targetMainCharacter.GlobalPosition));
-	}
-	public override float CalculateElementalDamage(Ability3D ability, Character3D targetCharacter)
-	{
+        Ability3D tempAbility = this
+            .AbilityPackedScenes[abilityName]
+            .Instantiate<Ability3D>();
+        tempAbility.Attach(
+            this.NavigationRegion3DStatic,
+            this,
+            NavigationRegion3DStatic.ToLocal(this.GlobalPosition),
+            NavigationRegion3DStatic.ToLocal(targetMainCharacter.GlobalPosition));
+    }
+    public override float CalculateElementalDamage(Ability3D ability, Character3D targetCharacter)
+    {
         float damage = 0;
         if (targetCharacter is not MainCharacter)
             return damage;
@@ -56,7 +56,7 @@ public abstract partial class Monster : Character3D
         BaseDH elementalReactionDH = null;
         if (targetCharacter.ElementMark == Global.Element.None)
         {
-			targetCharacter.ElementMark = ability.Element;
+            targetCharacter.ElementMark = ability.Element;
         }
         else
         {
@@ -72,19 +72,19 @@ public abstract partial class Monster : Character3D
         targetCharacter.StatusInfo.Items.Add(
             new StatusInfoItemElemental {Element = ability.Element, Thing = $"-{damage}" });
         return damage;
-	}
-	public override float CalculatePhysicsDamage(Character3D targetCharacter)
-	{
-		float damage = 0;
-		if (targetCharacter is not MainCharacter)
-			return damage;
+    }
+    public override float CalculatePhysicsDamage(Character3D targetCharacter)
+    {
+        float damage = 0;
+        if (targetCharacter is not MainCharacter)
+            return damage;
         damage = this.CurrentDamage;
-		damage = (float)Math.Round(damage, 2);
-		targetCharacter.StatusInfo.Items.Add(
+        damage = (float)Math.Round(damage, 2);
+        targetCharacter.StatusInfo.Items.Add(
             new StatusInfoItemHurt { Thing = $"-{damage}" });
         return damage;
-	}
-	public void UpdateStats()
+    }
+    public void UpdateStats()
     {
         Record.MonsterInfo MonsterInfo = MonsterStats.GetInstance()
             .Monster[this.Key];
@@ -94,57 +94,64 @@ public abstract partial class Monster : Character3D
         this.Damage = MonsterInfo.BaseDamage * Difficulty.MonsterBaseDamageRatio;
         this.MaxHealth = MonsterInfo.BaseMaxHealth * Difficulty.MonsterMaxHealthRatio;
         this.MaxSpeed = MonsterInfo.BaseMoveSpeed;
-	}
-	public override void _Ready()
-	{
-		base._Ready();
+    }
+    public override void _Ready()
+    {
+        base._Ready();
         //init ability resource
         VisitorAbilityDispatch.Init();
         this.AcceptVisitor(this.VisitorAbilityDispatch);
         //update stats base on difficulty
         this.DifficultyChanged += this.UpdateStats;
-		UpdateStats();
-		this.CurrentHealth = this.MaxHealth;
-		this.CurrentSpeed = this.MaxSpeed;
-		this.CurrentDamage = this.Damage;
+        UpdateStats();
+        this.CurrentHealth = this.MaxHealth;
+        this.CurrentSpeed = this.MaxSpeed;
+        this.CurrentDamage = this.Damage;
         //setup for dropping
         this.SetupRatioRange();
         this.SetupElementalTokenElementDict();
-	}
+    }
     protected virtual void SetupRatioRange()
     {
-        RatioRange.Add(8, "fire");
-		RatioRange.Add(16, "water");
-		RatioRange.Add(24, "wind");
-		RatioRange.Add(32, "ice");
-		RatioRange.Add(40, "electric");
-		RatioRange.Add(48, "earth");
-		RatioRange.Add(56, "wood");
-		RatioRange.Add(86, "heal");
-	}
+        RatioRange.Add(08, "fire"    );
+        RatioRange.Add(16, "water"   );
+        RatioRange.Add(24, "wind"    );
+        RatioRange.Add(32, "ice"     );
+        RatioRange.Add(40, "electric");
+        RatioRange.Add(48, "earth"   );
+        RatioRange.Add(56, "wood"    );
+        RatioRange.Add(86, "heal"    );
+    }
     protected void SetupElementalTokenElementDict()
     {
-        ElementalTokenElementDict.Add("fire", Global.Element.Fire);
-		ElementalTokenElementDict.Add("water", Global.Element.Water);
-		ElementalTokenElementDict.Add("wind", Global.Element.Wind);
-		ElementalTokenElementDict.Add("ice", Global.Element.Ice);
-		ElementalTokenElementDict.Add("electric", Global.Element.Electric);
-		ElementalTokenElementDict.Add("earth", Global.Element.Earth);
-		ElementalTokenElementDict.Add("wood", Global.Element.Wood);
-	}
-	public void Drop()
+        ElementalTokenElementDict.Add("fire"    , Global.Element.Fire    );
+        ElementalTokenElementDict.Add("water"   , Global.Element.Water   );
+        ElementalTokenElementDict.Add("wind"    , Global.Element.Wind    );
+        ElementalTokenElementDict.Add("ice"     , Global.Element.Ice     );
+        ElementalTokenElementDict.Add("electric", Global.Element.Electric);
+        ElementalTokenElementDict.Add("earth"   , Global.Element.Earth   );
+        ElementalTokenElementDict.Add("wood"    , Global.Element.Wood    );
+    }
+    public void Drop()
     {
         string type = Helper.DecideBaseOnRange(this.RatioRange);
         if (type == string.Empty)
             return;
-		if (type != "heal")
+
+            DropManager
+            dropManager=GetNode<
+            DropManager        >
+    ("/root/DropManager");
+
+        if (type != "heal")
         {
             ElementalToken tempToken = this.ElementalTokenPackedScene.Instantiate<ElementalToken>();
             tempToken.Element = ElementalTokenElementDict[type];
-            tempToken.Position = new Vector3(
-                this.Position.X - 0.5f,
-                this.Position.Y,
-                this.Position.Z);
+            tempToken.GlobalPosition = new Vector3(
+                this.GlobalPosition.X - 0.03f,
+                this.GlobalPosition.Y        ,
+                this.GlobalPosition.Z);
+            dropManager.Add(tempToken);
         }
         else
         {
@@ -155,9 +162,10 @@ public abstract partial class Monster : Character3D
                 this.Position.Z + 0.35f);
         }
         SoulOrCoin tempCoin = this.CoinPackedScene.Instantiate<SoulOrCoin>();
-        tempCoin.Position = new Vector3(
-            this.Position.X + 0.35f,
-            this.Position.Y,
-            this.Position.Z - 0.35f);
+        tempCoin.GlobalPosition = new Vector3(
+            this.GlobalPosition.X + 0.02f,
+            this.GlobalPosition.Y        ,
+            this.GlobalPosition.Z - 0.02f);
+        dropManager.Add(tempCoin);
     }
 }

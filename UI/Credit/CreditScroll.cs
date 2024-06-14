@@ -3,6 +3,8 @@ using System;
 namespace TokenTaleTheElementalSaga;
 public partial class CreditScroll : ScrollContainer
 {
+	[Export]
+	public SceneManager SceneManager { get; set; }
 	private int PreviousScrollV { get; set; } = 0;
 	public override void _Ready()
 	{
@@ -14,7 +16,7 @@ public partial class CreditScroll : ScrollContainer
 		this.ScrollVertical += 1;
 		if (this.ScrollVertical == this.PreviousScrollV)
 		{
-			
+			SceneManager.ChangeScene("Start");
 		}
 		this.PreviousScrollV = this.ScrollVertical;
 	}

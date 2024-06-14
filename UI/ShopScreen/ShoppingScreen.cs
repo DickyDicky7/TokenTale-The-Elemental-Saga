@@ -39,4 +39,12 @@ public partial class ShoppingScreen : PanelContainer
 			}
 		}
 	}
+	public override void _Process(double delta)
+	{
+		base._Process(delta);
+		if (IsInstanceValid(Viewer))
+		{
+			this.ProcessMode = ProcessModeEnum.Disabled;
+		}
+	}
 }

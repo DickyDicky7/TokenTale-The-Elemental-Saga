@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://tu5y8jwt5lms"]
+[gd_scene load_steps=3 format=3 uid="uid://tu5y8jwt5lms"]
 
 [ext_resource type="Script" path="res://UI/StartScreen/StartScreen.cs" id="1_xkii4"]
+[ext_resource type="PackedScene" uid="uid://dep44c8tafo6x" path="res://UI/SceneManager.tscn" id="2_2la8s"]
 
 [node name="PanelContainer" type="PanelContainer" node_paths=PackedStringArray("StartButton", "SandBoxButton", "CreditButton")]
 anchors_preset = 15
@@ -74,3 +75,7 @@ size_flags_vertical = 3
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="SceneManager" parent="." instance=ExtResource("2_2la8s")]
+visible = false
+layout_mode = 2

@@ -20,7 +20,7 @@ public partial class MapArea : Node3D
     {
         get;
         set;
-    }
+    } = [ ];
 
     [Export]
     public Array<MapExitsToCommand>
@@ -28,7 +28,15 @@ public partial class MapArea : Node3D
     {
         get;
         set;
-    }
+    } = [ ];
+
+    [Export]
+    public Array<MapSpawnAreaToCommand>
+                 MapSpawnAreaToCommand
+    {
+        get;
+        set;
+    } = [ ];
 
     public void Setup()
     {
@@ -38,8 +46,20 @@ public partial class MapArea : Node3D
             map.Initial       (    MapSystem , this    );
             map.ConnectSignals(                        );
         }
+        foreach (MapSpawnAreaToCommand
+                 map         in
+                 MapSpawnAreaToCommand)
+        {
+            map.Initial       (    MapSystem , this    );
+            map.ConnectSignals(                        );
+        }
     }
 }
+
+
+
+
+
 
 
 

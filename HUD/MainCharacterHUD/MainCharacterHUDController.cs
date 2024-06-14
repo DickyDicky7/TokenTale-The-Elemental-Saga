@@ -33,6 +33,10 @@ public partial class MainCharacterHUDController : Control
 	public override void _Process(double delta)
 	{
 		base._Process(delta);
+		if (IsInstanceValid(MainCharacter) is false)
+		{
+			this.ProcessMode = ProcessModeEnum.Disabled;
+		}
 	}
 	private void OnHealthChanged(float damage)
 	{

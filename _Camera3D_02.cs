@@ -26,6 +26,8 @@ public partial class _Camera3D_02 : Camera3D
     public float FovWhenHasZoomedIn { get; set; } = 65.0f;
     [Export]
     public float FovWhenNotZoomedIn { get; set; } = 75.0f;
+    [Export]
+    public double @DurationZoomedIn { get; set; } = 00.1d;
 
     public override void _Ready()
     {
@@ -48,7 +50,7 @@ public partial class _Camera3D_02 : Camera3D
             {
                 Tween tween =
                 CreateTween();
-                tween.TweenProperty(this, "fov", FovWhenHasZoomedIn, 0.5d)
+                tween.TweenProperty(this, "fov", FovWhenHasZoomedIn, @DurationZoomedIn)
                      .SetEase (EType)
                      .SetTrans(TType);
             }
@@ -60,7 +62,7 @@ public partial class _Camera3D_02 : Camera3D
             {
                 Tween tween =
                 CreateTween();
-                tween.TweenProperty(this, "fov", FovWhenNotZoomedIn, 0.5d)
+                tween.TweenProperty(this, "fov", FovWhenNotZoomedIn, @DurationZoomedIn)
                      .SetEase (EType)
                      .SetTrans(TType);
             }
@@ -72,12 +74,13 @@ public partial class _Camera3D_02 : Camera3D
     {
                     base._PhysicsProcess(       @delta);
 
-        if (FollowTarget is null)
+        if (!IsInstanceValid(@FollowTarget        )
+        ||                   @FollowTarget is null)
             return;
 
-        float x = Mathf.Lerp(GlobalPosition.X, FollowTarget.GlobalPosition.X           , LerpWeight);
-        float y = Mathf.Lerp(GlobalPosition.Y, FollowTarget.GlobalPosition.Y + Offset.Y, LerpWeight);
-        float z = Mathf.Lerp(GlobalPosition.Z, FollowTarget.GlobalPosition.Z + Offset.Z, LerpWeight);
+        float x = Mathf.Lerp(GlobalPosition.X, @FollowTarget.GlobalPosition.X           , LerpWeight);
+        float y = Mathf.Lerp(GlobalPosition.Y, @FollowTarget.GlobalPosition.Y + Offset.Y, LerpWeight);
+        float z = Mathf.Lerp(GlobalPosition.Z, @FollowTarget.GlobalPosition.Z + Offset.Z, LerpWeight);
         GlobalPosition =
         GlobalPosition with
         {

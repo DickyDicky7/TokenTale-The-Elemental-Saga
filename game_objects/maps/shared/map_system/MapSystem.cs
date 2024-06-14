@@ -23,6 +23,9 @@ public partial class MapSystem : Node
         set;
     }
 
+    [Export]
+    public Node ScreenTransition { get; set; }
+
     public enum AvailableMapArea
     {
             BEACH_01,
@@ -85,7 +88,12 @@ public partial class MapSystem : Node
     }
 
     [Export]
-    MainCharacter MainCharacter;
+    public MainCharacter
+           MainCharacter
+    {
+        get;
+        set;
+    }
 
     public override void _Ready()
     {
@@ -102,10 +110,19 @@ public partial class MapSystem : Node
                    MainCharacter.GlobalPosition =
             mapArea.Entrances[0].GlobalPosition ;
 
+                  AvailableMapArea
+                    currentMapArea =
+System.Enum.Parse<AvailableMapArea>(
+                  ((string)mapArea.Name).ToUpper().Insert(
+                  ((string)mapArea.Name).Length - 2 , "_"));
+
         Environment.AmbientLightColor
-                   =AmbientLightColors[(int)System.Enum.Parse<AvailableMapArea>(
-                       ((string)mapArea.Name).ToUpper().Insert(
-                       ((string)mapArea.Name).Length - 2 , "_"))];
+                   =AmbientLightColors[(int)currentMapArea];
+
+
+            GetNode<DropManager>("/root/DropManager")
+                   .                        CurrentMapArea
+                   =                        currentMapArea ;
         }
     }
 
@@ -142,6 +159,18 @@ try
 
             Environment.AmbientLightColor
                        =AmbientLightColors[(int)@nextMapArea];
+
+            ScreenTransition
+                       .Call              ("switch_map_area");
+
+            DropManager
+            dropManager=GetNode<
+            DropManager        >
+    ("/root/DropManager");
+            dropManager.Save() ;
+            dropManager.CurrentMapArea
+                       =   nextMapArea;
+            dropManager.Load() ;
         }
 }
 catch
@@ -149,7 +178,29 @@ catch
 
 }
     }
+
+    public void RegisterMonster(
+                        Monster
+                       @monster)
+    {
+                       @monster.NavigationRegion3DStatic = MapAreaPlaceHolder;
+    }
+
+    //public override void _Process(double @delta)
+    //{
+    //                base._Process(       @delta);
+
+
+    //}
 }
+
+
+
+
+
+
+
+
 
 
 

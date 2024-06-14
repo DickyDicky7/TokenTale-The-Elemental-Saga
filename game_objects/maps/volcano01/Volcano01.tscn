@@ -111,7 +111,7 @@ size = Vector3(0.4, 0.7, 0)
 margin = 0.05
 size = Vector3(1, 1.5, 0.6)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2fvwa"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_or263"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("6_u1qoy")
@@ -146,7 +146,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_2fvwa"),
+"material": SubResource("ShaderMaterial_or263"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -238,7 +238,7 @@ sgt_follow_normal = false
 metadata/SimpleGrassTextured = "2.0.3"
 
 [node name="SpawnArea00" type="VisibleOnScreenNotifier3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 3.024, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 3.025, 1)
 aabb = AABB(-0.5, 0, -0.5, 1, 0, 1)
 
 [node name="Timer" type="Timer" parent="SpawnArea00"]

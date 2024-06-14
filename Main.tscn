@@ -1,13 +1,11 @@
-[gd_scene load_steps=58 format=3 uid="uid://w3dkcnkmaulo"]
+[gd_scene load_steps=56 format=3 uid="uid://w3dkcnkmaulo"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_px6f3"]
 [ext_resource type="Environment" uid="uid://jjpsnd6sbvf2" path="res://Main_Environment.tres" id="2_vpqwg"]
 [ext_resource type="NavigationMesh" uid="uid://bavo3q5ti3quw" path="res://Main_NavigationRegion3D_$Static_NavigationMesh.tres" id="4_6741o"]
 [ext_resource type="PackedScene" uid="uid://cwhrbtjfm2cpc" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp.tscn" id="4_hlmyl"]
 [ext_resource type="BoxMesh" uid="uid://b20wxu1h50rh3" path="res://BackgroundPlatform_Mesh_New.tres" id="5_3awld"]
-[ext_resource type="QuadMesh" uid="uid://b18ltm5xt45do" path="res://game_objects/shared/len/Len_Mesh.tres" id="5_kmewh"]
 [ext_resource type="PackedScene" uid="uid://d1jlh0uaim28w" path="res://game_objects/abilities/tornado/Tornado.tscn" id="5_rpfgl"]
-[ext_resource type="Script" path="res://_Camera3D_.cs" id="6_1l5gg"]
 [ext_resource type="Shape3D" uid="uid://d1662gxfic631" path="res://BackgroundPlatform_CollisionShape3D_New.tres" id="6_7i2yr"]
 [ext_resource type="PackedScene" uid="uid://dsw38xnjyq7yu" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur.tscn" id="7_2coyl"]
 [ext_resource type="NavigationMesh" uid="uid://boq0kec5xjj3f" path="res://Main_NavigationRegion3D_Dynamic_NavigationMesh.tres" id="7_gtwip"]
@@ -154,39 +152,6 @@ WeaponsController = NodePath("Weapons(_Controller_)")
 NavigationAgent3D = NodePath("NavigationAgent3D")
 NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
 MainCharacterAnimatedSprite3DEffect = NodePath("AnimatedSprite3D_Effect")
-
-[node name="Camera3D" type="Camera3D" parent="MainCharacter"]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 11, 3, 2)
-top_level = true
-visible = false
-projection = 1
-size = 4.0
-far = 5.0
-script = ExtResource("6_1l5gg")
-
-[node name="Len" type="MeshInstance3D" parent="MainCharacter/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
-visible = false
-mesh = ExtResource("5_kmewh")
-
-[node name="MainCharacterHUD" parent="MainCharacter/Camera3D" node_paths=PackedStringArray("MainCharacter", "HealthBar", "SwordHUD", "BowHUD", "BraceletHUDs", "CoinLabel") instance=ExtResource("11_cyovv")]
-visible = false
-MainCharacter = NodePath("../..")
-HealthBar = NodePath("HBoxContainer/VBoxContainer/HealthBar")
-SwordHUD = NodePath("HBoxContainer/VBoxContainer/MarginContainer/WeaponHUD/SwordHUD2")
-BowHUD = NodePath("HBoxContainer/VBoxContainer/MarginContainer/WeaponHUD/BowHUD2")
-BraceletHUDs = [NodePath("HBoxContainer/VBoxContainer/MarginContainer2/ElementalHUD"), NodePath("HBoxContainer/VBoxContainer/MarginContainer3/ElementalHUD")]
-CoinLabel = NodePath("HBoxContainer/VBoxContainer2/HBoxContainer/Label")
-
-[node name="TrackingScreen" parent="MainCharacter/Camera3D" node_paths=PackedStringArray("Viewer") instance=ExtResource("12_gn6r5")]
-visible = false
-Viewer = NodePath("../..")
-
-[node name="ShoppingScreen" parent="MainCharacter/Camera3D" node_paths=PackedStringArray("Viewer", "ShopItemContainer", "TrackingScreen") instance=ExtResource("13_2we43")]
-visible = false
-Viewer = NodePath("../..")
-ShopItemContainer = NodePath("ScrollContainer/MarginContainer/GridContainer")
-TrackingScreen = NodePath("../TrackingScreen")
 
 [node name="StatusInfo" parent="MainCharacter" node_paths=PackedStringArray("Sprite3D", "Label", "Timer") instance=ExtResource("11_siwmd")]
 visible = false
@@ -393,12 +358,13 @@ BowHUD = NodePath("HBoxContainer/VBoxContainer/MarginContainer/WeaponHUD/BowHUD2
 BraceletHUDs = [NodePath("HBoxContainer/VBoxContainer/MarginContainer2/ElementalHUD"), NodePath("HBoxContainer/VBoxContainer/MarginContainer3/ElementalHUD")]
 CoinLabel = NodePath("HBoxContainer/VBoxContainer2/HBoxContainer/Label")
 
-[node name="TrackingScreen" parent="Camera3D" node_paths=PackedStringArray("Viewer") instance=ExtResource("12_gn6r5")]
+[node name="TrackingScreen" parent="Camera3D" node_paths=PackedStringArray("Viewer", "ShoppingScreen") instance=ExtResource("12_gn6r5")]
 visible = false
 Viewer = NodePath("../../MainCharacter")
+ShoppingScreen = NodePath("../ShoppingScreen")
 
 [node name="ShoppingScreen" parent="Camera3D" node_paths=PackedStringArray("Viewer", "ShopItemContainer", "TrackingScreen") instance=ExtResource("13_2we43")]
 visible = false
 Viewer = NodePath("../../MainCharacter")
 ShopItemContainer = NodePath("ScrollContainer/MarginContainer/GridContainer")
-TrackingScreen = NodePath("../../MainCharacter/Camera3D/TrackingScreen")
+TrackingScreen = NodePath("../TrackingScreen")

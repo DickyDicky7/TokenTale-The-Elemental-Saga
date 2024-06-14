@@ -110,7 +110,7 @@ size = Vector3(1, 1, 0)
 [sub_resource type="BoxShape3D" id="BoxShape3D_wsnio"]
 margin = 0.05
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0r8at"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b8b8m"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("6_02fwm")
@@ -145,7 +145,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_0r8at"),
+"material": SubResource("ShaderMaterial_b8b8m"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -239,7 +239,7 @@ sgt_follow_normal = false
 metadata/SimpleGrassTextured = "2.0.3"
 
 [node name="SpawnArea00" type="VisibleOnScreenNotifier3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3.465, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3.466, 0)
 aabb = AABB(-0.5, 0, -0.5, 1, 0, 1)
 
 [node name="Timer" type="Timer" parent="SpawnArea00"]

@@ -124,6 +124,9 @@ System.Enum.Parse<AvailableMapArea>(
                    .                        CurrentMapArea
                    =                        currentMapArea ;
         }
+
+        //
+MainCharacter.NavigationRegion3DStatic = MapAreaPlaceHolder;
     }
 
     public void SwitchToMapArea             (

@@ -12,10 +12,13 @@ public partial class Game : Node3D
         get;
         set;
     }
-    [Export]
-    public SceneManager SceneManager { get; set; }
-
-    public override void _Process(double @delta)
+    private SceneManager SceneManager { get; set; }
+	public override void _Ready()
+	{
+		base._Ready();
+        this.SceneManager = GetNode<SceneManager>("/root/SceneManager");
+	}
+	public override void _Process(double @delta)
     {
                     base._Process(       @delta);
 

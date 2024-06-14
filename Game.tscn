@@ -18,6 +18,13 @@ ScreenTransition = NodePath("ScreenTransition$$")
 MapAreaPlaceHolder = NodePath("NavigationRegion3D")
 MainCharacter = NodePath("../MainCharacter")
 
+[node name="MainCharacter" parent="." node_paths=PackedStringArray("HUDController", "WeaponsController", "NavigationAgent3D", "MainCharacterAnimatedSprite3DEffect") instance=ExtResource("2_m5dub")]
+floor_max_angle = 1.5708
+HUDController = NodePath("../Cam$era3D/MainCharacterHUD")
+WeaponsController = NodePath("Weapons(_Controller_)")
+NavigationAgent3D = NodePath("NavigationAgent3D")
+MainCharacterAnimatedSprite3DEffect = NodePath("AnimatedSprite3D_Effect")
+
 [node name="Cam$era3D" type="Camera3D" parent="." node_paths=PackedStringArray("FollowTarget")]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 2, 2)
 size = 4.0
@@ -47,10 +54,3 @@ visible = false
 Viewer = NodePath("../../MainCharacter")
 ShopItemContainer = NodePath("ScrollContainer/MarginContainer/GridContainer")
 TrackingScreen = NodePath("../TrackingScreen")
-
-[node name="MainCharacter" parent="." node_paths=PackedStringArray("HUDController", "WeaponsController", "NavigationAgent3D", "MainCharacterAnimatedSprite3DEffect") instance=ExtResource("2_m5dub")]
-floor_max_angle = 1.5708
-HUDController = NodePath("../Cam$era3D/MainCharacterHUD")
-WeaponsController = NodePath("Weapons(_Controller_)")
-NavigationAgent3D = NodePath("NavigationAgent3D")
-MainCharacterAnimatedSprite3DEffect = NodePath("AnimatedSprite3D_Effect")

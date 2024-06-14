@@ -9,13 +9,13 @@ public partial class StartScreen : PanelContainer
 	public Button SandBoxButton { get; set; }
 	[Export]
 	public Button CreditButton { get; set; }
-	[Export]
-	public SceneManager SceneManager { get; set; }
+	private SceneManager SceneManager { get; set; }
 	public override void _Ready()
 	{
 		base._Ready();
 		this.CreditButton.Pressed += SwitchToCredit;
 		this.StartButton.Pressed += SwitchToGame;
+		this.SceneManager = GetNode<SceneManager>("/root/SceneManager");
 	}
 	private void SwitchToCredit()
 	{

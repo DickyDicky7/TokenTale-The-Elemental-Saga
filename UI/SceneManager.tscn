@@ -1,9 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dep44c8tafo6x"]
+[gd_scene load_steps=2 format=3 uid="uid://dep44c8tafo6x"]
 
 [ext_resource type="Script" path="res://UI/SceneManager.cs" id="1_bcu86"]
-[ext_resource type="PackedScene" uid="uid://tu5y8jwt5lms" path="res://UI/StartScreen/StartScreen.tscn" id="2_jdh8i"]
-[ext_resource type="PackedScene" uid="uid://uaotgh24xa7m" path="res://UI/Credit/Credit.tscn" id="3_1t2c1"]
-[ext_resource type="PackedScene" uid="uid://gd1yufmhml7p" path="res://Game.tscn" id="4_v0ub2"]
 
 [node name="SceneManager" type="PanelContainer"]
 self_modulate = Color(1, 1, 1, 0)
@@ -13,6 +10,3 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bcu86")
-StartScreen = ExtResource("2_jdh8i")
-CreditScreen = ExtResource("3_1t2c1")
-GameScreen = ExtResource("4_v0ub2")

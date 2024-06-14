@@ -3,12 +3,12 @@ using System;
 namespace TokenTaleTheElementalSaga;
 public partial class CreditScroll : ScrollContainer
 {
-	[Export]
-	public SceneManager SceneManager { get; set; }
+	private SceneManager SceneManager { get; set; }
 	private int PreviousScrollV { get; set; } = 0;
 	public override void _Ready()
 	{
 		base._Ready();
+		this.SceneManager = GetNode<SceneManager>("/root/SceneManager");
 	}
 	public override void _Process(double delta)
 	{

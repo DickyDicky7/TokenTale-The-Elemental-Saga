@@ -501,7 +501,7 @@ sprite_frames = ExtResource("1_n3j5a")
 animation = &"DEAD"
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 shape = ExtResource("4_l0j8u")
 
 [node name="BT_______Player" type="BTPlayer" parent="."]

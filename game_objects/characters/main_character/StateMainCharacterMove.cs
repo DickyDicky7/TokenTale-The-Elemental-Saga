@@ -13,6 +13,10 @@ public partial class StateMainCharacterMove : State
     public State DashState { get; set; }
 
     [Export]
+    [ExportGroup("Transition ##")]
+    public State DeadState { get; set; }
+
+    [Export]
     [ExportGroup("Components @@")]
     public MainCharacter MainCharacter { get; set; }
 
@@ -54,6 +58,17 @@ public partial class StateMainCharacterMove : State
         RayCast3D>(nameof(
         RayCast3D )      );
         RayCast3D.AddExceptionRid(MainCharacter.GetRid());
+
+        MainCharacter.HealthChange +=
+        MainCharacter_HealthChange;
+    }
+
+    public override void _Leave()
+    {
+        base         .   _Leave();
+
+        MainCharacter.HealthChange -=
+        MainCharacter_HealthChange;
     }
 
     public override void _Input(InputEvent @inputEvent)
@@ -102,7 +117,22 @@ public partial class StateMainCharacterMove : State
         }
 
     }
+
+    private void MainCharacter_HealthChange(float @damage)
+    {
+        if (     MainCharacter.             CurrentHealth <= 0.0f)
+        {
+            ChangeState(DeadState);
+        }
+    }
+
 }
+
+
+
+
+
+
 
 
 

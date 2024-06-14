@@ -30,7 +30,7 @@ public partial class StateMainCharacterLive : State
     {
                     base._Leave() ;
 
-        MainCharacter.HealthChange +=
+        MainCharacter.HealthChange -=
         MainCharacter_HealthChange;
     }
 

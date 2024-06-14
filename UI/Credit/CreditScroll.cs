@@ -3,12 +3,10 @@ using System;
 namespace TokenTaleTheElementalSaga;
 public partial class CreditScroll : ScrollContainer
 {
-	private SceneManager SceneManager { get; set; }
 	private int PreviousScrollV { get; set; } = 0;
 	public override void _Ready()
 	{
 		base._Ready();
-		this.SceneManager = GetNode<SceneManager>("/root/SceneManager");
 	}
 	public override void _Process(double delta)
 	{
@@ -16,7 +14,7 @@ public partial class CreditScroll : ScrollContainer
 		this.ScrollVertical += 1;
 		if (this.ScrollVertical == this.PreviousScrollV)
 		{
-			SceneManager.ChangeScene("Start");
+			GetTree().ChangeSceneToPacked(GD.Load<PackedScene>("res://UI/StartScreen/StartScreen.tscn"));
 		}
 		this.PreviousScrollV = this.ScrollVertical;
 	}

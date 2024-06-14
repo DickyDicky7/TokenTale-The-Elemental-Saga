@@ -98,8 +98,11 @@ public abstract partial class Monster : Character3D
     public override void _Ready()
     {
         base._Ready();
-        //init ability resource
-        VisitorAbilityDispatch.Init();
+
+        VisitorAbilityDispatch = VisitorAbilityDispatch.Duplicate(subresources: true) as EnemiesVisitor;
+
+		//init ability resource
+		VisitorAbilityDispatch.Init();
         this.AcceptVisitor(this.VisitorAbilityDispatch);
         //update stats base on difficulty
         this.DifficultyChanged += this.UpdateStats;
@@ -160,6 +163,7 @@ public abstract partial class Monster : Character3D
                 this.Position.X + 0.35f,
                 this.Position.Y,
                 this.Position.Z + 0.35f);
+            dropManager.Add(healDrop);
         }
         SoulOrCoin tempCoin = this.CoinPackedScene.Instantiate<SoulOrCoin>();
         tempCoin.GlobalPosition = new Vector3(

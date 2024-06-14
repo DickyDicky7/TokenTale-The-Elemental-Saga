@@ -2,7 +2,7 @@ using Godot;
 using System;
 namespace TokenTaleTheElementalSaga;
 [GlobalClass]
-public partial class HealDrop : Node3D
+public partial class HealDrop : Item3D
 {
 	[Export]
 	public Area3D HitBox { get; set; }

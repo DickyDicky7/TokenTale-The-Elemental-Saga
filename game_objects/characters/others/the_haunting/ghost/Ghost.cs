@@ -11,10 +11,10 @@ public partial class Ghost : Monster
     {
         float damage = targetMainCharacter  .  BoosterManager.MaxHealth   *  0.3f  ;
               damage = (float)Math.Round(damage, 2);
-        targetMainCharacter.CurrentHealth -= Damage;
+        targetMainCharacter.CurrentHealth -= damage;
         targetMainCharacter.EmitSignal(Character3D.SignalName.HealthChange, damage);
         targetMainCharacter.StatusInfo.Items.Add(
-              new StatusInfoItemHurt { Thing = $"-{damage}🩸" });
+              new StatusInfoItemHurt { Thing = $"-{damage}" });
         this.QueueFree();
     }
     

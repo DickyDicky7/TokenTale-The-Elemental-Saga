@@ -9,20 +9,23 @@ public partial class StartScreen : PanelContainer
 	public Button SandBoxButton { get; set; }
 	[Export]
 	public Button CreditButton { get; set; }
-	private SceneManager SceneManager { get; set; }
 	public override void _Ready()
 	{
 		base._Ready();
 		this.CreditButton.Pressed += SwitchToCredit;
 		this.StartButton.Pressed += SwitchToGame;
-		this.SceneManager = GetNode<SceneManager>("/root/SceneManager");
+		this.SandBoxButton.Pressed += SwitchToSandBox;
 	}
 	private void SwitchToCredit()
 	{
-		SceneManager.ChangeScene("Credit");
+		GetTree().ChangeSceneToPacked(GD.Load<PackedScene>("res://UI/Credit/CreditScreen.tscn"));
 	}
 	private void SwitchToGame()
 	{
-		SceneManager.ChangeScene("Game");
+		GetTree().ChangeSceneToPacked(GD.Load<PackedScene>("res://Game.tscn"));
+	}
+	private void SwitchToSandBox()
+	{
+		GetTree().ChangeSceneToPacked(GD.Load<PackedScene>("res://Main.tscn"));
 	}
 }

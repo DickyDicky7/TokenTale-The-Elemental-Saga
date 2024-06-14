@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://gd1yufmhml7p"]
+[gd_scene load_steps=10 format=3 uid="uid://gd1yufmhml7p"]
 
 [ext_resource type="Script" path="res://Game.cs" id="1_gycpf"]
 [ext_resource type="PackedScene" uid="uid://bnhb48jc0sx4w" path="res://game_objects/maps/shared/map_system/MapSystem.tscn" id="1_p4etb"]
@@ -6,7 +6,9 @@
 [ext_resource type="Script" path="res://_Camera3D_02.cs" id="2_rwd2k"]
 [ext_resource type="PackedScene" uid="uid://c76082smfjyg4" path="res://HUD/MainCharacterHUD/MainCharacterHUD.tscn" id="4_487iw"]
 [ext_resource type="PackedScene" uid="uid://o6cefw4r60gs" path="res://UI/TrackScreen/TrackingScreen.tscn" id="5_4wy0l"]
+[ext_resource type="PackedScene" uid="uid://cnn7tt1uxyh6j" path="res://UI/UIControl.tscn" id="5_55f4t"]
 [ext_resource type="PackedScene" uid="uid://bqp528howcdyc" path="res://UI/ShopScreen/ShoppingScreen.tscn" id="6_um4pm"]
+[ext_resource type="PackedScene" uid="uid://dmrr4ewlqykyd" path="res://UI/ControlBoard/ControlBoard.tscn" id="9_oes8f"]
 
 [node name="Game" type="Node3D" node_paths=PackedStringArray("MapSystem")]
 script = ExtResource("1_gycpf")
@@ -18,9 +20,8 @@ ScreenTransition = NodePath("ScreenTransition$$")
 MapAreaPlaceHolder = NodePath("NavigationRegion3D")
 MainCharacter = NodePath("../MainCharacter")
 
-[node name="MainCharacter" parent="." node_paths=PackedStringArray("HUDController", "WeaponsController", "NavigationAgent3D", "MainCharacterAnimatedSprite3DEffect") instance=ExtResource("2_m5dub")]
+[node name="MainCharacter" parent="." node_paths=PackedStringArray("WeaponsController", "NavigationAgent3D", "MainCharacterAnimatedSprite3DEffect") instance=ExtResource("2_m5dub")]
 floor_max_angle = 1.5708
-HUDController = NodePath("../Cam$era3D/MainCharacterHUD")
 WeaponsController = NodePath("Weapons(_Controller_)")
 NavigationAgent3D = NodePath("NavigationAgent3D")
 MainCharacterAnimatedSprite3DEffect = NodePath("AnimatedSprite3D_Effect")
@@ -36,21 +37,31 @@ FollowTarget = NodePath("../MainCharacter")
 FovWhenHasZoomedIn = 70.0
 DurationZoomedIn = 0.5
 
-[node name="MainCharacterHUD" parent="Cam$era3D" node_paths=PackedStringArray("MainCharacter", "HealthBar", "SwordHUD", "BowHUD", "BraceletHUDs", "CoinLabel") instance=ExtResource("4_487iw")]
-MainCharacter = NodePath("../../MainCharacter")
+[node name="UIControl" parent="Cam$era3D" node_paths=PackedStringArray("MainCharacterHUDController", "TrackingScreen", "ShoppingScreen", "ControlBoard") instance=ExtResource("5_55f4t")]
+visible = false
+MainCharacterHUDController = NodePath("../MainCharacterHUD")
+TrackingScreen = NodePath("../TrackingScreen")
+ShoppingScreen = NodePath("../ShoppingScreen")
+ControlBoard = NodePath("../ControlBoard")
+
+[node name="MainCharacterHUD" parent="Cam$era3D" node_paths=PackedStringArray("Viewer", "HealthBar", "SwordHUD", "BowHUD", "BraceletHUDs", "CoinLabel") instance=ExtResource("4_487iw")]
+Viewer = NodePath("../../MainCharacter")
 HealthBar = NodePath("HBoxContainer/VBoxContainer/HealthBar")
 SwordHUD = NodePath("HBoxContainer/VBoxContainer/MarginContainer/WeaponHUD/SwordHUD2")
 BowHUD = NodePath("HBoxContainer/VBoxContainer/MarginContainer/WeaponHUD/BowHUD2")
 BraceletHUDs = [NodePath("HBoxContainer/VBoxContainer/MarginContainer2/ElementalHUD"), NodePath("HBoxContainer/VBoxContainer/MarginContainer3/ElementalHUD")]
 CoinLabel = NodePath("HBoxContainer/VBoxContainer2/HBoxContainer/Label")
 
-[node name="TrackingScreen" parent="Cam$era3D" node_paths=PackedStringArray("Viewer", "ShoppingScreen") instance=ExtResource("5_4wy0l")]
+[node name="TrackingScreen" parent="Cam$era3D" node_paths=PackedStringArray("Viewer") instance=ExtResource("5_4wy0l")]
 visible = false
 Viewer = NodePath("../../MainCharacter")
-ShoppingScreen = NodePath("../ShoppingScreen")
 
-[node name="ShoppingScreen" parent="Cam$era3D" node_paths=PackedStringArray("Viewer", "ShopItemContainer", "TrackingScreen") instance=ExtResource("6_um4pm")]
+[node name="ShoppingScreen" parent="Cam$era3D" node_paths=PackedStringArray("Viewer", "ShopItemContainer") instance=ExtResource("6_um4pm")]
 visible = false
 Viewer = NodePath("../../MainCharacter")
 ShopItemContainer = NodePath("ScrollContainer/MarginContainer/GridContainer")
-TrackingScreen = NodePath("../TrackingScreen")
+
+[node name="ControlBoard" parent="Cam$era3D" node_paths=PackedStringArray("ResumeButton", "ExitButton") instance=ExtResource("9_oes8f")]
+visible = false
+ResumeButton = NodePath("MarginContainer/VBoxContainer/ResumeButton")
+ExitButton = NodePath("MarginContainer/VBoxContainer/ExitButton")

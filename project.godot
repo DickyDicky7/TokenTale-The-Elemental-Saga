@@ -21,7 +21,6 @@ BBVariable="*res://BBVariable.gd"
 Global="*res://Global.cs"
 SimpleGrass="*res://addons/simplegrasstextured/singleton.tscn"
 DropManager="*res://game_objects/items/DropManager.cs"
-SceneManager="*res://UI/SceneManager.cs"
 
 [display]
 

@@ -6,10 +6,12 @@ public partial class Cat : Monster
 {
     public override void Attack(MainCharacter targetMainCharacter)
     {
-        //int energyLost = (int)(targetMainCharacter.BoosterManager.MaxEnergy * 0.5);
-        //targetMainCharacter.CurrentEnergy -= energyLost;
-        //targetMainCharacter.StatusInfo.Items.Add(
-        //	new StatusInfoItemElemental { Element =  Global.Element.None, Thing = $"-{energyLost}⚡" });
+        int energyLost = (int)(targetMainCharacter.BoosterManager.MaxEnergy * 0.5);
+        ElementalBracelet bracelet = targetMainCharacter.WeaponsController.ChosenBracelet;
+		bracelet.CurrentEnergy -= energyLost;
+        bracelet.EmitSignal(ElementalBracelet.SignalName.Cast, bracelet.CurrentEnergy);
+        targetMainCharacter.StatusInfo.Items.Add(
+            new StatusInfoItemElemental { Element = Global.Element.None, Thing = $"-{energyLost}⚡" });
         this.QueueFree();
     }
 

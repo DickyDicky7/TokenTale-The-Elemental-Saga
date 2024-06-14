@@ -7,7 +7,7 @@ namespace TokenTaleTheElementalSaga;
 public partial class MainCharacterHUDController : Control
 {
 	[Export]
-	public MainCharacter MainCharacter { get; set; }
+	public MainCharacter Viewer { get; set; }
 	[Export]
 	public TextureProgressBar HealthBar { get; set; }
 	[Export]
@@ -23,17 +23,17 @@ public partial class MainCharacterHUDController : Control
 	public override void _Ready()
 	{
 		base._Ready();
-		this.WeaponController = MainCharacter.WeaponsController;
+		this.WeaponController = Viewer.WeaponsController;
 		SetupHealthBar();
 		SetupBraceletHUD();
 		SetupWeaponHUD();
-		this.CoinLabel.Text = MainCharacter.CurrentCoin.ToString();
-		this.MainCharacter.CoinChanged += OnCoinChanged;
+		this.CoinLabel.Text = Viewer.CurrentCoin.ToString();
+		this.Viewer.CoinChanged += OnCoinChanged;
 	}
 	public override void _Process(double delta)
 	{
 		base._Process(delta);
-		if (IsInstanceValid(MainCharacter) is false)
+		if (IsInstanceValid(Viewer) is false)
 		{
 			this.ProcessMode = ProcessModeEnum.Disabled;
 		}
@@ -41,7 +41,7 @@ public partial class MainCharacterHUDController : Control
 	private void OnHealthChanged(float damage)
 	{
 		if (damage != 0)
-			this.HealthBar.Value = MainCharacter.CurrentHealth;
+			this.HealthBar.Value = Viewer.CurrentHealth;
 	}
 	private void OnMaxHealthChanged(float newMaxHealth)
 	{
@@ -49,10 +49,10 @@ public partial class MainCharacterHUDController : Control
 	}
 	private void SetupHealthBar()
 	{
-		this.MainCharacter.HealthChange += OnHealthChanged;
-		this.HealthBar.MaxValue = MainCharacter.MaxHealth;
-		this.HealthBar.Value = MainCharacter.CurrentHealth;
-		this.MainCharacter.BoosterManager.HeartChanged += OnMaxHealthChanged;
+		this.Viewer.HealthChange += OnHealthChanged;
+		this.HealthBar.MaxValue = Viewer.MaxHealth;
+		this.HealthBar.Value = Viewer.CurrentHealth;
+		this.Viewer.BoosterManager.HeartChanged += OnMaxHealthChanged;
 	}
 	private void SetupWeaponHUD()
 	{
@@ -81,7 +81,7 @@ public partial class MainCharacterHUDController : Control
 		{
 			BraceletHUDs[i].Partner = WeaponController.Bracelets[i];
 			BraceletHUDs[i].Setup(
-				MainCharacter.BoosterManager.MaxEnergy,
+				Viewer.BoosterManager.MaxEnergy,
 				WeaponController.ChosenBracelet);
 			BraceletHUDs[i].PartnerChosen += OnNewChosenBracelet;
 		}

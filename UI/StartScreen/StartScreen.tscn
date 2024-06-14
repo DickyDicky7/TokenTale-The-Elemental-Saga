@@ -1,14 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://tu5y8jwt5lms"]
 
+[ext_resource type="Theme" uid="uid://bwqflcodrwqii" path="res://UI/ui_theme_2.tres" id="1_hhavv"]
 [ext_resource type="Script" path="res://UI/StartScreen/StartScreen.cs" id="1_xkii4"]
-[ext_resource type="PackedScene" uid="uid://dep44c8tafo6x" path="res://UI/SceneManager.tscn" id="2_2la8s"]
 
-[node name="PanelContainer" type="PanelContainer" node_paths=PackedStringArray("StartButton", "SandBoxButton", "CreditButton")]
+[node name="StartScreen" type="PanelContainer" node_paths=PackedStringArray("StartButton", "SandBoxButton", "CreditButton")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_hhavv")
 script = ExtResource("1_xkii4")
 StartButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/StartButton")
 SandBoxButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SandBoxButton")
@@ -27,7 +28,6 @@ layout_mode = 2
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 64
 text = "Token Tale: The Elemental Saga"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -53,17 +53,14 @@ size_flags_vertical = 3
 
 [node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
 text = "Start"
 
 [node name="SandBoxButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
 text = "SandBox"
 
 [node name="CreditButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
 text = "Credit"
 
 [node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
@@ -75,7 +72,3 @@ size_flags_vertical = 3
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="SceneManager" parent="." instance=ExtResource("2_2la8s")]
-visible = false
-layout_mode = 2

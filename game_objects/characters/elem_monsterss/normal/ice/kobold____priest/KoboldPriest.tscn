@@ -382,7 +382,7 @@ sprite_frames = ExtResource("1_plsuf")
 animation = &"CAST"
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 shape = ExtResource("3_6xqyd")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Diagnostics.Contracts;
 
 namespace TokenTaleTheElementalSaga;
 
@@ -11,6 +12,8 @@ public abstract partial class Monster : Character3D
     public PackedScene ElementalTokenPackedScene { get; set; }
     [Export]
     public PackedScene CoinPackedScene { get; set; }
+    [Export]
+    public PackedScene HealDropPackedScene { get; set; }
     [Export]
     public EnemiesVisitor VisitorAbilityDispatch { get; set; }
     [Export]
@@ -139,18 +142,22 @@ public abstract partial class Monster : Character3D
             ElementalToken tempToken = this.ElementalTokenPackedScene.Instantiate<ElementalToken>();
             tempToken.Element = ElementalTokenElementDict[type];
             tempToken.Position = new Vector3(
-                this.Position.X - 3,
+                this.Position.X - 0.5f,
                 this.Position.Y,
                 this.Position.Z);
         }
         else
         {
-
+            HealDrop healDrop = this.HealDropPackedScene.Instantiate<HealDrop>();
+            healDrop.Position = new Vector3(
+                this.Position.X + 0.35f,
+                this.Position.Y,
+                this.Position.Z + 0.35f);
         }
         SoulOrCoin tempCoin = this.CoinPackedScene.Instantiate<SoulOrCoin>();
         tempCoin.Position = new Vector3(
-            this.Position.X + 2,
+            this.Position.X + 0.35f,
             this.Position.Y,
-            this.Position.Z - 2);
+            this.Position.Z - 0.35f);
     }
 }

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ord0iu607aaq"
+path="res://.godot/imported/Cafeteria.wav-d4c4c32b0373bb76fe98a25689b9264a.sample"
+
+[deps]
+
+source_file="res://game_asset_s/butterfly - looped ambience sounds pack/butterfly - looped ambience sounds pack/Cafeteria.wav"
+dest_files=["res://.godot/imported/Cafeteria.wav-d4c4c32b0373bb76fe98a25689b9264a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cgx0hqd0gt14l"
+path="res://.godot/imported/Dark Cave.wav-13c01f372702cd00ec6af4f3a7feda3f.sample"
+
+[deps]
+
+source_file="res://game_asset_s/butterfly - looped ambience sounds pack/butterfly - looped ambience sounds pack/Dark Cave.wav"
+dest_files=["res://.godot/imported/Dark Cave.wav-13c01f372702cd00ec6af4f3a7feda3f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

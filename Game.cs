@@ -12,9 +12,20 @@ public partial class Game : Node3D
         get;
         set;
     }
+    [Export]
+    public AudioStream
+           BGM
+    {
+        get;
+        set;
+    }
     public override void _Ready()
     {
                     base._Ready();
+
+        GetNode<SoundManagerBGM_______>  (
+$"/root/{nameof(SoundManagerBGM_______)}").CrossfadeTo(BGM);
+
     }
     public override void _Process(double @delta)
     {
@@ -25,3 +36,4 @@ public partial class Game : Node3D
 
     }
 }
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://da0vo8ll2gr8e"]
+[gd_scene load_steps=33 format=3 uid="uid://da0vo8ll2gr8e"]
 
 [ext_resource type="Script" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton.cs" id="1_dw4lx"]
 [ext_resource type="PackedScene" uid="uid://c7i7emx3rn41l" path="res://game_objects/items/elemental_token/ElementalToken.tscn" id="2_adyel"]
@@ -16,7 +16,9 @@
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="7_4xr46"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="8_gbxey"]
 [ext_resource type="Script" path="res://game_objects/shared/Hurtbox3D.cs" id="9_win7c"]
+[ext_resource type="AudioStream" uid="uid://c3b7hwjendbh2" path="res://game_asset_s/Audio/Retro Sounds 2/Audio/hurt1.ogg" id="10_g4onr"]
 [ext_resource type="PackedScene" uid="uid://bb7ues43wabc1" path="res://game_objects/shared/indicator/Indicator.tscn" id="11_2khnn"]
+[ext_resource type="AudioStream" uid="uid://cy007f1wib0ek" path="res://game_asset_s/Audio/Retro Sounds 2/Audio/hurt3.ogg" id="11_t24fa"]
 
 [sub_resource type="Animation" id="Animation_oe52o"]
 length = 0.65
@@ -95,6 +97,30 @@ tracks/5/keys = {
 "args": [0.65, 0.1, false],
 "method": &"PlayDeadEffect"
 }]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer:stream")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_g4onr")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_f2xqb"]
@@ -239,6 +265,30 @@ tracks/4/keys = {
 "args": [0.4, 0.1, false],
 "method": &"PlayHurtEffect"
 }]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer:stream")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("11_t24fa")]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_5klus"]
@@ -879,3 +929,6 @@ autostart = true
 
 [node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
 aabb = AABB(-0.1, 0, -0.1, 0.2, 0.3, 0.2)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_g4onr")

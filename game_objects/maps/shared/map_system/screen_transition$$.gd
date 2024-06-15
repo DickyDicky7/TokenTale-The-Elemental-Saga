@@ -2,7 +2,7 @@ extends Node;
 
 @export var bleed_amplitude = 3.0;
 
-func _ready():	
+func _ready() -> void:
 	$PostProcess.configuration = PostProcessingConfiguration.new();
 	$PostProcess.configuration.Vignette          = true;
 	$PostProcess.configuration.VignetteIntensity = 0.00;

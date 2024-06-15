@@ -72,6 +72,14 @@ public partial class MapSystem : Node
     } = [ ];
 
     [Export]
+    public Array< AudioStream >
+           AmbientAudioStreams
+    {
+        get;
+        set;
+    } = [ ];
+
+    [Export]
     public Array<Character3D>
                  Characters
     {
@@ -126,6 +134,9 @@ System.Enum.Parse<AvailableMapArea>(
 
             CurrentMapArea =
                    mapArea ;
+
+            GetNode<SoundManagerBGMAmbient>  (
+    $"/root/{nameof(SoundManagerBGMAmbient)}").CrossfadeTo(AmbientAudioStreams[(int)currentMapArea]);
         }
 
         //
@@ -180,6 +191,9 @@ try
 
             CurrentMapArea =
                    mapArea ;
+
+            GetNode<SoundManagerBGMAmbient>  (
+    $"/root/{nameof(SoundManagerBGMAmbient)}").CrossfadeTo(AmbientAudioStreams[(int)@nextMapArea]);
         }
 }
 catch

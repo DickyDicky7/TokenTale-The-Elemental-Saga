@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://u16qad10a485"]
+[gd_scene load_steps=27 format=3 uid="uid://u16qad10a485"]
 
 [ext_resource type="SpriteFrames" uid="uid://0kbvt2fcohxa" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster_SpriteFrames_$Main$.tres" id="1_1wafb"]
 [ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster.cs" id="1_x2fgj"]
@@ -16,6 +16,9 @@
 [ext_resource type="BehaviorTree" uid="uid://b2bpmha480eof" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster_BehaviorTree.tres" id="7_l33ya"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="8_q3e8a"]
 [ext_resource type="Script" path="res://game_objects/shared/Hurtbox3D.cs" id="9_rsvg4"]
+[ext_resource type="AudioStream" uid="uid://b1n5ic1qfa64o" path="res://game_asset_s/Audio/Retro Sounds 1/Audio/laser4.ogg" id="10_24mf6"]
+[ext_resource type="AudioStream" uid="uid://briwxviumndrf" path="res://game_asset_s/Audio/Retro Sounds 2/Audio/hurt5.ogg" id="10_d4w2i"]
+[ext_resource type="AudioStream" uid="uid://bapymsdem3l8t" path="res://game_asset_s/Audio/Retro Sounds 2/Audio/hurt2.ogg" id="10_i3e8p"]
 [ext_resource type="PackedScene" uid="uid://bb7ues43wabc1" path="res://game_objects/shared/indicator/Indicator.tscn" id="11_nsql4"]
 
 [sub_resource type="Animation" id="Animation_odyw3"]
@@ -91,6 +94,30 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 0, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer:stream")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_24mf6")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_y27f8"]
@@ -171,6 +198,30 @@ tracks/5/keys = {
 "method": &"PlayDeadEffect"
 }]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer:stream")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_d4w2i")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_eykw2"]
 length = 0.333333
@@ -235,6 +286,30 @@ tracks/4/keys = {
 "args": [0.33, 0.1, false],
 "method": &"PlayHurtEffect"
 }]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer:stream")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_i3e8p")]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_jh0ta"]
@@ -370,6 +445,7 @@ debug_enabled = true
 [node name="AnimatedSprite3D_$Main$" type="AnimatedSprite3D" parent="."]
 cast_shadow = 0
 offset = Vector2(0, 28)
+flip_h = true
 texture_filter = 0
 sprite_frames = ExtResource("1_1wafb")
 animation = &"CHARGE"
@@ -379,6 +455,7 @@ animation = &"CHARGE"
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 cast_shadow = 3
 offset = Vector2(0, 28)
+flip_h = true
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_1wafb")
@@ -419,7 +496,6 @@ debug_shape_custom_color = Color(0, 0, 1, 1)
 process_mode = 4
 script = ExtResource("7_b48je")
 Sprites = [NodePath("../AnimatedSprite3D_$Main$"), NodePath("../AnimatedSprite3D_Shadow")]
-FlipH = true
 FlipHInverted = true
 
 [node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
@@ -447,3 +523,6 @@ shape = ExtResource("3_dqny3")
 
 [node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
 aabb = AABB(-0.1, 0, -0.1, 0.2, 0.4, 0.2)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_24mf6")

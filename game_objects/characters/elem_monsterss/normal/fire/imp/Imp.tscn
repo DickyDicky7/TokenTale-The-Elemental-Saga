@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cwhrbtjfm2cpc"]
+[gd_scene load_steps=26 format=3 uid="uid://cwhrbtjfm2cpc"]
 
 [ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp.cs" id="1_41j3n"]
 [ext_resource type="SpriteFrames" uid="uid://bqs28pblt174t" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_SpriteFrames_$Main$.tres" id="1_n3j5a"]
@@ -14,8 +14,10 @@
 [ext_resource type="Script" path="res://game_objects/shared/Hurtbox3D.cs" id="9_8173t"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="9_ts5ll"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="10_mu3ir"]
+[ext_resource type="AudioStream" uid="uid://briwxviumndrf" path="res://game_asset_s/Audio/Retro Sounds 2/Audio/hurt5.ogg" id="12_0frni"]
 [ext_resource type="BehaviorTree" uid="uid://diju3wt86axt4" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_BehaviorTree.tres" id="12_hk2im"]
 [ext_resource type="PackedScene" uid="uid://bb7ues43wabc1" path="res://game_objects/shared/indicator/Indicator.tscn" id="12_k4s0b"]
+[ext_resource type="AudioStream" uid="uid://bapymsdem3l8t" path="res://game_asset_s/Audio/Retro Sounds 2/Audio/hurt2.ogg" id="13_2dm8n"]
 [ext_resource type="PackedScene" uid="uid://chwjmy7grdej" path="res://game_objects/shared/status_info/StatusInfo.tscn" id="14_vdc28"]
 
 [sub_resource type="Animation" id="Animation_wq24f"]
@@ -120,6 +122,30 @@ tracks/7/keys = {
 "method": &"PlayDeadEffect"
 }]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AudioStreamPlayer:stream")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_0frni")]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("AudioStreamPlayer:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_nk2xw"]
 length = 0.4
@@ -208,6 +234,30 @@ tracks/6/keys = {
 "args": [0.4, 0.1, false],
 "method": &"PlayHurtEffect"
 }]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer:stream")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("13_2dm8n")]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AudioStreamPlayer:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_3i683"]
@@ -491,6 +541,7 @@ offset = Vector2(0, 12)
 texture_filter = 0
 sprite_frames = ExtResource("1_n3j5a")
 animation = &"DEAD"
+autoplay = "THROW"
 
 [node name="HitsFlashingByModulate" parent="AnimatedSprite3D_$Main$" instance=ExtResource("3_5ej0u")]
 
@@ -564,3 +615,6 @@ shape = ExtResource("4_l0j8u")
 
 [node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
 aabb = AABB(-0.06, 0, -0.06, 0.12, 0.12, 0.12)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_0frni")

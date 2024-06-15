@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://yfbwbxquk1v"]
+[gd_scene load_steps=30 format=3 uid="uid://yfbwbxquk1v"]
 
 [ext_resource type="SpriteFrames" uid="uid://c8gw1rkf7dxbk" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops_SpriteFrames_$Main$.tres" id="1_1rf3k"]
 [ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops.cs" id="1_qkaly"]
@@ -16,6 +16,8 @@
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="7_0akb0"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="8_2pmn5"]
 [ext_resource type="Script" path="res://game_objects/shared/Hurtbox3D.cs" id="10_fyf3p"]
+[ext_resource type="AudioStream" uid="uid://briwxviumndrf" path="res://game_asset_s/Audio/Retro Sounds 2/Audio/hurt5.ogg" id="10_oeepd"]
+[ext_resource type="AudioStream" uid="uid://bapymsdem3l8t" path="res://game_asset_s/Audio/Retro Sounds 2/Audio/hurt2.ogg" id="11_32cem"]
 [ext_resource type="PackedScene" uid="uid://bb7ues43wabc1" path="res://game_objects/shared/indicator/Indicator.tscn" id="11_h0w1s"]
 
 [sub_resource type="Animation" id="Animation_kk1d2"]
@@ -95,6 +97,30 @@ tracks/5/keys = {
 "args": [0.9, 0.1, false],
 "method": &"PlayDeadEffect"
 }]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer:stream")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_oeepd")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_lnfen"]
@@ -212,6 +238,30 @@ tracks/4/keys = {
 "method": &"PlayHurtEffect"
 }]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer:stream")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("11_32cem")]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_miire"]
 length = 0.5
@@ -276,6 +326,30 @@ tracks/4/keys = {
 "args": [0.5, 0.1, false],
 "method": &"PlayHurtEffect"
 }]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer:stream")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("11_32cem")]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_ngoxv"]
@@ -601,7 +675,7 @@ offset = Vector2(1.5, 32)
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_1rf3k")
-animation = &"DEAD"
+animation = &"HURT_2"
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
@@ -660,3 +734,6 @@ shape = ExtResource("3_n5lrr")
 
 [node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
 aabb = AABB(-0.1, 0, -0.1, 0.2, 0.4, 0.2)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_32cem")

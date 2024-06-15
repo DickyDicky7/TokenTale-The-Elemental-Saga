@@ -354,7 +354,6 @@ Key = 0
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("FollowTarget")]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 2, 2)
-projection = 1
 size = 4.0
 far = 5.0
 script = ExtResource("52_2qayr")

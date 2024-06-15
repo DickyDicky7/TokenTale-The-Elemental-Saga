@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://y1t0iubx8y1b"]
+[gd_scene load_steps=34 format=3 uid="uid://y1t0iubx8y1b"]
 
 [ext_resource type="Script" path="res://game_objects/characters/others/the_haunting/ghost/Ghost.cs" id="1_fppcc"]
 [ext_resource type="SpriteFrames" uid="uid://b0vb6jgcmi6na" path="res://game_objects/characters/others/the_haunting/ghost/Ghost_SpriteFrames_$Main$.tres" id="2_06es2"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="7_2bya4"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="8_vxgyj"]
 [ext_resource type="Script" path="res://game_objects/shared/Hurtbox3D.cs" id="9_t17ql"]
+[ext_resource type="AudioStream" uid="uid://c3b7hwjendbh2" path="res://game_asset_s/Audio/Retro Sounds 2/Audio/hurt1.ogg" id="10_ci73e"]
 [ext_resource type="PackedScene" uid="uid://bb7ues43wabc1" path="res://game_objects/shared/indicator/Indicator.tscn" id="11_r8bus"]
 
 [sub_resource type="Animation" id="Animation_hbvmw"]
@@ -95,6 +96,30 @@ tracks/5/keys = {
 "args": [1.3, 0.1, false],
 "method": &"PlayDeadEffect"
 }]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer:stream")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_ci73e")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_0b1nk"]
@@ -1027,3 +1052,5 @@ shape = ExtResource("3_7w274")
 
 [node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
 aabb = AABB(-0.1, 0, -0.1, 0.2, 0.3, 0.2)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

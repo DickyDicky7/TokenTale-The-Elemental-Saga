@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://gd1yufmhml7p"]
+[gd_scene load_steps=12 format=3 uid="uid://gd1yufmhml7p"]
 
 [ext_resource type="Script" path="res://Game.cs" id="1_gycpf"]
 [ext_resource type="PackedScene" uid="uid://bnhb48jc0sx4w" path="res://game_objects/maps/shared/map_system/MapSystem.tscn" id="1_p4etb"]
+[ext_resource type="AudioStream" uid="uid://bryxnbmrfe7xl" path="res://game_asset_s/Minifantasy_Dungeon_Music/Music/Goblins_Dance_(Battle).wav" id="2_d2g12"]
 [ext_resource type="PackedScene" uid="uid://c47tcwkeiq0h2" path="res://game_objects/characters/main_character/MainCharacter.tscn" id="2_m5dub"]
 [ext_resource type="Script" path="res://_Camera3D_02.cs" id="2_rwd2k"]
 [ext_resource type="Script" path="res://sub_viewport_container.gd" id="2_wxbwo"]
@@ -14,6 +15,7 @@
 [node name="Game" type="Node3D" node_paths=PackedStringArray("MapSystem")]
 script = ExtResource("1_gycpf")
 MapSystem = NodePath("SubViewportContainer/SubViewport/MapSystem")
+BGM = ExtResource("2_d2g12")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 anchors_preset = 15

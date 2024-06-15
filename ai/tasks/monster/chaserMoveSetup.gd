@@ -36,9 +36,9 @@ func _enter() -> void:
 	if (targetCharacter == null):
 		return
 	var distanceToTarget: float = Helper.ProjectVector3ToPlane(
-		currentCharacter.position, Vector3.UP).distance_to(
+		currentCharacter.global_position, Vector3.UP).distance_to(
 			Helper.ProjectVector3ToPlane(
-				targetCharacter.position, Vector3.UP))
+				targetCharacter.global_position, Vector3.UP))
 	readyToStrike = blackboard.get_var(BBVariable.ReadyToStrike)
 	match Type:
 		"APPROACH":
@@ -68,14 +68,14 @@ func _tick(_delta: float) -> Status:
 func FindMoveDestination(distanceToTarget: float) -> Vector3:
 	var destination: Vector3 = Vector3.ZERO
 	var mainVector: Vector3 = Helper.ProjectVector3ToPlane(
-		currentCharacter.position.direction_to(targetCharacter.position), 
+		currentCharacter.global_position.direction_to(targetCharacter.global_position), 
 		Vector3.UP)
 	var directionList: Array = Helper.CalculateMoveDirectionList(
 		mainVector,
 		priorityAngle)
 	var distance: float = FindMoveDistance(distanceToTarget) + navigationAgent3D.target_desired_distance
 	destination = Helper.CalculateMoveDestination(
-		currentCharacter.position,
+		currentCharacter.global_position,
 		distance,
 		directionList)
 	return destination;	

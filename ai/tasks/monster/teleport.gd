@@ -22,7 +22,7 @@ func _enter() -> void:
 	targetCharacter = blackboard.get_var(BBVariable.TargetCharacter)
 	destination = blackboard.get_var(BBVariable.Destination)
 	if (flipSprite3D != null):
-		if (destination.x <= targetCharacter.position.x):
+		if (destination.x <= targetCharacter.global_position.x):
 			flipSprite3D.FlipH = false
 		else:
 			flipSprite3D.FlipH = true
@@ -34,5 +34,5 @@ func _exit() -> void:
 func _tick(_delta: float) -> Status:
 	if (currentCharacter.IsStunning == true):
 		return FAILURE
-	currentCharacter.position = destination
+	currentCharacter.global_position = destination
 	return SUCCESS;

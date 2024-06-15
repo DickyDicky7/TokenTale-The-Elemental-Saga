@@ -43,15 +43,15 @@ func _tick(_delta: float) -> Status:
 	if (targetDesireDistanceXZ > navigationAgent3D.target_desired_distance):
 		return FAILURE
 	var currentPositionXZ: Vector2 = Vector2(
-		currentCharacter.position.x,
-		currentCharacter.position.z)
+		currentCharacter.global_position.x,
+		currentCharacter.global_position.z)
 	var distanceToTargetXZ: float = currentPositionXZ.distance_to(targetPostionXZ)
 	if (distanceToTargetXZ <= navigationAgent3D.target_desired_distance):
 		return SUCCESS
 	else: 
 		var nextDestination: Vector3 = navigationAgent3D.get_next_path_position()
 		if (flipSprite3D != null):
-			if (nextDestination.x <= currentCharacter.position.x):
+			if (nextDestination.x <= currentCharacter.global_position.x):
 				flipSprite3D.FlipH = true
 			else:
 				flipSprite3D.FlipH = false

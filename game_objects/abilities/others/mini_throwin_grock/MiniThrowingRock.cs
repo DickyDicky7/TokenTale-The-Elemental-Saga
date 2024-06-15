@@ -23,7 +23,7 @@ public partial class MiniThrowingRock : Ability3D
         get;
         set;
     }
-
+    private double ElapsedTime { get; set; } = 0.0d;
     public override void ChangeVisual(Vector3 @movingDirection)
     {
                     base.ChangeVisual(        @movingDirection);
@@ -86,6 +86,16 @@ public partial class MiniThrowingRock : Ability3D
         this.Speed = AbilityStats.Speed.Fast;
         this.DamageRatio = 1.0f;
     }
+	public override void _Process(double delta)
+	{
+		base._Process(delta);
+        this.ElapsedTime += delta;
+        if (this.ElapsedTime >= this.MovingDuration)
+        {
+			AnimationPlayer tempAP = this.GetNode("AnimationPlayer") as AnimationPlayer;
+            tempAP.Play("HIT");
+		}  
+	}
 }
 
 

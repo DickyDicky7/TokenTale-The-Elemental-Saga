@@ -164,57 +164,46 @@ Timer = NodePath("DelTimer")
 
 [node name="Imp" parent="." node_paths=PackedStringArray("NavigationRegion3DStatic") instance=ExtResource("4_hlmyl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1, -4)
-HealDropPackedScene = null
 NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
 
 [node name="Minotaur" parent="." node_paths=PackedStringArray("NavigationRegion3DStatic") instance=ExtResource("7_2coyl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, -4)
-HealDropPackedScene = null
 NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
 
 [node name="Cyclops" parent="." node_paths=PackedStringArray("NavigationRegion3DStatic") instance=ExtResource("10_ogacn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, -4)
-HealDropPackedScene = null
 NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
 
 [node name="Cat" parent="." node_paths=PackedStringArray("NavigationRegion3DStatic") instance=ExtResource("23_saaco")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, -4)
-HealDropPackedScene = null
 NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
 
 [node name="Skeleton" parent="." node_paths=PackedStringArray("NavigationRegion3DStatic") instance=ExtResource("12_8akbt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1, 4)
-HealDropPackedScene = null
 NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
 
 [node name="GhostRound" parent="." node_paths=PackedStringArray("NavigationRegion3DStatic") instance=ExtResource("13_e31qg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 0)
-HealDropPackedScene = null
 NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
 
 [node name="MetalMonster" parent="." node_paths=PackedStringArray("NavigationRegion3DStatic") instance=ExtResource("26_ynl1c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 4)
-HealDropPackedScene = null
 NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
 
 [node name="Bat" parent="." node_paths=PackedStringArray("NavigationRegion3DStatic") instance=ExtResource("15_c3vll")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, 4)
-HealDropPackedScene = null
 NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
 
 [node name="KoboldPriest" parent="." node_paths=PackedStringArray("NavigationRegion3DStatic") instance=ExtResource("16_ro6gg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 4)
-HealDropPackedScene = null
 NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
 
 [node name="HealTotem" parent="." node_paths=PackedStringArray("NavigationRegion3DStatic") instance=ExtResource("18_ujfjh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1, 0)
-HealDropPackedScene = null
 NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
 
 [node name="RatfolkMage" parent="." node_paths=PackedStringArray("NavigationRegion3DStatic") instance=ExtResource("30_ddnm6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, 0)
-HealDropPackedScene = null
 NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]

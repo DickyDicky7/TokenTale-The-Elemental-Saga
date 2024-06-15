@@ -1,13 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://dtm1w4b8kbx8t"]
+[gd_scene load_steps=16 format=3 uid="uid://dtm1w4b8kbx8t"]
 
 [ext_resource type="Script" path="res://game_objects/abilities/air_surge/AirSurge.cs" id="1_1psjk"]
 [ext_resource type="SpriteFrames" uid="uid://b30e66pvrhgxt" path="res://game_objects/abilities/air_surge/AirSurge_SpriteFrames.tres" id="1_t8oyk"]
 [ext_resource type="Material" uid="uid://t71ofl8t7tll" path="res://game_objects/abilities/air_surge/AirSurge_ParticleProcessMaterial.tres" id="2_e1dvs"]
 [ext_resource type="Texture2D" uid="uid://ysxny8g0qd3u" path="res://game_objects/abilities/air_surge/AirSurge_AnimatedTexture.tres" id="3_ni1xq"]
 [ext_resource type="BehaviorTree" uid="uid://byjbb1t3ra7av" path="res://game_objects/abilities/air_surge/AirSurge_BehaviorTree.tres" id="3_qbw3m"]
-[ext_resource type="Shape3D" path="res://game_objects/abilities/air_surge/AirSurge_CollisionShape3D_Hitbox_New.tres" id="5_2wnjc"]
+[ext_resource type="Shape3D" uid="uid://dt7lrp2po3kxk" path="res://game_objects/abilities/air_surge/AirSurge_CollisionShape3D_Hitbox_New.tres" id="5_2wnjc"]
 [ext_resource type="Script" path="res://game_objects/abilities/air_surge/AirSurgeHitbox.cs" id="5_3u0ah"]
 [ext_resource type="BlackboardPlan" uid="uid://dpdx4v6g2gyy6" path="res://game_objects/abilities/air_surge/AirSurge_BlackboardPlanBase.tres" id="6_u1pv5"]
+[ext_resource type="AudioStream" uid="uid://bopp5xpxxt57f" path="res://game_asset_s/Audio/Retro Sounds 2/Audio/explosion4.ogg" id="7_oba0i"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="8_attu0"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="9_dhfsf"]
 
@@ -187,6 +188,30 @@ tracks/6/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer:stream")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_oba0i")]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AudioStreamPlayer:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_3fs85"]
 length = 0.6
@@ -307,7 +332,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16, 0)
 cast_shadow = 0
 texture_filter = 0
 sprite_frames = ExtResource("1_t8oyk")
-animation = &"FLY"
+animation = &"HIT"
 
 [node name="AnimatedShadow3D" type="AnimatedSprite3D" parent="Visual"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.16, 0)
@@ -315,7 +340,7 @@ cast_shadow = 3
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_t8oyk")
-animation = &"FLY"
+animation = &"HIT"
 
 [node name="Hitbox" type="Area3D" parent="."]
 collision_layer = 32
@@ -325,6 +350,7 @@ script = ExtResource("5_3u0ah")
 [node name="CollisionShape3D_Hitbox" type="CollisionShape3D" parent="Hitbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16, 0)
 shape = ExtResource("5_2wnjc")
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -344,3 +370,6 @@ Sprites = [NodePath("../Visual/AnimatedSprite3D"), NodePath("../Visual/AnimatedS
 process_mode = 4
 script = ExtResource("9_dhfsf")
 Sprites = [NodePath("../Visual/AnimatedSprite3D")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_oba0i")

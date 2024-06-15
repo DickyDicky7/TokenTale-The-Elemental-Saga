@@ -54,7 +54,27 @@ public partial class MapArea : Node3D
             map.ConnectSignals(                        );
         }
     }
+
+ protected Aabb    BoundingBox { get; set; }
+ protected bool    Cached      { get; set; }
+    public Aabb GetBoundingBox()
+    {
+        if       (!Cached)
+        {
+                   Cached      =    true;
+                   BoundingBox = GetNode<StaticBody3D>
+                                 (nameof(StaticBody3D)).GetChild<MeshInstance3D>(idx: 0, includeInternal: false).GetAabb();
+        }
+    return         BoundingBox; 
+    }
 }
+
+
+
+
+
+
+
 
 
 

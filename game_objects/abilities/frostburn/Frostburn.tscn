@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bflyuqbbpqmkp"]
+[gd_scene load_steps=15 format=3 uid="uid://bflyuqbbpqmkp"]
 
 [ext_resource type="Script" path="res://game_objects/abilities/frostburn/Frostburn.cs" id="1_rnp3u"]
 [ext_resource type="SpriteFrames" uid="uid://ccvpdipgc4wqy" path="res://game_objects/abilities/frostburn/Frostburn_SpriteFrames.tres" id="2_pqyg2"]
@@ -7,6 +7,8 @@
 [ext_resource type="SpriteFrames" uid="uid://c7tliiflx177" path="res://game_objects/abilities/frostburn/Frostburn_SpriteFrames_Effect02.tres" id="4_243kp"]
 [ext_resource type="Script" path="res://game_objects/abilities/frostburn/FrostburnHitbox.cs" id="5_1038l"]
 [ext_resource type="Shape3D" uid="uid://dhfv2barpkiad" path="res://game_objects/abilities/frostburn/Frostburn_CollisionShape3D_Hitbox.tres" id="7_5jygr"]
+[ext_resource type="AudioStream" uid="uid://pvho0407r4h5" path="res://game_asset_s/Audio/Sci-Fi Sounds/Audio/lowFrequency_explosion_000.ogg" id="7_27k3i"]
+[ext_resource type="AudioStream" uid="uid://cxf644e17xedi" path="res://game_asset_s/Audio/Sci-Fi Sounds/Audio/lowFrequency_explosion_001.ogg" id="7_bqjum"]
 [ext_resource type="BlackboardPlan" uid="uid://bohqe83tjw5tw" path="res://game_objects/abilities/frostburn/Frostburn_BlackboardPlanBase.tres" id="7_lbovs"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="8_vg3oq"]
 
@@ -104,6 +106,30 @@ tracks/7/path = NodePath("Visual/AnimatedSprite3D_Effect02:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AudioStreamPlayer:stream")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_bqjum")]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("AudioStreamPlayer:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -223,6 +249,7 @@ Element = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Visual"]
+visible = false
 cast_shadow = 0
 offset = Vector2(0, 16)
 texture_filter = 0
@@ -230,6 +257,7 @@ sprite_frames = ExtResource("2_pqyg2")
 animation = &"HIT"
 
 [node name="AnimatedShadow3D" type="AnimatedSprite3D" parent="Visual"]
+visible = false
 cast_shadow = 3
 offset = Vector2(0, 16)
 alpha_cut = 2
@@ -239,7 +267,6 @@ animation = &"HIT"
 
 [node name="AnimatedSprite3D_Effect01" type="AnimatedSprite3D" parent="Visual"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-visible = false
 cast_shadow = 0
 texture_filter = 0
 render_priority = -1
@@ -248,7 +275,6 @@ animation = &"EFF"
 
 [node name="AnimatedSprite3D_Effect02" type="AnimatedSprite3D" parent="Visual"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-visible = false
 cast_shadow = 0
 texture_filter = 0
 render_priority = -1
@@ -277,3 +303,6 @@ blackboard_plan = ExtResource("7_lbovs")
 process_mode = 4
 script = ExtResource("8_vg3oq")
 Sprites = [NodePath("../Visual/AnimatedSprite3D")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_27k3i")

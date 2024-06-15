@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://game_objects/abilities/others/mini_ice_shard/MiniIceShard.cs" id="1_7ypri"]
 [ext_resource type="Material" uid="uid://b7w2cajik7c0m" path="res://game_objects/abilities/others/mini_ice_shard/MiniIceShard_ParticleProcessMaterial.tres" id="1_yxv7f"]
 [ext_resource type="Script" path="res://game_objects/abilities/others/mini_ice_shard/MIceShardHitbox.cs" id="4_y2c6k"]
-[ext_resource type="Shape3D" path="res://game_objects/abilities/others/mini_ice_shard/MiniIceShard_CollisionShape3D_Hitbox_New.tres" id="5_8vchv"]
+[ext_resource type="Shape3D" uid="uid://crgnjbmvy8ofx" path="res://game_objects/abilities/others/mini_ice_shard/MiniIceShard_CollisionShape3D_Hitbox_New.tres" id="5_8vchv"]
 [ext_resource type="BehaviorTree" uid="uid://jl4en6w4xvaa" path="res://game_objects/abilities/others/mini_ice_shard/MiniIceShard_BehaviorTree.tres" id="5_jpyis"]
 [ext_resource type="BlackboardPlan" uid="uid://bqa5ynktin3pp" path="res://game_objects/abilities/others/mini_ice_shard/MiniIceShard_BlackboardPlanBase.tres" id="5_kpjco"]
 
@@ -104,3 +104,6 @@ libraries = {
 [node name="BT_______Player" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("5_jpyis")
 blackboard_plan = ExtResource("5_kpjco")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+autoplay = true

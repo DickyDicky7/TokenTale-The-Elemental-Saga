@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://spukk1fjrqpv"]
+[gd_scene load_steps=13 format=3 uid="uid://spukk1fjrqpv"]
 
 [ext_resource type="QuadMesh" uid="uid://cqp0x0fiaadii" path="res://game_objects/abilities/others/mini_penetrating_squirt/MiniPenetratingSquirt_DrawPass01_Mesh.tres" id="1_gmj74"]
 [ext_resource type="Material" uid="uid://l7bik4b1k0b4" path="res://game_objects/abilities/others/mini_penetrating_squirt/MiniPenetratingSquirt_ParticleProcessMaterial.tres" id="1_ldqao"]
@@ -7,6 +7,7 @@
 [ext_resource type="BlackboardPlan" uid="uid://y1m2hav1l4nc" path="res://game_objects/abilities/others/mini_penetrating_squirt/MiniPenetratingSquirt_BlackboardPlanBase.tres" id="4_ejaqt"]
 [ext_resource type="Script" path="res://game_objects/abilities/others/mini_penetrating_squirt/MSquirtHitbox.cs" id="4_fn5my"]
 [ext_resource type="BehaviorTree" uid="uid://bgn5if7a8gll0" path="res://game_objects/abilities/others/mini_penetrating_squirt/MiniPenetratingSquirt_BehaviorTree.tres" id="4_lfu0y"]
+[ext_resource type="AudioStream" uid="uid://cq3occetw6dfx" path="res://game_asset_s/Audio/Foley Sounds/Audio/Water/sinkWater2.ogg" id="8_kvlvp"]
 
 [sub_resource type="Animation" id="Animation_f33vo"]
 resource_name = "@ON"
@@ -189,3 +190,7 @@ speed_scale = 5.0
 [node name="BT_______Player" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("4_lfu0y")
 blackboard_plan = ExtResource("4_ejaqt")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_kvlvp")
+autoplay = true

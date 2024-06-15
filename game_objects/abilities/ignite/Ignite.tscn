@@ -357,6 +357,30 @@ tracks/8/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("AudioStreamPlayer:stream")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("AudioStreamPlayer:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rorhu"]
 _data = {
@@ -373,19 +397,19 @@ script = ExtResource("1_tomac")
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Visual"]
 cast_shadow = 0
 offset = Vector2(0, 48)
-modulate = Color(1.5, 1, 1, 1)
+modulate = Color(1.5, 1, 1, 0)
 texture_filter = 0
 sprite_frames = ExtResource("2_g6bq7")
-animation = &"HIT_CEASE"
+animation = &"HIT_START"
 
 [node name="AnimatedShadow3D" type="AnimatedSprite3D" parent="Visual"]
 cast_shadow = 3
 offset = Vector2(0, 48)
-modulate = Color(1.5, 1, 1, 1)
+modulate = Color(1.5, 1, 1, 0)
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("2_g6bq7")
-animation = &"HIT_CEASE"
+animation = &"HIT_START"
 
 [node name="Hitbox" type="Area3D" parent="."]
 
@@ -406,3 +430,5 @@ blackboard_plan = ExtResource("4_ksr1t")
 process_mode = 4
 script = ExtResource("4_f6oov")
 Sprites = [NodePath("../Visual/AnimatedSprite3D")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

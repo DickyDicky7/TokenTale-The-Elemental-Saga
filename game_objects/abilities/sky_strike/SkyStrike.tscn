@@ -7,7 +7,7 @@
 [ext_resource type="SpriteFrames" uid="uid://cduf1f3sho35p" path="res://game_objects/abilities/sky_strike/SkyStrike_SpriteFrames_Effect2.tres" id="4_rd1g6"]
 [ext_resource type="Shape3D" uid="uid://bkvosauacb43d" path="res://game_objects/abilities/sky_strike/SkyStrike_CollisionShape3D_Hitbox.tres" id="6_1al21"]
 [ext_resource type="Script" path="res://game_objects/abilities/sky_strike/SkyStrikeHitbox.cs" id="6_yqu1m"]
-[ext_resource type="Shape3D" path="res://game_objects/abilities/sky_strike/SkyStrike_CollisionShape3D_ObRock.tres" id="7_2uwfi"]
+[ext_resource type="Shape3D" uid="uid://dov6vcbgnu4mn" path="res://game_objects/abilities/sky_strike/SkyStrike_CollisionShape3D_ObRock.tres" id="7_2uwfi"]
 [ext_resource type="BehaviorTree" uid="uid://db04qtvf251h7" path="res://game_objects/abilities/sky_strike/SkyStrike_BehaviorTree.tres" id="7_g8df4"]
 [ext_resource type="BlackboardPlan" uid="uid://bpi0s0eb4wjxo" path="res://game_objects/abilities/sky_strike/SkyStrike_BlackboardPlanBase.tres" id="7_u4n2a"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="8_q6hfs"]
@@ -408,3 +408,5 @@ blackboard_plan = ExtResource("7_u4n2a")
 process_mode = 4
 script = ExtResource("8_q6hfs")
 Sprites = [NodePath("../Visual/AnimatedSprite3D_Portal"), NodePath("../Visual/AnimatedSprite3D_Effect1"), NodePath("../Visual/Sprite3D"), NodePath("../Visual/AnimatedSprite3D_Effect2")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

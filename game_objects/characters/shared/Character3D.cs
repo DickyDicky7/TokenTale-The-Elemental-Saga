@@ -93,6 +93,14 @@ public abstract partial class Character3D : CharacterBody3D
         this.StatusInfo = StatusInfoPackedScene.Instantiate<StatusInfo>();
         this.AddChild  (  StatusInfo                                    );
         base._Ready();
+
+        //
+        NavigationAgent3D
+        navigationAgent3D  = GetNodeOrNull<NavigationAgent3D>
+                                   (nameof(NavigationAgent3D));
+    if (navigationAgent3D != null)
+        navigationAgent3D.DebugEnabled = false;
+        //
     }
     private void TimerReady()
     {

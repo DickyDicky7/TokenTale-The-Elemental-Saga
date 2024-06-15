@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b8rsg6nu8jxo1"]
+[gd_scene load_steps=13 format=3 uid="uid://b8rsg6nu8jxo1"]
 
 [ext_resource type="Script" path="res://game_objects/abilities/others/mini_blow_wind/MiniBlowWind.cs" id="1_si0bx"]
 [ext_resource type="QuadMesh" uid="uid://cbnw6saak2bph" path="res://game_objects/abilities/others/mini_blow_wind/MiniBlowWind_DrawPass01_Mesh.tres" id="2_g20gc"]
@@ -7,6 +7,7 @@
 [ext_resource type="Shape3D" uid="uid://dm4dgcp8lu853" path="res://game_objects/abilities/others/mini_blow_wind/MiniBlowWind_CollisionShape3D_Hitbox_New.tres" id="5_2jfgr"]
 [ext_resource type="BehaviorTree" uid="uid://dqqxwm6yjd6xd" path="res://game_objects/abilities/others/mini_blow_wind/MiniBlowWind_BehaviorTree.tres" id="5_6oujs"]
 [ext_resource type="BlackboardPlan" uid="uid://b1i8rghh110na" path="res://game_objects/abilities/others/mini_blow_wind/MiniBlowWind_BlackboardPlanBase.tres" id="5_yeo63"]
+[ext_resource type="AudioStream" uid="uid://bopp5xpxxt57f" path="res://game_asset_s/Audio/Retro Sounds 2/Audio/explosion4.ogg" id="6_iw80p"]
 
 [sub_resource type="Animation" id="Animation_0yiq4"]
 resource_name = "@ON"
@@ -58,6 +59,30 @@ tracks/1/path = NodePath("Hitbox/CollisionShape3D_Hitbox:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer:stream")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_iw80p")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -132,3 +157,6 @@ libraries = {
 [node name="BT_______Player" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("5_6oujs")
 blackboard_plan = ExtResource("5_yeo63")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_iw80p")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bqn2g5rr825g4"]
+[gd_scene load_steps=28 format=3 uid="uid://bqn2g5rr825g4"]
 
 [ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest.cs" id="1_g4x14"]
 [ext_resource type="SpriteFrames" uid="uid://b5w6psdxkqfdx" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest_SpriteFrames_$Main$.tres" id="1_plsuf"]
@@ -17,8 +17,10 @@
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="8_lmvd7"]
 [ext_resource type="Script" path="res://game_objects/shared/Hurtbox3D.cs" id="9_l7u76"]
 [ext_resource type="AudioStream" uid="uid://briwxviumndrf" path="res://game_asset_s/Audio/Retro Sounds 2/Audio/hurt5.ogg" id="10_2ocgu"]
+[ext_resource type="AudioStream" uid="uid://dl2e58201d54n" path="res://game_asset_s/Minifantasy_Dungeon_SFX/08_human_charge_2.wav" id="10_7myyf"]
 [ext_resource type="AudioStream" uid="uid://bapymsdem3l8t" path="res://game_asset_s/Audio/Retro Sounds 2/Audio/hurt2.ogg" id="11_8bkkt"]
 [ext_resource type="PackedScene" uid="uid://bb7ues43wabc1" path="res://game_objects/shared/indicator/Indicator.tscn" id="12_uo5h2"]
+[ext_resource type="AudioStream" uid="uid://pe2w7vq1x8k5" path="res://game_asset_s/Minifantasy_Dungeon_SFX/16_human_walk_stone_1.wav" id="13_t3qah"]
 
 [sub_resource type="Animation" id="Animation_n1ihx"]
 length = 0.8
@@ -93,6 +95,30 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer3D:stream")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_7myyf")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer3D:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_c103i"]
@@ -390,6 +416,30 @@ tracks/3/keys = {
 "update": 1,
 "values": ["MOVE"]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer3D:stream")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("13_t3qah")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer3D:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vj7jw"]
 _data = {
@@ -421,7 +471,7 @@ cast_shadow = 0
 offset = Vector2(0, 16)
 texture_filter = 0
 sprite_frames = ExtResource("1_plsuf")
-animation = &"HURT"
+animation = &"MOVE"
 
 [node name="HitsFlashingByModulate" parent="AnimatedSprite3D_$Main$" instance=ExtResource("2_cj2tq")]
 
@@ -431,7 +481,7 @@ offset = Vector2(0, 16)
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_plsuf")
-animation = &"HURT"
+animation = &"MOVE"
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
@@ -497,3 +547,12 @@ shape = ExtResource("3_6xqyd")
 aabb = AABB(-0.075, 0, -0.075, 0.15, 0.15, 0.15)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_t3qah")
+
+[node name="GroundDetector" type="Node3D" parent="."]
+
+[node name="RayCast3D" type="RayCast3D" parent="GroundDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.15, 0)
+target_position = Vector3(0, -0.2, 0)
+hit_from_inside = true
+collide_with_areas = true

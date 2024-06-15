@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cn6e4b8ejcnru"]
+[gd_scene load_steps=14 format=3 uid="uid://cn6e4b8ejcnru"]
 
 [ext_resource type="Script" path="res://game_objects/abilities/lightning/Lightning.cs" id="1_v6lla"]
 [ext_resource type="SpriteFrames" uid="uid://bb28sh36aknoq" path="res://game_objects/abilities/lightning/Lightning_SpriteFrames.tres" id="1_weg7p"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://game_objects/abilities/lightning/LightningHitbox.cs" id="5_e3uju"]
 [ext_resource type="BehaviorTree" uid="uid://bndh04gk1atcc" path="res://game_objects/abilities/lightning/Lightning_BehaviorTree.tres" id="6_0shj6"]
 [ext_resource type="BlackboardPlan" uid="uid://cv2ahqwcv6xwd" path="res://game_objects/abilities/lightning/Lightning_BlackboardPlanBase.tres" id="6_yx8y4"]
+[ext_resource type="AudioStream" uid="uid://5vojdi6ggoti" path="res://game_asset_s/Audio/Retro Sounds 2/Audio/explosion2.ogg" id="8_1qkxc"]
 
 [sub_resource type="Animation" id="Animation_3bl1f"]
 length = 0.65
@@ -79,6 +80,30 @@ tracks/5/path = NodePath("Visual/_GPU_Particles3D:one_shot")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer:stream")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_1qkxc")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -159,6 +184,30 @@ tracks/5/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer:stream")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_1qkxc")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gxi4r"]
 _data = {
@@ -219,3 +268,6 @@ blackboard_plan = ExtResource("6_yx8y4")
 process_mode = 4
 script = ExtResource("5_cwiri")
 Sprites = [NodePath("../Visual/AnimatedSprite3D")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_1qkxc")

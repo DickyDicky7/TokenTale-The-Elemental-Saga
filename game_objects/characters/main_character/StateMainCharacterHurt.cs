@@ -19,6 +19,24 @@ public partial class StateMainCharacterHurt : State
 
     [Export]
     [ExportGroup("Components @@")]
+    public AudioStreamPlayer
+           AudioStreamPlayer
+    {
+        get;
+        set;
+    }
+
+    [Export]
+    [ExportGroup("Components @@")]
+    public AudioStream
+           AudioStream
+    {
+        get;
+        set;
+    }
+
+    [Export]
+    [ExportGroup("Components @@")]
     public HitsFlashingByModulateGlowVersion
            HitsFlashingByModulateGlowVersion
     {
@@ -36,6 +54,11 @@ MainCharacter.        CreateTween();
         tween.TweenCallback(
                    Callable.From(() => ChangeState(SafeState)))
              .     SetDelay( 1.0f );
+
+        AudioStreamPlayer.Stream =
+        AudioStream              ;
+        AudioStreamPlayer.Play( );
+
     }
 }
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dmymcmqewv5c4"]
+[gd_scene load_steps=12 format=3 uid="uid://dmymcmqewv5c4"]
 
 [ext_resource type="Script" path="res://game_objects/abilities/serene_meadow/SereneMeadow.cs" id="1_5851y"]
 [ext_resource type="SpriteFrames" uid="uid://74mw55r73mxw" path="res://game_objects/abilities/serene_meadow/SereneMeadow_SpriteFrames.tres" id="2_1l66i"]
@@ -7,6 +7,7 @@
 [ext_resource type="BlackboardPlan" uid="uid://bxxop2ylakl8u" path="res://game_objects/abilities/serene_meadow/SereneMeadow_BlackboardPlanBase.tres" id="6_fbkjn"]
 [ext_resource type="Shape3D" uid="uid://pwovciwaxyw3" path="res://game_objects/abilities/serene_meadow/SereneMeadow_CollisionShape3D_Hitbox.tres" id="6_pgv85"]
 [ext_resource type="BehaviorTree" uid="uid://bxfl32sewhcdt" path="res://game_objects/abilities/serene_meadow/SereneMeadow_BehaviorTree.tres" id="6_vp146"]
+[ext_resource type="AudioStream" uid="uid://b5hnchi6ysqyi" path="res://game_asset_s/Audio/Retro Sounds 2/Audio/jump4.ogg" id="8_4u6g2"]
 
 [sub_resource type="Animation" id="Animation_xdwpq"]
 resource_name = "FADE"
@@ -156,3 +157,9 @@ libraries = {
 [node name="BT_______Player" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("6_vp146")
 blackboard_plan = ExtResource("6_fbkjn")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_4u6g2")
+pitch_scale = 0.5
+autoplay = true
+parameters/looping = true

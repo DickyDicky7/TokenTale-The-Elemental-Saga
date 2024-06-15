@@ -29,6 +29,14 @@ public partial class _Camera3D_02 : Camera3D
     [Export]
     public double @DurationZoomedIn { get; set; } = 00.1d;
 
+    [Export]
+    public MapSystem
+           MapSystem
+    {
+        get;
+        set;
+    }
+
     public override void _Ready()
     {
                     base._Ready()  ;
@@ -78,6 +86,8 @@ public partial class _Camera3D_02 : Camera3D
         ||                   @FollowTarget is null)
             return;
 
+        //Vector2 cameraSize = (Vector2)GetWindow().Size * 0.01f;
+
         float x = Mathf.Lerp(GlobalPosition.X, @FollowTarget.GlobalPosition.X           , LerpWeight);
         float y = Mathf.Lerp(GlobalPosition.Y, @FollowTarget.GlobalPosition.Y + Offset.Y, LerpWeight);
         float z = Mathf.Lerp(GlobalPosition.Z, @FollowTarget.GlobalPosition.Z + Offset.Z, LerpWeight);
@@ -90,6 +100,10 @@ public partial class _Camera3D_02 : Camera3D
         };
     }
 }
+
+
+
+
 
 
 

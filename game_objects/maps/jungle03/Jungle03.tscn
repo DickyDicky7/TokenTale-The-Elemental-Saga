@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://brminwmkx38no"]
+[gd_scene load_steps=46 format=4 uid="uid://brminwmkx38no"]
 
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapArea.cs" id="1_ftcvi"]
 [ext_resource type="ArrayMesh" uid="uid://eevtyr0yjm5b" path="res://modells/maps_origin/Jungle03.vox" id="1_vn844"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapExitsToCommand.cs" id="4_3jplx"]
 [ext_resource type="PackedScene" uid="uid://cyv12iosddo4f" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem.tscn" id="5_57nc7"]
 [ext_resource type="Shader" path="res://game_objects/water/Water.gdshader" id="6_1jqsx"]
+[ext_resource type="PackedScene" uid="uid://o436c4ahk6md" path="res://game_objects/characters/elem_monsterss/normal/water/ratfolk_mage/RatfolkMage.tscn" id="6_c4boi"]
 [ext_resource type="Script" path="res://game_objects/maps/StrategySpawnMonsterDefault.cs" id="6_yfwv5"]
 [ext_resource type="Script" path="res://game_objects/maps/CommandSpawnMonster.cs" id="7_qjs0u"]
 [ext_resource type="PackedScene" uid="uid://c4w8tue5how1h" path="res://game_objects/water_fall/WaterFall.tscn" id="7_snn7d"]
@@ -92,8 +93,8 @@ AllowableBodyTypes = ["MainCharacter"]
 
 [sub_resource type="Resource" id="Resource_cl5rw"]
 script = ExtResource("6_yfwv5")
-MonsterPackedScenes = [ExtResource("5_57nc7")]
-Threshold = 5
+MonsterPackedScenes = [ExtResource("5_57nc7"), ExtResource("6_c4boi")]
+Threshold = 6
 
 [sub_resource type="Resource" id="Resource_w2ijp"]
 script = ExtResource("7_qjs0u")
@@ -150,7 +151,7 @@ size = Vector2(6, 6)
 subdivide_width = 64
 subdivide_depth = 64
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_em7oy"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vsw1i"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("8_ex4gq")
@@ -185,7 +186,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_em7oy"),
+"material": SubResource("ShaderMaterial_vsw1i"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -298,7 +299,7 @@ metadata/SimpleGrassTextured = "2.0.3"
 
 [node name="SpawnArea00" type="VisibleOnScreenNotifier3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 2.017, 0)
-aabb = AABB(-0.5, 0, -0.5, 1, 0, 1)
+aabb = AABB(-0.5, 0, -1.5, 1, 0, 3)
 
 [node name="Timer" type="Timer" parent="SpawnArea00"]
 wait_time = 3.0

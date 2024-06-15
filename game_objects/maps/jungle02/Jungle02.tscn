@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://dkpkpw74268bm"]
+[gd_scene load_steps=48 format=4 uid="uid://dkpkpw74268bm"]
 
 [ext_resource type="ArrayMesh" uid="uid://dlohrkesgekhc" path="res://modells/maps_origin/Jungle02.vox" id="1_bs6n2"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapArea.cs" id="1_hvnhl"]
@@ -6,10 +6,12 @@
 [ext_resource type="Script" path="res://game_objects/maps/shared/CommandSwitchMapArea.cs" id="3_xm0b2"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapExitsToCommand.cs" id="4_k5fcr"]
 [ext_resource type="PackedScene" uid="uid://cyv12iosddo4f" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem.tscn" id="5_4elox"]
+[ext_resource type="PackedScene" uid="uid://o436c4ahk6md" path="res://game_objects/characters/elem_monsterss/normal/water/ratfolk_mage/RatfolkMage.tscn" id="6_612bs"]
 [ext_resource type="Shader" path="res://game_objects/water/Water.gdshader" id="6_pmy5y"]
 [ext_resource type="Script" path="res://game_objects/maps/StrategySpawnMonsterDefault.cs" id="6_vppor"]
 [ext_resource type="Script" path="res://game_objects/maps/CommandSpawnMonster.cs" id="7_d0h5e"]
 [ext_resource type="PackedScene" uid="uid://c4w8tue5how1h" path="res://game_objects/water_fall/WaterFall.tscn" id="7_l2sq8"]
+[ext_resource type="PackedScene" uid="uid://dsw38xnjyq7yu" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur.tscn" id="7_rrg0o"]
 [ext_resource type="Script" path="res://game_objects/maps/MapSpawnAreaToCommand.cs" id="8_b40gx"]
 [ext_resource type="Shader" path="res://addons/simplegrasstextured/shaders/grass.gdshader" id="8_eokoa"]
 [ext_resource type="Texture2D" uid="uid://bfv7jljbk8yta" path="res://game_asset_s/kenney_foliageSprites/PNG/Shaded/sprite_0074.png" id="9_w4dgd"]
@@ -77,8 +79,8 @@ AllowableBodyTypes = ["MainCharacter"]
 
 [sub_resource type="Resource" id="Resource_hondv"]
 script = ExtResource("6_vppor")
-MonsterPackedScenes = [ExtResource("5_4elox")]
-Threshold = 5
+MonsterPackedScenes = [ExtResource("5_4elox"), ExtResource("6_612bs"), ExtResource("7_rrg0o")]
+Threshold = 6
 
 [sub_resource type="Resource" id="Resource_dxi84"]
 script = ExtResource("7_d0h5e")
@@ -172,7 +174,7 @@ size = Vector2(1, 1)
 subdivide_width = 64
 subdivide_depth = 64
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_x8k1b"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gek63"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("8_eokoa")
@@ -207,7 +209,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_x8k1b"),
+"material": SubResource("ShaderMaterial_gek63"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -323,8 +325,8 @@ sgt_follow_normal = false
 metadata/SimpleGrassTextured = "2.0.3"
 
 [node name="SpawnArea00" type="VisibleOnScreenNotifier3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.513, 0)
-aabb = AABB(-0.5, 0, -0.5, 1, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 1.513, 0)
+aabb = AABB(-1.5, 0, -1.5, 3, 0, 3)
 
 [node name="Timer" type="Timer" parent="SpawnArea00"]
 wait_time = 3.0

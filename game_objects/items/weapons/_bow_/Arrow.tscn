@@ -1,14 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://bblgtm4r3038r"]
+[gd_scene load_steps=6 format=3 uid="uid://bblgtm4r3038r"]
 
 [ext_resource type="Script" path="res://game_objects/items/weapons/_bow_/Arrow.cs" id="1_vv4cg"]
 [ext_resource type="QuadMesh" uid="uid://b7iyhgic4ni34" path="res://game_objects/items/weapons/_bow_/Arrow_DrawPass01_Mesh.tres" id="2_djgwc"]
+[ext_resource type="AudioStream" uid="uid://boh7nfbhwn7ke" path="res://game_asset_s/Audio/Retro Sounds 2/Audio/hit1.ogg" id="2_pawub"]
 [ext_resource type="Material" uid="uid://bfi1p0jk171y3" path="res://game_objects/items/weapons/_bow_/Arrow_ParticleProcessMaterial.tres" id="2_ui0nr"]
 [ext_resource type="Shape3D" uid="uid://bsp2pe8out2i6" path="res://game_objects/items/weapons/_bow_/Arrow_CollisionShape3D_Hitbox.tres" id="4_4q51r"]
 
-[node name="Arrow" type="Node3D" node_paths=PackedStringArray("Hitbox", "GpuParticles3D")]
+[node name="Arrow" type="Node3D" node_paths=PackedStringArray("Hitbox", "GpuParticles3D", "AudioStreamPlayer")]
 script = ExtResource("1_vv4cg")
 Hitbox = NodePath("Hitbox")
 GpuParticles3D = NodePath("Visual/$GPU$Particles3D")
+AudioStreamPlayer = NodePath("AudioStreamPlayer")
+AudioStream = ExtResource("2_pawub")
 
 [node name="Visual" type="Node3D" parent="."]
 
@@ -26,3 +29,5 @@ collision_mask = 7
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)
 shape = ExtResource("4_4q51r")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

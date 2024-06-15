@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://u16qad10a485"]
+[gd_scene load_steps=28 format=3 uid="uid://u16qad10a485"]
 
 [ext_resource type="SpriteFrames" uid="uid://0kbvt2fcohxa" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster_SpriteFrames_$Main$.tres" id="1_1wafb"]
 [ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster.cs" id="1_x2fgj"]
@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://briwxviumndrf" path="res://game_asset_s/Audio/Retro Sounds 2/Audio/hurt5.ogg" id="10_d4w2i"]
 [ext_resource type="AudioStream" uid="uid://bapymsdem3l8t" path="res://game_asset_s/Audio/Retro Sounds 2/Audio/hurt2.ogg" id="10_i3e8p"]
 [ext_resource type="PackedScene" uid="uid://bb7ues43wabc1" path="res://game_objects/shared/indicator/Indicator.tscn" id="11_nsql4"]
+[ext_resource type="AudioStream" uid="uid://ckmuvdo2mwcah" path="res://game_asset_s/Minifantasy_Dungeon_SFX/15_human_dash_2.wav" id="13_f6cde"]
 
 [sub_resource type="Animation" id="Animation_odyw3"]
 length = 0.5
@@ -415,6 +416,30 @@ tracks/3/keys = {
 "update": 1,
 "values": ["MOVE"]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer:stream")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("13_f6cde")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tkksa"]
 _data = {
@@ -448,7 +473,7 @@ offset = Vector2(0, 28)
 flip_h = true
 texture_filter = 0
 sprite_frames = ExtResource("1_1wafb")
-animation = &"CHARGE"
+animation = &"MOVE"
 
 [node name="HitsFlashingModulate" parent="AnimatedSprite3D_$Main$" instance=ExtResource("3_xt4bl")]
 
@@ -459,7 +484,7 @@ flip_h = true
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_1wafb")
-animation = &"CHARGE"
+animation = &"MOVE"
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
@@ -525,4 +550,12 @@ shape = ExtResource("3_dqny3")
 aabb = AABB(-0.1, 0, -0.1, 0.2, 0.4, 0.2)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_24mf6")
+stream = ExtResource("13_f6cde")
+
+[node name="GroundDetector" type="Node3D" parent="."]
+
+[node name="RayCast3D" type="RayCast3D" parent="GroundDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.15, 0)
+target_position = Vector3(0, -0.2, 0)
+hit_from_inside = true
+collide_with_areas = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bpo3i7jg52oun"]
+[gd_scene load_steps=22 format=3 uid="uid://bpo3i7jg52oun"]
 
 [ext_resource type="Script" path="res://game_objects/characters/main_character/MainCharacterAnimatedSprite3DEffect.cs" id="1_14esl"]
 [ext_resource type="Material" uid="uid://vt7mwejanugu" path="res://game_objects/characters/main_character/MainCharacter_ShaderMaterial_EffectWood.tres" id="1_mxpt3"]
@@ -9,6 +9,9 @@
 [ext_resource type="Material" uid="uid://c2jjku367hwxo" path="res://game_objects/characters/main_character/MainCharacter_ShaderMaterial_EffectRock.tres" id="6_x1qgt"]
 [ext_resource type="Material" uid="uid://xiuen10kgoqi" path="res://game_objects/characters/main_character/MainCharacter_ShaderMaterial_EffectWater.tres" id="7_r6lm7"]
 [ext_resource type="Material" uid="uid://bp5gxuwal3ggi" path="res://game_objects/characters/main_character/MainCharacter_ShaderMaterial_EffectWind.tres" id="8_qy43j"]
+[ext_resource type="Script" path="res://game_objects/characters/main_character/audio_stream_player.gd" id="10_flgyt"]
+[ext_resource type="AudioStream" uid="uid://davn8qparg1h6" path="res://game_asset_s/Minifantasy_Dungeon_SFX/08_human_charge_1.wav" id="11_yeuiv"]
+[ext_resource type="AudioStream" uid="uid://dl2e58201d54n" path="res://game_asset_s/Minifantasy_Dungeon_SFX/08_human_charge_2.wav" id="12_h5dt7"]
 
 [sub_resource type="Animation" id="Animation_crdps"]
 length = 0.8
@@ -47,6 +50,20 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("3_ilyhl")]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ASP")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_play"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_5xfnx"]
@@ -114,6 +131,20 @@ tracks/2/keys = {
 "update": 1,
 "values": [ExtResource("4_mjfxk")]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ASP")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_play"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_bpf8k"]
 tracks/0/type = "value"
@@ -152,6 +183,20 @@ tracks/2/keys = {
 "update": 1,
 "values": [ExtResource("5_qs0u7")]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ASP")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_play"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_v7d6d"]
 tracks/0/type = "value"
@@ -189,6 +234,20 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("6_x1qgt")]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ASP")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_play"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_vv8oh"]
@@ -229,6 +288,20 @@ tracks/2/keys = {
 "update": 1,
 "values": [ExtResource("7_r6lm7")]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ASP")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_play"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_0u8xq"]
 length = 0.8
@@ -267,6 +340,20 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("8_qy43j")]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ASP")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_play"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_33dgv"]
@@ -307,6 +394,20 @@ tracks/2/keys = {
 "update": 1,
 "values": [ExtResource("1_mxpt3")]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ASP")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_play"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nspci"]
 _data = {
@@ -337,3 +438,7 @@ libraries = {
 "": SubResource("AnimationLibrary_nspci")
 }
 autoplay = "EFFECT_EMPTY"
+
+[node name="ASP" type="AudioStreamPlayer" parent="."]
+script = ExtResource("10_flgyt")
+AudioStreams = Array[AudioStream]([ExtResource("11_yeuiv"), ExtResource("12_h5dt7")])

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cyv12iosddo4f"]
+[gd_scene load_steps=31 format=3 uid="uid://cyv12iosddo4f"]
 
 [ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem.cs" id="1_pc638"]
 [ext_resource type="SpriteFrames" uid="uid://b8kirdr3jdxm1" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_SpriteFrames_$Main$.tres" id="1_q6j6a"]
@@ -16,9 +16,12 @@
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="7_0sefg"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="8_s5ygj"]
 [ext_resource type="Script" path="res://game_objects/shared/Hurtbox3D.cs" id="9_on06d"]
+[ext_resource type="AudioStream" uid="uid://dl2e58201d54n" path="res://game_asset_s/Minifantasy_Dungeon_SFX/08_human_charge_2.wav" id="10_7iuxj"]
 [ext_resource type="AudioStream" uid="uid://briwxviumndrf" path="res://game_asset_s/Audio/Retro Sounds 2/Audio/hurt5.ogg" id="10_ux6p2"]
 [ext_resource type="PackedScene" uid="uid://bb7ues43wabc1" path="res://game_objects/shared/indicator/Indicator.tscn" id="11_n0wtu"]
 [ext_resource type="AudioStream" uid="uid://bapymsdem3l8t" path="res://game_asset_s/Audio/Retro Sounds 2/Audio/hurt2.ogg" id="11_v0hcp"]
+[ext_resource type="AudioStream" uid="uid://dbrn0wioqixen" path="res://game_asset_s/Audio/Retro Sounds 2/Audio/jump2.ogg" id="12_3bf0s"]
+[ext_resource type="AudioStream" uid="uid://78f168mnte5m" path="res://game_asset_s/Audio/Retro Sounds 2/Audio/jump1.ogg" id="14_fb2gk"]
 
 [sub_resource type="Animation" id="Animation_0cw2i"]
 length = 0.3
@@ -93,6 +96,30 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0, 1, 0, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer:stream")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_7iuxj")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_xouuu"]
@@ -299,6 +326,30 @@ tracks/3/keys = {
 "update": 1,
 "values": ["EMERGE"]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer:stream")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_3bf0s")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_fm1xq"]
 length = 0.3
@@ -491,6 +542,30 @@ tracks/3/keys = {
 "update": 1,
 "values": ["SMERGE"]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer:stream")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("14_fb2gk")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8xbje"]
 _data = {
@@ -525,7 +600,7 @@ cast_shadow = 0
 offset = Vector2(0.5, 16)
 texture_filter = 0
 sprite_frames = ExtResource("1_q6j6a")
-animation = &"HURT"
+animation = &"SMERGE"
 
 [node name="HitsFlashingByModulate" parent="AnimatedSprite3D_$Main$" instance=ExtResource("2_5nmji")]
 
@@ -535,7 +610,7 @@ offset = Vector2(0.5, 16)
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_q6j6a")
-animation = &"HURT"
+animation = &"SMERGE"
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
@@ -608,4 +683,12 @@ shape = ExtResource("3_uclmn")
 aabb = AABB(-0.075, 0, -0.075, 0.15, 0.15, 0.15)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_v0hcp")
+stream = ExtResource("14_fb2gk")
+
+[node name="GroundDetector" type="Node3D" parent="."]
+
+[node name="RayCast3D" type="RayCast3D" parent="GroundDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.15, 0)
+target_position = Vector3(0, -0.2, 0)
+hit_from_inside = true
+collide_with_areas = true

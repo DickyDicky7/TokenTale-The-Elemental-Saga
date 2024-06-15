@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://c6ewdecu4o2a8"]
+[gd_scene load_steps=34 format=4 uid="uid://c6ewdecu4o2a8"]
 
 [ext_resource type="ArrayMesh" uid="uid://dxh4hhpb5poro" path="res://modells/maps_origin/Desert02.vox" id="1_5qkjc"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapArea.cs" id="1_lu7w6"]
@@ -7,7 +7,9 @@
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapExitsToCommand.cs" id="4_iytko"]
 [ext_resource type="PackedScene" uid="uid://cwhrbtjfm2cpc" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp.tscn" id="5_a7q3h"]
 [ext_resource type="Script" path="res://game_objects/maps/StrategySpawnMonsterDefault.cs" id="6_hnmus"]
+[ext_resource type="PackedScene" uid="uid://da0vo8ll2gr8e" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton.tscn" id="6_kjbwa"]
 [ext_resource type="Shader" path="res://addons/simplegrasstextured/shaders/grass.gdshader" id="6_r6mpi"]
+[ext_resource type="PackedScene" uid="uid://bbv4dpufmesgb" path="res://game_objects/characters/others/the_thief/cat/Cat.tscn" id="7_0muc6"]
 [ext_resource type="Texture2D" uid="uid://dwm6b3kikipmx" path="res://game_asset_s/Cactus.png" id="7_bvlav"]
 [ext_resource type="Script" path="res://game_objects/maps/CommandSpawnMonster.cs" id="7_chak1"]
 [ext_resource type="Script" path="res://game_objects/maps/MapSpawnAreaToCommand.cs" id="8_7uoqe"]
@@ -46,8 +48,8 @@ AllowableBodyTypes = ["MainCharacter"]
 
 [sub_resource type="Resource" id="Resource_ok1sh"]
 script = ExtResource("6_hnmus")
-MonsterPackedScenes = [ExtResource("5_a7q3h")]
-Threshold = 5
+MonsterPackedScenes = [ExtResource("5_a7q3h"), ExtResource("6_kjbwa"), ExtResource("7_0muc6")]
+Threshold = 6
 
 [sub_resource type="Resource" id="Resource_2i5tt"]
 script = ExtResource("7_chak1")
@@ -70,7 +72,7 @@ size = Vector3(0.01, 1, 1)
 margin = 0.05
 size = Vector3(0.01, 1, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qexnd"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_na5fn"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("6_r6mpi")
@@ -105,7 +107,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_qexnd"),
+"material": SubResource("ShaderMaterial_na5fn"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -118,7 +120,7 @@ instance_count = 31
 mesh = SubResource("ArrayMesh_bb2a7")
 buffer = PackedFloat32Array(-0.510424, 0, -0.859923, -2.7447, 0, 1, 0, 1.008, 0.859923, 0, -0.510424, -0.487063, 0.601639, 0, -0.798768, -2.66843, 0, 1, 0, 1.008, 0.798768, 0, 0.601639, -1.55544, -0.538595, 0, 0.842565, -2.32355, 0, 1, 0, 1.008, -0.842565, 0, -0.538595, -2.09376, 0.80053, 0, 0.599293, 0.246188, 0, 1, 0, 1.008, -0.599293, 0, 0.80053, -2.17556, -0.93608, 0, -0.351786, -0.437869, 0, 1, 0, 1.008, 0.351786, 0, -0.93608, 0.104629, 0.00350017, 0, -0.999994, -0.758483, 0, 1, 0, 1.008, 0.999994, 0, 0.00350017, 0.682986, -0.884409, 0, -0.466713, -2.3626, 0, 1, 0, 1.008, 0.466713, 0, -0.884409, 1.1593, -0.990676, 0, 0.136238, -2.33474, 0, 1, 0, 1.008, -0.136238, 0, -0.990676, 1.93046, -0.0379285, 0, -0.99928, -0.426378, 0, 1, 0, 1.008, 0.99928, 0, -0.0379285, 2.06, -0.999998, 0, -0.00200692, 0.478914, 0, 1, 0, 1.008, 0.00200692, 0, -0.999998, 1.31158, -0.663167, 0, -0.748471, 0.807693, 0, 1, 0, 1.008, 0.748471, 0, -0.663167, -0.129359, 0.701143, 0, -0.713021, 2.07376, 0, 1, 0, 1.008, 0.713021, 0, 0.701143, -2.04472, 0.730744, 0, 0.682652, 2.60675, 0, 1, 0, 1.008, -0.682652, 0, 0.730744, -2.19118, -0.709764, 0, -0.70444, 2.58211, 0, 1, 0, 1.008, 0.70444, 0, -0.709764, -0.606778, 0.492475, 0, 0.870327, 1.91351, 0, 1, 0, 1.008, -0.870327, 0, 0.492475, 1.2126, -0.707872, 0, 0.706341, 2.52561, 0, 1, 0, 1.008, -0.706341, 0, -0.707872, 2.00299, -0.371359, 0, 0.928489, 1.52827, 0, 1, 0, 1.323, -0.928489, 0, -0.371359, -2.05999, 0.540483, 0, 0.841355, 1.02451, 0, 1, 0, 1.449, -0.841355, 0, 0.540483, -1.6526, -0.966618, 0, -0.256222, 1.20776, 0, 1, 0, 1.449, 0.256222, 0, -0.966618, 0.572928, -0.707171, 0, 0.707042, -0.774689, 0, 1, 0, 1.386, -0.707042, 0, -0.707171, -0.920404, 0.82463, 0, -0.565672, -1.3305, 0, 1, 0, 1.386, 0.565672, 0, 0.82463, -0.272224, -0.300805, 0, 0.953686, -1.4561, 0, 1, 0, 1.323, -0.953686, 0, -0.300805, 0.6068, -0.986501, 0, -0.163753, -1.31767, 0, 1, 0, 1.449, 0.163753, 0, -0.986501, 1.61003, -0.278908, 0, 0.960318, 1.19789, 0, 1, 0, 1.197, -0.960318, 0, -0.278908, 1.15241, -0.275827, 0, -0.961207, -1.06168, 0, 1, 0, 1.386, 0.961207, 0, -0.275827, -0.615493, 0.614361, 0, -0.789025, -1.17412, 0, 1, 0, 1.008, 0.789025, 0, 0.614361, -1.41097, -0.408903, 0, 0.912578, 1.16947, 0, 1, 0, 1.197, -0.912578, 0, -0.408903, -0.528445, 0.684961, 0, 0.728579, 2.77437, 0, 1, 0, 1.008, -0.728579, 0, 0.684961, -0.0418565, 0.974541, 0, -0.224208, 1.9031, 0, 1, 0, 1.008, 0.224208, 0, 0.974541, 0.670985, 0.954937, 0, -0.296808, 1.16982, 0, 1, 0, 1.008, 0.296808, 0, 0.954937, 1.63073, -0.365482, 0, 0.930818, 2.57249, 0, 1, 0, 1.008, -0.930818, 0, -0.365482, -0.378807)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_eh6v8"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ix5wi"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("6_r6mpi")
@@ -153,7 +155,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_eh6v8"),
+"material": SubResource("ShaderMaterial_ix5wi"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -241,8 +243,8 @@ sgt_follow_normal = false
 metadata/SimpleGrassTextured = "2.0.3"
 
 [node name="SpawnArea00" type="VisibleOnScreenNotifier3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.009, 0)
-aabb = AABB(-0.25, 0, -0.25, 0.5, 0, 0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.009, 1)
+aabb = AABB(-0.25, 0, -1, 0.5, 0, 2)
 
 [node name="Timer" type="Timer" parent="SpawnArea00"]
 wait_time = 3.0

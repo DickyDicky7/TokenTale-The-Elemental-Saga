@@ -128,3 +128,6 @@ blackboard_plan = ExtResource("6_7vt2m")
 libraries = {
 "": SubResource("AnimationLibrary_p5gob")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+autoplay = true

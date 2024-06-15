@@ -17,6 +17,24 @@ public partial class StateMainCharacterDash : State
         set;
     }
 
+    [Export]
+    [ExportGroup("Components @@")]
+    public AudioStreamPlayer
+           AudioStreamPlayer
+    {
+        get;
+        set;
+    }
+
+    [Export]
+    [ExportGroup("Components @@")]
+    public AudioStream
+           AudioStream
+    {
+        get;
+        set;
+    }
+
     private Tween _tween;
 
     public override void _Enter()
@@ -33,6 +51,11 @@ public partial class StateMainCharacterDash : State
               .SetTrans(Tween.TransitionType.Circ);
         _tween.TweenCallback(Callable
               .From(() => ChangeState(MoveState)));
+
+        AudioStreamPlayer.Stream =
+        AudioStream              ;
+        AudioStreamPlayer.Play( );
+
     }
 
     public override void _Leave()

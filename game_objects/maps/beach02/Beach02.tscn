@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://d3utn2prn2i0v"]
+[gd_scene load_steps=28 format=3 uid="uid://d3utn2prn2i0v"]
 
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapArea.cs" id="1_1xkn5"]
 [ext_resource type="ArrayMesh" uid="uid://d1x77t6vep7iy" path="res://modells/maps_origin/Beach02.vox" id="1_5lhr7"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" path="res://game_objects/maps/StrategySpawnMonsterDefault.cs" id="5_nhj4p"]
 [ext_resource type="Script" path="res://game_objects/maps/CommandSpawnMonster.cs" id="6_16xvs"]
 [ext_resource type="Shader" path="res://game_objects/water/Water.gdshader" id="6_btipn"]
+[ext_resource type="PackedScene" uid="uid://da0vo8ll2gr8e" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton.tscn" id="6_plxjg"]
+[ext_resource type="PackedScene" uid="uid://dsw38xnjyq7yu" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur.tscn" id="7_baks4"]
 [ext_resource type="Script" path="res://game_objects/maps/MapSpawnAreaToCommand.cs" id="7_s06wn"]
 
 [sub_resource type="Resource" id="Resource_gv85x"]
@@ -43,8 +45,8 @@ AllowableBodyTypes = ["MainCharacter"]
 
 [sub_resource type="Resource" id="Resource_00hc8"]
 script = ExtResource("5_nhj4p")
-MonsterPackedScenes = [ExtResource("5_jsq50")]
-Threshold = 5
+MonsterPackedScenes = [ExtResource("5_jsq50"), ExtResource("5_jsq50"), ExtResource("6_plxjg"), ExtResource("7_baks4")]
+Threshold = 6
 
 [sub_resource type="Resource" id="Resource_cenks"]
 script = ExtResource("6_16xvs")
@@ -134,8 +136,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
 mesh = SubResource("PlaneMesh_46smc")
 
 [node name="SpawnArea00" type="VisibleOnScreenNotifier3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.505, 0)
-aabb = AABB(-0.5, 0, -0.5, 1, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.505, -0.5)
+aabb = AABB(-3, 0, -0.5, 6, 0, 1)
 
 [node name="Timer" type="Timer" parent="SpawnArea00"]
 wait_time = 3.0

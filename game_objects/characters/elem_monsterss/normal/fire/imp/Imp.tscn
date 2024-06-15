@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cwhrbtjfm2cpc"]
+[gd_scene load_steps=28 format=3 uid="uid://cwhrbtjfm2cpc"]
 
 [ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp.cs" id="1_41j3n"]
 [ext_resource type="SpriteFrames" uid="uid://bqs28pblt174t" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_SpriteFrames_$Main$.tres" id="1_n3j5a"]
@@ -18,7 +18,9 @@
 [ext_resource type="BehaviorTree" uid="uid://diju3wt86axt4" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_BehaviorTree.tres" id="12_hk2im"]
 [ext_resource type="PackedScene" uid="uid://bb7ues43wabc1" path="res://game_objects/shared/indicator/Indicator.tscn" id="12_k4s0b"]
 [ext_resource type="AudioStream" uid="uid://bapymsdem3l8t" path="res://game_asset_s/Audio/Retro Sounds 2/Audio/hurt2.ogg" id="13_2dm8n"]
+[ext_resource type="AudioStream" uid="uid://pe2w7vq1x8k5" path="res://game_asset_s/Minifantasy_Dungeon_SFX/16_human_walk_stone_1.wav" id="14_s62v3"]
 [ext_resource type="PackedScene" uid="uid://chwjmy7grdej" path="res://game_objects/shared/status_info/StatusInfo.tscn" id="14_vdc28"]
+[ext_resource type="AudioStream" uid="uid://davn8qparg1h6" path="res://game_asset_s/Minifantasy_Dungeon_SFX/08_human_charge_1.wav" id="14_wpuac"]
 
 [sub_resource type="Animation" id="Animation_wq24f"]
 length = 0.6
@@ -411,6 +413,30 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(1, 15)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer:stream")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("14_s62v3")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_ywbim"]
 length = 0.6
@@ -510,6 +536,30 @@ tracks/7/keys = {
 "update": 0,
 "values": [Color(1, 0, 0, 1)]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AudioStreamPlayer:stream")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("14_wpuac")]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("AudioStreamPlayer:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4ue5d"]
 _data = {
@@ -537,21 +587,21 @@ debug_enabled = true
 
 [node name="AnimatedSprite3D_$Main$" type="AnimatedSprite3D" parent="."]
 cast_shadow = 0
-offset = Vector2(0, 12)
+offset = Vector2(1, 15)
 texture_filter = 0
 sprite_frames = ExtResource("1_n3j5a")
-animation = &"DEAD"
+animation = &"MOVE"
 autoplay = "THROW"
 
 [node name="HitsFlashingByModulate" parent="AnimatedSprite3D_$Main$" instance=ExtResource("3_5ej0u")]
 
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 cast_shadow = 3
-offset = Vector2(0, 12)
+offset = Vector2(1, 15)
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_n3j5a")
-animation = &"DEAD"
+animation = &"MOVE"
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
@@ -617,4 +667,12 @@ shape = ExtResource("4_l0j8u")
 aabb = AABB(-0.06, 0, -0.06, 0.12, 0.12, 0.12)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("12_0frni")
+stream = ExtResource("14_s62v3")
+
+[node name="GroundDetector" type="Node3D" parent="."]
+
+[node name="RayCast3D" type="RayCast3D" parent="GroundDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.15, 0)
+target_position = Vector3(0, -0.2, 0)
+hit_from_inside = true
+collide_with_areas = true

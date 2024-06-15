@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bj14wt31rsok8"]
+[gd_scene load_steps=12 format=3 uid="uid://bj14wt31rsok8"]
 
 [ext_resource type="Script" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt.cs" id="1_dl1o4"]
 [ext_resource type="Script" path="res://game_objects/abilities/penetrating_squirt/SquirtHitbox.cs" id="4_7fopb"]
@@ -7,6 +7,7 @@
 [ext_resource type="BehaviorTree" uid="uid://t6yhjbbcq7hq" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_BehaviorTree.tres" id="4_wt3nm"]
 [ext_resource type="Material" uid="uid://ceiqd3fl34sb0" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_ParticleProcessMaterial_Test.tres" id="6_7sgmm"]
 [ext_resource type="QuadMesh" uid="uid://b4ql1ljd52px5" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_DrawPass01_Mesh.tres" id="6_scnkn"]
+[ext_resource type="AudioStream" uid="uid://wevuvlv1lnk2" path="res://game_asset_s/Audio/Foley Sounds/Audio/Water/sinkWater3.ogg" id="8_xatwr"]
 
 [sub_resource type="Animation" id="Animation_suxw6"]
 resource_name = "RESET"
@@ -138,3 +139,7 @@ speed_scale = 5.0
 [node name="BT_______Player" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("4_wt3nm")
 blackboard_plan = ExtResource("4_cqd5s")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_xatwr")
+autoplay = true

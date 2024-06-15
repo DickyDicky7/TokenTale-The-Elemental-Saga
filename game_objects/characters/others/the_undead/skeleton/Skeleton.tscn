@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://da0vo8ll2gr8e"]
+[gd_scene load_steps=34 format=3 uid="uid://da0vo8ll2gr8e"]
 
 [ext_resource type="Script" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton.cs" id="1_dw4lx"]
 [ext_resource type="PackedScene" uid="uid://c7i7emx3rn41l" path="res://game_objects/items/elemental_token/ElementalToken.tscn" id="2_adyel"]
@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://c3b7hwjendbh2" path="res://game_asset_s/Audio/Retro Sounds 2/Audio/hurt1.ogg" id="10_g4onr"]
 [ext_resource type="PackedScene" uid="uid://bb7ues43wabc1" path="res://game_objects/shared/indicator/Indicator.tscn" id="11_2khnn"]
 [ext_resource type="AudioStream" uid="uid://cy007f1wib0ek" path="res://game_asset_s/Audio/Retro Sounds 2/Audio/hurt3.ogg" id="11_t24fa"]
+[ext_resource type="AudioStream" uid="uid://pe2w7vq1x8k5" path="res://game_asset_s/Minifantasy_Dungeon_SFX/16_human_walk_stone_1.wav" id="12_hpq40"]
 
 [sub_resource type="Animation" id="Animation_oe52o"]
 length = 0.65
@@ -511,10 +512,35 @@ tracks/3/keys = {
 "update": 1,
 "values": ["MOVE_B"]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer:stream")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_hpq40")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_fkk0x"]
 length = 0.4
 loop_mode = 1
+step = 0.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -562,6 +588,30 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": ["MOVE_FAST_B"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer:stream")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_hpq40")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_y0yys"]
@@ -855,7 +905,7 @@ cast_shadow = 0
 offset = Vector2(0, 12)
 texture_filter = 0
 sprite_frames = ExtResource("2_hqwn4")
-animation = &"DEAD_B"
+animation = &"MOVE_FAST_B"
 
 [node name="HitsFlashingByModulate" parent="AnimatedSprite3D_$Main$" instance=ExtResource("3_0a7lw")]
 
@@ -865,7 +915,7 @@ offset = Vector2(0, 12)
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("2_hqwn4")
-animation = &"DEAD_B"
+animation = &"MOVE_FAST_B"
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
@@ -931,4 +981,11 @@ autostart = true
 aabb = AABB(-0.1, 0, -0.1, 0.2, 0.3, 0.2)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_g4onr")
+
+[node name="GroundDetector" type="Node3D" parent="."]
+
+[node name="RayCast3D" type="RayCast3D" parent="GroundDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.15, 0)
+target_position = Vector3(0, -0.2, 0)
+hit_from_inside = true
+collide_with_areas = true

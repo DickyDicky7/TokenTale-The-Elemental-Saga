@@ -33,6 +33,24 @@ public partial class StateMainCharacterMove : State
         set;
     }
 
+    [Export]
+    [ExportGroup("Components @@")]
+    public AudioStreamPlayer
+           AudioStreamPlayer
+    {
+        get;
+        set;
+    }
+
+    [Export]
+    [ExportGroup("Components @@")]
+    public AudioStream
+           AudioStream
+    {
+        get;
+        set;
+    }
+
     public RayCast3D
            RayCast3D
     {
@@ -61,6 +79,11 @@ public partial class StateMainCharacterMove : State
 
         MainCharacter.HealthChange +=
         MainCharacter_HealthChange;
+
+        AudioStreamPlayer.PitchScale = 2.0f;
+        AudioStreamPlayer.Stream     =
+        AudioStream                        ;
+        AudioStreamPlayer.      Play( )    ;
     }
 
     public override void _Leave()
@@ -69,6 +92,9 @@ public partial class StateMainCharacterMove : State
 
         MainCharacter.HealthChange -=
         MainCharacter_HealthChange;
+
+        AudioStreamPlayer.PitchScale = 1.0f;
+        AudioStreamPlayer.      Stop( )    ;
     }
 
     public override void _Input(InputEvent @inputEvent)

@@ -229,7 +229,15 @@ catch
                                         - MainCharacter.CurrentHealth)
                                         / MainCharacter.    MaxHealth);
     }
+
+    public           Aabb    BoundingBox
+    {
+    get => CurrentMapArea.GetBoundingBox();
+    }
 }
+
+
+
 
 
 

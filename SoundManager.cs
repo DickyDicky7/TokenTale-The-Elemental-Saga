@@ -15,6 +15,8 @@ public partial class SoundManager  :  Node
         AudioStreamPlayer2 = new(  );
         AddChild(AudioStreamPlayer1);
         AddChild(AudioStreamPlayer2);
+        //AudioStreamPlayer1.Set("parameters/looping", true);
+        //AudioStreamPlayer2.Set("parameters/looping", true);
     }
 
     public void CrossfadeTo(AudioStream @audioStream)

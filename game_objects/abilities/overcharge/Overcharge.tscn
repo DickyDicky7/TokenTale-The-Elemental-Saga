@@ -378,7 +378,7 @@ modulate = Color(1, 0, 1, 1)
 texture_filter = 0
 render_priority = 1
 sprite_frames = ExtResource("1_30fki")
-animation = &"FADE0"
+animation = &"HIT_1"
 
 [node name="AnimatedShadow3D" type="AnimatedSprite3D" parent="Visual"]
 cast_shadow = 3
@@ -388,14 +388,13 @@ alpha_cut = 2
 texture_filter = 0
 render_priority = 1
 sprite_frames = ExtResource("1_30fki")
-animation = &"FADE0"
+animation = &"HIT_1"
 
 [node name="Hitbox" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 
 [node name="CollisionShape3D_Hitbox" type="CollisionShape3D" parent="Hitbox"]
 shape = ExtResource("3_5v2c0")
-disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -410,3 +409,6 @@ blackboard_plan = ExtResource("4_c10wi")
 process_mode = 4
 script = ExtResource("4_hg2x4")
 Sprites = [NodePath("../Visual/AnimatedSprite3D")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+autoplay = true

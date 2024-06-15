@@ -28,6 +28,22 @@ public partial class Arrow : Weapon
         set;
     }
 
+    [Export]
+    public AudioStreamPlayer
+           AudioStreamPlayer
+    {
+        get;
+        set;
+    }
+
+    [Export]
+    public AudioStream
+           AudioStream
+    {
+        get;
+        set;
+    }
+
     public          void _Setup(Node @node)
     {
         node.GetTree ()
@@ -55,6 +71,8 @@ public partial class Arrow : Weapon
 
     private void Hitbox_BodyEntered(Node3D @body)
     {
+        AudioStreamPlayer.Stream = AudioStream;
+        AudioStreamPlayer.Play();
              Stop();
         if (body is Monster monster)
         {

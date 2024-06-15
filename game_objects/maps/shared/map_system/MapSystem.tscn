@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bnhb48jc0sx4w"]
+[gd_scene load_steps=38 format=3 uid="uid://bnhb48jc0sx4w"]
 
 [ext_resource type="Script" path="res://game_objects/maps/shared/map_system/MapSystem.cs" id="1_5theo"]
 [ext_resource type="NavigationMesh" uid="uid://n7p8vl187hgc" path="res://game_objects/maps/shared/map_system/MapSystem_NavigationMesh.tres" id="2_gsxuj"]
@@ -33,6 +33,7 @@
 [ext_resource type="AudioStream" uid="uid://dpa11q3wyyk13" path="res://game_asset_s/butterfly - looped ambience sounds pack/butterfly - looped ambience sounds pack/Abandoned Island.wav" id="28_tdxof"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/map_system/screen_transition$$.gd" id="29_8jf83"]
 [ext_resource type="Script" path="res://addons/post_processing/node/post_process.gd" id="29_allyn"]
+[ext_resource type="AudioStream" uid="uid://ci2mooo72napa" path="res://game_asset_s/butterfly - looped ambience sounds pack/butterfly - looped ambience sounds pack/Bonfire.wav" id="29_pkg51"]
 [ext_resource type="AudioStream" uid="uid://dnpcei4mrfcke" path="res://game_asset_s/butterfly - looped ambience sounds pack/butterfly - looped ambience sounds pack/Raining Outside without Thunders.wav" id="31_kauyr"]
 [ext_resource type="AudioStream" uid="uid://p2kjo8vjiq6t" path="res://game_asset_s/butterfly - looped ambience sounds pack/butterfly - looped ambience sounds pack/Winter Storm.wav" id="32_l8obc"]
 [ext_resource type="AudioStream" uid="uid://cgx0hqd0gt14l" path="res://game_asset_s/butterfly - looped ambience sounds pack/butterfly - looped ambience sounds pack/Dark Cave.wav" id="33_ieb7i"]
@@ -44,7 +45,7 @@ DirectionalLight3D = NodePath("Sun")
 ScreenTransition = NodePath("ScreenTransition$$")
 AvailableMapAreaPackedScenes = [ExtResource("3_8ab5f"), ExtResource("3_1el2n"), ExtResource("4_hq0qd"), ExtResource("5_vebge"), ExtResource("6_lms6v"), ExtResource("7_x16x6"), ExtResource("8_qt6af"), ExtResource("9_t84f7"), ExtResource("10_swmwg"), ExtResource("11_4w3x7"), ExtResource("12_hddbs"), ExtResource("13_porfg"), ExtResource("14_3f80r"), ExtResource("15_to7mv"), ExtResource("16_f58pv"), ExtResource("17_ocno5"), ExtResource("18_sokm1"), ExtResource("19_mskdi"), ExtResource("20_kbylo"), ExtResource("21_wcopb"), ExtResource("22_03qph"), ExtResource("23_grvfy"), ExtResource("24_vlu3a"), ExtResource("25_u1q6f"), ExtResource("26_1o33j")]
 AmbientLightColors = [Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1)]
-AmbientAudioStreams = [ExtResource("28_tdxof"), ExtResource("28_tdxof"), null, null, ExtResource("28_1hgl7"), ExtResource("28_fbr1o"), ExtResource("28_1hgl7"), ExtResource("28_1hgl7"), ExtResource("31_kauyr"), ExtResource("31_kauyr"), null, null, ExtResource("32_l8obc"), ExtResource("32_l8obc"), ExtResource("32_l8obc"), ExtResource("28_1hgl7"), ExtResource("28_1hgl7"), ExtResource("28_1hgl7"), ExtResource("28_1hgl7"), ExtResource("28_fbr1o"), null, null, ExtResource("33_ieb7i"), ExtResource("33_ieb7i"), null]
+AmbientAudioStreams = [ExtResource("28_tdxof"), ExtResource("28_tdxof"), ExtResource("29_pkg51"), ExtResource("29_pkg51"), ExtResource("28_1hgl7"), ExtResource("28_fbr1o"), ExtResource("28_1hgl7"), ExtResource("28_1hgl7"), ExtResource("31_kauyr"), ExtResource("31_kauyr"), null, null, ExtResource("32_l8obc"), ExtResource("32_l8obc"), ExtResource("32_l8obc"), ExtResource("28_1hgl7"), ExtResource("28_1hgl7"), ExtResource("28_1hgl7"), ExtResource("28_1hgl7"), ExtResource("28_fbr1o"), null, null, ExtResource("33_ieb7i"), ExtResource("33_ieb7i"), null]
 MapAreaPlaceHolder = NodePath("NavigationRegion3D")
 
 [node name="Env" type="WorldEnvironment" parent="."]
@@ -58,8 +59,8 @@ shadow_opacity = 0.8
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = ExtResource("2_gsxuj")
 
-[node name="Grassland04" parent="NavigationRegion3D" node_paths=PackedStringArray("Entrances") instance=ExtResource("9_t84f7")]
-Entrances = [NodePath("Entrance00"), NodePath("Entrance01"), NodePath("Entrance02"), NodePath("Entrance03"), NodePath("Entrance04")]
+[node name="Beach01" parent="NavigationRegion3D" node_paths=PackedStringArray("Entrances") instance=ExtResource("3_8ab5f")]
+Entrances = [NodePath("Entrance00"), NodePath("Entrance01"), NodePath("Entrance02")]
 
 [node name="ScreenTransition$$" type="Node" parent="."]
 script = ExtResource("29_8jf83")

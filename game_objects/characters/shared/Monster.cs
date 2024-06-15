@@ -99,10 +99,10 @@ public abstract partial class Monster : Character3D
     {
         base._Ready();
 
-        VisitorAbilityDispatch = VisitorAbilityDispatch.Duplicate(subresources: true) as EnemiesVisitor;
+        //VisitorAbilityDispatch = VisitorAbilityDispatch.Duplicate(subresources: true) as EnemiesVisitor;
 
-		//init ability resource
-		VisitorAbilityDispatch.Init();
+        //init ability resource
+        VisitorAbilityDispatch.Init();
         this.AcceptVisitor(this.VisitorAbilityDispatch);
         //update stats base on difficulty
         this.DifficultyChanged += this.UpdateStats;
@@ -147,26 +147,29 @@ public abstract partial class Monster : Character3D
         {
             ElementalToken tempToken = this.ElementalTokenPackedScene.Instantiate<ElementalToken>();
             tempToken.Element = ElementalTokenElementDict[type];
+            dropManager.Add(tempToken);
             tempToken.GlobalPosition = new Vector3(
                 this.GlobalPosition.X - 0.1f,
                 this.GlobalPosition.Y        ,
                 this.GlobalPosition.Z);
-            dropManager.Add(tempToken);
+            
         }
         if (Helper.SuccessBaseOnRate(0.5f))
         {
-			HealDrop healDrop = this.HealDropPackedScene.Instantiate<HealDrop>();
-			healDrop.GlobalPosition = new Vector3(
-				this.Position.X + 0.07f,
-				this.Position.Y,
-				this.Position.Z + 0.07f);
-			dropManager.Add(healDrop);
-		}
-		SoulOrCoin tempCoin = this.CoinPackedScene.Instantiate<SoulOrCoin>();
+            HealDrop healDrop = this.HealDropPackedScene.Instantiate<HealDrop>();
+            dropManager.Add(healDrop);
+            healDrop.GlobalPosition = new Vector3(
+                this.GlobalPosition.X + 0.07f,
+                this.GlobalPosition.Y,
+                this.GlobalPosition.Z + 0.07f);
+
+        }
+        SoulOrCoin tempCoin = this.CoinPackedScene.Instantiate<SoulOrCoin>();
+        dropManager.Add(tempCoin);
         tempCoin.GlobalPosition = new Vector3(
             this.GlobalPosition.X + 0.07f,
             this.GlobalPosition.Y        ,
             this.GlobalPosition.Z - 0.07f);
-        dropManager.Add(tempCoin);
+    
     }
 }

@@ -12,11 +12,11 @@ public partial class Game : Node3D
         get;
         set;
     }
-	public override void _Ready()
-	{
-		base._Ready();
-	}
-	public override void _Process(double @delta)
+    public override void _Ready()
+    {
+                    base._Ready();
+    }
+    public override void _Process(double @delta)
     {
                     base._Process(       @delta);
 

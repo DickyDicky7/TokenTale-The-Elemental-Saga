@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dnpcei4mrfcke"
+path="res://.godot/imported/Raining Outside without Thunders.wav-81f826c8443272412dcfca263a8fe5ca.sample"
+
+[deps]
+
+source_file="res://game_asset_s/butterfly - looped ambience sounds pack/butterfly - looped ambience sounds pack/Raining Outside without Thunders.wav"
+dest_files=["res://.godot/imported/Raining Outside without Thunders.wav-81f826c8443272412dcfca263a8fe5ca.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c24q76k1qihgt"
+path="res://.godot/imported/People in the Street.wav-3e267575cc5346117b9e8ffd3d6eaf43.sample"
+
+[deps]
+
+source_file="res://game_asset_s/butterfly - looped ambience sounds pack/butterfly - looped ambience sounds pack/People in the Street.wav"
+dest_files=["res://.godot/imported/People in the Street.wav-3e267575cc5346117b9e8ffd3d6eaf43.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

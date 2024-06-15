@@ -123,6 +123,9 @@ System.Enum.Parse<AvailableMapArea>(
             GetNode<DropManager>("/root/DropManager")
                    .                        CurrentMapArea
                    =                        currentMapArea ;
+
+            CurrentMapArea =
+                   mapArea ;
         }
 
         //
@@ -174,12 +177,27 @@ try
             dropManager.CurrentMapArea
                        =   nextMapArea;
             dropManager.Load() ;
+
+            CurrentMapArea =
+                   mapArea ;
         }
 }
 catch
 {
 
 }
+    }
+
+    public MapArea
+    CurrentMapArea
+    {
+        get;
+        set;
+    }
+    public void SwitchToMapAreaEntrance(int @entranceIdx)
+    {
+                           MainCharacter.GlobalPosition =
+   CurrentMapArea.Entrances[entranceIdx].GlobalPosition ;
     }
 
     public void RegisterMonster(
@@ -189,12 +207,14 @@ catch
                        @monster.NavigationRegion3DStatic = MapAreaPlaceHolder;
     }
 
-    //public override void _Process(double @delta)
-    //{
-    //                base._Process(       @delta);
+    public override void _Process(double @delta)
+    {
+                    base._Process(       @delta);
 
-
-    //}
+        ScreenTransition.Call("bleed" , ( MainCharacter.    MaxHealth
+                                        - MainCharacter.CurrentHealth)
+                                        / MainCharacter.    MaxHealth);
+    }
 }
 
 

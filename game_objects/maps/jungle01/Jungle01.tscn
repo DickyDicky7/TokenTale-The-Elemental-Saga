@@ -155,35 +155,35 @@ data = PackedVector3Array(-2.52, 1.008, 0, -2.394, 1.008, 0, -2.394, 1.008, 0.50
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u2m1e"]
 margin = 0.05
-size = Vector3(1, 1, 0)
+size = Vector3(1, 1, 0.01)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g2nu7"]
 margin = 0.05
-size = Vector3(1, 1, 0)
+size = Vector3(1, 1, 0.01)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hui0s"]
 margin = 0.05
-size = Vector3(0, 1, 1)
+size = Vector3(0.01, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hu1ve"]
 margin = 0.05
-size = Vector3(1, 1, 0)
+size = Vector3(1, 1, 0.01)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0gvip"]
 margin = 0.05
-size = Vector3(1, 1, 0)
+size = Vector3(1, 1, 0.01)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_felj3"]
 margin = 0.05
-size = Vector3(1, 1, 0)
+size = Vector3(1, 1, 0.01)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nwsqm"]
 margin = 0.05
-size = Vector3(0, 1, 1)
+size = Vector3(0.01, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dtjp1"]
 margin = 0.05
-size = Vector3(0, 1, 1)
+size = Vector3(0.01, 1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vw8hi"]
 render_priority = -2
@@ -204,7 +204,7 @@ size = Vector2(5, 2.9)
 subdivide_width = 64
 subdivide_depth = 64
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_16qm3"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4q2mo"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("8_um0mw")
@@ -239,7 +239,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_16qm3"),
+"material": SubResource("ShaderMaterial_4q2mo"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,

@@ -1,13 +1,15 @@
-[gd_scene load_steps=37 format=4 uid="uid://d0fhk4h2sei57"]
+[gd_scene load_steps=39 format=4 uid="uid://d0fhk4h2sei57"]
 
 [ext_resource type="ArrayMesh" uid="uid://b0dixsb8153qw" path="res://modells/maps_origin/Volcano01.vox" id="1_nfih5"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapArea.cs" id="1_us1xk"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/StrategySwitchMapAreaOneToOne.cs" id="2_oxxh7"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/CommandSwitchMapArea.cs" id="3_2oarc"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapExitsToCommand.cs" id="4_1pows"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/StrategySwitchMapAreaEntranceOneToOne.cs" id="5_2vlah"]
 [ext_resource type="Script" path="res://game_objects/maps/StrategySpawnMonsterDefault.cs" id="5_6i4p1"]
 [ext_resource type="PackedScene" uid="uid://cwhrbtjfm2cpc" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp.tscn" id="5_87woo"]
 [ext_resource type="Script" path="res://game_objects/maps/CommandSpawnMonster.cs" id="6_2qn66"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/CommandSwitchMapAreaEntrance.cs" id="6_24tuy"]
 [ext_resource type="Shader" path="res://addons/simplegrasstextured/shaders/grass.gdshader" id="6_u1qoy"]
 [ext_resource type="Script" path="res://game_objects/maps/MapSpawnAreaToCommand.cs" id="7_2w3vu"]
 [ext_resource type="Texture2D" uid="uid://cgcmkpn3k1puy" path="res://game_asset_s/kenney_foliageSprites/PNG/Shaded/sprite_0070.png" id="7_5jq4y"]
@@ -28,49 +30,46 @@ Exits = Array[NodePath]([NodePath("Exit00")])
 Command = SubResource("Resource_3flun")
 AllowableBodyTypes = ["MainCharacter"]
 
-[sub_resource type="Resource" id="Resource_emfq0"]
-script = ExtResource("2_oxxh7")
-NextMapArea = 0
-EntranceIdx = 0
+[sub_resource type="Resource" id="Resource_3kkwj"]
+script = ExtResource("5_2vlah")
+EntranceIdx = 2
 
-[sub_resource type="Resource" id="Resource_fm2pk"]
-script = ExtResource("3_2oarc")
-StrategySwitchMapArea = SubResource("Resource_emfq0")
+[sub_resource type="Resource" id="Resource_ikcfg"]
+script = ExtResource("6_24tuy")
+StrategySwitchMapAreaEntrance = SubResource("Resource_3kkwj")
 
 [sub_resource type="Resource" id="Resource_sa6jy"]
 script = ExtResource("4_1pows")
 Exits = Array[NodePath]([NodePath("Exit01")])
-Command = SubResource("Resource_fm2pk")
+Command = SubResource("Resource_ikcfg")
 AllowableBodyTypes = ["MainCharacter"]
 
-[sub_resource type="Resource" id="Resource_pl3ld"]
-script = ExtResource("2_oxxh7")
-NextMapArea = 0
-EntranceIdx = 0
+[sub_resource type="Resource" id="Resource_jspl0"]
+script = ExtResource("5_2vlah")
+EntranceIdx = 3
 
-[sub_resource type="Resource" id="Resource_xqdi0"]
-script = ExtResource("3_2oarc")
-StrategySwitchMapArea = SubResource("Resource_pl3ld")
+[sub_resource type="Resource" id="Resource_nm712"]
+script = ExtResource("6_24tuy")
+StrategySwitchMapAreaEntrance = SubResource("Resource_jspl0")
 
 [sub_resource type="Resource" id="Resource_b3dav"]
 script = ExtResource("4_1pows")
 Exits = Array[NodePath]([NodePath("Exit02")])
-Command = SubResource("Resource_xqdi0")
+Command = SubResource("Resource_nm712")
 AllowableBodyTypes = ["MainCharacter"]
 
-[sub_resource type="Resource" id="Resource_yt5va"]
-script = ExtResource("2_oxxh7")
-NextMapArea = 0
-EntranceIdx = 0
+[sub_resource type="Resource" id="Resource_ah2cr"]
+script = ExtResource("5_2vlah")
+EntranceIdx = 1
 
-[sub_resource type="Resource" id="Resource_v0yv3"]
-script = ExtResource("3_2oarc")
-StrategySwitchMapArea = SubResource("Resource_yt5va")
+[sub_resource type="Resource" id="Resource_a87iv"]
+script = ExtResource("6_24tuy")
+StrategySwitchMapAreaEntrance = SubResource("Resource_ah2cr")
 
 [sub_resource type="Resource" id="Resource_02blb"]
 script = ExtResource("4_1pows")
 Exits = Array[NodePath]([NodePath("Exit03")])
-Command = SubResource("Resource_v0yv3")
+Command = SubResource("Resource_a87iv")
 AllowableBodyTypes = ["MainCharacter"]
 
 [sub_resource type="Resource" id="Resource_4n5j8"]
@@ -93,25 +92,25 @@ data = PackedVector3Array(-5.04, 2.961, 1.512, -4.914, 2.961, 1.512, -4.914, 2.9
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k1cf3"]
 margin = 0.05
-size = Vector3(1, 1, 0)
+size = Vector3(1, 1, 0.01)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lipwv"]
 margin = 0.05
-size = Vector3(0.3, 0.7, 0)
+size = Vector3(0.3, 0.7, 0.02)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v178d"]
 margin = 0.05
-size = Vector3(0.5, 0.8, 0)
+size = Vector3(0.5, 0.8, 0.02)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_facox"]
 margin = 0.05
-size = Vector3(0.4, 0.7, 0)
+size = Vector3(0.4, 0.7, 0.02)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mpuf8"]
 margin = 0.05
 size = Vector3(1, 1.5, 0.6)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_or263"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j1tib"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("6_u1qoy")
@@ -146,7 +145,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_or263"),
+"material": SubResource("ShaderMaterial_j1tib"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,

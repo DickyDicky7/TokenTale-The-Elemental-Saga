@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bnhb48jc0sx4w"]
+[gd_scene load_steps=32 format=3 uid="uid://bnhb48jc0sx4w"]
 
 [ext_resource type="Script" path="res://game_objects/maps/shared/map_system/MapSystem.cs" id="1_5theo"]
 [ext_resource type="NavigationMesh" uid="uid://n7p8vl187hgc" path="res://game_objects/maps/shared/map_system/MapSystem_NavigationMesh.tres" id="2_gsxuj"]
@@ -30,6 +30,7 @@
 [ext_resource type="Environment" uid="uid://bv0vh87m4vtxi" path="res://game_objects/maps/shared/map_system/MapSystem_Environment.tres" id="27_8temk"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/map_system/screen_transition$$.gd" id="29_8jf83"]
 [ext_resource type="Script" path="res://addons/post_processing/node/post_process.gd" id="29_allyn"]
+[ext_resource type="AudioStream" uid="uid://bryxnbmrfe7xl" path="res://game_asset_s/Minifantasy_Dungeon_Music/Music/Goblins_Dance_(Battle).wav" id="31_8yjh7"]
 
 [node name="MapSystem" type="Node" node_paths=PackedStringArray("DirectionalLight3D", "ScreenTransition", "MapAreaPlaceHolder")]
 script = ExtResource("1_5theo")
@@ -51,11 +52,15 @@ shadow_opacity = 0.8
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = ExtResource("2_gsxuj")
 
-[node name="Beach01" parent="NavigationRegion3D" node_paths=PackedStringArray("Entrances") instance=ExtResource("3_8ab5f")]
-Entrances = [NodePath("Entrance00"), NodePath("Entrance01"), NodePath("Entrance02")]
+[node name="Grassland04" parent="NavigationRegion3D" node_paths=PackedStringArray("Entrances") instance=ExtResource("9_t84f7")]
+Entrances = [NodePath("Entrance00"), NodePath("Entrance01"), NodePath("Entrance02"), NodePath("Entrance03"), NodePath("Entrance04")]
 
 [node name="ScreenTransition$$" type="Node" parent="."]
 script = ExtResource("29_8jf83")
 
 [node name="PostProcess" type="CanvasLayer" parent="ScreenTransition$$"]
 script = ExtResource("29_allyn")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("31_8yjh7")
+autoplay = true

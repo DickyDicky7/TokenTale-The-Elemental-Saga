@@ -76,15 +76,15 @@ data = PackedVector3Array(5.103, 0.126, -0.63, 5.544, 0.126, -0.63, 5.544, 0.126
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_185ml"]
 margin = 0.05
-size = Vector3(1, 1, 0)
+size = Vector3(1, 1, 0.01)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wisxr"]
 margin = 0.05
-size = Vector3(1, 1, 0)
+size = Vector3(1, 1, 0.01)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_as0t2"]
 margin = 0.05
-size = Vector3(0, 1, 2.8)
+size = Vector3(0.01, 1, 2.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6rvt0"]
 margin = 0.05

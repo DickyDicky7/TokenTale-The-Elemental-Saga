@@ -56,15 +56,15 @@ data = PackedVector3Array(-6.552, 0.756, 4.473, -6.048, 0.756, 4.473, -6.048, 0.
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xllc6"]
 margin = 0.05
-size = Vector3(1, 1, 0)
+size = Vector3(1, 1, 0.01)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ckapj"]
 margin = 0.05
-size = Vector3(1, 1, 0)
+size = Vector3(1, 1, 0.01)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bdfcm"]
 margin = 0.05
-size = Vector3(1, 1, 0)
+size = Vector3(1, 1, 0.01)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rvvra"]
 margin = 0.05
@@ -83,7 +83,7 @@ size = Vector3(0.4, 1.5, 1)
 [node name="Swamp01" type="Node3D" node_paths=PackedStringArray("Entrances")]
 script = ExtResource("1_0nt0g")
 Entrances = [NodePath("Entrance00"), NodePath("Entrance01"), NodePath("Entrance02")]
-MapExitsToCommand = Array[Object]([SubResource("Resource_epxkh"), SubResource("Resource_uba2u"), SubResource("Resource_t7qru")])
+MapExitsToCommand = [SubResource("Resource_epxkh"), SubResource("Resource_uba2u"), SubResource("Resource_t7qru")]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

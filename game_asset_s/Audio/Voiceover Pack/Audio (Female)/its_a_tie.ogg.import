@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d3uykf5i3vovu"
+path="res://.godot/imported/its_a_tie.ogg-f77b1bc10840296289e295054808c80e.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Voiceover Pack/Audio (Female)/its_a_tie.ogg"
+dest_files=["res://.godot/imported/its_a_tie.ogg-f77b1bc10840296289e295054808c80e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

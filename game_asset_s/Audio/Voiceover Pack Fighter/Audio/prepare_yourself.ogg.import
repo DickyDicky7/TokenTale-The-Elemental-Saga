@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://tatefblx0263"
+path="res://.godot/imported/prepare_yourself.ogg-6659ae001393ee74fc0754764b2ba59a.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Voiceover Pack Fighter/Audio/prepare_yourself.ogg"
+dest_files=["res://.godot/imported/prepare_yourself.ogg-6659ae001393ee74fc0754764b2ba59a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

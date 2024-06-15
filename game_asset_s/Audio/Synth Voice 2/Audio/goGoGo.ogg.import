@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ce2aj6x0si62"
+path="res://.godot/imported/goGoGo.ogg-a01fe4c08ce68b78ad835949a3b59309.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/goGoGo.ogg"
+dest_files=["res://.godot/imported/goGoGo.ogg-a01fe4c08ce68b78ad835949a3b59309.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

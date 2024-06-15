@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://6awkhaowasw3"
+path="res://.godot/imported/timeOver.ogg-4c7d21210eaab7b2eadae7e1f8bb4ecd.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/timeOver.ogg"
+dest_files=["res://.godot/imported/timeOver.ogg-4c7d21210eaab7b2eadae7e1f8bb4ecd.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

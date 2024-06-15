@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://oqcbhupapjqv"
+path="res://.godot/imported/metalPot3.ogg-5796deddb7e3ac6c0bb25960f0077488.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/RPG Audio/Audio/metalPot3.ogg"
+dest_files=["res://.godot/imported/metalPot3.ogg-5796deddb7e3ac6c0bb25960f0077488.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

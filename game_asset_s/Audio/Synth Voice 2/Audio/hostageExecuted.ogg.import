@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c4dus0yokcv87"
+path="res://.godot/imported/hostageExecuted.ogg-3fb6a9c573d251a0c1aecf07af446d4b.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/hostageExecuted.ogg"
+dest_files=["res://.godot/imported/hostageExecuted.ogg-3fb6a9c573d251a0c1aecf07af446d4b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

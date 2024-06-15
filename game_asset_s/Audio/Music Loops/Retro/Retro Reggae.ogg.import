@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://gfhf4fdes8kt"
+path="res://.godot/imported/Retro Reggae.ogg-6e3ad434b7310e61fe1bd55882dd670d.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Music Loops/Retro/Retro Reggae.ogg"
+dest_files=["res://.godot/imported/Retro Reggae.ogg-6e3ad434b7310e61fe1bd55882dd670d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

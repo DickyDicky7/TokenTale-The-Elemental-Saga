@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://80n3pmjhs23k"
+path="res://.godot/imported/loser.ogg-2b90dd4d807d9f78db92465b5b215a11.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 1/Audio/loser.ogg"
+dest_files=["res://.godot/imported/loser.ogg-2b90dd4d807d9f78db92465b5b215a11.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

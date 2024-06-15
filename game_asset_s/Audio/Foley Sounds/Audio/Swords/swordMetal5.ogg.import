@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ddmthtd0f2wu7"
+path="res://.godot/imported/swordMetal5.ogg-6d54fd85ad05ab9c67249ddb30c68f2b.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Foley Sounds/Audio/Swords/swordMetal5.ogg"
+dest_files=["res://.godot/imported/swordMetal5.ogg-6d54fd85ad05ab9c67249ddb30c68f2b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dfk3ut28e2jpf"
+path="res://.godot/imported/finalRound.ogg-8b91576f21abaa45e0d679d2ff2e01d7.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/finalRound.ogg"
+dest_files=["res://.godot/imported/finalRound.ogg-8b91576f21abaa45e0d679d2ff2e01d7.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

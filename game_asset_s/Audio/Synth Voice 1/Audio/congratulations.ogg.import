@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dvkacui67oxw7"
+path="res://.godot/imported/congratulations.ogg-49e32389f2fb1ec8f521cae5f3da48ca.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 1/Audio/congratulations.ogg"
+dest_files=["res://.godot/imported/congratulations.ogg-49e32389f2fb1ec8f521cae5f3da48ca.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

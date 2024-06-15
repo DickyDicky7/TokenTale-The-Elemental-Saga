@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ovslwatsmtxi"
+path="res://.godot/imported/timeUp.ogg-9832a25d9a15837d0dd0a750c2cb51cd.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/timeUp.ogg"
+dest_files=["res://.godot/imported/timeUp.ogg-9832a25d9a15837d0dd0a750c2cb51cd.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

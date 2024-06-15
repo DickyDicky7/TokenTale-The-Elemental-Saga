@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://blo430fupf2jq"
+path="res://.godot/imported/weNeedPower.ogg-47ade5a7688c205481c41872c43440ce.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/weNeedPower.ogg"
+dest_files=["res://.godot/imported/weNeedPower.ogg-47ade5a7688c205481c41872c43440ce.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

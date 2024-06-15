@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dy8vn5ptw0maf"
+path="res://.godot/imported/iCannotBuildThere.ogg-474401373fb8b5fe23b2e9d2eccb2a54.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/iCannotBuildThere.ogg"
+dest_files=["res://.godot/imported/iCannotBuildThere.ogg-474401373fb8b5fe23b2e9d2eccb2a54.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

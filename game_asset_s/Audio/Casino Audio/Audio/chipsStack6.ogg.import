@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dshaip4mcecy8"
+path="res://.godot/imported/chipsStack6.ogg-7f2feed4326c71db55166889c2e14c26.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Casino Audio/Audio/chipsStack6.ogg"
+dest_files=["res://.godot/imported/chipsStack6.ogg-7f2feed4326c71db55166889c2e14c26.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

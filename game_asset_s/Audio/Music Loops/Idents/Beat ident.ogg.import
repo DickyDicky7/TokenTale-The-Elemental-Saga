@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c63tya7iaih46"
+path="res://.godot/imported/Beat ident.ogg-c71124639416f04c47cf9b28d3830f20.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Music Loops/Idents/Beat ident.ogg"
+dest_files=["res://.godot/imported/Beat ident.ogg-c71124639416f04c47cf9b28d3830f20.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

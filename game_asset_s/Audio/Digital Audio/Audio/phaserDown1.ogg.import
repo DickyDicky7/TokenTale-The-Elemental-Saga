@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bgb41dclql3at"
+path="res://.godot/imported/phaserDown1.ogg-88782a5512deab0c398f6e6b2a7eec2f.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Digital Audio/Audio/phaserDown1.ogg"
+dest_files=["res://.godot/imported/phaserDown1.ogg-88782a5512deab0c398f6e6b2a7eec2f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

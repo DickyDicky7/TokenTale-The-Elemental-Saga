@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c7kftnvmwoslf"
+path="res://.godot/imported/swordSlide2.ogg-77391de0bea4288498f6f4361fee27e4.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Foley Sounds/Audio/Swords/swordSlide2.ogg"
+dest_files=["res://.godot/imported/swordSlide2.ogg-77391de0bea4288498f6f4361fee27e4.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

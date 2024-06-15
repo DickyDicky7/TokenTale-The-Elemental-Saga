@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://depoiuda6vog5"
+path="res://.godot/imported/impactMetal_003.ogg-9a2235047c7af74589644f19a95098cb.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Sci-Fi Sounds/Audio/impactMetal_003.ogg"
+dest_files=["res://.godot/imported/impactMetal_003.ogg-9a2235047c7af74589644f19a95098cb.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

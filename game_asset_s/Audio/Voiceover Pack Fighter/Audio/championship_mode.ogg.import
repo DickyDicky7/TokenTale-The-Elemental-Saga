@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://y2nmhn3niv4l"
+path="res://.godot/imported/championship_mode.ogg-b59fe92eceafe29e2db8168f520e2580.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Voiceover Pack Fighter/Audio/championship_mode.ogg"
+dest_files=["res://.godot/imported/championship_mode.ogg-b59fe92eceafe29e2db8168f520e2580.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b46ajoj7ljcg8"
+path="res://.godot/imported/war_medic.ogg-ebe40a46463ab3335f89d81536099876.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Voiceover Pack/Audio (Female)/war_medic.ogg"
+dest_files=["res://.godot/imported/war_medic.ogg-ebe40a46463ab3335f89d81536099876.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

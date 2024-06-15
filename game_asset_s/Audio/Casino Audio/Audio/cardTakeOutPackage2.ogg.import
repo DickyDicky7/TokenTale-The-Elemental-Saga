@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b53j53h8ug3g2"
+path="res://.godot/imported/cardTakeOutPackage2.ogg-802ce82948aff3e1219666fcf2e915f5.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Casino Audio/Audio/cardTakeOutPackage2.ogg"
+dest_files=["res://.godot/imported/cardTakeOutPackage2.ogg-802ce82948aff3e1219666fcf2e915f5.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ueqrq1th4xl3"
+path="res://.godot/imported/round_5.ogg-c94a30c9220c5c1fa47d90cbf99fcdd9.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Voiceover Pack Fighter/Audio/round_5.ogg"
+dest_files=["res://.godot/imported/round_5.ogg-c94a30c9220c5c1fa47d90cbf99fcdd9.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

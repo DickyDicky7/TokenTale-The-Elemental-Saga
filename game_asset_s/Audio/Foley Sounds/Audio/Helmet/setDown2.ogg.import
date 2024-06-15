@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dp1lswkyxhuo7"
+path="res://.godot/imported/setDown2.ogg-ff57d4b96de474e095c9fe161303ac93.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Foley Sounds/Audio/Helmet/setDown2.ogg"
+dest_files=["res://.godot/imported/setDown2.ogg-ff57d4b96de474e095c9fe161303ac93.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

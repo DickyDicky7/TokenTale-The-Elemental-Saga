@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c6astqlls1i7t"
+path="res://.godot/imported/battleMode.ogg-34ad33dd7a925b4ca075567a7ee31ef2.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/battleMode.ogg"
+dest_files=["res://.godot/imported/battleMode.ogg-34ad33dd7a925b4ca075567a7ee31ef2.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

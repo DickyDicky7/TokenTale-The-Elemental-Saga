@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dqm1sbmajtv1q"
+path="res://.godot/imported/chipLay2.ogg-b95c2edb733acff0fbcfb56cfdeccd6e.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Casino Audio/Audio/chipLay2.ogg"
+dest_files=["res://.godot/imported/chipLay2.ogg-b95c2edb733acff0fbcfb56cfdeccd6e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

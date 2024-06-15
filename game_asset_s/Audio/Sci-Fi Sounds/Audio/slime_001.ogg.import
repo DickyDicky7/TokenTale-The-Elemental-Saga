@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://rppln8pyugwm"
+path="res://.godot/imported/slime_001.ogg-b72447820fa42dc1dab298fe0400b0be.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Sci-Fi Sounds/Audio/slime_001.ogg"
+dest_files=["res://.godot/imported/slime_001.ogg-b72447820fa42dc1dab298fe0400b0be.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

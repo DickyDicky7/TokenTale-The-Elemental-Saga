@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c5jabjsjt40"
+path="res://.godot/imported/perfect.ogg-2c716fb599fd578488d8df871c0cc6cc.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/perfect.ogg"
+dest_files=["res://.godot/imported/perfect.ogg-2c716fb599fd578488d8df871c0cc6cc.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

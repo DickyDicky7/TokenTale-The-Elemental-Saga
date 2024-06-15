@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b84g4x30hwnk8"
+path="res://.godot/imported/time_over.ogg-6fa57c6a43fa103b9aa14a336dbe2a56.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Voiceover Pack/Audio (Male)/time_over.ogg"
+dest_files=["res://.godot/imported/time_over.ogg-6fa57c6a43fa103b9aa14a336dbe2a56.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

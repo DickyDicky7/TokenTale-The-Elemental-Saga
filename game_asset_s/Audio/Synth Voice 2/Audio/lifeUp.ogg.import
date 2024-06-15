@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://daxmu7yr4uhcr"
+path="res://.godot/imported/lifeUp.ogg-c93c702fa70de5a2bf7cb023dd96a56a.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/lifeUp.ogg"
+dest_files=["res://.godot/imported/lifeUp.ogg-c93c702fa70de5a2bf7cb023dd96a56a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

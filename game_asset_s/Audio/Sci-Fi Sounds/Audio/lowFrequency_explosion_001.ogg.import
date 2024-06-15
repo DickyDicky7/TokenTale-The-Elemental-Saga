@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cxf644e17xedi"
+path="res://.godot/imported/lowFrequency_explosion_001.ogg-5db1ec8d0d7d448486ab9a669c8616ac.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Sci-Fi Sounds/Audio/lowFrequency_explosion_001.ogg"
+dest_files=["res://.godot/imported/lowFrequency_explosion_001.ogg-5db1ec8d0d7d448486ab9a669c8616ac.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

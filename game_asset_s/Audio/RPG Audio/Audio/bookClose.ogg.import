@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bcpuqn3s3xv4b"
+path="res://.godot/imported/bookClose.ogg-d6d8f7fba9436f5be32776558b1c7289.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/RPG Audio/Audio/bookClose.ogg"
+dest_files=["res://.godot/imported/bookClose.ogg-d6d8f7fba9436f5be32776558b1c7289.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

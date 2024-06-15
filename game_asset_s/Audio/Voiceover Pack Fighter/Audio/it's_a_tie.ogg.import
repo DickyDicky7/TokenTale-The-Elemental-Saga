@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c6hd4nwmoaice"
+path="res://.godot/imported/it's_a_tie.ogg-3fed143db972e61129b14ef26cdc9bae.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Voiceover Pack Fighter/Audio/it's_a_tie.ogg"
+dest_files=["res://.godot/imported/it's_a_tie.ogg-3fed143db972e61129b14ef26cdc9bae.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

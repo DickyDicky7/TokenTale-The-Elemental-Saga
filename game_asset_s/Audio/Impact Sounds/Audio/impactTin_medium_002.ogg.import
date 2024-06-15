@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dro3r424r3m1o"
+path="res://.godot/imported/impactTin_medium_002.ogg-9db217ba3d7d810b5df225767f1132cf.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Impact Sounds/Audio/impactTin_medium_002.ogg"
+dest_files=["res://.godot/imported/impactTin_medium_002.ogg-9db217ba3d7d810b5df225767f1132cf.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

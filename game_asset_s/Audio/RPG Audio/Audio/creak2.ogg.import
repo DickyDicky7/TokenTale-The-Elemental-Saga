@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c0al0y1speg8d"
+path="res://.godot/imported/creak2.ogg-92ed6900712ec050788a354dca863587.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/RPG Audio/Audio/creak2.ogg"
+dest_files=["res://.godot/imported/creak2.ogg-92ed6900712ec050788a354dca863587.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

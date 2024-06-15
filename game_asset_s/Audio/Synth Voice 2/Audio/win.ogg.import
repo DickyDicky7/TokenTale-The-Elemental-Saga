@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dke6ggr1tp888"
+path="res://.godot/imported/win.ogg-a4104b48f837c7723ba768f7a9e87a36.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/win.ogg"
+dest_files=["res://.godot/imported/win.ogg-a4104b48f837c7723ba768f7a9e87a36.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

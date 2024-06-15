@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ccg4trskfnegr"
+path="res://.godot/imported/pepSound5.ogg-6091beb171ef8b54273c2db0428fd8cc.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Digital Audio/Audio/pepSound5.ogg"
+dest_files=["res://.godot/imported/pepSound5.ogg-6091beb171ef8b54273c2db0428fd8cc.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

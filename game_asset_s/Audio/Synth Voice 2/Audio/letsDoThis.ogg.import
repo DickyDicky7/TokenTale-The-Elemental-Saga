@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cd8prtjrgb1q7"
+path="res://.godot/imported/letsDoThis.ogg-bb11385c45439757a662a1f617aab325.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/letsDoThis.ogg"
+dest_files=["res://.godot/imported/letsDoThis.ogg-bb11385c45439757a662a1f617aab325.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cob20nkdssgby"
+path="res://.godot/imported/menu_credits.ogg-68469bf1cfab95023d4d922c9314155f.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 1/Audio/menu_credits.ogg"
+dest_files=["res://.godot/imported/menu_credits.ogg-68469bf1cfab95023d4d922c9314155f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

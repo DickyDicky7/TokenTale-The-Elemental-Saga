@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c4l6o34og2lpp"
+path="res://.godot/imported/followMe.ogg-f4638ef3e6e4cb6123b0d38f966a6ccf.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/followMe.ogg"
+dest_files=["res://.godot/imported/followMe.ogg-f4638ef3e6e4cb6123b0d38f966a6ccf.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

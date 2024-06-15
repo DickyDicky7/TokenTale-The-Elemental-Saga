@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d0tgxlr7yx8ua"
+path="res://.godot/imported/footstep_concrete_004.ogg-f5985027da917fb0a694709220b3b340.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Impact Sounds/Audio/footstep_concrete_004.ogg"
+dest_files=["res://.godot/imported/footstep_concrete_004.ogg-f5985027da917fb0a694709220b3b340.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

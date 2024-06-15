@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cutgvyean7a4a"
+path="res://.godot/imported/engineCircular_004.ogg-bcf29b5f611e64aa7e829083725ad4ed.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Sci-Fi Sounds/Audio/engineCircular_004.ogg"
+dest_files=["res://.godot/imported/engineCircular_004.ogg-bcf29b5f611e64aa7e829083725ad4ed.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

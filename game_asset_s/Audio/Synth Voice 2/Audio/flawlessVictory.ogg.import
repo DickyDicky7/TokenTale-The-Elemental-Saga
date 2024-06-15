@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cgb1phxoxc2vw"
+path="res://.godot/imported/flawlessVictory.ogg-8a220e1eeb2d11ba8b3c2f0b008a4dc2.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/flawlessVictory.ogg"
+dest_files=["res://.godot/imported/flawlessVictory.ogg-8a220e1eeb2d11ba8b3c2f0b008a4dc2.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

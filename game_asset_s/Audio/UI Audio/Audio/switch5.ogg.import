@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b5rkjmgwcxb0i"
+path="res://.godot/imported/switch5.ogg-daa39b0b068ac6ea2d360381e31d160f.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/UI Audio/Audio/switch5.ogg"
+dest_files=["res://.godot/imported/switch5.ogg-daa39b0b068ac6ea2d360381e31d160f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://pky3q2mr28iq"
+path="res://.godot/imported/Flowing Rocks.ogg-55324d1faaa6a8ac1117dd54278b6e57.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Music Loops/Loops/Flowing Rocks.ogg"
+dest_files=["res://.godot/imported/Flowing Rocks.ogg-55324d1faaa6a8ac1117dd54278b6e57.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

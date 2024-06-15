@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dxgebflokj2x"
+path="res://.godot/imported/fireInTheHole.ogg-842dc31415246968807e7af5be9a0fcb.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/fireInTheHole.ogg"
+dest_files=["res://.godot/imported/fireInTheHole.ogg-842dc31415246968807e7af5be9a0fcb.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

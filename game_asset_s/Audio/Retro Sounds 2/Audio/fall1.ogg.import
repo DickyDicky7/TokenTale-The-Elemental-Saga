@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c5l4jl5wgmism"
+path="res://.godot/imported/fall1.ogg-b154855ae1220e4e8b9df7a47a7b3da2.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Retro Sounds 2/Audio/fall1.ogg"
+dest_files=["res://.godot/imported/fall1.ogg-b154855ae1220e4e8b9df7a47a7b3da2.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://co2kqpbrj3fvl"
+path="res://.godot/imported/round.ogg-68d6eb5fbceba94848babe01000bc269.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Voiceover Pack/Audio (Male)/round.ogg"
+dest_files=["res://.godot/imported/round.ogg-68d6eb5fbceba94848babe01000bc269.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

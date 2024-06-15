@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://mpv1pn8j2l8x"
+path="res://.godot/imported/planet_sun.ogg-62fb29e5c3e3021650532b6b35ad90ea.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 1/Audio/planet_sun.ogg"
+dest_files=["res://.godot/imported/planet_sun.ogg-62fb29e5c3e3021650532b6b35ad90ea.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

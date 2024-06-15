@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://44jrjsa6dsao"
+path="res://.godot/imported/saturn.ogg-d517a2ae7413140d7c6958831d3906b8.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/saturn.ogg"
+dest_files=["res://.godot/imported/saturn.ogg-d517a2ae7413140d7c6958831d3906b8.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

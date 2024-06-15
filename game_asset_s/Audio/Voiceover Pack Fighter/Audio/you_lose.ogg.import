@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dwcvsrroi3gn4"
+path="res://.godot/imported/you_lose.ogg-cba1e22893ad29f29093e2964223fcea.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Voiceover Pack Fighter/Audio/you_lose.ogg"
+dest_files=["res://.godot/imported/you_lose.ogg-cba1e22893ad29f29093e2964223fcea.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

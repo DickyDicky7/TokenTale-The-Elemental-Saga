@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d2mccn4fbx6cs"
+path="res://.godot/imported/weNeedIron.ogg-f1abb99dc41c34232475b55b330c6b2c.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/weNeedIron.ogg"
+dest_files=["res://.godot/imported/weNeedIron.ogg-f1abb99dc41c34232475b55b330c6b2c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

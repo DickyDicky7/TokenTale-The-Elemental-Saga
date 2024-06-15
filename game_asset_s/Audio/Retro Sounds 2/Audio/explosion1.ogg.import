@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cctwd4uun3jc5"
+path="res://.godot/imported/explosion1.ogg-92159bb6b4597a3fe67e57fba78e97cc.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Retro Sounds 2/Audio/explosion1.ogg"
+dest_files=["res://.godot/imported/explosion1.ogg-92159bb6b4597a3fe67e57fba78e97cc.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

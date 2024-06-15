@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bereda3rqiafo"
+path="res://.godot/imported/drawKnife1.ogg-66d7add5057e7a1a419297566282b53c.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/RPG Audio/Audio/drawKnife1.ogg"
+dest_files=["res://.godot/imported/drawKnife1.ogg-66d7add5057e7a1a419297566282b53c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

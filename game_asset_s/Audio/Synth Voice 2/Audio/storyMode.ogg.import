@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dsoewbq4poxnk"
+path="res://.godot/imported/storyMode.ogg-ed5f63380793d1d71df478c9b0cdb1e6.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/storyMode.ogg"
+dest_files=["res://.godot/imported/storyMode.ogg-ed5f63380793d1d71df478c9b0cdb1e6.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

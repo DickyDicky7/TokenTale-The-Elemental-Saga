@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dyhj14sgkw1xe"
+path="res://.godot/imported/combo.ogg-362a5dba1f763edf9ff50d70d4dfd0ee.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/combo.ogg"
+dest_files=["res://.godot/imported/combo.ogg-362a5dba1f763edf9ff50d70d4dfd0ee.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

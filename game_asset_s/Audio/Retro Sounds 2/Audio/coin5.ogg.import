@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dxtbmln0o2kph"
+path="res://.godot/imported/coin5.ogg-1ae78869e2a44a3ae5c7245b9cbd8f20.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Retro Sounds 2/Audio/coin5.ogg"
+dest_files=["res://.godot/imported/coin5.ogg-1ae78869e2a44a3ae5c7245b9cbd8f20.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

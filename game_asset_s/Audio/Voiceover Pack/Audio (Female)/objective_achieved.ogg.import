@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bces0l7o0o1b7"
+path="res://.godot/imported/objective_achieved.ogg-95e66464cc8f9a1f36ec16f6775c5647.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Voiceover Pack/Audio (Female)/objective_achieved.ogg"
+dest_files=["res://.godot/imported/objective_achieved.ogg-95e66464cc8f9a1f36ec16f6775c5647.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

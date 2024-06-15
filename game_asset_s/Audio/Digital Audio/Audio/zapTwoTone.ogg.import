@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bkx1kb1qxj1de"
+path="res://.godot/imported/zapTwoTone.ogg-12d61bbe782158ee8239e98b83516ff9.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Digital Audio/Audio/zapTwoTone.ogg"
+dest_files=["res://.godot/imported/zapTwoTone.ogg-12d61bbe782158ee8239e98b83516ff9.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d0o2801yn7o0i"
+path="res://.godot/imported/direction_backward.ogg-888529af2f36bf9d95bfc7789e7a1951.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 1/Audio/direction_backward.ogg"
+dest_files=["res://.godot/imported/direction_backward.ogg-888529af2f36bf9d95bfc7789e7a1951.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

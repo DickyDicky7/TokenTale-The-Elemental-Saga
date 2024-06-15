@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://djibgm3r1x78h"
+path="res://.godot/imported/earth.ogg-59846788267f9e845abe9738b05b9d0d.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/earth.ogg"
+dest_files=["res://.godot/imported/earth.ogg-59846788267f9e845abe9738b05b9d0d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

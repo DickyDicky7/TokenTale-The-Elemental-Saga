@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://crldyaq8atr53"
+path="res://.godot/imported/mission_failed.ogg-d03ddc9a669a5c50ca4f38f27acf0d97.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Voiceover Pack/Audio (Male)/mission_failed.ogg"
+dest_files=["res://.godot/imported/mission_failed.ogg-d03ddc9a669a5c50ca4f38f27acf0d97.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

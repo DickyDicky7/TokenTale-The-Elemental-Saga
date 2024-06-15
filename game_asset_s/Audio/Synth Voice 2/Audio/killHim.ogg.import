@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b6obgb48ntrah"
+path="res://.godot/imported/killHim.ogg-200021e1b36287adcb4400b498e47283.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/killHim.ogg"
+dest_files=["res://.godot/imported/killHim.ogg-200021e1b36287adcb4400b498e47283.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

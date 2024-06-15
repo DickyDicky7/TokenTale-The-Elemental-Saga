@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dejnantw5ubcm"
+path="res://.godot/imported/Three Red Hearts - Rumble at the Gates.ogg-9b10d100d67d52ffa3619e79b3fd1adb.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/three-red-hearts-prepare-to-dev-download/Three Red Hearts - Rumble at the Gates.ogg"
+dest_files=["res://.godot/imported/Three Red Hearts - Rumble at the Gates.ogg-9b10d100d67d52ffa3619e79b3fd1adb.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

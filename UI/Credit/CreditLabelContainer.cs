@@ -18,6 +18,7 @@ public partial class CreditLabelContainer : VBoxContainer
 		SetupList(CreditList.ArtistList, "Artists");
 		SetupList(CreditList.ProgrammerList, "Programmers");
 		SetupList(CreditList.QAList, "QA Team");
+		SetupList(CreditList.AudioList, "Audio Team");
 		SetupList(CreditList.SpecialThanksList, "Special Thanks To: ");
 		SetupEmpty(2);
 		SetupText("Thank you for playing !", 32);

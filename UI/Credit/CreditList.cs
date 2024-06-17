@@ -18,6 +18,7 @@ public partial class CreditList : Node
 		SetupArtistList();
 		SetupProgrammerList();
 		SetupQAList();
+		SetupAudioList();
 		SetupSpecialThanks();
 	}
 	public record CreditLine
@@ -180,6 +181,20 @@ public partial class CreditList : Node
 			Name = "Pham Tuan Anh"
 		});
 	}
+	public List<CreditLine> AudioList { get; private set; } = new();
+	private void SetupAudioList()
+	{
+		AudioList.Add(new CreditLine
+		{
+			Role = "Lead Audio Designer",
+			Name = "Pham Tuan Anh"
+		});
+		AudioList.Add(new CreditLine
+		{
+			Role = "Audio Implementer",
+			Name = "Pham Tuan Anh"
+		});
+	}
 	public List<CreditLine> SpecialThanksList { get; private set; } = new();
 	private void SetupSpecialThanks()
 	{
@@ -188,15 +203,15 @@ public partial class CreditList : Node
 			Role = "Advisor",
 			Name = "Huynh Ho Thi Mong Trinh"
 		});
-		SpecialThanksList.Add(new CreditLine
-		{
-			Role = "Supportive friends",
-			Name = "Nguyen Thai Binh"
-		});
-		SpecialThanksList.Add(new CreditLine
-		{
-			Role = "",
-			Name = "Nguyen Phuoc Hung"
-		});
+		//SpecialThanksList.Add(new CreditLine
+		//{
+		//	Role = "Supportive friends",
+		//	Name = "Nguyen Thai Binh"
+		//});
+		//SpecialThanksList.Add(new CreditLine
+		//{
+		//	Role = "",
+		//	Name = "Nguyen Phuoc Hung"
+		//});
 	}
 }

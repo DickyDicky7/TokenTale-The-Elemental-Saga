@@ -1,139 +1,106 @@
-[gd_scene load_steps=10 format=3 uid="uid://d1jlh0uaim28w"]
+[gd_scene load_steps=13 format=3 uid="uid://d1jlh0uaim28w"]
 
 [ext_resource type="Script" path="res://game_objects/abilities/tornado/Tornado.cs" id="1_07thd"]
-[ext_resource type="SpriteFrames" uid="uid://cqhgruumd1cmw" path="res://game_objects/abilities/tornado/Tornado_SpriteFrames_Twist.tres" id="2_ck7qw"]
-[ext_resource type="SpriteFrames" uid="uid://qmvnxplebuhs" path="res://game_objects/abilities/tornado/Tornado_SpriteFrames_Trail.tres" id="2_gya6r"]
 [ext_resource type="Shape3D" uid="uid://bainywxrvpbw6" path="res://game_objects/abilities/tornado/Tornado_CollisionShape3D_Hitbox.tres" id="4_tyhw6"]
 [ext_resource type="BlackboardPlan" uid="uid://j11xi8c1ddof" path="res://game_objects/abilities/tornado/Tornado_BlackboardPlanBase.tres" id="6_qb6hm"]
 [ext_resource type="BehaviorTree" uid="uid://ccjvq47e2bo2p" path="res://game_objects/abilities/tornado/Tornado_BehaviorTree.tres" id="6_yyui4"]
-[ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="7_wyot5"]
+[ext_resource type="ArrayMesh" uid="uid://4v6gumxsh0tu" path="res://game_objects/abilities/tornado/Tornado_Mesh_Source.tres" id="8_obeky"]
+[ext_resource type="PlaneMesh" uid="uid://dx2vf5k4h74jh" path="res://game_objects/abilities/tornado/Tornado_Mesh_Target.tres" id="9_juokm"]
+[ext_resource type="Script" path="res://game_objects/abilities/tornado/TornadoMultiMeshInstance3D.cs" id="10_kx7ie"]
+[ext_resource type="MultiMesh" uid="uid://8ov8anp0jx7g" path="res://game_objects/abilities/tornado/Tornado_MultiMesh.tres" id="10_uvbw3"]
 
-[sub_resource type="Animation" id="Animation_f5joo"]
-resource_name = "TWIST"
-length = 0.8
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_wk5hs"]
+resource_name = "CEASE"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite3D_Twist:frame")
+tracks/0/path = NodePath("Visual/MultiMeshInstance3D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite3D_Twist:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["TWIST"]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedShadow3D_Twist:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("AnimatedShadow3D_Twist:animation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["TWIST"]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("AnimatedSprite3D_Trail:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("AnimatedSprite3D_Trail:animation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["TWIST"]
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.02, 0.02, 0.02), Vector3(0, 0, 0)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_8ynva"]
+[sub_resource type="Animation" id="Animation_e34bt"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/MultiMeshInstance3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.02, 0.02, 0.02)]
+}
+
+[sub_resource type="Animation" id="Animation_b3k74"]
+resource_name = "START"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/MultiMeshInstance3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.02, 0.02, 0.02)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hmxei"]
 _data = {
-"TWIST": SubResource("Animation_f5joo")
+"CEASE": SubResource("Animation_wk5hs"),
+"RESET": SubResource("Animation_e34bt"),
+"START": SubResource("Animation_b3k74")
 }
 
-[node name="Tornado" type="RigidBody3D"]
+[node name="Tornado" type="Node3D"]
 script = ExtResource("1_07thd")
+MovingDuration = 2.0
+EasingfuncType = 2
+TransitionType = 2
+
+[node name="Visual" type="Node3D" parent="."]
+
+[node name="MeshInstance3D_Target" type="MeshInstance3D" parent="Visual"]
+mesh = ExtResource("9_juokm")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D_Source" type="MeshInstance3D" parent="Visual"]
+process_mode = 4
+visible = false
+mesh = ExtResource("8_obeky")
+skeleton = NodePath("../..")
+
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Visual"]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -0.2, 0, -0.2)
+multimesh = ExtResource("10_uvbw3")
+script = ExtResource("10_kx7ie")
+
+[node name="Hitbox" type="Area3D" parent="."]
+
+[node name="CollisionShape3D_Hitbox" type="CollisionShape3D" parent="Hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
+shape = ExtResource("4_tyhw6")
 
 [node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
 aabb = AABB(-0.25, 0, -0.25, 0.5, 0.6, 0.5)
-
-[node name="AnimatedSprite3D_Trail" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-cast_shadow = 0
-offset = Vector2(-57, -3.5)
-texture_filter = 0
-sprite_frames = ExtResource("2_gya6r")
-animation = &"TWIST"
-
-[node name="AnimatedSprite3D_Twist" type="AnimatedSprite3D" parent="."]
-cast_shadow = 0
-offset = Vector2(0, 32)
-texture_filter = 0
-sprite_frames = ExtResource("2_ck7qw")
-animation = &"TWIST"
-
-[node name="AnimatedShadow3D_Twist" type="AnimatedSprite3D" parent="."]
-cast_shadow = 3
-offset = Vector2(0, 32)
-alpha_cut = 2
-texture_filter = 0
-sprite_frames = ExtResource("2_ck7qw")
-animation = &"TWIST"
-
-[node name="CollisionShape3D_Hitbox" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
-shape = ExtResource("4_tyhw6")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_8ynva")
-}
-autoplay = "TWIST"
-speed_scale = 3.0
 
 [node name="BT_______Player" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("6_yyui4")
 blackboard_plan = ExtResource("6_qb6hm")
 
-[node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
-script = ExtResource("7_wyot5")
-Sprites = [NodePath("../AnimatedSprite3D_Twist")]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hmxei")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+autoplay = true

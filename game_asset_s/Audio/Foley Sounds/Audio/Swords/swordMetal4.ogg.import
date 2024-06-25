@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://deiguihpjv65k"
+path="res://.godot/imported/swordMetal4.ogg-e78221edb9b785fde6af5553dba69bca.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Foley Sounds/Audio/Swords/swordMetal4.ogg"
+dest_files=["res://.godot/imported/swordMetal4.ogg-e78221edb9b785fde6af5553dba69bca.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

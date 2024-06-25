@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://rjohotwllmhb"
+path="res://.godot/imported/war_watch_my_back.ogg-f0b6dc1c6d9081f6f8d7ad8b4cd1a28a.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Voiceover Pack/Audio (Female)/war_watch_my_back.ogg"
+dest_files=["res://.godot/imported/war_watch_my_back.ogg-f0b6dc1c6d9081f6f8d7ad8b4cd1a28a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

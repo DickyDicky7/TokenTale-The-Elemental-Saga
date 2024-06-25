@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://1fn2t2mcjblc"
+path="res://.godot/imported/maximize_001.ogg-86867e5528dc80faf9e4e71d72dcace2.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Interface Sounds/Audio/maximize_001.ogg"
+dest_files=["res://.godot/imported/maximize_001.ogg-86867e5528dc80faf9e4e71d72dcace2.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

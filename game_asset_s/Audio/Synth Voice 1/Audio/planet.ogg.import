@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://djnf6gta1e1jr"
+path="res://.godot/imported/planet.ogg-b0f7cc956c864c4372423093b7c298b0.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 1/Audio/planet.ogg"
+dest_files=["res://.godot/imported/planet.ogg-b0f7cc956c864c4372423093b7c298b0.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

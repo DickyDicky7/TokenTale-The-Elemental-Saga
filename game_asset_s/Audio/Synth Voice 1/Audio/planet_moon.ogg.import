@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dcm70vlgkamt6"
+path="res://.godot/imported/planet_moon.ogg-5c07b04f536c1f6bd82d0febbac32501.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 1/Audio/planet_moon.ogg"
+dest_files=["res://.godot/imported/planet_moon.ogg-5c07b04f536c1f6bd82d0febbac32501.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://byke5gr4qif3n"]
+
+[ext_resource type="Shader" path="res://shaders/Glow.gdshader" id="1_ldupr"]
+[ext_resource type="Texture2D" uid="uid://cwcv1roglcg1s" path="res://game_asset_s/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/16x16/coin_05d.png" id="2_j1ouu"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ldupr")
+shader_parameter/MODULATE = Color(2, 2, 1, 1)
+shader_parameter/TEXTURE = ExtResource("2_j1ouu")

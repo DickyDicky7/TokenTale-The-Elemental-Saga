@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://sdp31stjh4y5"
+path="res://.godot/imported/combo_breaker.ogg-feec81ed80ef87adb83b86ef118c7021.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Voiceover Pack Fighter/Audio/combo_breaker.ogg"
+dest_files=["res://.godot/imported/combo_breaker.ogg-feec81ed80ef87adb83b86ef118c7021.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

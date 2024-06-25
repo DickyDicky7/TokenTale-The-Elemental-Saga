@@ -1,13 +1,26 @@
-[gd_scene load_steps=15 format=3 uid="uid://u16qad10a485"]
+[gd_scene load_steps=28 format=3 uid="uid://u16qad10a485"]
 
 [ext_resource type="SpriteFrames" uid="uid://0kbvt2fcohxa" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster_SpriteFrames_$Main$.tres" id="1_1wafb"]
+[ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster.cs" id="1_x2fgj"]
+[ext_resource type="PackedScene" uid="uid://c7i7emx3rn41l" path="res://game_objects/items/elemental_token/ElementalToken.tscn" id="2_j4kdn"]
+[ext_resource type="Resource" uid="uid://bks16vr7o4ojt" path="res://game_objects/characters/shared/EnemiesAbilities.tres" id="2_jy6ms"]
+[ext_resource type="PackedScene" uid="uid://c14s46yvkynh8" path="res://game_objects/items/soul_or_coin/SoulOrCoin.tscn" id="3_c1wq2"]
 [ext_resource type="Shape3D" uid="uid://dnlsnu8nqbmc1" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster_CollisionShape3D_Body.tres" id="3_dqny3"]
+[ext_resource type="PackedScene" uid="uid://chwjmy7grdej" path="res://game_objects/shared/status_info/StatusInfo.tscn" id="3_kbf5y"]
+[ext_resource type="PackedScene" uid="uid://dsbep0yr8rwxa" path="res://game_objects/shared/hits_flashing_by_modulate/HitsFlashingByModulate.tscn" id="3_xt4bl"]
+[ext_resource type="PackedScene" uid="uid://d214m5mqgg6go" path="res://game_objects/items/heal_drop/HealDrop.tscn" id="4_eu44q"]
 [ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.tscn" id="5_jnxj8"]
 [ext_resource type="BlackboardPlan" uid="uid://fsqsabqsafqi" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster_BlackboardPlanBase.tres" id="5_wy6lx"]
 [ext_resource type="Shape3D" uid="uid://dutdm8qf5mh4b" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster_ShapeCast3D.tres" id="6_1cglj"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="7_b48je"]
 [ext_resource type="BehaviorTree" uid="uid://b2bpmha480eof" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster_BehaviorTree.tres" id="7_l33ya"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="8_q3e8a"]
+[ext_resource type="Script" path="res://game_objects/shared/Hurtbox3D.cs" id="9_rsvg4"]
+[ext_resource type="AudioStream" uid="uid://b1n5ic1qfa64o" path="res://game_asset_s/Audio/Retro Sounds 1/Audio/laser4.ogg" id="10_24mf6"]
+[ext_resource type="AudioStream" uid="uid://briwxviumndrf" path="res://game_asset_s/Audio/Retro Sounds 2/Audio/hurt5.ogg" id="10_d4w2i"]
+[ext_resource type="AudioStream" uid="uid://bapymsdem3l8t" path="res://game_asset_s/Audio/Retro Sounds 2/Audio/hurt2.ogg" id="10_i3e8p"]
+[ext_resource type="PackedScene" uid="uid://bb7ues43wabc1" path="res://game_objects/shared/indicator/Indicator.tscn" id="11_nsql4"]
+[ext_resource type="AudioStream" uid="uid://ckmuvdo2mwcah" path="res://game_asset_s/Minifantasy_Dungeon_SFX/15_human_dash_2.wav" id="13_f6cde"]
 
 [sub_resource type="Animation" id="Animation_odyw3"]
 length = 0.5
@@ -58,6 +71,54 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": ["CHARGE"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Indicator:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.01, 0.01, 0.01), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(0.01, 0.01, 0.01)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Indicator:Modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer:stream")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_24mf6")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_y27f8"]
@@ -124,6 +185,44 @@ tracks/4/keys = {
 "method": &"queue_free"
 }]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite3D_$Main$/HitsFlashingModulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.73, 0.1, false],
+"method": &"PlayDeadEffect"
+}]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer:stream")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_d4w2i")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_eykw2"]
 length = 0.333333
@@ -174,6 +273,44 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": ["HURT"]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite3D_$Main$/HitsFlashingModulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.33, 0.1, false],
+"method": &"PlayHurtEffect"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer:stream")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_i3e8p")]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_jh0ta"]
@@ -279,6 +416,30 @@ tracks/3/keys = {
 "update": 1,
 "values": ["MOVE"]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer:stream")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("13_f6cde")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tkksa"]
 _data = {
@@ -290,24 +451,43 @@ _data = {
 }
 
 [node name="MetalMonster" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 15
+script = ExtResource("1_x2fgj")
+Element = 4
+ElementalTokenPackedScene = ExtResource("2_j4kdn")
+CoinPackedScene = ExtResource("3_c1wq2")
+HealDropPackedScene = ExtResource("4_eu44q")
+VisitorAbilityDispatch = ExtResource("2_jy6ms")
+MonsterType = 1
+StatusInfoPackedScene = ExtResource("3_kbf5y")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 0.5
+target_desired_distance = 0.3
+debug_enabled = true
 
 [node name="AnimatedSprite3D_$Main$" type="AnimatedSprite3D" parent="."]
 cast_shadow = 0
 offset = Vector2(0, 28)
+flip_h = true
 texture_filter = 0
 sprite_frames = ExtResource("1_1wafb")
-animation = &"CHARGE"
+animation = &"MOVE"
+
+[node name="HitsFlashingModulate" parent="AnimatedSprite3D_$Main$" instance=ExtResource("3_xt4bl")]
 
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 cast_shadow = 3
 offset = Vector2(0, 28)
+flip_h = true
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_1wafb")
-animation = &"CHARGE"
+animation = &"MOVE"
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 shape = ExtResource("3_dqny3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -320,21 +500,62 @@ behavior_tree = ExtResource("7_l33ya")
 blackboard_plan = ExtResource("5_wy6lx")
 
 [node name="EyeSight$3D" parent="." instance=ExtResource("5_jnxj8")]
+process_mode = 4
+transform = Transform3D(1.41421, 0, 1.41421, 0, 1, 0, -1.41421, 0, 1.41421, 0, 0, 0)
+Modulate = Color(1, 1, 1, 1)
 
 [node name="Ray__Cast3D" type="RayCast3D" parent="."]
-target_position = Vector3(0.5, 0.1, 0)
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0.1, 0)
+target_position = Vector3(0.5, 0, 0)
+collision_mask = 15
 debug_shape_custom_color = Color(0, 0, 1, 1)
 
 [node name="ShapeCast3D" type="ShapeCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0.1, 0)
 shape = ExtResource("6_1cglj")
 target_position = Vector3(0, 0, 0)
+collision_mask = 15
 debug_shape_custom_color = Color(0, 0, 1, 1)
 
 [node name="Flippable3DSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
+process_mode = 4
 script = ExtResource("7_b48je")
 Sprites = [NodePath("../AnimatedSprite3D_$Main$"), NodePath("../AnimatedSprite3D_Shadow")]
+FlipHInverted = true
 
 [node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
+process_mode = 4
 script = ExtResource("8_q3e8a")
 Sprites = [NodePath("../AnimatedSprite3D_$Main$")]
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+autostart = true
+
+[node name="Indicator" parent="." node_paths=PackedStringArray("Sprite") instance=ExtResource("11_nsql4")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+Modulate = Color(1, 0, 1, 1)
+Sprite = NodePath("Sprite3D")
+
+[node name="Hurtbox3D" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 48
+script = ExtResource("9_rsvg4")
+
+[node name="CollisionShape3D_Body" type="CollisionShape3D" parent="Hurtbox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+shape = ExtResource("3_dqny3")
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
+aabb = AABB(-0.1, 0, -0.1, 0.2, 0.4, 0.2)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_f6cde")
+
+[node name="GroundDetector" type="Node3D" parent="."]
+
+[node name="RayCast3D" type="RayCast3D" parent="GroundDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.15, 0)
+target_position = Vector3(0, -0.2, 0)
+hit_from_inside = true
+collide_with_areas = true

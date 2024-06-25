@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cpeki4qsv42ou"
+path="res://.godot/imported/sniper.ogg-e0bca14cc325c810f3ce60fb63182797.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/sniper.ogg"
+dest_files=["res://.godot/imported/sniper.ogg-e0bca14cc325c810f3ce60fb63182797.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

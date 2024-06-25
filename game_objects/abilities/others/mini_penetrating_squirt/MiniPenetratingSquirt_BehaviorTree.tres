@@ -1,0 +1,26 @@
+[gd_resource type="BehaviorTree" load_steps=8 format=3 uid="uid://bgn5if7a8gll0"]
+
+[ext_resource type="BlackboardPlan" uid="uid://chhsr1rlype0l" path="res://game_objects/abilities/others/mini_penetrating_squirt/MiniPenetratingSquirt_BlackboardPlan----.tres" id="1_r368b"]
+[ext_resource type="BBNode" uid="uid://baslkcnocdcx8" path="res://game_objects/abilities/others/mini_penetrating_squirt/MiniPenetratingSquirt_BBNode_AnimPlay.tres" id="2_1lowb"]
+[ext_resource type="BBNode" uid="uid://dffdt6xvsexc" path="res://game_objects/abilities/others/mini_penetrating_squirt/MiniPenetratingSquirt_BBNode_RootNode.tres" id="3_b1vpb"]
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_q20pp"]
+await_completion = 10.0
+animation_player = ExtResource("2_1lowb")
+animation_name = &"@ON"
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_3n0r6"]
+await_completion = 10.0
+animation_player = ExtResource("2_1lowb")
+animation_name = &"OFF"
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_58aw7"]
+node = ExtResource("3_b1vpb")
+method = &"queue_free"
+
+[sub_resource type="BTSequence" id="BTSequence_nuisn"]
+children = [SubResource("BTPlayAnimation_q20pp"), SubResource("BTPlayAnimation_3n0r6"), SubResource("BTCallMethod_58aw7")]
+
+[resource]
+blackboard_plan = ExtResource("1_r368b")
+root_task = SubResource("BTSequence_nuisn")

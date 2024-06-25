@@ -1,128 +1,145 @@
-[gd_scene load_steps=11 format=3 uid="uid://bj14wt31rsok8"]
+[gd_scene load_steps=12 format=3 uid="uid://bj14wt31rsok8"]
 
-[ext_resource type="SpriteFrames" uid="uid://1pmwtiv8namm" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_SpriteFrames.tres" id="1_84jd6"]
+[ext_resource type="Script" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt.cs" id="1_dl1o4"]
+[ext_resource type="Script" path="res://game_objects/abilities/penetrating_squirt/SquirtHitbox.cs" id="4_7fopb"]
 [ext_resource type="BlackboardPlan" uid="uid://bcg3ryduafma5" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_BlackboardPlanBase.tres" id="4_cqd5s"]
-[ext_resource type="Shape3D" uid="uid://uj6irmg35oj1" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_CollisionShape3D_Hitbox.tres" id="4_mmqwq"]
+[ext_resource type="Shape3D" uid="uid://c3dcvq0rjpkrc" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_CollisionShape3D_Hitbox.tres" id="4_mmqwq"]
 [ext_resource type="BehaviorTree" uid="uid://t6yhjbbcq7hq" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_BehaviorTree.tres" id="4_wt3nm"]
 [ext_resource type="Material" uid="uid://ceiqd3fl34sb0" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_ParticleProcessMaterial_Test.tres" id="6_7sgmm"]
 [ext_resource type="QuadMesh" uid="uid://b4ql1ljd52px5" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt_DrawPass01_Mesh.tres" id="6_scnkn"]
+[ext_resource type="AudioStream" uid="uid://wevuvlv1lnk2" path="res://game_asset_s/Audio/Foley Sounds/Audio/Water/sinkWater3.ogg" id="8_xatwr"]
 
-[sub_resource type="Animation" id="Animation_hqgdx"]
-length = 0.6
+[sub_resource type="Animation" id="Animation_suxw6"]
+resource_name = "RESET"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite3D:frame")
+tracks/0/path = NodePath("Visual/_GPU_Particles3D:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+"values": [true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite3D:animation")
+tracks/1/path = NodePath("Hitbox/CollisionShape3D_Hitbox:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox/CollisionShape3D_Hitbox:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["FLY"]
+"values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_533fi"]
-length = 0.4
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_gxndt"]
+resource_name = "SHOOT"
+length = 7.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite3D:frame")
+tracks/0/path = NodePath("Visual/_GPU_Particles3D:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 3.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
+"values": [true, false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite3D:animation")
+tracks/1/path = NodePath("Hitbox/CollisionShape3D_Hitbox:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["HIT"]
+"times": PackedFloat32Array(0, 3.5, 7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.001, 0.001, 0.001), Vector3(1, 1, 1), Vector3(0.001, 0.001, 0.001)]
 }
-
-[sub_resource type="Animation" id="Animation_3teqd"]
-length = 0.45
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite3D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox/CollisionShape3D_Hitbox:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 6.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+"values": [false, true]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite3D:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["OUT"]
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hitbox/CollisionShape3D_Hitbox:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3.5, 7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.05, 0), Vector3(0, 0.05, -5)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x5rhq"]
 _data = {
-"FLY": SubResource("Animation_hqgdx"),
-"HIT": SubResource("Animation_533fi"),
-"OUT": SubResource("Animation_3teqd")
+"RESET": SubResource("Animation_suxw6"),
+"SHOOT": SubResource("Animation_gxndt")
 }
 
-[node name="PenetratingSquirt" type="Area3D"]
+[node name="PenetratingSquirt" type="Node3D"]
+script = ExtResource("1_dl1o4")
+Element = 1
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(-1.31134e-08, 3, -4.37114e-08, 0, -1.31134e-07, -1, -0.3, -1.31134e-07, 1.91069e-15, 0, 0, 0)
-visible = false
-offset = Vector2(0, 48)
-alpha_cut = 2
-texture_filter = 0
-sprite_frames = ExtResource("1_84jd6")
-animation = &"FLY"
+[node name="Visual" type="Node3D" parent="."]
 
-[node name="_GPU_Particles3D" type="GPUParticles3D" parent="."]
+[node name="_GPU_Particles3D" type="GPUParticles3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 amount = 1000
+speed_scale = 1.5
+local_coords = true
 process_material = ExtResource("6_7sgmm")
 draw_pass_1 = ExtResource("6_scnkn")
 
-[node name="CollisionShape3D_Hitbox" type="CollisionShape3D" parent="."]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 1.2, 0, 0)
+[node name="Hitbox" type="Area3D" parent="."]
+collision_layer = 32
+collision_mask = 4
+script = ExtResource("4_7fopb")
+
+[node name="CollisionShape3D_Hitbox" type="CollisionShape3D" parent="Hitbox"]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0.05, -5)
 shape = ExtResource("4_mmqwq")
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_x5rhq")
 }
-autoplay = "HIT"
-speed_scale = 2.0
+speed_scale = 5.0
 
 [node name="BT_______Player" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("4_wt3nm")
 blackboard_plan = ExtResource("4_cqd5s")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_xatwr")
+autoplay = true

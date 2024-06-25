@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c0s6vovsh584i"
+path="res://.godot/imported/fantastic.ogg-5ba119c1c992e29c16ca230a3a1bc115.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 1/Audio/fantastic.ogg"
+dest_files=["res://.godot/imported/fantastic.ogg-5ba119c1c992e29c16ca230a3a1bc115.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

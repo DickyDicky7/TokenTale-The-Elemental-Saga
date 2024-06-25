@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ca3fs4t87t7u0"
+path="res://.godot/imported/defeat.ogg-fcd3fea1c6177d725de452476b063f3e.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 1/Audio/defeat.ogg"
+dest_files=["res://.godot/imported/defeat.ogg-fcd3fea1c6177d725de452476b063f3e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

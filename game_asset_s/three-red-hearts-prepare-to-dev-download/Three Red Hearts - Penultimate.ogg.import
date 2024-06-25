@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dkhef3p4qokt6"
+path="res://.godot/imported/Three Red Hearts - Penultimate.ogg-b3726769d9e18f99f3c9f17f1a5e6e5d.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/three-red-hearts-prepare-to-dev-download/Three Red Hearts - Penultimate.ogg"
+dest_files=["res://.godot/imported/Three Red Hearts - Penultimate.ogg-b3726769d9e18f99f3c9f17f1a5e6e5d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

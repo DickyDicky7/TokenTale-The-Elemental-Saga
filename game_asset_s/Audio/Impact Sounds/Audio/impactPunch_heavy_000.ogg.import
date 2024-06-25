@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bfif2jy1u4ebh"
+path="res://.godot/imported/impactPunch_heavy_000.ogg-4a5f72fb0b6f90d141f14960b40f628c.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Impact Sounds/Audio/impactPunch_heavy_000.ogg"
+dest_files=["res://.godot/imported/impactPunch_heavy_000.ogg-4a5f72fb0b6f90d141f14960b40f628c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

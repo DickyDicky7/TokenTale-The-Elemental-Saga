@@ -1,0 +1,38 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://ip0srnxp3tur"]
+
+[ext_resource type="Texture2D" uid="uid://08wldmqpml6e" path="res://game_asset_s/vfx/LT_100_nyknck/LT100.png" id="1_4f82k"]
+[ext_resource type="Texture2D" uid="uid://b7w458ffw02cc" path="res://game_asset_s/vfx/LT_100_nyknck/LT101.png" id="2_xghmx"]
+[ext_resource type="Texture2D" uid="uid://d1qfrpt8nicab" path="res://game_asset_s/vfx/LT_100_nyknck/LT102.png" id="3_277jo"]
+[ext_resource type="Texture2D" uid="uid://djie07ccxkoks" path="res://game_asset_s/vfx/LT_100_nyknck/LT103.png" id="4_gpk27"]
+[ext_resource type="Texture2D" uid="uid://bkdh7tqg5yywq" path="res://game_asset_s/vfx/LT_100_nyknck/LT104.png" id="5_4rrmo"]
+[ext_resource type="Texture2D" uid="uid://cerbs4fhupf53" path="res://game_asset_s/vfx/LT_100_nyknck/LT105.png" id="6_rnkt8"]
+[ext_resource type="Texture2D" uid="uid://c4tq3iej6ltvo" path="res://game_asset_s/vfx/LT_100_nyknck/LT106.png" id="7_or2eg"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4f82k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xghmx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_277jo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gpk27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4rrmo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_rnkt8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_or2eg")
+}],
+"loop": false,
+"name": &"SHOCK",
+"speed": 16.0
+}]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bn6jmnl2ngd2a"
+path="res://.godot/imported/power_up.ogg-a9b5c396477236bc22d81840e22d7c8e.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Voiceover Pack/Audio (Female)/power_up.ogg"
+dest_files=["res://.godot/imported/power_up.ogg-a9b5c396477236bc22d81840e22d7c8e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

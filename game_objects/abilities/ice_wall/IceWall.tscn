@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5cd1cni7lng6"]
+[gd_scene load_steps=6 format=3 uid="uid://c5cd1cni7lng6"]
 
 [ext_resource type="Script" path="res://game_objects/abilities/ice_wall/IceWall.cs" id="1_qnmtq"]
 [ext_resource type="Resource" uid="uid://6s1d5wgx7ymj" path="res://game_objects/abilities/ice_wall/IceWall_GenerationStrategy.tres" id="2_f04eb"]
 [ext_resource type="BehaviorTree" uid="uid://nn2qdvt6kpw5" path="res://game_objects/abilities/ice_wall/IceWall_BehaviorTree.tres" id="3_bq0q0"]
 [ext_resource type="BlackboardPlan" uid="uid://b3mulpkovmqc7" path="res://game_objects/abilities/ice_wall/IceWall_BlackboardPlanBase.tres" id="4_ckvhr"]
+[ext_resource type="AudioStream" uid="uid://pvho0407r4h5" path="res://game_asset_s/Audio/Sci-Fi Sounds/Audio/lowFrequency_explosion_000.ogg" id="5_0fuon"]
 
 [node name="IceWall" type="Node3D"]
 script = ExtResource("1_qnmtq")
@@ -12,3 +13,7 @@ GenerationStrategy = ExtResource("2_f04eb")
 [node name="BT_______Player" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("3_bq0q0")
 blackboard_plan = ExtResource("4_ckvhr")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_0fuon")
+autoplay = true

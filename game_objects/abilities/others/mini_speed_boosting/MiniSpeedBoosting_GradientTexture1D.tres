@@ -1,0 +1,7 @@
+[gd_resource type="GradientTexture1D" load_steps=2 format=3 uid="uid://co16qba68btgc"]
+
+[ext_resource type="Gradient" uid="uid://d36j7alntk3f" path="res://game_objects/abilities/others/mini_speed_boosting/MiniSpeedBoosting_Gradient---------.tres" id="1_6akvy"]
+
+[resource]
+gradient = ExtResource("1_6akvy")
+use_hdr = true

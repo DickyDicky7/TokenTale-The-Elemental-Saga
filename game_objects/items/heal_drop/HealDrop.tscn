@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://d214m5mqgg6go"]
+
+[ext_resource type="Script" path="res://game_objects/items/heal_drop/HealDrop.cs" id="1_m332s"]
+[ext_resource type="Material" uid="uid://dw2qx4wfxnvbc" path="res://game_objects/items/heal_drop/HealDrop_ShaderMaterial_Glow.tres" id="2_v8y8g"]
+[ext_resource type="Texture2D" uid="uid://brbp2qaffjfbn" path="res://game_asset_s/heart.png" id="3_icoqh"]
+[ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="4_php0a"]
+[ext_resource type="Shape3D" uid="uid://cgt3gmvj13tkj" path="res://game_objects/items/heal_drop/HealDrop_CollisionShape3D_Hitbox.tres" id="5_eoqus"]
+
+[sub_resource type="Animation" id="Animation_yejn5"]
+resource_name = "IDLE"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-3, -3),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.5, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dywha"]
+_data = {
+"IDLE": SubResource("Animation_yejn5")
+}
+
+[node name="HealDrop" type="Node3D" node_paths=PackedStringArray("HitBox")]
+script = ExtResource("1_m332s")
+HitBox = NodePath("Hitbox")
+
+[node name="Visual" type="Node3D" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="Visual"]
+material_override = ExtResource("2_v8y8g")
+cast_shadow = 0
+texture_filter = 0
+texture = ExtResource("3_icoqh")
+
+[node name="Shadow3D" type="Sprite3D" parent="Visual"]
+cast_shadow = 3
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("3_icoqh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual"]
+libraries = {
+"": SubResource("AnimationLibrary_dywha")
+}
+autoplay = "IDLE"
+
+[node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="Visual" node_paths=PackedStringArray("Sprites")]
+process_mode = 4
+script = ExtResource("4_php0a")
+Sprites = [NodePath("../Sprite3D")]
+
+[node name="Hitbox" type="Area3D" parent="."]
+collision_layer = 256
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+shape = ExtResource("5_eoqus")

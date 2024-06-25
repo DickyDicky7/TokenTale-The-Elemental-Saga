@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://djers01wi5dw3"
+path="res://.godot/imported/objective failed.ogg-c0886f47b1abb057588377c5990b2301.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 1/Audio/objective failed.ogg"
+dest_files=["res://.godot/imported/objective failed.ogg-c0886f47b1abb057588377c5990b2301.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

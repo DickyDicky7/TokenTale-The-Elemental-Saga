@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c48kmuxkguvo7"
+path="res://.godot/imported/laserSmall_004.ogg-7f0771f77086d12d82ad4aa10d03ec0f.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Sci-Fi Sounds/Audio/laserSmall_004.ogg"
+dest_files=["res://.godot/imported/laserSmall_004.ogg-7f0771f77086d12d82ad4aa10d03ec0f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b33pyinbwr3w2"
+path="res://.godot/imported/lockOnToMyTarget.ogg-634e14a6971551c035412d71f3370307.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/lockOnToMyTarget.ogg"
+dest_files=["res://.godot/imported/lockOnToMyTarget.ogg-634e14a6971551c035412d71f3370307.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

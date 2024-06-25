@@ -1,0 +1,7 @@
+[gd_resource type="QuadMesh" load_steps=2 format=3 uid="uid://cbnw6saak2bph"]
+
+[ext_resource type="Material" uid="uid://b54aqps5oghas" path="res://game_objects/abilities/others/mini_blow_wind/MiniBlowWind_DrawPass01_StandardMaterial3D.tres" id="1_08jpt"]
+
+[resource]
+material = ExtResource("1_08jpt")
+size = Vector2(0.5, 0.5)

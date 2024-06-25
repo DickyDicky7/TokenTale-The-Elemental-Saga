@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://jlmfd3xxnw4n"
+path="res://.godot/imported/ready_for_battle.ogg-f9165bbe4ba2d96942ff0573118c640d.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 1/Audio/ready_for_battle.ogg"
+dest_files=["res://.godot/imported/ready_for_battle.ogg-f9165bbe4ba2d96942ff0573118c640d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

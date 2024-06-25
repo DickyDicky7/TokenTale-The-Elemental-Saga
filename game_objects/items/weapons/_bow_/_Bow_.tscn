@@ -1,0 +1,301 @@
+[gd_scene load_steps=33 format=3 uid="uid://b7cey8rb583i7"]
+
+[ext_resource type="Script" path="res://game_objects/items/weapons/_bow_/_Bow_.cs" id="1_tkwil"]
+[ext_resource type="SpriteFrames" uid="uid://cluh2qnw6rggx" path="res://game_objects/items/weapons/_bow_/_Bow__SpriteFrames_$Main$.tres" id="2_82x8i"]
+[ext_resource type="Shader" path="res://shaders/Glow.gdshader" id="2_v2td1"]
+[ext_resource type="Texture2D" uid="uid://yb8acegdt212" path="res://game_asset_s/characters/main_character_v3/02.png" id="3_a5n8f"]
+[ext_resource type="Shape3D" uid="uid://bpv0qpjlsjrlj" path="res://game_objects/items/weapons/_bow_/_Bow__CollisionShape3D.tres" id="5_nvgv3"]
+[ext_resource type="SpriteFrames" uid="uid://cnjolrmubtmrb" path="res://game_objects/items/weapons/_bow_/_Bow__SpriteFrames_Effect.tres" id="5_v1wxv"]
+[ext_resource type="Texture2D" uid="uid://cob2p07h887t4" path="res://game_asset_s/vfx/SP103_nyknck/SP103_01.png" id="6_g0nm0"]
+[ext_resource type="Texture2D" uid="uid://du15vymucyoko" path="res://game_asset_s/vfx/SP103_nyknck/SP103_02.png" id="7_tmdhf"]
+[ext_resource type="Script" path="res://game_objects/shared/state_machine/StateMachine.cs" id="7_wimn1"]
+[ext_resource type="Script" path="res://game_objects/items/weapons/_bow_/State_Bow_Reset.cs" id="8_072kb"]
+[ext_resource type="Texture2D" uid="uid://b1yn67y1v5xom" path="res://game_asset_s/vfx/SP103_nyknck/SP103_03.png" id="8_q4m22"]
+[ext_resource type="Script" path="res://game_objects/items/weapons/_bow_/State_Bow_Shoot.cs" id="9_6bc2u"]
+[ext_resource type="Texture2D" uid="uid://hd6hpa1hhd4u" path="res://game_asset_s/vfx/SP103_nyknck/SP103_04.png" id="9_ng48a"]
+[ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="9_ytflg"]
+[ext_resource type="PackedScene" uid="uid://bblgtm4r3038r" path="res://game_objects/items/weapons/_bow_/Arrow.tscn" id="16_6o5r2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6crfs"]
+render_priority = 0
+shader = ExtResource("2_v2td1")
+shader_parameter/MODULATE = Color(1.1, 1.1, 1.1, 1)
+shader_parameter/TEXTURE = ExtResource("3_a5n8f")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h2c7t"]
+render_priority = 0
+shader = ExtResource("2_v2td1")
+shader_parameter/MODULATE = Color(1.5, 1.5, 1.5, 0)
+
+[sub_resource type="Animation" id="Animation_alxfl"]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("_AnimatedSprite3D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("_AnimatedSprite3D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["RESET"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("_AnimatedSprite3D_Effect:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("_AnimatedSprite3D_Effect:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["RESET"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("_AnimatedSprite3D_$Main$:material_override")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("ShaderMaterial_6crfs")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("_AnimatedSprite3D_Effect:material_override")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("ShaderMaterial_h2c7t")]
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o4h0w"]
+render_priority = 0
+shader = ExtResource("2_v2td1")
+shader_parameter/MODULATE = Color(1.5, 1.5, 1.5, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xno1i"]
+render_priority = 0
+shader = ExtResource("2_v2td1")
+shader_parameter/MODULATE = Color(1.5, 1.5, 1.5, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xx6w4"]
+render_priority = 0
+shader = ExtResource("2_v2td1")
+shader_parameter/MODULATE = Color(1.5, 1.5, 1.5, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jm3hn"]
+render_priority = 0
+shader = ExtResource("2_v2td1")
+shader_parameter/MODULATE = Color(1.5, 1.5, 1.5, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6ujiv"]
+render_priority = 0
+shader = ExtResource("2_v2td1")
+shader_parameter/MODULATE = Color(1.5, 1.5, 1.5, 1)
+shader_parameter/TEXTURE = ExtResource("6_g0nm0")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tla3o"]
+render_priority = 0
+shader = ExtResource("2_v2td1")
+shader_parameter/MODULATE = Color(1.5, 1.5, 1.5, 1)
+shader_parameter/TEXTURE = ExtResource("7_tmdhf")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4gp5g"]
+render_priority = 0
+shader = ExtResource("2_v2td1")
+shader_parameter/MODULATE = Color(1.5, 1.5, 1.5, 1)
+shader_parameter/TEXTURE = ExtResource("8_q4m22")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oyyia"]
+render_priority = 0
+shader = ExtResource("2_v2td1")
+shader_parameter/MODULATE = Color(1.5, 1.5, 1.5, 1)
+shader_parameter/TEXTURE = ExtResource("9_ng48a")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aa2pt"]
+render_priority = 0
+shader = ExtResource("2_v2td1")
+shader_parameter/MODULATE = Color(1.5, 1.5, 1.5, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ad2hw"]
+render_priority = 0
+shader = ExtResource("2_v2td1")
+shader_parameter/MODULATE = Color(1.5, 1.5, 1.5, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ds5nf"]
+render_priority = 0
+shader = ExtResource("2_v2td1")
+shader_parameter/MODULATE = Color(1.5, 1.5, 1.5, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7qd2w"]
+render_priority = 0
+shader = ExtResource("2_v2td1")
+shader_parameter/MODULATE = Color(1.5, 1.5, 1.5, 0)
+
+[sub_resource type="Animation" id="Animation_2wyu4"]
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("_AnimatedSprite3D_$Main$:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("_AnimatedSprite3D_$Main$:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["SHOOT"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("_AnimatedSprite3D_Effect:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("_AnimatedSprite3D_Effect:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["SHOOT"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("_AnimatedSprite3D_$Main$:material_override")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("ShaderMaterial_6crfs")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("_AnimatedSprite3D_Effect:material_override")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [SubResource("ShaderMaterial_o4h0w"), SubResource("ShaderMaterial_xno1i"), SubResource("ShaderMaterial_xx6w4"), SubResource("ShaderMaterial_jm3hn"), SubResource("ShaderMaterial_6ujiv"), SubResource("ShaderMaterial_tla3o"), SubResource("ShaderMaterial_4gp5g"), SubResource("ShaderMaterial_oyyia"), SubResource("ShaderMaterial_aa2pt"), SubResource("ShaderMaterial_ad2hw"), SubResource("ShaderMaterial_ds5nf"), SubResource("ShaderMaterial_7qd2w")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a32rc"]
+_data = {
+"RESET": SubResource("Animation_alxfl"),
+"SHOOT": SubResource("Animation_2wyu4")
+}
+
+[node name="_Bow_" type="Node3D" node_paths=PackedStringArray("AnimationPlayerr", "AnimatedSprite3DMmainn", "CollisionShape3D", "AnimatedSprite3DEffect")]
+script = ExtResource("1_tkwil")
+AnimationPlayerr = NodePath("AnimationPlayerrr")
+AnimatedSprite3DMmainn = NodePath("_AnimatedSprite3D_$Main$")
+CollisionShape3D = NodePath("Aareaa3D/CollisionShape3D")
+AnimatedSprite3DEffect = NodePath("_AnimatedSprite3D_Effect")
+
+[node name="_AnimatedSprite3D_$Main$" type="AnimatedSprite3D" parent="."]
+material_override = SubResource("ShaderMaterial_6crfs")
+offset = Vector2(0, 6)
+texture_filter = 0
+sprite_frames = ExtResource("2_82x8i")
+animation = &"RESET"
+autoplay = "RESET"
+
+[node name="_AnimatedSprite3D_Effect" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, 1, -1, 4.37114e-08, -4.37114e-08, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_h2c7t")
+texture_filter = 0
+sprite_frames = ExtResource("5_v1wxv")
+animation = &"RESET"
+autoplay = "RESET"
+
+[node name="AnimationPlayerrr" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_a32rc")
+}
+
+[node name="Aareaa3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Aareaa3D"]
+shape = ExtResource("5_nvgv3")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("ActiveStates")]
+script = ExtResource("7_wimn1")
+ActiveStates = [NodePath("Reset")]
+
+[node name="Reset" type="Node" parent="StateMachine" node_paths=PackedStringArray("ShootState", "_Bow_")]
+script = ExtResource("8_072kb")
+ShootState = NodePath("../Shoot")
+_Bow_ = NodePath("../..")
+
+[node name="Shoot" type="Node" parent="StateMachine" node_paths=PackedStringArray("ResetState", "_Bow_")]
+script = ExtResource("9_6bc2u")
+ResetState = NodePath("../Reset")
+PackedSceneArrow = ExtResource("16_6o5r2")
+_Bow_ = NodePath("../..")
+
+[node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
+process_mode = 4
+script = ExtResource("9_ytflg")
+Sprites = [NodePath("../_AnimatedSprite3D_$Main$")]

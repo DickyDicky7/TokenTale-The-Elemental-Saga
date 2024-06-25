@@ -1,0 +1,238 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cqu71dnsyyoxq"]
+
+[sub_resource type="Shader" id="Shader_8nmwf"]
+code = "// Wind Waker style water - NekotoArts. Adapted from https://www.shadertoy.com/view/3tKBDz. After which I added in some fractal Brownian motion as well as vertex displacement.
+
+shader_type spatial;
+
+uniform float alpha = 1.0;
+uniform vec4 WATER1_COL : source_color = vec4(0.0400, 0.3800, 0.8800, 1.0);
+uniform vec4 WATER2_COL : source_color = vec4(0.0400, 0.3500, 0.7800, 1.0);
+uniform vec4   FOAM_COL : source_color = vec4(0.8125, 0.9609, 0.9648, 1.0);
+uniform float distortion_speed =     2.0 ;
+uniform vec2    tile =     vec2(5.0, 5.0);
+uniform float height =               2.0 ;
+uniform vec2  wave_sizes = vec2(2.0, 2.0);
+uniform float wave_speed =           1.5 ;
+
+const float M_2PI = 06.283185307;
+const float M_6PI = 18.849555920;
+
+float random(vec2 uv)
+{
+    return fract(sin(dot(uv.xy, vec2(12.9898
+                              ,      78.2330))) * 0043758.5453123);
+}
+
+float noise(vec2 uv)
+{
+    vec2 uv_index = floor(uv);
+    vec2 uv_fract = fract(uv);
+
+    // Four corners in 2D of a tile
+    float a = random(uv_index                 );
+    float b = random(uv_index + vec2(1.0, 0.0));
+    float c = random(uv_index + vec2(0.0, 1.0));
+    float d = random(uv_index + vec2(1.0, 1.0));
+
+    vec2 blur = smoothstep (0.0, 1.0, uv_fract);
+
+    return
+    mix(a , b,   blur.x) +
+       (c - a) * blur.y  * (1.0 - blur.x) +
+       (d - b) * blur.x  *        blur.y  ;
+}
+
+float fbm(vec2 uv)
+{
+    int octaves = 6  ;
+    float amplitude = 0.5;
+    float frequency = 3.0;
+	float value = 0.0;
+
+    for(int i =       0;
+            i < octaves;
+            i++
+       )
+    {
+        value += amplitude * noise(frequency * uv);
+        amplitude *= 0.5;
+        frequency *= 2.0;
+    }
+    return value;
+}
+
+float circ(vec2 pos, vec2 c, float s)
+{
+    c = abs(    pos - c);
+    c = min(c , 1.0 - c);
+
+    return smoothstep(0.0, 0.002, sqrt(s) - sqrt(dot(c , c))) * -1.0;
+}
+
+// Foam pattern for the water constructed out of a series of circles
+float waterlayer(vec2 uv)
+{
+    uv =        mod(
+    uv ,        1.0); // Clamp to [0..1]
+
+    float ret = 1.0 ;
+    ret += circ(uv, vec2(0.37378000, 0.27716900), 0.02681810);
+    ret += circ(uv, vec2(0.03174770, 0.54037200), 0.01937420);
+    ret += circ(uv, vec2(0.43004400, 0.88221800), 0.02323370);
+    ret += circ(uv, vec2(0.64103300, 0.69510600), 0.01178640);
+    ret += circ(uv, vec2(0.01463980, 0.07913460), 0.02994580);
+    ret += circ(uv, vec2(0.43871000, 0.39444500), 0.02890870);
+    ret += circ(uv, vec2(0.90944600, 0.87814100), 0.02846600);
+    ret += circ(uv, vec2(0.31014900, 0.68663700), 0.01284960);
+    ret += circ(uv, vec2(0.92861700, 0.19598600), 0.01520410);
+    ret += circ(uv, vec2(0.04385060, 0.86815300), 0.02686010);
+    ret += circ(uv, vec2(0.30861900, 0.19493700), 0.00806102);
+    ret += circ(uv, vec2(0.34992200, 0.44971400), 0.00928667);
+    ret += circ(uv, vec2(0.04495560, 0.95341500), 0.02312600);
+    ret += circ(uv, vec2(0.11776100, 0.50330900), 0.01512720);
+    ret += circ(uv, vec2(0.56351700, 0.24499100), 0.02923220);
+    ret += circ(uv, vec2(0.56693600, 0.95445700), 0.00981141);
+    ret += circ(uv, vec2(0.04899440, 0.20093100), 0.01787460);
+    ret += circ(uv, vec2(0.56929700, 0.62489300), 0.01324080);
+    ret += circ(uv, vec2(0.29834700, 0.71097200), 0.01144260);
+    ret += circ(uv, vec2(0.87814100, 0.77127900), 0.00322719);
+    ret += circ(uv, vec2(0.15099500, 0.37622100), 0.00216157);
+    ret += circ(uv, vec2(0.11967300, 0.54198400), 0.01246210);
+    ret += circ(uv, vec2(0.62959800, 0.29562900), 0.01987360);
+    ret += circ(uv, vec2(0.33435700, 0.26627800), 0.01871450);
+    ret += circ(uv, vec2(0.91804400, 0.96816300), 0.01829280);
+    ret += circ(uv, vec2(0.96544500, 0.50502600), 0.00634800);
+    ret += circ(uv, vec2(0.51484700, 0.86544400), 0.00623523);
+    ret += circ(uv, vec2(0.71057500, 0.04151310), 0.00322689);
+    ret += circ(uv, vec2(0.71403000, 0.57694500), 0.02156410);
+    ret += circ(uv, vec2(0.74887300, 0.41332500), 0.01107950);
+    ret += circ(uv, vec2(0.06233650, 0.89671300), 0.02362030);
+    ret += circ(uv, vec2(0.98048200, 0.47384900), 0.00573439);
+    ret += circ(uv, vec2(0.64746300, 0.65434900), 0.01887130);
+    ret += circ(uv, vec2(0.65140600, 0.98129700), 0.00710875);
+    ret += circ(uv, vec2(0.42892800, 0.38242600), 0.02988060);
+    ret += circ(uv, vec2(0.81154500, 0.62568000), 0.00265539);
+    ret += circ(uv, vec2(0.40078700, 0.74162000), 0.00486609);
+    ret += circ(uv, vec2(0.33128300, 0.41853600), 0.00598028);
+    ret += circ(uv, vec2(0.89476200, 0.06579970), 0.00760375);
+    ret += circ(uv, vec2(0.52510400, 0.57223300), 0.01417960);
+    ret += circ(uv, vec2(0.43152600, 0.91137200), 0.02132340);
+    ret += circ(uv, vec2(0.65821200, 0.91055300), 0.000741023);
+    ret += circ(uv, vec2(0.51452300, 0.24326300), 0.02706850);
+    ret += circ(uv, vec2(0.02494940, 0.25287200), 0.00876653);
+    ret += circ(uv, vec2(0.50221400, 0.47269000), 0.02345340);
+    ret += circ(uv, vec2(0.69327100, 0.43146900), 0.02465330);
+    ret += circ(uv, vec2(0.41500000, 0.88441800), 0.02716960);
+    ret += circ(uv, vec2(0.14907300, 0.41204000), 0.00497198);
+    ret += circ(uv, vec2(0.53381600, 0.89763400), 0.00650833);
+    ret += circ(uv, vec2(0.04091320, 0.83406000), 0.01913980);
+    ret += circ(uv, vec2(0.63858500, 0.64601900), 0.02061290);
+    ret += circ(uv, vec2(0.66034200, 0.96654100), 0.00535110);
+    ret += circ(uv, vec2(0.51378300, 0.14223300), 0.00471653);
+    ret += circ(uv, vec2(0.12430500, 0.64426300), 0.00116724);
+    ret += circ(uv, vec2(0.99871000, 0.58386400), 0.01073290);
+    ret += circ(uv, vec2(0.89487900, 0.23328900), 0.00667092);
+    ret += circ(uv, vec2(0.24628600, 0.68276600), 0.00411623);
+    ret += circ(uv, vec2(0.07618950, 0.16327000), 0.01459350);
+    ret += circ(uv, vec2(0.94938600, 0.80293600), 0.01008730);
+    ret += circ(uv, vec2(0.48012200, 0.19655400), 0.01101850);
+    ret += circ(uv, vec2(0.89685400, 0.80370700), 0.01396900);
+    ret += circ(uv, vec2(0.29286500, 0.76297300), 0.00566413);
+    ret += circ(uv, vec2(0.09955850, 0.11745700), 0.00869407);
+    ret += circ(uv, vec2(0.37771300, 0.00335442), 0.00631470);
+    ret += circ(uv, vec2(0.50636500, 0.53111800), 0.01440160);
+    ret += circ(uv, vec2(0.40880600, 0.89477100), 0.02439230);
+    ret += circ(uv, vec2(0.14357900, 0.85138000), 0.00418529);
+    ret += circ(uv, vec2(0.09028110, 0.18177500), 0.01088960);
+    ret += circ(uv, vec2(0.78069500, 0.39464400), 0.00475475);
+    ret += circ(uv, vec2(0.29803600, 0.62553100), 0.00325285);
+    ret += circ(uv, vec2(0.21842300, 0.71453700), 0.00157212);
+    ret += circ(uv, vec2(0.65883600, 0.15955600), 0.00225897);
+    ret += circ(uv, vec2(0.98732400, 0.14654500), 0.02883910);
+    ret += circ(uv, vec2(0.22264600, 0.25169400), 0.00092276);
+    ret += circ(uv, vec2(0.15982600, 0.52806300), 0.00605293);
+	return max(ret, 0.0);
+}
+
+// Procedural texture generation for the water
+vec3 water(vec2 uv, vec3 cdir, float iTime)
+{
+    uv *=  vec2(0.25)      ;
+	uv +=  fbm (  uv) * 0.2;
+
+    // Parallax height distortion with two directional waves at
+    // slightly different angles.
+    vec2  a = 0.025 
+            * cdir.xz
+            / cdir.y; // Parallax offset
+    float h =
+        sin(           uv.x + iTime); // Height at UV
+    uv += a * h;
+    h = sin(0.841471 * uv.x -
+            0.540302 * uv.y + iTime);
+    uv += a * h;
+
+    // Texture distortion
+    float d1 = mod( uv.x + uv.y              , M_2PI);
+    float d2 = mod((uv.x + uv.y + 0.25) * 1.3, M_6PI);
+    d1 = iTime * 0.07 + d1;
+    d2 = iTime * 0.50 + d2;
+    vec2 dist =
+    vec2
+    (
+    	sin(d1) * 0.15 + sin(d2) * 0.05,
+    	cos(d1) * 0.15 + cos(d2) * 0.05
+    );
+
+    vec3   ret = mix(   WATER1_COL.rgb,
+                        WATER2_COL.rgb, waterlayer(            uv + dist.xy));
+           ret = mix(ret, FOAM_COL.rgb, waterlayer(vec2(1.0) - uv - dist.yx));
+    return ret ;
+}
+
+
+void vertex()
+{
+	float time = TIME * wave_speed;
+	vec2  uv   =  UV  * wave_sizes;
+	float d1 = mod( uv.x + uv.y              , M_2PI);
+    float d2 = mod((uv.x + uv.y + 0.25) * 1.3, M_6PI);
+    d1 = time * 0.07 + d1;
+    d2 = time * 0.50 + d2;
+    vec2 dist =
+    vec2
+    (
+    	sin(d1) * 0.15 + sin(d2) * 0.05,
+    	cos(d1) * 0.15 + cos(d2) * 0.05
+    );
+	VERTEX.y += dist.y * height;
+	//VERTEX.x += 1.0;
+	
+}
+
+void fragment()
+{
+	vec2 uv = UV;
+
+    ALBEDO  = vec3(water(uv * tile, vec3( 0 , 1 , 0 ), TIME * distortion_speed));
+	ALPHA   =
+	alpha   ;
+}
+
+
+
+"
+
+[resource]
+render_priority = 0
+shader = SubResource("Shader_8nmwf")
+shader_parameter/alpha = 1.0
+shader_parameter/WATER1_COL = Color(0.04, 0.38, 0.88, 1)
+shader_parameter/WATER2_COL = Color(0.04, 0.35, 0.78, 1)
+shader_parameter/FOAM_COL = Color(0.8125, 0.9609, 0.9648, 1)
+shader_parameter/distortion_speed = 2.0
+shader_parameter/tile = Vector2(5, 5)
+shader_parameter/height = 2.0
+shader_parameter/wave_sizes = Vector2(2, 2)
+shader_parameter/wave_speed = 1.5

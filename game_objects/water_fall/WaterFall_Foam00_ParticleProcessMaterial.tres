@@ -1,0 +1,17 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=2 format=3 uid="uid://cdx6s1hf34bme"]
+
+[ext_resource type="Texture2D" uid="uid://b3kaebmbobay4" path="res://game_objects/water_fall/WaterFall_Foam00_Scale_CurveTexture.tres" id="1_5vnic"]
+
+[resource]
+lifetime_randomness = 1.0
+emission_shape_scale = Vector3(0.025, 0.025, 0.01)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+velocity_pivot = Vector3(0, 1, 0)
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 3.0
+gravity = Vector3(0, -10, 0)
+scale_min = 0.15
+scale_max = 0.25
+scale_curve = ExtResource("1_5vnic")

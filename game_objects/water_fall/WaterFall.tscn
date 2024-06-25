@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4w8tue5how1h"]
+
+[ext_resource type="Material" uid="uid://cdx6s1hf34bme" path="res://game_objects/water_fall/WaterFall_Foam00_ParticleProcessMaterial.tres" id="1_hsknr"]
+[ext_resource type="QuadMesh" uid="uid://dxm6y3fhac0sc" path="res://game_objects/water_fall/WaterFall_Foam00_DrawPass01_Mesh.tres" id="1_qs6k8"]
+[ext_resource type="SphereMesh" uid="uid://4ddx1iygqvco" path="res://game_objects/water_fall/WaterFall_Foam01_DrawPass01_Mesh.tres" id="2_3bevu"]
+[ext_resource type="Material" uid="uid://lt6y6v4ivu28" path="res://game_objects/water_fall/WaterFall_Foam01_ParticleProcessMaterial.tres" id="2_uk2cu"]
+
+[node name="WaterFall" type="Node3D"]
+
+[node name="GPUParticles3D_Foam00" type="GPUParticles3D" parent="."]
+cast_shadow = 0
+amount = 100
+lifetime = 0.5
+fixed_fps = 60
+visibility_aabb = AABB(-0.5, -0.5, -0.5, 1, 1, 1)
+process_material = ExtResource("1_hsknr")
+draw_pass_1 = ExtResource("1_qs6k8")
+
+[node name="GPUParticles3D_Foam01" type="GPUParticles3D" parent="."]
+cast_shadow = 0
+amount = 100
+fixed_fps = 60
+visibility_aabb = AABB(-0.5, -0.5, -0.5, 1, 1, 1)
+process_material = ExtResource("2_uk2cu")
+draw_pass_1 = ExtResource("2_3bevu")

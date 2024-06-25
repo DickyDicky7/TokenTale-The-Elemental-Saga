@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://eh58vvl1ag62"
+path="res://.godot/imported/war_look_out.ogg-65d87a74c97fec6c797f1795a7645ede.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Voiceover Pack/Audio (Male)/war_look_out.ogg"
+dest_files=["res://.godot/imported/war_look_out.ogg-65d87a74c97fec6c797f1795a7645ede.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

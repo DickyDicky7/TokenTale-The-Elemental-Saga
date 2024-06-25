@@ -3,8 +3,9 @@ extends CanvasLayer
 
 @export_category("Post Process")
 @export var configuration : PostProcessingConfiguration
+@export var dynamically_update : bool = true
 
-func _update_shaders() -> void:
+func update_shaders() -> void:
 	if not configuration:
 		return
 	for child in get_children():
@@ -16,6 +17,14 @@ func _update_shaders() -> void:
 
 func _update_shader_parameters( _name : String, _material : Material) -> void:
 	match _name:
+		"Palette":
+			_material.set_shader_parameter("palette", configuration.PalettePalette)
+		"Pixelate":
+			_material.set_shader_parameter("pixelSize", configuration.PixelatePixelSize)
+		"ColorCorrection":
+			_material.set_shader_parameter("tint", configuration.ColorCorrectionTint)
+			_material.set_shader_parameter("brightness", configuration.ColorCorrectionBrightness)
+			_material.set_shader_parameter("saturation", configuration.ColorCorrectionSaturation)
 		"ChromaticAberration":
 			_material.set_shader_parameter("offset", configuration.StrenghtCA)
 		"Blur":
@@ -80,7 +89,12 @@ func _update_shader_parameters( _name : String, _material : Material) -> void:
 			
 
 func _check_shader_visibility(_name: String) -> bool:
-	
+		if _name.begins_with("Palette"):
+			return true if configuration.Palette else false
+		if _name.begins_with("Pixelate"):
+			return true if configuration.Pixelate else false
+		if _name.begins_with("ColorCorrection"):
+			return true if configuration.ColorCorrection else false
 		if _name.begins_with("ChromaticAberration"):
 			return true if configuration.ChromaticAberration else false
 		
@@ -119,7 +133,7 @@ func _check_shader_visibility(_name: String) -> bool:
 
 		if _name.begins_with("CRT"):
 			return true if configuration.CRT else false
-		
+		# get_children() returning all _names leading Always to:
 		push_error("#Undefined type Post Processing addon - verify it has been properly integrated.")
 		return false # bad!
 
@@ -138,8 +152,11 @@ func _enter_tree():
 	_add_canvas_layer_children("res://addons/post_processing/node/children/speed_lines.tscn", "SDP_LIN")
 	_add_canvas_layer_children("res://addons/post_processing/node/children/ascii.tscn", "ASCII")
 	_add_canvas_layer_children("res://addons/post_processing/node/children/CRT.tscn", "CRT")
+	_add_canvas_layer_children("res://addons/post_processing/node/children/color_correction.tscn", "CC")
+	_add_canvas_layer_children("res://addons/post_processing/node/children/pixelate.tscn", "PXL")
+	_add_canvas_layer_children("res://addons/post_processing/node/children/palette.tscn", "PLT")
 	
-	_update_shaders() 
+	update_shaders()
 
 func _add_canvas_layer_children(_path : String, _name: String) -> void:
 	var child_instance = load(_path).instantiate()
@@ -151,7 +168,15 @@ func _add_canvas_layer_children(_path : String, _name: String) -> void:
 func _process(delta):
 	if not configuration:
 		return
-	if Engine.is_editor_hint() or !Engine.is_editor_hint():
-		if configuration.reload == true:
-			_update_shaders()
-			configuration.reload = false
+	if Engine.is_editor_hint():
+		if dynamically_update:
+			update_shaders()
+		else:
+			if configuration.reload:
+				configuration.reload = false
+				update_shaders()
+	else:
+		update_shaders()
+	if configuration.reload:
+		configuration.reload = false
+		update_shaders()

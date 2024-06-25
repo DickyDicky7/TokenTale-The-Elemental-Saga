@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dp7i8rppsm6so"
+path="res://.godot/imported/takingFire.ogg-4c1a4ba397acb04d040ac49e5c14970c.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/takingFire.ogg"
+dest_files=["res://.godot/imported/takingFire.ogg-4c1a4ba397acb04d040ac49e5c14970c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

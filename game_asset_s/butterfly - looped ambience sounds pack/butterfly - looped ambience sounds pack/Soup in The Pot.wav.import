@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cvl117fwnst2j"
+path="res://.godot/imported/Soup in The Pot.wav-04e244bb08616fc21b63f8e041500a1e.sample"
+
+[deps]
+
+source_file="res://game_asset_s/butterfly - looped ambience sounds pack/butterfly - looped ambience sounds pack/Soup in The Pot.wav"
+dest_files=["res://.godot/imported/Soup in The Pot.wav-04e244bb08616fc21b63f8e041500a1e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

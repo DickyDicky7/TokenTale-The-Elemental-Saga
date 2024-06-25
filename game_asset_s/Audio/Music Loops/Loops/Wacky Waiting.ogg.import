@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bty8n5s2rieda"
+path="res://.godot/imported/Wacky Waiting.ogg-30ef915035f463a64a0f8b01db2085de.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Music Loops/Loops/Wacky Waiting.ogg"
+dest_files=["res://.godot/imported/Wacky Waiting.ogg-30ef915035f463a64a0f8b01db2085de.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

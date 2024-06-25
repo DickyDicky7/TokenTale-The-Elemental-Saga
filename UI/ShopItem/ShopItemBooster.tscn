@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://0p7h43sqmfcc"]
+
+[ext_resource type="Theme" uid="uid://d0gj3t6cdlghf" path="res://UI/ui_theme_1.tres" id="1_bemup"]
+[ext_resource type="Script" path="res://UI/ShopItem/ShopItemBooster.cs" id="2_y07ke"]
+[ext_resource type="Texture2D" uid="uid://brbp2qaffjfbn" path="res://game_asset_s/heart.png" id="3_dhvd2"]
+[ext_resource type="Texture2D" uid="uid://cmjwcbjag4iay" path="res://game_asset_s/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/16x16/scroll_01d.png" id="4_uw318"]
+[ext_resource type="Texture2D" uid="uid://51wt5vq3y4ch" path="res://game_asset_s/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/16x16/pearl_01b.png" id="4_yk6cp"]
+
+[node name="ShopItemBooster" type="MarginContainer" node_paths=PackedStringArray("ItemImage", "ItemName", "BuyButton")]
+custom_minimum_size = Vector2(175, 175)
+offset_right = 175.0
+offset_bottom = 175.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_bemup")
+script = ExtResource("2_y07ke")
+ItemImage = NodePath("VBoxContainer/ItemImage")
+ItemName = NodePath("VBoxContainer/ItemName")
+HeartImage = ExtResource("3_dhvd2")
+EnergyStoneImage = ExtResource("4_yk6cp")
+ScrollImage = ExtResource("4_uw318")
+BuyButton = NodePath("VBoxContainer/ItemBuyButton")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ItemImage" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+expand_mode = 2
+stretch_mode = 5
+
+[node name="ItemName" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Itemname"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemBuyButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Buy"

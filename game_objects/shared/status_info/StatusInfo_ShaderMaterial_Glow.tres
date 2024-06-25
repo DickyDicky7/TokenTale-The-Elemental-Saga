@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dosyxoqwvmibw"]
+
+[ext_resource type="Shader" path="res://shaders/Glow.gdshader" id="1_hihrm"]
+[ext_resource type="Texture2D" uid="uid://bsf13hrb5ouva" path="res://game_objects/shared/status_info/StatusInfo_ViewportTexture.tres" id="2_sfcf1"]
+
+[resource]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_hihrm")
+shader_parameter/MODULATE = Color(1.5, 1.5, 1.5, 1)
+shader_parameter/TEXTURE = ExtResource("2_sfcf1")

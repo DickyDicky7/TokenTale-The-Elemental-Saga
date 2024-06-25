@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ddn0ysu11qsyb"
+path="res://.godot/imported/choose_your_character.ogg-28da3d9f084f4c41d5b86109afcba54e.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Voiceover Pack Fighter/Audio/choose_your_character.ogg"
+dest_files=["res://.godot/imported/choose_your_character.ogg-28da3d9f084f4c41d5b86109afcba54e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,13 +1,22 @@
-[gd_scene load_steps=20 format=3 uid="uid://bbv4dpufmesgb"]
+[gd_scene load_steps=29 format=3 uid="uid://bbv4dpufmesgb"]
 
+[ext_resource type="Script" path="res://game_objects/characters/others/the_thief/cat/Cat.cs" id="1_qqt7b"]
+[ext_resource type="PackedScene" uid="uid://c7i7emx3rn41l" path="res://game_objects/items/elemental_token/ElementalToken.tscn" id="2_00nop"]
 [ext_resource type="SpriteFrames" uid="uid://h4rb06aui364" path="res://game_objects/characters/others/the_thief/cat/Cat_SpriteFrames_$Main$.tres" id="2_imwov"]
+[ext_resource type="Resource" uid="uid://bks16vr7o4ojt" path="res://game_objects/characters/shared/EnemiesAbilities.tres" id="2_j8jf8"]
+[ext_resource type="PackedScene" uid="uid://c14s46yvkynh8" path="res://game_objects/items/soul_or_coin/SoulOrCoin.tscn" id="3_2jmw8"]
+[ext_resource type="PackedScene" uid="uid://chwjmy7grdej" path="res://game_objects/shared/status_info/StatusInfo.tscn" id="3_ndnh8"]
 [ext_resource type="Shape3D" uid="uid://cnk8fxivphg27" path="res://game_objects/characters/others/the_thief/cat/Cat_CollisionShape3D_Body.tres" id="3_qjvj3"]
+[ext_resource type="PackedScene" uid="uid://d214m5mqgg6go" path="res://game_objects/items/heal_drop/HealDrop.tscn" id="4_b0qli"]
 [ext_resource type="BehaviorTree" uid="uid://c0qgsne1gmjmr" path="res://game_objects/characters/others/the_thief/cat/Cat_BehaviorTree.tres" id="4_bejlc"]
 [ext_resource type="BlackboardPlan" uid="uid://cgucwxt5dc3pf" path="res://game_objects/characters/others/the_thief/cat/Cat_BlackboardPlanBase.tres" id="5_s3pq2"]
 [ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.tscn" id="6_8htjg"]
 [ext_resource type="Shape3D" uid="uid://blf5opes2r2ci" path="res://game_objects/characters/others/the_thief/cat/Cat_ShapeCast3D.tres" id="6_xrboa"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="7_w13qf"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="8_gmbyo"]
+[ext_resource type="Script" path="res://game_objects/shared/Hurtbox3D.cs" id="9_bpd42"]
+[ext_resource type="AudioStream" uid="uid://78f168mnte5m" path="res://game_asset_s/Audio/Retro Sounds 2/Audio/jump1.ogg" id="9_qwh6d"]
+[ext_resource type="PackedScene" uid="uid://bb7ues43wabc1" path="res://game_objects/shared/indicator/Indicator.tscn" id="10_qbgbe"]
 
 [sub_resource type="Animation" id="Animation_oy1ut"]
 length = 0.4
@@ -422,6 +431,30 @@ tracks/3/keys = {
 "update": 1,
 "values": ["PAW"]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Indicator:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.01, 0.01, 0.01), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(0.01, 0.01, 0.01)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Indicator:Modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_dxwcj"]
 length = 0.8
@@ -472,6 +505,30 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": ["SCARED"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer:stream")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_qwh6d")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_y0w0d"]
@@ -525,6 +582,20 @@ tracks/3/keys = {
 "update": 1,
 "values": ["SLEEP"]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_upvdr"]
 _data = {
@@ -541,13 +612,27 @@ _data = {
 }
 
 [node name="Cat" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 15
+script = ExtResource("1_qqt7b")
+ElementalTokenPackedScene = ExtResource("2_00nop")
+CoinPackedScene = ExtResource("3_2jmw8")
+HealDropPackedScene = ExtResource("4_b0qli")
+VisitorAbilityDispatch = ExtResource("2_j8jf8")
+MonsterType = 1
+StatusInfoPackedScene = ExtResource("3_ndnh8")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 0.5
+target_desired_distance = 0.3
+debug_enabled = true
 
 [node name="AnimatedSprite3D_$Main$" type="AnimatedSprite3D" parent="."]
 cast_shadow = 0
 offset = Vector2(0, 16)
 texture_filter = 0
 sprite_frames = ExtResource("2_imwov")
-animation = &"CLEAN_0"
+animation = &"SCARED"
 
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 cast_shadow = 3
@@ -555,10 +640,10 @@ offset = Vector2(0, 16)
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("2_imwov")
-animation = &"CLEAN_0"
+animation = &"SCARED"
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 shape = ExtResource("3_qjvj3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -571,21 +656,60 @@ behavior_tree = ExtResource("4_bejlc")
 blackboard_plan = ExtResource("5_s3pq2")
 
 [node name="EyeSight$3D" parent="." instance=ExtResource("6_8htjg")]
+process_mode = 4
+transform = Transform3D(1.41421, 0, 1.41421, 0, 1, 0, -1.41421, 0, 1.41421, 0, 0, 0)
+Modulate = Color(1, 1, 1, 1)
 
 [node name="Ray__Cast3D" type="RayCast3D" parent="."]
-target_position = Vector3(0.5, 0.1, 0)
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0.1, 0)
+target_position = Vector3(0.5, 0, 0)
+collision_mask = 15
 debug_shape_custom_color = Color(0, 0, 1, 1)
 
 [node name="ShapeCast3D" type="ShapeCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0.1, 0)
 shape = ExtResource("6_xrboa")
 target_position = Vector3(0, 0, 0)
+collision_mask = 15
 debug_shape_custom_color = Color(0, 0, 1, 1)
 
 [node name="Flippable3DSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
+process_mode = 4
 script = ExtResource("7_w13qf")
 Sprites = [NodePath("../AnimatedSprite3D_$Main$"), NodePath("../AnimatedSprite3D_Shadow")]
 
 [node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
+process_mode = 4
 script = ExtResource("8_gmbyo")
 Sprites = [NodePath("../AnimatedSprite3D_$Main$")]
+
+[node name="Indicator" parent="." node_paths=PackedStringArray("Sprite") instance=ExtResource("10_qbgbe")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+Modulate = Color(1, 1, 1, 1)
+Sprite = NodePath("Sprite3D")
+
+[node name="Hurtbox3D" type="Area3D" parent="."]
+script = ExtResource("9_bpd42")
+
+[node name="CollisionShape3D_Body" type="CollisionShape3D" parent="Hurtbox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+shape = ExtResource("3_qjvj3")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.1
+autostart = true
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
+aabb = AABB(-0.05, 0, -0.05, 0.1, 0.15, 0.1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_qwh6d")
+
+[node name="GroundDetector" type="Node3D" parent="."]
+
+[node name="RayCast3D" type="RayCast3D" parent="GroundDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.15, 0)
+target_position = Vector3(0, -0.2, 0)
+hit_from_inside = true
+collide_with_areas = true

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://n4uemnssjhey"
+path="res://.godot/imported/radar3.ogg-d328d6ce5e7501dd5ca4eac9e3ce5989.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Retro Sounds 1/Audio/radar3.ogg"
+dest_files=["res://.godot/imported/radar3.ogg-d328d6ce5e7501dd5ca4eac9e3ce5989.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

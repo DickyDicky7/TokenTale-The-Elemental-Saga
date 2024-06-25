@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ChessAndItemResource" load_steps=3 format=3 uid="uid://dttjuhea26qxt"]
+
+[ext_resource type="Script" path="res://game_objects/items/chest_and_item/resource/ChessAndItemResource.cs" id="1_bjpd7"]
+[ext_resource type="Texture2D" uid="uid://bngsq2ll81jtt" path="res://game_asset_s/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/scroll_01c.png" id="1_de7eu"]
+
+[resource]
+script = ExtResource("1_bjpd7")
+ItemTexture = ExtResource("1_de7eu")
+ItemClassName = "ElementalScroll"
+Item_____Name = "ElementalScroll"

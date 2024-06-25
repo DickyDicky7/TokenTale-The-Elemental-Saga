@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bxbetrkgodduc"
+path="res://.godot/imported/arcadeMode.ogg-d88ff7c15e3bab885d43119d27c1a98d.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/arcadeMode.ogg"
+dest_files=["res://.godot/imported/arcadeMode.ogg-d88ff7c15e3bab885d43119d27c1a98d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

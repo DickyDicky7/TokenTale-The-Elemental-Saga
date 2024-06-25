@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b2g1hjiq28rlc"
+path="res://.godot/imported/levelComplete.ogg-e90bbd559f422996b2416e58cad203e1.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/levelComplete.ogg"
+dest_files=["res://.godot/imported/levelComplete.ogg-e90bbd559f422996b2416e58cad203e1.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

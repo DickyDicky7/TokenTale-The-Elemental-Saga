@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dpje5svshyrjg"
+path="res://.godot/imported/insertCoin.ogg-ae6cff7998985b206cb8c4457eb89b71.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/insertCoin.ogg"
+dest_files=["res://.godot/imported/insertCoin.ogg-ae6cff7998985b206cb8c4457eb89b71.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

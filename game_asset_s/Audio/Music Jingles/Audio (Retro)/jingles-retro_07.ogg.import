@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://163qribqsyg1"
+path="res://.godot/imported/jingles-retro_07.ogg-50eea4268724bc0650fb92c97e2cbf2f.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Music Jingles/Audio (Retro)/jingles-retro_07.ogg"
+dest_files=["res://.godot/imported/jingles-retro_07.ogg-50eea4268724bc0650fb92c97e2cbf2f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

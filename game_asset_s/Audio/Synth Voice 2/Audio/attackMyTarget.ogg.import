@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d26tdlp4h841v"
+path="res://.godot/imported/attackMyTarget.ogg-f52e6fd1950d43ce6f81d556cf6671c9.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/attackMyTarget.ogg"
+dest_files=["res://.godot/imported/attackMyTarget.ogg-f52e6fd1950d43ce6f81d556cf6671c9.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

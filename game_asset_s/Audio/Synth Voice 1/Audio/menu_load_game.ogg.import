@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://duvenic1xiprh"
+path="res://.godot/imported/menu_load_game.ogg-8638980aa90b6e38954127f61e6b6d9b.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 1/Audio/menu_load_game.ogg"
+dest_files=["res://.godot/imported/menu_load_game.ogg-8638980aa90b6e38954127f61e6b6d9b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

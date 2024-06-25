@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c77qsc062opec"
+path="res://.godot/imported/abort_mission.ogg-c6c9565e0f21a1d4bfc484e868870adc.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 1/Audio/abort_mission.ogg"
+dest_files=["res://.godot/imported/abort_mission.ogg-c6c9565e0f21a1d4bfc484e868870adc.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

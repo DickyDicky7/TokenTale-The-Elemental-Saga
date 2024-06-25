@@ -1,6 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://c0rvsktoasue5"]
+[gd_scene load_steps=19 format=3 uid="uid://c0rvsktoasue5"]
 
+[ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/ice/ice_cube/IceCube.cs" id="1_ct8b8"]
 [ext_resource type="SpriteFrames" uid="uid://d1p4dji8rib5x" path="res://game_objects/characters/elem_monsterss/normal/ice/ice_cube/IceCube_SpriteFrames_$Main$.tres" id="2_kts5v"]
+[ext_resource type="PackedScene" uid="uid://dsbep0yr8rwxa" path="res://game_objects/shared/hits_flashing_by_modulate/HitsFlashingByModulate.tscn" id="2_mqgno"]
 [ext_resource type="Shape3D" uid="uid://djcovv5oq4wx1" path="res://game_objects/characters/elem_monsterss/normal/ice/ice_cube/IceCube_CollisionShape3D_Body.tres" id="3_75s0v"]
 [ext_resource type="BehaviorTree" uid="uid://bb3qs1fsp5t2i" path="res://game_objects/characters/elem_monsterss/normal/ice/ice_cube/IceCube_BehaviorTree.tres" id="4_tbuex"]
 [ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.tscn" id="5_32iss"]
@@ -11,7 +13,6 @@
 
 [sub_resource type="Animation" id="Animation_vp6hs"]
 length = 0.8
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -74,10 +75,23 @@ tracks/4/keys = {
 "method": &"queue_free"
 }]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite3D_$Main$/HitsFlashingByModulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.8, 0.1, false],
+"method": &"PlayDeadEffect"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_h4oli"]
 length = 0.3
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -125,6 +139,20 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": ["HURT"]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite3D_$Main$/HitsFlashingByModulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.3, 0.1, false],
+"method": &"PlayHurtEffect"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_67g0u"]
@@ -181,7 +209,6 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_mgvog"]
 length = 0.9
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -232,7 +259,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_xndwf"]
-length = 0.4
+length = 0.2
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -241,7 +268,7 @@ tracks/0/path = NodePath("AnimatedSprite3D_$Main$:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
@@ -265,7 +292,7 @@ tracks/2/path = NodePath("AnimatedSprite3D_Shadow:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
@@ -337,7 +364,6 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_robgp"]
 length = 0.5
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -399,6 +425,10 @@ _data = {
 }
 
 [node name="IceCube" type="CharacterBody3D"]
+script = ExtResource("1_ct8b8")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+debug_enabled = true
 
 [node name="AnimatedSprite3D_$Main$" type="AnimatedSprite3D" parent="."]
 cast_shadow = 0
@@ -406,6 +436,8 @@ offset = Vector2(0.5, 15)
 texture_filter = 0
 sprite_frames = ExtResource("2_kts5v")
 animation = &"DEAD"
+
+[node name="HitsFlashingByModulate" parent="AnimatedSprite3D_$Main$" instance=ExtResource("2_mqgno")]
 
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 cast_shadow = 3
@@ -416,7 +448,7 @@ sprite_frames = ExtResource("2_kts5v")
 animation = &"DEAD"
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 shape = ExtResource("3_75s0v")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -429,6 +461,8 @@ behavior_tree = ExtResource("4_tbuex")
 blackboard_plan = ExtResource("5_fnojv")
 
 [node name="EyeSight$3D" parent="." instance=ExtResource("5_32iss")]
+process_mode = 4
+Modulate = Color(1, 1, 1, 1)
 
 [node name="Ray__Cast3D" type="RayCast3D" parent="."]
 target_position = Vector3(0.5, 0.1, 0)
@@ -441,9 +475,11 @@ target_position = Vector3(0, 0, 0)
 debug_shape_custom_color = Color(0, 0, 1, 1)
 
 [node name="Flippable3DSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
+process_mode = 4
 script = ExtResource("6_eqlny")
 Sprites = [NodePath("../AnimatedSprite3D_$Main$"), NodePath("../AnimatedSprite3D_Shadow")]
 
 [node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
+process_mode = 4
 script = ExtResource("7_ysfrk")
 Sprites = [NodePath("../AnimatedSprite3D_$Main$")]

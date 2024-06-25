@@ -1,0 +1,444 @@
+[gd_scene load_steps=22 format=3 uid="uid://bpo3i7jg52oun"]
+
+[ext_resource type="Script" path="res://game_objects/characters/main_character/MainCharacterAnimatedSprite3DEffect.cs" id="1_14esl"]
+[ext_resource type="Material" uid="uid://vt7mwejanugu" path="res://game_objects/characters/main_character/MainCharacter_ShaderMaterial_EffectWood.tres" id="1_mxpt3"]
+[ext_resource type="SpriteFrames" uid="uid://bg4hr2f36qmva" path="res://game_objects/characters/main_character/MainCharacter_SpriteFrames_Effect.tres" id="2_qkbbr"]
+[ext_resource type="Material" uid="uid://bs0y43rtxwaew" path="res://game_objects/characters/main_character/MainCharacter_ShaderMaterial_EffectElectric.tres" id="3_ilyhl"]
+[ext_resource type="Material" uid="uid://y7vxgngiyct8" path="res://game_objects/characters/main_character/MainCharacter_ShaderMaterial_EffectFire.tres" id="4_mjfxk"]
+[ext_resource type="Material" uid="uid://be5mbyii68mta" path="res://game_objects/characters/main_character/MainCharacter_ShaderMaterial_EffectIce.tres" id="5_qs0u7"]
+[ext_resource type="Material" uid="uid://c2jjku367hwxo" path="res://game_objects/characters/main_character/MainCharacter_ShaderMaterial_EffectRock.tres" id="6_x1qgt"]
+[ext_resource type="Material" uid="uid://xiuen10kgoqi" path="res://game_objects/characters/main_character/MainCharacter_ShaderMaterial_EffectWater.tres" id="7_r6lm7"]
+[ext_resource type="Material" uid="uid://bp5gxuwal3ggi" path="res://game_objects/characters/main_character/MainCharacter_ShaderMaterial_EffectWind.tres" id="8_qy43j"]
+[ext_resource type="Script" path="res://game_objects/characters/main_character/audio_stream_player.gd" id="10_flgyt"]
+[ext_resource type="AudioStream" uid="uid://davn8qparg1h6" path="res://game_asset_s/Minifantasy_Dungeon_SFX/08_human_charge_1.wav" id="11_yeuiv"]
+[ext_resource type="AudioStream" uid="uid://dl2e58201d54n" path="res://game_asset_s/Minifantasy_Dungeon_SFX/08_human_charge_2.wav" id="12_h5dt7"]
+
+[sub_resource type="Animation" id="Animation_crdps"]
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("$$$$$$$$$$$$_AnimatedSprite3D_Effect:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("$$$$$$$$$$$$_AnimatedSprite3D_Effect:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["EFFECT_ELECTRIC"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("$$$$$$$$$$$$_AnimatedSprite3D_Effect:material_override")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_ilyhl")]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ASP")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_5xfnx"]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("$$$$$$$$$$$$_AnimatedSprite3D_Effect:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("$$$$$$$$$$$$_AnimatedSprite3D_Effect:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["EFFECT_EMPTY"]
+}
+
+[sub_resource type="Animation" id="Animation_3nm38"]
+length = 0.55
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("$$$$$$$$$$$$_AnimatedSprite3D_Effect:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("$$$$$$$$$$$$_AnimatedSprite3D_Effect:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["EFFECT_FIRE"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("$$$$$$$$$$$$_AnimatedSprite3D_Effect:material_override")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_mjfxk")]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ASP")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_bpf8k"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("$$$$$$$$$$$$_AnimatedSprite3D_Effect:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0625, 0.125, 0.1875, 0.25, 0.3125, 0.375, 0.4375, 0.5, 0.5625, 0.625, 0.6875, 0.75, 0.8125, 0.875, 0.9375),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("$$$$$$$$$$$$_AnimatedSprite3D_Effect:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["EFFECT_ICE"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("$$$$$$$$$$$$_AnimatedSprite3D_Effect:material_override")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_qs0u7")]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ASP")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_v7d6d"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("$$$$$$$$$$$$_AnimatedSprite3D_Effect:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("$$$$$$$$$$$$_AnimatedSprite3D_Effect:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["EFFECT_ROCK"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("$$$$$$$$$$$$_AnimatedSprite3D_Effect:material_override")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_x1qgt")]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ASP")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_vv8oh"]
+length = 0.55
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("$$$$$$$$$$$$_AnimatedSprite3D_Effect:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("$$$$$$$$$$$$_AnimatedSprite3D_Effect:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["EFFECT_WATER"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("$$$$$$$$$$$$_AnimatedSprite3D_Effect:material_override")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_r6lm7")]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ASP")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_0u8xq"]
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("$$$$$$$$$$$$_AnimatedSprite3D_Effect:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("$$$$$$$$$$$$_AnimatedSprite3D_Effect:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["EFFECT_WIND"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("$$$$$$$$$$$$_AnimatedSprite3D_Effect:material_override")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_qy43j")]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ASP")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_33dgv"]
+length = 0.55
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("$$$$$$$$$$$$_AnimatedSprite3D_Effect:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("$$$$$$$$$$$$_AnimatedSprite3D_Effect:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["EFFECT_WOOD"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("$$$$$$$$$$$$_AnimatedSprite3D_Effect:material_override")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_mxpt3")]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ASP")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_play"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nspci"]
+_data = {
+"EFFECT_ELECTRIC": SubResource("Animation_crdps"),
+"EFFECT_EMPTY": SubResource("Animation_5xfnx"),
+"EFFECT_FIRE": SubResource("Animation_3nm38"),
+"EFFECT_ICE": SubResource("Animation_bpf8k"),
+"EFFECT_ROCK": SubResource("Animation_v7d6d"),
+"EFFECT_WATER": SubResource("Animation_vv8oh"),
+"EFFECT_WIND": SubResource("Animation_0u8xq"),
+"EFFECT_WOOD": SubResource("Animation_33dgv")
+}
+
+[node name="MainCharacter_AnimatedSprite3D_Effect" type="Node3D" node_paths=PackedStringArray("AnimationPlayer")]
+script = ExtResource("1_14esl")
+AnimationPlayer = NodePath("AnimationPlayer")
+
+[node name="$$$$$$$$$$$$_AnimatedSprite3D_Effect" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.01, 0)
+material_override = ExtResource("3_ilyhl")
+cast_shadow = 0
+texture_filter = 0
+sprite_frames = ExtResource("2_qkbbr")
+animation = &"EFFECT_ELECTRIC"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nspci")
+}
+autoplay = "EFFECT_EMPTY"
+
+[node name="ASP" type="AudioStreamPlayer" parent="."]
+script = ExtResource("10_flgyt")
+AudioStreams = Array[AudioStream]([ExtResource("11_yeuiv"), ExtResource("12_h5dt7")])

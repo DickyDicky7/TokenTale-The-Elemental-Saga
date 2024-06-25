@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ca6jm46fnjne3"
+path="res://.godot/imported/platesSlide3.ogg-7d6d705a29676b0a94ee172bd72bfb7a.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Foley Sounds/Audio/Plating/platesSlide3.ogg"
+dest_files=["res://.godot/imported/platesSlide3.ogg-7d6d705a29676b0a94ee172bd72bfb7a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

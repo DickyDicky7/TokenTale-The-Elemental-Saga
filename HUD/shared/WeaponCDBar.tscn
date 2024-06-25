@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcavcuht5xtbv"]
+
+[ext_resource type="Texture2D" uid="uid://ju1h5yrq1rj0" path="res://game_asset_s/ui_and_hud/progress-bar-circle.png" id="1_yt7rh"]
+[ext_resource type="Texture2D" uid="uid://3ogn4gcrep7v" path="res://game_asset_s/ui_and_hud/progress-bar-frame.png" id="2_bkivd"]
+
+[node name="WeaponCoolDownBar" type="TextureProgressBar"]
+custom_minimum_size = Vector2(20, 20)
+offset_right = 20.0
+offset_bottom = 20.0
+value = 33.0
+fill_mode = 5
+nine_patch_stretch = true
+texture_under = ExtResource("1_yt7rh")
+texture_over = ExtResource("2_bkivd")
+texture_progress = ExtResource("1_yt7rh")
+tint_under = Color(0.501961, 0.501961, 0.501961, 1)
+tint_over = Color(0.588235, 0.294118, 0, 1)
+tint_progress = Color(0.0745098, 1, 0.054902, 1)

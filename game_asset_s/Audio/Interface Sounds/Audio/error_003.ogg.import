@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dcrl4ryo2klgf"
+path="res://.godot/imported/error_003.ogg-fa7f65acd766e7afadaba544f5f07b4b.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Interface Sounds/Audio/error_003.ogg"
+dest_files=["res://.godot/imported/error_003.ogg-fa7f65acd766e7afadaba544f5f07b4b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

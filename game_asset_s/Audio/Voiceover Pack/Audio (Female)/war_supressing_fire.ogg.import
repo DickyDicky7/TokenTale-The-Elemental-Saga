@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cvnmjav4iucdj"
+path="res://.godot/imported/war_supressing_fire.ogg-3e4d0c7c80501a45f17d40c081ab0fc0.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Voiceover Pack/Audio (Female)/war_supressing_fire.ogg"
+dest_files=["res://.godot/imported/war_supressing_fire.ogg-3e4d0c7c80501a45f17d40c081ab0fc0.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://clraedlplpevu"
+path="res://.godot/imported/arcade_mode.ogg-204f7aa441a527d27358d0e5ec6f4c92.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Voiceover Pack Fighter/Audio/arcade_mode.ogg"
+dest_files=["res://.godot/imported/arcade_mode.ogg-204f7aa441a527d27358d0e5ec6f4c92.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

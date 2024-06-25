@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://tf2ig12ejlml"
+path="res://.godot/imported/missionComplete.ogg-66976c868bdaee50c8638bc7ddf52468.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/missionComplete.ogg"
+dest_files=["res://.godot/imported/missionComplete.ogg-66976c868bdaee50c8638bc7ddf52468.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

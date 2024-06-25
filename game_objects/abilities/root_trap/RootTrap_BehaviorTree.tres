@@ -1,6 +1,21 @@
-[gd_resource type="BehaviorTree" load_steps=2 format=3 uid="uid://ywcdy1cb8lv1"]
+[gd_resource type="BehaviorTree" load_steps=7 format=3 uid="uid://ywcdy1cb8lv1"]
 
 [ext_resource type="BlackboardPlan" uid="uid://djx5h38ogl8i7" path="res://game_objects/abilities/root_trap/RootTrap_BlackboardPlan----.tres" id="1_u1bef"]
+[ext_resource type="BBNode" uid="uid://dcpblv6dowfjb" path="res://game_objects/abilities/root_trap/RootTrap_BBNode_AnimPlay.tres" id="2_i2pi5"]
+[ext_resource type="BBNode" uid="uid://vwtgircjb4wl" path="res://game_objects/abilities/root_trap/RootTrap_BBNode_RootNode.tres" id="2_qd6ru"]
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_tgqvj"]
+await_completion = 10.0
+animation_player = ExtResource("2_i2pi5")
+animation_name = &"TRAP"
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_yynph"]
+node = ExtResource("2_qd6ru")
+method = &"queue_free"
+
+[sub_resource type="BTSequence" id="BTSequence_ck56b"]
+children = [SubResource("BTPlayAnimation_tgqvj"), SubResource("BTCallMethod_yynph")]
 
 [resource]
 blackboard_plan = ExtResource("1_u1bef")
+root_task = SubResource("BTSequence_ck56b")

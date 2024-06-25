@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://btvq5p1tt4ykt"]
+
+[ext_resource type="Texture2D" uid="uid://cues8hkop43m7" path="res://game_asset_s/ui_and_hud/heart_fill.png" id="2_ivcak"]
+[ext_resource type="Texture2D" uid="uid://b7ioleaul1p7h" path="res://game_asset_s/ui_and_hud/heart_frame.png" id="3_deo4b"]
+[ext_resource type="Script" path="res://UI/TrackerUnit/TrackerHealthJar.cs" id="3_qxgpl"]
+
+[node name="TrackerHealthJar" type="MarginContainer" node_paths=PackedStringArray("ProgressBar")]
+offset_right = 26.0
+offset_bottom = 22.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("3_qxgpl")
+ProgressBar = NodePath("TextureProgressBar")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+value = 66.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_under = ExtResource("2_ivcak")
+texture_over = ExtResource("3_deo4b")
+texture_progress = ExtResource("2_ivcak")
+tint_under = Color(1, 1, 1, 0)
+tint_over = Color(0.847059, 0.894118, 0.913725, 0.772549)
+tint_progress = Color(1, 0, 0, 1)

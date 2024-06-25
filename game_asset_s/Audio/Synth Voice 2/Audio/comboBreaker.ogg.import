@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://i6ldxbbvdulf"
+path="res://.godot/imported/comboBreaker.ogg-0542e02db4d296f6f217829028d9a7c2.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/comboBreaker.ogg"
+dest_files=["res://.godot/imported/comboBreaker.ogg-0542e02db4d296f6f217829028d9a7c2.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

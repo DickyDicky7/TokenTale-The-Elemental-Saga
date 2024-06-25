@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cttpkdv6cgbp3"
+path="res://.godot/imported/stun.ogg-6c0c9efaa614c130aeb924005a00eee3.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/stun.ogg"
+dest_files=["res://.godot/imported/stun.ogg-6c0c9efaa614c130aeb924005a00eee3.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b2x05g6tw8w16"
+path="res://.godot/imported/tie_breaker.ogg-b1dc5d1388ff51b9e8bc8217057f1389.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Voiceover Pack Fighter/Audio/tie_breaker.ogg"
+dest_files=["res://.godot/imported/tie_breaker.ogg-b1dc5d1388ff51b9e8bc8217057f1389.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

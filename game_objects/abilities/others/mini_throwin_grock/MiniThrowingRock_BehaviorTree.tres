@@ -1,0 +1,9 @@
+[gd_resource type="BehaviorTree" load_steps=3 format=3 uid="uid://buj0wgsimyiuh"]
+
+[ext_resource type="BlackboardPlan" uid="uid://bvmqtcyxjnqhq" path="res://game_objects/abilities/others/mini_throwin_grock/MiniThrowingRock_BlackboardPlan----.tres" id="1_5166g"]
+
+[sub_resource type="BTWait" id="BTWait_jnxnp"]
+
+[resource]
+blackboard_plan = ExtResource("1_5166g")
+root_task = SubResource("BTWait_jnxnp")

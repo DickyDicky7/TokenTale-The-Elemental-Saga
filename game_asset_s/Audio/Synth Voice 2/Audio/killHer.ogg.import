@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dsb8f3m4u37yb"
+path="res://.godot/imported/killHer.ogg-bfc76aef3b1b983daa16340b255b75ee.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/killHer.ogg"
+dest_files=["res://.godot/imported/killHer.ogg-bfc76aef3b1b983daa16340b255b75ee.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,153 @@
+[gd_scene load_steps=14 format=3 uid="uid://wnynddmf6usi"]
+
+[ext_resource type="Texture2D" uid="uid://bg43o8i7wyxhv" path="res://game_asset_s/pixel_art_top_down_rocks_pack/rocks/rocks.png" id="1_ahvwc"]
+[ext_resource type="Script" path="res://game_objects/abilities/others/mini_throwin_grock/MiniThrowingRock.cs" id="1_g1eph"]
+[ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="1_pij7w"]
+[ext_resource type="Shape3D" uid="uid://umfdj214o7tr" path="res://game_objects/abilities/others/mini_throwin_grock/MiniThrowingRock_CollisionShape3D_Hitbox.tres" id="2_gt540"]
+[ext_resource type="QuadMesh" uid="uid://crv1xrn83s61j" path="res://game_objects/abilities/others/mini_throwin_grock/MiniThrowingRock_DrawPass01_Mesh'.tres" id="3_7uuk4"]
+[ext_resource type="Script" path="res://game_objects/abilities/others/mini_throwin_grock/MThrowingRockHitbox.cs" id="3_od1p1"]
+[ext_resource type="Material" uid="uid://bcbquqtadww1o" path="res://game_objects/abilities/others/mini_throwin_grock/MiniThrowingRock_ParticleProcess_Material.tres" id="3_t547w"]
+[ext_resource type="BehaviorTree" uid="uid://buj0wgsimyiuh" path="res://game_objects/abilities/others/mini_throwin_grock/MiniThrowingRock_BehaviorTree.tres" id="4_kmme8"]
+[ext_resource type="BlackboardPlan" uid="uid://caplrmiy52vc5" path="res://game_objects/abilities/others/mini_throwin_grock/MiniThrowingRock_BlackboardPlanBase.tres" id="4_pv8tw"]
+[ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="7_dvdye"]
+
+[sub_resource type="Curve" id="Curve_oftvd"]
+_data = [Vector2(0, 0), 0.0, 5.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -5.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Animation" id="Animation_d50tv"]
+resource_name = "HIT"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/GPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/Sprite3D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visual/Shadow3D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hitbox/CollisionShape3D_Hitbox:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0ffvm"]
+_data = {
+"HIT": SubResource("Animation_d50tv")
+}
+
+[node name="MiniThrowingRock" type="Node3D" node_paths=PackedStringArray("Sprite", "Shadow", "Flippable3DSpriteBase3DConsolidation")]
+script = ExtResource("1_g1eph")
+Curve = SubResource("Curve_oftvd")
+Sprite = NodePath("Visual/Sprite3D")
+Shadow = NodePath("Visual/Shadow3D")
+Flippable3DSpriteBase3DConsolidation = NodePath("Flippable3DSpriteBase3DConsolidation")
+MovingDuration = 1.0
+EasingfuncType = 2
+TransitionType = 2
+Element = 5
+
+[node name="Visual" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="Visual"]
+cast_shadow = 0
+texture_filter = 0
+texture = ExtResource("1_ahvwc")
+region_enabled = true
+region_rect = Rect2(0, 0, 24, 24)
+
+[node name="Shadow3D" type="Sprite3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+cast_shadow = 3
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("1_ahvwc")
+region_enabled = true
+region_rect = Rect2(0, 0, 24, 24)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+emitting = false
+amount = 100
+lifetime = 0.5
+local_coords = true
+process_material = ExtResource("3_t547w")
+draw_pass_1 = ExtResource("3_7uuk4")
+
+[node name="Hitbox" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+collision_layer = 128
+collision_mask = 11
+script = ExtResource("3_od1p1")
+
+[node name="CollisionShape3D_Hitbox" type="CollisionShape3D" parent="Hitbox"]
+shape = ExtResource("2_gt540")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0ffvm")
+}
+
+[node name="BT_______Player" type="BTPlayer" parent="."]
+behavior_tree = ExtResource("4_kmme8")
+blackboard_plan = ExtResource("4_pv8tw")
+
+[node name="Flippable3DSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
+process_mode = 4
+script = ExtResource("7_dvdye")
+Sprites = [NodePath("../Visual/Sprite3D")]
+
+[node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
+process_mode = 4
+script = ExtResource("1_pij7w")
+Sprites = [NodePath("../Visual/Sprite3D")]

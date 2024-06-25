@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b4lyen3yvkh5y"
+path="res://.godot/imported/tone1.ogg-f83d450191225a05c3216de3b595985c.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Digital Audio/Audio/tone1.ogg"
+dest_files=["res://.godot/imported/tone1.ogg-f83d450191225a05c3216de3b595985c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

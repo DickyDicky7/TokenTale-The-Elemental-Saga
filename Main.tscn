@@ -1,55 +1,210 @@
-[gd_scene load_steps=21 format=3 uid="uid://cnes8lrs7ph26"]
+[gd_scene load_steps=58 format=3 uid="uid://w3dkcnkmaulo"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_px6f3"]
-[ext_resource type="PlaneMesh" uid="uid://dmf8lh15l3415" path="res://BackgroundPlatform_Mesh.tres" id="2_rk0yh"]
 [ext_resource type="Environment" uid="uid://jjpsnd6sbvf2" path="res://Main_Environment.tres" id="2_vpqwg"]
-[ext_resource type="Shape3D" uid="uid://ckjylylwcue88" path="res://BackgroundPlatform_CollisionShape3D.tres" id="3_vrktx"]
+[ext_resource type="NavigationMesh" uid="uid://bavo3q5ti3quw" path="res://Main_NavigationRegion3D_$Static_NavigationMesh.tres" id="4_6741o"]
 [ext_resource type="PackedScene" uid="uid://cwhrbtjfm2cpc" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp.tscn" id="4_hlmyl"]
-[ext_resource type="QuadMesh" uid="uid://b18ltm5xt45do" path="res://game_objects/shared/len/Len_Mesh.tres" id="5_kmewh"]
+[ext_resource type="BoxMesh" uid="uid://b20wxu1h50rh3" path="res://BackgroundPlatform_Mesh_New.tres" id="5_3awld"]
 [ext_resource type="PackedScene" uid="uid://d1jlh0uaim28w" path="res://game_objects/abilities/tornado/Tornado.tscn" id="5_rpfgl"]
-[ext_resource type="Script" path="res://_Camera3D_.cs" id="6_1l5gg"]
+[ext_resource type="Shape3D" uid="uid://d1662gxfic631" path="res://BackgroundPlatform_CollisionShape3D_New.tres" id="6_7i2yr"]
+[ext_resource type="PackedScene" uid="uid://dsw38xnjyq7yu" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur.tscn" id="7_2coyl"]
+[ext_resource type="NavigationMesh" uid="uid://boq0kec5xjj3f" path="res://Main_NavigationRegion3D_Dynamic_NavigationMesh.tres" id="7_gtwip"]
 [ext_resource type="PackedScene" uid="uid://dmymcmqewv5c4" path="res://game_objects/abilities/serene_meadow/SereneMeadow.tscn" id="7_tyaa3"]
 [ext_resource type="PackedScene" uid="uid://bj14wt31rsok8" path="res://game_objects/abilities/penetrating_squirt/PenetratingSquirt.tscn" id="8_nid88"]
 [ext_resource type="PackedScene" uid="uid://bocc0hkunia3p" path="res://game_objects/abilities/overcharge/Overcharge.tscn" id="9_5jat6"]
 [ext_resource type="PackedScene" uid="uid://c47tcwkeiq0h2" path="res://game_objects/characters/main_character/MainCharacter.tscn" id="9_seby3"]
 [ext_resource type="PackedScene" uid="uid://cn6e4b8ejcnru" path="res://game_objects/abilities/lightning/Lightning.tscn" id="10_myf47"]
+[ext_resource type="PackedScene" uid="uid://yfbwbxquk1v" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops.tscn" id="10_ogacn"]
 [ext_resource type="PackedScene" uid="uid://d3gqr2or1jr42" path="res://game_objects/abilities/ignite/Ignite.tscn" id="11_3fjus"]
+[ext_resource type="PackedScene" uid="uid://c76082smfjyg4" path="res://HUD/MainCharacterHUD/MainCharacterHUD.tscn" id="11_cyovv"]
+[ext_resource type="PackedScene" uid="uid://chwjmy7grdej" path="res://game_objects/shared/status_info/StatusInfo.tscn" id="11_siwmd"]
+[ext_resource type="PackedScene" uid="uid://da0vo8ll2gr8e" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton.tscn" id="12_8akbt"]
+[ext_resource type="PackedScene" uid="uid://o6cefw4r60gs" path="res://UI/TrackScreen/TrackingScreen.tscn" id="12_gn6r5"]
+[ext_resource type="Script" path="res://game_objects/shared/status_info/StatusInfoItem.cs" id="12_ps0oq"]
 [ext_resource type="PackedScene" uid="uid://dixv731fuc6gj" path="res://game_objects/abilities/fire_ball/FireBall.tscn" id="12_qboqi"]
+[ext_resource type="PackedScene" uid="uid://bqp528howcdyc" path="res://UI/ShopScreen/ShoppingScreen.tscn" id="13_2we43"]
+[ext_resource type="PackedScene" uid="uid://y1t0iubx8y1b" path="res://game_objects/characters/others/the_haunting/ghost/Ghost.tscn" id="13_e31qg"]
+[ext_resource type="Script" path="res://game_objects/shared/status_info/StatusInfoItemHeal.cs" id="13_r7jod"]
 [ext_resource type="PackedScene" uid="uid://bflyuqbbpqmkp" path="res://game_objects/abilities/frostburn/Frostburn.tscn" id="13_w4ibj"]
 [ext_resource type="PackedScene" uid="uid://c5cd1cni7lng6" path="res://game_objects/abilities/ice_wall/IceWall.tscn" id="14_4m8xy"]
+[ext_resource type="Script" path="res://game_objects/shared/status_info/StatusInfoItemHurt.cs" id="14_6q7sg"]
+[ext_resource type="PackedScene" uid="uid://dks14llooa7jv" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat.tscn" id="15_c3vll"]
 [ext_resource type="PackedScene" uid="uid://v8blbc8smsjd" path="res://game_objects/abilities/tidal_wave/TidalWave.tscn" id="15_lavek"]
-[ext_resource type="Script" path="res://addons/post_processing/node/post_process.gd" id="18_mmfla"]
-[ext_resource type="Resource" uid="uid://bnknhyt52lbte" path="res://Main_PostProcessingConfiguration.tres" id="19_wk608"]
+[ext_resource type="Script" path="res://game_objects/shared/status_info/StatusInfoItemElemental.cs" id="15_xfnnq"]
+[ext_resource type="PackedScene" uid="uid://bqn2g5rr825g4" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest.tscn" id="16_ro6gg"]
+[ext_resource type="PackedScene" uid="uid://cyv12iosddo4f" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem.tscn" id="18_ujfjh"]
+[ext_resource type="PackedScene" uid="uid://dtm1w4b8kbx8t" path="res://game_objects/abilities/air_surge/AirSurge.tscn" id="22_pbjun"]
+[ext_resource type="PackedScene" uid="uid://bbv4dpufmesgb" path="res://game_objects/characters/others/the_thief/cat/Cat.tscn" id="23_saaco"]
+[ext_resource type="PackedScene" uid="uid://u16qad10a485" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster.tscn" id="26_ynl1c"]
+[ext_resource type="PackedScene" uid="uid://o436c4ahk6md" path="res://game_objects/characters/elem_monsterss/normal/water/ratfolk_mage/RatfolkMage.tscn" id="30_ddnm6"]
+[ext_resource type="PackedScene" uid="uid://c7i7emx3rn41l" path="res://game_objects/items/elemental_token/ElementalToken.tscn" id="40_lawox"]
+[ext_resource type="PackedScene" uid="uid://c14s46yvkynh8" path="res://game_objects/items/soul_or_coin/SoulOrCoin.tscn" id="40_oasok"]
+[ext_resource type="PackedScene" uid="uid://d214m5mqgg6go" path="res://game_objects/items/heal_drop/HealDrop.tscn" id="41_u6iqv"]
+[ext_resource type="PackedScene" uid="uid://cmht27qyeeh6" path="res://game_objects/items/chest_and_item/ChessAndItem.tscn" id="42_ntpsf"]
+[ext_resource type="Resource" uid="uid://dad00knu3xd0n" path="res://game_objects/items/chest_and_item/resource/ChestAndItemResource_Heart.tres" id="43_1aaou"]
+[ext_resource type="Resource" uid="uid://djd88bnf5ewcn" path="res://game_objects/items/chest_and_item/resource/ChestAndItemResource_EnergyStone.tres" id="44_ralc2"]
+[ext_resource type="Resource" uid="uid://bj703dy424t5t" path="res://game_objects/items/chest_and_item/resource/ChestAndItemResource_SwordScroll.tres" id="45_8kqui"]
+[ext_resource type="Resource" uid="uid://elnor3yw8e6c" path="res://game_objects/items/chest_and_item/resource/ChessAndItemResource_BowScroll.tres" id="46_a3df6"]
+[ext_resource type="Resource" uid="uid://dttjuhea26qxt" path="res://game_objects/items/chest_and_item/resource/ChestAndItemResource_ElementalScroll.tres" id="47_7g4ki"]
+[ext_resource type="PackedScene" uid="uid://cnn7tt1uxyh6j" path="res://UI/UIControl.tscn" id="48_lgvkd"]
+[ext_resource type="Resource" uid="uid://c7x0dab4fmasx" path="res://game_objects/items/chest_and_item/resource/ChestAndItemResource_ElementalBracelet.tres" id="49_k3yre"]
+[ext_resource type="Resource" uid="uid://celorlhg4axm7" path="res://game_objects/items/chest_and_item/resource/ChestAndItemResource_HealthJar.tres" id="50_nky0w"]
+[ext_resource type="Resource" uid="uid://2x06s1s71oh4" path="res://game_objects/items/chest_and_item/resource/ChestAndItemResource_ElementalJar.tres" id="51_adq4f"]
+[ext_resource type="Script" path="res://_Camera3D_02.cs" id="52_2qayr"]
+[ext_resource type="PackedScene" uid="uid://dmrr4ewlqykyd" path="res://UI/ControlBoard/ControlBoard.tscn" id="52_hn6ci"]
 
-[node name="Main" type="Node"]
+[sub_resource type="Resource" id="Resource_ntmsm"]
+script = ExtResource("12_ps0oq")
+FontColor = Color(1, 1, 1, 1)
+FontColorOutline = Color(0, 0, 0, 1)
+FontSize = 32
+FontSizeOutline = 8
+Thing = "normal"
+
+[sub_resource type="Resource" id="Resource_6wfva"]
+script = ExtResource("13_r7jod")
+FontColor = Color(0, 1, 0, 1)
+FontColorOutline = Color(0, 0, 0, 1)
+FontSize = 32
+FontSizeOutline = 8
+Thing = ""
+
+[sub_resource type="Resource" id="Resource_klrs7"]
+script = ExtResource("14_6q7sg")
+FontColor = Color(1, 0, 0, 1)
+FontColorOutline = Color(0, 0, 0, 1)
+FontSize = 32
+FontSizeOutline = 8
+Thing = ""
+
+[sub_resource type="Resource" id="Resource_dgvcs"]
+script = ExtResource("15_xfnnq")
+Element = 0
+FontColor = Color(1, 0, 0, 1)
+FontColorOutline = Color(0, 0, 0, 1)
+FontSize = 32
+FontSizeOutline = 8
+Thing = ""
+
+[sub_resource type="Resource" id="Resource_nyrrt"]
+script = ExtResource("15_xfnnq")
+Element = 2
+FontColor = Color(0.501961, 1, 0.501961, 1)
+FontColorOutline = Color(0, 0, 0, 1)
+FontSize = 32
+FontSizeOutline = 8
+Thing = ""
+
+[node name="Main" type="Node3D" node_paths=PackedStringArray("MainCharacter", "NavigationRegionSstatic", "NavigationRegionDynamic", "Timer", "StatusInfo")]
 script = ExtResource("1_px6f3")
+Scene = ExtResource("13_w4ibj")
+MainCharacter = NodePath("MainCharacter")
+NavigationRegionSstatic = NodePath("NavigationRegion3D_$Static")
+NavigationRegionDynamic = NodePath("NavigationRegion3D_Dynamic")
+Timer = NodePath("NavigationRegion3D_$Static/Timer")
+StatusInfo = NodePath("MainCharacter/StatusInfo")
 
 [node name="Environment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_vpqwg")
 
-[node name="BackgroundPlatform" type="StaticBody3D" parent="."]
+[node name="NavigationRegion3D_$Static" type="NavigationRegion3D" parent="."]
+navigation_mesh = ExtResource("4_6741o")
 
-[node name="Mesh" type="MeshInstance3D" parent="BackgroundPlatform"]
-mesh = ExtResource("2_rk0yh")
+[node name="BackgroundPlatform1" type="StaticBody3D" parent="NavigationRegion3D_$Static"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+collision_mask = 255
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BackgroundPlatform"]
-shape = ExtResource("3_vrktx")
+[node name="Mesh" type="MeshInstance3D" parent="NavigationRegion3D_$Static/BackgroundPlatform1"]
+mesh = ExtResource("5_3awld")
 
-[node name="MainCharacter" parent="." instance=ExtResource("9_seby3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D_$Static/BackgroundPlatform1"]
+shape = ExtResource("6_7i2yr")
 
-[node name="Camera3D" type="Camera3D" parent="MainCharacter"]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 1.5, 1.5)
-far = 5.0
-script = ExtResource("6_1l5gg")
+[node name="BackgroundPlatform2" type="StaticBody3D" parent="NavigationRegion3D_$Static"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0.5, 0)
+collision_mask = 255
 
-[node name="Len" type="MeshInstance3D" parent="MainCharacter/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+[node name="Mesh" type="MeshInstance3D" parent="NavigationRegion3D_$Static/BackgroundPlatform2"]
+mesh = ExtResource("5_3awld")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D_$Static/BackgroundPlatform2"]
+shape = ExtResource("6_7i2yr")
+
+[node name="BackgroundPlatform3" type="StaticBody3D" parent="NavigationRegion3D_$Static"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0.5, 0)
+collision_mask = 255
+
+[node name="Mesh" type="MeshInstance3D" parent="NavigationRegion3D_$Static/BackgroundPlatform3"]
+mesh = ExtResource("5_3awld")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D_$Static/BackgroundPlatform3"]
+shape = ExtResource("6_7i2yr")
+
+[node name="Timer" type="Timer" parent="NavigationRegion3D_$Static"]
+process_callback = 0
+wait_time = 5.0
+autostart = true
+
+[node name="NavigationRegion3D_Dynamic" type="NavigationRegion3D" parent="."]
+navigation_mesh = ExtResource("7_gtwip")
+
+[node name="MainCharacter" parent="." node_paths=PackedStringArray("WeaponsController", "NavigationAgent3D", "NavigationRegion3DStatic", "MainCharacterAnimatedSprite3DEffect") instance=ExtResource("9_seby3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 0)
+WeaponsController = NodePath("Weapons(_Controller_)")
+NavigationAgent3D = NodePath("NavigationAgent3D")
+NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
+MainCharacterAnimatedSprite3DEffect = NodePath("AnimatedSprite3D_Effect")
+
+[node name="StatusInfo" parent="MainCharacter" node_paths=PackedStringArray("Sprite3D", "Label", "Timer") instance=ExtResource("11_siwmd")]
 visible = false
-mesh = ExtResource("5_kmewh")
+Items = [SubResource("Resource_ntmsm"), SubResource("Resource_6wfva"), SubResource("Resource_klrs7"), SubResource("Resource_dgvcs"), SubResource("Resource_nyrrt")]
+Sprite3D = NodePath("Sprite3D")
+Label = NodePath("SubViewport/Label")
+Timer = NodePath("DelTimer")
 
-[node name="Imp" parent="." instance=ExtResource("4_hlmyl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+[node name="Imp" parent="." node_paths=PackedStringArray("NavigationRegion3DStatic") instance=ExtResource("4_hlmyl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1, -4)
+NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
+
+[node name="Minotaur" parent="." node_paths=PackedStringArray("NavigationRegion3DStatic") instance=ExtResource("7_2coyl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, -4)
+NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
+
+[node name="Cyclops" parent="." node_paths=PackedStringArray("NavigationRegion3DStatic") instance=ExtResource("10_ogacn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, -4)
+NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
+
+[node name="Cat" parent="." node_paths=PackedStringArray("NavigationRegion3DStatic") instance=ExtResource("23_saaco")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, -4)
+NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
+
+[node name="Skeleton" parent="." node_paths=PackedStringArray("NavigationRegion3DStatic") instance=ExtResource("12_8akbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1, 4)
+NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
+
+[node name="GhostRound" parent="." node_paths=PackedStringArray("NavigationRegion3DStatic") instance=ExtResource("13_e31qg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 0)
+NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
+
+[node name="MetalMonster" parent="." node_paths=PackedStringArray("NavigationRegion3DStatic") instance=ExtResource("26_ynl1c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 4)
+NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
+
+[node name="Bat" parent="." node_paths=PackedStringArray("NavigationRegion3DStatic") instance=ExtResource("15_c3vll")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, 4)
+NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
+
+[node name="KoboldPriest" parent="." node_paths=PackedStringArray("NavigationRegion3DStatic") instance=ExtResource("16_ro6gg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 4)
+NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
+
+[node name="HealTotem" parent="." node_paths=PackedStringArray("NavigationRegion3DStatic") instance=ExtResource("18_ujfjh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1, 0)
+NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
+
+[node name="RatfolkMage" parent="." node_paths=PackedStringArray("NavigationRegion3DStatic") instance=ExtResource("30_ddnm6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, 0)
+NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 0, 0)
@@ -57,35 +212,179 @@ shadow_enabled = true
 directional_shadow_mode = 0
 
 [node name="Tornado" parent="." instance=ExtResource("5_rpfgl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, -1)
 
 [node name="SereneMeadow" parent="." instance=ExtResource("7_tyaa3")]
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 3)
 
 [node name="PenetratingSquirt" parent="." instance=ExtResource("8_nid88")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.1, -1)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4, 1, -2)
 
 [node name="Overcharge" parent="." instance=ExtResource("9_5jat6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, 1)
 
 [node name="Lightning" parent="." instance=ExtResource("10_myf47")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 1)
 
 [node name="Ignite" parent="." instance=ExtResource("11_3fjus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, -3)
 
-[node name="FireBall" parent="." instance=ExtResource("12_qboqi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.5, -1)
+[node name="FireBall" parent="." node_paths=PackedStringArray("GpuParticles", "AnimatedSprite", "AnimatedShadow") instance=ExtResource("12_qboqi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -3)
+GpuParticles = NodePath("Visual/_GPU_Particles3D")
+AnimatedSprite = NodePath("Visual/AnimatedSprite3D")
+AnimatedShadow = NodePath("Visual/AnimatedShadow3D")
+
+[node name="AirSurge" parent="." node_paths=PackedStringArray("AnimatedSprite", "AnimatedShadow") instance=ExtResource("22_pbjun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -1)
+AnimatedSprite = NodePath("Visual/AnimatedSprite3D")
+AnimatedShadow = NodePath("Visual/AnimatedShadow3D")
 
 [node name="Frostburn" parent="." instance=ExtResource("13_w4ibj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 0)
 
 [node name="IceWall" parent="." instance=ExtResource("14_4m8xy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0)
 
 [node name="TidalWave" parent="." instance=ExtResource("15_lavek")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.1, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, -2)
 
-[node name="PostProcess" type="CanvasLayer" parent="."]
-script = ExtResource("18_mmfla")
-configuration = ExtResource("19_wk608")
+[node name="ElementalToken" parent="." node_paths=PackedStringArray("Sprite3D", "Shadow3D", "Hitbox") instance=ExtResource("40_lawox")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, 0)
+Element = 4
+Sprite3D = NodePath("Visual/Sprite3D")
+Shadow3D = NodePath("Visual/Shadow3D")
+Hitbox = NodePath("Hitbox")
+
+[node name="SoulOrCoin" parent="." node_paths=PackedStringArray("Hitbox") instance=ExtResource("40_oasok")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1, 0)
+Hitbox = NodePath("Hitbox")
+
+[node name="SoulOrCoin2" parent="." node_paths=PackedStringArray("Hitbox") instance=ExtResource("40_oasok")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1, 1)
+Hitbox = NodePath("Hitbox")
+
+[node name="SoulOrCoin3" parent="." node_paths=PackedStringArray("Hitbox") instance=ExtResource("40_oasok")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1, 2)
+Hitbox = NodePath("Hitbox")
+
+[node name="SoulOrCoin4" parent="." node_paths=PackedStringArray("Hitbox") instance=ExtResource("40_oasok")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1, -1)
+Hitbox = NodePath("Hitbox")
+
+[node name="SoulOrCoin5" parent="." node_paths=PackedStringArray("Hitbox") instance=ExtResource("40_oasok")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1, -2)
+Hitbox = NodePath("Hitbox")
+
+[node name="HealDrop" parent="." node_paths=PackedStringArray("HitBox") instance=ExtResource("41_u6iqv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 1, 0)
+HitBox = NodePath("Hitbox")
+
+[node name="HealDrop2" parent="." node_paths=PackedStringArray("HitBox") instance=ExtResource("41_u6iqv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 1, -1)
+HitBox = NodePath("Hitbox")
+
+[node name="HealDrop3" parent="." node_paths=PackedStringArray("HitBox") instance=ExtResource("41_u6iqv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 1, 1)
+HitBox = NodePath("Hitbox")
+
+[node name="ChessAndItem" parent="." node_paths=PackedStringArray("Hitbox", "Sprite3D", "AnimationPlayer") instance=ExtResource("42_ntpsf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 1, 0)
+ChessAndItemResource = ExtResource("43_1aaou")
+Hitbox = NodePath("Hitbox")
+Sprite3D = NodePath("Visual/Sprite3D")
+AnimationPlayer = NodePath("Visual/AnimationPlayer")
+Key = 0
+
+[node name="ChessAndItem2" parent="." node_paths=PackedStringArray("Hitbox", "Sprite3D", "AnimationPlayer") instance=ExtResource("42_ntpsf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 1, 1)
+ChessAndItemResource = ExtResource("44_ralc2")
+Hitbox = NodePath("Hitbox")
+Sprite3D = NodePath("Visual/Sprite3D")
+AnimationPlayer = NodePath("Visual/AnimationPlayer")
+Key = 1
+
+[node name="ChessAndItem3" parent="." node_paths=PackedStringArray("Hitbox", "Sprite3D", "AnimationPlayer") instance=ExtResource("42_ntpsf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 1, 2)
+ChessAndItemResource = ExtResource("45_8kqui")
+Hitbox = NodePath("Hitbox")
+Sprite3D = NodePath("Visual/Sprite3D")
+AnimationPlayer = NodePath("Visual/AnimationPlayer")
+Key = 0
+
+[node name="ChessAndItem4" parent="." node_paths=PackedStringArray("Hitbox", "Sprite3D", "AnimationPlayer") instance=ExtResource("42_ntpsf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 1, -1)
+ChessAndItemResource = ExtResource("46_a3df6")
+Hitbox = NodePath("Hitbox")
+Sprite3D = NodePath("Visual/Sprite3D")
+AnimationPlayer = NodePath("Visual/AnimationPlayer")
+Key = 1
+
+[node name="ChessAndItem5" parent="." node_paths=PackedStringArray("Hitbox", "Sprite3D", "AnimationPlayer") instance=ExtResource("42_ntpsf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 1, -2)
+ChessAndItemResource = ExtResource("47_7g4ki")
+Hitbox = NodePath("Hitbox")
+Sprite3D = NodePath("Visual/Sprite3D")
+AnimationPlayer = NodePath("Visual/AnimationPlayer")
+Key = 0
+
+[node name="ChessAndItem6" parent="." node_paths=PackedStringArray("Hitbox", "Sprite3D", "AnimationPlayer") instance=ExtResource("42_ntpsf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 1, 0)
+ChessAndItemResource = ExtResource("49_k3yre")
+Hitbox = NodePath("Hitbox")
+Sprite3D = NodePath("Visual/Sprite3D")
+AnimationPlayer = NodePath("Visual/AnimationPlayer")
+Key = 1
+
+[node name="ChessAndItem7" parent="." node_paths=PackedStringArray("Hitbox", "Sprite3D", "AnimationPlayer") instance=ExtResource("42_ntpsf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 1, 1)
+ChessAndItemResource = ExtResource("50_nky0w")
+Hitbox = NodePath("Hitbox")
+Sprite3D = NodePath("Visual/Sprite3D")
+AnimationPlayer = NodePath("Visual/AnimationPlayer")
+Key = 1
+
+[node name="ChessAndItem8" parent="." node_paths=PackedStringArray("Hitbox", "Sprite3D", "AnimationPlayer") instance=ExtResource("42_ntpsf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 1, -1)
+ChessAndItemResource = ExtResource("51_adq4f")
+Hitbox = NodePath("Hitbox")
+Sprite3D = NodePath("Visual/Sprite3D")
+AnimationPlayer = NodePath("Visual/AnimationPlayer")
+Key = 0
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("FollowTarget")]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 2, 2)
+size = 4.0
+far = 5.0
+script = ExtResource("52_2qayr")
+FollowTarget = NodePath("../MainCharacter")
+
+[node name="UIControl" parent="Camera3D" node_paths=PackedStringArray("MainCharacterHUDController", "TrackingScreen", "ShoppingScreen", "ControlBoard") instance=ExtResource("48_lgvkd")]
+visible = false
+MainCharacterHUDController = NodePath("../MainCharacterHUD")
+TrackingScreen = NodePath("../TrackingScreen")
+ShoppingScreen = NodePath("../ShoppingScreen")
+ControlBoard = NodePath("../ControlBoard")
+
+[node name="MainCharacterHUD" parent="Camera3D" node_paths=PackedStringArray("Viewer", "HealthBar", "SwordHUD", "BowHUD", "BraceletHUDs", "CoinLabel") instance=ExtResource("11_cyovv")]
+Viewer = NodePath("../../MainCharacter")
+HealthBar = NodePath("HBoxContainer/VBoxContainer/HealthBar")
+SwordHUD = NodePath("HBoxContainer/VBoxContainer/MarginContainer/WeaponHUD/SwordHUD2")
+BowHUD = NodePath("HBoxContainer/VBoxContainer/MarginContainer/WeaponHUD/BowHUD2")
+BraceletHUDs = [NodePath("HBoxContainer/VBoxContainer/MarginContainer2/ElementalHUD"), NodePath("HBoxContainer/VBoxContainer/MarginContainer3/ElementalHUD")]
+CoinLabel = NodePath("HBoxContainer/VBoxContainer2/HBoxContainer/Label")
+
+[node name="TrackingScreen" parent="Camera3D" node_paths=PackedStringArray("Viewer") instance=ExtResource("12_gn6r5")]
+visible = false
+Viewer = NodePath("../../MainCharacter")
+
+[node name="ShoppingScreen" parent="Camera3D" node_paths=PackedStringArray("Viewer", "ShopItemContainer") instance=ExtResource("13_2we43")]
+visible = false
+Viewer = NodePath("../../MainCharacter")
+ShopItemContainer = NodePath("ScrollContainer/MarginContainer/GridContainer")
+
+[node name="ControlBoard" parent="Camera3D" node_paths=PackedStringArray("ResumeButton", "RestartButton", "ExitButton") instance=ExtResource("52_hn6ci")]
+visible = false
+ResumeButton = NodePath("MarginContainer/VBoxContainer/ResumeButton")
+RestartButton = NodePath("MarginContainer/VBoxContainer/RestartButton")
+ExitButton = NodePath("MarginContainer/VBoxContainer/ExitButton")

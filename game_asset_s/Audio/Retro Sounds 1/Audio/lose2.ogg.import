@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://oev0x6leu4bj"
+path="res://.godot/imported/lose2.ogg-b7da8c605490a0d25055989c0a0cc4ba.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Retro Sounds 1/Audio/lose2.ogg"
+dest_files=["res://.godot/imported/lose2.ogg-b7da8c605490a0d25055989c0a0cc4ba.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

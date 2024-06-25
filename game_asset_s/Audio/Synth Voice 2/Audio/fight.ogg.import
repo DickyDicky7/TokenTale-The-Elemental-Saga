@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ch2k8450nw3p6"
+path="res://.godot/imported/fight.ogg-c7c1114777585a5ccba97e8cf87f06aa.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/fight.ogg"
+dest_files=["res://.godot/imported/fight.ogg-c7c1114777585a5ccba97e8cf87f06aa.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

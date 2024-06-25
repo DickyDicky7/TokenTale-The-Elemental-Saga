@@ -1,0 +1,31 @@
+[gd_resource type="BehaviorTree" load_steps=10 format=3 uid="uid://b683gj23sj1ys"]
+
+[ext_resource type="BlackboardPlan" uid="uid://cfvmg510676tn" path="res://game_objects/abilities/others/mini_fire_ball/MiniFireBall_BlackboardPlan----.tres" id="1_jsukm"]
+[ext_resource type="BBNode" uid="uid://cl5pc4qtpqok7" path="res://game_objects/abilities/others/mini_fire_ball/MiniFireBall_BBNode_AnimPlay.tres" id="2_3aj1b"]
+[ext_resource type="BBNode" uid="uid://c3154hq50oaat" path="res://game_objects/abilities/others/mini_fire_ball/MiniFireBall_BBNode_RootNode.tres" id="2_u4j2w"]
+[ext_resource type="Script" path="res://ai/tasks/ability/projectileActivity.gd" id="3_dghub"]
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_e8p7k"]
+await_completion = 10.0
+animation_player = ExtResource("2_3aj1b")
+animation_name = &"@ON"
+
+[sub_resource type="BTAction" id="BTAction_lk8bl"]
+script = ExtResource("3_dghub")
+PathHitBox = NodePath("Hitbox")
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_s4r47"]
+await_completion = 10.0
+animation_player = ExtResource("2_3aj1b")
+animation_name = &"OFF"
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_ec1aw"]
+node = ExtResource("2_u4j2w")
+method = &"queue_free"
+
+[sub_resource type="BTSequence" id="BTSequence_ih5ee"]
+children = [SubResource("BTPlayAnimation_e8p7k"), SubResource("BTAction_lk8bl"), SubResource("BTPlayAnimation_s4r47"), SubResource("BTCallMethod_ec1aw")]
+
+[resource]
+blackboard_plan = ExtResource("1_jsukm")
+root_task = SubResource("BTSequence_ih5ee")

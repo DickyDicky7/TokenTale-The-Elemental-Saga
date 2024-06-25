@@ -1,23 +1,33 @@
-[gd_scene load_steps=43 format=3 uid="uid://c47tcwkeiq0h2"]
+[gd_scene load_steps=54 format=3 uid="uid://c47tcwkeiq0h2"]
 
 [ext_resource type="Script" path="res://game_objects/characters/main_character/MainCharacter.cs" id="1_gm2bn"]
 [ext_resource type="SpriteFrames" uid="uid://rt7sar8d0e54" path="res://game_objects/characters/main_character/MainCharacter_SpriteFrames_$Main$.tres" id="1_q2bc7"]
+[ext_resource type="PackedScene" uid="uid://chwjmy7grdej" path="res://game_objects/shared/status_info/StatusInfo.tscn" id="2_dyk2k"]
+[ext_resource type="Resource" uid="uid://d05m2sakmpkvn" path="res://game_objects/characters/shared/AlliesAbility.tres" id="2_r74wh"]
+[ext_resource type="Material" uid="uid://bscw2illjxslq" path="res://game_objects/characters/main_character/MainCharacter_ShaderMaterial_GLOU.tres" id="2_ytvyu"]
 [ext_resource type="Shape3D" uid="uid://b7xid5nyum248" path="res://game_objects/characters/main_character/MainCharacter_CollisionShape3D_Body.tres" id="4_7nd0n"]
-[ext_resource type="Script" path="res://game_objects/items/shared/WeaponsController.cs" id="8_aswq2"]
-[ext_resource type="PackedScene" uid="uid://bx1yjtvn2pwyh" path="res://game_objects/items/sword/Sword.tscn" id="12_frf8n"]
+[ext_resource type="PackedScene" uid="uid://c6tlhr2n7q8ru" path="res://game_objects/shared/hits_flashing_by_modulate/HitsFlashingByModulateGlowVersion.tscn" id="6_cs78j"]
+[ext_resource type="Script" path="res://game_objects/items/weapons/WeaponsController.cs" id="8_aswq2"]
+[ext_resource type="PackedScene" uid="uid://dfecuavmxmhn7" path="res://game_objects/items/weapons/elemental_bracelet/ElementalBracelet.tscn" id="12_25v8g"]
+[ext_resource type="PackedScene" uid="uid://bx1yjtvn2pwyh" path="res://game_objects/items/weapons/sword/Sword.tscn" id="12_frf8n"]
 [ext_resource type="Script" path="res://game_objects/shared/state_machine/StateMachine.cs" id="12_wpmlx"]
 [ext_resource type="Script" path="res://game_objects/characters/main_character/StateMainCharacterLive.cs" id="13_etnf6"]
-[ext_resource type="PackedScene" uid="uid://b7cey8rb583i7" path="res://game_objects/items/_bow_/_Bow_.tscn" id="13_y068q"]
+[ext_resource type="PackedScene" uid="uid://b7cey8rb583i7" path="res://game_objects/items/weapons/_bow_/_Bow_.tscn" id="13_y068q"]
 [ext_resource type="Script" path="res://game_objects/characters/main_character/StateMainCharacterDead.cs" id="14_md3m3"]
 [ext_resource type="Script" path="res://game_objects/characters/main_character/StateMainCharacterSafe.cs" id="15_855r3"]
 [ext_resource type="Script" path="res://game_objects/characters/main_character/StateMainCharacterHurt.cs" id="16_g63ce"]
 [ext_resource type="Script" path="res://game_objects/characters/main_character/StateMainCharacterIdle.cs" id="17_3nygf"]
+[ext_resource type="AudioStream" uid="uid://vspy5heisvqy" path="res://game_asset_s/Minifantasy_Dungeon_SFX/14_human_death_spin.wav" id="17_ce8xp"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="17_qfxt6"]
 [ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.tscn" id="18_uji2a"]
 [ext_resource type="Script" path="res://game_objects/characters/main_character/StateMainCharacterMove.cs" id="18_yoft4"]
+[ext_resource type="PackedScene" uid="uid://bpo3i7jg52oun" path="res://game_objects/characters/main_character/MainCharacter_AnimatedSprite3D_Effect.tscn" id="19_14buj"]
 [ext_resource type="Script" path="res://game_objects/characters/main_character/StateMainCharacterDash.cs" id="19_bla35"]
+[ext_resource type="AudioStream" uid="uid://cd8h0ssxvglki" path="res://game_asset_s/Minifantasy_Dungeon_SFX/11_human_damage_1.wav" id="19_kxh38"]
 [ext_resource type="Material" uid="uid://bytud730of1y0" path="res://game_objects/characters/main_character/MainCharacter_ParticleProcessMaterial.tres" id="20_olqmh"]
+[ext_resource type="AudioStream" uid="uid://don8aqcchrjk3" path="res://game_asset_s/Minifantasy_Dungeon_SFX/16_human_walk_stone_3.wav" id="21_j0msf"]
 [ext_resource type="Texture2D" uid="uid://ceephikwyelis" path="res://game_objects/characters/main_character/MainCharacter_AnimatedTexture_02.tres" id="21_mtv4e"]
+[ext_resource type="AudioStream" uid="uid://b63vn8ss64qhn" path="res://game_asset_s/Minifantasy_Dungeon_SFX/15_human_dash_1.wav" id="24_syynn"]
 
 [sub_resource type="Animation" id="Animation_kpxto"]
 length = 0.4
@@ -94,6 +104,18 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Weapons(_Controller_):WeaponsKeyCommand")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [{}]
 }
 
 [sub_resource type="Animation" id="Animation_qh5dr"]
@@ -608,6 +630,21 @@ tracks/4/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_y5eao"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Weapons(_Controller_):WeaponsKeyCommand")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [{}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7so4u"]
 _data = {
 "DEAD": SubResource("Animation_kpxto"),
@@ -618,7 +655,8 @@ _data = {
 "MOVE_D": SubResource("Animation_se0jj"),
 "MOVE_L": SubResource("Animation_qcwc5"),
 "MOVE_R": SubResource("Animation_k2rk6"),
-"MOVE_U": SubResource("Animation_b3u6r")
+"MOVE_U": SubResource("Animation_b3u6r"),
+"RESET": SubResource("Animation_y5eao")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c3f6a"]
@@ -673,44 +711,56 @@ animation = &"DEAD"
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_gsyfd"]
 input_0/name = "IDLE"
 input_0/auto_advance = false
+input_0/break_loop_at_end = false
 input_0/reset = true
 input_1/name = "MOVE"
 input_1/auto_advance = false
+input_1/break_loop_at_end = false
 input_1/reset = true
 input_2/name = "DEAD"
 input_2/auto_advance = false
+input_2/break_loop_at_end = false
 input_2/reset = true
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_q8s8x"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_0khbu"]
 nodes/BS2D_IDLE/node = SubResource("AnimationNodeBlendSpace2D_j8hut")
-nodes/BS2D_IDLE/position = Vector2(80, 213.333)
+nodes/BS2D_IDLE/position = Vector2(80, 214)
 nodes/BS2D_MOVE/node = SubResource("AnimationNodeBlendSpace2D_phcph")
 nodes/BS2D_MOVE/position = Vector2(80, 400)
 nodes/DEAD/node = SubResource("AnimationNodeAnimation_6fvet")
-nodes/DEAD/position = Vector2(80, 586.667)
+nodes/DEAD/position = Vector2(80, 586)
 nodes/STATE/node = SubResource("AnimationNodeTransition_gsyfd")
-nodes/STATE/position = Vector2(80, -26.6667)
+nodes/STATE/position = Vector2(80, -26)
 nodes/TIME_SCALE/node = SubResource("AnimationNodeTimeScale_q8s8x")
-nodes/TIME_SCALE/position = Vector2(240, -26.6667)
-nodes/output/position = Vector2(400, -26.6667)
+nodes/TIME_SCALE/position = Vector2(240, -26)
+nodes/output/position = Vector2(400, -26)
 node_connections = [&"STATE", 0, &"BS2D_IDLE", &"STATE", 1, &"BS2D_MOVE", &"STATE", 2, &"DEAD", &"TIME_SCALE", 0, &"STATE", &"output", 0, &"TIME_SCALE"]
 
-[node name="MainCharacter" type="CharacterBody3D"]
+[node name="MainCharacter" type="CharacterBody3D" node_paths=PackedStringArray("WeaponsController", "NavigationAgent3D", "MainCharacterAnimatedSprite3DEffect")]
+collision_layer = 8
+collision_mask = 15
 script = ExtResource("1_gm2bn")
-Speed = 2.0
-Jumpv = 2.0
-Acceleration = 0.2
-Deceleration = 0.2
+WeaponsController = NodePath("Weapons(_Controller_)")
+VisitorAbilityDispatch = ExtResource("2_r74wh")
+NavigationAgent3D = NodePath("NavigationAgent3D")
+MainCharacterAnimatedSprite3DEffect = NodePath("AnimatedSprite3D_Effect")
+StatusInfoPackedScene = ExtResource("2_dyk2k")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+debug_enabled = true
 
 [node name="AnimatedSprite3D_$Main$" type="AnimatedSprite3D" parent="."]
+material_override = ExtResource("2_ytvyu")
 cast_shadow = 0
 offset = Vector2(0, 12)
 texture_filter = 0
 sprite_frames = ExtResource("1_q2bc7")
 animation = &"IDLE_D"
-frame = 1
+frame = 3
+
+[node name="HitsFlashingByModulateGlowVersion" parent="AnimatedSprite3D_$Main$" instance=ExtResource("6_cs78j")]
 
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 cast_shadow = 3
@@ -719,16 +769,21 @@ alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_q2bc7")
 animation = &"IDLE_D"
-frame = 1
+frame = 3
+
+[node name="AnimatedSprite3D_Effect" parent="." node_paths=PackedStringArray("AnimationPlayer") instance=ExtResource("19_14buj")]
+AnimationPlayer = NodePath("AnimationPlayer")
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12, 0)
 shape = ExtResource("4_7nd0n")
 
-[node name="Weapons(_Controller_)" type="Node" parent="." node_paths=PackedStringArray("Weapons")]
+[node name="Weapons(_Controller_)" type="Node" parent="." node_paths=PackedStringArray("PhysicsWeapons", "Bracelets")]
 script = ExtResource("8_aswq2")
-Keys = Array[int]([70, 71])
-Weapons = [NodePath("../Sword"), NodePath("../_Bow_")]
+PhysicsWeaponKeys = Array[int]([49, 50])
+PhysicsWeapons = [NodePath("../Sword"), NodePath("../_Bow_")]
+BraceletKeys = Array[int]([51, 52])
+Bracelets = [NodePath("../ElementalBracelet"), NodePath("../ElementalBracelet2")]
 
 [node name="AnimationP" type="AnimationPlayer" parent="."]
 libraries = {
@@ -738,18 +793,68 @@ libraries = {
 [node name="AnimationT" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeBlendTree_0khbu")
 anim_player = NodePath("../AnimationP")
+parameters/current_length = 0.4
+parameters/current_position = 0.348767
+parameters/current_delta = 0.016874
+parameters/BS2D_IDLE/current_length = 0.4
+parameters/BS2D_IDLE/current_position = 0.348767
+parameters/BS2D_IDLE/current_delta = 0.016874
 parameters/BS2D_IDLE/blend_position = Vector2(0, 0)
+parameters/BS2D_IDLE/0/current_length = 0.4
+parameters/BS2D_IDLE/0/current_position = 0.348767
+parameters/BS2D_IDLE/0/current_delta = 0.016874
+parameters/BS2D_IDLE/1/current_length = null
+parameters/BS2D_IDLE/1/current_position = null
+parameters/BS2D_IDLE/1/current_delta = null
+parameters/BS2D_IDLE/2/current_length = null
+parameters/BS2D_IDLE/2/current_position = null
+parameters/BS2D_IDLE/2/current_delta = null
+parameters/BS2D_IDLE/3/current_length = null
+parameters/BS2D_IDLE/3/current_position = null
+parameters/BS2D_IDLE/3/current_delta = null
+parameters/BS2D_MOVE/current_length = Vector2(0, 0)
+parameters/BS2D_MOVE/current_position = Vector2(0, 0)
+parameters/BS2D_MOVE/current_delta = Vector2(0, 0)
 parameters/BS2D_MOVE/blend_position = Vector2(0, 0)
+parameters/BS2D_MOVE/0/current_length = null
+parameters/BS2D_MOVE/0/current_position = null
+parameters/BS2D_MOVE/0/current_delta = null
+parameters/BS2D_MOVE/1/current_length = null
+parameters/BS2D_MOVE/1/current_position = null
+parameters/BS2D_MOVE/1/current_delta = null
+parameters/BS2D_MOVE/2/current_length = null
+parameters/BS2D_MOVE/2/current_position = null
+parameters/BS2D_MOVE/2/current_delta = null
+parameters/BS2D_MOVE/3/current_length = null
+parameters/BS2D_MOVE/3/current_position = null
+parameters/BS2D_MOVE/3/current_delta = null
+parameters/DEAD/current_length = null
+parameters/DEAD/current_position = null
+parameters/DEAD/current_delta = null
+parameters/STATE/current_length = 0.4
+parameters/STATE/current_position = 0.348767
+parameters/STATE/current_delta = 0.016874
 parameters/STATE/current_state = "IDLE"
 parameters/STATE/transition_request = ""
 parameters/STATE/current_index = 0
+parameters/TIME_SCALE/current_length = 0.4
+parameters/TIME_SCALE/current_position = 0.348767
+parameters/TIME_SCALE/current_delta = 0.016874
 parameters/TIME_SCALE/scale = 1.0
+parameters/output/current_length = 0.4
+parameters/output/current_position = 0.348767
+parameters/output/current_delta = 0.016874
 
 [node name="EyeSight3D" parent="." instance=ExtResource("18_uji2a")]
+process_mode = 4
 MinRotationY = -180.0
 MaxRotationY = 180.0
+RotateDuration = 0.0
+EasingfuncType = 0
+TransitionType = 0
+Modulate = Color(1, 1, 1, 1)
 
-[node name="Sword" parent="." node_paths=PackedStringArray("Sprite3D", "Shadow3D", "Aareaa3D", "CollisionShape3D", "AnimatedSprite3D", "AnimatedShadow3D", "AnimationPlayerr") instance=ExtResource("12_frf8n")]
+[node name="Sword" parent="." node_paths=PackedStringArray("Sprite3D", "Shadow3D", "Aareaa3D", "CollisionShape3D", "AnimatedSprite3D", "AnimatedShadow3D", "AnimationPlayerr", "OwnerMainCharacter") instance=ExtResource("12_frf8n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
 Sprite3D = NodePath("Sprite3D")
 Shadow3D = NodePath("Shadow3D")
@@ -758,34 +863,58 @@ CollisionShape3D = NodePath("Aareaa3D/CollisionShape3D")
 AnimatedSprite3D = NodePath("_AnimatedSprite3D")
 AnimatedShadow3D = NodePath("_AnimatedShadow3D")
 AnimationPlayerr = NodePath("_AnimationPlayerr")
+OwnerMainCharacter = NodePath("..")
+Available = true
 
-[node name="_Bow_" parent="." node_paths=PackedStringArray("AnimatedSprite3DMmainn", "CollisionShape3D", "AnimatedSprite3DEffect") instance=ExtResource("13_y068q")]
+[node name="_Bow_" parent="." node_paths=PackedStringArray("AnimationPlayerr", "AnimatedSprite3DMmainn", "CollisionShape3D", "AnimatedSprite3DEffect", "OwnerMainCharacter") instance=ExtResource("13_y068q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
 visible = false
+AnimationPlayerr = NodePath("AnimationPlayerrr")
 AnimatedSprite3DMmainn = NodePath("_AnimatedSprite3D_$Main$")
 CollisionShape3D = NodePath("Aareaa3D/CollisionShape3D")
 AnimatedSprite3DEffect = NodePath("_AnimatedSprite3D_Effect")
+OwnerMainCharacter = NodePath("..")
+Available = true
+
+[node name="ElementalBracelet" parent="." node_paths=PackedStringArray("OwnerMainCharacter") instance=ExtResource("12_25v8g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
+OwnerMainCharacter = NodePath("..")
+
+[node name="ElementalBracelet2" parent="." node_paths=PackedStringArray("OwnerMainCharacter") instance=ExtResource("12_25v8g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
+OwnerMainCharacter = NodePath("..")
+Available = false
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("ActiveStates")]
 script = ExtResource("12_wpmlx")
 ActiveStates = [NodePath("Live"), NodePath("Safe"), NodePath("Idle")]
 
-[node name="Live" type="Node" parent="StateMachine" node_paths=PackedStringArray("MainCharacter")]
+[node name="Live" type="Node" parent="StateMachine" node_paths=PackedStringArray("DeadState", "MainCharacter")]
 script = ExtResource("13_etnf6")
+DeadState = NodePath("../Dead")
 MainCharacter = NodePath("../..")
 
-[node name="Dead" type="Node" parent="StateMachine" node_paths=PackedStringArray("MainCharacter")]
+[node name="Dead" type="Node" parent="StateMachine" node_paths=PackedStringArray("MainCharacter", "AnimationTree", "AudioStreamPlayer", "HitsFlashingByModulateGlowVersion")]
 script = ExtResource("14_md3m3")
 MainCharacter = NodePath("../..")
+AnimationTree = NodePath("../../AnimationT")
+AudioStreamPlayer = NodePath("../../AudioStreamPlayer")
+AudioStream = ExtResource("17_ce8xp")
+HitsFlashingByModulateGlowVersion = NodePath("../../AnimatedSprite3D_$Main$/HitsFlashingByModulateGlowVersion")
 
-[node name="Safe" type="Node" parent="StateMachine" node_paths=PackedStringArray("EyeSight3D", "MainCharacter")]
+[node name="Safe" type="Node" parent="StateMachine" node_paths=PackedStringArray("HurtState", "EyeSight3D", "MainCharacter")]
 script = ExtResource("15_855r3")
+HurtState = NodePath("../Hurt")
 EyeSight3D = NodePath("../../EyeSight3D")
 MainCharacter = NodePath("../..")
 
-[node name="Hurt" type="Node" parent="StateMachine" node_paths=PackedStringArray("MainCharacter")]
+[node name="Hurt" type="Node" parent="StateMachine" node_paths=PackedStringArray("SafeState", "MainCharacter", "AudioStreamPlayer", "HitsFlashingByModulateGlowVersion")]
 script = ExtResource("16_g63ce")
+SafeState = NodePath("../Safe")
 MainCharacter = NodePath("../..")
+AudioStreamPlayer = NodePath("../../AudioStreamPlayer")
+AudioStream = ExtResource("19_kxh38")
+HitsFlashingByModulateGlowVersion = NodePath("../../AnimatedSprite3D_$Main$/HitsFlashingByModulateGlowVersion")
 
 [node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("MoveState", "MainCharacter", "AnimationTree")]
 script = ExtResource("17_3nygf")
@@ -793,19 +922,26 @@ MoveState = NodePath("../Move")
 MainCharacter = NodePath("../..")
 AnimationTree = NodePath("../../AnimationT")
 
-[node name="Move" type="Node" parent="StateMachine" node_paths=PackedStringArray("IdleState", "DashState", "MainCharacter", "AnimationTree")]
+[node name="Move" type="Node" parent="StateMachine" node_paths=PackedStringArray("IdleState", "DashState", "DeadState", "MainCharacter", "AnimationTree", "GroundDetector", "AudioStreamPlayer")]
 script = ExtResource("18_yoft4")
 IdleState = NodePath("../Idle")
 DashState = NodePath("../Dash")
+DeadState = NodePath("../Dead")
 MainCharacter = NodePath("../..")
 AnimationTree = NodePath("../../AnimationT")
+GroundDetector = NodePath("../../GroundDetector")
+AudioStreamPlayer = NodePath("../../AudioStreamPlayer")
+AudioStream = ExtResource("21_j0msf")
 
-[node name="Dash" type="Node" parent="StateMachine" node_paths=PackedStringArray("MoveState", "MainCharacter")]
+[node name="Dash" type="Node" parent="StateMachine" node_paths=PackedStringArray("MoveState", "MainCharacter", "AudioStreamPlayer")]
 script = ExtResource("19_bla35")
 MoveState = NodePath("../Move")
 MainCharacter = NodePath("../..")
+AudioStreamPlayer = NodePath("../../AudioStreamPlayer")
+AudioStream = ExtResource("24_syynn")
 
 [node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
+process_mode = 4
 script = ExtResource("17_qfxt6")
 Sprites = [NodePath("../AnimatedSprite3D_$Main$")]
 
@@ -817,3 +953,13 @@ amount = 5
 process_material = ExtResource("20_olqmh")
 texture = ExtResource("21_mtv4e")
 fixed_fps = 60
+
+[node name="GroundDetector" type="Node3D" parent="."]
+
+[node name="RayCast3D" type="RayCast3D" parent="GroundDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.15, 0)
+target_position = Vector3(0, -0.2, 0)
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

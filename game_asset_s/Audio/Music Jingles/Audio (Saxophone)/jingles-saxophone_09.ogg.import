@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dvpwfk2i1h6c4"
+path="res://.godot/imported/jingles-saxophone_09.ogg-4627d101e801b3413ac4c2404bade63b.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Music Jingles/Audio (Saxophone)/jingles-saxophone_09.ogg"
+dest_files=["res://.godot/imported/jingles-saxophone_09.ogg-4627d101e801b3413ac4c2404bade63b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

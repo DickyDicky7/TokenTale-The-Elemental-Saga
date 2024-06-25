@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://7bx6bvsr7j7i"
+path="res://.godot/imported/bossFight.ogg-a0b15b7432cf47649186d2dce7fbed78.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/bossFight.ogg"
+dest_files=["res://.godot/imported/bossFight.ogg-a0b15b7432cf47649186d2dce7fbed78.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

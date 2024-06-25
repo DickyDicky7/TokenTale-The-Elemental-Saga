@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://mw32bcoqycoe"
+path="res://.godot/imported/Three Red Hearts - Candy.ogg-45ad8fefdb3001d1c6a98f7684425f15.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/three-red-hearts-prepare-to-dev-download/Three Red Hearts - Candy.ogg"
+dest_files=["res://.godot/imported/Three Red Hearts - Candy.ogg-45ad8fefdb3001d1c6a98f7684425f15.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

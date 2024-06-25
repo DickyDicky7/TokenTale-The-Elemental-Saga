@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cbhkeoapdbqfj"
+path="res://.godot/imported/minimize_008.ogg-640cba2afc3da59f1e6f675f55a5b171.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Interface Sounds/Audio/minimize_008.ogg"
+dest_files=["res://.godot/imported/minimize_008.ogg-640cba2afc3da59f1e6f675f55a5b171.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

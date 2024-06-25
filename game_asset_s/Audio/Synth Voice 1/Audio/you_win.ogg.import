@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dds63lhwf8xum"
+path="res://.godot/imported/you_win.ogg-0ac5dce7c98fa6aead6213a11e73031c.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 1/Audio/you_win.ogg"
+dest_files=["res://.godot/imported/you_win.ogg-0ac5dce7c98fa6aead6213a11e73031c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,771 @@
+[gd_scene load_steps=63 format=3 uid="uid://bx1yjtvn2pwyh"]
+
+[ext_resource type="Script" path="res://game_objects/items/weapons/sword/Sword.cs" id="1_pcobt"]
+[ext_resource type="Texture2D" uid="uid://j7oq61sp7i8y" path="res://game_asset_s/macrune's_weaponry/spritesheet/32x32/RPG Weapons Darkk Outline 32x32.png" id="2_67fip"]
+[ext_resource type="Material" uid="uid://3ecq4gw3x75h" path="res://game_objects/items/weapons/sword/Sword_ShaderMaterial_GLOU.tres" id="2_a47rq"]
+[ext_resource type="Shader" path="res://shaders/Glow.gdshader" id="3_emuqp"]
+[ext_resource type="Shape3D" uid="uid://djeb1w4437hhy" path="res://game_objects/items/weapons/sword/Sword_CollisionShape3D.tres" id="4_5bwhb"]
+[ext_resource type="Script" path="res://game_objects/items/weapons/sword/SwordHitbox.cs" id="4_hmo0a"]
+[ext_resource type="AudioStream" uid="uid://csvsm0hukd2h0" path="res://game_asset_s/Audio/Retro Sounds 2/Audio/hit2.ogg" id="5_62gsn"]
+[ext_resource type="SpriteFrames" uid="uid://cgqt1fh8w4vqh" path="res://game_objects/items/weapons/sword/Sword_SpriteFrames.tres" id="5_ugswj"]
+[ext_resource type="Texture2D" uid="uid://b7spl0jtocvqi" path="res://game_asset_s/vfx/SFX300_nyknck/SFX301_nyknck/SFX301_01.png" id="5_xjyhf"]
+[ext_resource type="Script" path="res://game_objects/shared/state_machine/StateMachine.cs" id="6_n03hb"]
+[ext_resource type="Script" path="res://game_objects/items/weapons/sword/StateSwordReset.cs" id="7_34dt2"]
+[ext_resource type="Texture2D" uid="uid://clrh8gt28qnsw" path="res://game_asset_s/vfx/SFX300_nyknck/SFX301_nyknck/SFX301_02.png" id="7_k3pn8"]
+[ext_resource type="Script" path="res://game_objects/items/weapons/sword/StateSwordSlash.cs" id="8_3v5rq"]
+[ext_resource type="Texture2D" uid="uid://cafqg3imbdaqc" path="res://game_asset_s/vfx/SFX300_nyknck/SFX301_nyknck/SFX301_03.png" id="8_rigjb"]
+[ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="9_831tv"]
+[ext_resource type="Texture2D" uid="uid://bge172ihi83er" path="res://game_asset_s/vfx/SFX300_nyknck/SFX301_nyknck/SFX301_04.png" id="9_yf8lj"]
+[ext_resource type="Texture2D" uid="uid://bf735isdxornn" path="res://game_asset_s/vfx/SFX300_nyknck/SFX301_nyknck/SFX301_05.png" id="10_c1284"]
+[ext_resource type="Texture2D" uid="uid://c777ot0k57kj2" path="res://game_asset_s/vfx/SFX300_nyknck/SFX302_nyknck/SFX302_01.png" id="11_4u8e3"]
+[ext_resource type="Texture2D" uid="uid://byl6kt7jd3cs0" path="res://game_asset_s/vfx/SFX300_nyknck/SFX302_nyknck/SFX302_02.png" id="12_oxshu"]
+[ext_resource type="AudioStream" uid="uid://ctu1q2odh0yej" path="res://game_asset_s/Audio/Foley Sounds/Audio/Woosh/woosh1.ogg" id="13_ryluo"]
+[ext_resource type="Texture2D" uid="uid://bv00vhf5cft2" path="res://game_asset_s/vfx/SFX300_nyknck/SFX302_nyknck/SFX302_03.png" id="13_yiauo"]
+[ext_resource type="Texture2D" uid="uid://bn8daqj61wk0" path="res://game_asset_s/vfx/SFX300_nyknck/SFX302_nyknck/SFX302_04.png" id="14_tbc76"]
+[ext_resource type="Texture2D" uid="uid://bjpc0dg0xxjxj" path="res://game_asset_s/vfx/SFX300_nyknck/SFX302_nyknck/SFX302_05.png" id="15_ynp6y"]
+[ext_resource type="Texture2D" uid="uid://cb3uydfiol51c" path="res://game_asset_s/vfx/SFX300_nyknck/SFX303_nyknck/SFX303_01.png" id="16_lyush"]
+[ext_resource type="Texture2D" uid="uid://baquatqhonh20" path="res://game_asset_s/vfx/SFX300_nyknck/SFX303_nyknck/SFX303_02.png" id="17_upfwh"]
+[ext_resource type="Texture2D" uid="uid://csu45aek17gh2" path="res://game_asset_s/vfx/SFX300_nyknck/SFX303_nyknck/SFX303_03.png" id="18_4hgaq"]
+[ext_resource type="AudioStream" uid="uid://bnpch0sho6hx2" path="res://game_asset_s/Audio/Foley Sounds/Audio/Woosh/woosh2.ogg" id="19_h1lpq"]
+[ext_resource type="Texture2D" uid="uid://4th1oht5lb0o" path="res://game_asset_s/vfx/SFX300_nyknck/SFX303_nyknck/SFX303_04.png" id="19_sg30r"]
+[ext_resource type="Texture2D" uid="uid://dyex4okkvagx" path="res://game_asset_s/vfx/SFX300_nyknck/SFX303_nyknck/SFX303_05.png" id="20_ypljh"]
+[ext_resource type="Texture2D" uid="uid://dbyqrrf1sxsbb" path="res://game_asset_s/vfx/SFX300_nyknck/SFX304_nyknck/SFX304_01.png" id="21_8iydy"]
+[ext_resource type="Texture2D" uid="uid://b7q3fkms8bm80" path="res://game_asset_s/vfx/SFX300_nyknck/SFX304_nyknck/SFX304_02.png" id="22_5rtf8"]
+[ext_resource type="Texture2D" uid="uid://du8wp55e21gt7" path="res://game_asset_s/vfx/SFX300_nyknck/SFX304_nyknck/SFX304_03.png" id="23_jjpxv"]
+[ext_resource type="Texture2D" uid="uid://nx71raekiw5q" path="res://game_asset_s/vfx/SFX300_nyknck/SFX304_nyknck/SFX304_04.png" id="24_rinos"]
+[ext_resource type="AudioStream" uid="uid://dglu52pfsafey" path="res://game_asset_s/Audio/Foley Sounds/Audio/Woosh/woosh3.ogg" id="25_34cpy"]
+[ext_resource type="Texture2D" uid="uid://p30vlt6vm1pe" path="res://game_asset_s/vfx/SFX300_nyknck/SFX304_nyknck/SFX304_05.png" id="25_bh3ye"]
+[ext_resource type="AudioStream" uid="uid://chje8go23u60v" path="res://game_asset_s/Audio/Foley Sounds/Audio/Woosh/woosh4.ogg" id="31_jqilj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ojsc2"]
+render_priority = 0
+shader = ExtResource("3_emuqp")
+shader_parameter/MODULATE = Color(1.5, 1.5, 1.5, 1)
+shader_parameter/TEXTURE = ExtResource("21_8iydy")
+
+[sub_resource type="Animation" id="Animation_e6q8w"]
+resource_name = "RESET"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("_AnimatedSprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("_AnimatedSprite3D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["RESET"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("_AnimatedShadow3D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("_AnimatedShadow3D:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["RESET"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite3D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Shadow3D:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_skxnp"]
+render_priority = 0
+shader = ExtResource("3_emuqp")
+shader_parameter/MODULATE = Color(1.5, 1.5, 1, 1)
+shader_parameter/TEXTURE = ExtResource("5_xjyhf")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x7bay"]
+render_priority = 0
+shader = ExtResource("3_emuqp")
+shader_parameter/MODULATE = Color(1.5, 1.5, 1, 1)
+shader_parameter/TEXTURE = ExtResource("7_k3pn8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_phs6e"]
+render_priority = 0
+shader = ExtResource("3_emuqp")
+shader_parameter/MODULATE = Color(1.5, 1.5, 1, 1)
+shader_parameter/TEXTURE = ExtResource("8_rigjb")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6dbsb"]
+render_priority = 0
+shader = ExtResource("3_emuqp")
+shader_parameter/MODULATE = Color(1.5, 1.5, 1, 1)
+shader_parameter/TEXTURE = ExtResource("9_yf8lj")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_12hvp"]
+render_priority = 0
+shader = ExtResource("3_emuqp")
+shader_parameter/MODULATE = Color(1.5, 1.5, 1, 1)
+shader_parameter/TEXTURE = ExtResource("10_c1284")
+
+[sub_resource type="Animation" id="Animation_c22vu"]
+resource_name = "SLASH_0"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("_AnimatedSprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("_AnimatedSprite3D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["SLASH_0"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("_AnimatedShadow3D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("_AnimatedShadow3D:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["SLASH_0"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite3D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Shadow3D:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("_AnimatedSprite3D:material_override")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [SubResource("ShaderMaterial_skxnp"), SubResource("ShaderMaterial_x7bay"), SubResource("ShaderMaterial_phs6e"), SubResource("ShaderMaterial_6dbsb"), SubResource("ShaderMaterial_12hvp")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer:stream")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("13_ryluo")]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AudioStreamPlayer:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a6f5w"]
+render_priority = 0
+shader = ExtResource("3_emuqp")
+shader_parameter/MODULATE = Color(1.5, 1, 1.5, 1)
+shader_parameter/TEXTURE = ExtResource("11_4u8e3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t6usk"]
+render_priority = 0
+shader = ExtResource("3_emuqp")
+shader_parameter/MODULATE = Color(1.5, 1, 1.5, 1)
+shader_parameter/TEXTURE = ExtResource("12_oxshu")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ii54n"]
+render_priority = 0
+shader = ExtResource("3_emuqp")
+shader_parameter/MODULATE = Color(1.5, 1, 1.5, 1)
+shader_parameter/TEXTURE = ExtResource("13_yiauo")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nwrx6"]
+render_priority = 0
+shader = ExtResource("3_emuqp")
+shader_parameter/MODULATE = Color(1.5, 1, 1.5, 1)
+shader_parameter/TEXTURE = ExtResource("14_tbc76")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r4c7u"]
+render_priority = 0
+shader = ExtResource("3_emuqp")
+shader_parameter/MODULATE = Color(1.5, 1, 1.5, 1)
+shader_parameter/TEXTURE = ExtResource("15_ynp6y")
+
+[sub_resource type="Animation" id="Animation_5v11y"]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("_AnimatedSprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("_AnimatedSprite3D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["SLASH_1"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("_AnimatedShadow3D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("_AnimatedShadow3D:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["SLASH_1"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite3D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Shadow3D:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("_AnimatedSprite3D:material_override")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [SubResource("ShaderMaterial_a6f5w"), SubResource("ShaderMaterial_t6usk"), SubResource("ShaderMaterial_ii54n"), SubResource("ShaderMaterial_nwrx6"), SubResource("ShaderMaterial_r4c7u")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer:stream")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("19_h1lpq")]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AudioStreamPlayer:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pfx8a"]
+render_priority = 0
+shader = ExtResource("3_emuqp")
+shader_parameter/MODULATE = Color(1, 1, 1.5, 1)
+shader_parameter/TEXTURE = ExtResource("16_lyush")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bkwjf"]
+render_priority = 0
+shader = ExtResource("3_emuqp")
+shader_parameter/MODULATE = Color(1, 1, 1.5, 1)
+shader_parameter/TEXTURE = ExtResource("17_upfwh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6u5bi"]
+render_priority = 0
+shader = ExtResource("3_emuqp")
+shader_parameter/MODULATE = Color(1, 1, 1.5, 1)
+shader_parameter/TEXTURE = ExtResource("18_4hgaq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_if5f4"]
+render_priority = 0
+shader = ExtResource("3_emuqp")
+shader_parameter/MODULATE = Color(1, 1, 1.5, 1)
+shader_parameter/TEXTURE = ExtResource("19_sg30r")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_se44m"]
+render_priority = 0
+shader = ExtResource("3_emuqp")
+shader_parameter/MODULATE = Color(1, 1, 1.5, 1)
+shader_parameter/TEXTURE = ExtResource("20_ypljh")
+
+[sub_resource type="Animation" id="Animation_wbh6i"]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("_AnimatedSprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("_AnimatedSprite3D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["SLASH_2"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("_AnimatedShadow3D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("_AnimatedShadow3D:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["SLASH_2"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite3D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Shadow3D:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("_AnimatedSprite3D:material_override")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [SubResource("ShaderMaterial_pfx8a"), SubResource("ShaderMaterial_bkwjf"), SubResource("ShaderMaterial_6u5bi"), SubResource("ShaderMaterial_if5f4"), SubResource("ShaderMaterial_se44m")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer:stream")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("25_34cpy")]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AudioStreamPlayer:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_02mxf"]
+render_priority = 0
+shader = ExtResource("3_emuqp")
+shader_parameter/MODULATE = Color(1.5, 1.5, 1.5, 1)
+shader_parameter/TEXTURE = ExtResource("22_5rtf8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ovva4"]
+render_priority = 0
+shader = ExtResource("3_emuqp")
+shader_parameter/MODULATE = Color(1.5, 1.5, 1.5, 1)
+shader_parameter/TEXTURE = ExtResource("23_jjpxv")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8kv3m"]
+render_priority = 0
+shader = ExtResource("3_emuqp")
+shader_parameter/MODULATE = Color(1.5, 1.5, 1.5, 1)
+shader_parameter/TEXTURE = ExtResource("24_rinos")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gsoy8"]
+render_priority = 0
+shader = ExtResource("3_emuqp")
+shader_parameter/MODULATE = Color(1.5, 1.5, 1.5, 1)
+shader_parameter/TEXTURE = ExtResource("25_bh3ye")
+
+[sub_resource type="Animation" id="Animation_vqueb"]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("_AnimatedSprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("_AnimatedSprite3D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["SLASH_3"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("_AnimatedShadow3D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("_AnimatedShadow3D:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["SLASH_3"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite3D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Shadow3D:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("_AnimatedSprite3D:material_override")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [SubResource("ShaderMaterial_ojsc2"), SubResource("ShaderMaterial_02mxf"), SubResource("ShaderMaterial_ovva4"), SubResource("ShaderMaterial_8kv3m"), SubResource("ShaderMaterial_gsoy8")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer:stream")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("31_jqilj")]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AudioStreamPlayer:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gmgfx"]
+_data = {
+"RESET": SubResource("Animation_e6q8w"),
+"SLASH_0": SubResource("Animation_c22vu"),
+"SLASH_1": SubResource("Animation_5v11y"),
+"SLASH_2": SubResource("Animation_wbh6i"),
+"SLASH_3": SubResource("Animation_vqueb")
+}
+
+[node name="Sword" type="Node3D" node_paths=PackedStringArray("Sprite3D", "Shadow3D", "Aareaa3D", "CollisionShape3D", "AnimatedSprite3D", "AnimatedShadow3D", "AnimationPlayerr")]
+script = ExtResource("1_pcobt")
+Sprite3D = NodePath("Sprite3D")
+Shadow3D = NodePath("Shadow3D")
+Aareaa3D = NodePath("Aareaa3D")
+CollisionShape3D = NodePath("Aareaa3D/CollisionShape3D")
+AnimatedSprite3D = NodePath("_AnimatedSprite3D")
+AnimatedShadow3D = NodePath("_AnimatedShadow3D")
+AnimationPlayerr = NodePath("_AnimationPlayerr")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+material_override = ExtResource("2_a47rq")
+cast_shadow = 0
+offset = Vector2(10.5, 10.5)
+texture_filter = 0
+texture = ExtResource("2_67fip")
+region_enabled = true
+region_rect = Rect2(224, 96, 32, 32)
+
+[node name="Shadow3D" type="Sprite3D" parent="."]
+cast_shadow = 3
+offset = Vector2(10.5, 10.5)
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("2_67fip")
+region_enabled = true
+region_rect = Rect2(224, 96, 32, 32)
+
+[node name="Aareaa3D" type="Area3D" parent="." node_paths=PackedStringArray("AudioStreamPlayer")]
+collision_layer = 16
+collision_mask = 6
+script = ExtResource("4_hmo0a")
+AudioStream = ExtResource("5_62gsn")
+AudioStreamPlayer = NodePath("../AudioStreamPlayer")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Aareaa3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)
+shape = ExtResource("4_5bwhb")
+
+[node name="_AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(-8.74228e-08, 2, 8.74228e-08, 0, -8.74228e-08, 2, 2, 8.74228e-08, 3.82137e-15, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_ojsc2")
+cast_shadow = 0
+texture_filter = 0
+sprite_frames = ExtResource("5_ugswj")
+animation = &"RESET"
+
+[node name="_AnimatedShadow3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(-8.74228e-08, 2, 8.74228e-08, 0, -8.74228e-08, 2, 2, 8.74228e-08, 3.82137e-15, 0, 0, 0)
+cast_shadow = 3
+alpha_cut = 2
+texture_filter = 0
+sprite_frames = ExtResource("5_ugswj")
+animation = &"RESET"
+
+[node name="_AnimationPlayerr" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gmgfx")
+}
+autoplay = "RESET"
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("ActiveStates")]
+script = ExtResource("6_n03hb")
+ActiveStates = [NodePath("Reset")]
+
+[node name="Reset" type="Node" parent="StateMachine" node_paths=PackedStringArray("SlashState", "Sword")]
+script = ExtResource("7_34dt2")
+SlashState = NodePath("../Slash")
+Sword = NodePath("../..")
+
+[node name="Slash" type="Node" parent="StateMachine" node_paths=PackedStringArray("ResetState", "Sword")]
+script = ExtResource("8_3v5rq")
+ResetState = NodePath("../Reset")
+Sword = NodePath("../..")
+
+[node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
+process_mode = 4
+script = ExtResource("9_831tv")
+Sprites = [NodePath("../Sprite3D")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("31_jqilj")

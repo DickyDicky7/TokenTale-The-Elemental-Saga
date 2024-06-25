@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c48pmbpn5qb2h"
+path="res://.godot/imported/war_go_go_go.ogg-f986047a7955bc84cbd04c5ad4be14bd.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Voiceover Pack/Audio (Female)/war_go_go_go.ogg"
+dest_files=["res://.godot/imported/war_go_go_go.ogg-f986047a7955bc84cbd04c5ad4be14bd.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

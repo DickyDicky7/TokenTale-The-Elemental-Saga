@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://br0eo775ij1t0"
+path="res://.godot/imported/deathmatch.ogg-aa0b94f8e65b9e772c1e5240352b700a.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/deathmatch.ogg"
+dest_files=["res://.godot/imported/deathmatch.ogg-aa0b94f8e65b9e772c1e5240352b700a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

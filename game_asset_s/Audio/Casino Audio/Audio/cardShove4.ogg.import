@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bwpc36cfaqfbf"
+path="res://.godot/imported/cardShove4.ogg-b307bc2523b81660da2b948f2aab375f.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Casino Audio/Audio/cardShove4.ogg"
+dest_files=["res://.godot/imported/cardShove4.ogg-b307bc2523b81660da2b948f2aab375f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c2ip8n50yrwxf"
+path="res://.godot/imported/dropYourWeapon.ogg-a5d30bbca8f6995c2ec09c43e2c337fc.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/dropYourWeapon.ogg"
+dest_files=["res://.godot/imported/dropYourWeapon.ogg-a5d30bbca8f6995c2ec09c43e2c337fc.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -13,9 +13,33 @@ public sealed partial class Flippable3DSpriteBase3DConsolidation : Node
     [Export]
     public bool FlipH
     {
-        get => Sprites[0].FlipH;
+        get
+        {
+            if (FlipHInverted)
+            {
+                return
+            !  Sprites[0].FlipH;
+            }
+            else
+            {
+                return
+               Sprites[0].FlipH;
+            }
+        }
         set
         {
+            if (FlipHInverted)
+            {
+                value =
+            !   value ;
+            }
+            else
+            {
+#pragma warning disable CS1717 // Assignment made to same variable
+                value =
+                value ;
+#pragma warning restore CS1717 // Assignment made to same variable
+            }
             foreach        (
                SpriteBase3D
                sprite
@@ -29,9 +53,33 @@ public sealed partial class Flippable3DSpriteBase3DConsolidation : Node
     [Export]
     public bool FlipV
     {
-        get => Sprites[0].FlipV;
+        get
+        {
+            if (FlipVInverted)
+            {
+                return
+            !  Sprites[0].FlipV;
+            }
+            else
+            {
+                return
+               Sprites[0].FlipV;
+            }
+        }
         set
         {
+            if (FlipVInverted)
+            {
+                value =
+            !   value ;
+            }
+            else
+            {
+#pragma warning disable CS1717 // Assignment made to same variable
+                value =
+                value ;
+#pragma warning restore CS1717 // Assignment made to same variable
+            }
             foreach        (
                SpriteBase3D
                sprite
@@ -41,6 +89,11 @@ public sealed partial class Flippable3DSpriteBase3DConsolidation : Node
             }
         }
     }
+
+    [Export]
+    public bool FlipHInverted { get; set; }
+    [Export]
+    public bool FlipVInverted { get; set; }
 
     public override void _Ready()
     {

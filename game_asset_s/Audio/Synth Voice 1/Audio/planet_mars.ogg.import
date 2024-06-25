@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b1xfd8opbw4je"
+path="res://.godot/imported/planet_mars.ogg-a68649e8155e639217dfcc407bbe414e.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 1/Audio/planet_mars.ogg"
+dest_files=["res://.godot/imported/planet_mars.ogg-a68649e8155e639217dfcc407bbe414e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

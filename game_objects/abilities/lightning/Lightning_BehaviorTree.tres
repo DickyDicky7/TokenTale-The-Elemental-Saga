@@ -1,6 +1,21 @@
-[gd_resource type="BehaviorTree" load_steps=2 format=3 uid="uid://bndh04gk1atcc"]
+[gd_resource type="BehaviorTree" load_steps=7 format=3 uid="uid://bndh04gk1atcc"]
 
 [ext_resource type="BlackboardPlan" uid="uid://b4o1clikv0qgj" path="res://game_objects/abilities/lightning/Lightning_BlackboardPlan----.tres" id="1_v1ia7"]
+[ext_resource type="BBNode" uid="uid://bms8a4bnbfyfi" path="res://game_objects/abilities/lightning/Lightning_BBNode_AnimPlay.tres" id="2_pk2nn"]
+[ext_resource type="BBNode" uid="uid://bplseflhb2scc" path="res://game_objects/abilities/lightning/Lightning_BBNode_RootNode.tres" id="3_eej5o"]
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_4o38l"]
+await_completion = 1.0
+animation_player = ExtResource("2_pk2nn")
+animation_name = &"STRIKE_0"
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_wxff3"]
+node = ExtResource("3_eej5o")
+method = &"queue_free"
+
+[sub_resource type="BTSequence" id="BTSequence_3jgyk"]
+children = [SubResource("BTPlayAnimation_4o38l"), SubResource("BTCallMethod_wxff3")]
 
 [resource]
 blackboard_plan = ExtResource("1_v1ia7")
+root_task = SubResource("BTSequence_3jgyk")

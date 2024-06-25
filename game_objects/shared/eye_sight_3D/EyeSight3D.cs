@@ -2,6 +2,8 @@ using Godot;
 
 namespace TokenTaleTheElementalSaga;
 
+[Tool       ]
+[GlobalClass]
 public partial class EyeSight3D : Node3D
 {
     [Export] public float MinRotationY { get; set; } = -90;
@@ -24,10 +26,44 @@ public partial class EyeSight3D : Node3D
     with{ Y =-rotationY , };
     }
 
+    [Export]
+    public double               RotateDuration { get; set; } // = ~ Rotate Speed In Seconds
+    [Export]
+    public Tween.      EaseType EasingfuncType { get; set; } // For Rotate Smoothly
+    [Export]
+    public Tween.TransitionType TransitionType { get; set; } // For Rotate Smoothly
+
+    public virtual void FollowRotationDegreesY(float
+                             @rotationDegreesY)
+    {
+        Tween tween =
+        GetParent  ().
+        CreateTween();
+        tween.TweenProperty(this              ,
+        "rotation_degrees:y",@rotationDegreesY,
+                       RotateDuration);
+        tween.SetEase (EasingfuncType)
+             .SetTrans(TransitionType);
+    }
+
+    [Export]
+    public Color                                         Modulate
+    {
+        get => GetNode<Sprite3D>($"_{nameof(Sprite3D)}").Modulate        ;
+        set => GetNode<Sprite3D>($"_{nameof(Sprite3D)}").Modulate = value;
+    }
+
     public override void _Ready()
     {
                     base._Ready();
 
         ProcessMode = ProcessModeEnum.Disabled;
+        
+
     }
 }
+
+
+
+
+

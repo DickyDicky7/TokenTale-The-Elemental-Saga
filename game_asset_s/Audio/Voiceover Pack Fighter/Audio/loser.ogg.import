@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://4cbs6r3rw6nt"
+path="res://.godot/imported/loser.ogg-e5a3db6edc5a3643fa010d69cf10eee0.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Voiceover Pack Fighter/Audio/loser.ogg"
+dest_files=["res://.godot/imported/loser.ogg-e5a3db6edc5a3643fa010d69cf10eee0.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

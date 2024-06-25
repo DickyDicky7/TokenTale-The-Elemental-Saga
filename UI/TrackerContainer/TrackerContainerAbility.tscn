@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhnfmkivhdjb1"]
+
+[ext_resource type="Theme" uid="uid://d0gj3t6cdlghf" path="res://UI/ui_theme_1.tres" id="1_bqc7a"]
+[ext_resource type="Script" path="res://UI/TrackerContainer/TrackerContainerAbility.cs" id="2_ffhr0"]
+
+[node name="TrackerContainerAbility" type="VBoxContainer" node_paths=PackedStringArray("Title", "TrackUnitContainer", "LevelLabelContainer", "Prop", "Exp")]
+auto_translate_mode = 1
+offset_right = 378.0
+offset_bottom = 79.0
+theme = ExtResource("1_bqc7a")
+script = ExtResource("2_ffhr0")
+Title = NodePath("Title")
+TrackUnitContainer = NodePath("MarginContainer/VBoxContainer/TrackUnitContainer")
+LevelLabelContainer = NodePath("MarginContainer/VBoxContainer/LevelLabelContainer")
+Prop = NodePath("MarginContainer/VBoxContainer/InfoContainer/Prop")
+Exp = NodePath("MarginContainer/VBoxContainer/InfoContainer/Exp")
+
+[node name="Title" type="Label" parent="."]
+auto_translate_mode = 1
+self_modulate = Color(0.411765, 0.588235, 1, 1)
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Title"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+
+[node name="TrackUnitContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LevelLabelContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="InfoContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/VBoxContainer/InfoContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Prop: 30"
+
+[node name="Exp" type="Label" parent="MarginContainer/VBoxContainer/InfoContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "30/100"

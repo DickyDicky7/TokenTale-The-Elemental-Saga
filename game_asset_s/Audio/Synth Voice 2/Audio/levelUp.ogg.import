@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://btdlvmahcqjug"
+path="res://.godot/imported/levelUp.ogg-c94916a87f253968a9ef60d3a550365f.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/levelUp.ogg"
+dest_files=["res://.godot/imported/levelUp.ogg-c94916a87f253968a9ef60d3a550365f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

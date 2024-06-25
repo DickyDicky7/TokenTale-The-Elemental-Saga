@@ -9,6 +9,7 @@
 [ext_resource type="BlackboardPlan" uid="uid://dl4cejiqsu4w2" path="res://game_objects/abilities/ice_wall/IceWallSinglePiece_BlackboardPlanBase.tres" id="5_tin1w"]
 
 [node name="IceWallSinglePiece" type="StaticBody3D" node_paths=PackedStringArray("Mesh")]
+collision_layer = 2
 script = ExtResource("1_as201")
 Mesh = NodePath("$Mesh$Instance3D")
 

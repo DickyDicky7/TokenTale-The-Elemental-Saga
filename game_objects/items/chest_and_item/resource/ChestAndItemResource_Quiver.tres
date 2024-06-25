@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ChessAndItemResource" load_steps=2 format=3 uid="uid://c3c4r8pi5bmel"]
+
+[ext_resource type="Script" path="res://game_objects/items/chest_and_item/resource/ChessAndItemResource.cs" id="1_sf3en"]
+
+[resource]
+script = ExtResource("1_sf3en")
+ItemClassName = "Quiver"
+Item_____Name = "Quiver"

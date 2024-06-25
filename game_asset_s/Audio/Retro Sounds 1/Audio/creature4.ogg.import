@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://e3f4ym8kn7b4"
+path="res://.godot/imported/creature4.ogg-121ceeeda162cc88e02641a43d6beb89.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Retro Sounds 1/Audio/creature4.ogg"
+dest_files=["res://.godot/imported/creature4.ogg-121ceeeda162cc88e02641a43d6beb89.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

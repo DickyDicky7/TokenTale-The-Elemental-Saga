@@ -1,0 +1,8 @@
+[gd_resource type="SphereMesh" load_steps=2 format=3 uid="uid://4ddx1iygqvco"]
+
+[ext_resource type="Material" uid="uid://dmxtmu4xxc61a" path="res://game_objects/water_fall/WaterFall_Foam01_DrawPass01_StandardMaterial3D.tres" id="1_ijc8i"]
+
+[resource]
+material = ExtResource("1_ijc8i")
+radius = 0.05
+height = 0.1

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://buies5j2v5q2o"
+path="res://.godot/imported/laser2.ogg-8e8ee38cbdf27332ebbc4809418b7fc3.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Retro Sounds 1/Audio/laser2.ogg"
+dest_files=["res://.godot/imported/laser2.ogg-8e8ee38cbdf27332ebbc4809418b7fc3.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

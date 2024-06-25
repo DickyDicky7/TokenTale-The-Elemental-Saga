@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dpa11q3wyyk13"
+path="res://.godot/imported/Abandoned Island.wav-c57cc58eaf5cf39a1342918064683a80.sample"
+
+[deps]
+
+source_file="res://game_asset_s/butterfly - looped ambience sounds pack/butterfly - looped ambience sounds pack/Abandoned Island.wav"
+dest_files=["res://.godot/imported/Abandoned Island.wav-c57cc58eaf5cf39a1342918064683a80.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

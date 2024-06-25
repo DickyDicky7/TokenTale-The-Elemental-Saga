@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bj07ho2ako4km"
+path="res://.godot/imported/flawless.ogg-f4a4be1d7ab8ec61f581be4da3ff272b.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/flawless.ogg"
+dest_files=["res://.godot/imported/flawless.ogg-f4a4be1d7ab8ec61f581be4da3ff272b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

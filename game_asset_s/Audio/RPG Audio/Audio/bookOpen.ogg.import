@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bcswbfqndk5qh"
+path="res://.godot/imported/bookOpen.ogg-28add6896d4f1f84b9a43ccbf9fef58a.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/RPG Audio/Audio/bookOpen.ogg"
+dest_files=["res://.godot/imported/bookOpen.ogg-28add6896d4f1f84b9a43ccbf9fef58a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

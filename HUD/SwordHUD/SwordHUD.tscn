@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://cc38qa6q6o53w"]
+
+[ext_resource type="PackedScene" uid="uid://dcavcuht5xtbv" path="res://HUD/shared/WeaponCDBar.tscn" id="1_di8v7"]
+[ext_resource type="Script" path="res://HUD/shared/WeaponHUD.cs" id="1_qehox"]
+[ext_resource type="PackedScene" uid="uid://b6t5f13xljb3g" path="res://HUD/SwordHUD/SwordIcon.tscn" id="2_5oo11"]
+[ext_resource type="Texture2D" uid="uid://ckg50cdojy2cl" path="res://game_asset_s/ui_and_hud/icon-frame.png" id="3_hml5u"]
+
+[node name="SwordHUD" type="HBoxContainer" node_paths=PackedStringArray("CoolDownBar", "WeaponIcon")]
+custom_minimum_size = Vector2(100, 48)
+offset_right = 100.0
+offset_bottom = 48.0
+size_flags_stretch_ratio = 1.2
+script = ExtResource("1_qehox")
+CoolDownBar = NodePath("WeaponCoolDownBar")
+WeaponIcon = NodePath("SwordIcon")
+
+[node name="WeaponCoolDownBar" parent="." instance=ExtResource("1_di8v7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="SwordIcon" parent="." node_paths=PackedStringArray("IconFrame") instance=ExtResource("2_5oo11")]
+layout_mode = 2
+size_flags_stretch_ratio = 2.4
+IconFrame = NodePath("IconFrame")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+size_flags_stretch_ratio = 1.2
+texture = ExtResource("3_hml5u")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 24.0
+text = "∞"
+horizontal_alignment = 1
+vertical_alignment = 1

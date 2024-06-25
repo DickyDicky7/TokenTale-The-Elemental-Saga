@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ChessAndItemResource" load_steps=3 format=3 uid="uid://c7x0dab4fmasx"]
+
+[ext_resource type="Script" path="res://game_objects/items/chest_and_item/resource/ChessAndItemResource.cs" id="1_2ha6k"]
+[ext_resource type="Texture2D" uid="uid://y0j3wgnue32a" path="res://game_asset_s/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/ring_01b.png" id="1_o7pvy"]
+
+[resource]
+script = ExtResource("1_2ha6k")
+ItemTexture = ExtResource("1_o7pvy")
+ItemClassName = "ElementalBracelet"
+Item_____Name = "ElementalBracelet"

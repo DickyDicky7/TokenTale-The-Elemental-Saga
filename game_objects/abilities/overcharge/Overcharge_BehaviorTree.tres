@@ -1,6 +1,30 @@
-[gd_resource type="BehaviorTree" load_steps=2 format=3 uid="uid://bg3bvxuo7py57"]
+[gd_resource type="BehaviorTree" load_steps=10 format=3 uid="uid://bg3bvxuo7py57"]
 
 [ext_resource type="BlackboardPlan" uid="uid://cb3wr6l14r6qs" path="res://game_objects/abilities/overcharge/Overcharge_BlackboardPlan----.tres" id="1_a22sl"]
+[ext_resource type="BBNode" uid="uid://kaxcuyohhfjy" path="res://game_objects/abilities/overcharge/Overcharge_BBNode_RootNode.tres" id="2_5gsj6"]
+[ext_resource type="BBNode" uid="uid://ud26itxjl6or" path="res://game_objects/abilities/overcharge/Overcharge_BBNode_AnimPlay.tres" id="2_em468"]
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_wblxk"]
+animation_player = ExtResource("2_em468")
+animation_name = &"HIT_0"
+
+[sub_resource type="BTWait" id="BTWait_tfvig"]
+duration = 9.0
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_d12mk"]
+await_completion = 10.0
+animation_player = ExtResource("2_em468")
+animation_name = &"FADE0"
+
+[sub_resource type="BTWait" id="BTWait_y1oba"]
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_k7s67"]
+node = ExtResource("2_5gsj6")
+method = &"queue_free"
+
+[sub_resource type="BTSequence" id="BTSequence_xiugu"]
+children = [SubResource("BTPlayAnimation_wblxk"), SubResource("BTWait_tfvig"), SubResource("BTPlayAnimation_d12mk"), SubResource("BTWait_y1oba"), SubResource("BTCallMethod_k7s67")]
 
 [resource]
 blackboard_plan = ExtResource("1_a22sl")
+root_task = SubResource("BTSequence_xiugu")

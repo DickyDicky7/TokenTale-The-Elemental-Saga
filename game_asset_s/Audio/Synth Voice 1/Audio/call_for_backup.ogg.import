@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://4wct7nbkslvb"
+path="res://.godot/imported/call_for_backup.ogg-f57f31e11597aa4ef45c115b36cac91d.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 1/Audio/call_for_backup.ogg"
+dest_files=["res://.godot/imported/call_for_backup.ogg-f57f31e11597aa4ef45c115b36cac91d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

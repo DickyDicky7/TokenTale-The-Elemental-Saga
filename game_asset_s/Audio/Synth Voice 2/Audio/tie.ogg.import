@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cmyvti3hwcf42"
+path="res://.godot/imported/tie.ogg-ac94c40465e1dc12c2f3cb65ef899691.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/tie.ogg"
+dest_files=["res://.godot/imported/tie.ogg-ac94c40465e1dc12c2f3cb65ef899691.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

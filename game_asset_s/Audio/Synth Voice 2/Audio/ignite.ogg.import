@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://hynjrcxi6sw2"
+path="res://.godot/imported/ignite.ogg-6b99d0738d2cb5a227a4b4aae54552bd.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/ignite.ogg"
+dest_files=["res://.godot/imported/ignite.ogg-6b99d0738d2cb5a227a4b4aae54552bd.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

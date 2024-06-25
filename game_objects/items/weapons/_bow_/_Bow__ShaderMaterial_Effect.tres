@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://7uovhw24d17l"]
+
+[ext_resource type="Shader" path="res://game_objects/items/weapons/_bow_/_Bow__ShaderMaterial_Effect.gdshader" id="1_yvvyn"]
+
+[resource]
+shader = ExtResource("1_yvvyn")

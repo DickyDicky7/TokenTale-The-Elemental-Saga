@@ -1,0 +1,14 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=2 format=3 uid="uid://bnx8eg1vamvdb"]
+
+[ext_resource type="Texture2D" uid="uid://co16qba68btgc" path="res://game_objects/abilities/others/mini_speed_boosting/MiniSpeedBoosting_GradientTexture1D.tres" id="1_3lhby"]
+
+[resource]
+emission_shape = 1
+emission_sphere_radius = 0.1
+gravity = Vector3(0, 1, 0)
+linear_accel_min = 0.999998
+linear_accel_max = 0.999998
+color = Color(1.5, 1.5, 1.5, 1)
+color_ramp = ExtResource("1_3lhby")
+anim_speed_min = 1.0
+anim_speed_max = 1.0

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemiesVisitorAbilityDispatch" load_steps=11 format=3 uid="uid://bks16vr7o4ojt"]
+
+[ext_resource type="PackedScene" uid="uid://b8rsg6nu8jxo1" path="res://game_objects/abilities/others/mini_blow_wind/MiniBlowWind.tscn" id="1_pwrdk"]
+[ext_resource type="PackedScene" uid="uid://b71t3fr8f4lsn" path="res://game_objects/abilities/others/mini_fire_ball/MiniFireBall.tscn" id="2_62a18"]
+[ext_resource type="PackedScene" uid="uid://bkeb1iagp6x1l" path="res://game_objects/abilities/others/mini_heal_single/MiniHealSingle.tscn" id="3_cljhr"]
+[ext_resource type="PackedScene" uid="uid://dav7vdovkccso" path="res://game_objects/abilities/others/mini_ice_shard/MiniIceShard.tscn" id="4_qxmcy"]
+[ext_resource type="PackedScene" uid="uid://spukk1fjrqpv" path="res://game_objects/abilities/others/mini_penetrating_squirt/MiniPenetratingSquirt.tscn" id="5_tj05a"]
+[ext_resource type="PackedScene" uid="uid://fecxlx81woms" path="res://game_objects/abilities/others/mini_root_trap/MiniRootTrap.tscn" id="6_fn3r1"]
+[ext_resource type="PackedScene" uid="uid://c7prt2n8f8eo7" path="res://game_objects/abilities/others/mini_speed_boosting/MiniSpeedBoosting.tscn" id="7_klgos"]
+[ext_resource type="PackedScene" uid="uid://wnynddmf6usi" path="res://game_objects/abilities/others/mini_throwin_grock/MiniThrowingRock.tscn" id="8_engvy"]
+[ext_resource type="PackedScene" uid="uid://c3126manji8w0" path="res://game_objects/abilities/others/mini_thunder_shock/MiniThunderShock.tscn" id="9_p2ien"]
+[ext_resource type="Script" path="res://game_objects/characters/shared/EnemiesVisitorAbilityDispatch.cs" id="10_vbi51"]
+
+[resource]
+script = ExtResource("10_vbi51")
+AvailableEnemiesAbilityPackedScene = [ExtResource("1_pwrdk"), ExtResource("2_62a18"), ExtResource("3_cljhr"), ExtResource("4_qxmcy"), ExtResource("5_tj05a"), ExtResource("6_fn3r1"), ExtResource("7_klgos"), ExtResource("8_engvy"), ExtResource("9_p2ien")]

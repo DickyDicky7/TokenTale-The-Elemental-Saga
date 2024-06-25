@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cx3kuf8ms8vf3"
+path="res://.godot/imported/giveUp.ogg-a9626b85bc16d3713a0cf2cf5c5530b7.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/giveUp.ogg"
+dest_files=["res://.godot/imported/giveUp.ogg-a9626b85bc16d3713a0cf2cf5c5530b7.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cvhs0vorftvnl"
+path="res://.godot/imported/paused.ogg-43a3ccdaebf2d27f7c281bf351222a7e.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 1/Audio/paused.ogg"
+dest_files=["res://.godot/imported/paused.ogg-43a3ccdaebf2d27f7c281bf351222a7e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cqku7wbeovg57"
+path="res://.godot/imported/7.ogg-380b7cfda0e8382d4883fbee103c89b1.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Voiceover Pack/Audio (Male)/7.ogg"
+dest_files=["res://.godot/imported/7.ogg-380b7cfda0e8382d4883fbee103c89b1.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

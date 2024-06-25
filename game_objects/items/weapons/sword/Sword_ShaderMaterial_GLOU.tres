@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://3ecq4gw3x75h"]
+
+[ext_resource type="Shader" path="res://shaders/Glow.gdshader" id="1_ycc40"]
+[ext_resource type="Texture2D" uid="uid://j7oq61sp7i8y" path="res://game_asset_s/macrune's_weaponry/spritesheet/32x32/RPG Weapons Darkk Outline 32x32.png" id="2_cbw1f"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ycc40")
+shader_parameter/MODULATE = Color(1.1, 1.1, 1.1, 1)
+shader_parameter/TEXTURE = ExtResource("2_cbw1f")

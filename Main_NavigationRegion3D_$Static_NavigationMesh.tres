@@ -1,0 +1,11 @@
+[gd_resource type="NavigationMesh" format=3 uid="uid://bavo3q5ti3quw"]
+
+[resource]
+vertices = PackedVector3Array(-4.95, 1.02, -4.95, -4.95, 1.02, 4.95, 24.95, 1.02, 4.95, 24.95, 1.02, -4.95)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+geometry_parsed_geometry_type = 1
+cell_size = 0.01
+cell_height = 0.01
+agent_radius = 0.1
+agent_max_climb = 0.01
+detail_sample_distance = 16.0

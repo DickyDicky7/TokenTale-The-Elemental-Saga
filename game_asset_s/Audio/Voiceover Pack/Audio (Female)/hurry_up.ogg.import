@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cib356tolt8q0"
+path="res://.godot/imported/hurry_up.ogg-24f3acba2b1324aaf56c8705fd98506c.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Voiceover Pack/Audio (Female)/hurry_up.ogg"
+dest_files=["res://.godot/imported/hurry_up.ogg-24f3acba2b1324aaf56c8705fd98506c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

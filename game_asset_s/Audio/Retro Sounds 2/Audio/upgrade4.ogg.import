@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cd20i6rybslfj"
+path="res://.godot/imported/upgrade4.ogg-bfdb9125c6f3fd973b8bdece5bc1d088.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Retro Sounds 2/Audio/upgrade4.ogg"
+dest_files=["res://.godot/imported/upgrade4.ogg-bfdb9125c6f3fd973b8bdece5bc1d088.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

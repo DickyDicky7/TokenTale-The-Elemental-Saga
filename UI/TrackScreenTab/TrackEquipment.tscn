@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://bq1pgokixavd1"]
+
+[ext_resource type="Script" path="res://UI/TrackScreenTab/TrackEquipment.cs" id="1_3us6x"]
+[ext_resource type="PackedScene" uid="uid://bvvghl8ofbjew" path="res://UI/TrackerContainer/TrackerContainerEquipment.tscn" id="1_3xqkn"]
+[ext_resource type="PackedScene" uid="uid://btvq5p1tt4ykt" path="res://UI/TrackerUnit/TrackerHealthJar.tscn" id="2_83jsh"]
+[ext_resource type="PackedScene" uid="uid://kmcxf5igdd4d" path="res://UI/TrackerContainer/TrackerContainerEquipment2.tscn" id="3_427ow"]
+[ext_resource type="PackedScene" uid="uid://cth6b2gbhnqry" path="res://UI/TrackerUnit/TrackerElementalJar.tscn" id="3_db1qu"]
+
+[node name="TrackEquipment" type="PanelContainer" node_paths=PackedStringArray("BootsTracker", "QuiverTracker", "PowerupGeneratorTracker", "HealthJarTracker", "ElementalJarTracker")]
+self_modulate = Color(1, 1, 1, 0.196078)
+offset_right = 960.0
+offset_bottom = 540.0
+script = ExtResource("1_3us6x")
+BootsTracker = NodePath("ScrollContainer/MarginContainer/VBoxContainer/TrackerBoots")
+QuiverTracker = NodePath("ScrollContainer/MarginContainer/VBoxContainer/TrackerQuiver")
+PowerupGeneratorTracker = NodePath("ScrollContainer/MarginContainer/VBoxContainer/TrackerPowerupGenerator")
+HealthJarTracker = NodePath("ScrollContainer/MarginContainer/VBoxContainer/TrackerHealthJar")
+ElementalJarTracker = NodePath("ScrollContainer/MarginContainer/VBoxContainer/TrackerElementalJar")
+HealthJarTrackerScene = ExtResource("2_83jsh")
+ElementalJarTrackerScene = ExtResource("3_db1qu")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="TrackerBoots" parent="ScrollContainer/MarginContainer/VBoxContainer" node_paths=PackedStringArray("Title", "TrackUnitContainer", "TrackLevelContainer", "Prop", "UpgradeButton") instance=ExtResource("1_3xqkn")]
+layout_mode = 2
+Title = NodePath("Title")
+TrackUnitContainer = NodePath("MarginContainer/VBoxContainer/TrackUnitContainer")
+TrackLevelContainer = NodePath("MarginContainer/VBoxContainer/TrackLevelContainer")
+Prop = NodePath("MarginContainer/VBoxContainer/HBoxContainer/Prop")
+UpgradeButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/Button")
+
+[node name="TrackerQuiver" parent="ScrollContainer/MarginContainer/VBoxContainer" node_paths=PackedStringArray("Title", "TrackUnitContainer", "TrackLevelContainer", "Prop", "UpgradeButton") instance=ExtResource("1_3xqkn")]
+layout_mode = 2
+Title = NodePath("Title")
+TrackUnitContainer = NodePath("MarginContainer/VBoxContainer/TrackUnitContainer")
+TrackLevelContainer = NodePath("MarginContainer/VBoxContainer/TrackLevelContainer")
+Prop = NodePath("MarginContainer/VBoxContainer/HBoxContainer/Prop")
+UpgradeButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/Button")
+
+[node name="TrackerPowerupGenerator" parent="ScrollContainer/MarginContainer/VBoxContainer" node_paths=PackedStringArray("Title", "TrackUnitContainer", "TrackLevelContainer", "Prop", "UpgradeButton") instance=ExtResource("1_3xqkn")]
+layout_mode = 2
+Title = NodePath("Title")
+TrackUnitContainer = NodePath("MarginContainer/VBoxContainer/TrackUnitContainer")
+TrackLevelContainer = NodePath("MarginContainer/VBoxContainer/TrackLevelContainer")
+Prop = NodePath("MarginContainer/VBoxContainer/HBoxContainer/Prop")
+UpgradeButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/Button")
+
+[node name="TrackerHealthJar" parent="ScrollContainer/MarginContainer/VBoxContainer" node_paths=PackedStringArray("Title", "TrackUnitContainer", "TrackStatsContainer") instance=ExtResource("3_427ow")]
+layout_mode = 2
+Title = NodePath("Title")
+TrackUnitContainer = NodePath("MarginContainer/VBoxContainer/TrackUnitContainer")
+TrackStatsContainer = NodePath("MarginContainer/VBoxContainer/TrackStatsContainer")
+
+[node name="TrackerElementalJar" parent="ScrollContainer/MarginContainer/VBoxContainer" node_paths=PackedStringArray("Title", "TrackUnitContainer", "TrackStatsContainer") instance=ExtResource("3_427ow")]
+layout_mode = 2
+Title = NodePath("Title")
+TrackUnitContainer = NodePath("MarginContainer/VBoxContainer/TrackUnitContainer")
+TrackStatsContainer = NodePath("MarginContainer/VBoxContainer/TrackStatsContainer")

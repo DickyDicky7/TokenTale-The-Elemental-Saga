@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://252jlwktraly"
+path="res://.godot/imported/pointCaptured.ogg-d4b52cb6b738fcb38f844756e299f287.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 2/Audio/pointCaptured.ogg"
+dest_files=["res://.godot/imported/pointCaptured.ogg-d4b52cb6b738fcb38f844756e299f287.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

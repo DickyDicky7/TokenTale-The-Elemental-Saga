@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ccf7j67ql57u6"
+path="res://.godot/imported/you_lose.ogg-e8fce3749c1545f53f16534938e552c2.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Voiceover Pack/Audio (Female)/you_lose.ogg"
+dest_files=["res://.godot/imported/you_lose.ogg-e8fce3749c1545f53f16534938e552c2.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

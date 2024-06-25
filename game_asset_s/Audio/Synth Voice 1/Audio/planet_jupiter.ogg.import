@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d3pdkom3nr24h"
+path="res://.godot/imported/planet_jupiter.ogg-ec2e06a03c6211163c798fd6333fd7ff.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_asset_s/Audio/Synth Voice 1/Audio/planet_jupiter.ogg"
+dest_files=["res://.godot/imported/planet_jupiter.ogg-ec2e06a03c6211163c798fd6333fd7ff.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

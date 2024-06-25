@@ -1,0 +1,25 @@
+[gd_resource type="BehaviorTree" load_steps=9 format=3 uid="uid://dvyrlhste1a4f"]
+
+[ext_resource type="PackedScene" uid="uid://bocc0hkunia3p" path="res://game_objects/abilities/overcharge/Overcharge.tscn" id="1_4ayus"]
+[ext_resource type="Script" path="res://ai/tasks/overchargeSummonerSetup.gd" id="1_jwa36"]
+[ext_resource type="BBNode" uid="uid://bjijw2fq0gbaw" path="res://game_objects/abilities/overcharge/OverchargeSummoner_BBNode_RootNode.tres" id="3_86c3l"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_gsqww"]
+
+[sub_resource type="BTAction" id="BTAction_jdpea"]
+script = ExtResource("1_jwa36")
+PathScanboxx = NodePath("Scanboxx")
+OverchargeScene = ExtResource("1_4ayus")
+
+[sub_resource type="BTWait" id="BTWait_o8gxq"]
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_kaw65"]
+node = ExtResource("3_86c3l")
+method = &"queue_free"
+
+[sub_resource type="BTSequence" id="BTSequence_862wi"]
+children = [SubResource("BTAction_jdpea"), SubResource("BTWait_o8gxq"), SubResource("BTCallMethod_kaw65")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_gsqww")
+root_task = SubResource("BTSequence_862wi")

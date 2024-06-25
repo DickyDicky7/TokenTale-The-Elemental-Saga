@@ -19,7 +19,9 @@ Engine: Godot 4.x<br/>(The newer the better)
 </p>
 <p align="center">
 Game demo up to this point (June 16, 2024)<br/>
+  
 https://github.com/DickyDicky7/TokenTale-The-Elemental-Saga/assets/87304213/19b093a1-87cb-442f-aeed-c03a1296211c
+
 </p>
 
 

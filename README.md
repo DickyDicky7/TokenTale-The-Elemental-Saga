@@ -1,65 +1,29 @@
 # TOKENTALE-THE-ELEMENTAL-SAGA
 
-## Youtube:
-- Enemy AI with Behavior Trees - with Demo in Godot Engine
-- Behavior Trees - Godot Game Dev (BETTER AUDIO)
-- Godot 4.1: Behavior Trees with Beehave: rant and how to start using them..
-- State machines and state charts in Godot
+<p align="center">
+Title: Token Tale: The Elemental Saga
+</p>
+<p align="center">
+Genres: ARPG (Action RPG - Action Role-Playing Game), Exploration, Adventure, Puzzle, Fantasy, 2.5D Graphics Style on the Desktop platform
+</p>
+<p align="center">
+Summary: The player takes on the role of a character who gets lost in the world of natural elements. Upon arriving in this new world, the player must find a way to return to their original world by collecting a complete set of keys</p>
+<p align="center">
+Inspirational game titles:<br/>Kirby & the Amazing Mirror<br/>The Legend of Zelda: The Minish Cap
+</p>
+<p align="center">
+History:<br/>Developed as a final project for the course Big Project #02 (SE122.O11) at UIT<br/><b>Still under development</b><br/><i>There is room for improvement</i><br/><i>And there are many features that have not been implemented yet</i>
+</p>
+<p align="center">
+Engine: Godot 4.x<br/>(The newer the better)
+</p>
+<p align="center">
+Game demo up to this point (June 16, 2024)<br/>
+https://github.com/DickyDicky7/TokenTale-The-Elemental-Saga/assets/87304213/19b093a1-87cb-442f-aeed-c03a1296211c
+</p>
 
-## Plugins:
-- https://bitbra.in/beehave/#/ (https://github.com/bitbrain/beehave)
-- https://github.com/derkork/godot-statecharts
-- https://phantom-camera.dev/
-- https://github.com/arkology/ShaderV
-- https://github.com/DigvijaysinhGohil/Godot-Shader-Lib/
-- https://github.com/spheras/godot-sprite-shader-mixer
 
-## Patterns:
-- Behavior Tree
-- State Machine
-- Component
-- Command
 
-## Coding Convention:
-- Private Fields' name, e.g:
-```c#
-private int _walkingSpeed = 100;
-```
-- Public Properties' name, e.g:
-```c#
-public int WalkingSpeed { get; set; } = 100;
-```
-- Classes' & Functions' name, e.g:
-```c#
-public partial class Adventurer
-{
-	public void Attack()
-	{
-		/* ... */
-	}
 
-	/* ... */
-}
-```
-- Parameters' & Local Variables' name, e.g:
-```c#
-public partial class Adventurer
-{
-	public void Attack(Enemy @enemy)
-	{
-		Enemy currentEnemy = @enemy;
-		/* ... */
-	}
 
-	/* ... */
-}
-```
 
-## Others:
-- https://github.com/godotengine/awesome-godot
-- https://statecharts.dev/
-- https://statecharts.dev/state-machine-state-explosion.html
-
-## Algorithms:
-- Minimax
-- Alpha Beta Pruning (optimization for Minimax)

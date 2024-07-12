@@ -19,10 +19,10 @@ config/icon="res://game_asset_s/icon.svg"
 
 BBVariable="*res://BBVariable.gd"
 Global="*res://Global.cs"
-SimpleGrass="*res://addons/simplegrasstextured/singleton.tscn"
 DropManager="*res://game_objects/items/DropManager.cs"
 SoundManagerBGMAmbient="*res://SoundManagerBGMAmbient.cs"
 SoundManagerBGM_______="*res://SoundManagerBGM_______.cs"
+SimpleGrass="*res://addons/simplegrasstextured/singleton.tscn"
 
 [display]
 
@@ -74,21 +74,21 @@ folder_colors={
 "res://game_objects/characters/others/the_tanker/": "blue",
 "res://game_objects/characters/others/the_thief/": "blue",
 "res://game_objects/characters/others/the_undead/": "blue",
-"res://game_objects/maps/beach01/": "green",
-"res://game_objects/maps/beach02/": "green",
-"res://game_objects/maps/desert01/": "green",
-"res://game_objects/maps/desert02/": "green",
+"res://game_objects/maps/beach01/": "blue",
+"res://game_objects/maps/beach02/": "blue",
+"res://game_objects/maps/desert01/": "orange",
+"res://game_objects/maps/desert02/": "orange",
 "res://game_objects/maps/grassland01/": "green",
 "res://game_objects/maps/grassland02/": "green",
 "res://game_objects/maps/grassland03/": "green",
 "res://game_objects/maps/grassland04/": "green",
-"res://game_objects/maps/graveyard01/": "green",
-"res://game_objects/maps/graveyard02/": "green",
-"res://game_objects/maps/highland01/": "green",
-"res://game_objects/maps/highland02/": "green",
-"res://game_objects/maps/ice01/": "green",
-"res://game_objects/maps/ice02/": "green",
-"res://game_objects/maps/ice03/": "green",
+"res://game_objects/maps/graveyard01/": "blue",
+"res://game_objects/maps/graveyard02/": "blue",
+"res://game_objects/maps/highland01/": "blue",
+"res://game_objects/maps/highland02/": "blue",
+"res://game_objects/maps/ice01/": "orange",
+"res://game_objects/maps/ice02/": "orange",
+"res://game_objects/maps/ice03/": "orange",
 "res://game_objects/maps/jungle01/": "green",
 "res://game_objects/maps/jungle02/": "green",
 "res://game_objects/maps/jungle03/": "green",
@@ -96,8 +96,8 @@ folder_colors={
 "res://game_objects/maps/lake02/": "green",
 "res://game_objects/maps/mountain01/": "blue",
 "res://game_objects/maps/swamp01/": "blue",
-"res://game_objects/maps/tomb01/": "green",
-"res://game_objects/maps/tomb02/": "green",
+"res://game_objects/maps/tomb01/": "orange",
+"res://game_objects/maps/tomb02/": "orange",
 "res://game_objects/maps/volcano01/": "blue",
 "res://modells/maps/": "blue",
 "res://modells/maps_origin/": "orange",

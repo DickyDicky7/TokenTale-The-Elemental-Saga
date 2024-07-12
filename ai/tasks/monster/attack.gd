@@ -1,32 +1,34 @@
 @tool
-extends BTAction
+extends BTAction;
 
-var currentCharacter: Monster
-var targetCharacter: Character3D
+var currentCharacter: Monster    ;
+var ttargetCharacter: Character3D;
 
 func _generate_name() -> String:
 	return "Attack";
 	
 func _setup() -> void:
-	currentCharacter = agent
-	blackboard.set_var(BBVariable.ReadyToStrike, false)
+	currentCharacter = agent;
+	blackboard.set_var(BBVariable.ReadyToStrike, false);
 	pass;
 	
 func _enter() -> void:
-	if (!is_instance_valid(blackboard.get_var(BBVariable.TargetCharacter))):
+	if (!is_instance_valid(
+		blackboard.get_var(BBVariable.TargetCharacter    ))):
 		blackboard.set_var(BBVariable.TargetCharacter, null);
-	targetCharacter = blackboard.get_var(BBVariable.TargetCharacter)
+	ttargetCharacter = blackboard.get_var(BBVariable.TargetCharacter);
 	pass;
 	
-func _exit() -> void:
+func  _exit() -> void:
 	pass;
 
 func _tick(_delta: float) -> Status:
 	if (currentCharacter.IsStunning == true):
-		return FAILURE
-	if (targetCharacter == null):
-		return FAILURE
-	targetCharacter = targetCharacter as MainCharacter
-	currentCharacter.Attack(targetCharacter)
-	blackboard.set_var(BBVariable.ReadyToStrike, false)
-	return SUCCESS;	
+		return FAILURE;
+	if (ttargetCharacter            == null):
+		return FAILURE;
+	ttargetCharacter  =     ttargetCharacter as MainCharacter;
+	currentCharacter.Attack(ttargetCharacter);
+	blackboard.set_var(
+	BBVariable.ReadyToStrike, false);
+	return SUCCESS;

@@ -29,21 +29,7 @@ func _tick (  _delta  :  float   ) -> Status:
 	if (    flipSprite3D != null )          :
 		if (seeingAngle >= 090
 		&&  seeingAngle <  270):
-			flipSprite3D.FlipH =  true;
+			flipSprite3D.FlipH = !false;
 		else:
-			flipSprite3D.FlipH = false;
+			flipSprite3D.FlipH =  false;
 	return SUCCESS;
-
-
-
-
-
-
-
-
-
-
-
-
-
-

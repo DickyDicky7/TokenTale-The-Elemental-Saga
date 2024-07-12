@@ -1,4 +1,5 @@
-class_name PostProcessingConfiguration extends Resource
+class_name PostProcessingConfiguration
+extends Resource
 
 # post-processing-config based system by loufe
 @export_group("Settings")

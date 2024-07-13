@@ -143,7 +143,7 @@ System.Enum.Parse<AvailableMapArea>(
 MainCharacter.NavigationRegion3DStatic = MapAreaPlaceHolder;
     }
 
-    public async void SwitchToMapArea             (
+    public async void SwitchToMapArea       (
                AvailableMapArea @nextMapArea,
                             int @entranceIdx)
     {

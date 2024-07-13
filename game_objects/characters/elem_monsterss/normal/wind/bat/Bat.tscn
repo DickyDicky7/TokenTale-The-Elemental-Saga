@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dks14llooa7jv"]
+[gd_scene load_steps=29 format=3 uid="uid://dks14llooa7jv"]
 
 [ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat.cs" id="1_52p22"]
 [ext_resource type="SpriteFrames" uid="uid://dkd552vapywc0" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat_SpriteFrames_$Main$.tres" id="1_k4jlk"]
@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://bapymsdem3l8t" path="res://game_asset_s/Audio/Retro Sounds 2/Audio/hurt2.ogg" id="11_anol8"]
 [ext_resource type="AudioStream" uid="uid://davn8qparg1h6" path="res://game_asset_s/Minifantasy_Dungeon_SFX/08_human_charge_1.wav" id="11_q6m3e"]
 [ext_resource type="PackedScene" uid="uid://bb7ues43wabc1" path="res://game_objects/shared/indicator/Indicator.tscn" id="11_sqqjb"]
+[ext_resource type="CylinderMesh" uid="uid://bt6np5lw0iue3" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat_Pillar_Mesh.tres" id="21_5d2vm"]
 
 [sub_resource type="Animation" id="Animation_wegu5"]
 length = 0.7
@@ -500,7 +501,7 @@ cast_shadow = 0
 offset = Vector2(0, 20)
 texture_filter = 0
 sprite_frames = ExtResource("1_k4jlk")
-animation = &"ECHO"
+animation = &"DEAD"
 
 [node name="HitsFlashingByModulate" parent="AnimatedSprite3D_$Main$" instance=ExtResource("2_nswkj")]
 
@@ -510,7 +511,7 @@ offset = Vector2(0, 20)
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_k4jlk")
-animation = &"ECHO"
+animation = &"DEAD"
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
@@ -523,12 +524,14 @@ libraries = {
 
 [node name="BT_______Player" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("7_3esvi")
+update_mode = 0
 blackboard_plan = ExtResource("5_esgvn")
 
 [node name="EyeSight$3D" parent="." instance=ExtResource("5_3qblb")]
 process_mode = 4
-transform = Transform3D(1.41421, 0, 1.41421, 0, 1, 0, -1.41421, 0, 1.41421, 0, 0, 0)
 visible = false
+MinRotationY = -180.0
+MaxRotationY = 180.0
 Modulate = Color(1, 1, 1, 1)
 
 [node name="ShapeCast3D" type="ShapeCast3D" parent="."]
@@ -556,14 +559,12 @@ script = ExtResource("8_pdr5j")
 Sprites = [NodePath("../AnimatedSprite3D_$Main$")]
 
 [node name="Timer" type="Timer" parent="."]
-process_callback = 0
 wait_time = 0.5
 autostart = true
 
-[node name="Indicator" parent="." node_paths=PackedStringArray("Sprite") instance=ExtResource("11_sqqjb")]
+[node name="Indicator" parent="." instance=ExtResource("11_sqqjb")]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
 Modulate = Color(0.5, 1, 0.5, 1)
-Sprite = NodePath("Sprite3D")
 
 [node name="Hurtbox3D" type="Area3D" parent="."]
 collision_layer = 4
@@ -574,11 +575,8 @@ script = ExtResource("9_3sdow")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 shape = ExtResource("3_gfl41")
 
-[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
-aabb = AABB(-0.05, 0, -0.05, 0.1, 0.3, 0.1)
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_q6m3e")
+stream = ExtResource("10_pm5qw")
 
 [node name="GroundDetector" type="Node3D" parent="."]
 
@@ -587,3 +585,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.15, 0)
 target_position = Vector3(0, -0.2, 0)
 hit_from_inside = true
 collide_with_areas = true
+
+[node name="Pillar" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = ExtResource("21_5d2vm")
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
+aabb = AABB(-0.05, 0, -0.05, 0.1, 0.3, 0.1)

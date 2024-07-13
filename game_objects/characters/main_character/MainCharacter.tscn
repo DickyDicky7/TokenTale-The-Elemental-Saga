@@ -758,7 +758,7 @@ offset = Vector2(0, 12)
 texture_filter = 0
 sprite_frames = ExtResource("1_q2bc7")
 animation = &"IDLE_D"
-frame = 3
+frame = 1
 
 [node name="HitsFlashingByModulateGlowVersion" parent="AnimatedSprite3D_$Main$" instance=ExtResource("6_cs78j")]
 
@@ -769,10 +769,9 @@ alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_q2bc7")
 animation = &"IDLE_D"
-frame = 3
+frame = 1
 
-[node name="AnimatedSprite3D_Effect" parent="." node_paths=PackedStringArray("AnimationPlayer") instance=ExtResource("19_14buj")]
-AnimationPlayer = NodePath("AnimationPlayer")
+[node name="AnimatedSprite3D_Effect" parent="." instance=ExtResource("19_14buj")]
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12, 0)
@@ -794,15 +793,15 @@ libraries = {
 tree_root = SubResource("AnimationNodeBlendTree_0khbu")
 anim_player = NodePath("../AnimationP")
 parameters/current_length = 0.4
-parameters/current_position = 0.348767
-parameters/current_delta = 0.016874
+parameters/current_position = 0.181543
+parameters/current_delta = 0.0166667
 parameters/BS2D_IDLE/current_length = 0.4
-parameters/BS2D_IDLE/current_position = 0.348767
-parameters/BS2D_IDLE/current_delta = 0.016874
+parameters/BS2D_IDLE/current_position = 0.181543
+parameters/BS2D_IDLE/current_delta = 0.0166667
 parameters/BS2D_IDLE/blend_position = Vector2(0, 0)
 parameters/BS2D_IDLE/0/current_length = 0.4
-parameters/BS2D_IDLE/0/current_position = 0.348767
-parameters/BS2D_IDLE/0/current_delta = 0.016874
+parameters/BS2D_IDLE/0/current_position = 0.181543
+parameters/BS2D_IDLE/0/current_delta = 0.0166667
 parameters/BS2D_IDLE/1/current_length = null
 parameters/BS2D_IDLE/1/current_position = null
 parameters/BS2D_IDLE/1/current_delta = null
@@ -832,18 +831,18 @@ parameters/DEAD/current_length = null
 parameters/DEAD/current_position = null
 parameters/DEAD/current_delta = null
 parameters/STATE/current_length = 0.4
-parameters/STATE/current_position = 0.348767
-parameters/STATE/current_delta = 0.016874
+parameters/STATE/current_position = 0.181543
+parameters/STATE/current_delta = 0.0166667
 parameters/STATE/current_state = "IDLE"
 parameters/STATE/transition_request = ""
 parameters/STATE/current_index = 0
 parameters/TIME_SCALE/current_length = 0.4
-parameters/TIME_SCALE/current_position = 0.348767
-parameters/TIME_SCALE/current_delta = 0.016874
+parameters/TIME_SCALE/current_position = 0.181543
+parameters/TIME_SCALE/current_delta = 0.0166667
 parameters/TIME_SCALE/scale = 1.0
 parameters/output/current_length = 0.4
-parameters/output/current_position = 0.348767
-parameters/output/current_delta = 0.016874
+parameters/output/current_position = 0.181543
+parameters/output/current_delta = 0.0166667
 
 [node name="EyeSight3D" parent="." instance=ExtResource("18_uji2a")]
 process_mode = 4
@@ -852,27 +851,15 @@ MaxRotationY = 180.0
 RotateDuration = 0.0
 EasingfuncType = 0
 TransitionType = 0
-Modulate = Color(1, 1, 1, 1)
 
-[node name="Sword" parent="." node_paths=PackedStringArray("Sprite3D", "Shadow3D", "Aareaa3D", "CollisionShape3D", "AnimatedSprite3D", "AnimatedShadow3D", "AnimationPlayerr", "OwnerMainCharacter") instance=ExtResource("12_frf8n")]
+[node name="Sword" parent="." node_paths=PackedStringArray("OwnerMainCharacter") instance=ExtResource("12_frf8n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
-Sprite3D = NodePath("Sprite3D")
-Shadow3D = NodePath("Shadow3D")
-Aareaa3D = NodePath("Aareaa3D")
-CollisionShape3D = NodePath("Aareaa3D/CollisionShape3D")
-AnimatedSprite3D = NodePath("_AnimatedSprite3D")
-AnimatedShadow3D = NodePath("_AnimatedShadow3D")
-AnimationPlayerr = NodePath("_AnimationPlayerr")
 OwnerMainCharacter = NodePath("..")
 Available = true
 
-[node name="_Bow_" parent="." node_paths=PackedStringArray("AnimationPlayerr", "AnimatedSprite3DMmainn", "CollisionShape3D", "AnimatedSprite3DEffect", "OwnerMainCharacter") instance=ExtResource("13_y068q")]
+[node name="_Bow_" parent="." node_paths=PackedStringArray("OwnerMainCharacter") instance=ExtResource("13_y068q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
 visible = false
-AnimationPlayerr = NodePath("AnimationPlayerrr")
-AnimatedSprite3DMmainn = NodePath("_AnimatedSprite3D_$Main$")
-CollisionShape3D = NodePath("Aareaa3D/CollisionShape3D")
-AnimatedSprite3DEffect = NodePath("_AnimatedSprite3D_Effect")
 OwnerMainCharacter = NodePath("..")
 Available = true
 

@@ -1,0 +1,8 @@
+[gd_resource type="CylinderMesh" load_steps=2 format=3 uid="uid://d13jlgw1ikp45"]
+
+[ext_resource type="Material" uid="uid://b7pcjqhnev6wk" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest_Pillar_Mesh_Material.tres" id="1_h87yk"]
+
+[resource]
+material = ExtResource("1_h87yk")
+top_radius = 0.2
+bottom_radius = 0.2

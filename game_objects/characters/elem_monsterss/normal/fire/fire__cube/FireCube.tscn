@@ -353,10 +353,13 @@ libraries = {
 
 [node name="BT_______Player" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("2_1lstk")
+update_mode = 0
 blackboard_plan = ExtResource("5_jwt3j")
 
 [node name="EyeSight$3D" parent="." instance=ExtResource("6_2hykg")]
 process_mode = 4
+MinRotationY = -180.0
+MaxRotationY = 180.0
 Modulate = Color(1, 1, 1, 1)
 
 [node name="Ray__Cast3D" type="RayCast3D" parent="."]

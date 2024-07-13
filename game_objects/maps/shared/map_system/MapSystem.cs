@@ -143,7 +143,7 @@ System.Enum.Parse<AvailableMapArea>(
 MainCharacter.NavigationRegion3DStatic = MapAreaPlaceHolder;
     }
 
-    public void SwitchToMapArea             (
+    public async void SwitchToMapArea             (
                AvailableMapArea @nextMapArea,
                             int @entranceIdx)
     {
@@ -161,7 +161,9 @@ try
             mapArea. Setup();
                              MainCharacter.ProcessMode    =
                                            ProcessModeEnum.Disabled;
-            Node node = MapAreaPlaceHolder.GetChildren()[0]        ;
+            Node node = MapAreaPlaceHolder.@GetChildren()[0]       ;
+  await ToSignal(node.GetTree(), SceneTree.@SignalName
+                                          .ProcessFrame );
             MapAreaPlaceHolder.RemoveChild(
             node           );
             node.QueueFree();

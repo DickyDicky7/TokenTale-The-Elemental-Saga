@@ -1,0 +1,8 @@
+[gd_resource type="CylinderMesh" load_steps=2 format=3 uid="uid://dog6h6krm0wko"]
+
+[ext_resource type="Material" uid="uid://ba2gdmlgud823" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_Pillar_Mesh_Material.tres" id="1_toebu"]
+
+[resource]
+material = ExtResource("1_toebu")
+top_radius = 0.2
+bottom_radius = 0.2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://o436c4ahk6md"]
+[gd_scene load_steps=31 format=3 uid="uid://o436c4ahk6md"]
 
 [ext_resource type="SpriteFrames" uid="uid://dpxjqilcp56lg" path="res://game_objects/characters/elem_monsterss/normal/water/ratfolk_mage/RatfolkMage_SpriteFrames_$Main$.tres" id="1_3rhfa"]
 [ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/water/ratfolk_mage/RatfolkMage.cs" id="1_pu3gl"]
@@ -22,6 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://dl2e58201d54n" path="res://game_asset_s/Minifantasy_Dungeon_SFX/08_human_charge_2.wav" id="11_1f73q"]
 [ext_resource type="PackedScene" uid="uid://bb7ues43wabc1" path="res://game_objects/shared/indicator/Indicator.tscn" id="11_iq5p6"]
 [ext_resource type="AudioStream" uid="uid://pe2w7vq1x8k5" path="res://game_asset_s/Minifantasy_Dungeon_SFX/16_human_walk_stone_1.wav" id="14_hx3ci"]
+[ext_resource type="CylinderMesh" uid="uid://dhklf1n40m2fi" path="res://game_objects/characters/elem_monsterss/normal/water/ratfolk_mage/RatfolkMage_Pillar_Mesh.tres" id="23_pxkkr"]
 
 [sub_resource type="Animation" id="Animation_yt52t"]
 length = 0.6
@@ -573,7 +574,7 @@ cast_shadow = 0
 offset = Vector2(0, 16)
 texture_filter = 0
 sprite_frames = ExtResource("1_3rhfa")
-animation = &"MOVE"
+animation = &"CAST_1"
 
 [node name="HitsFlashingByModulate" parent="AnimatedSprite3D_$Main$" instance=ExtResource("3_mv546")]
 
@@ -583,7 +584,7 @@ offset = Vector2(0, 16)
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_3rhfa")
-animation = &"MOVE"
+animation = &"CAST_1"
 
 [node name="CollisionShape2D_Body" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
@@ -596,11 +597,13 @@ libraries = {
 
 [node name="BT_______Player" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("7_sdvtf")
+update_mode = 0
 blackboard_plan = ExtResource("6_dfou7")
 
 [node name="EyeSight$3D" parent="." instance=ExtResource("7_evo1x")]
 process_mode = 4
-transform = Transform3D(1.41421, 0, 1.41421, 0, 1, 0, -1.41421, 0, 1.41421, 0, 0, 0)
+MinRotationY = -180.0
+MaxRotationY = 180.0
 Modulate = Color(1, 1, 1, 1)
 
 [node name="Ray__Cast3D" type="RayCast3D" parent="."]
@@ -635,14 +638,12 @@ script = ExtResource("7_lhct5")
 Sprites = [NodePath("../AnimatedSprite3D_$Main$"), NodePath("../AnimatedSprite3D_Shadow")]
 
 [node name="Timer" type="Timer" parent="."]
-process_callback = 0
 wait_time = 2.5
 autostart = true
 
-[node name="Indicator" parent="." node_paths=PackedStringArray("Sprite") instance=ExtResource("11_iq5p6")]
+[node name="Indicator" parent="." instance=ExtResource("11_iq5p6")]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
-Modulate = Color(0.5, 1, 0, 1)
-Sprite = NodePath("Sprite3D")
+Modulate = Color(0, 0.5, 1, 1)
 
 [node name="Hurtbox3D" type="Area3D" parent="."]
 collision_layer = 4
@@ -653,11 +654,8 @@ script = ExtResource("10_8rm3q")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075, 0)
 shape = ExtResource("4_ml0vs")
 
-[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
-aabb = AABB(-0.075, 0, -0.075, 0.15, 0.15, 0.15)
-
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("14_hx3ci")
+stream = ExtResource("10_giclw")
 
 [node name="GroundDetector" type="Node3D" parent="."]
 
@@ -666,3 +664,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.15, 0)
 target_position = Vector3(0, -0.2, 0)
 hit_from_inside = true
 collide_with_areas = true
+
+[node name="Pillar" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = ExtResource("23_pxkkr")
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
+aabb = AABB(-0.075, 0, -0.075, 0.15, 0.15, 0.15)

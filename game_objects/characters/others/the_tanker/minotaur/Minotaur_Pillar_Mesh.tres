@@ -1,0 +1,8 @@
+[gd_resource type="CylinderMesh" load_steps=2 format=3 uid="uid://ck6bbive3ijgo"]
+
+[ext_resource type="Material" uid="uid://chjolasxpki3s" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_Pillar_Mesh_Material.tres" id="1_i1a41"]
+
+[resource]
+material = ExtResource("1_i1a41")
+top_radius = 0.2
+bottom_radius = 0.2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bbv4dpufmesgb"]
+[gd_scene load_steps=30 format=3 uid="uid://bbv4dpufmesgb"]
 
 [ext_resource type="Script" path="res://game_objects/characters/others/the_thief/cat/Cat.cs" id="1_qqt7b"]
 [ext_resource type="PackedScene" uid="uid://c7i7emx3rn41l" path="res://game_objects/items/elemental_token/ElementalToken.tscn" id="2_00nop"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://game_objects/shared/Hurtbox3D.cs" id="9_bpd42"]
 [ext_resource type="AudioStream" uid="uid://78f168mnte5m" path="res://game_asset_s/Audio/Retro Sounds 2/Audio/jump1.ogg" id="9_qwh6d"]
 [ext_resource type="PackedScene" uid="uid://bb7ues43wabc1" path="res://game_objects/shared/indicator/Indicator.tscn" id="10_qbgbe"]
+[ext_resource type="CylinderMesh" uid="uid://dxxibi2wmq33" path="res://game_objects/characters/others/the_thief/cat/Cat_Pillar_Mesh.tres" id="18_qh4o5"]
 
 [sub_resource type="Animation" id="Animation_oy1ut"]
 length = 0.4
@@ -632,7 +633,7 @@ cast_shadow = 0
 offset = Vector2(0, 16)
 texture_filter = 0
 sprite_frames = ExtResource("2_imwov")
-animation = &"SCARED"
+animation = &"CLEAN_0"
 
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 cast_shadow = 3
@@ -640,7 +641,7 @@ offset = Vector2(0, 16)
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("2_imwov")
-animation = &"SCARED"
+animation = &"CLEAN_0"
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
@@ -653,11 +654,13 @@ libraries = {
 
 [node name="BT_______Player" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("4_bejlc")
+update_mode = 0
 blackboard_plan = ExtResource("5_s3pq2")
 
 [node name="EyeSight$3D" parent="." instance=ExtResource("6_8htjg")]
 process_mode = 4
-transform = Transform3D(1.41421, 0, 1.41421, 0, 1, 0, -1.41421, 0, 1.41421, 0, 0, 0)
+MinRotationY = -180.0
+MaxRotationY = 180.0
 Modulate = Color(1, 1, 1, 1)
 
 [node name="Ray__Cast3D" type="RayCast3D" parent="."]
@@ -683,10 +686,9 @@ process_mode = 4
 script = ExtResource("8_gmbyo")
 Sprites = [NodePath("../AnimatedSprite3D_$Main$")]
 
-[node name="Indicator" parent="." node_paths=PackedStringArray("Sprite") instance=ExtResource("10_qbgbe")]
+[node name="Indicator" parent="." instance=ExtResource("10_qbgbe")]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
 Modulate = Color(1, 1, 1, 1)
-Sprite = NodePath("Sprite3D")
 
 [node name="Hurtbox3D" type="Area3D" parent="."]
 script = ExtResource("9_bpd42")
@@ -696,12 +698,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 shape = ExtResource("3_qjvj3")
 
 [node name="Timer" type="Timer" parent="."]
-process_callback = 0
 wait_time = 0.1
 autostart = true
-
-[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
-aabb = AABB(-0.05, 0, -0.05, 0.1, 0.15, 0.1)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_qwh6d")
@@ -713,3 +711,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.15, 0)
 target_position = Vector3(0, -0.2, 0)
 hit_from_inside = true
 collide_with_areas = true
+
+[node name="Pillar" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = ExtResource("18_qh4o5")
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
+aabb = AABB(-0.05, 0, -0.05, 0.1, 0.15, 0.1)

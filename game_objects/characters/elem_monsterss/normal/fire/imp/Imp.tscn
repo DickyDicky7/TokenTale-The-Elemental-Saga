@@ -614,7 +614,7 @@ animation = &"THROW"
 frame = 5
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
 shape = ExtResource("4_l0j8u")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -670,7 +670,7 @@ collision_mask = 48
 script = ExtResource("9_8173t")
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="Hurtbox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
 shape = ExtResource("4_l0j8u")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

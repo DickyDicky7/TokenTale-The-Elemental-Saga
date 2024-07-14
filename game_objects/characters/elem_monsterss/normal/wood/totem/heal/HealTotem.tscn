@@ -614,7 +614,7 @@ sprite_frames = ExtResource("1_q6j6a")
 animation = &"ATTACK"
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
 shape = ExtResource("3_uclmn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -674,7 +674,7 @@ Modulate = Color(0, 1, 0, 1)
 script = ExtResource("9_on06d")
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="Hurtbox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
 shape = ExtResource("3_uclmn")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

@@ -538,7 +538,7 @@ sprite_frames = ExtResource("2_u1yss")
 animation = &"DEAD"
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
 shape = ExtResource("3_w04qr")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

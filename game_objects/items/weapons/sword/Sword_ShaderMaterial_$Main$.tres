@@ -1,6 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b2c2wylaco4ey"]
-
-[ext_resource type="Shader" path="res://game_objects/items/weapons/sword/Sword_ShaderMaterial_$Main$.gdshader" id="1_yieud"]
-
-[resource]
-shader = ExtResource("1_yieud")

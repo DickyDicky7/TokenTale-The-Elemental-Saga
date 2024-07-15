@@ -595,23 +595,21 @@ debug_enabled = true
 
 [node name="AnimatedSprite3D_$Main$" type="AnimatedSprite3D" parent="."]
 cast_shadow = 0
-offset = Vector2(1, 14)
+offset = Vector2(0, 12)
 texture_filter = 0
 sprite_frames = ExtResource("1_n3j5a")
-animation = &"THROW"
+animation = &"DEAD"
 autoplay = "THROW"
-frame = 5
 
 [node name="HitsFlashingByModulate" parent="AnimatedSprite3D_$Main$" instance=ExtResource("3_5ej0u")]
 
 [node name="AnimatedSprite3D_Shadow" type="AnimatedSprite3D" parent="."]
 cast_shadow = 3
-offset = Vector2(1, 14)
+offset = Vector2(0, 12)
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_n3j5a")
-animation = &"THROW"
-frame = 5
+animation = &"DEAD"
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
@@ -674,7 +672,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
 shape = ExtResource("4_l0j8u")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("14_wpuac")
+stream = ExtResource("12_0frni")
 
 [node name="GroundDetector" type="Node3D" parent="."]
 

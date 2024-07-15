@@ -103,6 +103,7 @@ PathNavigationAgent3D = NodePath("NavigationAgent3D")
 PathHurtbox3D = NodePath("Hurtbox3D")
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_b7ut1"]
+await_completion = 0.4
 animation_player = ExtResource("3_c60kv")
 animation_name = &"MOVE"
 
@@ -128,6 +129,7 @@ PathNavigationAgent3D = NodePath("NavigationAgent3D")
 PathHurtbox3D = NodePath("Hurtbox3D")
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_7v83x"]
+await_completion = 0.4
 animation_player = ExtResource("3_c60kv")
 animation_name = &"MOVE"
 
@@ -153,6 +155,7 @@ PathNavigationAgent3D = NodePath("NavigationAgent3D")
 PathHurtbox3D = NodePath("Hurtbox3D")
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_xjo03"]
+await_completion = 0.4
 animation_player = ExtResource("3_c60kv")
 animation_name = &"MOVE"
 

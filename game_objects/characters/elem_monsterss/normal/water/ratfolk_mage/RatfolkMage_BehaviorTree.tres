@@ -63,6 +63,7 @@ PathNavigationAgent3D = NodePath("NavigationAgent3D")
 PathHurtbox3D = NodePath("Hurtbox3D")
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_fcl88"]
+await_completion = 0.4
 animation_player = ExtResource("3_wu56n")
 animation_name = &"MOVE"
 
@@ -91,6 +92,7 @@ saved_value = NodePath("AnimationPlayer")
 resource_name = "AnimationPlayer"
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_e7xss"]
+await_completion = 0.4
 animation_player = SubResource("BBNode_wx8yq")
 animation_name = &"MOVE"
 

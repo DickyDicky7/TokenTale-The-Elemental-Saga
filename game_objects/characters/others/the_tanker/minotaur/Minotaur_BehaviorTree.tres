@@ -107,6 +107,7 @@ saved_value = NodePath("AnimationPlayer")
 resource_name = "AnimationPlayer"
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_4isxg"]
+await_completion = 0.4
 animation_player = SubResource("BBNode_deaee")
 animation_name = &"MOVE"
 
@@ -136,6 +137,7 @@ saved_value = NodePath("AnimationPlayer")
 resource_name = "AnimationPlayer"
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_fw6vk"]
+await_completion = 0.4
 animation_player = SubResource("BBNode_5xomr")
 animation_name = &"MOVE"
 
@@ -165,6 +167,7 @@ saved_value = NodePath("AnimationPlayer")
 resource_name = "AnimationPlayer"
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_13sbo"]
+await_completion = 0.4
 animation_player = SubResource("BBNode_3bvqo")
 animation_name = &"MOVE"
 

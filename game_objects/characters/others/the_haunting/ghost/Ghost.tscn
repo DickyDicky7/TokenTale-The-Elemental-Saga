@@ -980,7 +980,7 @@ cast_shadow = 0
 offset = Vector2(0, 16)
 texture_filter = 0
 sprite_frames = ExtResource("2_06es2")
-animation = &"SPOOK_F"
+animation = &"DEAD_F"
 
 [node name="HitsFlashingByModulate" parent="AnimatedSprite3D_$Main$" instance=ExtResource("3_bwxwa")]
 
@@ -990,7 +990,7 @@ offset = Vector2(0, 16)
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("2_06es2")
-animation = &"SPOOK_F"
+animation = &"DEAD_F"
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)

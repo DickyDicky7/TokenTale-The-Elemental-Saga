@@ -367,7 +367,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_kf5ob"]
-length = 0.466667
+length = 0.35
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -376,7 +376,7 @@ tracks/0/path = NodePath("AnimatedSprite3D_$Main$:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4),
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6]
@@ -400,7 +400,7 @@ tracks/2/path = NodePath("AnimatedSprite3D_Shadow:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4),
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6]
@@ -474,7 +474,7 @@ offset = Vector2(0, 28)
 flip_h = true
 texture_filter = 0
 sprite_frames = ExtResource("1_1wafb")
-animation = &"CHARGE"
+animation = &"MOVE"
 
 [node name="HitsFlashingModulate" parent="AnimatedSprite3D_$Main$" instance=ExtResource("3_xt4bl")]
 
@@ -485,7 +485,7 @@ flip_h = true
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_1wafb")
-animation = &"CHARGE"
+animation = &"MOVE"
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
@@ -548,7 +548,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 shape = ExtResource("3_dqny3")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_24mf6")
+stream = ExtResource("13_f6cde")
 
 [node name="GroundDetector" type="Node3D" parent="."]
 

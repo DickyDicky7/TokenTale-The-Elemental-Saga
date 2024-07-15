@@ -111,6 +111,7 @@ saved_value = NodePath("AnimationPlayer")
 resource_name = "AnimationPlayer"
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_jipuq"]
+await_completion = 0.8
 animation_player = SubResource("BBNode_jtyr2")
 animation_name = &"MOVE_1"
 

@@ -148,11 +148,12 @@ size = Vector2(6, 6)
 subdivide_width = 64
 subdivide_depth = 64
 
-[node name="Jungle03" type="Node3D" node_paths=PackedStringArray("Entrances")]
+[node name="Jungle03" type="Node3D" node_paths=PackedStringArray("Entrances", "MeshInstance3D")]
 script = ExtResource("1_ftcvi")
 Entrances = [NodePath("Entrance00"), NodePath("Entrance01"), NodePath("Entrance02"), NodePath("Entrance03"), NodePath("Entrance04")]
 MapExitsToCommand = [SubResource("Resource_2p02i"), SubResource("Resource_1kwrg"), SubResource("Resource_0xm4c"), SubResource("Resource_r8j2b"), SubResource("Resource_gstjj")]
 MapSpawnAreaToCommand = [SubResource("Resource_hg0fw")]
+MeshInstance3D = NodePath("StaticBody3D/Jungle03")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

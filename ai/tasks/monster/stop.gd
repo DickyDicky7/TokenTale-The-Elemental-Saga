@@ -24,6 +24,3 @@ func _tick(_delta : float) -> Status:
 func _get_configuration_warnings(
 	)   -> PackedStringArray  :
 	return PackedStringArray();
-
-
-

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bnhb48jc0sx4w"]
+[gd_scene load_steps=39 format=3 uid="uid://bnhb48jc0sx4w"]
 
 [ext_resource type="Script" path="res://game_objects/maps/shared/map_system/MapSystem.cs" id="1_5theo"]
 [ext_resource type="NavigationMesh" uid="uid://n7p8vl187hgc" path="res://game_objects/maps/shared/map_system/MapSystem_NavigationMesh.tres" id="2_gsxuj"]
@@ -37,6 +37,7 @@
 [ext_resource type="AudioStream" uid="uid://dnpcei4mrfcke" path="res://game_asset_s/butterfly - looped ambience sounds pack/butterfly - looped ambience sounds pack/Raining Outside without Thunders.wav" id="31_kauyr"]
 [ext_resource type="AudioStream" uid="uid://p2kjo8vjiq6t" path="res://game_asset_s/butterfly - looped ambience sounds pack/butterfly - looped ambience sounds pack/Winter Storm.wav" id="32_l8obc"]
 [ext_resource type="AudioStream" uid="uid://cgx0hqd0gt14l" path="res://game_asset_s/butterfly - looped ambience sounds pack/butterfly - looped ambience sounds pack/Dark Cave.wav" id="33_ieb7i"]
+[ext_resource type="Material" uid="uid://47qiehdo4hvh" path="res://game_objects/maps/shared/map_system/MapSystem_MapArea_SurfaceMaterial.tres" id="35_tq240"]
 
 [node name="MapSystem" type="Node" node_paths=PackedStringArray("DirectionalLight3D", "ScreenTransition", "MapAreaPlaceHolder")]
 script = ExtResource("1_5theo")
@@ -47,6 +48,8 @@ AvailableMapAreaPackedScenes = [ExtResource("3_8ab5f"), ExtResource("3_1el2n"), 
 AmbientLightColors = [Color(0.5, 0.5, 0.5, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0, 0.4, 0.5, 1), Color(0, 0.4, 0.5, 1), Color(0, 0.4, 0.5, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 1)]
 AmbientAudioStreams = [ExtResource("28_tdxof"), ExtResource("28_tdxof"), ExtResource("29_pkg51"), ExtResource("29_pkg51"), ExtResource("28_1hgl7"), ExtResource("28_fbr1o"), ExtResource("28_1hgl7"), ExtResource("28_1hgl7"), ExtResource("31_kauyr"), ExtResource("31_kauyr"), null, null, ExtResource("32_l8obc"), ExtResource("32_l8obc"), ExtResource("32_l8obc"), ExtResource("28_1hgl7"), ExtResource("28_1hgl7"), ExtResource("28_1hgl7"), ExtResource("28_1hgl7"), ExtResource("28_fbr1o"), null, null, ExtResource("33_ieb7i"), ExtResource("33_ieb7i"), null]
 MapAreaPlaceHolder = NodePath("NavigationRegion3D")
+Material = ExtResource("35_tq240")
+MaterialApplying = true
 
 [node name="Env" type="WorldEnvironment" parent="."]
 environment = ExtResource("27_8temk")

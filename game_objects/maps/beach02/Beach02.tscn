@@ -91,11 +91,12 @@ size = Vector2(10, 3)
 subdivide_width = 64
 subdivide_depth = 64
 
-[node name="Beach02" type="Node3D" node_paths=PackedStringArray("Entrances")]
+[node name="Beach02" type="Node3D" node_paths=PackedStringArray("Entrances", "MeshInstance3D")]
 script = ExtResource("1_1xkn5")
 Entrances = [NodePath("Entrance00"), NodePath("Entrance01")]
 MapExitsToCommand = [SubResource("Resource_h7q0i"), SubResource("Resource_pcwtu")]
 MapSpawnAreaToCommand = [SubResource("Resource_q1p6d")]
+MeshInstance3D = NodePath("StaticBody3D/Beach02")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

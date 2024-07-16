@@ -80,10 +80,11 @@ size = Vector3(0.5, 1.5, 1)
 margin = 0.05
 size = Vector3(0.4, 1.5, 1)
 
-[node name="Swamp01" type="Node3D" node_paths=PackedStringArray("Entrances")]
+[node name="Swamp01" type="Node3D" node_paths=PackedStringArray("Entrances", "MeshInstance3D")]
 script = ExtResource("1_0nt0g")
 Entrances = [NodePath("Entrance00"), NodePath("Entrance01"), NodePath("Entrance02")]
 MapExitsToCommand = [SubResource("Resource_epxkh"), SubResource("Resource_uba2u"), SubResource("Resource_t7qru")]
+MeshInstance3D = NodePath("StaticBody3D/Swamp01")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

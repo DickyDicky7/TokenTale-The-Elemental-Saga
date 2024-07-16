@@ -137,6 +137,10 @@ System.Enum.Parse<AvailableMapArea>(
 
             GetNode<SoundManagerBGMAmbient>  (
     $"/root/{nameof(SoundManagerBGMAmbient)}").CrossfadeTo(AmbientAudioStreams[(int)currentMapArea]);
+
+            if (MaterialApplying)
+                   mapArea.MeshInstance3D.Mesh.SurfaceSetMaterial(
+                                                      0, Material);
         }
 
         //
@@ -196,8 +200,12 @@ try
 
             GetNode<SoundManagerBGMAmbient>  (
     $"/root/{nameof(SoundManagerBGMAmbient)}").CrossfadeTo(AmbientAudioStreams[(int)@nextMapArea]);
+
+            if (MaterialApplying)
+                   mapArea.MeshInstance3D.Mesh.SurfaceSetMaterial(
+                                                      0, Material);
+            }
         }
-}
 catch
 {
 
@@ -236,7 +244,32 @@ catch
     {
     get => CurrentMapArea.GetBoundingBox();
     }
+
+    [Export]
+    public Material
+           Material
+    {
+        get;
+        set;
+    }
+
+    [Export]
+    public bool
+           MaterialApplying
+    {
+        get;
+        set;
+    }
 }
+
+
+
+
+
+
+
+
+
 
 
 

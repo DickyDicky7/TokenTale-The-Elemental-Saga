@@ -26,7 +26,7 @@ PathEyeSight3D                  );
 	pass;
 	
 func _enter() -> void:
-	rootScale = blackboard.get_var(BBVariable.RootScale)
+	rootScale = blackboard.get_var(BBVariable.RootScale);
 	pass;
 	
 func _exit () -> void:

@@ -93,11 +93,12 @@ margin = 0.05
 [sub_resource type="BoxShape3D" id="BoxShape3D_ddps6"]
 margin = 0.05
 
-[node name="Graveyard02" type="Node3D" node_paths=PackedStringArray("Entrances")]
+[node name="Graveyard02" type="Node3D" node_paths=PackedStringArray("Entrances", "MeshInstance3D")]
 script = ExtResource("1_8s1rj")
 Entrances = [NodePath("Entrance00"), NodePath("Entrance01"), NodePath("Entrance02")]
 MapExitsToCommand = [SubResource("Resource_g6ixl"), SubResource("Resource_f3l1w"), SubResource("Resource_7mu4f")]
 MapSpawnAreaToCommand = [SubResource("Resource_v4vrl")]
+MeshInstance3D = NodePath("StaticBody3D/Graveyard02")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

@@ -69,11 +69,12 @@ size = Vector3(1, 1, 0.01)
 [sub_resource type="BoxShape3D" id="BoxShape3D_dfxlx"]
 margin = 0.05
 
-[node name="Highland02" type="Node3D" node_paths=PackedStringArray("Entrances")]
+[node name="Highland02" type="Node3D" node_paths=PackedStringArray("Entrances", "MeshInstance3D")]
 script = ExtResource("1_xchij")
 Entrances = [NodePath("Entrance00"), NodePath("Entrance01")]
 MapExitsToCommand = [SubResource("Resource_jm8v6"), SubResource("Resource_ase8n")]
 MapSpawnAreaToCommand = [SubResource("Resource_vupeg")]
+MeshInstance3D = NodePath("StaticBody3D/Highland02")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

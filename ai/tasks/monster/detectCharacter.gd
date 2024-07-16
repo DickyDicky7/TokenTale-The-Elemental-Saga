@@ -1,5 +1,5 @@
 @tool
-extends BTAction
+extends BTAction;
 
 func _generate_name() -> String:
 	return "DetectCharacter";
@@ -23,42 +23,42 @@ func _setup() -> void:
 	eyeSight         = agent.get_node(PathEyeSight);
 	blackboard.set_var(BBVariable.SeeingAngle  , 0    );
 	blackboard.set_var(BBVariable.AlreadyDetect, false);
-	blackboard.set_var(BBVariable.RootScale, [shapeCast3D.scale.x, rayCast3D.target_position.x])
+	blackboard.set_var(BBVariable.RootScale, [shapeCast3D.scale.x, rayCast3D.target_position.x]);
 	pass;
 
 func _enter() -> void:
-	eyeSight.visible = true
-	SeeingAngle = blackboard.get_var(BBVariable.SeeingAngle)
+	eyeSight.visible = true;
+	SeeingAngle = blackboard.get_var(BBVariable.SeeingAngle);
 	SeeingAngle =     Helper.StandardizeDegree(SeeingAngle     );
 	minSeeableAngle = Helper.StandardizeDegree(SeeingAngle - 45);
 	maxSeeableAngle = Helper.StandardizeDegree(SeeingAngle + 45);
 	alreadyDetect = blackboard.get_var(BBVariable.AlreadyDetect);
-	rootScale = blackboard.get_var(BBVariable.RootScale)
+	rootScale = blackboard.get_var(BBVariable.RootScale);
 	if (alreadyDetect == false):
-		var scaleVector: Vector3 = Vector3(rootScale[0], 1, rootScale[0])
+		var scaleVector: Vector3 = Vector3(rootScale[0], 1, rootScale[0]);
 		shapeCast3D.scale = scaleVector; rayCast3D.target_position.x = rootScale[1];
-		var tween : Tween = currentCharacter.create_tween();
-		tween.tween_property(eyeSight, "scale", scaleVector, 0.5);
-		tween.set_ease (Tween. EASE_OUT );
-		tween.set_trans(Tween.TRANS_CIRC);
+#		var tween : Tween = currentCharacter.create_tween();
+#		tween.tween_property(eyeSight, "scale", scaleVector, 0.5);
+#		tween.set_ease (Tween. EASE_OUT );
+#		tween.set_trans(Tween.TRANS_CIRC);
 	else:
-		var scaleVector: Vector3 = Vector3(rootScale[0] * 2, 1, rootScale[0] * 2)
+		var scaleVector: Vector3 = Vector3(rootScale[0] * 2, 1, rootScale[0] * 2);
 		shapeCast3D.scale = scaleVector; rayCast3D.target_position.x = rootScale[1] * 2;
-		var tween : Tween = currentCharacter.create_tween();
-		tween.tween_property(eyeSight, "scale", scaleVector, 0.5);
-		tween.set_ease (Tween. EASE_OUT );
-		tween.set_trans(Tween.TRANS_CIRC);
+#		var tween : Tween = currentCharacter.create_tween();
+#		tween.tween_property(eyeSight, "scale", scaleVector, 0.5);
+#		tween.set_ease (Tween. EASE_OUT );
+#		tween.set_trans(Tween.TRANS_CIRC);
 	pass;
 
 func _exit() -> void:
-	rayCast3D.position = rayCast3D.position
-	rayCast3D.target_position = rayCast3D.target_position
-	rayCast3D.force_raycast_update()
+	rayCast3D.position = rayCast3D.position;
+	rayCast3D.target_position = rayCast3D.target_position;
+	rayCast3D.force_raycast_update();
 	pass;
 
 func _tick(_delta: float) -> Status:
 	if (currentCharacter.IsStunning == true):
-		return FAILURE
+		return FAILURE;
 	if (shapeCast3D.is_colliding()):
 		for i in range(  shapeCast3D.collision_result.size()  ):
 			var  targetCharacter:Object = shapeCast3D.get_collider(i);
@@ -91,7 +91,7 @@ func PatrollDetection(targetCharacterAngle: float, targetCharacter: Object) -> S
 		, maxSeeableAngle
 	);
 	rayCast3D.rotation_degrees.y = realAngle;	
-	rayCast3D.force_raycast_update()
+	rayCast3D.force_raycast_update();
 	if (rayCast3D.get_collider_rid() == targetCharacter .get_rid()):
 		blackboard.set_var(BBVariable.TargetCharacter, targetCharacter);
 		blackboard.set_var(BBVariable.SeeingAngle  , Helper.StandardizeDegree(realAngle));
@@ -101,7 +101,7 @@ func PatrollDetection(targetCharacterAngle: float, targetCharacter: Object) -> S
 
 func ActionDetection(targetCharactedAngle: float, targetCharacter: Object) -> Status:
 	rayCast3D.rotation_degrees.y = targetCharactedAngle;
-	rayCast3D.force_raycast_update()
+	rayCast3D.force_raycast_update();
 	blackboard.set_var(BBVariable.TargetCharacter, targetCharacter);
 	blackboard.set_var(BBVariable.SeeingAngle    , Helper.StandardizeDegree(targetCharactedAngle));
 	return SUCCESS;

@@ -2,7 +2,7 @@
 extends BTAction;
 
 func _generate_name() -> String:
-    return "MOVE BY TWEEN";
+	return "MOVE BY TWEEN";
 
 @export var  StartPosition: Vector3;
 @export var  CeasePosition: Vector3; 
@@ -13,37 +13,25 @@ func _generate_name() -> String:
 var currentNode3D: Node3D;
 
 func _setup() -> void:
-    currentNode3D = agent;
-    pass;
+	currentNode3D = agent;
+	pass;
 
 func _enter() -> void:
-    currentNode3D.position = StartPosition;
-    var   tween:Tween      = currentNode3D.create_tween();
-    tween.tween_property(    currentNode3D,
-                 "position", CeasePosition,
-                    MovingDuration);
-    tween.set_ease (EaseeeeeeeType);
-    tween.set_trans(TransitionType);
-    pass;
+	currentNode3D.position = StartPosition;
+	var   tween:Tween      = currentNode3D.create_tween();
+	tween.tween_property(    currentNode3D,
+				 "position", CeasePosition,
+					MovingDuration);
+	tween.set_ease (EaseeeeeeeType);
+	tween.set_trans(TransitionType);
+	pass;
 
 func _exit () -> void:
-    pass;
+	pass;
 
 func _tick(_delta : float) -> Status:
-    return SUCCESS;
+	return SUCCESS;
 
 func _get_configuration_warnings(
-    )   -> PackedStringArray  :
-    return PackedStringArray();
-
-
-
-
-
-
-
-
-
-
-
-
+	)   -> PackedStringArray  :
+	return PackedStringArray();

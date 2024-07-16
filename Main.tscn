@@ -148,19 +148,13 @@ autostart = true
 [node name="NavigationRegion3D_Dynamic" type="NavigationRegion3D" parent="."]
 navigation_mesh = ExtResource("7_gtwip")
 
-[node name="MainCharacter" parent="." node_paths=PackedStringArray("WeaponsController", "NavigationAgent3D", "NavigationRegion3DStatic", "MainCharacterAnimatedSprite3DEffect") instance=ExtResource("9_seby3")]
+[node name="MainCharacter" parent="." node_paths=PackedStringArray("NavigationRegion3DStatic") instance=ExtResource("9_seby3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 0)
-WeaponsController = NodePath("Weapons(_Controller_)")
-NavigationAgent3D = NodePath("NavigationAgent3D")
 NavigationRegion3DStatic = NodePath("../NavigationRegion3D_$Static")
-MainCharacterAnimatedSprite3DEffect = NodePath("AnimatedSprite3D_Effect")
 
-[node name="StatusInfo" parent="MainCharacter" node_paths=PackedStringArray("Sprite3D", "Label", "Timer") instance=ExtResource("11_siwmd")]
+[node name="StatusInfo" parent="MainCharacter" instance=ExtResource("11_siwmd")]
 visible = false
 Items = [SubResource("Resource_ntmsm"), SubResource("Resource_6wfva"), SubResource("Resource_klrs7"), SubResource("Resource_dgvcs"), SubResource("Resource_nyrrt")]
-Sprite3D = NodePath("Sprite3D")
-Label = NodePath("SubViewport/Label")
-Timer = NodePath("DelTimer")
 
 [node name="Imp" parent="." node_paths=PackedStringArray("NavigationRegion3DStatic") instance=ExtResource("4_hlmyl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1, -4)
@@ -229,16 +223,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 1)
 [node name="Ignite" parent="." instance=ExtResource("11_3fjus")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, -3)
 
-[node name="FireBall" parent="." node_paths=PackedStringArray("GpuParticles", "AnimatedSprite", "AnimatedShadow") instance=ExtResource("12_qboqi")]
+[node name="FireBall" parent="." instance=ExtResource("12_qboqi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -3)
-GpuParticles = NodePath("Visual/_GPU_Particles3D")
-AnimatedSprite = NodePath("Visual/AnimatedSprite3D")
-AnimatedShadow = NodePath("Visual/AnimatedShadow3D")
 
-[node name="AirSurge" parent="." node_paths=PackedStringArray("AnimatedSprite", "AnimatedShadow") instance=ExtResource("22_pbjun")]
+[node name="AirSurge" parent="." instance=ExtResource("22_pbjun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -1)
-AnimatedSprite = NodePath("Visual/AnimatedSprite3D")
-AnimatedShadow = NodePath("Visual/AnimatedShadow3D")
 
 [node name="Frostburn" parent="." instance=ExtResource("13_w4ibj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 0)
@@ -249,107 +238,72 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0)
 [node name="TidalWave" parent="." instance=ExtResource("15_lavek")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, -2)
 
-[node name="ElementalToken" parent="." node_paths=PackedStringArray("Sprite3D", "Shadow3D", "Hitbox") instance=ExtResource("40_lawox")]
+[node name="ElementalToken" parent="." instance=ExtResource("40_lawox")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, 0)
 Element = 4
-Sprite3D = NodePath("Visual/Sprite3D")
-Shadow3D = NodePath("Visual/Shadow3D")
-Hitbox = NodePath("Hitbox")
 
-[node name="SoulOrCoin" parent="." node_paths=PackedStringArray("Hitbox") instance=ExtResource("40_oasok")]
+[node name="SoulOrCoin" parent="." instance=ExtResource("40_oasok")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1, 0)
-Hitbox = NodePath("Hitbox")
 
-[node name="SoulOrCoin2" parent="." node_paths=PackedStringArray("Hitbox") instance=ExtResource("40_oasok")]
+[node name="SoulOrCoin2" parent="." instance=ExtResource("40_oasok")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1, 1)
-Hitbox = NodePath("Hitbox")
 
-[node name="SoulOrCoin3" parent="." node_paths=PackedStringArray("Hitbox") instance=ExtResource("40_oasok")]
+[node name="SoulOrCoin3" parent="." instance=ExtResource("40_oasok")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1, 2)
-Hitbox = NodePath("Hitbox")
 
-[node name="SoulOrCoin4" parent="." node_paths=PackedStringArray("Hitbox") instance=ExtResource("40_oasok")]
+[node name="SoulOrCoin4" parent="." instance=ExtResource("40_oasok")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1, -1)
-Hitbox = NodePath("Hitbox")
 
-[node name="SoulOrCoin5" parent="." node_paths=PackedStringArray("Hitbox") instance=ExtResource("40_oasok")]
+[node name="SoulOrCoin5" parent="." instance=ExtResource("40_oasok")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1, -2)
-Hitbox = NodePath("Hitbox")
 
-[node name="HealDrop" parent="." node_paths=PackedStringArray("HitBox") instance=ExtResource("41_u6iqv")]
+[node name="HealDrop" parent="." instance=ExtResource("41_u6iqv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 1, 0)
-HitBox = NodePath("Hitbox")
 
-[node name="HealDrop2" parent="." node_paths=PackedStringArray("HitBox") instance=ExtResource("41_u6iqv")]
+[node name="HealDrop2" parent="." instance=ExtResource("41_u6iqv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 1, -1)
-HitBox = NodePath("Hitbox")
 
-[node name="HealDrop3" parent="." node_paths=PackedStringArray("HitBox") instance=ExtResource("41_u6iqv")]
+[node name="HealDrop3" parent="." instance=ExtResource("41_u6iqv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 1, 1)
-HitBox = NodePath("Hitbox")
 
-[node name="ChessAndItem" parent="." node_paths=PackedStringArray("Hitbox", "Sprite3D", "AnimationPlayer") instance=ExtResource("42_ntpsf")]
+[node name="ChessAndItem" parent="." instance=ExtResource("42_ntpsf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 1, 0)
 ChessAndItemResource = ExtResource("43_1aaou")
-Hitbox = NodePath("Hitbox")
-Sprite3D = NodePath("Visual/Sprite3D")
-AnimationPlayer = NodePath("Visual/AnimationPlayer")
 Key = 0
 
-[node name="ChessAndItem2" parent="." node_paths=PackedStringArray("Hitbox", "Sprite3D", "AnimationPlayer") instance=ExtResource("42_ntpsf")]
+[node name="ChessAndItem2" parent="." instance=ExtResource("42_ntpsf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 1, 1)
 ChessAndItemResource = ExtResource("44_ralc2")
-Hitbox = NodePath("Hitbox")
-Sprite3D = NodePath("Visual/Sprite3D")
-AnimationPlayer = NodePath("Visual/AnimationPlayer")
 Key = 1
 
-[node name="ChessAndItem3" parent="." node_paths=PackedStringArray("Hitbox", "Sprite3D", "AnimationPlayer") instance=ExtResource("42_ntpsf")]
+[node name="ChessAndItem3" parent="." instance=ExtResource("42_ntpsf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 1, 2)
 ChessAndItemResource = ExtResource("45_8kqui")
-Hitbox = NodePath("Hitbox")
-Sprite3D = NodePath("Visual/Sprite3D")
-AnimationPlayer = NodePath("Visual/AnimationPlayer")
 Key = 0
 
-[node name="ChessAndItem4" parent="." node_paths=PackedStringArray("Hitbox", "Sprite3D", "AnimationPlayer") instance=ExtResource("42_ntpsf")]
+[node name="ChessAndItem4" parent="." instance=ExtResource("42_ntpsf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 1, -1)
 ChessAndItemResource = ExtResource("46_a3df6")
-Hitbox = NodePath("Hitbox")
-Sprite3D = NodePath("Visual/Sprite3D")
-AnimationPlayer = NodePath("Visual/AnimationPlayer")
 Key = 1
 
-[node name="ChessAndItem5" parent="." node_paths=PackedStringArray("Hitbox", "Sprite3D", "AnimationPlayer") instance=ExtResource("42_ntpsf")]
+[node name="ChessAndItem5" parent="." instance=ExtResource("42_ntpsf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 1, -2)
 ChessAndItemResource = ExtResource("47_7g4ki")
-Hitbox = NodePath("Hitbox")
-Sprite3D = NodePath("Visual/Sprite3D")
-AnimationPlayer = NodePath("Visual/AnimationPlayer")
 Key = 0
 
-[node name="ChessAndItem6" parent="." node_paths=PackedStringArray("Hitbox", "Sprite3D", "AnimationPlayer") instance=ExtResource("42_ntpsf")]
+[node name="ChessAndItem6" parent="." instance=ExtResource("42_ntpsf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 1, 0)
 ChessAndItemResource = ExtResource("49_k3yre")
-Hitbox = NodePath("Hitbox")
-Sprite3D = NodePath("Visual/Sprite3D")
-AnimationPlayer = NodePath("Visual/AnimationPlayer")
 Key = 1
 
-[node name="ChessAndItem7" parent="." node_paths=PackedStringArray("Hitbox", "Sprite3D", "AnimationPlayer") instance=ExtResource("42_ntpsf")]
+[node name="ChessAndItem7" parent="." instance=ExtResource("42_ntpsf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 1, 1)
 ChessAndItemResource = ExtResource("50_nky0w")
-Hitbox = NodePath("Hitbox")
-Sprite3D = NodePath("Visual/Sprite3D")
-AnimationPlayer = NodePath("Visual/AnimationPlayer")
 Key = 1
 
-[node name="ChessAndItem8" parent="." node_paths=PackedStringArray("Hitbox", "Sprite3D", "AnimationPlayer") instance=ExtResource("42_ntpsf")]
+[node name="ChessAndItem8" parent="." instance=ExtResource("42_ntpsf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 1, -1)
 ChessAndItemResource = ExtResource("51_adq4f")
-Hitbox = NodePath("Hitbox")
-Sprite3D = NodePath("Visual/Sprite3D")
-AnimationPlayer = NodePath("Visual/AnimationPlayer")
 Key = 0
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("FollowTarget")]
@@ -366,25 +320,16 @@ TrackingScreen = NodePath("../TrackingScreen")
 ShoppingScreen = NodePath("../ShoppingScreen")
 ControlBoard = NodePath("../ControlBoard")
 
-[node name="MainCharacterHUD" parent="Camera3D" node_paths=PackedStringArray("Viewer", "HealthBar", "SwordHUD", "BowHUD", "BraceletHUDs", "CoinLabel") instance=ExtResource("11_cyovv")]
+[node name="MainCharacterHUD" parent="Camera3D" node_paths=PackedStringArray("Viewer") instance=ExtResource("11_cyovv")]
 Viewer = NodePath("../../MainCharacter")
-HealthBar = NodePath("HBoxContainer/VBoxContainer/HealthBar")
-SwordHUD = NodePath("HBoxContainer/VBoxContainer/MarginContainer/WeaponHUD/SwordHUD2")
-BowHUD = NodePath("HBoxContainer/VBoxContainer/MarginContainer/WeaponHUD/BowHUD2")
-BraceletHUDs = [NodePath("HBoxContainer/VBoxContainer/MarginContainer2/ElementalHUD"), NodePath("HBoxContainer/VBoxContainer/MarginContainer3/ElementalHUD")]
-CoinLabel = NodePath("HBoxContainer/VBoxContainer2/HBoxContainer/Label")
 
 [node name="TrackingScreen" parent="Camera3D" node_paths=PackedStringArray("Viewer") instance=ExtResource("12_gn6r5")]
 visible = false
 Viewer = NodePath("../../MainCharacter")
 
-[node name="ShoppingScreen" parent="Camera3D" node_paths=PackedStringArray("Viewer", "ShopItemContainer") instance=ExtResource("13_2we43")]
+[node name="ShoppingScreen" parent="Camera3D" node_paths=PackedStringArray("Viewer") instance=ExtResource("13_2we43")]
 visible = false
 Viewer = NodePath("../../MainCharacter")
-ShopItemContainer = NodePath("ScrollContainer/MarginContainer/GridContainer")
 
-[node name="ControlBoard" parent="Camera3D" node_paths=PackedStringArray("ResumeButton", "RestartButton", "ExitButton") instance=ExtResource("52_hn6ci")]
+[node name="ControlBoard" parent="Camera3D" instance=ExtResource("52_hn6ci")]
 visible = false
-ResumeButton = NodePath("MarginContainer/VBoxContainer/ResumeButton")
-RestartButton = NodePath("MarginContainer/VBoxContainer/RestartButton")
-ExitButton = NodePath("MarginContainer/VBoxContainer/ExitButton")

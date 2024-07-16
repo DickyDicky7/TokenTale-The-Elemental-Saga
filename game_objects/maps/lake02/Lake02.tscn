@@ -184,11 +184,12 @@ size = Vector2(3, 3)
 subdivide_width = 64
 subdivide_depth = 64
 
-[node name="Lake02" type="Node3D" node_paths=PackedStringArray("Entrances")]
+[node name="Lake02" type="Node3D" node_paths=PackedStringArray("Entrances", "MeshInstance3D")]
 script = ExtResource("1_fhmul")
 Entrances = [NodePath("Entrance00"), NodePath("Entrance01"), NodePath("Entrance02"), NodePath("Entrance03"), NodePath("Entrance04"), NodePath("Entrance05")]
 MapExitsToCommand = [SubResource("Resource_qbtrq"), SubResource("Resource_d38yy"), SubResource("Resource_7lxii"), SubResource("Resource_6mce0"), SubResource("Resource_4av4f"), SubResource("Resource_x52gq")]
 MapSpawnAreaToCommand = [SubResource("Resource_y77sw")]
+MeshInstance3D = NodePath("StaticBody3D/Lake02")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

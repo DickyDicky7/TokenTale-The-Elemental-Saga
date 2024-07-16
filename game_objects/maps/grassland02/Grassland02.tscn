@@ -152,11 +152,12 @@ size = Vector2(10, 8.05)
 subdivide_width = 64
 subdivide_depth = 64
 
-[node name="Grassland02" type="Node3D" node_paths=PackedStringArray("Entrances")]
+[node name="Grassland02" type="Node3D" node_paths=PackedStringArray("Entrances", "MeshInstance3D")]
 script = ExtResource("1_pysej")
 Entrances = [NodePath("Entrance00"), NodePath("Entrance01"), NodePath("Entrance02"), NodePath("Entrance03"), NodePath("Entrance04")]
 MapExitsToCommand = [SubResource("Resource_iya0y"), SubResource("Resource_v476u"), SubResource("Resource_qvwke"), SubResource("Resource_srvjt"), SubResource("Resource_rpuc4")]
 MapSpawnAreaToCommand = [SubResource("Resource_jl30u")]
+MeshInstance3D = NodePath("StaticBody3D/GrassLand02")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

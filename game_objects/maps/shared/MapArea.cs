@@ -67,7 +67,17 @@ public partial class MapArea : Node3D
         }
     return         BoundingBox; 
     }
+
+    [Export]
+    public MeshInstance3D
+           MeshInstance3D
+    {
+        get;
+        set;
+    }
 }
+
+
 
 
 

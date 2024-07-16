@@ -107,11 +107,12 @@ size = Vector3(0.4, 0.7, 0.02)
 margin = 0.05
 size = Vector3(1, 1.5, 0.6)
 
-[node name="Volcano01" type="Node3D" node_paths=PackedStringArray("Entrances")]
+[node name="Volcano01" type="Node3D" node_paths=PackedStringArray("Entrances", "MeshInstance3D")]
 script = ExtResource("1_us1xk")
 Entrances = [NodePath("Entrance00"), NodePath("Entrance01"), NodePath("Entrance02"), NodePath("Entrance03")]
 MapExitsToCommand = [SubResource("Resource_0ph7y"), SubResource("Resource_sa6jy"), SubResource("Resource_b3dav"), SubResource("Resource_02blb")]
 MapSpawnAreaToCommand = [SubResource("Resource_bkjp5")]
+MeshInstance3D = NodePath("StaticBody3D/Volcano01")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

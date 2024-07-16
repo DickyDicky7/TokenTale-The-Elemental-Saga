@@ -68,11 +68,12 @@ size = Vector3(0.01, 1, 1)
 margin = 0.05
 size = Vector3(0.01, 1, 1)
 
-[node name="Desert02" type="Node3D" node_paths=PackedStringArray("Entrances")]
+[node name="Desert02" type="Node3D" node_paths=PackedStringArray("Entrances", "MeshInstance3D")]
 script = ExtResource("1_lu7w6")
 Entrances = [NodePath("Entrance00"), NodePath("Entrance01")]
 MapExitsToCommand = [SubResource("Resource_smokc"), SubResource("Resource_kd4io")]
 MapSpawnAreaToCommand = [SubResource("Resource_os82f")]
+MeshInstance3D = NodePath("StaticBody3D/Desert02")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

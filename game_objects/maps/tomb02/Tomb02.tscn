@@ -85,11 +85,12 @@ size = Vector3(0.01, 1, 1)
 margin = 0.05
 size = Vector3(0.4, 0.7, 0.01)
 
-[node name="Tomb02" type="Node3D" node_paths=PackedStringArray("Entrances")]
+[node name="Tomb02" type="Node3D" node_paths=PackedStringArray("Entrances", "MeshInstance3D")]
 script = ExtResource("1_3mp4o")
 Entrances = [NodePath("Entrance00"), NodePath("Entrance01"), NodePath("Entrance02")]
 MapExitsToCommand = [SubResource("Resource_i0mil"), SubResource("Resource_87rgi"), SubResource("Resource_o15ni")]
 MapSpawnAreaToCommand = [SubResource("Resource_r04sy")]
+MeshInstance3D = NodePath("StaticBody3D/Tomb02")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

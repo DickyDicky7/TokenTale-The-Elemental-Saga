@@ -107,11 +107,12 @@ size = Vector3(1, 1, 0.01)
 [sub_resource type="BoxShape3D" id="BoxShape3D_wsnio"]
 margin = 0.05
 
-[node name="Ice03" type="Node3D" node_paths=PackedStringArray("Entrances")]
+[node name="Ice03" type="Node3D" node_paths=PackedStringArray("Entrances", "MeshInstance3D")]
 script = ExtResource("1_8c5rt")
 Entrances = [NodePath("Entrance00"), NodePath("Entrance01"), NodePath("Entrance02"), NodePath("Entrance03")]
 MapExitsToCommand = [SubResource("Resource_nft07"), SubResource("Resource_h4nc4"), SubResource("Resource_tuw5m"), SubResource("Resource_sytxx")]
 MapSpawnAreaToCommand = [SubResource("Resource_reshl")]
+MeshInstance3D = NodePath("StaticBody3D/Ice03")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

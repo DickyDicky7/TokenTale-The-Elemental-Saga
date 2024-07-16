@@ -110,11 +110,12 @@ margin = 0.05
 [sub_resource type="BoxShape3D" id="BoxShape3D_lmo8q"]
 margin = 0.05
 
-[node name="Desert01" type="Node3D" node_paths=PackedStringArray("Entrances")]
+[node name="Desert01" type="Node3D" node_paths=PackedStringArray("Entrances", "MeshInstance3D")]
 script = ExtResource("1_mawhj")
 Entrances = [NodePath("Entrance00"), NodePath("Entrance01"), NodePath("Entrance02"), NodePath("Entrance03")]
 MapExitsToCommand = [SubResource("Resource_fqsiv"), SubResource("Resource_2g3h5"), SubResource("Resource_we7f7"), SubResource("Resource_drxfw")]
 MapSpawnAreaToCommand = [SubResource("Resource_adlbx")]
+MeshInstance3D = NodePath("StaticBody3D/Desert01")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

@@ -1,7 +1,12 @@
-[gd_resource type="Environment" format=3 uid="uid://bv0vh87m4vtxi"]
+[gd_resource type="Environment" load_steps=2 format=3 uid="uid://bv0vh87m4vtxi"]
+
+[ext_resource type="Sky" uid="uid://ch0vpe6xr8y62" path="res://Game_Sky.tres" id="1_7gidd"]
 
 [resource]
-background_mode = 1
+background_mode = 2
+sky = ExtResource("1_7gidd")
 ambient_light_source = 2
 ambient_light_color = Color(0.5, 0.5, 0.5, 1)
 glow_hdr_threshold = 0.8
+adjustment_enabled = true
+adjustment_saturation = 2.0

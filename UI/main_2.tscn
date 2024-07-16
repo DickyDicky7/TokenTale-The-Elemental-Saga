@@ -4,7 +4,4 @@
 
 [node name="Main2" type="Node3D"]
 
-[node name="StartScreen" parent="." node_paths=PackedStringArray("StartButton", "SandBoxButton", "CreditButton") instance=ExtResource("1_ag7tw")]
-StartButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/StartButton")
-SandBoxButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SandBoxButton")
-CreditButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CreditButton")
+[node name="StartScreen" parent="." instance=ExtResource("1_ag7tw")]

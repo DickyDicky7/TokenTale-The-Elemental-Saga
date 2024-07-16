@@ -45,6 +45,20 @@ public partial class _Camera3D_02 : Camera3D
         Fov    = FovWhenNotZoomedIn;
     }
 
+    public override void _Input(InputEvent @event)
+    {
+                    base._Input(           @event);
+
+        if (@event.IsMousePressed(MouseButton.WheelDown))
+        {
+            Projection = ProjectionType.@Orthogonal;
+        }
+        if (@event.IsMousePressed(MouseButton.WheelUp  ))
+        {
+            Projection = ProjectionType.Perspective;
+        }
+    }
+
     public override void _Process(double @delta)
     {
                     base._Process(       @delta);

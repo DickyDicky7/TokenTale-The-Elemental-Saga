@@ -22,7 +22,6 @@ Global="*res://Global.cs"
 DropManager="*res://game_objects/items/DropManager.cs"
 SoundManagerBGMAmbient="*res://SoundManagerBGMAmbient.cs"
 SoundManagerBGM_______="*res://SoundManagerBGM_______.cs"
-SimpleGrass="*res://addons/simplegrasstextured/singleton.tscn"
 
 [display]
 
@@ -41,7 +40,7 @@ import/use_multiple_threads=false
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AS2P/plugin.cfg", "res://addons/MagicaVoxel_Importer_with_Extensions/plugin.cfg", "res://addons/post_processing/plugin.cfg", "res://addons/simplegrasstextured/plugin.cfg")
+enabled=PackedStringArray("res://addons/AS2P/plugin.cfg", "res://addons/MagicaVoxel_Importer_with_Extensions/plugin.cfg", "res://addons/post_processing/plugin.cfg")
 
 [file_customization]
 
@@ -74,8 +73,8 @@ folder_colors={
 "res://game_objects/characters/others/the_tanker/": "blue",
 "res://game_objects/characters/others/the_thief/": "blue",
 "res://game_objects/characters/others/the_undead/": "blue",
-"res://game_objects/maps/beach01/": "blue",
-"res://game_objects/maps/beach02/": "blue",
+"res://game_objects/maps/beach01/": "green",
+"res://game_objects/maps/beach02/": "green",
 "res://game_objects/maps/desert01/": "orange",
 "res://game_objects/maps/desert02/": "orange",
 "res://game_objects/maps/grassland01/": "green",
@@ -86,9 +85,9 @@ folder_colors={
 "res://game_objects/maps/graveyard02/": "blue",
 "res://game_objects/maps/highland01/": "blue",
 "res://game_objects/maps/highland02/": "blue",
-"res://game_objects/maps/ice01/": "orange",
-"res://game_objects/maps/ice02/": "orange",
-"res://game_objects/maps/ice03/": "orange",
+"res://game_objects/maps/ice01/": "blue",
+"res://game_objects/maps/ice02/": "blue",
+"res://game_objects/maps/ice03/": "blue",
 "res://game_objects/maps/jungle01/": "green",
 "res://game_objects/maps/jungle02/": "green",
 "res://game_objects/maps/jungle03/": "green",
@@ -96,8 +95,8 @@ folder_colors={
 "res://game_objects/maps/lake02/": "green",
 "res://game_objects/maps/mountain01/": "blue",
 "res://game_objects/maps/swamp01/": "blue",
-"res://game_objects/maps/tomb01/": "orange",
-"res://game_objects/maps/tomb02/": "orange",
+"res://game_objects/maps/tomb01/": "green",
+"res://game_objects/maps/tomb02/": "green",
 "res://game_objects/maps/volcano01/": "blue",
 "res://modells/maps/": "blue",
 "res://modells/maps_origin/": "orange",
@@ -189,10 +188,6 @@ CAMMODE={
 3d/default_cell_size=0.01
 3d/default_cell_height=0.01
 
-[physics]
-
-3d/physics_engine="JoltPhysics3D"
-
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
@@ -203,42 +198,3 @@ anti_aliasing/screen_space_roughness_limiter/limit=0.2
 viewport/hdr_2d=true
 occlusion_culling/use_occlusion_culling=true
 environment/defaults/default_environment="res://Main_Environment.tres"
-
-[shader_globals]
-
-sgt_player_position={
-"type": "vec3",
-"value": Vector3(1e+06, 1e+06, 1e+06)
-}
-sgt_player_mov={
-"type": "vec3",
-"value": Vector3(0, 0, 0)
-}
-sgt_normal_displacement={
-"type": "sampler2D",
-"value": "res://addons/simplegrasstextured/images/normal.png"
-}
-sgt_motion_texture={
-"type": "sampler2D",
-"value": "res://addons/simplegrasstextured/images/motion.png"
-}
-sgt_wind_direction={
-"type": "vec3",
-"value": Vector3(1, 0, 0)
-}
-sgt_wind_movement={
-"type": "vec3",
-"value": Vector2(0, 0)
-}
-sgt_wind_strength={
-"type": "float",
-"value": 0.15
-}
-sgt_wind_turbulence={
-"type": "float",
-"value": 1.0
-}
-sgt_wind_pattern={
-"type": "sampler2D",
-"value": "res://addons/simplegrasstextured/images/wind_pattern.png"
-}

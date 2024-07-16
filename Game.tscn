@@ -31,28 +31,24 @@ handle_input_locally = false
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
-[node name="MapSystem" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("DirectionalLight3D", "ScreenTransition", "MapAreaPlaceHolder", "MainCharacter") instance=ExtResource("1_p4etb")]
-DirectionalLight3D = NodePath("Sun")
-ScreenTransition = NodePath("ScreenTransition$$")
-MapAreaPlaceHolder = NodePath("NavigationRegion3D")
+[node name="MapSystem" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("MainCharacter") instance=ExtResource("1_p4etb")]
 MainCharacter = NodePath("../MainCharacter")
 
-[node name="MainCharacter" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("HUDController", "WeaponsController", "NavigationAgent3D", "MainCharacterAnimatedSprite3DEffect") instance=ExtResource("2_m5dub")]
+[node name="MainCharacter" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("HUDController") instance=ExtResource("2_m5dub")]
 floor_max_angle = 1.5708
 HUDController = NodePath("../../../MainCharacterHUD")
-WeaponsController = NodePath("Weapons(_Controller_)")
-NavigationAgent3D = NodePath("NavigationAgent3D")
-MainCharacterAnimatedSprite3DEffect = NodePath("AnimatedSprite3D_Effect")
 
 [node name="Cam$era3D" type="Camera3D" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("FollowTarget")]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 2, 2)
-size = 4.0
+size = 3.0
 far = 6.0
 script = ExtResource("2_rwd2k")
 TType = 7
 EType = 2
 FollowTarget = NodePath("../MainCharacter")
-FovWhenHasZoomedIn = 70.0
+LerpWeight = 0.1
+FovWhenHasZoomedIn = 50.0
+FovWhenNotZoomedIn = 55.0
 DurationZoomedIn = 0.5
 
 [node name="UIControl" parent="." node_paths=PackedStringArray("MainCharacterHUDController", "TrackingScreen", "ShoppingScreen", "ControlBoard") instance=ExtResource("5_55f4t")]
@@ -62,25 +58,16 @@ TrackingScreen = NodePath("../TrackingScreen")
 ShoppingScreen = NodePath("../ShoppingScreen")
 ControlBoard = NodePath("../ControlBoard")
 
-[node name="MainCharacterHUD" parent="." node_paths=PackedStringArray("Viewer", "HealthBar", "SwordHUD", "BowHUD", "BraceletHUDs", "CoinLabel") instance=ExtResource("4_487iw")]
+[node name="MainCharacterHUD" parent="." node_paths=PackedStringArray("Viewer") instance=ExtResource("4_487iw")]
 Viewer = NodePath("../SubViewportContainer/SubViewport/MainCharacter")
-HealthBar = NodePath("HBoxContainer/VBoxContainer/HealthBar")
-SwordHUD = NodePath("HBoxContainer/VBoxContainer/MarginContainer/WeaponHUD/SwordHUD2")
-BowHUD = NodePath("HBoxContainer/VBoxContainer/MarginContainer/WeaponHUD/BowHUD2")
-BraceletHUDs = [NodePath("HBoxContainer/VBoxContainer/MarginContainer2/ElementalHUD"), NodePath("HBoxContainer/VBoxContainer/MarginContainer3/ElementalHUD")]
-CoinLabel = NodePath("HBoxContainer/VBoxContainer2/HBoxContainer/Label")
 
 [node name="TrackingScreen" parent="." node_paths=PackedStringArray("Viewer") instance=ExtResource("5_4wy0l")]
 visible = false
 Viewer = NodePath("../SubViewportContainer/SubViewport/MainCharacter")
 
-[node name="ShoppingScreen" parent="." node_paths=PackedStringArray("Viewer", "ShopItemContainer") instance=ExtResource("6_um4pm")]
+[node name="ShoppingScreen" parent="." node_paths=PackedStringArray("Viewer") instance=ExtResource("6_um4pm")]
 visible = false
 Viewer = NodePath("../SubViewportContainer/SubViewport/MainCharacter")
-ShopItemContainer = NodePath("ScrollContainer/MarginContainer/GridContainer")
 
-[node name="ControlBoard" parent="." node_paths=PackedStringArray("ResumeButton", "RestartButton", "ExitButton") instance=ExtResource("9_oes8f")]
+[node name="ControlBoard" parent="." instance=ExtResource("9_oes8f")]
 visible = false
-ResumeButton = NodePath("MarginContainer/VBoxContainer/ResumeButton")
-RestartButton = NodePath("MarginContainer/VBoxContainer/RestartButton")
-ExitButton = NodePath("MarginContainer/VBoxContainer/ExitButton")

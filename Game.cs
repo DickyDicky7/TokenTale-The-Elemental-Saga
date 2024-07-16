@@ -31,6 +31,7 @@ $"/root/{nameof(SoundManagerBGM_______)}").CrossfadeTo(BGM);
     {
                     base._Process(       @delta);
 
+        //GD.@Print(Engine.GetFramesPerSecond());
         //GetWindow().Title =
         //  $"{Engine.GetFramesPerSecond()} {MapSystem.GetChild(0).GetChild(0).Name}";
 

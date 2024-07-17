@@ -38,7 +38,7 @@ MainCharacter = NodePath("../MainCharacter")
 floor_max_angle = 1.5708
 HUDController = NodePath("../../../MainCharacterHUD")
 
-[node name="Cam$era3D" type="Camera3D" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("FollowTarget")]
+[node name="Cam$era3D" type="Camera3D" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("FollowTarget", "MapSystem")]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 2, 2)
 size = 3.0
 far = 6.0
@@ -50,6 +50,7 @@ LerpWeight = 0.1
 FovWhenHasZoomedIn = 50.0
 FovWhenNotZoomedIn = 55.0
 DurationZoomedIn = 0.5
+MapSystem = NodePath("../MapSystem")
 
 [node name="UIControl" parent="." node_paths=PackedStringArray("MainCharacterHUDController", "TrackingScreen", "ShoppingScreen", "ControlBoard") instance=ExtResource("5_55f4t")]
 visible = false

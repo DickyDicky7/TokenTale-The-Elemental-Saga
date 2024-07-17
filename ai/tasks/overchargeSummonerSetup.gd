@@ -31,8 +31,8 @@ func OnScanboxxBodyEntered(
 	body : Node3D) -> void:
 	if (body is Character3D
 	&&  body != currentAbility.Caster):
-		var overcharge: Ability3D  =  OverchargeScene  .  instantiate(
-		);  overcharge. Attach(
+		var overcharge:Ability3D  =  OverchargeScene  .  instantiate(
+		);  overcharge.Attach(
 		body ,  currentAbility.Caster ,
 		Vector3.ZERO ,
 		Vector3.ZERO);

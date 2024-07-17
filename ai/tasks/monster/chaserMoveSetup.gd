@@ -7,7 +7,7 @@ extends BTAction;
 @export var PathNavigationAgent3D: NodePath;
 
 var currentCharacter: Character3D;
-var  targetCharacter: Character3D;
+var _targetCharacter: Character3D;
 var navigationAgent3D: NavigationAgent3D;
 var finalDestination: Vector3;
 var priorityAngle: float;
@@ -33,13 +33,13 @@ func _enter() -> void:
 	if (!is_instance_valid(
 		blackboard.get_var(BBVariable.TargetCharacter))):
 		blackboard.set_var(BBVariable.TargetCharacter, null);
-	targetCharacter = blackboard.get_var(BBVariable.TargetCharacter);
-	if (targetCharacter == null):
+	_targetCharacter = blackboard.get_var(BBVariable.TargetCharacter);
+	if (_targetCharacter == null):
 		return;
 	var distanceToTarget: float = Helper.ProjectVector3ToPlane(
 		currentCharacter.global_position, Vector3.UP).distance_to(
 								  Helper.ProjectVector3ToPlane(
-		 targetCharacter.global_position, Vector3.UP));
+		_targetCharacter.global_position, Vector3.UP));
 	readyToStrike = blackboard.get_var(BBVariable.ReadyToStrike);
 	match Type:
 		"APPROACH":
@@ -73,17 +73,20 @@ func _tick(_delta: float) -> Status:
 		return FAILURE;
 
 func FindMoveDestination(distanceToTarget: float) -> Vector3:
-	var destination: Vector3 = Vector3.ZERO;
-	var  mainVector: Vector3 = Helper.ProjectVector3ToPlane(
-		currentCharacter.global_position.direction_to(targetCharacter.global_position), 
-		Vector3.UP);
-	var directionList: Array = Helper.CalculateMoveDirectionList(
-		mainVector,
+	var destination: Vector3 =                       Vector3.ZERO;
+	var  mainVector: Vector3 = Helper   .ProjectVector3ToPlane(
+		currentCharacter.global_position.direction_to(
+		_targetCharacter.global_position             ), 
+					 Vector3.UP                               );
+	var directionList: Array = Helper   .                       CalculateMoveDirectionList(
+		mainVector    ,
 		priorityAngle);
-	var distance: float = FindMoveDistance(distanceToTarget) + navigationAgent3D.target_desired_distance;
-	destination = Helper.CalculateMoveDestination(
+	var distance: float =                                            (
+FindMoveDistance        (
+		distanceToTarget) + navigationAgent3D.target_desired_distance);
+	destination = Helper.                    CalculateMoveDestination(
 		currentCharacter.global_position,
-		distance,
+		distance      ,
 		directionList);
 	return destination;
 

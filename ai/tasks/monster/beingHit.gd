@@ -38,7 +38,7 @@ func  _exit() -> void:
 	
 func _tick(_delta: float) -> Status:
 	if (hurtbox3D.Hurt):
-		blackboard.set_var(BBVariable.AlreadyDetect, true);
+		blackboard.set_var(BBVariable.AlreadyDetect, true); currentCharacter.ShakeCamera();
 		return SUCCESS;
 	else:
 		return FAILURE;

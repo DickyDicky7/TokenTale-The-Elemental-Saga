@@ -66,17 +66,20 @@ func _tick(_delta: float) -> Status:
 		return FAILURE;
 	
 func FindDestination(distanceToTarget: float) -> Vector3:
-	var destination: Vector3 = Vector3.ZERO;
-	var  mainVector: Vector3 = Helper.ProjectVector3ToPlane(
-		currentCharacter.global_position.direction_to(targetCharacter.global_position), 
-		Vector3.UP);
-	var directionList: Array = Helper.CalculateMoveDirectionList(
-		mainVector,
+	var destination: Vector3 =                   Vector3.ZERO;
+	var  mainVector: Vector3 = Helper   .ProjectVector3ToPlane(
+		currentCharacter.global_position.direction_to(
+		 targetCharacter.global_position             ), 
+					 Vector3.UP                               );
+	var directionList: Array = Helper   .                       CalculateMoveDirectionList(
+		mainVector    ,
 		priorityAngle);
-	var distance: float = FindMoveDistance(distanceToTarget) + navigationAgent3D.target_desired_distance;
-	destination = Helper.CalculateMoveDestination(
+	var distance: float =                                            (
+FindMoveDistance        (
+		distanceToTarget) + navigationAgent3D.target_desired_distance);
+	destination = Helper.                    CalculateMoveDestination(
 		currentCharacter.global_position,
-		distance,
+		distance      ,
 		directionList);
 	return destination;
 
@@ -89,4 +92,4 @@ func FindMoveDistance(distanceToTarget: float) -> float:
 			temp = FallBackDistance - distanceToTarget;
 		"PROBE"   :
 			temp = distanceToTarget - FallBackDistance + 0.15;
-	return  temp;
+	return  temp  ;

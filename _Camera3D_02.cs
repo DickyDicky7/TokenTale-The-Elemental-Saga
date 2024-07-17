@@ -37,6 +37,12 @@ public partial class _Camera3D_02 : Camera3D
         set;
     }
 
+    [Export]
+    public float        ShakeFade     { get; set; } = 5.0f;
+    [Export]
+    public float        ShakeStrength { get; set; } = 0.1f;
+    public float CurrentShakeStrength { get; set; } = 0.0f;
+
     public override void _Ready()
     {
                     base._Ready()  ;
@@ -90,6 +96,14 @@ public partial class _Camera3D_02 : Camera3D
             }
                  IsZoomedIn =!true;
         }
+
+        if (CurrentShakeStrength > 0)
+        {
+            CurrentShakeStrength = Mathf.Lerp(CurrentShakeStrength, 0.0f, ShakeFade * (float)@delta);
+            Vector2   offset     =            RandomOffset();
+            HOffset = offset.X;
+            VOffset = offset.Y;
+        }
     }
 
     public override void _PhysicsProcess(double @delta)
@@ -122,6 +136,18 @@ public partial class _Camera3D_02 : Camera3D
     public Vector2 OffsetLimitAxisX { get; set; } = new( +1 , -1 );
     [Export]
     public Vector2 OffsetLimitAxisZ { get; set; } = new( -1 , +1 );
+
+    public void ApplyShake()
+    {
+    CurrentShakeStrength =
+           ShakeStrength ;
+    }
+
+    public Vector2 RandomOffset()
+    {
+        return new((float)GD.RandRange( -CurrentShakeStrength , +CurrentShakeStrength ),
+                   (float)GD.RandRange( -CurrentShakeStrength , +CurrentShakeStrength));
+    }
 }
 
 

@@ -1,7 +1,7 @@
 using Godot;
 using System.Collections.Generic;
 
-namespace TokenTaleTheElementalSaga;
+namespace       TokenTaleTheElementalSaga ;
 
 [GlobalClass]
 public abstract partial class Character3D : CharacterBody3D
@@ -18,19 +18,21 @@ public abstract partial class Character3D : CharacterBody3D
     public float Deceleration  { get; set; } = 0.1f;
     public Global.Element ElementMark { get; set; } = Global.Element.None;
     private Timer EffectTimerSpeed { get; set; } = new();
-    private Timer EffectTimerStun { get; set; } = new();
+    private Timer EffectTimerStun  { get; set; } = new();
     public bool IsStunning { get; private set; } = false;
     public StatusInfo
-           StatusInfo          { get; private set; }
+           StatusInfo      { get; private set; }
 
     [Signal]
-    public delegate void HealthChangeEventHandler(float damage);
-    public Dictionary<string, PackedScene> AbilityPackedScenes { get; set; } = new();
+    public delegate    void   HealthChangeEventHandler (float @damage);
+    public Dictionary<string, PackedScene>
+                      @AbilityPackedScenes { get; set; }  =   [      ];
 
     public virtual void Move(Vector3 @direction, double @delta)
     {
-        if (this.IsStunning == true)
+        if (this.@IsStunning)
             return;
+
             @direction  =   (         Transform.         Basis
         *   @direction).Normalized();
 
@@ -40,7 +42,7 @@ public abstract partial class Character3D : CharacterBody3D
             Vector3
             velocity = Velocity;
 
-            velocity = velocity. MoveToward  (
+            velocity = velocity.MoveToward         (
             @direction * CurrentSpeed, Acceleration);
 
 
@@ -51,7 +53,7 @@ public abstract partial class Character3D : CharacterBody3D
 
             Velocity = velocity;
 
-            MoveAndSlide();
+            MoveAndSlide()     ;
         }
     }
 
@@ -67,7 +69,7 @@ public abstract partial class Character3D : CharacterBody3D
             velocity =
             Velocity ;
 
-            velocity = velocity. MoveToward  (
+            velocity = velocity.MoveToward         (
             @direction * CurrentSpeed, Deceleration);
 
             if (       !IsOnFloor() )
@@ -92,28 +94,30 @@ public abstract partial class Character3D : CharacterBody3D
         this.TimerReady();
         this.StatusInfo = StatusInfoPackedScene.Instantiate<StatusInfo>();
         this.AddChild  (  StatusInfo                                    );
-        base._Ready();
+        base.    _Ready();
 
         //
         NavigationAgent3D
         navigationAgent3D  = GetNodeOrNull<NavigationAgent3D>
-                                   (nameof(NavigationAgent3D));
+                                 (  nameof(NavigationAgent3D)  );
     if (navigationAgent3D != null)
-        navigationAgent3D.DebugEnabled = false;
+        navigationAgent3D.DebugEnabled
+        =                 false  ;
         //
     }
+
     private void TimerReady()
     {
-        this.EffectTimerSpeed.OneShot = true;
+        this.EffectTimerSpeed. OneShot = true;
         this.EffectTimerSpeed.WaitTime = 1.0d;
-        this.EffectTimerSpeed.ProcessCallback = Timer.TimerProcessCallback.Physics;
+        this.EffectTimerSpeed.ProcessCallback = Timer.TimerProcessCallback.Idle;
         this.EffectTimerSpeed.Timeout += EndSpeedEffect;
         this.AddChild(EffectTimerSpeed);
-        this.EffectTimerStun.OneShot = true;
-        this.EffectTimerStun.WaitTime = 1.0d;
-        this.EffectTimerStun.ProcessCallback = Timer.TimerProcessCallback.Physics;
-        this.EffectTimerStun.Timeout += EndStun;
-        this.AddChild(EffectTimerStun);
+        this.EffectTimerStun . OneShot = true;
+        this.EffectTimerStun .WaitTime = 1.0d;
+        this.EffectTimerStun .ProcessCallback = Timer.TimerProcessCallback.Idle;
+        this.EffectTimerStun .Timeout += EndStun       ;
+        this.AddChild(EffectTimerStun );
     }
 
     //  public override void _PhysicsProcess(double @delta)
@@ -127,29 +131,31 @@ public abstract partial class Character3D : CharacterBody3D
     //          MoveAndSlide();
     //      }
     //  }
+
     public abstract float CalculateElementalDamage(Ability3D ability, Character3D target);
-    public abstract float CalculatePhysicsDamage(Character3D target);
+    public abstract float
+    CalculatePhysicsDamage                        (                   Character3D target);
 
     public void StartSpeedEffect(float @ratio, float @duration)
     {
-        this.CurrentSpeed = this.MaxSpeed * @ratio;
-        this.EffectTimerSpeed.Start(@duration);
+        this.    CurrentSpeed =
+        this.        MaxSpeed *        @ratio;
+        this.EffectTimerSpeed .                Start(@duration);
         if (ratio < 1)
         {
-            this.StatusInfo.Items.Add(
-                new StatusInfoItemElemental { Element = Global.Element.None, Thing = "Speed-" });
+            this.StatusInfo.Items.Add(new StatusInfoItemElemental { Element = Global.Element.None, Thing = "Speed-" });
         }
         if (ratio > 1)
         {
-            this.StatusInfo.Items.Add(
-                new StatusInfoItemElemental { Element = Global.Element.None, Thing = "Speed+" });
+            this.StatusInfo.Items.Add(new StatusInfoItemElemental { Element = Global.Element.None, Thing = "Speed+" });
         }
     }
 
-    public void EndSpeedEffect()
+    public void EndSpeedEffect    ()
     {
         this.EffectTimerSpeed.Stop();
-        this.CurrentSpeed = this.MaxSpeed;
+        this.    CurrentSpeed =
+        this.        MaxSpeed ;
         this.EffectTimerSpeed.WaitTime = 1.0f;
     }
 
@@ -160,18 +166,29 @@ public abstract partial class Character3D : CharacterBody3D
         this.Velocity =  Vector3.Zero     ;
     }
 
-    public void StartStun(float @duration)
+    public void    StartStun(float @duration)
     {
-        this.EffectTimerStun.Start(@duration) ;
-        this.IsStunning = true;
-        this.StatusInfo.Items.Add(
-            new StatusInfoItemElemental { Element = Global.Element.None, Thing = "Stunned" });
+        this.EffectTimerStun.Start(@duration);
+        this.    @IsStunning= true           ;
+        this.StatusInfo.Items.Add(new StatusInfoItemElemental
+        {
+            Element =
+     Global.Element.None,
+            Thing   =
+           "Stunned"
+        });
     }
 
-    public void EndStun()
+    public void      EndStun()
     {
         this.EffectTimerStun.Stop();
-        this.IsStunning = false;
+        this.    @IsStunning= false;
+    }
+
+    public void  ShakeCamera()
+    {
+                 GetViewport().
+                 GetCamera3D().Call("ApplyShake");
     }
 }
 

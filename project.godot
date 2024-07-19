@@ -29,6 +29,7 @@ window/size/window_width_override=1152
 window/size/window_height_override=648
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+window/vsync/vsync_mode=0
 
 [dotnet]
 
@@ -194,6 +195,7 @@ textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+driver/threads/thread_model=2
 anti_aliasing/screen_space_roughness_limiter/limit=0.2
 viewport/hdr_2d=true
 occlusion_culling/use_occlusion_culling=true

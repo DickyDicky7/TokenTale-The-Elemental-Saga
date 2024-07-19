@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://gd1yufmhml7p"]
+[gd_scene load_steps=13 format=3 uid="uid://gd1yufmhml7p"]
 
 [ext_resource type="Script" path="res://Game.cs" id="1_gycpf"]
 [ext_resource type="PackedScene" uid="uid://bnhb48jc0sx4w" path="res://game_objects/maps/shared/map_system/MapSystem.tscn" id="1_p4etb"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cnn7tt1uxyh6j" path="res://UI/UIControl.tscn" id="5_55f4t"]
 [ext_resource type="PackedScene" uid="uid://bqp528howcdyc" path="res://UI/ShopScreen/ShoppingScreen.tscn" id="6_um4pm"]
 [ext_resource type="PackedScene" uid="uid://dmrr4ewlqykyd" path="res://UI/ControlBoard/ControlBoard.tscn" id="9_oes8f"]
+[ext_resource type="Script" path="res://FPSC.cs" id="12_pg2rb"]
 
 [node name="Game" type="Node3D" node_paths=PackedStringArray("MapSystem")]
 script = ExtResource("1_gycpf")
@@ -47,8 +48,8 @@ TType = 7
 EType = 2
 FollowTarget = NodePath("../MainCharacter")
 LerpWeight = 0.1
-FovWhenHasZoomedIn = 50.0
-FovWhenNotZoomedIn = 55.0
+FovWhenHasZoomedIn = 60.0
+FovWhenNotZoomedIn = 65.0
 DurationZoomedIn = 0.5
 MapSystem = NodePath("../MapSystem")
 
@@ -72,3 +73,9 @@ Viewer = NodePath("../SubViewportContainer/SubViewport/MainCharacter")
 
 [node name="ControlBoard" parent="." instance=ExtResource("9_oes8f")]
 visible = false
+
+[node name="FPS" type="RichTextLabel" parent="."]
+z_index = 10
+offset_right  = 181.0
+offset_bottom = 079.0
+script  = ExtResource("12_pg2rb")

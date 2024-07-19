@@ -9,7 +9,7 @@ namespace TokenTaleTheElementalSaga;
 public partial class Sword : Weapon
 {
     [Export] public Sprite3D Sprite3D { get; set; }
-    [Export] public Sprite3D Shadow3D { get; set; }
+//  [Export] public Sprite3D Shadow3D { get; set; }
     [Export] public Aareaa3D Aareaa3D { get; set; }
     [Export] public CollisionShape3D CollisionShape3D { get; set; }
 
@@ -22,12 +22,13 @@ public partial class Sword : Weapon
     public     Vector2
     DefaultOffsetSprite3D
     { get; private set; }
-    public float Damage { get; set; }
+    public float   Damage { get; set; }
+
     public Sword()
     {
-        this.Upgradeable = true;
-        this.Available = true;
-        this.Level = -1;
+        this.  Upgradeable =  true;
+        this.    Available =  true;
+        this.  Level = - 1;
         if (this.Available == true)
             this.Upgrade();
     }
@@ -36,25 +37,32 @@ public partial class Sword : Weapon
     {
                     base._Ready();
 
-        DefaultOffsetSprite3D = Sprite3D.Offset;
-        this.CoolDownTimer.WaitTime = OwnerMainCharacter.BoosterManager.SwordCoolDown;
+        DefaultOffsetSprite3D  =
+                     Sprite3D  .  Offset;
+        this.CoolDownTimer.WaitTime =
+             OwnerMainCharacter.BoosterManager.SwordCoolDown                       ;
         this.OwnerMainCharacter.BoosterManager.SwordSrcollChanged += UpdateCoolDown;
 		//Load from saved ?
 	}
+
 	public override void Upgrade()
 	{
-		base.Upgrade();
+		            base.Upgrade();
+
         Dictionary<int, Record.SwordInfo> SwordStats
-            = WeaponStats.GetInstance().SwordStats;
-        if (this.Level == SwordStats.Count - 1)
+               = WeaponStats
+               . GetInstance().           SwordStats;
+
+        if (this.Level                 == SwordStats.Count - 1)
             this.Upgradeable = false;
-        this.Damage = SwordStats[Level].Damage;
-        if (this.Upgradeable == true)
-            this.NextLevelUpgradeCost = SwordStats[Level + 1].UpgradeCost;
+        this.Damage =                     SwordStats[Level]    .@Damage    ;
+        if (this.Upgradeable)
+            this.NextLevelUpgradeCost  =  SwordStats[Level + 1].UpgradeCost;
         else
-            this.NextLevelUpgradeCost = -1;
+            this.NextLevelUpgradeCost  =                   - 1             ;
         this.EmitSignal(Equipment.SignalName.JustUpgrade);
 	}
+
 	private void UpdateCoolDown(float newCooldown, float newBonusDamageRatio)
 	{
 		this.CoolDownTimer.WaitTime = newCooldown;

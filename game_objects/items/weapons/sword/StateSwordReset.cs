@@ -64,8 +64,8 @@ public partial class StateSwordReset : StateSword
             > -135.0f and <= +045.0f => !false,
             _                        =>  false,
         };
-            Sword.Shadow3D.FlipH =
-            Sword.Sprite3D.FlipH ;
+//          Sword.Shadow3D.FlipH =
+//          Sword.Sprite3D.FlipH ;
         Vector2 offset;
         if (Sword.Sprite3D.FlipH)
         {
@@ -80,11 +80,11 @@ public partial class StateSwordReset : StateSword
         _tween.TweenProperty(Sword.Sprite3D, "offset", offset, 0.5d)
               .SetEase (Tween.      EaseType.OutIn)
               .SetTrans(Tween.TransitionType.Quint)  ;
-        _tween.SetParallel();
-        _tween.SetLoops(1);
-        _tween.TweenProperty(Sword.Shadow3D, "offset", offset, 0.5d)
-              .SetEase (Tween.      EaseType.OutIn)
-              .SetTrans(Tween.TransitionType.Quint)  ;
+//      _tween.SetParallel();
+//      _tween.SetLoops(1);
+//      _tween.TweenProperty(Sword.Shadow3D, "offset", offset, 0.5d)
+//            .SetEase (Tween.      EaseType.OutIn)
+//            .SetTrans(Tween.TransitionType.Quint)  ;
         int
         renderPriority =Mathf.RadToDeg(hover_Position.Angle())
         switch
@@ -93,11 +93,14 @@ public partial class StateSwordReset : StateSword
             _                        => +1,
         };
         Sword.        Sprite3D.MaterialOverride.RenderPriority = renderPriority;
-        Sword.        Shadow3D                 .RenderPriority = renderPriority;
+//      Sword.        Shadow3D                 .RenderPriority = renderPriority;
         Sword.AnimatedSprite3D.MaterialOverride.RenderPriority = renderPriority;
         Sword.AnimatedShadow3D                 .RenderPriority = renderPriority;
     }
 }
+
+
+
 
 
 

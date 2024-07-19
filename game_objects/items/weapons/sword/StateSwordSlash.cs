@@ -12,7 +12,7 @@ public partial class StateSwordSlash : StateSword
     {
                     base._Enter();
 
-        Sword.IsInUse = true;
+          Sword.IsInUse = true;
         Vector2 inputDirection =  Extension.GetInputDirection();
         if    ( inputDirection ==
         Vector2.Zero)
@@ -94,3 +94,6 @@ public partial class StateSwordSlash : StateSword
         }
     }
 }
+
+
+

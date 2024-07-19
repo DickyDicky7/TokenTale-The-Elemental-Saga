@@ -12,7 +12,7 @@ cast_shadow = 0
 amount = 100
 lifetime = 0.5
 fixed_fps = 60
-visibility_aabb = AABB(-0.5, -0.5, -0.5, 1, 1, 1)
+visibility_aabb = AABB(-0.25, 0, -0.25, 0.5, 0.25, 0.5)
 process_material = ExtResource("1_hsknr")
 draw_pass_1 = ExtResource("1_qs6k8")
 
@@ -20,6 +20,9 @@ draw_pass_1 = ExtResource("1_qs6k8")
 cast_shadow = 0
 amount = 100
 fixed_fps = 60
-visibility_aabb = AABB(-0.5, -0.5, -0.5, 1, 1, 1)
+visibility_aabb = AABB(-0.25, 0, -0.25, 0.5, 0.25, 0.5)
 process_material = ExtResource("2_uk2cu")
 draw_pass_1 = ExtResource("2_3bevu")
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
+aabb = AABB(-0.25, 0, -0.25, 0.5, 0.25, 0.5)

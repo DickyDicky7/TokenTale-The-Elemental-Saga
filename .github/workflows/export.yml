@@ -6,9 +6,9 @@ on:
 
 jobs:
   export_game:
-    runs-on  :  windows-latest
-    permissions:              write-all
-    name :                             Export Game
+    runs-on  :  ubuntu-latest
+    permissions:             write-all
+    name :                            Export Game
     steps:
     - name: checkout
       uses: actions/checkout@v4.1.7
@@ -17,8 +17,8 @@ jobs:
       id  : export
       uses: firebelley/godot-export@v5.2.1
       with:
-        godot_executable_download_url      : https://downloads.tuxfamily.org/godotengine/4.3/beta3/Godot_v4.3-beta3_win64.exe.zip
-        godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/4.3/beta3/Godot_v4.3-beta3_export_templates.tpz
+        godot_executable_download_url      : https://downloads.tuxfamily.org/godotengine/4.3/beta3/mono/Godot_v4.3-beta3_mono_linux_x86_64.zip
+        godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/4.3/beta3/mono/Godot_v4.3-beta3_mono_export_templates.tpz
         relative_project_path: ./
         archive_output: true
 

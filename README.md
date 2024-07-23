@@ -24,6 +24,16 @@ https://github.com/DickyDicky7/TokenTale-The-Elemental-Saga/assets/87304213/19b0
 
 </p>
 <p align="center">
+Game demo up to this point (July 23, 2024)<br/>
+
+https://github.com/user-attachments/assets/05cedff6-05cc-4c74-9b0d-4cd0e69abeef
+
+<br/>
+
+https://github.com/user-attachments/assets/503bea6d-f388-4bb6-bdd0-7ec8d71ab620
+
+</p>
+<p align="center">
 Game design and related documents:
   <br/>
   <a href="https://drive.google.com/drive/folders/15IapI7k0SIZZkjCpUGNDuVRXkSxtquTw?usp=drive_link">Here #01</a>

@@ -1,5 +1,10 @@
 # TOKENTALE-THE-ELEMENTAL-SAGA
 
+| Developer              | Reference                                             |
+| ---------------------- | ----------------------------------------------------- |
+| Phạm Tuấn Anh          | [Github/DickyDicky7](https://github.com/DickyDicky7)  |
+| Nguyễn Thành Thiện Ân  | [Github/ZeVnan     ](https://github.com/ZeVnan     )  |
+
 <p align="center">
 Title: Token Tale: The Elemental Saga
 </p>

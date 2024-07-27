@@ -1,14 +1,14 @@
 [gd_scene load_steps=26 format=3 uid="uid://cx3c362qgpbqg"]
 
-[ext_resource type="Script" path="res://game_objects/maps/shared/MapArea.cs" id="1_3mp4o"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/map_area/MapArea.cs" id="1_3mp4o"]
 [ext_resource type="ArrayMesh" uid="uid://dcke0t8vdodck" path="res://modells/maps_origin/Tomb02.vox" id="1_gnwhg"]
-[ext_resource type="Script" path="res://game_objects/maps/shared/StrategySwitchMapAreaOneToOne.cs" id="2_vw530"]
-[ext_resource type="Script" path="res://game_objects/maps/shared/CommandSwitchMapArea.cs" id="3_gay8y"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/switch_map/strategy/StrategySwitchMapAreaOneToOne.cs" id="2_vw530"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/switch_map/command/CommandSwitchMapArea.cs" id="3_gay8y"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapExitsToCommand.cs" id="4_18mho"]
 [ext_resource type="PackedScene" uid="uid://yfbwbxquk1v" path="res://game_objects/characters/elem_monsterss/normal/rock/cyclops/Cyclops.tscn" id="5_tcbx4"]
-[ext_resource type="Script" path="res://game_objects/maps/StrategySpawnMonsterDefault.cs" id="6_0t84i"]
-[ext_resource type="Script" path="res://game_objects/maps/CommandSpawnMonster.cs" id="7_1hvty"]
-[ext_resource type="Script" path="res://game_objects/maps/MapSpawnAreaToCommand.cs" id="8_001bp"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/spawns_mon/strategy/StrategySpawnMonsterDefault.cs" id="6_0t84i"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/spawns_mon/command/CommandSpawnMonster.cs" id="7_1hvty"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/MapSpawnAreaToCommand.cs" id="8_001bp"]
 
 [sub_resource type="Resource" id="Resource_3ymjy"]
 script = ExtResource("2_vw530")

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dybddv4dxiqn8"]
+
+[node name="WorldMapArea" type="Node2D"]
+
+[node name="____MapArea" type="Sprite2D" parent="."]
+self_modulate = Color(0.05, 0.05, 0.05, 1)
+
+[node name="QuestionMark" type="Sprite2D" parent="."]

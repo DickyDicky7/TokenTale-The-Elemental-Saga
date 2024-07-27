@@ -1,16 +1,16 @@
 [gd_scene load_steps=37 format=3 uid="uid://08ftjw833mdg"]
 
-[ext_resource type="Script" path="res://game_objects/maps/shared/MapArea.cs" id="1_a44ke"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/map_area/MapArea.cs" id="1_a44ke"]
 [ext_resource type="ArrayMesh" uid="uid://b66agu81alskw" path="res://modells/maps_origin/Lake01.vox" id="1_nxs4b"]
-[ext_resource type="Script" path="res://game_objects/maps/shared/StrategySwitchMapAreaOneToOne.cs" id="2_8kfwy"]
-[ext_resource type="Script" path="res://game_objects/maps/shared/CommandSwitchMapArea.cs" id="3_dt32b"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/switch_map/strategy/StrategySwitchMapAreaOneToOne.cs" id="2_8kfwy"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/switch_map/command/CommandSwitchMapArea.cs" id="3_dt32b"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapExitsToCommand.cs" id="4_kq1kx"]
 [ext_resource type="PackedScene" uid="uid://cwhrbtjfm2cpc" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp.tscn" id="5_80q48"]
-[ext_resource type="Script" path="res://game_objects/maps/StrategySpawnMonsterDefault.cs" id="6_40u33"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/spawns_mon/strategy/StrategySpawnMonsterDefault.cs" id="6_40u33"]
 [ext_resource type="Shader" path="res://game_objects/water/Water.gdshader" id="6_jvgdw"]
-[ext_resource type="Script" path="res://game_objects/maps/CommandSpawnMonster.cs" id="7_haarb"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/spawns_mon/command/CommandSpawnMonster.cs" id="7_haarb"]
 [ext_resource type="PackedScene" uid="uid://c4w8tue5how1h" path="res://game_objects/water_fall/WaterFall.tscn" id="7_oheuv"]
-[ext_resource type="Script" path="res://game_objects/maps/MapSpawnAreaToCommand.cs" id="8_18ufu"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/MapSpawnAreaToCommand.cs" id="8_18ufu"]
 
 [sub_resource type="Resource" id="Resource_pwr4f"]
 script = ExtResource("2_8kfwy")

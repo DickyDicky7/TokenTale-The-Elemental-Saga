@@ -1,6 +1,26 @@
-[gd_resource type="SpriteFrames" load_steps=33 format=3 uid="uid://bqs28pblt174t"]
+[gd_resource type="SpriteFrames" load_steps=38 format=3 uid="uid://bqs28pblt174t"]
 
 [ext_resource type="Texture2D" uid="uid://bmdcqg3fgcag4" path="res://game_asset_s/characters/elemental_monsters/fire/imp/sprite-sheet-imp.png" id="1_ah482"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjued"]
+atlas = ExtResource("1_ah482")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85jhl"]
+atlas = ExtResource("1_ah482")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0a1x8"]
+atlas = ExtResource("1_ah482")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jol63"]
+atlas = ExtResource("1_ah482")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qr8kx"]
+atlas = ExtResource("1_ah482")
+region = Rect2(0, 128, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2fieo"]
 atlas = ExtResource("1_ah482")
@@ -129,6 +149,21 @@ region = Rect2(160, 66, 32, 32)
 [resource]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjued")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85jhl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0a1x8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jol63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qr8kx")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2fieo")
 }, {

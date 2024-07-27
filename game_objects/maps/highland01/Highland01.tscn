@@ -1,14 +1,14 @@
 [gd_scene load_steps=23 format=3 uid="uid://b1lyvhwf75cwt"]
 
 [ext_resource type="ArrayMesh" uid="uid://b0pqr6e1g66xa" path="res://modells/maps_origin/Highland01.vox" id="1_80p45"]
-[ext_resource type="Script" path="res://game_objects/maps/shared/MapArea.cs" id="1_aftfq"]
-[ext_resource type="Script" path="res://game_objects/maps/shared/StrategySwitchMapAreaOneToOne.cs" id="2_4gysg"]
-[ext_resource type="Script" path="res://game_objects/maps/shared/CommandSwitchMapArea.cs" id="3_6xt2w"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/map_area/MapArea.cs" id="1_aftfq"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/switch_map/strategy/StrategySwitchMapAreaOneToOne.cs" id="2_4gysg"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/switch_map/command/CommandSwitchMapArea.cs" id="3_6xt2w"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapExitsToCommand.cs" id="4_3e6ya"]
 [ext_resource type="PackedScene" uid="uid://dks14llooa7jv" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat.tscn" id="5_4kx28"]
-[ext_resource type="Script" path="res://game_objects/maps/StrategySpawnMonsterDefault.cs" id="6_2tsci"]
-[ext_resource type="Script" path="res://game_objects/maps/CommandSpawnMonster.cs" id="7_w0837"]
-[ext_resource type="Script" path="res://game_objects/maps/MapSpawnAreaToCommand.cs" id="8_aw808"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/spawns_mon/strategy/StrategySpawnMonsterDefault.cs" id="6_2tsci"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/spawns_mon/command/CommandSpawnMonster.cs" id="7_w0837"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/MapSpawnAreaToCommand.cs" id="8_aw808"]
 
 [sub_resource type="Resource" id="Resource_4wuti"]
 script = ExtResource("2_4gysg")

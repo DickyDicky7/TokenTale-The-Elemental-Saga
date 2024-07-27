@@ -1,15 +1,15 @@
 [gd_scene load_steps=41 format=3 uid="uid://c1hfgev3fng5b"]
 
-[ext_resource type="Script" path="res://game_objects/maps/shared/MapArea.cs" id="1_go4fb"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/map_area/MapArea.cs" id="1_go4fb"]
 [ext_resource type="ArrayMesh" uid="uid://c8dbo3ln6iwcl" path="res://modells/maps_origin/Mountain01.vox" id="1_om15c"]
-[ext_resource type="Script" path="res://game_objects/maps/shared/StrategySwitchMapAreaOneToOne.cs" id="2_elpvw"]
-[ext_resource type="Script" path="res://game_objects/maps/shared/CommandSwitchMapArea.cs" id="3_kioqn"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/switch_map/strategy/StrategySwitchMapAreaOneToOne.cs" id="2_elpvw"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/switch_map/command/CommandSwitchMapArea.cs" id="3_kioqn"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapExitsToCommand.cs" id="4_ba4w1"]
 [ext_resource type="PackedScene" uid="uid://dks14llooa7jv" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat.tscn" id="5_fs4i1"]
 [ext_resource type="Shader" path="res://game_objects/water/Water.gdshader" id="6_2l8lr"]
-[ext_resource type="Script" path="res://game_objects/maps/StrategySpawnMonsterDefault.cs" id="6_wpf6j"]
-[ext_resource type="Script" path="res://game_objects/maps/CommandSpawnMonster.cs" id="7_fyti8"]
-[ext_resource type="Script" path="res://game_objects/maps/MapSpawnAreaToCommand.cs" id="8_iu4qh"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/spawns_mon/strategy/StrategySpawnMonsterDefault.cs" id="6_wpf6j"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/spawns_mon/command/CommandSpawnMonster.cs" id="7_fyti8"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/MapSpawnAreaToCommand.cs" id="8_iu4qh"]
 
 [sub_resource type="Resource" id="Resource_2npj6"]
 script = ExtResource("2_elpvw")

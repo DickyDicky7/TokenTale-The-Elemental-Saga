@@ -1,16 +1,16 @@
 [gd_scene load_steps=50 format=3 uid="uid://do5wq28wtr478"]
 
-[ext_resource type="Script" path="res://game_objects/maps/shared/MapArea.cs" id="1_m44k3"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/map_area/MapArea.cs" id="1_m44k3"]
 [ext_resource type="ArrayMesh" uid="uid://dmtbo5y7t7ybc" path="res://modells/maps_origin/Jungle01.vox" id="1_n7cbh"]
-[ext_resource type="Script" path="res://game_objects/maps/shared/StrategySwitchMapAreaOneToOne.cs" id="2_4sdbo"]
-[ext_resource type="Script" path="res://game_objects/maps/shared/CommandSwitchMapArea.cs" id="3_gd3a6"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/switch_map/strategy/StrategySwitchMapAreaOneToOne.cs" id="2_4sdbo"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/switch_map/command/CommandSwitchMapArea.cs" id="3_gd3a6"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapExitsToCommand.cs" id="4_n3xv1"]
 [ext_resource type="PackedScene" uid="uid://cyv12iosddo4f" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem.tscn" id="5_jn1nt"]
-[ext_resource type="Script" path="res://game_objects/maps/StrategySpawnMonsterDefault.cs" id="6_ainqy"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/spawns_mon/strategy/StrategySpawnMonsterDefault.cs" id="6_ainqy"]
 [ext_resource type="Shader" path="res://game_objects/water/Water.gdshader" id="6_rs1fk"]
 [ext_resource type="PackedScene" uid="uid://c4w8tue5how1h" path="res://game_objects/water_fall/WaterFall.tscn" id="7_ptgho"]
-[ext_resource type="Script" path="res://game_objects/maps/CommandSpawnMonster.cs" id="7_qvfg2"]
-[ext_resource type="Script" path="res://game_objects/maps/MapSpawnAreaToCommand.cs" id="8_r0cyq"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/spawns_mon/command/CommandSpawnMonster.cs" id="7_qvfg2"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/MapSpawnAreaToCommand.cs" id="8_r0cyq"]
 
 [sub_resource type="Resource" id="Resource_xcriv"]
 script = ExtResource("2_4sdbo")

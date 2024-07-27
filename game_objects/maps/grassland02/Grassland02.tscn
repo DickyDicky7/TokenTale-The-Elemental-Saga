@@ -1,17 +1,17 @@
 [gd_scene load_steps=41 format=3 uid="uid://dec86i55p8uni"]
 
 [ext_resource type="ArrayMesh" uid="uid://tx13wl332jfv" path="res://modells/maps_origin/GrassLand02.vox" id="1_2occy"]
-[ext_resource type="Script" path="res://game_objects/maps/shared/MapArea.cs" id="1_pysej"]
-[ext_resource type="Script" path="res://game_objects/maps/shared/StrategySwitchMapAreaOneToOne.cs" id="2_iyvmc"]
-[ext_resource type="Script" path="res://game_objects/maps/shared/CommandSwitchMapArea.cs" id="3_40iql"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/map_area/MapArea.cs" id="1_pysej"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/switch_map/strategy/StrategySwitchMapAreaOneToOne.cs" id="2_iyvmc"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/switch_map/command/CommandSwitchMapArea.cs" id="3_40iql"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapExitsToCommand.cs" id="4_g268a"]
 [ext_resource type="PackedScene" uid="uid://cwhrbtjfm2cpc" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp.tscn" id="5_f6lau"]
 [ext_resource type="PackedScene" uid="uid://o436c4ahk6md" path="res://game_objects/characters/elem_monsterss/normal/water/ratfolk_mage/RatfolkMage.tscn" id="6_jp7mb"]
 [ext_resource type="Shader" path="res://game_objects/water/Water.gdshader" id="6_n8q5w"]
-[ext_resource type="Script" path="res://game_objects/maps/StrategySpawnMonsterDefault.cs" id="6_ucl8g"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/spawns_mon/strategy/StrategySpawnMonsterDefault.cs" id="6_ucl8g"]
 [ext_resource type="PackedScene" uid="uid://dks14llooa7jv" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat.tscn" id="7_uqf5h"]
-[ext_resource type="Script" path="res://game_objects/maps/CommandSpawnMonster.cs" id="7_uvyh5"]
-[ext_resource type="Script" path="res://game_objects/maps/MapSpawnAreaToCommand.cs" id="8_iiam7"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/spawns_mon/command/CommandSpawnMonster.cs" id="7_uvyh5"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/MapSpawnAreaToCommand.cs" id="8_iiam7"]
 
 [sub_resource type="Resource" id="Resource_do4e5"]
 script = ExtResource("2_iyvmc")

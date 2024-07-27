@@ -1,16 +1,16 @@
 [gd_scene load_steps=24 format=3 uid="uid://c6ewdecu4o2a8"]
 
 [ext_resource type="ArrayMesh" uid="uid://dxh4hhpb5poro" path="res://modells/maps_origin/Desert02.vox" id="1_5qkjc"]
-[ext_resource type="Script" path="res://game_objects/maps/shared/MapArea.cs" id="1_lu7w6"]
-[ext_resource type="Script" path="res://game_objects/maps/shared/StrategySwitchMapAreaOneToOne.cs" id="2_e7b5v"]
-[ext_resource type="Script" path="res://game_objects/maps/shared/CommandSwitchMapArea.cs" id="3_fxsw4"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/map_area/MapArea.cs" id="1_lu7w6"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/switch_map/strategy/StrategySwitchMapAreaOneToOne.cs" id="2_e7b5v"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/switch_map/command/CommandSwitchMapArea.cs" id="3_fxsw4"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapExitsToCommand.cs" id="4_iytko"]
 [ext_resource type="PackedScene" uid="uid://cwhrbtjfm2cpc" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp.tscn" id="5_a7q3h"]
-[ext_resource type="Script" path="res://game_objects/maps/StrategySpawnMonsterDefault.cs" id="6_hnmus"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/spawns_mon/strategy/StrategySpawnMonsterDefault.cs" id="6_hnmus"]
 [ext_resource type="PackedScene" uid="uid://da0vo8ll2gr8e" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton.tscn" id="6_kjbwa"]
 [ext_resource type="PackedScene" uid="uid://bbv4dpufmesgb" path="res://game_objects/characters/others/the_thief/cat/Cat.tscn" id="7_0muc6"]
-[ext_resource type="Script" path="res://game_objects/maps/CommandSpawnMonster.cs" id="7_chak1"]
-[ext_resource type="Script" path="res://game_objects/maps/MapSpawnAreaToCommand.cs" id="8_7uoqe"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/spawns_mon/command/CommandSpawnMonster.cs" id="7_chak1"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/MapSpawnAreaToCommand.cs" id="8_7uoqe"]
 
 [sub_resource type="Resource" id="Resource_l5uah"]
 script = ExtResource("2_e7b5v")

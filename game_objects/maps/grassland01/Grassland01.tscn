@@ -1,18 +1,19 @@
-[gd_scene load_steps=61 format=3 uid="uid://chy8a4kadxf33"]
+[gd_scene load_steps=62 format=3 uid="uid://chy8a4kadxf33"]
 
 [ext_resource type="ArrayMesh" uid="uid://cie1vuyf6puoo" path="res://modells/maps_origin/GrassLand01.vox" id="1_um27m"]
-[ext_resource type="Script" path="res://game_objects/maps/shared/MapArea.cs" id="1_xj0t1"]
-[ext_resource type="Script" path="res://game_objects/maps/shared/StrategySwitchMapAreaOneToOne.cs" id="2_0takv"]
-[ext_resource type="Script" path="res://game_objects/maps/shared/CommandSwitchMapArea.cs" id="3_jw4wp"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/map_area/MapArea.cs" id="1_xj0t1"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/switch_map/strategy/StrategySwitchMapAreaOneToOne.cs" id="2_0takv"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/switch_map/command/CommandSwitchMapArea.cs" id="3_jw4wp"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapExitsToCommand.cs" id="4_np2cl"]
 [ext_resource type="PackedScene" uid="uid://cwhrbtjfm2cpc" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp.tscn" id="5_h6ya5"]
-[ext_resource type="Script" path="res://game_objects/maps/MapSpawnAreaToCommand.cs" id="5_l3qlo"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/MapSpawnAreaToCommand.cs" id="5_l3qlo"]
 [ext_resource type="Shader" path="res://game_objects/water/Water.gdshader" id="6_10agy"]
 [ext_resource type="PackedScene" uid="uid://o436c4ahk6md" path="res://game_objects/characters/elem_monsterss/normal/water/ratfolk_mage/RatfolkMage.tscn" id="6_d4ob1"]
-[ext_resource type="Script" path="res://game_objects/maps/StrategySpawnMonsterDefault.cs" id="6_dly6u"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/spawns_mon/strategy/StrategySpawnMonsterDefault.cs" id="6_dly6u"]
 [ext_resource type="PackedScene" uid="uid://dks14llooa7jv" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat.tscn" id="7_5fpb5"]
 [ext_resource type="PackedScene" uid="uid://c4w8tue5how1h" path="res://game_objects/water_fall/WaterFall.tscn" id="7_jgemg"]
-[ext_resource type="Script" path="res://game_objects/maps/CommandSpawnMonster.cs" id="7_v52gj"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/spawns_mon/command/CommandSpawnMonster.cs" id="7_v52gj"]
+[ext_resource type="Script" path="res://game_asset_s/grass/Grass.gd" id="14_5r60l"]
 
 [sub_resource type="Resource" id="Resource_2war6"]
 script = ExtResource("2_0takv")
@@ -410,3 +411,15 @@ aabb = AABB(-0.5, 0, -1.5, 1, 0, 3)
 
 [node name="Timer" type="Timer" parent="SpawnArea00"]
 wait_time = 3.0
+
+[node name="Grass00" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 1.008, 1.765)
+script = ExtResource("14_5r60l")
+top_color = Color(0.5, 0.7, 0.3, 1)
+bot_color = Color(0.2, 0.4, 0, 1)
+game_count = 4000
+editor_count = 4000
+area = Vector2(1, 1)
+blade_height = Vector2(0.1, 0.1)
+blade_width = Vector2(0.1, 0.1)
+thread_count = 10

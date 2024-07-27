@@ -1,16 +1,16 @@
 [gd_scene load_steps=34 format=3 uid="uid://drepm3pxypymk"]
 
 [ext_resource type="ArrayMesh" uid="uid://buimxqqccduj0" path="res://modells/maps_origin/Ice01.vox" id="1_fx33p"]
-[ext_resource type="Script" path="res://game_objects/maps/shared/MapArea.cs" id="1_j0yli"]
-[ext_resource type="Script" path="res://game_objects/maps/shared/StrategySwitchMapAreaOneToOne.cs" id="2_smsav"]
-[ext_resource type="Script" path="res://game_objects/maps/shared/CommandSwitchMapArea.cs" id="3_jpjax"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/map_area/MapArea.cs" id="1_j0yli"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/switch_map/strategy/StrategySwitchMapAreaOneToOne.cs" id="2_smsav"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/switch_map/command/CommandSwitchMapArea.cs" id="3_jpjax"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapExitsToCommand.cs" id="4_qoasc"]
 [ext_resource type="PackedScene" uid="uid://bqn2g5rr825g4" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest.tscn" id="5_o2fwl"]
 [ext_resource type="PackedScene" uid="uid://u16qad10a485" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster.tscn" id="6_4fw0t"]
 [ext_resource type="Shader" path="res://game_objects/water/Water.gdshader" id="6_044sp"]
-[ext_resource type="Script" path="res://game_objects/maps/StrategySpawnMonsterDefault.cs" id="6_u5127"]
-[ext_resource type="Script" path="res://game_objects/maps/CommandSpawnMonster.cs" id="7_vih1i"]
-[ext_resource type="Script" path="res://game_objects/maps/MapSpawnAreaToCommand.cs" id="8_x3waw"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/spawns_mon/strategy/StrategySpawnMonsterDefault.cs" id="6_u5127"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/spawns_mon/command/CommandSpawnMonster.cs" id="7_vih1i"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/MapSpawnAreaToCommand.cs" id="8_x3waw"]
 
 [sub_resource type="Resource" id="Resource_2ikj5"]
 script = ExtResource("2_smsav")

@@ -1,0 +1,102 @@
+[gd_scene load_steps=19 format=3 uid="uid://evqriwrfomr1"]
+
+[ext_resource type="Texture2D" uid="uid://ctl7iyn6a5ka7" path="res://game_asset_s/map/beach01.png" id="1_o3yfw"]
+[ext_resource type="Texture2D" uid="uid://h51vfe78hujf" path="res://game_asset_s/map/beach02.png" id="2_re755"]
+[ext_resource type="Texture2D" uid="uid://bp36jnn616bds" path="res://game_asset_s/map/grassland01.png" id="3_tpppr"]
+[ext_resource type="Texture2D" uid="uid://c7f3gmdqic6c6" path="res://game_asset_s/map/grassland02.png" id="4_ltt6p"]
+[ext_resource type="Texture2D" uid="uid://d1vj25uxk7s1p" path="res://game_asset_s/map/grassland03.png" id="5_afws6"]
+[ext_resource type="Texture2D" uid="uid://dqaf6wswb7gth" path="res://game_asset_s/map/grassland04.png" id="6_t1lv5"]
+[ext_resource type="Texture2D" uid="uid://b21t8hdy4g8wn" path="res://game_asset_s/map/jungle01.png" id="7_qejsr"]
+[ext_resource type="Texture2D" uid="uid://btcien10qpcm3" path="res://game_asset_s/map/jungle02.png" id="8_f0cuy"]
+[ext_resource type="Texture2D" uid="uid://dewk8y3jw7uya" path="res://game_asset_s/map/jungle03.png" id="9_xjqxk"]
+[ext_resource type="Texture2D" uid="uid://bnnkp7pegvwjb" path="res://game_asset_s/map/ice01.png" id="10_iajb6"]
+[ext_resource type="Texture2D" uid="uid://c6bckulvcg7gs" path="res://game_asset_s/map/ice02.png" id="11_37y87"]
+[ext_resource type="Texture2D" uid="uid://x6vk78a1pewp" path="res://game_asset_s/map/ice03.png" id="12_f3wvh"]
+[ext_resource type="Texture2D" uid="uid://bxcppria44c7u" path="res://game_asset_s/map/lake01.png" id="13_m0fsr"]
+[ext_resource type="Texture2D" uid="uid://cmnelw2jj7jkm" path="res://game_asset_s/map/lake02.png" id="14_6vfh2"]
+[ext_resource type="Texture2D" uid="uid://vmlbl563br7h" path="res://game_asset_s/map/tomb01.png" id="15_vlflp"]
+[ext_resource type="Texture2D" uid="uid://jhpfairo47qi" path="res://game_asset_s/map/tomb02.png" id="16_1w2ux"]
+[ext_resource type="Texture2D" uid="uid://6wahtyjcnuv8" path="res://game_asset_s/map/desert02.png" id="17_3m4f2"]
+[ext_resource type="Script" path="res://game_objects/world_map/camera_2d.gd" id="18_v0yfd"]
+
+[node name="Map" type="SubViewportContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="."]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Beach01" type="Sprite2D" parent="SubViewport"]
+texture = ExtResource("1_o3yfw")
+
+[node name="Beach02" type="Sprite2D" parent="SubViewport"]
+position = Vector2(770, 0)
+texture = ExtResource("2_re755")
+
+[node name="Grassland01" type="Sprite2D" parent="SubViewport"]
+position = Vector2(-159, -947)
+texture = ExtResource("3_tpppr")
+
+[node name="Grassland02" type="Sprite2D" parent="SubViewport"]
+position = Vector2(-129, -389)
+texture = ExtResource("4_ltt6p")
+
+[node name="Grassland03" type="Sprite2D" parent="SubViewport"]
+position = Vector2(-256, -1351)
+texture = ExtResource("5_afws6")
+
+[node name="Grassland04" type="Sprite2D" parent="SubViewport"]
+position = Vector2(-635, -1042)
+texture = ExtResource("6_t1lv5")
+
+[node name="Jungle01" type="Sprite2D" parent="SubViewport"]
+position = Vector2(289, -939)
+texture = ExtResource("7_qejsr")
+
+[node name="Jungle02" type="Sprite2D" parent="SubViewport"]
+position = Vector2(780, -800)
+texture = ExtResource("8_f0cuy")
+
+[node name="Jungle03" type="Sprite2D" parent="SubViewport"]
+position = Vector2(325, -1423)
+texture = ExtResource("9_xjqxk")
+
+[node name="Ice01" type="Sprite2D" parent="SubViewport"]
+position = Vector2(805, -1431)
+texture = ExtResource("10_iajb6")
+
+[node name="Ice02" type="Sprite2D" parent="SubViewport"]
+position = Vector2(769, -1947)
+texture = ExtResource("11_37y87")
+
+[node name="Ice03" type="Sprite2D" parent="SubViewport"]
+position = Vector2(280, -2134)
+texture = ExtResource("12_f3wvh")
+
+[node name="Lake01" type="Sprite2D" parent="SubViewport"]
+position = Vector2(290, -1806)
+texture = ExtResource("13_m0fsr")
+
+[node name="Lake02" type="Sprite2D" parent="SubViewport"]
+position = Vector2(781, -1071)
+texture = ExtResource("14_6vfh2")
+
+[node name="Tomb01" type="Sprite2D" parent="SubViewport"]
+position = Vector2(-1167, -73)
+texture = ExtResource("15_vlflp")
+
+[node name="Tomb02" type="Sprite2D" parent="SubViewport"]
+position = Vector2(-648, -168)
+texture = ExtResource("16_1w2ux")
+
+[node name="Desert02" type="Sprite2D" parent="SubViewport"]
+position = Vector2(-644, -681)
+texture = ExtResource("17_3m4f2")
+
+[node name="Camera2D" type="Camera2D" parent="SubViewport"]
+script = ExtResource("18_v0yfd")

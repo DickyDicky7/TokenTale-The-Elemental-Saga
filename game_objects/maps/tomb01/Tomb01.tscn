@@ -1,9 +1,9 @@
 [gd_scene load_steps=16 format=3 uid="uid://bklmvxu4nl8a4"]
 
-[ext_resource type="Script" path="res://game_objects/maps/shared/MapArea.cs" id="1_k0vs3"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/map_area/MapArea.cs" id="1_k0vs3"]
 [ext_resource type="ArrayMesh" uid="uid://ms2ebef8ikp2" path="res://modells/maps_origin/Tomb01.vox" id="1_s8p1k"]
-[ext_resource type="Script" path="res://game_objects/maps/shared/StrategySwitchMapAreaOneToOne.cs" id="2_2uul0"]
-[ext_resource type="Script" path="res://game_objects/maps/shared/CommandSwitchMapArea.cs" id="3_67p6y"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/switch_map/strategy/StrategySwitchMapAreaOneToOne.cs" id="2_2uul0"]
+[ext_resource type="Script" path="res://game_objects/maps/shared/switch_map/command/CommandSwitchMapArea.cs" id="3_67p6y"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapExitsToCommand.cs" id="4_vgo6b"]
 
 [sub_resource type="Resource" id="Resource_iwui2"]

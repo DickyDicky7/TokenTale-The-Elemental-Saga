@@ -146,9 +146,6 @@ draw_pass_1 = ExtResource("4_lgmqr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 shape = ExtResource("6_pgv85")
 
-[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
-aabb = AABB(-0.5, 0, -0.5, 1, 0.2, 1)
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_bcnum")
@@ -163,3 +160,6 @@ stream = ExtResource("8_4u6g2")
 pitch_scale = 0.5
 autoplay = true
 parameters/looping = true
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
+aabb = AABB(-0.5, 0, -0.5, 1, 0.2, 1)

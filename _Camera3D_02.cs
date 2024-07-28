@@ -120,8 +120,11 @@ public partial class _Camera3D_02 : Camera3D
         float y = Mathf.Lerp(GlobalPosition.Y, @FollowTarget.GlobalPosition.Y + Offset.Y, LerpWeight);
         float z = Mathf.Lerp(GlobalPosition.Z, @FollowTarget.GlobalPosition.Z + Offset.Z, LerpWeight);
 
-        x = Mathf.Clamp(x, MapSystem.BoundingBox.Position.X + OffsetLimitAxisX.X, MapSystem.BoundingBox.End.X + OffsetLimitAxisX.Y);
-        z = Mathf.Clamp(z, MapSystem.BoundingBox.Position.Z + OffsetLimitAxisZ.X, MapSystem.BoundingBox.End.Z + OffsetLimitAxisZ.Y);
+        if (MapSystem != null)
+        {
+            x = Mathf.Clamp(x, MapSystem.BoundingBox.Position.X + OffsetLimitAxisX.X, MapSystem.BoundingBox.End.X + OffsetLimitAxisX.Y);
+            z = Mathf.Clamp(z, MapSystem.BoundingBox.Position.Z + OffsetLimitAxisZ.X, MapSystem.BoundingBox.End.Z + OffsetLimitAxisZ.Y);
+        }
 
         GlobalPosition =
         GlobalPosition with

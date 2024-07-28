@@ -28,6 +28,11 @@ public abstract partial class Character3D : CharacterBody3D
     public Dictionary<string, PackedScene>
                       @AbilityPackedScenes { get; set; }  =   [      ];
 
+    [Export]
+    public bool  LerpMoveAndStop { get; set; } = true;
+    [Export]
+    public float LerpWeight      { get; set; } = 0.1f;
+
     public virtual void Move(Vector3 @direction, double @delta)
     {
         if (this.@IsStunning)
@@ -42,10 +47,14 @@ public abstract partial class Character3D : CharacterBody3D
             Vector3
             velocity = Velocity;
 
+            if (LerpMoveAndStop)
+            velocity = velocity.Lerp               (
+            @direction * CurrentSpeed, LerpWeight  );
+            else
             velocity = velocity.MoveToward         (
             @direction * CurrentSpeed, Acceleration);
 
-
+            
             if (       !IsOnFloor() )
             {
             velocity+= GetGravity() * (float)delta * Jumpv;
@@ -69,6 +78,10 @@ public abstract partial class Character3D : CharacterBody3D
             velocity =
             Velocity ;
 
+            if (LerpMoveAndStop)
+            velocity = velocity.Lerp               (
+            @direction * CurrentSpeed, LerpWeight  );
+            else
             velocity = velocity.MoveToward         (
             @direction * CurrentSpeed, Deceleration);
 

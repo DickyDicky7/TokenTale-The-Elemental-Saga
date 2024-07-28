@@ -1,0 +1,7 @@
+[ gd_resource type="GradientTexture1D" load_steps=2 format=3 uid="uid://cpe6vhdhit5yr"                                                                                ]
+
+[ext_resource type="Gradient"                                uid="uid://dluecdbjw1x7f" path="res://game_objects/shared/healthbar/Healthbar_Gradient.tres" id="1_uf3ml"]
+
+[resource]
+gradient = ExtResource("1_uf3ml")
+width    = 50

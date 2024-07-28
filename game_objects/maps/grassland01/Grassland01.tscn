@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://chy8a4kadxf33"]
+[gd_scene load_steps=63 format=3 uid="uid://chy8a4kadxf33"]
 
 [ext_resource type="ArrayMesh" uid="uid://cie1vuyf6puoo" path="res://modells/maps_origin/GrassLand01.vox" id="1_um27m"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/map_area/MapArea.cs" id="1_xj0t1"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dks14llooa7jv" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat.tscn" id="7_5fpb5"]
 [ext_resource type="PackedScene" uid="uid://c4w8tue5how1h" path="res://game_objects/water_fall/WaterFall.tscn" id="7_jgemg"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/spawns_mon/command/CommandSpawnMonster.cs" id="7_v52gj"]
+[ext_resource type="Texture2D" uid="uid://bnobdr4xfpnwj" path="res://game_asset_s/dithers/bayer16tile02.png" id="13_jemqo"]
 [ext_resource type="Script" path="res://game_asset_s/grass/Grass.gd" id="14_5r60l"]
 
 [sub_resource type="Resource" id="Resource_2war6"]
@@ -209,6 +210,9 @@ shader_parameter/tile = Vector2(100, 100)
 shader_parameter/height = 0.0
 shader_parameter/wave_sizes = Vector2(2, 2)
 shader_parameter/wave_speed = 1.5
+shader_parameter/DitherStrength = 5.0
+shader_parameter/ColorDepth = 1.0
+shader_parameter/DitherMap = ExtResource("13_jemqo")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_jqed6"]
 material = SubResource("ShaderMaterial_5kqfq")
@@ -228,6 +232,9 @@ shader_parameter/tile = Vector2(25, 25)
 shader_parameter/height = 0.0
 shader_parameter/wave_sizes = Vector2(2, 2)
 shader_parameter/wave_speed = 1.5
+shader_parameter/DitherStrength = 5.0
+shader_parameter/ColorDepth = 1.0
+shader_parameter/DitherMap = ExtResource("13_jemqo")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_60seh"]
 material = SubResource("ShaderMaterial_1g53n")
@@ -247,6 +254,9 @@ shader_parameter/tile = Vector2(13, 13)
 shader_parameter/height = 0.0
 shader_parameter/wave_sizes = Vector2(2, 2)
 shader_parameter/wave_speed = 1.5
+shader_parameter/DitherStrength = 5.0
+shader_parameter/ColorDepth = 1.0
+shader_parameter/DitherMap = ExtResource("13_jemqo")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vn6ux"]
 material = SubResource("ShaderMaterial_1s3qr")
@@ -266,6 +276,9 @@ shader_parameter/tile = Vector2(38, 38)
 shader_parameter/height = 0.0
 shader_parameter/wave_sizes = Vector2(2, 2)
 shader_parameter/wave_speed = 1.5
+shader_parameter/DitherStrength = 5.0
+shader_parameter/ColorDepth = 1.0
+shader_parameter/DitherMap = ExtResource("13_jemqo")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vegxd"]
 material = SubResource("ShaderMaterial_b8dyl")

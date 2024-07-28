@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://d3utn2prn2i0v"]
+[gd_scene load_steps=29 format=3 uid="uid://d3utn2prn2i0v"]
 
 [ext_resource type="Script" path="res://game_objects/maps/shared/map_area/MapArea.cs" id="1_1xkn5"]
 [ext_resource type="ArrayMesh" uid="uid://d1x77t6vep7iy" path="res://modells/maps_origin/Beach02.vox" id="1_5lhr7"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://da0vo8ll2gr8e" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton.tscn" id="6_plxjg"]
 [ext_resource type="PackedScene" uid="uid://dsw38xnjyq7yu" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur.tscn" id="7_baks4"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapSpawnAreaToCommand.cs" id="7_s06wn"]
+[ext_resource type="Texture2D" uid="uid://bnobdr4xfpnwj" path="res://game_asset_s/dithers/bayer16tile02.png" id="13_ur607"]
 
 [sub_resource type="Resource" id="Resource_gv85x"]
 script = ExtResource("3_lt8my")
@@ -80,14 +81,17 @@ shader_parameter/WATER1_COL = Color(0.4, 0.7, 0.7, 1)
 shader_parameter/WATER2_COL = Color(0.3, 0.6, 0.6, 1)
 shader_parameter/FOAM_COL = Color(0.8, 0.9, 0.9, 1)
 shader_parameter/distortion_speed = 2.0
-shader_parameter/tile = Vector2(125, 38)
+shader_parameter/tile = Vector2(126, 38)
 shader_parameter/height = 0.0
 shader_parameter/wave_sizes = Vector2(2, 2)
 shader_parameter/wave_speed = 1.5
+shader_parameter/DitherStrength = 5.0
+shader_parameter/ColorDepth = 1.0
+shader_parameter/DitherMap = ExtResource("13_ur607")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_46smc"]
 material = SubResource("ShaderMaterial_geef8")
-size = Vector2(10, 3)
+size = Vector2(10.065, 3)
 subdivide_width = 64
 subdivide_depth = 64
 

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc7bmk8hdo6qi"]
+
+[ext_resource type="Script"                               path="res://game_objects/shared/healthbar/Healthbar.cs"                     id="1_kcw5m"]
+[ext_resource type="Texture2D"  uid="uid://cpe6vhdhit5yr" path="res://game_objects/shared/healthbar/Healthbar_GradientTexture1D.tres" id="1_w5f2o"]
+
+[node name="Healthbar" type="Sprite3D"]
+transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0)
+billboard = 1
+render_priority = 1
+texture = ExtResource("1_w5f2o")
+script  = ExtResource("1_kcw5m")

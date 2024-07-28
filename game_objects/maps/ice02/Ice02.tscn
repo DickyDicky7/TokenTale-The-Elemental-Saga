@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cvyi3heyqwshf"]
+[gd_scene load_steps=40 format=3 uid="uid://cvyi3heyqwshf"]
 
 [ext_resource type="Script" path="res://game_objects/maps/shared/map_area/MapArea.cs" id="1_850p6"]
 [ext_resource type="ArrayMesh" uid="uid://bdbsobjuir8o7" path="res://modells/maps_origin/Ice02.vox" id="1_eq1ua"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://game_objects/maps/shared/spawns_mon/command/CommandSpawnMonster.cs" id="7_ohfg2"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapSpawnAreaToCommand.cs" id="8_n2khg"]
 [ext_resource type="Shader" path="res://game_objects/water/Water.gdshader" id="9_c3rhp"]
+[ext_resource type="Texture2D" uid="uid://bnobdr4xfpnwj" path="res://game_asset_s/dithers/bayer16tile02.png" id="11_qknyg"]
 
 [sub_resource type="Resource" id="Resource_ycsma"]
 script = ExtResource("2_ff8o6")
@@ -144,6 +145,9 @@ shader_parameter/tile = Vector2(38, 38)
 shader_parameter/height = 0.0
 shader_parameter/wave_sizes = Vector2(2, 2)
 shader_parameter/wave_speed = 1.5
+shader_parameter/DitherStrength = 5.0
+shader_parameter/ColorDepth = 1.0
+shader_parameter/DitherMap = ExtResource("11_qknyg")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_p4urk"]
 material = SubResource("ShaderMaterial_dotfl")

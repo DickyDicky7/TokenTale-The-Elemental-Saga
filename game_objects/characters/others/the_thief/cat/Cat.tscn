@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bbv4dpufmesgb"]
+[gd_scene load_steps=32 format=3 uid="uid://bbv4dpufmesgb"]
 
 [ext_resource type="Script" path="res://game_objects/characters/others/the_thief/cat/Cat.cs" id="1_qqt7b"]
 [ext_resource type="PackedScene" uid="uid://c7i7emx3rn41l" path="res://game_objects/items/elemental_token/ElementalToken.tscn" id="2_00nop"]
@@ -13,16 +13,18 @@
 [ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.tscn" id="6_8htjg"]
 [ext_resource type="Shape3D" uid="uid://blf5opes2r2ci" path="res://game_objects/characters/others/the_thief/cat/Cat_ShapeCast3D.tres" id="6_xrboa"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="7_w13qf"]
-[ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="8_gmbyo"]
+[ext_resource type="PackedScene" uid="uid://dsbep0yr8rwxa" path="res://game_objects/shared/hits_flashing_by_modulate/HitsFlashingByModulate.tscn" id="8_v4tgu"]
 [ext_resource type="Script" path="res://game_objects/shared/Hurtbox3D.cs" id="9_bpd42"]
 [ext_resource type="AudioStream" uid="uid://78f168mnte5m" path="res://game_asset_s/Audio/Retro Sounds 2/Audio/jump1.ogg" id="9_qwh6d"]
 [ext_resource type="PackedScene" uid="uid://bb7ues43wabc1" path="res://game_objects/shared/indicator/Indicator.tscn" id="10_qbgbe"]
 [ext_resource type="CylinderMesh" uid="uid://dxxibi2wmq33" path="res://game_objects/characters/others/the_thief/cat/Cat_Pillar_Mesh.tres" id="18_qh4o5"]
 [ext_resource type="CylinderMesh" uid="uid://7krkenq158jc" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/ShadowMesh.tres" id="19_2u1gp"]
+[ext_resource type="PackedScene" uid="uid://dc7bmk8hdo6qi" path="res://game_objects/shared/healthbar/Healthbar.tscn" id="22_xh5mo"]
 
 [sub_resource type="Animation" id="Animation_oy1ut"]
 length = 0.4
 loop_mode = 1
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -51,6 +53,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_nmp0p"]
 length = 0.4
 loop_mode = 1
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -79,6 +82,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_k0luk"]
 length = 0.4
 loop_mode = 1
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -107,6 +111,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_rsqn7"]
 length = 0.4
 loop_mode = 1
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -134,6 +139,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_ce63d"]
 length = 0.7
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -162,6 +168,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_mgfwe"]
 length = 0.8
 loop_mode = 1
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -190,6 +197,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_rjsop"]
 length = 0.8
 loop_mode = 1
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -217,6 +225,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_mbogb"]
 length = 0.6
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -268,6 +277,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_dxwcj"]
 length = 0.8
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -320,6 +330,7 @@ tracks/3/keys = {
 [sub_resource type="Animation" id="Animation_y0w0d"]
 length = 0.4
 loop_mode = 1
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -392,9 +403,12 @@ debug_enabled = true
 [node name="AnimatedSprite3D_$Main$" type="AnimatedSprite3D" parent="."]
 cast_shadow = 0
 offset = Vector2(0, 16)
+billboard = 1
 texture_filter = 0
 sprite_frames = ExtResource("2_imwov")
 animation = &"CLEAN_0"
+
+[node name="HitsFlashingByModulate" parent="AnimatedSprite3D_$Main$" instance=ExtResource("8_v4tgu")]
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
@@ -434,11 +448,6 @@ process_mode = 4
 script = ExtResource("7_w13qf")
 Sprites = [NodePath("../AnimatedSprite3D_$Main$")]
 
-[node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
-process_mode = 4
-script = ExtResource("8_gmbyo")
-Sprites = [NodePath("../AnimatedSprite3D_$Main$")]
-
 [node name="Indicator" parent="." instance=ExtResource("10_qbgbe")]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
 Modulate = Color(1, 1, 1, 1)
@@ -473,6 +482,10 @@ mesh = ExtResource("18_qh4o5")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.1, 0)
 cast_shadow = 3
 mesh = ExtResource("19_2u1gp")
+
+[node name="Healthbar" parent="." node_paths=PackedStringArray("Character3D") instance=ExtResource("22_xh5mo")]
+transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0.4, 0)
+Character3D = NodePath("..")
 
 [node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
 aabb = AABB(-0.05, 0, -0.05, 0.1, 0.15, 0.1)

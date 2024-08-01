@@ -6,7 +6,6 @@
 [ext_resource type="Resource" uid="uid://bks16vr7o4ojt" path="res://game_objects/characters/shared/EnemiesAbilities.tres" id="2_wq70c"]
 [ext_resource type="Shape3D" uid="uid://c6rxg7lixnpfr" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_CollisionShape3D_Body.tres" id="3_75wp1"]
 [ext_resource type="PackedScene" uid="uid://chwjmy7grdej" path="res://game_objects/shared/status_info/StatusInfo.tscn" id="3_duwsf"]
-[ext_resource type="PackedScene" uid="uid://dsbep0yr8rwxa" path="res://game_objects/shared/hits_flashing_by_modulate/HitsFlashingByModulate.tscn" id="3_ernqa"]
 [ext_resource type="PackedScene" uid="uid://c14s46yvkynh8" path="res://game_objects/items/soul_or_coin/SoulOrCoin.tscn" id="3_us02s"]
 [ext_resource type="BehaviorTree" uid="uid://do56smytaorys" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_BehaviorTree.tres" id="4_ejkyx"]
 [ext_resource type="PackedScene" uid="uid://d214m5mqgg6go" path="res://game_objects/items/heal_drop/HealDrop.tscn" id="4_uhvwj"]
@@ -14,7 +13,7 @@
 [ext_resource type="Shape3D" uid="uid://huqvodapiiy6" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_ShapeCast3D.tres" id="6_2h21h"]
 [ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.tscn" id="6_k7weo"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="7_a3fb2"]
-[ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="8_o3sdr"]
+[ext_resource type="PackedScene" uid="uid://dsbep0yr8rwxa" path="res://game_objects/shared/hits_flashing_by_modulate/HitsFlashingByModulate.tscn" id="8_2wh5j"]
 [ext_resource type="Script" path="res://game_objects/shared/Hurtbox3D.cs" id="10_0cknq"]
 [ext_resource type="AudioStream" uid="uid://cd73trc2f77am" path="res://game_asset_s/Audio/Foley Sounds/Audio/Woosh/woosh6.ogg" id="10_4h44d"]
 [ext_resource type="AudioStream" uid="uid://c3b7hwjendbh2" path="res://game_asset_s/Audio/Retro Sounds 2/Audio/hurt1.ogg" id="10_w4m4w"]
@@ -23,9 +22,11 @@
 [ext_resource type="AudioStream" uid="uid://y6iolu45ni4t" path="res://game_asset_s/Minifantasy_Dungeon_SFX/16_human_walk_stone_2.wav" id="13_3ng5k"]
 [ext_resource type="CylinderMesh" uid="uid://ck6bbive3ijgo" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_Pillar_Mesh.tres" id="22_drujb"]
 [ext_resource type="CylinderMesh" uid="uid://7krkenq158jc" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/ShadowMesh.tres" id="23_j03la"]
+[ext_resource type="PackedScene" uid="uid://dc7bmk8hdo6qi" path="res://game_objects/shared/healthbar/Healthbar.tscn" id="25_5qwuj"]
 
 [sub_resource type="Animation" id="Animation_f2p7a"]
 length = 0.45
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -101,6 +102,7 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id="Animation_828ho"]
 length = 0.5
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -152,6 +154,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_knet3"]
 length = 0.6
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -203,6 +206,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_sd7e2"]
 length = 0.45
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -254,6 +258,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_fneku"]
 length = 0.6
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -333,6 +338,7 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id="Animation_rcpfy"]
 length = 0.3
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -398,6 +404,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_i6myk"]
 length = 0.3
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -464,6 +471,7 @@ tracks/4/keys = {
 [sub_resource type="Animation" id="Animation_eldqj"]
 length = 0.5
 loop_mode = 1
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -492,6 +500,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_sce1p"]
 length = 0.4
 loop_mode = 1
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -543,6 +552,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_7ctsd"]
 length = 0.5
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -601,11 +611,12 @@ debug_enabled = true
 [node name="AnimatedSprite3D_$Main$" type="AnimatedSprite3D" parent="."]
 cast_shadow = 0
 offset = Vector2(3, 16)
+billboard = 1
 texture_filter = 0
 sprite_frames = ExtResource("1_nfvla")
 animation = &"ATTACK_0"
 
-[node name="HitsFlashingByModulate" parent="AnimatedSprite3D_$Main$" instance=ExtResource("3_ernqa")]
+[node name="HitsFlashingByModulate" parent="AnimatedSprite3D_$Main$" instance=ExtResource("8_2wh5j")]
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
@@ -645,11 +656,6 @@ process_mode = 4
 script = ExtResource("7_a3fb2")
 Sprites = [NodePath("../AnimatedSprite3D_$Main$")]
 
-[node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
-process_mode = 4
-script = ExtResource("8_o3sdr")
-Sprites = [NodePath("../AnimatedSprite3D_$Main$")]
-
 [node name="Indicator" parent="." instance=ExtResource("11_0l2o8")]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
 Modulate = Color(1, 0.5, 0, 1)
@@ -686,6 +692,10 @@ mesh = ExtResource("22_drujb")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.1, 0)
 cast_shadow = 3
 mesh = ExtResource("23_j03la")
+
+[node name="Healthbar" parent="." node_paths=PackedStringArray("Character3D") instance=ExtResource("25_5qwuj")]
+transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0.8, 0)
+Character3D = NodePath("..")
 
 [node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
 aabb = AABB(-0.15, 0, -0.15, 0.3, 0.4, 0.3)

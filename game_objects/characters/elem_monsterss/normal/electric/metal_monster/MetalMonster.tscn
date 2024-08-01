@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://u16qad10a485"]
+[gd_scene load_steps=31 format=3 uid="uid://u16qad10a485"]
 
 [ext_resource type="SpriteFrames" uid="uid://0kbvt2fcohxa" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster_SpriteFrames_$Main$.tres" id="1_1wafb"]
 [ext_resource type="Script" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster.cs" id="1_x2fgj"]
@@ -7,14 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://c14s46yvkynh8" path="res://game_objects/items/soul_or_coin/SoulOrCoin.tscn" id="3_c1wq2"]
 [ext_resource type="Shape3D" uid="uid://dnlsnu8nqbmc1" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster_CollisionShape3D_Body.tres" id="3_dqny3"]
 [ext_resource type="PackedScene" uid="uid://chwjmy7grdej" path="res://game_objects/shared/status_info/StatusInfo.tscn" id="3_kbf5y"]
-[ext_resource type="PackedScene" uid="uid://dsbep0yr8rwxa" path="res://game_objects/shared/hits_flashing_by_modulate/HitsFlashingByModulate.tscn" id="3_xt4bl"]
 [ext_resource type="PackedScene" uid="uid://d214m5mqgg6go" path="res://game_objects/items/heal_drop/HealDrop.tscn" id="4_eu44q"]
 [ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.tscn" id="5_jnxj8"]
 [ext_resource type="BlackboardPlan" uid="uid://fsqsabqsafqi" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster_BlackboardPlanBase.tres" id="5_wy6lx"]
 [ext_resource type="Shape3D" uid="uid://dutdm8qf5mh4b" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster_ShapeCast3D.tres" id="6_1cglj"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="7_b48je"]
 [ext_resource type="BehaviorTree" uid="uid://b2bpmha480eof" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster_BehaviorTree.tres" id="7_l33ya"]
-[ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="8_q3e8a"]
+[ext_resource type="PackedScene" uid="uid://dsbep0yr8rwxa" path="res://game_objects/shared/hits_flashing_by_modulate/HitsFlashingByModulate.tscn" id="8_7hmsa"]
 [ext_resource type="Script" path="res://game_objects/shared/Hurtbox3D.cs" id="9_rsvg4"]
 [ext_resource type="AudioStream" uid="uid://b1n5ic1qfa64o" path="res://game_asset_s/Audio/Retro Sounds 1/Audio/laser4.ogg" id="10_24mf6"]
 [ext_resource type="AudioStream" uid="uid://briwxviumndrf" path="res://game_asset_s/Audio/Retro Sounds 2/Audio/hurt5.ogg" id="10_d4w2i"]
@@ -23,9 +22,51 @@
 [ext_resource type="AudioStream" uid="uid://ckmuvdo2mwcah" path="res://game_asset_s/Minifantasy_Dungeon_SFX/15_human_dash_2.wav" id="13_f6cde"]
 [ext_resource type="CylinderMesh" uid="uid://br3ybdt1fw1yc" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/MetalMonster_Pillar_Mesh.tres" id="22_b0dsy"]
 [ext_resource type="CylinderMesh" uid="uid://7krkenq158jc" path="res://game_objects/characters/elem_monsterss/normal/electric/metal_monster/ShadowMesh.tres" id="23_3xq5o"]
+[ext_resource type="PackedScene" uid="uid://dc7bmk8hdo6qi" path="res://game_objects/shared/healthbar/Healthbar.tscn" id="25_ukfa5"]
+
+[sub_resource type="Animation" id="Animation_83xta"]
+length = 0.001
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite3D_$Main$:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flippable3DSpriteBase3DConsolidation:FlipV")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Healthbar:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_odyw3"]
 length = 0.5
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -100,7 +141,8 @@ tracks/5/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_y27f8"]
-length = 0.733333
+length = 1.45
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -108,10 +150,10 @@ tracks/0/path = NodePath("AnimatedSprite3D_$Main$:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667, 0.533333, 0.6, 0.666667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3, 1.35, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -132,7 +174,7 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.7333),
+"times": PackedFloat32Array(1.45),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -142,14 +184,14 @@ tracks/2/keys = {
 tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("AnimatedSprite3D_$Main$/HitsFlashingModulate")
+tracks/3/path = NodePath("AnimatedSprite3D_$Main$/HitsFlashingByModulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.45),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [0.73, 0.1, false],
+"args": [1.0, 0.1, false],
 "method": &"PlayDeadEffect"
 }]
 }
@@ -177,9 +219,46 @@ tracks/5/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AnimatedSprite3D_$Main$:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.225, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.5, 0), Vector3(0, 0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Flippable3DSpriteBase3DConsolidation:FlipV")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.225, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Healthbar:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_eykw2"]
-length = 0.333333
+length = 0.25
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -187,7 +266,7 @@ tracks/0/path = NodePath("AnimatedSprite3D_$Main$:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667),
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4]
@@ -207,14 +286,14 @@ tracks/1/keys = {
 tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite3D_$Main$/HitsFlashingModulate")
+tracks/2/path = NodePath("AnimatedSprite3D_$Main$/HitsFlashingByModulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [0.33, 0.1, false],
+"args": [0.25, 0.1, false],
 "method": &"PlayHurtEffect"
 }]
 }
@@ -244,8 +323,9 @@ tracks/4/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_jh0ta"]
-length = 0.533333
+length = 0.4
 loop_mode = 1
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -253,7 +333,7 @@ tracks/0/path = NodePath("AnimatedSprite3D_$Main$:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667),
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
@@ -270,10 +350,23 @@ tracks/1/keys = {
 "update": 1,
 "values": ["IDLE"]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Healthbar:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_kf5ob"]
 length = 0.35
 loop_mode = 1
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -329,7 +422,8 @@ _data = {
 "DEAD": SubResource("Animation_y27f8"),
 "HURT": SubResource("Animation_eykw2"),
 "IDLE": SubResource("Animation_jh0ta"),
-"MOVE": SubResource("Animation_kf5ob")
+"MOVE": SubResource("Animation_kf5ob"),
+"RESET": SubResource("Animation_83xta")
 }
 
 [node name="MetalMonster" type="CharacterBody3D"]
@@ -353,11 +447,13 @@ debug_enabled = true
 cast_shadow = 0
 offset = Vector2(0, 28)
 flip_h = true
+billboard = 1
 texture_filter = 0
 sprite_frames = ExtResource("1_1wafb")
-animation = &"CHARGE"
+animation = &"DEAD"
+autoplay = "IDLE"
 
-[node name="HitsFlashingModulate" parent="AnimatedSprite3D_$Main$" instance=ExtResource("3_xt4bl")]
+[node name="HitsFlashingByModulate" parent="AnimatedSprite3D_$Main$" instance=ExtResource("8_7hmsa")]
 
 [node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
@@ -367,6 +463,7 @@ shape = ExtResource("3_dqny3")
 libraries = {
 "": SubResource("AnimationLibrary_tkksa")
 }
+autoplay = "IDLE"
 
 [node name="BT_______Player" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("7_l33ya")
@@ -398,11 +495,6 @@ script = ExtResource("7_b48je")
 Sprites = [NodePath("../AnimatedSprite3D_$Main$")]
 FlipHInverted = true
 
-[node name="LookinAtCamSpriteBase3DConsolidation" type="Node" parent="." node_paths=PackedStringArray("Sprites")]
-process_mode = 4
-script = ExtResource("8_q3e8a")
-Sprites = [NodePath("../AnimatedSprite3D_$Main$")]
-
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
@@ -420,7 +512,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 shape = ExtResource("3_dqny3")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_24mf6")
+stream = ExtResource("10_d4w2i")
 
 [node name="GroundDetector" type="Node3D" parent="."]
 
@@ -438,6 +530,10 @@ mesh = ExtResource("22_b0dsy")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.1, 0)
 cast_shadow = 3
 mesh = ExtResource("23_3xq5o")
+
+[node name="Healthbar" parent="." node_paths=PackedStringArray("Character3D") instance=ExtResource("25_ukfa5")]
+transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0.6, 0)
+Character3D = NodePath("..")
 
 [node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
 aabb = AABB(-0.1, 0, -0.1, 0.2, 0.4, 0.2)

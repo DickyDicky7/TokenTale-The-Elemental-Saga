@@ -37,8 +37,8 @@ public partial class StateMainCharacterHurt : State
 
     [Export]
     [ExportGroup("Components @@")]
-    public HitsFlashingByModulateGlowVersion
-           HitsFlashingByModulateGlowVersion
+    public HitsFlashingByModulate
+           HitsFlashingByModulate
     {
         get;
         set;
@@ -48,7 +48,7 @@ public partial class StateMainCharacterHurt : State
     {
                     base._Enter();
 
-        HitsFlashingByModulateGlowVersion.PlayHurtEffect(duration: 1.0f, timeStep: 0.1f, firstActive: false);
+        HitsFlashingByModulate.PlayHurtEffect(duration: 1.0f, timeStep: 0.1f, firstActive: false);
         Tween tween =
 MainCharacter.        CreateTween();
         tween.TweenCallback(

@@ -9,6 +9,10 @@ public partial class StateMainCharacterSafe : State
     public State HurtState { get; set; }
 
     [Export]
+    [ExportGroup("Transition ##")]
+    public State HealState { get; set; }
+
+    [Export]
     [ExportGroup("Components @@")]
     public EyeSight3D
            EyeSight3D
@@ -53,12 +57,19 @@ public partial class StateMainCharacterSafe : State
     {
                     base._Leave() ;
 
-        MainCharacter.HealthChange +=
-        MainCharacter_HealthChange;
+           MainCharacter.HealthChange -=
+           MainCharacter_HealthChange;
     }
 
     private void MainCharacter_HealthChange(float @damage)
     {
-        ChangeState(HurtState);
+        if (damage > 0)
+        {
+            ChangeState(HurtState);
+        }
+        else
+        {
+            ChangeState(HealState);
+        }
     }
 }

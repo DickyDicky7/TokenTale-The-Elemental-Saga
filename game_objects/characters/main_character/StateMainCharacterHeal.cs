@@ -1,22 +1,17 @@
-using Godot;
+﻿using Godot;
 
 namespace TokenTaleTheElementalSaga;
 
-public partial class StateMainCharacterDead : State
+public partial class StateMainCharacterHeal : State
 {
+    [Export]
+    [ExportGroup("Transition ##")]
+    public State SafeState { get; set; }
+
     [Export]
     [ExportGroup("Components @@")]
     public MainCharacter
            MainCharacter
-    {
-        get;
-        set;
-    }
-
-    [Export]
-    [ExportGroup("Components @@")]
-    public AnimationTree
-           AnimationTree
     {
         get;
         set;
@@ -53,14 +48,25 @@ public partial class StateMainCharacterDead : State
     {
                     base._Enter();
 
-        HitsFlashingByModulate.PlayDeadEffect(duration: 0.5f, timeStep: 0.1f, firstActive: false);
-        AnimationTree.Set
-("parameters/STATE/transition_request", "DEAD");
+        HitsFlashingByModulate.PlayHealEffect(duration: 1.0f, timeStep: 0.1f, firstActive: false);
+        Tween tween =
+MainCharacter.        CreateTween();
+        tween.TweenCallback(
+                   Callable.From(() => ChangeState(SafeState)))
+             .     SetDelay( 1.0f );
 
         AudioStreamPlayer.Stream =
         AudioStream              ;
         AudioStreamPlayer.Play( );
 
     }
-
 }
+
+
+
+
+
+
+
+
+

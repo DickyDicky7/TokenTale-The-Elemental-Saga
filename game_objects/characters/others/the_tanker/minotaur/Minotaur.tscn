@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dsw38xnjyq7yu"]
+[gd_scene load_steps=36 format=3 uid="uid://dsw38xnjyq7yu"]
 
 [ext_resource type="SpriteFrames" uid="uid://b6px143pmxsue" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur_SpriteFrames_$Main$.tres" id="1_nfvla"]
 [ext_resource type="Script" path="res://game_objects/characters/others/the_tanker/minotaur/Minotaur.cs" id="1_scwcr"]
@@ -335,6 +335,18 @@ tracks/5/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CollisionShape3D_Body:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_rcpfy"]
 length = 0.3
@@ -496,6 +508,18 @@ tracks/1/keys = {
 "update": 1,
 "values": ["IDLE"]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape3D_Body:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_sce1p"]
 length = 0.4
@@ -578,6 +602,21 @@ tracks/1/keys = {
 "values": ["TAUNT"]
 }
 
+[sub_resource type="Animation" id="Animation_c0qlp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape3D_Body:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_swxwo"]
 _data = {
 "ATTACK_0": SubResource("Animation_f2p7a"),
@@ -589,6 +628,7 @@ _data = {
 "HURT_1": SubResource("Animation_i6myk"),
 "IDLE": SubResource("Animation_eldqj"),
 "MOVE": SubResource("Animation_sce1p"),
+"RESET": SubResource("Animation_c0qlp"),
 "TAUNT": SubResource("Animation_7ctsd")
 }
 

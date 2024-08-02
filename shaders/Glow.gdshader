@@ -11,9 +11,3 @@ void fragment()
 	ALBEDO *= color.rgb * MODULATE.rgb;
 	ALPHA  *= color. a  * MODULATE. a ;
 }
-
-
-
-
-
-

@@ -8,6 +8,8 @@ public partial class HitsFlashingByModulate : Node
     public Color DeadColor { get; set; } = Color.Color8(255, 255, 255, 000);
     [Export]
     public Color HurtColor { get; set; } = Color.Color8(255, 000, 000, 255);
+    [Export]
+    public Color HealColor { get; set; } = Color.Color8(000, 255, 000, 255);
     public Color BaseColor { get; set; }
 
     [Export]
@@ -18,6 +20,10 @@ public partial class HitsFlashingByModulate : Node
     public Tween.      EaseType HurtEasingfuncType { get; set; } = Tween.      EaseType.In    ; // For Modulating Smoothly
     [Export]
     public Tween.TransitionType HurtTransitionType { get; set; } = Tween.TransitionType.Linear; // For Modulating Smoothly
+    [Export]
+    public Tween.      EaseType HealEasingfuncType { get; set; } = Tween.      EaseType.In    ; // For Modulating Smoothly
+    [Export]
+    public Tween.TransitionType HealTransitionType { get; set; } = Tween.TransitionType.Linear; // For Modulating Smoothly
 
     public AnimatedSprite3D
            AnimatedSprite
@@ -102,6 +108,40 @@ public partial class HitsFlashingByModulate : Node
                 TweenProperty (    AnimatedSprite , "modulate", BaseColor, @timeStep)
                      .SetEase (HurtEasingfuncType)
                      .SetTrans(HurtTransitionType);
+    }
+
+    // TIME IN SECONDS
+    public void PlayHealEffect(
+    float @duration,
+    float @timeStep,
+    bool  @firstActive        )
+    {
+        Tween tween = CreateTween();
+        for (float currentTimeStep  = 0.0f     ;
+                   currentTimeStep <= @duration;
+                   currentTimeStep += @timeStep)
+        {
+            if (@firstActive)
+            {
+                tween.
+                TweenProperty (    AnimatedSprite , "modulate", HealColor, @timeStep)
+                     .SetEase (HealEasingfuncType)
+                     .SetTrans(HealTransitionType);
+            }
+            else
+            {
+                tween.
+                TweenProperty (    AnimatedSprite , "modulate", BaseColor, @timeStep)
+                     .SetEase (HealEasingfuncType)
+                     .SetTrans(HealTransitionType);
+            }
+                @firstActive =
+            !   @firstActive ;
+        }
+                tween.
+                TweenProperty (    AnimatedSprite , "modulate", BaseColor, @timeStep)
+                     .SetEase (HealEasingfuncType)
+                     .SetTrans(HealTransitionType);
     }
 
 }

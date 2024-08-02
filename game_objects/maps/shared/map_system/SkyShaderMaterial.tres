@@ -1,0 +1,46 @@
+[ gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://cwlvtjhkffvdb"                                                                                                                                                                                                         ]
+
+[ext_resource                                                                      type="Shader" path="res://game_objects/maps/shared/map_system/SkyShader.gdshader" id="1_cqgyy"                                                                                                           ]
+[ext_resource                                                                                                                                                                    type="Texture2D" uid="uid://bnobdr4xfpnwj" path="res://game_asset_s/dithers/bayer16tile02.png" id="2_3tqdk"]
+
+[sub_resource type="FastNoiseLite"  id="FastNoiseLite_hc5f7"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_b2osn"]
+ width = 1024
+height = 1024
+seamless = true
+noise = SubResource("FastNoiseLite_hc5f7")
+
+[sub_resource type="FastNoiseLite"  id="FastNoiseLite_lsb8n"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3yx63"]
+ width = 1024
+height = 1024
+seamless = true
+noise = SubResource("FastNoiseLite_lsb8n")
+
+[resource]
+shader =  ExtResource("1_cqgyy")
+shader_parameter/sky_top_color      = Color(0.3, 0.5, 0.5, 1)
+shader_parameter/sky_horizon_color  = Color(1  , 1  , 1  , 1)
+shader_parameter/sky_curve  = 0.15
+shader_parameter/sky_energy = 1.00
+shader_parameter/sky_cover_modulate = Color(1  , 1  , 1  , 1)
+                                                             shader_parameter/ground_bottom_color = Color(0.1, 0.1, 0.1, 1)
+                                                                                                                           shader_parameter/ground_horizon_color = Color(1, 1, 1, 1)
+shader_parameter/ground_curve  = 0.02
+shader_parameter/ground_energy = 1.00
+shader_parameter/sun_angle_max = 0.523599
+shader_parameter/sun_curve = 0.15
+shader_parameter/exposure  = 1.00
+shader_parameter/dither_intensity = 1.0
+shader_parameter/cloud_on = false
+shader_parameter/cloud_direction1 = Vector2( -1 ,  1 )
+shader_parameter/cloud_direction2 = Vector2(  1 , -1 )
+shader_parameter/cloud_scale = Vector2(0.1, 0.1)
+shader_parameter/cloud_distance = 0.0
+shader_parameter/cloud_speed1 = 1.0
+shader_parameter/cloud_speed2 = 1.0
+shader_parameter/dither_pattern = ExtResource("2_3tqdk")
+shader_parameter/cloud_texture1 = SubResource("NoiseTexture2D_b2osn")
+shader_parameter/cloud_texture2 = SubResource("NoiseTexture2D_3yx63")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bnhb48jc0sx4w"]
+[gd_scene load_steps=40 format=3 uid="uid://bnhb48jc0sx4w"]
 
 [ext_resource type="Script" path="res://game_objects/maps/shared/map_system/MapSystem.cs" id="1_5theo"]
 [ext_resource type="NavigationMesh" uid="uid://n7p8vl187hgc" path="res://game_objects/maps/shared/map_system/MapSystem_NavigationMesh.tres" id="2_gsxuj"]
@@ -38,6 +38,7 @@
 [ext_resource type="AudioStream" uid="uid://p2kjo8vjiq6t" path="res://game_asset_s/butterfly - looped ambience sounds pack/butterfly - looped ambience sounds pack/Winter Storm.wav" id="32_l8obc"]
 [ext_resource type="AudioStream" uid="uid://cgx0hqd0gt14l" path="res://game_asset_s/butterfly - looped ambience sounds pack/butterfly - looped ambience sounds pack/Dark Cave.wav" id="33_ieb7i"]
 [ext_resource type="Material" uid="uid://47qiehdo4hvh" path="res://game_objects/maps/shared/map_system/MapSystem_MapArea_SurfaceMaterial.tres" id="35_tq240"]
+[ext_resource type="Material" uid="uid://cwlvtjhkffvdb" path="res://game_objects/maps/shared/map_system/SkyShaderMaterial.tres" id="36_26oh3"]
 
 [node name="MapSystem" type="Node" node_paths=PackedStringArray("DirectionalLight3D", "ScreenTransition", "MapAreaPlaceHolder")]
 script = ExtResource("1_5theo")
@@ -50,6 +51,8 @@ AmbientAudioStreams = [ExtResource("28_tdxof"), ExtResource("28_tdxof"), ExtReso
 MapAreaPlaceHolder = NodePath("NavigationRegion3D")
 Material = ExtResource("35_tq240")
 MaterialApplying = true
+SkyShaderMaterial = ExtResource("36_26oh3")
+SkyShaderMaterialApplying = true
 
 [node name="Env" type="WorldEnvironment" parent="."]
 environment = ExtResource("27_8temk")

@@ -9,6 +9,8 @@ public partial class _Camera3D_02 : Camera3D
 {
     public bool IsZoomedIn { get; set; } = false;
     public Vect   Offset   { get; set; }
+    public Vect   OffsetTo { get; set; }
+    public Vect                         RotationDegreesTo { get; set; }
 
     [Export]
     public Tween.TransitionType
@@ -49,6 +51,8 @@ public partial class _Camera3D_02 : Camera3D
 
         Offset = Position          ;
         Fov    = FovWhenNotZoomedIn;
+                 OffsetTo =          Offset;
+        RotationDegreesTo = RotationDegrees;
     }
 
     public override void _Input(InputEvent @event)
@@ -97,6 +101,18 @@ public partial class _Camera3D_02 : Camera3D
                  IsZoomedIn =!true;
         }
 
+        if (Input.IsActionJustPressed("Q"))
+        {
+                     OffsetTo = Offset.Rotated(Vect.Down, +Mathf.DegToRad(45));
+            RotationDegreesTo = RotationDegrees with { Y = RotationDegrees.Y - 45 };
+        }
+        else
+        if (Input.IsActionJustPressed("E"))
+        {
+                     OffsetTo = Offset.Rotated(Vect.Down, -Mathf.DegToRad(45));
+            RotationDegreesTo = RotationDegrees with { Y = RotationDegrees.Y + 45 };
+        }
+
         if (CurrentShakeStrength > 0)
         {
             CurrentShakeStrength = Mathf.Lerp(CurrentShakeStrength, 0.0f, ShakeFade * (float)@delta);
@@ -116,7 +132,7 @@ public partial class _Camera3D_02 : Camera3D
 
         //Vector2 cameraSize = (Vector2)GetWindow().Size * 0.01f;
 
-        float x = Mathf.Lerp(GlobalPosition.X, @FollowTarget.GlobalPosition.X           , LerpWeight);
+        float x = Mathf.Lerp(GlobalPosition.X, @FollowTarget.GlobalPosition.X + Offset.X, LerpWeight);
         float y = Mathf.Lerp(GlobalPosition.Y, @FollowTarget.GlobalPosition.Y + Offset.Y, LerpWeight);
         float z = Mathf.Lerp(GlobalPosition.Z, @FollowTarget.GlobalPosition.Z + Offset.Z, LerpWeight);
 
@@ -133,6 +149,9 @@ public partial class _Camera3D_02 : Camera3D
             Y = y,
             Z = z,
         };
+
+                 Offset =          OffsetTo;
+        RotationDegrees = RotationDegreesTo;
     }
 
     [Export]
@@ -152,6 +171,8 @@ public partial class _Camera3D_02 : Camera3D
                    (float)GD.RandRange( -CurrentShakeStrength , +CurrentShakeStrength));
     }
 }
+
+
 
 
 

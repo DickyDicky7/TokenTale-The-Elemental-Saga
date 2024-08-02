@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cvyi3heyqwshf"]
+[gd_scene load_steps=42 format=3 uid="uid://cvyi3heyqwshf"]
 
 [ext_resource type="Script" path="res://game_objects/maps/shared/map_area/MapArea.cs" id="1_850p6"]
 [ext_resource type="ArrayMesh" uid="uid://bdbsobjuir8o7" path="res://modells/maps_origin/Ice02.vox" id="1_eq1ua"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapSpawnAreaToCommand.cs" id="8_n2khg"]
 [ext_resource type="Shader" path="res://game_objects/water/Water.gdshader" id="9_c3rhp"]
 [ext_resource type="Texture2D" uid="uid://bnobdr4xfpnwj" path="res://game_asset_s/dithers/bayer16tile02.png" id="11_qknyg"]
+[ext_resource type="Shader" path="res://shaders/rain_and_snow_shader.gdshader" id="12_y4vuf"]
 
 [sub_resource type="Resource" id="Resource_ycsma"]
 script = ExtResource("2_ff8o6")
@@ -155,6 +156,21 @@ size = Vector2(3, 3)
 subdivide_width = 64
 subdivide_depth = 64
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xtsae"]
+shader = ExtResource("12_y4vuf")
+shader_parameter/rain_amount = 200.0
+shader_parameter/near_rain_length = 0.1
+shader_parameter/far_rain_length = 0.1
+shader_parameter/near_rain_width = 0.1
+shader_parameter/far_rain_width = 0.1
+shader_parameter/near_rain_transparency = 1.0
+shader_parameter/far_rain_transparency = 0.5
+shader_parameter/rain_color = Color(0.8, 0.8, 0.8, 1)
+shader_parameter/base_rain_speed = 0.5
+shader_parameter/additional_rain_speed = 0.5
+shader_parameter/slant = 0.5
+shader_parameter/use_snow_instead = true
+
 [node name="Ice02" type="Node3D" node_paths=PackedStringArray("Entrances", "MeshInstance3D")]
 script = ExtResource("1_850p6")
 Entrances = [NodePath("Entrance00"), NodePath("Entrance01"), NodePath("Entrance02"), NodePath("Entrance03"), NodePath("Entrance04")]
@@ -242,3 +258,12 @@ aabb = AABB(-0.5, 0, -0.5, 1, 0, 1)
 
 [node name="Timer" type="Timer" parent="SpawnArea00"]
 wait_time = 3.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_xtsae")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)

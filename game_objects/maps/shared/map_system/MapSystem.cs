@@ -138,9 +138,12 @@ System.Enum.Parse<AvailableMapArea>(
             GetNode<SoundManagerBGMAmbient>  (
     $"/root/{nameof(SoundManagerBGMAmbient)}").CrossfadeTo(AmbientAudioStreams[(int)currentMapArea]);
 
-            if (MaterialApplying)
+            if (         MaterialApplying)
                    mapArea.MeshInstance3D.Mesh.SurfaceSetMaterial(
                                                       0, Material);
+
+            if (SkyShaderMaterialApplying)
+              @Environment.Sky.SkyMaterial  =  @SkyShaderMaterial ;
         }
 
         //
@@ -256,6 +259,22 @@ catch
     [Export]
     public bool
            MaterialApplying
+    {
+        get;
+        set;
+    }
+
+    [Export]
+    public Material
+  SkyShaderMaterial
+    {
+        get;
+        set;
+    }
+
+    [Export]
+    public bool
+  SkyShaderMaterialApplying
     {
         get;
         set;

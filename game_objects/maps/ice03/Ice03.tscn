@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b2135rs8j3c8k"]
+[gd_scene load_steps=33 format=3 uid="uid://b2135rs8j3c8k"]
 
 [ext_resource type="Script" path="res://game_objects/maps/shared/map_area/MapArea.cs" id="1_8c5rt"]
 [ext_resource type="ArrayMesh" uid="uid://bnfgqu6solq7o" path="res://modells/maps_origin/Ice03.vox" id="1_wu00s"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bqn2g5rr825g4" path="res://game_objects/characters/elem_monsterss/normal/ice/kobold____priest/KoboldPriest.tscn" id="5_yaa23"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/spawns_mon/command/CommandSpawnMonster.cs" id="6_1kk1w"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapSpawnAreaToCommand.cs" id="7_3x6p0"]
+[ext_resource type="Shader" path="res://shaders/rain_and_snow_shader.gdshader" id="10_hcpgx"]
 
 [sub_resource type="Resource" id="Resource_agmst"]
 script = ExtResource("2_f72js")
@@ -107,6 +108,21 @@ size = Vector3(1, 1, 0.01)
 [sub_resource type="BoxShape3D" id="BoxShape3D_wsnio"]
 margin = 0.05
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g6pm5"]
+shader = ExtResource("10_hcpgx")
+shader_parameter/rain_amount = 200.0
+shader_parameter/near_rain_length = 0.1
+shader_parameter/far_rain_length = 0.1
+shader_parameter/near_rain_width = 0.1
+shader_parameter/far_rain_width = 0.1
+shader_parameter/near_rain_transparency = 1.0
+shader_parameter/far_rain_transparency = 0.5
+shader_parameter/rain_color = Color(0.8, 0.8, 0.8, 1)
+shader_parameter/base_rain_speed = 0.5
+shader_parameter/additional_rain_speed = 0.5
+shader_parameter/slant = 1.0
+shader_parameter/use_snow_instead = true
+
 [node name="Ice03" type="Node3D" node_paths=PackedStringArray("Entrances", "MeshInstance3D")]
 script = ExtResource("1_8c5rt")
 Entrances = [NodePath("Entrance00"), NodePath("Entrance01"), NodePath("Entrance02"), NodePath("Entrance03")]
@@ -174,3 +190,12 @@ aabb = AABB(-0.5, 0, -0.5, 1, 0, 1)
 
 [node name="Timer" type="Timer" parent="SpawnArea00"]
 wait_time = 3.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_g6pm5")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)

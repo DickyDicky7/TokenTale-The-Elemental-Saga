@@ -181,5 +181,29 @@ public static class Extension
         @node3D.GetViewport()
                .GetCamera3D()            );
     }
+
+    public static Vector3 GetPointOnNavigationMap                                              (
+      this Node3D @node3D,
+                  Vector3 @startPoint,
+                  Vector3 @ceasePoint, float @minDistanceFromEdge, float @normalizedCoefficient)
+    {
+        Rid map = @node3D.GetWorld3D()
+                         .          NavigationMap;
+        Vector3 closestPoint = NavigationServer3D.MapGetClosestPoint(map, @ceasePoint);
+        Vector3        delta =                          closestPoint  -   @ceasePoint ;
+        bool isOnMap = delta.IsZeroApprox();
+        if (!isOnMap         &&         minDistanceFromEdge > 0)
+        {
+                       delta  = delta . Normalized()       ;
+                closestPoint += delta * minDistanceFromEdge;
+        }
+        if (Mathf.Abs(@ceasePoint.Y
+                 -   closestPoint.Y) >= 0.02f)
+        {
+            return @node3D.GetPointOnNavigationMap(@startPoint, @ceasePoint + (@startPoint - @ceasePoint).Normalized() * @normalizedCoefficient, @minDistanceFromEdge, @normalizedCoefficient);
+        }
+            return   closestPoint;
+    }
 }
+
 

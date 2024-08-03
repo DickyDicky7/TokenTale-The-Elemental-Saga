@@ -74,7 +74,7 @@ public partial class MainCharacter : Character3D
         VisitorAbilityDispatch = VisitorAbilityDispatch.Duplicate(subresources: true) as AlliesVisitor;
 
 
-					base._Ready();
+                    base._Ready();
                     this.        SetupVisitor();
                     this.PairEBraceletAndEJar();
     }

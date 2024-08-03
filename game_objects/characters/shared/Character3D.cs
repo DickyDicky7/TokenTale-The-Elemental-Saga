@@ -174,13 +174,7 @@ public abstract partial class Character3D : CharacterBody3D
 
     public void BePushed(Vector3 @velocity)
     {
-//  OLD PUSH
-//      this.Velocity =          @velocity;
-//      this.MoveAndSlide();
-//      this.Velocity =  Vector3.Zero     ;
-//  NEW PUSH
-        Tween tween = CreateTween();
-        tween.TweenProperty(this, "global_position", GlobalPosition + @velocity.Normalized() * CurrentSpeed, 1.0d).SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Quart);
+        CreateTween().TweenProperty(this, "global_position", this.GetPointOnNavigationMap(startPoint: GlobalPosition, ceasePoint: GlobalPosition + @velocity.Normalized() * CurrentSpeed, minDistanceFromEdge: 0.00f, normalizedCoefficient: 0.02f), 1.0d).SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Quart);
     }
 
     public void    StartStun(float @duration)

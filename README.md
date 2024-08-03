@@ -39,6 +39,16 @@ https://github.com/user-attachments/assets/503bea6d-f388-4bb6-bdd0-7ec8d71ab620
 
 </p>
 <p align="center">
+Game demo up to this point (August 03, 2024)<br/>
+
+<a href="https://drive.google.com/file/d/1kscVpeeyAJH5AmCCohY2nBHSCrw4QAwR/view?usp=sharing">DEMO</a>
+
+<br/>
+
+https://github.com/user-attachments/assets/84fce659-a2c0-4c64-9d2c-a456ded01b60
+
+</p>
+<p align="center">
 Game design and related documents:
   <br/>
   <a href="https://drive.google.com/drive/folders/15IapI7k0SIZZkjCpUGNDuVRXkSxtquTw?usp=drive_link">Here #01</a>

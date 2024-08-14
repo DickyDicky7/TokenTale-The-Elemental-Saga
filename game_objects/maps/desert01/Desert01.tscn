@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dl5g58ti3j7ke"]
+[gd_scene load_steps=38 format=3 uid="uid://dl5g58ti3j7ke"]
 
 [ext_resource type="ArrayMesh" uid="uid://c20k1tyxsemwm" path="res://modells/maps_origin/Desert01.vox" id="1_06r8e"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/map_area/MapArea.cs" id="1_mawhj"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://game_objects/maps/shared/spawns_mon/strategy/StrategySpawnMonsterDefault.cs" id="6_58f8u"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/spawns_mon/command/CommandSpawnMonster.cs" id="7_e05fl"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapSpawnAreaToCommand.cs" id="8_5xukj"]
+[ext_resource type="Shader" path="res://shaders/Distortion.gdshader" id="10_55a1g"]
 
 [sub_resource type="Resource" id="Resource_8nx2q"]
 script = ExtResource("2_iv8vh")
@@ -110,6 +111,29 @@ margin = 0.05
 [sub_resource type="BoxShape3D" id="BoxShape3D_lmo8q"]
 margin = 0.05
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uvqw1"]
+load_path = "res://.godot/imported/icon.svg-eab56e41a2e0df3ec97a20849e20a122.ctex"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1wfad"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_iejsi"]
+noise = SubResource("FastNoiseLite_1wfad")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5aoml"]
+render_priority = 0
+shader = ExtResource("10_55a1g")
+shader_parameter/alpha = 0.5
+shader_parameter/speed = 0.1
+shader_parameter/distortion = 0.03
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = null
+shader_parameter/albedo_texture = SubResource("CompressedTexture2D_uvqw1")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_iejsi")
+
+[sub_resource type="BoxMesh" id="BoxMesh_8bdx8"]
+material = SubResource("ShaderMaterial_5aoml")
+size = Vector3(11, 5, 11)
+
 [node name="Desert01" type="Node3D" node_paths=PackedStringArray("Entrances", "MeshInstance3D")]
 script = ExtResource("1_mawhj")
 Entrances = [NodePath("Entrance00"), NodePath("Entrance01"), NodePath("Entrance02"), NodePath("Entrance03")]
@@ -183,3 +207,6 @@ aabb = AABB(-0.25, 0, -0.75, 0.5, 0, 1.5)
 
 [node name="Timer" type="Timer" parent="SpawnArea00"]
 wait_time = 3.0
+
+[node name="DistortionBox" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_8bdx8")

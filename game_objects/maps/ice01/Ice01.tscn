@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://drepm3pxypymk"]
+[gd_scene load_steps=44 format=3 uid="uid://drepm3pxypymk"]
 
 [ext_resource type="ArrayMesh" uid="uid://buimxqqccduj0" path="res://modells/maps_origin/Ice01.vox" id="1_fx33p"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/map_area/MapArea.cs" id="1_j0yli"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapSpawnAreaToCommand.cs" id="8_x3waw"]
 [ext_resource type="Texture2D" uid="uid://bnobdr4xfpnwj" path="res://game_asset_s/dithers/bayer16tile02.png" id="12_r6xup"]
 [ext_resource type="Shader" path="res://shaders/rain_and_snow_shader.gdshader" id="13_nbrwx"]
+[ext_resource type="Texture2D" uid="uid://bg1wd3lqgdyuf" path="res://game_asset_s/fx_cloudalphas/FX_CloudAlpha07.png" id="14_y3wgn"]
 
 [sub_resource type="Resource" id="Resource_2ikj5"]
 script = ExtResource("2_smsav")
@@ -145,6 +146,63 @@ shader_parameter/additional_rain_speed = 0.5
 shader_parameter/slant = 4.75e-08
 shader_parameter/use_snow_instead = true
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0mwxu"]
+emission_shape_offset = Vector3(-4, 3, 0)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 4)
+spread = 0.0
+initial_velocity_min = 0.3
+initial_velocity_max = 0.3
+gravity = Vector3(0, 0, 0)
+scale_max = 2.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r6e2t"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(3, 3, 3, 1)
+albedo_texture = ExtResource("14_y3wgn")
+texture_filter = 0
+texture_repeat = false
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_aamvl"]
+material = SubResource("StandardMaterial3D_r6e2t")
+size = Vector2(1, 0.5)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_aqgit"]
+emission_shape_offset = Vector3(4, 3, 0)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 4)
+direction = Vector3(-1, 0, 0)
+spread = 0.0
+initial_velocity_min = 0.3
+initial_velocity_max = 0.3
+gravity = Vector3(0, 0, 0)
+scale_max = 2.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xa040"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(3, 3, 3, 1)
+albedo_texture = ExtResource("14_y3wgn")
+texture_filter = 0
+texture_repeat = false
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_1s00s"]
+material = SubResource("StandardMaterial3D_xa040")
+size = Vector2(1, 0.5)
+
 [node name="Ice01" type="Node3D" node_paths=PackedStringArray("Entrances", "MeshInstance3D")]
 script = ExtResource("1_j0yli")
 Entrances = [NodePath("Entrance00"), NodePath("Entrance01"), NodePath("Entrance02"), NodePath("Entrance03")]
@@ -219,3 +277,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0)
+
+[node name="Cloud00" type="GPUParticles3D" parent="."]
+amount = 40
+lifetime = 30.0
+process_material = SubResource("ParticleProcessMaterial_0mwxu")
+draw_pass_1 = SubResource("QuadMesh_aamvl")
+
+[node name="Cloud01" type="GPUParticles3D" parent="."]
+amount = 40
+lifetime = 30.0
+process_material = SubResource("ParticleProcessMaterial_aqgit")
+draw_pass_1 = SubResource("QuadMesh_1s00s")

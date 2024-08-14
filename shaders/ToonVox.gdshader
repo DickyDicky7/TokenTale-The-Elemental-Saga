@@ -1,7 +1,25 @@
 // NOTE: Shader automatically converted from Godot Engine 4.3.beta3.mono's StandardMaterial3D.
 
 shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_burley, specular_schlick_ggx;
+render_mode blend_mix, depth_draw_opaque, cull_back, specular_schlick_ggx;
+
+#define DIFFUSE_TYPE    0
+
+#if     DIFFUSE_TYPE == 0
+render_mode diffuse_burley;
+#endif
+
+#if     DIFFUSE_TYPE == 1
+                           render_mode diffuse_lambert;
+#endif
+
+#if     DIFFUSE_TYPE == 2
+                                                       render_mode diffuse_lambert_wrap;
+#endif
+
+#if     DIFFUSE_TYPE == 3
+                                                                                        render_mode diffuse_toon;
+#endif
 
 /*
 render_mode ambient_light_disabled;

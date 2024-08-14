@@ -172,7 +172,7 @@ public partial class _Camera3D_02 : Camera3D
     }
 }
 
-
+// 640 x 360
 
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b1lyvhwf75cwt"]
+[gd_scene load_steps=30 format=3 uid="uid://b1lyvhwf75cwt"]
 
 [ext_resource type="ArrayMesh" uid="uid://b0pqr6e1g66xa" path="res://modells/maps_origin/Highland01.vox" id="1_80p45"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/map_area/MapArea.cs" id="1_aftfq"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://game_objects/maps/shared/spawns_mon/strategy/StrategySpawnMonsterDefault.cs" id="6_2tsci"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/spawns_mon/command/CommandSpawnMonster.cs" id="7_w0837"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapSpawnAreaToCommand.cs" id="8_aw808"]
+[ext_resource type="Texture2D" uid="uid://bnfidkve8v1d7" path="res://game_asset_s/Cloud Pack/Cloud 5.png" id="10_0f3ix"]
 
 [sub_resource type="Resource" id="Resource_4wuti"]
 script = ExtResource("2_4gysg")
@@ -79,15 +80,12 @@ initial_velocity_max = 0.3
 gravity = Vector3(0, 0, 0)
 scale_max = 2.0
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dn05q"]
-load_path = "res://.godot/imported/Cloud 5.png-174e45e1165a33f3e16688d5899b4a17.ctex"
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qinxo"]
 transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 0.6)
-albedo_texture = SubResource("CompressedTexture2D_dn05q")
+albedo_texture = ExtResource("10_0f3ix")
 texture_filter = 0
 texture_repeat = false
 billboard_mode = 3
@@ -111,15 +109,12 @@ initial_velocity_max = 0.3
 gravity = Vector3(0, 0, 0)
 scale_max = 2.0
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_70grw"]
-load_path = "res://.godot/imported/Cloud 5.png-174e45e1165a33f3e16688d5899b4a17.ctex"
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w5q8c"]
 transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 0.6)
-albedo_texture = SubResource("CompressedTexture2D_70grw")
+albedo_texture = ExtResource("10_0f3ix")
 texture_filter = 0
 texture_repeat = false
 billboard_mode = 3

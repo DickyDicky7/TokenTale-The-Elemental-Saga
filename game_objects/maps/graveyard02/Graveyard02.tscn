@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bcpcdy3nxdnfq"]
+[gd_scene load_steps=39 format=3 uid="uid://bcpcdy3nxdnfq"]
 
 [ext_resource type="Script" path="res://game_objects/maps/shared/map_area/MapArea.cs" id="1_8s1rj"]
 [ext_resource type="ArrayMesh" uid="uid://d32hhwxon2d35" path="res://modells/maps_origin/Graveyard02.vox" id="1_738do"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://da0vo8ll2gr8e" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton.tscn" id="7_taptk"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapSpawnAreaToCommand.cs" id="8_lxdid"]
 [ext_resource type="Shader" path="res://shaders/rain_and_snow_shader.gdshader" id="12_bxlrw"]
+[ext_resource type="Texture2D" uid="uid://mxjkckj8cvy7" path="res://game_asset_s/fx_cloudalphas/FX_CloudAlpha04.png" id="13_ge3fe"]
 
 [sub_resource type="Resource" id="Resource_kswko"]
 script = ExtResource("2_ws850")
@@ -119,15 +120,12 @@ initial_velocity_max = 0.3
 gravity = Vector3(0, 0, 0)
 scale_max = 2.0
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ifkrw"]
-load_path = "res://.godot/imported/FX_CloudAlpha04.png-099b97cebccd8fc76118a248ad247f29.ctex"
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4jdpd"]
 transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
 albedo_color = Color(3, 3, 3, 1)
-albedo_texture = SubResource("CompressedTexture2D_ifkrw")
+albedo_texture = ExtResource("13_ge3fe")
 texture_filter = 0
 texture_repeat = false
 billboard_mode = 3
@@ -151,15 +149,12 @@ initial_velocity_max = 0.3
 gravity = Vector3(0, 0, 0)
 scale_max = 2.0
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mtko8"]
-load_path = "res://.godot/imported/FX_CloudAlpha04.png-099b97cebccd8fc76118a248ad247f29.ctex"
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t8ma8"]
 transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
 albedo_color = Color(3, 3, 3, 1)
-albedo_texture = SubResource("CompressedTexture2D_mtko8")
+albedo_texture = ExtResource("13_ge3fe")
 texture_filter = 0
 texture_repeat = false
 billboard_mode = 3

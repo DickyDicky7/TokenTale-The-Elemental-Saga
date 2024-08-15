@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://51wvysjhnbvr"]
+[gd_scene load_steps=30 format=3 uid="uid://51wvysjhnbvr"]
 
 [ext_resource type="ArrayMesh" uid="uid://166pdrxemito" path="res://modells/maps_origin/Highland02.vox" id="1_gyexc"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/map_area/MapArea.cs" id="1_xchij"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://game_objects/maps/shared/spawns_mon/strategy/StrategySpawnMonsterDefault.cs" id="6_23e30"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/spawns_mon/command/CommandSpawnMonster.cs" id="7_p7iyw"]
 [ext_resource type="Script" path="res://game_objects/maps/shared/MapSpawnAreaToCommand.cs" id="8_0ybkp"]
+[ext_resource type="Texture2D" uid="uid://bnfidkve8v1d7" path="res://game_asset_s/Cloud Pack/Cloud 5.png" id="10_7g18p"]
 
 [sub_resource type="Resource" id="Resource_f6wah"]
 script = ExtResource("2_pp5le")
@@ -79,15 +80,12 @@ initial_velocity_max = 0.3
 gravity = Vector3(0, 0, 0)
 scale_max = 2.0
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kp120"]
-load_path = "res://.godot/imported/Cloud 5.png-174e45e1165a33f3e16688d5899b4a17.ctex"
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ks4rc"]
 transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 0.6)
-albedo_texture = SubResource("CompressedTexture2D_kp120")
+albedo_texture = ExtResource("10_7g18p")
 texture_filter = 0
 texture_repeat = false
 billboard_mode = 3
@@ -111,15 +109,12 @@ initial_velocity_max = 0.3
 gravity = Vector3(0, 0, 0)
 scale_max = 2.0
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x5v0y"]
-load_path = "res://.godot/imported/Cloud 5.png-174e45e1165a33f3e16688d5899b4a17.ctex"
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rakyv"]
 transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 0.6)
-albedo_texture = SubResource("CompressedTexture2D_x5v0y")
+albedo_texture = ExtResource("10_7g18p")
 texture_filter = 0
 texture_repeat = false
 billboard_mode = 3

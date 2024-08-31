@@ -18,17 +18,20 @@ public partial class Hurtbox3D : CustomArea3D
         get;
         set;
     } = false;
-	public override void StartWatching()
-	{
-		base.StartWatching();
+
+    public override void StartWatching()
+    {
+                    base.StartWatching();
         this.Character3D.HealthChange += this.OnHealthChange;
-	}
-	public override void StopWatching()
-	{
-		base.StopWatching();
+    }
+
+    public override void StopWatching()
+    {
+                    base.StopWatching();
         this.Character3D.HealthChange -= this.OnHealthChange;
-	}
-	protected override void OnAreaEntered(Area3D @area3D)
+    }
+
+    protected override void OnAreaEntered(Area3D @area3D)
     {
         //Hurt = true;
     }
@@ -37,19 +40,23 @@ public partial class Hurtbox3D : CustomArea3D
     {
         //Hurt = true;
     }
-    private void OnHealthChange(float Damage)
+
+    private void OnHealthChange(float damage)
     {
-        if (Damage > 0)
+        if (damage > 0)
             this.Hurt = true;
     }
-	public override void _Ready()
-	{
-		base._Ready();
-        if (this.GetParent() is Character3D)
+
+    public override void _Ready()
+    {
+                    base._Ready();
+
+        if (this.GetParent()
+        is       Character3D   character3D)
         {
-            this.Character3D = this.GetParent() as Character3D;
+            this.Character3D = character3D;
         }
-	}
+    }
 }
 
 

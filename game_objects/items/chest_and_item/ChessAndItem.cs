@@ -2,7 +2,7 @@ using Godot;
 
 namespace TokenTaleTheElementalSaga;
 
-public partial class ChessAndItem : Node3D
+public partial class  ChessAndItem : Node3D
 {
     [Export]
     public ChessAndItemResource
@@ -74,32 +74,46 @@ public partial class ChessAndItem : Node3D
            )
         {
             AnimationPlayer.Play("@OPEN");
-            if (ChessAndItemResource != null)
+            if (                         ChessAndItemResource != null   )
             {
-                Item3D item3D = this.ChessAndItemResource.GetItem3D();
-                if (item3D is Booster booster && this.Key != -1)
+                    Item3D item3D = this.ChessAndItemResource.GetItem3D();
+                if (item3D is
+                    Booster
+                    booster
+                && this.Key      != -1
+                   )
                 {
-                    booster.Key = this.Key;
-                    mainCharacter.BoosterManager.TakeBooster(booster);
+                    booster.Key   =
+                       this.Key   ;
+                    mainCharacter.BoosterManager.TakeBooster(
+                                                     booster);
                 }
-                else if (item3D is Weapon weapon)
+                else
+                if (item3D is
+                        Weapon
+                        weapon
+                   )
                 {
                     if (weapon is ElementalBracelet)
                     {
-                        ElementalBracelet elementalBracelet =
-                            mainCharacter.WeaponsController.Bracelets[1] as ElementalBracelet;
-                        elementalBracelet.BeTaken();
+                        ElementalBracelet elementalBracelet = mainCharacter.WeaponsController.Bracelets[1] as ElementalBracelet;
+                        elementalBracelet.BeTaken( );
                     }
                 }
-                else if (item3D is Equipment equipment)
+                else
+                if (item3D is
+                        Equipment
+                        equipment
+                   )
                 {
-                    if (equipment is HealthJar && this.Key != -1)
+                    if (equipment is    HealthJar && this.Key != -1)
                     {
-                        mainCharacter.EquipmentManager.HealthJarList[Key].BeTaken();
+                        mainCharacter.EquipmentManager   .   HealthJarList[Key].BeTaken();
                     }
-                    else if (equipment is ElementalJar && this.Key != -1)
+                    else
+                    if (equipment is ElementalJar && this.Key != -1)
                     {
-                        mainCharacter.EquipmentManager.ElementalJarList[Key].BeTaken();
+                        mainCharacter.EquipmentManager   .ElementalJarList[Key].BeTaken();
                     }
                 }
             }

@@ -4,7 +4,8 @@ namespace TokenTaleTheElementalSaga;
 
 public partial class FireCube : ElementalMonster
 {
-    public override void Attack(MainCharacter targetMainCharacter)
+    public override void Attack       (MainCharacter
+                                 targetMainCharacter)
     {
         throw new System.NotImplementedException();
     }

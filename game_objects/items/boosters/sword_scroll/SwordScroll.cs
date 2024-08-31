@@ -1,7 +1,9 @@
-using Godot;
+using Godot ;
 using System;
+
 namespace TokenTaleTheElementalSaga;
-public partial class SwordScroll : Booster
+
+public partial class  SwordScroll  : Booster
 {
 
 }

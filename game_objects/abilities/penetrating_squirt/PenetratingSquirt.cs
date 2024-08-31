@@ -13,8 +13,8 @@ public partial class PenetratingSquirt : Ability3D
 
     public override void _Ready()
     {
-        base._Ready();
-        this.DamageRatio = 1.2f;
+                    base._Ready();
+                    this.DamageRatio = 1.2f;
     }
 
     public override Vector3 CalculateCeasePosition(

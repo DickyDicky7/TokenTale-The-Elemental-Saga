@@ -1,4 +1,4 @@
-using Godot;
+using     Godot                    ;
 
 namespace TokenTaleTheElementalSaga;
 
@@ -54,33 +54,35 @@ public partial class FireBall : Ability3D
         }
         AnimatedSprite.Rotation =
         AnimatedSprite.Rotation with
-        { Z = rotation, };
+        { Y = rotation, };
         AnimatedShadow.Rotation =
         AnimatedShadow.Rotation with
         { Y = rotation, };
-        if (@movingDirection.X <= 0.0f)
-        {
-            AnimatedSprite.FlipV = true;
-            AnimatedShadow.FlipV = true;
-        }
+        //if (@movingDirection.X <= 0.0f)
+        //{
+        //    AnimatedSprite.FlipV = true;
+        //    AnimatedShadow.FlipV = true;
+        //}
     }
+
     public override void _Ready()
     {
                     base._Ready();
 
         this.ActiveRange = AbilityStats.ActiveRange.   Long;
         this.Speed       = AbilityStats.      Speed.MidFast;
-        this.DamageRatio = 1.0f;
+        this.DamageRatio =                             1.0f;
     }
+
     public override Vector3 CalculateCeasePosition(
-        Vector3 @movingDirection                  , 
-        Vector3 @startPosition                    ,
-        Vector3 @ceasePosition                    )
+                    Vector3 @movingDirection      , 
+                    Vector3 @startPosition        ,
+                    Vector3 @ceasePosition        )
     {
-        return  @startPosition +
-                @movingDirection 
-                         *
-        this.ActiveRange ;
+                    return  @startPosition +
+                            @movingDirection 
+                                           *
+                            this.ActiveRange;
     }
 }
 

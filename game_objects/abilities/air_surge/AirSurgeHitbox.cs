@@ -1,34 +1,60 @@
-using Godot;
+using @Godot                    ;
 using System.Collections.Generic;
-namespace TokenTaleTheElementalSaga;
+
+namespace TokenTaleTheElementalSaga ;
+
 public partial class AirSurgeHitbox : Hittbox3D
 {
-    public float PushSpeed { get; protected set; } = AbilityStats.Speed.Fast;
-    public List<Rid> ExceptionRidList { get; protected set; } = new();
+    public float
+       PushSpeed
+    {
+                  get;
+        protected set;
+    } = AbilityStats.Speed.Fast;
+    
+    public List<Rid>
+       ExceptionRidList
+    {
+                  get;
+        protected set;
+    } = [];
+    
     protected override void OnBodyEntered(Node3D node3D)
     {
-        if (this.GetParent() is Ability3D tempAbility && node3D is Monster tempMonster)
+        if (this.GetParent() is Ability3D
+                            tempAbility
+        &&          node3D   is Monster
+                            tempMonster  )
         {
             if (ExceptionRidList.Find(x => x == tempMonster.GetRid()) != default)
                 return;
             else
             {
-                ExceptionRidList.Add(tempMonster.GetRid());
-                this.PushMonsterAside(tempAbility, tempMonster);
+                ExceptionRidList.@Add(          tempMonster.GetRid());
+                this.PushMonsterAside(          tempAbility          ,
+                                                tempMonster         );
             }
         }
         base.OnBodyEntered(node3D);
     }
+
     public override void _Ready()
     {
-        base._Ready();
+                    base._Ready();
         this.EffectRadius = AbilityStats.EffectRadius.XSmall;
-        this.Scale = new Vector3(EffectRadius, EffectRadius, EffectRadius);
+        this.      @Scale = new  Vector3(EffectRadius,
+                                         EffectRadius,
+                                         EffectRadius)      ;
     }
+
     private void PushMonsterAside(Ability3D ability, Monster monster)
     {
-        Vector3 pushDirection = ability.GlobalPosition.DirectionTo(monster.GlobalPosition);
-        pushDirection = new Vector3(pushDirection.X, 0, pushDirection.Z).Normalized();
-        monster.BePushed(pushDirection * this.PushSpeed);
+         Vector3 pushDirection =            ability.GlobalPosition.DirectionTo(
+                                            monster.GlobalPosition            );
+                 pushDirection =
+    new  Vector3(pushDirection.X,
+                               0,
+                 pushDirection.Z).Normalized();
+         monster.BePushed(pushDirection * this.PushSpeed);
     }
 }

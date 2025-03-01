@@ -38,9 +38,9 @@ public partial class StateSwordReset : StateSword
         if ( @inputEvent.IsMousePressed
            ( MouseButton.Left))
         {
-			if (this.Sword.IsCoolingDown == true || this.Sword.OwnerMainCharacter.IsStunning == true)
-				return;
-			ChangeState(SlashState);
+            if (this.Sword.IsCoolingDown == true || this.Sword.OwnerMainCharacter.IsStunning == true)
+                { return; }
+            ChangeState(SlashState);
         }
     }
 

@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://bv1ht2d2u8pr6"]
 
 [ext_resource type="Script" path="res://HUD/shared/WeaponIcon.cs" id="1_15ap2"]
-[ext_resource type="Texture2D" uid="uid://ckg50cdojy2cl" path="res://game_asset_s/ui_and_hud/icon-frame.png" id="1_ln5g4"]
-[ext_resource type="Texture2D" uid="uid://dmgdg4ylaloa5" path="res://game_asset_s/characters/main_character_v3/bow-only.png" id="2_ir6fh"]
+[ext_resource type="Texture2D" uid="uid://w0nn6gmnb1gr" path="res://Fantasy UI Borders/PNG/Double/Border/panel-border-000.png" id="2_y1e0f"]
 [ext_resource type="Script" path="res://HUD/shared/IconFrame.cs" id="3_bd6bg"]
+[ext_resource type="Texture2D" uid="uid://d0k6qswt7yko2" path="res://Cursor Pack/PNG/Outline/Double/tool_bow.png" id="4_7ky5u"]
 
 [node name="BowIcon" type="MarginContainer" node_paths=PackedStringArray("IconFrame")]
 offset_right = 48.0
@@ -12,14 +12,21 @@ script = ExtResource("1_15ap2")
 IconFrame = NodePath("TextureRect")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(2, 2, 2, 1)
+texture_filter = 2
 layout_mode = 2
-texture = ExtResource("1_ln5g4")
+texture = ExtResource("2_y1e0f")
 expand_mode = 2
 stretch_mode = 5
 script = ExtResource("3_bd6bg")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
+self_modulate = Color(2, 2, 2, 1)
+texture_filter = 2
+custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
-texture = ExtResource("2_ir6fh")
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_7ky5u")
 expand_mode = 2
 stretch_mode = 5

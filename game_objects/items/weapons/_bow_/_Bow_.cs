@@ -1,7 +1,8 @@
-using Godot;
+using @Godot;
 using System.Collections.Generic;
-using System.Linq.Expressions;
-namespace TokenTaleTheElementalSaga;
+
+namespace
+      @TokenTaleTheElementalSaga;
 
 #pragma warning disable IDE1006 // Naming Styles
 public partial class _Bow_ : Weapon
@@ -19,51 +20,67 @@ public partial class _Bow_ : Weapon
     [Signal]
     public delegate void ArrowChangedEventHandler(int newCurrentArrow);
     [Signal]
-    public delegate void OutOfArrowEventHandler();
+    public delegate void                                               OutOfArrowEventHandler();
 
     public Vector2 CurrentRotationPosition { get; set; }
 
     //public override void _Ready()
     //{
     //                base._Ready();
-
+    //
     //    AnimatedSprite3DMmainn.LookAtActiveCamera();
     //    AnimatedSprite3DEffect.LookAtActiveCamera();
     //}
-    public float Damage { get; set; } = default;
-    public int CurrentArrow { get; set; }
+
+    public float @Damage      { get; set; } = default;
+    public int   CurrentArrow { get; set; }
+
     public _Bow_() : base()
     {
         this.Upgradeable = true;
-        this.Available = true;
-        this.Level = -1;
-        if (this.Available == true && this.Upgradeable == true)
-            this.Upgrade();
+        this.  Available = true;
+        this.Level       =  -1 ;
+        if (this.  Available == true
+        &&  this.Upgradeable == true)
+        {
+            this.Upgrade ();
+        }
     }
-	public override void _Ready()
-	{
-		base._Ready();
-        this.CoolDownTimer.WaitTime = OwnerMainCharacter.BoosterManager.BowCoolDown;
-        this.CurrentArrow = OwnerMainCharacter.EquipmentManager.Quiver.MaxArrow;
-        this.OwnerMainCharacter.BoosterManager.BowScrollChanged += UpdateCoolDown;
-        //Load from saved
-	}
-	public override void Upgrade()
-	{
-		base.Upgrade();
-		Dictionary<int, Record.BowInfo> BowStats
-			= WeaponStats.GetInstance().BowStats;
-		if (this.Level == BowStats.Count - 1)
-			this.Upgradeable = false;
-		this.Damage = BowStats[Level].Damage;
-		if (this.Upgradeable == true)
-			this.NextLevelUpgradeCost = BowStats[Level + 1].UpgradeCost;
-		else
-			this.NextLevelUpgradeCost = -1;
-        this.EmitSignal(Equipment.SignalName.JustUpgrade);
-	}
-    private void UpdateCoolDown(float newCooldown, float newBonusDamageRatio)
+
+    public override void _Ready()
     {
-        this.CoolDownTimer.WaitTime = newCooldown;
+        base._Ready();
+        this.CoolDownTimer     .                    WaitTime =
+        this.OwnerMainCharacter.  BoosterManager.BowCoolDown ;
+        this.@CurrentArrow      =
+        this.OwnerMainCharacter.EquipmentManager.                    Quiver
+            .     MaxArrow                                                         ;
+        this.OwnerMainCharacter.  BoosterManager.BowScrollChanged += UpdateCoolDown;
+        //Load from saved
+    }
+
+    public override       void Upgrade()
+    {
+                          base.Upgrade();
+        Dictionary<int, Record.BowInfo> BowStats = WeaponStats.GetInstance().BowStats;
+        if (this.@Level      ==         BowStats.Count - 1)
+        {
+            this.Upgradeable =  !true;
+        }
+            this.Damage      =          BowStats[Level    ].@Damage    ;
+        if (this.Upgradeable ==  true)
+        {
+            this.NextLevelUpgradeCost = BowStats[Level + 1].UpgradeCost;
+        }
+        else
+        {
+            this.NextLevelUpgradeCost =                - 1             ;
+        }
+        this.EmitSignal(Equipment.SignalName.JustUpgrade);
+    }
+
+    private void UpdateCoolDown     (     float newCoolDown, float newBonusDamageRatio     )
+    {
+            this.      CoolDownTimer.WaitTime = newCoolDown;
     }
 }

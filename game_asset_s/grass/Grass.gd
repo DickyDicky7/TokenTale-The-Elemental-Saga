@@ -1,4 +1,4 @@
-#@tool
+@tool
 extends Node3D;
 
 @export var top_color: Color;
@@ -6,7 +6,17 @@ extends Node3D;
 
 @export var   game_count: int;
 @export var editor_count: int;
-@export var area = Vector2(+010.000, +010.000);
+@export var area = Vector2(+010.000, +010.000):
+	set(value):
+		visible_on_screen_notifier_3d.aabb.position.y = 0;
+		visible_on_screen_notifier_3d.aabb.position.x = -value.x / 2;
+		visible_on_screen_notifier_3d.aabb.position.z = -value.y / 2;
+		visible_on_screen_notifier_3d.aabb.size.y = 1;
+		visible_on_screen_notifier_3d.aabb.size.x = value.x;
+		visible_on_screen_notifier_3d.aabb.size.z = value.y;
+	get:
+		return Vector2(visible_on_screen_notifier_3d.aabb.size.x,
+		visible_on_screen_notifier_3d.aabb.size.z);
 @export var blade_height     = Vector2(+000.060, +000.080);
 @export var blade_width      = Vector2(+000.010, +000.020);
 @export var blade_rotation   = Vector2(-180.000, +180.000);
@@ -24,13 +34,39 @@ var x: float;
 var y: float;
 var z: float;
 
-func _ready() -> void:
+var visible_on_screen_notifier_3d: VisibleOnScreenNotifier3D = VisibleOnScreenNotifier3D.new();
+
+
+
+func insert_mesh() -> void:
 	shader_material.set_shader_parameter("color_top"   , top_color);
 	shader_material.set_shader_parameter("color_bottom", bot_color);
 	x = self.global_position.x;
 	y = self.global_position.y;
 	z = self.global_position.z;
-	rebuild();
+	rebuild();print("yes")
+	pass     ;
+	
+func remove_mesh() -> void:
+	RenderingServer.mesh_clear(mesh_rid);print("no")
+	pass     ;
+	
+func _ready() -> void:
+	self.add_child(visible_on_screen_notifier_3d);
+	visible_on_screen_notifier_3d.aabb.position.y = 0;
+	visible_on_screen_notifier_3d.aabb.position.x = -area.x / 2;
+	visible_on_screen_notifier_3d.aabb.position.z = -area.y / 2;
+	visible_on_screen_notifier_3d.aabb.size.y = 1;
+	visible_on_screen_notifier_3d.aabb.size.x = area.x;
+	visible_on_screen_notifier_3d.aabb.size.z = area.y;
+	visible_on_screen_notifier_3d.screen_entered.connect(func(): self.call_deferred("insert_mesh"));
+	visible_on_screen_notifier_3d.screen_exited .connect(func(): self.call_deferred("remove_mesh"));
+#	shader_material.set_shader_parameter("color_top"   , top_color);
+#	shader_material.set_shader_parameter("color_bottom", bot_color);
+#	x = self.global_position.x;
+#	y = self.global_position.y;
+#	z = self.global_position.z;
+#	rebuild();
 	pass     ;
 
 func make_blade_mesh() -> ArrayMesh:

@@ -75,6 +75,22 @@ public partial class MapArea : Node3D
         get;
         set;
     }
+
+    [Export]
+    public Array<Node3D>
+          Grasses
+    {
+        get;
+        set;
+    } = [ ];
+
+    public void            RemoveGrasses()
+    {
+        foreach (Node3D grass in Grasses )
+        {
+                        grass.Call("remove_mesh");
+        }
+    }
 }
 
 

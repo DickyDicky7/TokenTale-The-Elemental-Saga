@@ -10,7 +10,6 @@
 [ext_resource type="BehaviorTree" uid="uid://b58tol6ty0ood" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_BehaviorTree.tres" id="4_edg5u"]
 [ext_resource type="PackedScene" uid="uid://d214m5mqgg6go" path="res://game_objects/items/heal_drop/HealDrop.tscn" id="4_tibjk"]
 [ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.tscn" id="5_8vmv1"]
-[ext_resource type="BlackboardPlan" uid="uid://dgl2lgd4in8ho" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_BlackboardPlanBase.tres" id="5_q46md"]
 [ext_resource type="Shape3D" uid="uid://l4jik3dqygxc" path="res://game_objects/characters/others/the_undead/skeleton/Skeleton_ShapeCast3D.tres" id="6_by3lr"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="7_4xr46"]
 [ext_resource type="PackedScene" uid="uid://dsbep0yr8rwxa" path="res://game_objects/shared/hits_flashing_by_modulate/HitsFlashingByModulate.tscn" id="9_gt4f4"]
@@ -902,6 +901,8 @@ _data = {
 "SLAP_W": SubResource("Animation_kywab")
 }
 
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_bqh67"]
+
 [node name="Skeleton" type="CharacterBody3D"]
 collision_layer = 4
 collision_mask = 15
@@ -940,7 +941,7 @@ libraries = {
 [node name="BT_______Player" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("4_edg5u")
 update_mode = 0
-blackboard_plan = ExtResource("5_q46md")
+blackboard_plan = SubResource("BlackboardPlan_bqh67")
 
 [node name="EyeSight$3D" parent="." instance=ExtResource("5_8vmv1")]
 process_mode = 4

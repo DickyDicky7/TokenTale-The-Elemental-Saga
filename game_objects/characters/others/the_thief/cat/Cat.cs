@@ -1,4 +1,4 @@
-using Godot;
+using     Godot                    ;
 
 namespace TokenTaleTheElementalSaga;
 
@@ -6,10 +6,11 @@ public partial class Cat : Monster
 {
     public override void Attack(MainCharacter targetMainCharacter)
     {
-        int energyLost = (int)(targetMainCharacter.BoosterManager.MaxEnergy * 0.5);
-        ElementalBracelet bracelet = targetMainCharacter.WeaponsController.ChosenBracelet;
-		bracelet.CurrentEnergy -= energyLost;
-        bracelet.EmitSignal(ElementalBracelet.SignalName.Cast, bracelet.CurrentEnergy);
+        int                       energyLost              = (int)(targetMainCharacter.BoosterManager.MaxEnergy * 0.5);
+        ElementalBracelet bracelet  =       targetMainCharacter.WeaponsController.ChosenBracelet;
+        bracelet.CurrentEnergy -= energyLost;
+        bracelet.EmitSignal(ElementalBracelet.SignalName.Cast
+      , bracelet.CurrentEnergy);
         targetMainCharacter.StatusInfo.Items.Add(
             new StatusInfoItemElemental { Element = Global.Element.None, Thing = $"-{energyLost}⚡" });
         this.QueueFree();
@@ -24,6 +25,6 @@ public partial class Cat : Monster
         void _Ready()
     {
         this.Key = "Thief";
-        base._Ready();
+        base._Ready()     ;
     }
 }

@@ -198,6 +198,8 @@ try
                        =   nextMapArea;
             dropManager.Load() ;
 
+            CurrentMapArea .
+            RemoveGrasses();
             CurrentMapArea =
                    mapArea ;
 

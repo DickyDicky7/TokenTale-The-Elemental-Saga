@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://chwjmy7grdej" path="res://game_objects/shared/status_info/StatusInfo.tscn" id="3_wfnn0"]
 [ext_resource type="Shape3D" uid="uid://chrq4uqni4ts8" path="res://game_objects/characters/elem_monsterss/normal/water/ratfolk_mage/RatfolkMage_CollisionShape3D_Body.tres" id="4_ml0vs"]
 [ext_resource type="PackedScene" uid="uid://d214m5mqgg6go" path="res://game_objects/items/heal_drop/HealDrop.tscn" id="4_odt6x"]
-[ext_resource type="BlackboardPlan" uid="uid://cug48lbgyna66" path="res://game_objects/characters/elem_monsterss/normal/water/ratfolk_mage/RatfolkMage_BlackboardPlanBase.tres" id="6_dfou7"]
 [ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.tscn" id="7_evo1x"]
 [ext_resource type="Shape3D" uid="uid://btjafb1mkr1o3" path="res://game_objects/characters/elem_monsterss/normal/water/ratfolk_mage/RatfolkMage_ShapeCast3D.tres" id="7_l3eds"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="7_lhct5"]
@@ -539,6 +538,8 @@ _data = {
 "RESET": SubResource("Animation_h2wck")
 }
 
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_76rfs"]
+
 [node name="RatfolkMage" type="CharacterBody3D"]
 collision_layer = 4
 collision_mask = 15
@@ -580,7 +581,7 @@ autoplay = "IDLE"
 [node name="BT_______Player" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("7_sdvtf")
 update_mode = 0
-blackboard_plan = ExtResource("6_dfou7")
+blackboard_plan = SubResource("BlackboardPlan_76rfs")
 
 [node name="EyeSight$3D" parent="." instance=ExtResource("7_evo1x")]
 process_mode = 4

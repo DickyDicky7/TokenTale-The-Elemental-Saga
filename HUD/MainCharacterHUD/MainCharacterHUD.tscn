@@ -48,40 +48,29 @@ auto_translate_mode = 1
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="SwordHUD2" parent="HBoxContainer/VBoxContainer/MarginContainer/WeaponHUD" node_paths=PackedStringArray("CoolDownBar", "WeaponIcon") instance=ExtResource("2_wra23")]
+[node name="SwordHUD2" parent="HBoxContainer/VBoxContainer/MarginContainer/WeaponHUD" instance=ExtResource("2_wra23")]
 auto_translate_mode = 1
 layout_mode = 2
-CoolDownBar = NodePath("WeaponCoolDownBar")
-WeaponIcon = NodePath("SwordIcon")
 
-[node name="BowHUD2" parent="HBoxContainer/VBoxContainer/MarginContainer/WeaponHUD" node_paths=PackedStringArray("AmmoLabel", "CoolDownBar", "WeaponIcon") instance=ExtResource("3_eyf40")]
+[node name="BowHUD2" parent="HBoxContainer/VBoxContainer/MarginContainer/WeaponHUD" instance=ExtResource("3_eyf40")]
 auto_translate_mode = 1
 layout_mode = 2
-AmmoLabel = NodePath("TextureRect/Label")
-CoolDownBar = NodePath("WeaponCoolDownBar")
-WeaponIcon = NodePath("BowIcon2")
 
 [node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_right = 10
 
-[node name="ElementalHUD" parent="HBoxContainer/VBoxContainer/MarginContainer2" node_paths=PackedStringArray("ManaBar", "CoolDownBar", "WeaponIcon") instance=ExtResource("5_tpt48")]
+[node name="ElementalHUD" parent="HBoxContainer/VBoxContainer/MarginContainer2" instance=ExtResource("5_tpt48")]
 layout_mode = 2
-ManaBar = NodePath("ManaBar")
-CoolDownBar = NodePath("WeaponCoolDownBar")
-WeaponIcon = NodePath("ElementalIcon")
 
 [node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_right = 10
 
-[node name="ElementalHUD" parent="HBoxContainer/VBoxContainer/MarginContainer3" node_paths=PackedStringArray("ManaBar", "CoolDownBar", "WeaponIcon") instance=ExtResource("5_tpt48")]
+[node name="ElementalHUD" parent="HBoxContainer/VBoxContainer/MarginContainer3" instance=ExtResource("5_tpt48")]
 layout_mode = 2
-ManaBar = NodePath("ManaBar")
-CoolDownBar = NodePath("WeaponCoolDownBar")
-WeaponIcon = NodePath("ElementalIcon")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2

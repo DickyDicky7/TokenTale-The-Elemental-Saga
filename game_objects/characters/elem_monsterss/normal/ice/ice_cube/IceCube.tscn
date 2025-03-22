@@ -6,7 +6,6 @@
 [ext_resource type="Shape3D" uid="uid://djcovv5oq4wx1" path="res://game_objects/characters/elem_monsterss/normal/ice/ice_cube/IceCube_CollisionShape3D_Body.tres" id="3_75s0v"]
 [ext_resource type="BehaviorTree" uid="uid://bb3qs1fsp5t2i" path="res://game_objects/characters/elem_monsterss/normal/ice/ice_cube/IceCube_BehaviorTree.tres" id="4_tbuex"]
 [ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.tscn" id="5_32iss"]
-[ext_resource type="BlackboardPlan" uid="uid://buhrgwdtr8fyd" path="res://game_objects/characters/elem_monsterss/normal/ice/ice_cube/IceCube_BlackboardPlanBase.tres" id="5_fnojv"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="6_eqlny"]
 [ext_resource type="Shape3D" uid="uid://i2bm8bdrelj2" path="res://game_objects/characters/elem_monsterss/normal/ice/ice_cube/IceCube_ShapeCast3D.tres" id="6_sdh7p"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/LookinAtCamSpriteBase3DConsolidation.cs" id="7_ysfrk"]
@@ -424,6 +423,8 @@ _data = {
 "SPIT": SubResource("Animation_robgp")
 }
 
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_lssxy"]
+
 [node name="IceCube" type="CharacterBody3D"]
 script = ExtResource("1_ct8b8")
 
@@ -459,7 +460,7 @@ libraries = {
 [node name="BT_______Player" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("4_tbuex")
 update_mode = 0
-blackboard_plan = ExtResource("5_fnojv")
+blackboard_plan = SubResource("BlackboardPlan_lssxy")
 
 [node name="EyeSight$3D" parent="." instance=ExtResource("5_32iss")]
 process_mode = 4

@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://c14s46yvkynh8" path="res://game_objects/items/soul_or_coin/SoulOrCoin.tscn" id="3_i07f3"]
 [ext_resource type="PackedScene" uid="uid://d214m5mqgg6go" path="res://game_objects/items/heal_drop/HealDrop.tscn" id="4_b6olq"]
 [ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.tscn" id="5_3qblb"]
-[ext_resource type="BlackboardPlan" uid="uid://b228i5frlcwo7" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat_BlackboardPlanBase.tres" id="5_esgvn"]
 [ext_resource type="Shape3D" uid="uid://cnkgpbfvc40wt" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat_ShapeCast3D.tres" id="6_inebg"]
 [ext_resource type="BehaviorTree" uid="uid://cpuark47byu1g" path="res://game_objects/characters/elem_monsterss/normal/wind/bat/Bat_BehaviorTree.tres" id="7_3esvi"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="7_30kq1"]
@@ -467,6 +466,8 @@ _data = {
 "SLEEP": SubResource("Animation_ohrdr")
 }
 
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_bievo"]
+
 [node name="Bat" type="CharacterBody3D"]
 collision_layer = 4
 collision_mask = 15
@@ -508,7 +509,7 @@ autoplay = "IDLE"
 [node name="BT_______Player" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("7_3esvi")
 update_mode = 0
-blackboard_plan = ExtResource("5_esgvn")
+blackboard_plan = SubResource("BlackboardPlan_bievo")
 
 [node name="EyeSight$3D" parent="." instance=ExtResource("5_3qblb")]
 process_mode = 4

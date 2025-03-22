@@ -43,8 +43,10 @@ public partial class ElementalToken : Item3D
         get;
         set;
     }
-    private double ExistTime { get; set; } = 7.5d;
-    private Timer ExistTimer { get; set; } = new();
+
+    private double ExistTime  { get; set; } = 7.5d ;
+    private  Timer ExistTimer { get; set; } = new();
+    
     public override void _Ready()
     {
                     base._Ready();
@@ -61,14 +63,15 @@ public partial class ElementalToken : Item3D
 //          Shadow3D.MaterialOverride = Materials[index];
         }
         this.ExistTimer.ProcessCallback = Timer.TimerProcessCallback.Physics;
-        this.ExistTimer.OneShot = true;
-        this.AddChild(this.ExistTimer);
-        this.ExistTimer.Start(this.ExistTime);
+        this.ExistTimer.       @OneShot = true;
+        this.        AddChild(this.ExistTimer);
+        this.ExistTimer.Start(this.ExistTime );
         this.ExistTimer.Timeout += OnTimerTimeout;
     }
+
     private void OnTimerTimeout()
     {
-        this.QueueFree();
+            this.QueueFree     ();
     }
 
     private void Hitbox_BodyEntered(Node3D @body)
@@ -78,18 +81,20 @@ public partial class ElementalToken : Item3D
             mainCharacter
            )
         {
-			foreach (ElementalBracelet elementalBracelet in mainCharacter.WeaponsController.Bracelets)
-			{
-				if (elementalBracelet.CurrentElement == Global.Element.None)
-				{
-					elementalBracelet.CurrentElement = this.Element;
-					elementalBracelet.CurrentEnergy = mainCharacter.BoosterManager.MaxEnergy;
-					elementalBracelet.EmitSignal(ElementalBracelet.SignalName.Recharge, elementalBracelet);
-					this.QueueFree();
-					break;
-				}
-			}
-		}
+            foreach (ElementalBracelet
+                     elementalBracelet
+                in       mainCharacter.WeaponsController.Bracelets)
+            {
+                if  (elementalBracelet.CurrentElement == Global.Element.None)
+                {
+                     elementalBracelet.CurrentElement = this.Element;
+                     elementalBracelet.CurrentEnergy = mainCharacter.BoosterManager.MaxEnergy;
+                     elementalBracelet.EmitSignal(ElementalBracelet.SignalName.Recharge, elementalBracelet);
+                    this.QueueFree();
+                    break;
+                }
+            }
+        }
     }
 }
 

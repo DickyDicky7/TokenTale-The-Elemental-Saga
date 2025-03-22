@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://c14s46yvkynh8" path="res://game_objects/items/soul_or_coin/SoulOrCoin.tscn" id="3_t3x32"]
 [ext_resource type="Shape3D" uid="uid://dhds745t3iuay" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_CollisionShape3D_Body.tres" id="3_uclmn"]
 [ext_resource type="PackedScene" uid="uid://d214m5mqgg6go" path="res://game_objects/items/heal_drop/HealDrop.tscn" id="4_338ck"]
-[ext_resource type="BlackboardPlan" uid="uid://cy0c07262ivud" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_BlackboardPlanBase.tres" id="5_y685y"]
 [ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.tscn" id="6_6jmt3"]
 [ext_resource type="Shape3D" uid="uid://hksbajkeyi3p" path="res://game_objects/characters/elem_monsterss/normal/wood/totem/heal/HealTotem_ShapeCast3D.tres" id="6_uclns"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="7_0sefg"]
@@ -543,6 +542,8 @@ _data = {
 "SMERGE": SubResource("Animation_c3ngl")
 }
 
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_bjut2"]
+
 [node name="HealTotem" type="CharacterBody3D"]
 collision_layer = 4
 collision_mask = 15
@@ -584,7 +585,7 @@ autoplay = "IDLE"
 [node name="BT_______Player" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("3_j0och")
 update_mode = 0
-blackboard_plan = ExtResource("5_y685y")
+blackboard_plan = SubResource("BlackboardPlan_bjut2")
 
 [node name="EyeSight$3D" parent="." instance=ExtResource("6_6jmt3")]
 process_mode = 4

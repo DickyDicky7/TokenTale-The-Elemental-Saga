@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://c14s46yvkynh8" path="res://game_objects/items/soul_or_coin/SoulOrCoin.tscn" id="3_qo1ts"]
 [ext_resource type="Shape3D" uid="uid://bucn4fsdotdh5" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_CollisionShape3D_Body.tres" id="4_l0j8u"]
 [ext_resource type="PackedScene" uid="uid://d214m5mqgg6go" path="res://game_objects/items/heal_drop/HealDrop.tscn" id="4_ocn1i"]
-[ext_resource type="BlackboardPlan" uid="uid://hoyi5k3pm20n" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_BlackboardPlanBase.tres" id="6_yc0yk"]
 [ext_resource type="Shape3D" uid="uid://bjvftjqwg5aqy" path="res://game_objects/characters/elem_monsterss/normal/fire/imp/Imp_ShapeCast3D.tres" id="7_4pwu0"]
 [ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.tscn" id="8_d1obs"]
 [ext_resource type="PackedScene" uid="uid://dsbep0yr8rwxa" path="res://game_objects/shared/hits_flashing_by_modulate/HitsFlashingByModulate.tscn" id="8_mcg1c"]
@@ -462,6 +461,8 @@ _data = {
 "THROW": SubResource("Animation_ywbim")
 }
 
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_sa4r4"]
+
 [node name="Imp" type="CharacterBody3D"]
 collision_layer = 4
 collision_mask = 15
@@ -501,7 +502,7 @@ autoplay = "IDLE"
 [node name="BT_______Player" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("12_hk2im")
 update_mode = 0
-blackboard_plan = ExtResource("6_yc0yk")
+blackboard_plan = SubResource("BlackboardPlan_sa4r4")
 
 [node name="EyeSight$3D" parent="." instance=ExtResource("8_d1obs")]
 process_mode = 4

@@ -12,7 +12,8 @@ config_version=5
 
 config/name="TokenTale-The-Elemental-Saga"
 run/main_scene="res://UI/main_2.tscn"
-config/features=PackedStringArray("4.3", "C#", "GL Compatibility")
+config/features=PackedStringArray("4.4", "C#", "GL Compatibility")
+boot_splash/image="res://Godot-Ver1-Dark.png"
 config/icon="res://game_asset_s/icon.svg"
 
 [autoload]
@@ -25,11 +26,14 @@ SoundManagerBGM_______="*res://SoundManagerBGM_______.cs"
 
 [display]
 
-window/size/window_width_override=1152
-window/size/window_height_override=648
+window/size/viewport_width=640
+window/size/viewport_height=360
+window/size/window_width_override=640
+window/size/window_height_override=360
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/vsync/vsync_mode=0
+mouse_cursor/custom_image="res://Cursor Pixel Pack/Tiles/tile_0201.png"
 
 [dotnet]
 
@@ -220,13 +224,16 @@ E={
 3d/default_cell_size=0.01
 3d/default_cell_height=0.01
 
+[physics]
+
+common/physics_interpolation=true
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-driver/threads/thread_model=2
 anti_aliasing/screen_space_roughness_limiter/limit=0.2
 viewport/hdr_2d=true
 occlusion_culling/use_occlusion_culling=true

@@ -1,11 +1,19 @@
-using Godot;
+using @Godot;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 namespace TokenTaleTheElementalSaga;
+
 public partial class CreditLabelContainer : VBoxContainer
 {
-	private CreditList CreditList { get; set; }
+	private CreditList
+		    CreditList
+	{
+		get;
+		set;
+	}
+
 	public override void _Ready()
 	{
 		base._Ready();
@@ -13,13 +21,13 @@ public partial class CreditLabelContainer : VBoxContainer
 		SetupEmpty(5);
 		SetupText("Token Tale: The Elemental Saga", 64);
 		SetupEmpty(3);
-		SetupList(CreditList.DirectorList, "Creative Directors");
-		SetupList(CreditList.DesignerList, "Designers");
-		SetupList(CreditList.ArtistList, "Artists");
-		SetupList(CreditList.ProgrammerList, "Programmers");
-		SetupList(CreditList.QAList, "QA Team");
-		SetupList(CreditList.AudioList, "Audio Team");
-		SetupList(CreditList.SpecialThanksList, "Special Thanks To: ");
+		SetupList(CreditList.     DirectorList, "Creative Directors".Trim());
+		SetupList(CreditList.     DesignerList, "         Designers".Trim());
+		SetupList(CreditList.       ArtistList, "Artists@          ".Trim());
+		SetupList(CreditList.   ProgrammerList, "       Programmers".Trim());
+		SetupList(CreditList.           QAList, "   QA Team".Trim());
+		SetupList(CreditList.        AudioList, "Audio Team".Trim());
+		SetupList(CreditList.SpecialThanksList, "Special Thanks To:".Trim());
 		SetupEmpty(2);
 		SetupText("Thank you for playing !", 32);
 		SetupEmpty(10);

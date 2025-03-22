@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://c14s46yvkynh8" path="res://game_objects/items/soul_or_coin/SoulOrCoin.tscn" id="3_gq7ua"]
 [ext_resource type="BehaviorTree" uid="uid://cnmc3ecev6cls" path="res://game_objects/characters/others/the_haunting/ghost/Ghost_BehaviorTree.tres" id="3_wncf4"]
 [ext_resource type="PackedScene" uid="uid://d214m5mqgg6go" path="res://game_objects/items/heal_drop/HealDrop.tscn" id="4_sok3q"]
-[ext_resource type="BlackboardPlan" uid="uid://wbnqf68uhbs6" path="res://game_objects/characters/others/the_haunting/ghost/Ghost_BlackboardPlanBase.tres" id="5_ljghu"]
 [ext_resource type="PackedScene" uid="uid://bgdawgq8afl3v" path="res://game_objects/shared/eye_sight_3D/EyeSight3D.tscn" id="5_tg2iu"]
 [ext_resource type="Shape3D" uid="uid://b8fyx0j0i3dc3" path="res://game_objects/characters/others/the_haunting/ghost/Ghost_ShapeCast3D.tres" id="6_a6wmm"]
 [ext_resource type="Script" path="res://game_objects/shared/consolidation/Flippable3DSpriteBase3DConsolidation.cs" id="7_2bya4"]
@@ -763,6 +762,8 @@ _data = {
 "SPOOK_M": SubResource("Animation_v74wu")
 }
 
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_i6t6b"]
+
 [node name="GhostRound" type="CharacterBody3D"]
 collision_layer = 4
 script = ExtResource("1_fppcc")
@@ -800,7 +801,7 @@ libraries = {
 [node name="BT_______Player" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("3_wncf4")
 update_mode = 0
-blackboard_plan = ExtResource("5_ljghu")
+blackboard_plan = SubResource("BlackboardPlan_i6t6b")
 
 [node name="EyeSight$3D" parent="." instance=ExtResource("5_tg2iu")]
 process_mode = 4
